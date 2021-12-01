@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.datepicker.CalendarConstraints;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class DateValidatorPointBackward implements CalendarConstraints.DateValidator {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DateValidatorPointBackward> CREATOR;
@@ -75,10 +75,10 @@ public class DateValidatorPointBackward implements CalendarConstraints.DateValid
     }
 
     @NonNull
-    public static DateValidatorPointBackward before(long j) {
+    public static DateValidatorPointBackward before(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? new DateValidatorPointBackward(j) : (DateValidatorPointBackward) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? new DateValidatorPointBackward(j2) : (DateValidatorPointBackward) invokeJ.objValue;
     }
 
     @NonNull
@@ -117,10 +117,10 @@ public class DateValidatorPointBackward implements CalendarConstraints.DateValid
     }
 
     @Override // com.google.android.material.datepicker.CalendarConstraints.DateValidator
-    public boolean isValid(long j) {
+    public boolean isValid(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? j <= this.point : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? j2 <= this.point : invokeJ.booleanValue;
     }
 
     @Override // android.os.Parcelable
@@ -131,12 +131,12 @@ public class DateValidatorPointBackward implements CalendarConstraints.DateValid
         }
     }
 
-    public DateValidatorPointBackward(long j) {
+    public DateValidatorPointBackward(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -146,6 +146,6 @@ public class DateValidatorPointBackward implements CalendarConstraints.DateValid
                 return;
             }
         }
-        this.point = j;
+        this.point = j2;
     }
 }

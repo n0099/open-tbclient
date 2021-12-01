@@ -19,7 +19,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,6 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.Log;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.common.PluginRegistry;
@@ -36,7 +36,8 @@ import io.flutter.view.FlutterNativeView;
 import io.flutter.view.FlutterRunArguments;
 import io.flutter.view.FlutterView;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+@Deprecated
+/* loaded from: classes3.dex */
 public final class FlutterActivityDelegate implements FlutterActivityEvents, FlutterView.Provider, PluginRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SPLASH_SCREEN_META_DATA_KEY = "io.flutter.app.android.SplashScreenUntilFirstFrame";
@@ -48,7 +49,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
     public View launchView;
     public final ViewFactory viewFactory;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ViewFactory {
         FlutterNativeView createFlutterNativeView();
 
@@ -95,7 +96,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
     private void addLaunchView() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (view = this.launchView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (view = this.launchView) == null) {
             return;
         }
         this.activity.addContentView(view, matchParent);
@@ -169,7 +170,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
         InterceptResult invokeV;
         Drawable launchScreenDrawableFromActivityTheme;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             if (showSplashScreenUntilFirstFrame().booleanValue() && (launchScreenDrawableFromActivityTheme = getLaunchScreenDrawableFromActivityTheme()) != null) {
                 View view = new View(this.activity);
                 view.setLayoutParams(matchParent);
@@ -210,8 +211,8 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
             if (intent.getBooleanExtra(FlutterShellArgs.ARG_KEY_TRACE_SKIA, false)) {
                 arrayList.add(FlutterShellArgs.ARG_TRACE_SKIA);
             }
-            if (intent.getBooleanExtra("trace-systrace", false)) {
-                arrayList.add("--trace-systrace");
+            if (intent.getBooleanExtra(FlutterShellArgs.ARG_KEY_TRACE_SYSTRACE, false)) {
+                arrayList.add(FlutterShellArgs.ARG_TRACE_SYSTRACE);
             }
             if (intent.getBooleanExtra(FlutterShellArgs.ARG_KEY_DUMP_SHADER_SKP_ON_SHADER_COMPILATION, false)) {
                 arrayList.add(FlutterShellArgs.ARG_DUMP_SHADER_SKP_ON_SHADER_COMPILATION);
@@ -219,15 +220,15 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
             if (intent.getBooleanExtra(FlutterShellArgs.ARG_KEY_CACHE_SKSL, false)) {
                 arrayList.add(FlutterShellArgs.ARG_CACHE_SKSL);
             }
+            if (intent.getBooleanExtra(FlutterShellArgs.ARG_KEY_PURGE_PERSISTENT_CACHE, false)) {
+                arrayList.add(FlutterShellArgs.ARG_PURGE_PERSISTENT_CACHE);
+            }
             if (intent.getBooleanExtra(FlutterShellArgs.ARG_KEY_VERBOSE_LOGGING, false)) {
                 arrayList.add(FlutterShellArgs.ARG_VERBOSE_LOGGING);
             }
             int intExtra = intent.getIntExtra(FlutterShellArgs.ARG_KEY_OBSERVATORY_PORT, 0);
             if (intExtra > 0) {
                 arrayList.add(FlutterShellArgs.ARG_OBSERVATORY_PORT + Integer.toString(intExtra));
-            }
-            if (intent.getBooleanExtra(FlutterShellArgs.ARG_KEY_DISABLE_SERVICE_AUTH_CODES, false)) {
-                arrayList.add(FlutterShellArgs.ARG_DISABLE_SERVICE_AUTH_CODES);
             }
             if (intent.getBooleanExtra(FlutterShellArgs.ARG_KEY_ENDLESS_TRACE_BUFFER, false)) {
                 arrayList.add(FlutterShellArgs.ARG_ENDLESS_TRACE_BUFFER);
@@ -252,6 +253,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
                 try {
                     return this.activity.getResources().getDrawable(typedValue.resourceId);
                 } catch (Resources.NotFoundException unused) {
+                    Log.e(TAG, "Referenced launch screen windowBackground resource does not exist");
                     return null;
                 }
             }

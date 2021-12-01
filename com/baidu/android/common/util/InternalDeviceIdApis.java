@@ -1,18 +1,18 @@
 package com.baidu.android.common.util;
 
 import android.content.Context;
-import b.a.m.g;
+import c.a.l.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class InternalDeviceIdApis {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class TargetPackageCuidV270Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,9 +62,9 @@ public class InternalDeviceIdApis {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            g.a k = a(context).k();
-            if (k != null) {
-                return k.r();
+            g.a k2 = a(context).k();
+            if (k2 != null) {
+                return k2.r();
             }
             return null;
         }
@@ -75,13 +75,13 @@ public class InternalDeviceIdApis {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            g a2 = a(context);
+            g a = a(context);
             TargetPackageCuidV270Info targetPackageCuidV270Info = new TargetPackageCuidV270Info();
-            g.a b2 = a2.b(str, "upc");
+            g.a b2 = a.b(str, "upc");
             if (b2 != null) {
                 targetPackageCuidV270Info.upcChannelCuid = b2.r();
             }
-            g.a b3 = a2.b(str, "isc");
+            g.a b3 = a.b(str, "isc");
             if (b3 != null) {
                 targetPackageCuidV270Info.iscChannelCuid = b3.r();
             }

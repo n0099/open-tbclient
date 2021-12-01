@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,16 +43,16 @@ public class a {
             if (bundle2 != null) {
                 Bundle bundle3 = bundle2.getBundle("ll");
                 if (bundle3 != null) {
-                    aVar.f40455b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
+                    aVar.f36047b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
                 }
                 Bundle bundle4 = bundle2.getBundle("ru");
                 if (bundle4 != null) {
-                    aVar.f40456c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
+                    aVar.f36048c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
                 }
             }
             for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
-                if (aVar.f40457d == null) {
-                    aVar.f40457d = new ArrayList<>();
+                if (aVar.f36049d == null) {
+                    aVar.f36049d = new ArrayList<>();
                 }
                 Bundle bundle5 = parcelItem.getBundle();
                 if (bundle5 != null) {
@@ -65,11 +65,11 @@ public class a {
                         }
                     }
                     arrayList.trimToSize();
-                    aVar.f40457d.add(arrayList);
+                    aVar.f36049d.add(arrayList);
                 }
             }
-            aVar.f40457d.trimToSize();
-            aVar.f40454a = (int) bundle.getDouble("type");
+            aVar.f36049d.trimToSize();
+            aVar.a = (int) bundle.getDouble("type");
             return aVar;
         }
         return (com.baidu.mapapi.model.inner.a) invokeL.objValue;

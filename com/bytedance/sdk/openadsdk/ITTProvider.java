@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface ITTProvider {
     int delete(Uri uri, String str, String[] strArr);
 

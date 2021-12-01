@@ -3,12 +3,12 @@ package com.baidu.tieba.addresslist.im.newFriend;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import b.a.q0.c1.i0;
-import b.a.q0.c1.l0;
-import b.a.q0.c1.q;
-import b.a.q0.s.g0.f;
-import b.a.q0.s.s.b;
-import b.a.r0.t.e.a.a;
+import c.a.q0.d1.i0;
+import c.a.q0.d1.l0;
+import c.a.q0.d1.q;
+import c.a.q0.s.g0.f;
+import c.a.q0.s.s.b;
+import c.a.r0.x.e.a.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -32,31 +32,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String SHARE_ID;
-    public b.a.q0.s.s.b mDeleteNewFriendDialog;
+    public c.a.q0.s.s.b mDeleteNewFriendDialog;
     public final CustomMessageListener mNewFriendAction;
     public a.c mNewFriendItemListener;
     public final f.g mOnPullRefreshLisner;
-    public final b.a.e.c.g.c mPassListener;
-    public b.a.r0.t.e.a.c mView;
+    public final c.a.d.c.g.c mPassListener;
+    public c.a.r0.x.e.a.c mView;
     public final RecommendFriendModel praiseYModel;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends i0<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.l1.g.a f47647a;
+        public final /* synthetic */ c.a.r0.r1.g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47648b;
+        public final /* synthetic */ NewFriendsActivity f42667b;
 
-        public a(NewFriendsActivity newFriendsActivity, b.a.r0.l1.g.a aVar) {
+        public a(NewFriendsActivity newFriendsActivity, c.a.r0.r1.g.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,32 +69,30 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47648b = newFriendsActivity;
-            this.f47647a = aVar;
+            this.f42667b = newFriendsActivity;
+            this.a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // b.a.q0.c1.i0
+        @Override // c.a.q0.d1.i0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(b.a.r0.t.e.a.b.f().b(this.f47647a.b())) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.r0.x.e.a.b.f().b(this.a.b())) : (Boolean) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements q<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ b.a.r0.l1.g.a f47649a;
+        public final /* synthetic */ c.a.r0.r1.g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47650b;
+        public final /* synthetic */ NewFriendsActivity f42668b;
 
-        public b(NewFriendsActivity newFriendsActivity, b.a.r0.l1.g.a aVar) {
+        public b(NewFriendsActivity newFriendsActivity, c.a.r0.r1.g.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,28 +107,28 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47650b = newFriendsActivity;
-            this.f47649a = aVar;
+            this.f42668b = newFriendsActivity;
+            this.a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.c1.q
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && bool.booleanValue()) {
-                this.f47650b.mView.f(this.f47649a);
+                this.f42668b.mView.f(this.a);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47651e;
+        public final /* synthetic */ NewFriendsActivity f42669e;
 
         public c(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -149,26 +145,24 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47651e = newFriendsActivity;
+            this.f42669e = newFriendsActivity;
         }
 
-        @Override // b.a.q0.s.g0.f.g
+        @Override // c.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || z) {
                 return;
             }
-            this.f47651e.loadNewFriendList();
+            this.f42669e.loadNewFriendList();
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d implements RecommendFriendModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47652a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         public d(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -185,15 +179,15 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47652a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
         @Override // com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f47652a.loadNewFriendList();
-                TbadkSettings.getInst().saveBoolean(this.f47652a.SHARE_ID, true);
+                this.a.loadNewFriendList();
+                TbadkSettings.getInst().saveBoolean(this.a.SHARE_ID, true);
             }
         }
 
@@ -201,20 +195,18 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         public void onLoadFailed(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f47652a.mView.d();
-                this.f47652a.mView.g(null);
-                BdToast.c(this.f47652a.getPageContext().getPageActivity(), str);
+                this.a.mView.d();
+                this.a.mView.g(null);
+                BdToast.c(this.a.getPageContext().getPageActivity(), str);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class e implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47653a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         public e(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -231,29 +223,27 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47653a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
-        @Override // b.a.r0.t.e.a.a.c
-        public void a(int i2, int i3, View view, b.a.r0.l1.g.a aVar) {
+        @Override // c.a.r0.x.e.a.a.c
+        public void a(int i2, int i3, View view, c.a.r0.r1.g.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), view, aVar}) == null) {
                 if (aVar.f() == 0) {
-                    this.f47653a.addtNewFriend(aVar);
+                    this.a.addtNewFriend(aVar);
                 } else if (aVar.f() == 1) {
-                    this.f47653a.passNewFriend(aVar);
+                    this.a.passNewFriend(aVar);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47654a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(NewFriendsActivity newFriendsActivity, int i2) {
@@ -273,7 +263,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47654a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -282,21 +272,19 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001174 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
                 if (((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 1) {
-                    this.f47654a.notifyData();
+                    this.a.notifyData();
                 } else {
-                    this.f47654a.updateNewFriendList();
+                    this.a.updateNewFriendList();
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class g extends i0<List<b.a.r0.l1.g.a>> {
+    /* loaded from: classes10.dex */
+    public class g extends i0<List<c.a.r0.r1.g.a>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47655a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         public g(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -313,26 +301,24 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47655a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.c1.i0
+        @Override // c.a.q0.d1.i0
         /* renamed from: a */
-        public List<b.a.r0.l1.g.a> doInBackground() {
+        public List<c.a.r0.r1.g.a> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.t.e.a.b.f().j() : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.r0.x.e.a.b.f().j() : (List) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class h implements q<List<b.a.r0.l1.g.a>> {
+    /* loaded from: classes10.dex */
+    public class h implements q<List<c.a.r0.r1.g.a>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47656a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         public h(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -349,28 +335,26 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47656a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.c1.q
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
-        public void onReturnDataInUI(List<b.a.r0.l1.g.a> list) {
+        public void onReturnDataInUI(List<c.a.r0.r1.g.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f47656a.mView.e().e(list);
-                this.f47656a.mView.e().notifyDataSetChanged();
+                this.a.mView.e().e(list);
+                this.a.mView.e().notifyDataSetChanged();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class i extends b.a.e.c.g.c {
+    /* loaded from: classes10.dex */
+    public class i extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47657a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public i(NewFriendsActivity newFriendsActivity, int i2) {
@@ -390,7 +374,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47657a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -404,21 +388,19 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     if (!(socketResponsedMessage instanceof ResponsePassFriendMessage) || (error = (responsePassFriendMessage = (ResponsePassFriendMessage) socketResponsedMessage).getError()) == 0 || error == 3100098) {
                         return;
                     }
-                    this.f47657a.showToast(StringUtils.isNull(responsePassFriendMessage.getErrorString()) ? this.f47657a.getResources().getString(R.string.neterror) : responsePassFriendMessage.getErrorString());
+                    this.a.showToast(StringUtils.isNull(responsePassFriendMessage.getErrorString()) ? this.a.getResources().getString(R.string.neterror) : responsePassFriendMessage.getErrorString());
                     return;
                 }
-                this.f47657a.showToast(R.string.neterror);
+                this.a.showToast(R.string.neterror);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class j extends i0<List<b.a.r0.l1.g.a>> {
+    /* loaded from: classes10.dex */
+    public class j extends i0<List<c.a.r0.r1.g.a>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47658a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         public j(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -435,30 +417,28 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47658a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.c1.i0
+        @Override // c.a.q0.d1.i0
         /* renamed from: a */
-        public List<b.a.r0.l1.g.a> doInBackground() {
+        public List<c.a.r0.r1.g.a> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                b.a.r0.t.e.a.b.f().p();
-                return b.a.r0.t.e.a.b.f().j();
+                c.a.r0.x.e.a.b.f().p();
+                return c.a.r0.x.e.a.b.f().j();
             }
             return (List) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class k implements q<List<b.a.r0.l1.g.a>> {
+    /* loaded from: classes10.dex */
+    public class k implements q<List<c.a.r0.r1.g.a>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47659a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         public k(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -475,28 +455,26 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47659a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.c1.q
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
-        public void onReturnDataInUI(List<b.a.r0.l1.g.a> list) {
+        public void onReturnDataInUI(List<c.a.r0.r1.g.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f47659a.mView.d();
-                this.f47659a.mView.g(list);
+                this.a.mView.d();
+                this.a.mView.g(list);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class l extends i0<List<b.a.r0.l1.g.a>> {
+    /* loaded from: classes10.dex */
+    public class l extends i0<List<c.a.r0.r1.g.a>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47660a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         public l(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -513,26 +491,24 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47660a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.c1.i0
+        @Override // c.a.q0.d1.i0
         /* renamed from: a */
-        public List<b.a.r0.l1.g.a> doInBackground() {
+        public List<c.a.r0.r1.g.a> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.a.r0.t.e.a.b.f().g() : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.r0.x.e.a.b.f().g() : (List) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class m implements q<List<b.a.r0.l1.g.a>> {
+    /* loaded from: classes10.dex */
+    public class m implements q<List<c.a.r0.r1.g.a>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47661a;
+        public final /* synthetic */ NewFriendsActivity a;
 
         public m(NewFriendsActivity newFriendsActivity) {
             Interceptable interceptable = $ic;
@@ -549,32 +525,30 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47661a = newFriendsActivity;
+            this.a = newFriendsActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // b.a.q0.c1.q
+        @Override // c.a.q0.d1.q
         /* renamed from: a */
-        public void onReturnDataInUI(List<b.a.r0.l1.g.a> list) {
+        public void onReturnDataInUI(List<c.a.r0.r1.g.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f47661a.mView.k(list);
+                this.a.mView.k(list);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class n implements b.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public b.a.r0.l1.g.a f47662a;
+        public c.a.r0.r1.g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewFriendsActivity f47663b;
+        public final /* synthetic */ NewFriendsActivity f42670b;
 
-        public n(NewFriendsActivity newFriendsActivity, b.a.r0.l1.g.a aVar) {
+        public n(NewFriendsActivity newFriendsActivity, c.a.r0.r1.g.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -589,18 +563,18 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     return;
                 }
             }
-            this.f47663b = newFriendsActivity;
-            this.f47662a = aVar;
+            this.f42670b = newFriendsActivity;
+            this.a = aVar;
         }
 
-        @Override // b.a.q0.s.s.b.c
-        public void a(b.a.q0.s.s.b bVar, int i2, View view) {
+        @Override // c.a.q0.s.s.b.c
+        public void a(c.a.q0.s.s.b bVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, bVar, i2, view) == null) {
                 bVar.e();
-                b.a.r0.l1.g.a aVar = this.f47662a;
+                c.a.r0.r1.g.a aVar = this.a;
                 if (aVar != null) {
-                    this.f47663b.deleteNewFriend(aVar);
+                    this.f42670b.deleteNewFriend(aVar);
                 }
             }
         }
@@ -628,7 +602,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void addtNewFriend(b.a.r0.l1.g.a aVar) {
+    public void addtNewFriend(c.a.r0.r1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65545, this, aVar) == null) || aVar == null) {
             return;
@@ -637,23 +611,23 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deleteNewFriend(b.a.r0.l1.g.a aVar) {
+    public void deleteNewFriend(c.a.r0.r1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, aVar) == null) {
             l0.c(new a(this, aVar), new b(this, aVar));
         }
     }
 
-    private b.a.q0.s.s.b getDeleteNewFriendDialog(n nVar) {
+    private c.a.q0.s.s.b getDeleteNewFriendDialog(n nVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, nVar)) == null) {
-            b.a.q0.s.s.b bVar = new b.a.q0.s.s.b(getPageContext().getPageActivity());
+            c.a.q0.s.s.b bVar = new c.a.q0.s.s.b(getPageContext().getPageActivity());
             bVar.k(R.string.operation);
             bVar.j(new String[]{getPageContext().getString(R.string.delete)}, nVar);
             return bVar;
         }
-        return (b.a.q0.s.s.b) invokeL.objValue;
+        return (c.a.q0.s.s.b) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -673,10 +647,10 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void passNewFriend(b.a.r0.l1.g.a aVar) {
+    public void passNewFriend(c.a.r0.r1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, aVar) == null) {
-            b.a.q0.l0.a.a(aVar.b(), AddFriendActivityConfig.TYPE_NEW_FRD);
+            c.a.q0.m0.a.a(aVar.b(), AddFriendActivityConfig.TYPE_NEW_FRD);
         }
     }
 
@@ -710,7 +684,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.new_friend_activity);
-            b.a.r0.t.e.a.c cVar = new b.a.r0.t.e.a.c(this);
+            c.a.r0.x.e.a.c cVar = new c.a.r0.x.e.a.c(this);
             this.mView = cVar;
             cVar.h(this.mOnPullRefreshLisner);
             this.mView.i(this.mNewFriendItemListener);
@@ -733,7 +707,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            b.a.q0.s.s.b bVar = this.mDeleteNewFriendDialog;
+            c.a.q0.s.s.b bVar = this.mDeleteNewFriendDialog;
             if (bVar != null) {
                 bVar.e();
             }
@@ -742,9 +716,9 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-        b.a.r0.l1.g.a item;
+        c.a.r0.r1.g.a item;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (item = this.mView.e().getItem(i2)) != null && (item instanceof b.a.r0.l1.g.a) && i2 == j2) {
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (item = this.mView.e().getItem(i2)) != null && (item instanceof c.a.r0.r1.g.a) && i2 == j2) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(item.b()), item.d())));
         }
     }
@@ -754,11 +728,11 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            b.a.r0.l1.g.a item = this.mView.e().getItem(i2);
-            if (item == null || !(item instanceof b.a.r0.l1.g.a)) {
+            c.a.r0.r1.g.a item = this.mView.e().getItem(i2);
+            if (item == null || !(item instanceof c.a.r0.r1.g.a)) {
                 return true;
             }
-            b.a.q0.s.s.b deleteNewFriendDialog = getDeleteNewFriendDialog(new n(this, item));
+            c.a.q0.s.s.b deleteNewFriendDialog = getDeleteNewFriendDialog(new n(this, item));
             this.mDeleteNewFriendDialog = deleteNewFriendDialog;
             deleteNewFriendDialog.c(getPageContext());
             this.mDeleteNewFriendDialog.m();

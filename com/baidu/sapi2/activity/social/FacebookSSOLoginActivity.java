@@ -24,7 +24,7 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic;
     public static final String p;
@@ -32,13 +32,11 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     public CallbackManager n;
     public LoginManager o;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements FacebookCallback<LoginResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FacebookSSOLoginActivity f43495a;
+        public final /* synthetic */ FacebookSSOLoginActivity a;
 
         public a(FacebookSSOLoginActivity facebookSSOLoginActivity) {
             Interceptable interceptable = $ic;
@@ -55,7 +53,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            this.f43495a = facebookSSOLoginActivity;
+            this.a = facebookSSOLoginActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,12 +71,12 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
                 Log.d(str2, "userId = " + userId);
                 String str3 = FacebookSSOLoginActivity.p;
                 Log.d(str3, "applicationId = " + applicationId);
-                String urlBind = ParamsUtil.getUrlBind(this.f43495a.configuration, SocialType.FACEBOOK, token, userId, applicationId);
+                String urlBind = ParamsUtil.getUrlBind(this.a.configuration, SocialType.FACEBOOK, token, userId, applicationId);
                 HashMap hashMap = new HashMap();
                 hashMap.put("supportGuestAccount", "1");
                 String addExtras = ParamsUtil.addExtras(urlBind, hashMap);
-                FacebookSSOLoginActivity facebookSSOLoginActivity = this.f43495a;
-                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(b.a.c0.a.j.a.sapi_sdk_facebook_logging));
+                FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
+                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(c.a.d0.a.j.a.sapi_sdk_facebook_logging));
             }
         }
 
@@ -86,8 +84,8 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login cancel");
-                FacebookSSOLoginActivity facebookSSOLoginActivity = this.f43495a;
-                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f43481g);
+                FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
+                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f38705g);
             }
         }
 
@@ -95,8 +93,8 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, facebookException) == null) {
                 Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login error");
-                FacebookSSOLoginActivity facebookSSOLoginActivity = this.f43495a;
-                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f43481g);
+                FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
+                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f38705g);
             }
         }
     }
@@ -133,7 +131,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
 
     private void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && a("com.facebook.login.LoginManager").booleanValue()) {
             this.n = CallbackManager.Factory.create();
             LoginManager loginManager = LoginManager.getInstance();
             this.o = loginManager;
@@ -169,7 +167,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(b.a.c0.a.j.a.sapi_sdk_title_login_facebook);
+            setTitleText(c.a.d0.a.j.a.sapi_sdk_title_login_facebook);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

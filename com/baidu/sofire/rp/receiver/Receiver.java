@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Receiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,10 +41,10 @@ public class Receiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(action) || !action.equals("com.b.r.p") || intent == null) {
                 return;
             }
-            a a2 = a.a(context);
-            c.a(context, a2.u() * 3600000);
+            a a = a.a(context);
+            c.a(context, a.u() * 3600000);
             d.a(context).c();
-            a2.b(System.currentTimeMillis());
+            a.b(System.currentTimeMillis());
         } catch (Throwable unused) {
             c.a();
         }

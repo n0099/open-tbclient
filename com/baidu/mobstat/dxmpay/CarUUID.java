@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.os.Process;
 import android.system.Os;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,12 +21,10 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CarUUID {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f42265a;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +40,7 @@ public class CarUUID {
                 return;
             }
         }
-        f42265a = Pattern.compile("(\\w{32})");
+        a = Pattern.compile("(\\w{32})");
     }
 
     public CarUUID() {
@@ -76,7 +73,7 @@ public class CarUUID {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (c(context, "android.permission.READ_EXTERNAL_STORAGE")) {
+            if (c(context, com.kuaishou.weapon.un.s.f56844i)) {
                 return a(new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".dueros_uuid"));
             }
             return null;
@@ -92,7 +89,7 @@ public class CarUUID {
             List<ApplicationInfo> installedApplications = context.getPackageManager().getInstalledApplications(0);
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             for (ApplicationInfo applicationInfo2 : installedApplications) {
-                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f38604g), "libdueros_uuid.so"))) != null) {
+                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f34512g), "libdueros_uuid.so"))) != null) {
                     return a2;
                 }
             }
@@ -217,7 +214,7 @@ public class CarUUID {
                     try {
                         byte[] bArr = new byte[1024];
                         String str = new String(bArr, 0, fileInputStream.read(bArr));
-                        String str2 = f42265a.matcher(str).matches() ? str : null;
+                        String str2 = a.matcher(str).matches() ? str : null;
                         t.a(fileInputStream);
                         return str2;
                     } catch (Exception unused) {
@@ -243,7 +240,7 @@ public class CarUUID {
     public static boolean a(FileOutputStream fileOutputStream, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, fileOutputStream, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, fileOutputStream, str)) == null) {
             try {
                 fileOutputStream.write(str.getBytes());
                 fileOutputStream.flush();
@@ -259,7 +256,7 @@ public class CarUUID {
     public static boolean a(File file, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, file, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, file, i2)) == null) {
             if (Build.VERSION.SDK_INT < 21) {
                 return true;
             }

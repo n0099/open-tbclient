@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.j;
-import h.k;
-import h.n.b;
-import h.p.a;
-import h.q.f;
+import i.d;
+import i.j;
+import i.k;
+import i.n.b;
+import i.p.a;
+import i.q.f;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.a<T> {
@@ -43,7 +43,7 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    @Override // h.d.a, h.n.b
+    @Override // i.d.a, i.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }

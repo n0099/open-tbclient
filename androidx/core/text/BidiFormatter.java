@@ -3,7 +3,6 @@ package androidx.core.text;
 import android.text.SpannableStringBuilder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -146,7 +145,7 @@ public final class BidiFormatter {
             InterceptResult invokeV;
             char charAt;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
                 int i2 = this.charIndex;
                 while (true) {
                     int i3 = this.charIndex;
@@ -188,7 +187,7 @@ public final class BidiFormatter {
             InterceptResult invokeV;
             char charAt;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) != null) {
+            if (interceptable != null && (invokeV = interceptable.invokeV(65542, this)) != null) {
                 return invokeV.byteValue;
             }
             int i2 = this.charIndex;
@@ -637,7 +636,7 @@ public final class BidiFormatter {
     public static BidiFormatter getInstance(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z)) == null) ? new Builder(z).build() : (BidiFormatter) invokeZ.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65542, null, z)) == null) ? new Builder(z).build() : (BidiFormatter) invokeZ.objValue;
     }
 
     public boolean isRtl(CharSequence charSequence) {
@@ -676,7 +675,7 @@ public final class BidiFormatter {
     public static BidiFormatter getInstance(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, locale)) == null) ? new Builder(locale).build() : (BidiFormatter) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, locale)) == null) ? new Builder(locale).build() : (BidiFormatter) invokeL.objValue;
     }
 
     public String unicodeWrap(String str, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {

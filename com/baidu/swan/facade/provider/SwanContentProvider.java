@@ -10,11 +10,10 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.k;
-import b.a.p0.g.o.a.a;
-import b.a.p0.g.o.b.c;
+import c.a.p0.a.k;
+import c.a.p0.g.o.a.a;
+import c.a.p0.g.o.b.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SwanContentProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORITY;
@@ -51,7 +50,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        DEBUG = k.f6863a;
+        DEBUG = k.a;
         AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
         sUriMatcher = new UriMatcher(-1);
         sAccreditedSet = new HashSet<>();
@@ -88,9 +87,9 @@ public class SwanContentProvider extends ContentProvider {
             if (sAccreditedSet.contains(callingPackage)) {
                 return true;
             }
-            String a2 = c.a(callingPackage);
-            Set<String> a3 = b.a.p0.d.g.c.e().a();
-            z = (a3 == null || !a3.contains(a2)) ? false : false;
+            String a = c.a(callingPackage);
+            Set<String> a2 = c.a.p0.d.g.c.e().a();
+            z = (a2 == null || !a2.contains(a)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);
             }
@@ -114,7 +113,7 @@ public class SwanContentProvider extends ContentProvider {
     private a getProcessor(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
             Class<? extends a> processorClass = ProcessorInfo.getProcessorClass(i2);
             if (processorClass != null) {
                 try {
@@ -135,7 +134,7 @@ public class SwanContentProvider extends ContentProvider {
     public static boolean isSameApp(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) ? i2 % 100000 == i3 % 100000 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) ? i2 % 100000 == i3 % 100000 : invokeII.booleanValue;
     }
 
     @Override // android.content.ContentProvider

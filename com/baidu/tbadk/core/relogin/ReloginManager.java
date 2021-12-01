@@ -3,16 +3,15 @@ package com.baidu.tbadk.core.relogin;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.q0.s.l.c;
-import b.a.q0.s.q.s0;
+import c.a.d.f.p.l;
+import c.a.q0.s.l.c;
+import c.a.q0.s.q.s0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
@@ -30,24 +29,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ReloginManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ReloginManager f46015d;
+    public static ReloginManager f41033d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f46016a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<HttpMessage> f46017b;
+    public final ArrayList<HttpMessage> f41034b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f46018c;
+    public final HttpMessageListener f41035c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class BgLoginHttpResponsedMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,9 +97,9 @@ public class ReloginManager {
                         if (s0Var.a() != null) {
                             accountData.setTbs(s0Var.a().getTbs());
                         }
-                        b.a.q0.s.a0.a.a("account", -1L, 0, "relogin_manager_save_account_to_db", 0, "", new Object[0]);
+                        c.a.q0.s.a0.a.a("account", -1L, 0, "relogin_manager_save_account_to_db", 0, "", new Object[0]);
                         c.g(accountData);
-                        b.a.q0.s.a0.a.a("account", -1L, 0, "relogin_manager_save_account_to_application", 0, "", new Object[0]);
+                        c.a.q0.s.a0.a.a("account", -1L, 0, "relogin_manager_save_account_to_application", 0, "", new Object[0]);
                         TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
                         TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                         return;
@@ -113,13 +110,11 @@ public class ReloginManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ReloginManager f46019a;
+        public final /* synthetic */ ReloginManager a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ReloginManager reloginManager, int i2) {
@@ -139,7 +134,7 @@ public class ReloginManager {
                     return;
                 }
             }
-            this.f46019a = reloginManager;
+            this.a = reloginManager;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -147,20 +142,20 @@ public class ReloginManager {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof BgLoginHttpResponsedMessage)) {
-                this.f46019a.f46016a = false;
+                this.a.a = false;
                 BgLoginHttpResponsedMessage bgLoginHttpResponsedMessage = (BgLoginHttpResponsedMessage) httpResponsedMessage;
                 int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
                 int error = bgLoginHttpResponsedMessage.getError();
-                b.a.q0.s.a0.a.a("account", -1L, 0, "login_auto_local_result", bgLoginHttpResponsedMessage.getError(), bgLoginHttpResponsedMessage.getErrorString(), new Object[0]);
+                c.a.q0.s.a0.a.a("account", -1L, 0, "login_auto_local_result", bgLoginHttpResponsedMessage.getError(), bgLoginHttpResponsedMessage.getErrorString(), new Object[0]);
                 if ((statusCode != 200 || error == 0) && statusCode == 200) {
-                    this.f46019a.j();
+                    this.a.j();
                     return;
                 }
-                this.f46019a.f(TbadkCoreApplication.getCurrentAccountObj());
+                this.a.f(TbadkCoreApplication.getCurrentAccountObj());
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
                     l.M(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
-                this.f46019a.f46017b.clear();
+                this.a.f41034b.clear();
             }
         }
     }
@@ -178,7 +173,7 @@ public class ReloginManager {
                 return;
             }
         }
-        f46015d = new ReloginManager();
+        f41033d = new ReloginManager();
     }
 
     public ReloginManager() {
@@ -194,28 +189,28 @@ public class ReloginManager {
                 return;
             }
         }
-        this.f46017b = new ArrayList<>();
-        this.f46018c = new a(this, CmdConfigHttp.BG_LOGIN_HTTP_CMD);
+        this.f41034b = new ArrayList<>();
+        this.f41035c = new a(this, CmdConfigHttp.BG_LOGIN_HTTP_CMD);
     }
 
     public static ReloginManager g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f46015d : (ReloginManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f41033d : (ReloginManager) invokeV.objValue;
     }
 
     public final void d(HttpMessage httpMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, httpMessage) == null) || this.f46017b.contains(httpMessage)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, httpMessage) == null) || this.f41034b.contains(httpMessage)) {
             return;
         }
-        this.f46017b.add(httpMessage);
+        this.f41034b.add(httpMessage);
     }
 
     public final void e(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-            b.a.q0.s.a0.a.a("account", -1L, 0, "login_auto_local_start", 0, "", new Object[0]);
+            c.a.q0.s.a0.a.a("account", -1L, 0, "login_auto_local_start", 0, "", new Object[0]);
             MessageManager messageManager = MessageManager.getInstance();
             TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.BG_LOGIN_HTTP_CMD);
@@ -231,7 +226,7 @@ public class ReloginManager {
     public void f(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            b.a.q0.s.a0.a.a("account", -1L, 0, "login_auto_foreground", 0, "", new Object[0]);
+            c.a.q0.s.a0.a.a("account", -1L, 0, "login_auto_foreground", 0, "", new Object[0]);
             c.b();
             TbadkCoreApplication.getInst().handler.sendMessage(TbadkCoreApplication.getInst().handler.obtainMessage(1));
         }
@@ -240,7 +235,7 @@ public class ReloginManager {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46016a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
     public boolean i() {
@@ -253,11 +248,11 @@ public class ReloginManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            Iterator<HttpMessage> it = this.f46017b.iterator();
+            Iterator<HttpMessage> it = this.f41034b.iterator();
             while (it.hasNext()) {
                 messageManager.sendMessage(it.next());
             }
-            this.f46017b.clear();
+            this.f41034b.clear();
         }
     }
 
@@ -265,7 +260,7 @@ public class ReloginManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            messageManager.registerListener(this.f46018c);
+            messageManager.registerListener(this.f41035c);
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.BG_LOGIN_HTTP_CMD, TbConfig.LOGIN_FULL_ADDRESS);
             tbHttpMessageTask.setNeedGzip(true);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -279,9 +274,9 @@ public class ReloginManager {
     public void l(HttpMessage httpMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, httpMessage) == null) {
-            b.a.q0.s.a0.a.a("account", -1L, 0, "login_auto_start", 0, "", new Object[0]);
+            c.a.q0.s.a0.a.a("account", -1L, 0, "login_auto_start", 0, "", new Object[0]);
             d(httpMessage);
-            if (this.f46016a) {
+            if (this.a) {
                 return;
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
@@ -289,7 +284,7 @@ public class ReloginManager {
                 currentAccountObj = c.e();
             }
             if (currentAccountObj != null && !TextUtils.isEmpty(currentAccountObj.getAccount())) {
-                this.f46016a = true;
+                this.a = true;
                 if (i()) {
                     return;
                 }
@@ -303,7 +298,7 @@ public class ReloginManager {
     public void m(int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, bdUniqueId) == null) {
-            Iterator<HttpMessage> it = this.f46017b.iterator();
+            Iterator<HttpMessage> it = this.f41034b.iterator();
             while (it.hasNext()) {
                 HttpMessage next = it.next();
                 BdUniqueId tag = next.getTag();
@@ -325,7 +320,7 @@ public class ReloginManager {
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f46016a = z;
+            this.a = z;
         }
     }
 }

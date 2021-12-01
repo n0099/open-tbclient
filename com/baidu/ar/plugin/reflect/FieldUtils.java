@@ -2,7 +2,6 @@ package com.baidu.ar.plugin.reflect;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Field> sFieldCache;
@@ -127,7 +126,7 @@ public class FieldUtils {
     public static String getKey(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cls, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, str)) == null) {
             return cls.toString() + "#" + str;
         }
         return (String) invokeLL.objValue;
@@ -228,7 +227,7 @@ public class FieldUtils {
     public static Object readField(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, obj, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
             Validate.isTrue(obj != null, "target object must not be null", new Object[0]);
             Class<?> cls = obj.getClass();
             Field field = getField(cls, str, true);

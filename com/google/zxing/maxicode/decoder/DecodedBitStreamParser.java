@@ -1,7 +1,6 @@
 package com.google.zxing.maxicode.decoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import com.google.zxing.common.DecoderResult;
+import com.kwad.yoga.YogaNodeJNIBase;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.text.DecimalFormat;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char ECI = 65530;
@@ -117,7 +117,7 @@ public final class DecodedBitStreamParser {
     public static int getInt(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
             if (bArr2.length != 0) {
                 int i2 = 0;
                 for (int i3 = 0; i3 < bArr2.length; i3++) {
@@ -138,7 +138,7 @@ public final class DecodedBitStreamParser {
         int i6;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) {
             StringBuilder sb = new StringBuilder();
             int i8 = i2;
             int i9 = 0;
@@ -204,7 +204,7 @@ public final class DecodedBitStreamParser {
     public static int getPostCode2(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? getInt(bArr, new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, 13, 14, 15, 16, 17, 18, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 1, 2}) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? getInt(bArr, new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 1, 2}) : invokeL.intValue;
     }
 
     public static int getPostCode2Length(byte[] bArr) {
@@ -216,7 +216,7 @@ public final class DecodedBitStreamParser {
     public static String getPostCode3(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{39, 40, 41, 42, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, 13, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, 16, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, 11, StandardMessageCodec.LIST, 1, 2}))}) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{39, 40, 41, 42, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, 13, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, 11, StandardMessageCodec.LIST, 1, 2}))}) : (String) invokeL.objValue;
     }
 
     public static int getServiceClass(byte[] bArr) {

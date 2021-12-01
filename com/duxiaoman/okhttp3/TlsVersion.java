@@ -1,7 +1,6 @@
 package com.duxiaoman.okhttp3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class TlsVersion {
     public static final /* synthetic */ TlsVersion[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -155,7 +154,7 @@ public final class TlsVersion {
     public static TlsVersion[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (TlsVersion[]) $VALUES.clone() : (TlsVersion[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (TlsVersion[]) $VALUES.clone() : (TlsVersion[]) invokeV.objValue;
     }
 
     public String javaName() {

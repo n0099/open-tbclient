@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ruka.ioc;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface ILooperMonitor {
     boolean enableMonitor();
 

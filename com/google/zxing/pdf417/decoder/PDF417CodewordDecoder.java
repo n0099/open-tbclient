@@ -1,7 +1,6 @@
 package com.google.zxing.pdf417.decoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.pdf417.PDF417Common;
 import java.lang.reflect.Array;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class PDF417CodewordDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final float[][] RATIOS_TABLE;
@@ -77,18 +76,18 @@ public final class PDF417CodewordDecoder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) {
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < iArr.length; i2++) {
                 for (int i3 = 0; i3 < iArr[i2]; i3++) {
                     int i4 = 1;
-                    long j2 = j << 1;
+                    long j3 = j2 << 1;
                     if (i2 % 2 != 0) {
                         i4 = 0;
                     }
-                    j = j2 | i4;
+                    j2 = j3 | i4;
                 }
             }
-            return (int) j;
+            return (int) j2;
         }
         return invokeL.intValue;
     }
@@ -145,7 +144,7 @@ public final class PDF417CodewordDecoder {
     public static int getDecodedValue(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
             int decodedCodewordValue = getDecodedCodewordValue(sampleBitCounts(iArr));
             return decodedCodewordValue != -1 ? decodedCodewordValue : getClosestDecodedValue(iArr);
         }
@@ -155,7 +154,7 @@ public final class PDF417CodewordDecoder {
     public static int[] sampleBitCounts(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iArr)) == null) {
             float sum = MathUtils.sum(iArr);
             int[] iArr2 = new int[8];
             int i2 = 0;

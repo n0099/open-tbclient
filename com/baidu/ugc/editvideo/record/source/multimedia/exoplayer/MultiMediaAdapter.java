@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.source.multimedia.exoplayer;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.h;
+import c.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class MultiMediaAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter";
@@ -25,13 +25,13 @@ public abstract class MultiMediaAdapter {
     public List<ItemInfo> mItems;
 
     /* renamed from: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.MultiMediaAdapter$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class ItemInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

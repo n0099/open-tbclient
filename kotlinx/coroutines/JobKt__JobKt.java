@@ -94,18 +94,18 @@ public final /* synthetic */ class JobKt__JobKt {
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "Since 1.2.0, binary compatibility with versions <= 1.1.x")
     @JvmName(name = "Job")
     /* renamed from: Job */
-    public static final /* synthetic */ Job m1970Job(Job job) {
+    public static final /* synthetic */ Job m2085Job(Job job) {
         return JobKt.Job(job);
     }
 
     /* renamed from: Job$default */
-    public static /* synthetic */ Job m1971Job$default(Job job, int i2, Object obj) {
-        Job m1970Job;
+    public static /* synthetic */ Job m2086Job$default(Job job, int i2, Object obj) {
+        Job m2085Job;
         if ((i2 & 1) != 0) {
             job = null;
         }
-        m1970Job = m1970Job(job);
-        return m1970Job;
+        m2085Job = m2085Job(job);
+        return m2085Job;
     }
 
     public static /* synthetic */ void cancel$default(Job job, String str, Throwable th, int i2, Object obj) {

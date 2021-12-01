@@ -13,9 +13,9 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.d;
-import b.a.e.a.f;
-import b.a.e.f.p.l;
+import c.a.d.a.d;
+import c.a.d.a.f;
+import c.a.d.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WalletPayResultView extends d implements IWalletPayResultView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,9 +85,9 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
             Bitmap moneyIconBitmap = CurrencySwitchUtil.getMoneyIconBitmap();
             BitmapDrawable bitmapDrawable = new BitmapDrawable(moneyIconBitmap);
             bitmapDrawable.setBounds(0, 0, moneyIconBitmap.getWidth(), moneyIconBitmap.getHeight());
-            b.a.q0.e1.d dVar = new b.a.q0.e1.d(bitmapDrawable);
-            dVar.b(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
-            dVar.c(l.g(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
+            c.a.q0.f1.d dVar = new c.a.q0.f1.d(bitmapDrawable);
+            dVar.b(l.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
+            dVar.c(l.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             SpannableString spannableString = new SpannableString(str);
             BuyTBeanStringUlti.setSpan(spannableString, str, formatTBeanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
             BuyTBeanStringUlti.setSpan(spannableString, str, "[image]", dVar);
@@ -218,7 +218,7 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
         }
     }
 
-    @Override // b.a.e.a.d
+    @Override // c.a.d.a.d
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

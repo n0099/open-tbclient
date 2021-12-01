@@ -17,21 +17,19 @@ import com.baidu.wallet.core.beans.NetworkBean;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class o extends b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38994a = "bduss";
+    public static final String a = "bduss";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38995b = "certinfo";
+    public static final String f34796b = "certinfo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38996c = "authtoken";
+    public static final String f34797c = "authtoken";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38997d = "outer";
+    public static final String f34798d = "outer";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

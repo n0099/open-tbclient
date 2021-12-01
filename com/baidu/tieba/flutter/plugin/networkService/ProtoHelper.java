@@ -1,10 +1,9 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.k0.b.g;
+import c.a.q0.l0.b.g;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -28,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ProtoHelper {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, Integer> platformImageNameMap;
@@ -148,7 +147,7 @@ public class ProtoHelper {
     public static g getRequestData(int i2, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(AdIconUtil.AD_TEXT_ID, null, i2, hashMap, hashMap2)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, null, i2, hashMap, hashMap2)) == null) {
             return null;
         }
         return (g) invokeILL.objValue;
@@ -157,7 +156,7 @@ public class ProtoHelper {
     public static g getSocketRequestData(int i2, HashMap<String, Object> hashMap) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, hashMap)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, hashMap)) == null) {
             return null;
         }
         return (g) invokeIL.objValue;

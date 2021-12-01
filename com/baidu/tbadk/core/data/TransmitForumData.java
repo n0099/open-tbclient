@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import b.a.e.m.e.n;
+import c.a.d.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.FrsTabItemData;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TransmitForumData implements n, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<TransmitForumData> CREATOR;
@@ -30,7 +30,7 @@ public class TransmitForumData implements n, Parcelable {
     public ArrayList<FrsTabItemData> tabItemDatas;
     public int type;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<TransmitForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,13 +86,13 @@ public class TransmitForumData implements n, Parcelable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TransmitForumData(long j, String str, boolean z, int i2) {
-        this(j, str, z, i2, "");
+    public TransmitForumData(long j2, String str, boolean z, int i2) {
+        this(j2, str, z, i2, "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j2), str, Boolean.valueOf(z), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -116,7 +116,7 @@ public class TransmitForumData implements n, Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // b.a.e.m.e.n
+    @Override // c.a.d.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -137,12 +137,12 @@ public class TransmitForumData implements n, Parcelable {
         }
     }
 
-    public TransmitForumData(long j, String str, boolean z, int i2, String str2) {
+    public TransmitForumData(long j2, String str, boolean z, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, Boolean.valueOf(z), Integer.valueOf(i2), str2};
+            Object[] objArr = {Long.valueOf(j2), str, Boolean.valueOf(z), Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -155,7 +155,7 @@ public class TransmitForumData implements n, Parcelable {
         this.isCurForum = false;
         this.forumName = str;
         this.checked = z;
-        this.forumId = j;
+        this.forumId = j2;
         this.type = i2;
         this.avatar = str2;
     }

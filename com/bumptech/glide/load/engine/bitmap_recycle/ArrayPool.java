@@ -1,5 +1,5 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface ArrayPool {
     public static final int STANDARD_BUFFER_SIZE_BYTES = 65536;
 

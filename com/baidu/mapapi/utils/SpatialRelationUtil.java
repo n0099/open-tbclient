@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SpatialRelationUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,12 +52,12 @@ public class SpatialRelationUtil {
                 int i2 = 0;
                 while (i2 < list.size() - 1) {
                     int i3 = i2 + 1;
-                    LatLng a2 = a(list.get(i2), list.get(i3), latLng);
-                    if ((a2.latitude - list.get(i2).latitude) * (a2.latitude - list.get(i3).latitude) > 0.0d || (a2.longitude - list.get(i2).longitude) * (a2.longitude - list.get(i3).longitude) > 0.0d) {
-                        a2 = DistanceUtil.getDistance(latLng, list.get(i2)) < DistanceUtil.getDistance(latLng, list.get(i3)) ? list.get(i2) : list.get(i3);
+                    LatLng a = a(list.get(i2), list.get(i3), latLng);
+                    if ((a.latitude - list.get(i2).latitude) * (a.latitude - list.get(i3).latitude) > 0.0d || (a.longitude - list.get(i2).longitude) * (a.longitude - list.get(i3).longitude) > 0.0d) {
+                        a = DistanceUtil.getDistance(latLng, list.get(i2)) < DistanceUtil.getDistance(latLng, list.get(i3)) ? list.get(i2) : list.get(i3);
                     }
-                    if (latLng2 == null || DistanceUtil.getDistance(latLng, a2) < DistanceUtil.getDistance(latLng, latLng2)) {
-                        latLng2 = a2;
+                    if (latLng2 == null || DistanceUtil.getDistance(latLng, a) < DistanceUtil.getDistance(latLng, latLng2)) {
+                        latLng2 = a;
                     }
                     i2 = i3;
                 }

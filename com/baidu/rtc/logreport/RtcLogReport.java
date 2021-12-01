@@ -9,7 +9,6 @@ import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +23,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RtcLogReport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_HOST = "https://rtc-log.cdn.bcebos.com/collect?message=";
@@ -124,7 +123,7 @@ public class RtcLogReport {
     /* JADX INFO: Access modifiers changed from: private */
     public void sendGet(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65541, this, str, i2) == null) {
             String str2 = i2 == 3 ? UPLOAD_SLI_PERFFIX : UPLOAD_PERFFIX;
             if (i2 == 4) {
                 str2 = UPLOAD_ERROR_PERFFIX;

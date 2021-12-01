@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.http.ReqPriority;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
@@ -26,7 +25,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class StatService implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_STATISTIC = "auto_statistic";
@@ -103,7 +102,7 @@ public final class StatService implements NoProguard {
 
     public static void onEvent(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, map) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, map) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -161,7 +160,7 @@ public final class StatService implements NoProguard {
 
     public static void onEventAutoStat(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
             onEventAutoStat(str, null);
         }
     }
@@ -252,7 +251,7 @@ public final class StatService implements NoProguard {
                 sb = new StringBuilder(sb.substring(0, lastIndexOf));
             }
             sb.append("}");
-            Log.d("StatService", "onEventAutoStatistic content=" + sb.toString());
+            Log.d(TAG, "onEventAutoStatistic content=" + sb.toString());
             map.put(AUTO_STATISTIC, Base64.encodeToString(sb.toString().getBytes(), 0));
             map.put("source", "native");
             map.put("data_source", "client");

@@ -15,12 +15,10 @@ import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final AtomicReference<byte[]> f62282a;
+    public static final AtomicReference<byte[]> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +34,7 @@ public final class a {
                 return;
             }
         }
-        f62282a = new AtomicReference<>();
+        a = new AtomicReference<>();
     }
 
     public static o a(String str) {
@@ -135,13 +133,13 @@ public final class a {
                 try {
                     InputStream inputStream3 = jarFile.getInputStream(jarEntry);
                     try {
-                        byte[] andSet = f62282a.getAndSet(null);
+                        byte[] andSet = a.getAndSet(null);
                         if (andSet == null) {
                             andSet = new byte[4096];
                         }
                         do {
                         } while (inputStream3.read(andSet, 0, andSet.length) != -1);
-                        f62282a.set(andSet);
+                        a.set(andSet);
                         Certificate[][] certificateArr = {jarEntry.getCertificates()};
                         if (inputStream3 != null) {
                             try {

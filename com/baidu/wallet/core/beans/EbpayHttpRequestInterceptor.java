@@ -6,7 +6,6 @@ import com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor;
 import com.baidu.apollon.restnet.rest.d;
 import com.baidu.apollon.utils.Base64Utils;
 import com.baidu.apollon.utils.PhoneUtils;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,27 +16,25 @@ import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.PayUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f58901a = "EbpayClientHttpRequestInterceptor";
+    public static final String a = "EbpayClientHttpRequestInterceptor";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f58902b = "wims";
+    public static final String f52385b = "wims";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f58903c = "wloc";
+    public static final String f52386c = "wloc";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f58904d = "wssn";
+    public static final String f52387d = "wssn";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f58905e = "cuid_1";
+    public static final String f52388e = "cuid_1";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f58906f = "wmip";
+    public static final String f52389f = "wmip";
     public transient /* synthetic */ FieldHolder $fh;
 
     public EbpayHttpRequestInterceptor() {
@@ -78,7 +75,7 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
             dVar.a().a("Cookie", stringBuffer.toString());
             LogUtil.i("EbpayClientHttpRequestInterceptor", "intercept. X_BAIDU_IE = " + dVar.e());
             dVar.a().a("X_BAIDU_IE", dVar.e());
-            dVar.a().a("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+            dVar.a().a("Accept-Encoding", "gzip");
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("wims", "");

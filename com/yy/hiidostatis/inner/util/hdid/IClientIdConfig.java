@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.inner.util.hdid;
 
 import android.app.Application;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IClientIdConfig {
     Application getAppContext();
 

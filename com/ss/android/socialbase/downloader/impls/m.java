@@ -20,13 +20,11 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class m extends i.a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f70487a;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.downloader.m f70488b;
+    public final com.ss.android.socialbase.downloader.downloader.m f61948b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +39,7 @@ public class m extends i.a {
                 return;
             }
         }
-        f70487a = m.class.getSimpleName();
+        a = m.class.getSimpleName();
     }
 
     public m() {
@@ -57,14 +55,14 @@ public class m extends i.a {
                 return;
             }
         }
-        this.f70488b = new p(true);
+        this.f61948b = new p(true);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
     public void a(com.ss.android.socialbase.downloader.model.a aVar) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, aVar) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.b(com.ss.android.socialbase.downloader.i.g.a(aVar));
@@ -75,7 +73,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -88,7 +86,7 @@ public class m extends i.a {
     public void c(int i2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048607, this, i2) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048607, this, i2) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.c(i2);
@@ -98,7 +96,7 @@ public class m extends i.a {
     public void d(int i2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048611, this, i2) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048611, this, i2) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.d(i2);
@@ -109,7 +107,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return 0L;
             }
@@ -123,7 +121,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return 0;
             }
@@ -137,7 +135,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -151,7 +149,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -165,7 +163,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -178,7 +176,7 @@ public class m extends i.a {
     public void j(int i2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048622, this, i2) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048622, this, i2) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.j(i2);
@@ -189,7 +187,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -202,7 +200,7 @@ public class m extends i.a {
     public void l(int i2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048624, this, i2) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048624, this, i2) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.k(i2);
@@ -220,7 +218,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -233,7 +231,7 @@ public class m extends i.a {
     public void o(int i2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048627, this, i2) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048627, this, i2) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.o(i2);
@@ -244,7 +242,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -258,7 +256,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048629, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -272,7 +270,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -286,7 +284,7 @@ public class m extends i.a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -299,7 +297,7 @@ public class m extends i.a {
     public void a(int i2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(i2);
@@ -310,7 +308,7 @@ public class m extends i.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, str2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -324,7 +322,7 @@ public class m extends i.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -338,7 +336,7 @@ public class m extends i.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -352,7 +350,7 @@ public class m extends i.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -366,7 +364,7 @@ public class m extends i.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -379,7 +377,7 @@ public class m extends i.a {
     public void a(int i2, boolean z) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(i2, z);
@@ -390,7 +388,7 @@ public class m extends i.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -403,7 +401,7 @@ public class m extends i.a {
     public void c(int i2, boolean z) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.b(i2, z);
@@ -414,7 +412,7 @@ public class m extends i.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -427,7 +425,7 @@ public class m extends i.a {
     public void e() throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.f();
@@ -437,7 +435,7 @@ public class m extends i.a {
     public void a() throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a();
@@ -448,7 +446,7 @@ public class m extends i.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -462,7 +460,7 @@ public class m extends i.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -484,7 +482,7 @@ public class m extends i.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return null;
             }
@@ -497,7 +495,7 @@ public class m extends i.a {
     public void b(List<String> list) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, list) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, list) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.b(list);
@@ -508,7 +506,7 @@ public class m extends i.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return 0;
             }
@@ -521,7 +519,7 @@ public class m extends i.a {
     public void b(int i2, boolean z) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.b(i2, z);
@@ -531,7 +529,7 @@ public class m extends i.a {
     public void a(List<String> list) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, list) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, list) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(list);
@@ -541,7 +539,7 @@ public class m extends i.a {
     public void b(int i2, int i3, com.ss.android.socialbase.downloader.depend.i iVar, int i4, boolean z) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iVar, Integer.valueOf(i4), Boolean.valueOf(z)}) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iVar, Integer.valueOf(i4), Boolean.valueOf(z)}) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iVar), com.ss.android.socialbase.downloader.i.f.e(i4), z);
@@ -551,7 +549,7 @@ public class m extends i.a {
     public void a(int i2, int i3, com.ss.android.socialbase.downloader.depend.i iVar, int i4, boolean z) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iVar, Integer.valueOf(i4), Boolean.valueOf(z)}) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iVar, Integer.valueOf(i4), Boolean.valueOf(z)}) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.b(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iVar), com.ss.android.socialbase.downloader.i.f.e(i4), z);
@@ -562,7 +560,7 @@ public class m extends i.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, downloadInfo)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -575,7 +573,7 @@ public class m extends i.a {
     public void a(int i2, int i3, com.ss.android.socialbase.downloader.depend.i iVar, int i4, boolean z, boolean z2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iVar, Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iVar, Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(i2, i3, com.ss.android.socialbase.downloader.i.g.a(iVar), com.ss.android.socialbase.downloader.i.f.e(i4), z, z2);
@@ -585,7 +583,7 @@ public class m extends i.a {
     public void b(int i2, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048601, this, i2, list) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048601, this, i2, list) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(i2, list);
@@ -596,7 +594,7 @@ public class m extends i.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, downloadInfo)) == null) {
-            com.ss.android.socialbase.downloader.downloader.m mVar = this.f70488b;
+            com.ss.android.socialbase.downloader.downloader.m mVar = this.f61948b;
             if (mVar == null) {
                 return false;
             }
@@ -609,7 +607,7 @@ public class m extends i.a {
     public void a(int i2, Notification notification) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048587, this, i2, notification) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048587, this, i2, notification) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(i2, notification);
@@ -619,57 +617,57 @@ public class m extends i.a {
     public void a(boolean z) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048595, this, z) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048595, this, z) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(true, z);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public void a(int i2, long j) throws RemoteException {
+    public void a(int i2, long j2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (mVar = this.f61948b) == null) {
             return;
         }
-        mVar.a(i2, j);
+        mVar.a(i2, j2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
     public void a(com.ss.android.socialbase.downloader.model.b bVar) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, bVar) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, bVar) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(bVar);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public void a(int i2, int i3, long j) throws RemoteException {
+    public void a(int i2, int i3, long j2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) || (mVar = this.f61948b) == null) {
             return;
         }
-        mVar.a(i2, i3, j);
+        mVar.a(i2, i3, j2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
-    public void a(int i2, int i3, int i4, long j) throws RemoteException {
+    public void a(int i2, int i3, int i4, long j2) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (mVar = this.f61948b) == null) {
             return;
         }
-        mVar.a(i2, i3, i4, j);
+        mVar.a(i2, i3, i4, j2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.i
     public void a(int i2, int i3, int i4, int i5) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(i2, i3, i4, i5);
@@ -679,7 +677,7 @@ public class m extends i.a {
     public void a(int i2, List<com.ss.android.socialbase.downloader.model.b> list) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048589, this, i2, list) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048589, this, i2, list) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.b(i2, list);
@@ -689,7 +687,7 @@ public class m extends i.a {
     public void a(aj ajVar) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, ajVar) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, ajVar) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(com.ss.android.socialbase.downloader.i.g.a(ajVar));
@@ -699,7 +697,7 @@ public class m extends i.a {
     public void a(int i2, int i3) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(i2, i3);
@@ -709,7 +707,7 @@ public class m extends i.a {
     public void a(int i2, y yVar) throws RemoteException {
         com.ss.android.socialbase.downloader.downloader.m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, yVar) == null) || (mVar = this.f70488b) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048588, this, i2, yVar) == null) || (mVar = this.f61948b) == null) {
             return;
         }
         mVar.a(i2, com.ss.android.socialbase.downloader.i.g.a(yVar));

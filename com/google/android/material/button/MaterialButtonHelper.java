@@ -15,7 +15,6 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MaterialButtonHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_LOLLIPOP;
@@ -160,7 +159,7 @@ public class MaterialButtonHelper {
 
     private void updateButtonShape(@NonNull ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, shapeAppearanceModel) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, shapeAppearanceModel) == null) {
             if (getMaterialShapeDrawable() != null) {
                 getMaterialShapeDrawable().setShapeAppearanceModel(shapeAppearanceModel);
             }
@@ -175,7 +174,7 @@ public class MaterialButtonHelper {
 
     private void updateStroke() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             MaterialShapeDrawable materialShapeDrawable = getMaterialShapeDrawable();
             MaterialShapeDrawable surfaceColorStrokeDrawable = getSurfaceColorStrokeDrawable();
             if (materialShapeDrawable != null) {

@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IRevenueDataParser {
     void onRequestError(int i2, int i3, String str, int i4, int i5, String str2);
 

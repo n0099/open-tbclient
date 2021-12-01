@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f34778a;
+    public final /* synthetic */ b a;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public final class c implements Runnable {
                 return;
             }
         }
-        this.f34778a = bVar;
+        this.a = bVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:7:0x0012 */
@@ -46,9 +44,9 @@ public final class c implements Runnable {
             try {
                 Process.setThreadPriority(0);
                 while (!linkedList.isEmpty()) {
-                    linkedList2 = this.f34778a.f34777c;
+                    linkedList2 = this.a.f31197c;
                     Runnable runnable = (Runnable) linkedList2.get(0);
-                    linkedList3 = this.f34778a.f34777c;
+                    linkedList3 = this.a.f31197c;
                     linkedList3.remove(0);
                     if (runnable != null) {
                         runnable.run();
@@ -56,10 +54,10 @@ public final class c implements Runnable {
                 }
             } catch (Exception unused) {
             } catch (Throwable th) {
-                this.f34778a.f34776b = null;
+                this.a.f31196b = null;
                 throw th;
             }
-            this.f34778a.f34776b = null;
+            this.a.f31196b = null;
         }
     }
 }

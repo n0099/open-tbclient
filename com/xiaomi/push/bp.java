@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bp implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f71643a;
+    public Context a;
 
     /* renamed from: a  reason: collision with other field name */
     public com.xiaomi.clientreport.processor.c f163a;
@@ -36,7 +34,7 @@ public class bp implements Runnable {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f71643a = context;
+            this.a = context;
         }
     }
 
@@ -49,7 +47,7 @@ public class bp implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bt a2;
+        bt a;
         String str;
         long currentTimeMillis;
         Interceptable interceptable = $ic;
@@ -60,17 +58,17 @@ public class bp implements Runnable {
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
                 if (this.f163a instanceof IEventProcessor) {
-                    a2 = bt.a(this.f71643a);
+                    a = bt.a(this.a);
                     str = "event_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
                 } else if (!(this.f163a instanceof IPerfProcessor)) {
                     return;
                 } else {
-                    a2 = bt.a(this.f71643a);
+                    a = bt.a(this.a);
                     str = "perf_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
                 }
-                a2.m191a("sp_client_report_status", str, currentTimeMillis);
+                a.m240a("sp_client_report_status", str, currentTimeMillis);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }

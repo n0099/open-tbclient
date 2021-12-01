@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ElasticQueue implements Recordable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -47,11 +47,11 @@ public class ElasticQueue implements Recordable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = 0;
+            long j2 = 0;
             for (ElasticTask elasticTask : this.mElasticTasks) {
-                j += elasticTask.getWaitingTime();
+                j2 += elasticTask.getWaitingTime();
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

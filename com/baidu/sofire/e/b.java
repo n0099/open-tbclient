@@ -5,19 +5,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public JSONObject f44003a;
+    public JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44004b;
+    public String f39111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f44005c;
+    public int f39112c;
 
     public b(JSONObject jSONObject, String str, int i2) {
         Interceptable interceptable = $ic;
@@ -34,8 +32,8 @@ public final class b {
                 return;
             }
         }
-        this.f44003a = jSONObject;
-        this.f44004b = str;
-        this.f44005c = i2;
+        this.a = jSONObject;
+        this.f39111b = str;
+        this.f39112c = i2;
     }
 }

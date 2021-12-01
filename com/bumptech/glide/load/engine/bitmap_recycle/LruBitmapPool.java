@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +21,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LruBitmapPool implements BitmapPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config DEFAULT_CONFIG;
@@ -39,14 +38,14 @@ public class LruBitmapPool implements BitmapPool {
     public final LruPoolStrategy strategy;
     public final BitmapTracker tracker;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface BitmapTracker {
         void add(Bitmap bitmap);
 
         void remove(Bitmap bitmap);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class NullBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +79,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ThrowingBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,12 +142,12 @@ public class LruBitmapPool implements BitmapPool {
         DEFAULT_CONFIG = Bitmap.Config.ARGB_8888;
     }
 
-    public LruBitmapPool(long j, LruPoolStrategy lruPoolStrategy, Set<Bitmap.Config> set) {
+    public LruBitmapPool(long j2, LruPoolStrategy lruPoolStrategy, Set<Bitmap.Config> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), lruPoolStrategy, set};
+            Object[] objArr = {Long.valueOf(j2), lruPoolStrategy, set};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -158,8 +157,8 @@ public class LruBitmapPool implements BitmapPool {
                 return;
             }
         }
-        this.initialMaxSize = j;
-        this.maxSize = j;
+        this.initialMaxSize = j2;
+        this.maxSize = j2;
         this.strategy = lruPoolStrategy;
         this.allowedConfigs = set;
         this.tracker = new NullBitmapTracker();
@@ -177,7 +176,7 @@ public class LruBitmapPool implements BitmapPool {
     public static Bitmap createBitmap(int i2, int i3, @Nullable Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(AdIconUtil.AD_TEXT_ID, null, i2, i3, config)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65541, null, i2, i3, config)) == null) {
             if (config == null) {
                 config = DEFAULT_CONFIG;
             }
@@ -188,7 +187,7 @@ public class LruBitmapPool implements BitmapPool {
 
     private void dump() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && Log.isLoggable(TAG, 2)) {
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && Log.isLoggable(TAG, 2)) {
             dumpUnchecked();
         }
     }
@@ -283,11 +282,11 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    private synchronized void trimToSize(long j) {
+    private synchronized void trimToSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65550, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65550, this, j2) == null) {
             synchronized (this) {
-                while (this.currentSize > j) {
+                while (this.currentSize > j2) {
                     Bitmap removeLast = this.strategy.removeLast();
                     if (removeLast == null) {
                         if (Log.isLoggable(TAG, 5)) {
@@ -418,13 +417,13 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LruBitmapPool(long j) {
-        this(j, getDefaultStrategy(), getDefaultAllowedConfigs());
+    public LruBitmapPool(long j2) {
+        this(j2, getDefaultStrategy(), getDefaultAllowedConfigs());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -439,13 +438,13 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LruBitmapPool(long j, Set<Bitmap.Config> set) {
-        this(j, getDefaultStrategy(), set);
+    public LruBitmapPool(long j2, Set<Bitmap.Config> set) {
+        this(j2, getDefaultStrategy(), set);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), set};
+            Object[] objArr = {Long.valueOf(j2), set};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

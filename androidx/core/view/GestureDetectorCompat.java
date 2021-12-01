@@ -10,7 +10,6 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -171,7 +170,7 @@ public final class GestureDetectorCompat {
         private boolean isConsideredDoubleTap(MotionEvent motionEvent, MotionEvent motionEvent2, MotionEvent motionEvent3) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, motionEvent, motionEvent2, motionEvent3)) == null) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, motionEvent, motionEvent2, motionEvent3)) == null) {
                 if (this.mAlwaysInBiggerTapRegion && motionEvent3.getEventTime() - motionEvent2.getEventTime() <= DOUBLE_TAP_TIMEOUT) {
                     int x = ((int) motionEvent.getX()) - ((int) motionEvent3.getX());
                     int y = ((int) motionEvent.getY()) - ((int) motionEvent3.getY());

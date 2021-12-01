@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
-public class DownloadParams extends com.kwad.sdk.core.response.a.a implements Serializable {
+public class DownloadParams extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4966891183505507851L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,6 +26,7 @@ public class DownloadParams extends com.kwad.sdk.core.response.a.a implements Se
     public int mTaskId;
     public String mVersion;
     public String mVersionCode;
+    public boolean requestInstallPermission;
 
     public DownloadParams() {
         Interceptable interceptable = $ic;
@@ -44,7 +45,7 @@ public class DownloadParams extends com.kwad.sdk.core.response.a.a implements Se
         this.downloadPlace = 1;
     }
 
-    public static DownloadParams transfrom(AdInfo adInfo) {
+    public static DownloadParams transform(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
@@ -56,7 +57,7 @@ public class DownloadParams extends com.kwad.sdk.core.response.a.a implements Se
             downloadParams.mFileUrl = adInfo.adConversionInfo.appDownloadUrl;
             downloadParams.mAppIcon = adBaseInfo.appIconUrl;
             downloadParams.mShortDesc = adBaseInfo.adDescription;
-            downloadParams.downloadEnablePause = com.kwad.sdk.core.response.b.a.ak(adInfo);
+            downloadParams.downloadEnablePause = com.kwad.sdk.core.response.a.a.ax(adInfo);
             return downloadParams;
         }
         return (DownloadParams) invokeL.objValue;

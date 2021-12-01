@@ -4,25 +4,25 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import c.a.r0.w2.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class EditHeadsImageView extends DragImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int v0;
+    public float A0;
     public int w0;
-    public float x0;
-    public int y0;
-    public float z0;
+    public int x0;
+    public float y0;
+    public int z0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i2) {
@@ -43,18 +43,18 @@ public class EditHeadsImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = 0;
         this.w0 = 0;
-        this.x0 = 0.42857143f;
-        this.y0 = 0;
-        this.z0 = 1.0f;
+        this.x0 = 0;
+        this.y0 = 0.42857143f;
+        this.z0 = 0;
+        this.A0 = 1.0f;
         W();
     }
 
     public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.y0 = getResources().getColor(R.color.common_color_10226);
+            this.z0 = getResources().getColor(a.common_color_10226);
             setDrawingCacheEnabled(true);
             setImageMode(1);
             CompatibleUtile.getInstance().noneViewGpu(this);
@@ -69,7 +69,7 @@ public class EditHeadsImageView extends DragImageView {
             try {
                 Bitmap visableBitmap = getVisableBitmap();
                 if (visableBitmap != null) {
-                    Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.v0, getWidth(), (getHeight() - this.w0) - this.v0);
+                    Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.w0, getWidth(), (getHeight() - this.x0) - this.w0);
                     bitmap = z ? Bitmap.createScaledBitmap(createBitmap, 960, 960, false) : createBitmap;
                     if (bitmap != createBitmap) {
                         createBitmap.recycle();
@@ -88,7 +88,7 @@ public class EditHeadsImageView extends DragImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             canvas.save();
-            canvas.drawColor(this.y0);
+            canvas.drawColor(this.z0);
             super.onDraw(canvas);
             canvas.restore();
         }
@@ -99,16 +99,16 @@ public class EditHeadsImageView extends DragImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            float width = this.z0 * getWidth();
+            float width = this.A0 * getWidth();
             if (width > getHeight()) {
                 width = getHeight();
             }
             float f2 = (i5 - i3) - width;
-            float f3 = this.x0;
+            float f3 = this.y0;
             int i6 = (int) (f2 * f3);
-            this.v0 = i6;
+            this.w0 = i6;
             int i7 = (int) (f2 * (1.0f - f3));
-            this.w0 = i7;
+            this.x0 = i7;
             setOffset(0, i6, 0, i7);
         }
     }
@@ -116,7 +116,7 @@ public class EditHeadsImageView extends DragImageView {
     public void setCutImageHeightScale(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.z0 = f2;
+            this.A0 = f2;
             invalidate();
         }
     }
@@ -148,11 +148,11 @@ public class EditHeadsImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = 0;
         this.w0 = 0;
-        this.x0 = 0.42857143f;
-        this.y0 = 0;
-        this.z0 = 1.0f;
+        this.x0 = 0;
+        this.y0 = 0.42857143f;
+        this.z0 = 0;
+        this.A0 = 1.0f;
         W();
     }
 
@@ -174,11 +174,11 @@ public class EditHeadsImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = 0;
         this.w0 = 0;
-        this.x0 = 0.42857143f;
-        this.y0 = 0;
-        this.z0 = 1.0f;
+        this.x0 = 0;
+        this.y0 = 0.42857143f;
+        this.z0 = 0;
+        this.A0 = 1.0f;
         W();
     }
 }

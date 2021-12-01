@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements Serializable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final Comparator<Comparable> NATURAL_ORDER = new Comparator<Comparable>() { // from class: com.airbnb.lottie.parser.moshi.LinkedHashTreeMap.1
@@ -31,7 +31,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public Node<K, V>[] table;
     public int threshold;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class AvlBuilder<K, V> {
         public int leavesSkipped;
         public int leavesToSkip;
@@ -111,7 +111,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class AvlIterator<K, V> {
         public Node<K, V> stackTop;
 
@@ -147,7 +147,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         public EntrySet() {
         }
@@ -193,7 +193,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public final class KeySet extends AbstractSet<K> {
         public KeySet() {
         }
@@ -233,7 +233,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
         public int expectedModCount;
         public Node<K, V> lastReturned;
@@ -437,23 +437,23 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     /* JADX DEBUG: Type inference failed for r7v2. Raw type applied. Possible types: K, ? super K */
-    public Node<K, V> find(K k, boolean z) {
+    public Node<K, V> find(K k2, boolean z) {
         Node<K, V> node;
         int i2;
         Node<K, V> node2;
         int compare;
         Comparator<? super K> comparator = this.comparator;
         Node<K, V>[] nodeArr = this.table;
-        int secondaryHash = secondaryHash(k.hashCode());
+        int secondaryHash = secondaryHash(k2.hashCode());
         int length = (nodeArr.length - 1) & secondaryHash;
         Node<K, V> node3 = nodeArr[length];
         if (node3 != null) {
-            Comparable comparable = comparator == NATURAL_ORDER ? (Comparable) k : null;
+            Comparable comparable = comparator == NATURAL_ORDER ? (Comparable) k2 : null;
             while (true) {
                 if (comparable != null) {
                     compare = comparable.compareTo(node3.key);
                 } else {
-                    compare = comparator.compare(k, (K) node3.key);
+                    compare = comparator.compare(k2, (K) node3.key);
                 }
                 if (compare == 0) {
                     return node3;
@@ -473,13 +473,13 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         if (z) {
             Node<K, V> node5 = this.header;
             if (node == null) {
-                if (comparator == NATURAL_ORDER && !(k instanceof Comparable)) {
-                    throw new ClassCastException(k.getClass().getName() + " is not Comparable");
+                if (comparator == NATURAL_ORDER && !(k2 instanceof Comparable)) {
+                    throw new ClassCastException(k2.getClass().getName() + " is not Comparable");
                 }
-                node2 = new Node<>(node, k, secondaryHash, node5, node5.prev);
+                node2 = new Node<>(node, k2, secondaryHash, node5, node5.prev);
                 nodeArr[length] = node2;
             } else {
-                node2 = new Node<>(node, k, secondaryHash, node5, node5.prev);
+                node2 = new Node<>(node, k2, secondaryHash, node5, node5.prev);
                 if (i2 < 0) {
                     node.left = node2;
                 } else {
@@ -540,9 +540,9 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public V put(K k, V v) {
-        if (k != null) {
-            Node<K, V> find = find(k, true);
+    public V put(K k2, V v) {
+        if (k2 != null) {
+            Node<K, V> find = find(k2, true);
             V v2 = find.value;
             find.value = v;
             return v2;
@@ -674,7 +674,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return nodeArr2;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Node<K, V> implements Map.Entry<K, V> {
         public final int hash;
         public int height;
@@ -697,12 +697,12 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         public boolean equals(Object obj) {
             if (obj instanceof Map.Entry) {
                 Map.Entry entry = (Map.Entry) obj;
-                K k = this.key;
-                if (k == null) {
+                K k2 = this.key;
+                if (k2 == null) {
                     if (entry.getKey() != null) {
                         return false;
                     }
-                } else if (!k.equals(entry.getKey())) {
+                } else if (!k2.equals(entry.getKey())) {
                     return false;
                 }
                 V v = this.value;
@@ -738,8 +738,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
 
         @Override // java.util.Map.Entry
         public int hashCode() {
-            K k = this.key;
-            int hashCode = k == null ? 0 : k.hashCode();
+            K k2 = this.key;
+            int hashCode = k2 == null ? 0 : k2.hashCode();
             V v = this.value;
             return hashCode ^ (v != null ? v.hashCode() : 0);
         }
@@ -763,9 +763,9 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
             return this.key + "=" + this.value;
         }
 
-        public Node(Node<K, V> node, K k, int i2, Node<K, V> node2, Node<K, V> node3) {
+        public Node(Node<K, V> node, K k2, int i2, Node<K, V> node2, Node<K, V> node3) {
             this.parent = node;
-            this.key = k;
+            this.key = k2;
             this.hash = i2;
             this.height = 1;
             this.next = node2;

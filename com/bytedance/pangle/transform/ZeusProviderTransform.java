@@ -10,7 +10,6 @@ import androidx.annotation.Keep;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.provider.ContentProviderManager;
 import com.bytedance.pangle.util.MethodUtils;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ZeusProviderTransform {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +72,7 @@ public class ZeusProviderTransform {
     public static String getType(Object obj, Uri uri, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, obj, uri, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, obj, uri, str)) == null) {
             if (obj instanceof ContentResolver) {
                 return ContentProviderManager.getInstance().getType((ContentResolver) obj, uri, str);
             }
@@ -169,7 +168,7 @@ public class ZeusProviderTransform {
     public static Uri insert(Object obj, Uri uri, ContentValues contentValues, Bundle bundle, String str) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, obj, uri, contentValues, bundle, str)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, obj, uri, contentValues, bundle, str)) == null) {
             if (obj instanceof ContentResolver) {
                 return ContentProviderManager.getInstance().insert((ContentResolver) obj, uri, contentValues, bundle, str);
             }

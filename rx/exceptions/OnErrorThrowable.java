@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.m.a;
-import h.r.f;
+import i.m.a;
+import i.r.f;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -32,9 +32,7 @@ public final class OnErrorThrowable extends RuntimeException {
         /* loaded from: classes3.dex */
         public static final class a {
             public static /* synthetic */ Interceptable $ic;
-
-            /* renamed from: a  reason: collision with root package name */
-            public static final Set<Class<?>> f73507a;
+            public static final Set<Class<?>> a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -50,7 +48,7 @@ public final class OnErrorThrowable extends RuntimeException {
                         return;
                     }
                 }
-                f73507a = a();
+                a = a();
             }
 
             public static Set<Class<?>> a() {
@@ -107,7 +105,7 @@ public final class OnErrorThrowable extends RuntimeException {
                 if (obj == null) {
                     return StringUtil.NULL_STRING;
                 }
-                if (a.f73507a.contains(obj.getClass())) {
+                if (a.a.contains(obj.getClass())) {
                     return obj.toString();
                 }
                 if (obj instanceof String) {

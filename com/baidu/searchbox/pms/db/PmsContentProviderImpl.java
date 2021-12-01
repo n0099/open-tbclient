@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.pms.utils.DebugUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PmsContentProviderImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORITY;
@@ -127,7 +126,7 @@ public class PmsContentProviderImpl {
     public static String getType(@NonNull Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
             if (sUriMatcher.match(uri) != 100) {
                 return null;
             }
@@ -140,7 +139,7 @@ public class PmsContentProviderImpl {
         Uri uri2;
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, uri, contentValues)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, uri, contentValues)) == null) {
             try {
                 uri2 = context.getContentResolver().insert(uri, contentValues);
             } catch (IllegalArgumentException e2) {
@@ -218,16 +217,16 @@ public class PmsContentProviderImpl {
             if (TextUtils.isEmpty(type)) {
                 return null;
             }
-            long j = 0;
+            long j2 = 0;
             try {
-                j = getDbHelper().getWritableDatabase().insert(type, null, contentValues);
+                j2 = getDbHelper().getWritableDatabase().insert(type, null, contentValues);
             } catch (SQLiteFullException e2) {
                 DebugUtils.printStackTrace(e2);
             } catch (SQLiteReadOnlyDatabaseException e3) {
                 DebugUtils.printStackTrace(e3);
             }
             Uri.Builder appendPath = BASE_URI.buildUpon().appendPath(type);
-            return appendPath.appendQueryParameter("id", j + "").build();
+            return appendPath.appendQueryParameter("id", j2 + "").build();
         }
         return (Uri) invokeLL.objValue;
     }

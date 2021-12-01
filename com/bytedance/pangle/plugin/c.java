@@ -10,7 +10,6 @@ import android.content.res.Configuration;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.service.PluginLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +29,7 @@ import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,21 +63,21 @@ public final class c {
                 } else if (plugin2.isLoaded()) {
                     return true;
                 } else {
-                    com.bytedance.pangle.log.c a2 = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_LOAD, PluginLoader.TAG, "loadPlugin:".concat(String.valueOf(str)));
-                    a(com.bytedance.pangle.b.b.f62147g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
+                    com.bytedance.pangle.log.c a = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_LOAD, "PluginLoader", "loadPlugin:".concat(String.valueOf(str)));
+                    a(com.bytedance.pangle.b.b.f54467g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
                     StringBuilder sb = new StringBuilder();
-                    boolean a3 = a(str, plugin2, sb);
-                    a2.b("loadPluginInternal:".concat(String.valueOf(a3)));
-                    if (a3) {
+                    boolean a2 = a(str, plugin2, sb);
+                    a.b("loadPluginInternal:".concat(String.valueOf(a2)));
+                    if (a2) {
                         plugin2.setLifeCycle(3);
-                        a(com.bytedance.pangle.b.b.f62148h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a2.a(), sb.toString());
+                        a(com.bytedance.pangle.b.b.f54468h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a.a(), sb.toString());
                     } else {
                         sb.append("plugin:");
                         sb.append(plugin2.mPkgName);
                         sb.append(" versionCode:");
                         sb.append(plugin2.getVersion());
                         sb.append("load failed;");
-                        a(com.bytedance.pangle.b.b.f62148h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
+                        a(com.bytedance.pangle.b.b.f54468h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
                     }
                     ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader loadFinished, ".concat(String.valueOf(plugin2)));
                     if (plugin2.isLoaded()) {
@@ -98,7 +97,7 @@ public final class c {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, plugin2, sb)) == null) {
             synchronized (c.class) {
                 try {
-                    com.bytedance.pangle.log.c a2 = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_LOAD, PluginLoader.TAG, "load:".concat(String.valueOf(str)));
+                    com.bytedance.pangle.log.c a = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_LOAD, "PluginLoader", "load:".concat(String.valueOf(str)));
                     if (plugin2 == null) {
                         sb.append("loadPluginInternal, plugin == null;");
                         ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] not exist !!!", str);
@@ -108,10 +107,10 @@ public final class c {
                         ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] not installed !!!", str);
                         return false;
                     } else {
-                        long a3 = a2.a("isInstalled");
-                        if (a3 > 20 || a3 < 0) {
+                        long a2 = a.a("isInstalled");
+                        if (a2 > 20 || a2 < 0) {
                             sb.append("isInstall cost:");
-                            sb.append(a3);
+                            sb.append(a2);
                             sb.append(";");
                         }
                         String sourceFile = PluginDirHelper.getSourceFile(plugin2.mPkgName, plugin2.getVersion());
@@ -120,41 +119,41 @@ public final class c {
                             ZeusLogger.e(ZeusLogger.TAG_LOAD, "PluginLoader loadPluginInternal, plugin[" + str + "] file not exist !!!", str);
                             return false;
                         }
-                        long a4 = a2.a("getSourceFile");
-                        if (a4 > 20 || a4 < 0) {
+                        long a3 = a.a("getSourceFile");
+                        if (a3 > 20 || a3 < 0) {
                             sb.append("getSourceFile cost:");
-                            sb.append(a4);
+                            sb.append(a3);
                             sb.append(";");
                         }
                         File file = new File(PluginDirHelper.getNativeLibraryDir(plugin2.mPkgName, plugin2.getVersion()));
-                        long a5 = a2.a("getNativeLibraryDir");
-                        if (a5 > 20 || a5 < 0) {
+                        long a4 = a.a("getNativeLibraryDir");
+                        if (a4 > 20 || a4 < 0) {
                             sb.append("getNativeLibraryDir cost:");
-                            sb.append(a5);
+                            sb.append(a4);
                             sb.append(";");
                         }
                         File file2 = new File(file.getParentFile(), "dalvik-cache");
                         if (!file2.exists()) {
                             file2.mkdirs();
                         }
-                        long a6 = a2.a("dalvikCacheDir");
-                        if (a6 > 20 || a6 < 0) {
+                        long a5 = a.a("dalvikCacheDir");
+                        if (a5 > 20 || a5 < 0) {
                             sb.append("dalvikCacheDirTime cost:");
-                            sb.append(a6);
+                            sb.append(a5);
                             sb.append(";");
                         }
                         plugin2.mClassLoader = new PluginClassLoader(sourceFile, file2.getPath(), file.getAbsolutePath(), null);
-                        long a7 = a2.a("classloader");
-                        if (a7 > 20 || a7 < 0) {
+                        long a6 = a.a("classloader");
+                        if (a6 > 20 || a6 < 0) {
                             sb.append("classloader cost:");
-                            sb.append(a7);
+                            sb.append(a6);
                             sb.append(";");
                         }
                         PackageInfo packageArchiveInfo = Zeus.getAppApplication().getPackageManager().getPackageArchiveInfo(sourceFile, 15);
-                        long a8 = a2.a("getPackageInfo");
-                        if (a8 > 20 || a8 < 0) {
+                        long a7 = a.a("getPackageInfo");
+                        if (a7 > 20 || a7 < 0) {
                             sb.append("getPackageInfo cost:");
-                            sb.append(a8);
+                            sb.append(a7);
                             sb.append(";");
                         }
                         plugin2.mHostApplication = (PluginApplicationWrapper) ZeusTransformUtils.wrapperContext2Application(Zeus.getAppApplication(), plugin2.mPkgName);
@@ -169,25 +168,23 @@ public final class c {
                         if (TextUtils.isEmpty(packageArchiveInfo.applicationInfo.publicSourceDir)) {
                             packageArchiveInfo.applicationInfo.publicSourceDir = sourceFile;
                         }
-                        long a9 = a2.a("setApplication");
-                        if (a9 > 20 || a9 < 0) {
+                        long a8 = a.a("setApplication");
+                        if (a8 > 20 || a8 < 0) {
                             sb.append("setApplication cost:");
-                            sb.append(a9);
+                            sb.append(a8);
                             sb.append(";");
                         }
                         plugin2.mResources = new PluginResources(Zeus.getAppApplication().getPackageManager().getResourcesForApplication(packageArchiveInfo.applicationInfo));
-                        long a10 = a2.a("makeResources");
-                        if (a10 > 20 || a10 < 0) {
+                        long a9 = a.a("makeResources");
+                        if (a9 > 20 || a9 < 0) {
                             sb.append("makeResources cost:");
-                            sb.append(a10);
+                            sb.append(a9);
                             sb.append(";");
                         }
                         Zeus.getAppApplication().registerComponentCallbacks(new ComponentCallbacks(plugin2) { // from class: com.bytedance.pangle.plugin.c.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Plugin f62357a;
+                            public final /* synthetic */ Plugin a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -204,14 +201,14 @@ public final class c {
                                         return;
                                     }
                                 }
-                                this.f62357a = plugin2;
+                                this.a = plugin2;
                             }
 
                             @Override // android.content.ComponentCallbacks
                             public final void onConfigurationChanged(Configuration configuration) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) {
-                                    this.f62357a.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
+                                    this.a.mResources.updateConfiguration(configuration, Zeus.getAppApplication().getResources().getDisplayMetrics());
                                 }
                             }
 
@@ -244,10 +241,10 @@ public final class c {
                                 plugin2.pluginServices.put(serviceInfo.name, serviceInfo);
                             }
                         }
-                        long a11 = a2.a("resolveActivityServices");
-                        if (a11 > 20 || a11 < 0) {
+                        long a10 = a.a("resolveActivityServices");
+                        if (a10 > 20 || a10 < 0) {
                             sb.append("resolveActivityServices cost:");
-                            sb.append(a11);
+                            sb.append(a10);
                             sb.append(";");
                         }
                         ActivityInfo[] activityInfoArr2 = packageArchiveInfo.receivers;
@@ -261,10 +258,10 @@ public final class c {
                                 plugin2.pluginReceiver.put(activityInfo2.name, activityInfo2);
                             }
                         }
-                        long a12 = a2.a("resolveReceiver");
-                        if (a12 > 20 || a12 < 0) {
+                        long a11 = a.a("resolveReceiver");
+                        if (a11 > 20 || a11 < 0) {
                             sb.append("resolveReceiver cost:");
-                            sb.append(a12);
+                            sb.append(a11);
                             sb.append(";");
                         }
                         ProviderInfo[] providerInfoArr = packageArchiveInfo.providers;
@@ -278,19 +275,19 @@ public final class c {
                                 plugin2.pluginProvider.put(providerInfo.name, providerInfo);
                             }
                         }
-                        long a13 = a2.a("resolveProvider");
-                        if (a13 > 20 || a13 < 0) {
+                        long a12 = a.a("resolveProvider");
+                        if (a12 > 20 || a12 < 0) {
                             sb.append("resolveProvider cost:");
-                            sb.append(a13);
+                            sb.append(a12);
                             sb.append(";");
                         }
                         if (plugin2.pluginProvider != null && plugin2.pluginProvider.size() > 0) {
                             ContentProviderManager.getInstance().installContentProviders(plugin2.pluginProvider.values(), plugin2);
                         }
-                        long a14 = a2.a("installProvider");
-                        if (a14 > 20 || a14 < 0) {
+                        long a13 = a.a("installProvider");
+                        if (a13 > 20 || a13 < 0) {
                             sb.append("installProvider cost:");
-                            sb.append(a14);
+                            sb.append(a13);
                             sb.append(";");
                         }
                         if (!TextUtils.isEmpty(packageArchiveInfo.applicationInfo.className)) {
@@ -298,10 +295,10 @@ public final class c {
                             plugin2.mApplication = zeusApplication;
                             zeusApplication.attach(plugin2, Zeus.getAppApplication());
                         }
-                        long a15 = a2.a("makeApplication");
-                        if (a15 > 20 || a15 < 0) {
+                        long a14 = a.a("makeApplication");
+                        if (a14 > 20 || a14 < 0) {
                             sb.append("makeApplication cost:");
-                            sb.append(a15);
+                            sb.append(a14);
                             sb.append(";");
                         }
                         return true;
@@ -318,9 +315,9 @@ public final class c {
         return invokeLLL.booleanValue;
     }
 
-    public static void a(String str, int i2, @NonNull String str2, int i3, long j, String str3) {
+    public static void a(String str, int i2, @NonNull String str2, int i3, long j2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i2), str2, Integer.valueOf(i3), Long.valueOf(j), str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i2), str2, Integer.valueOf(i3), Long.valueOf(j2), str3}) == null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             JSONObject jSONObject3 = new JSONObject();
@@ -328,7 +325,7 @@ public final class c {
                 jSONObject.putOpt("status_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i2)));
                 jSONObject.putOpt("plugin_package_name", com.bytedance.pangle.log.d.a(str2));
                 jSONObject.putOpt("version_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i3)));
-                jSONObject3.putOpt("duration", com.bytedance.pangle.log.d.a(Long.valueOf(j)));
+                jSONObject3.putOpt("duration", com.bytedance.pangle.log.d.a(Long.valueOf(j2)));
                 jSONObject2.putOpt("message", com.bytedance.pangle.log.d.a(str3));
                 jSONObject2.putOpt("timestamp", com.bytedance.pangle.log.d.a(Long.valueOf(System.currentTimeMillis())));
             } catch (JSONException e2) {

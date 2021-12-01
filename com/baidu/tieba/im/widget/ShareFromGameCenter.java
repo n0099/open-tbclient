@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.f.p.l;
-import b.a.r0.m3.p0.b;
+import c.a.d.f.p.l;
+import c.a.r0.t3.p0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -22,27 +22,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ShareFromGameCenter extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f51490e;
+    public TextView f46141e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51491f;
+    public TextView f46142f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HeadImageView f51492g;
+    public HeadImageView f46143g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f51493h;
+    public Button f46144h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f51494i;
-    public LinearLayout j;
-    public LinearLayout k;
+    public TbImageView f46145i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public LinearLayout f46146j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public LinearLayout f46147k;
     public LinearLayout l;
     public TextView m;
     public ShareFromGameCenterMsgData n;
@@ -75,46 +79,46 @@ public class ShareFromGameCenter extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                this.j.setBackgroundDrawable(this.o.getResources().getDrawable(R.drawable.selector_msg_text_bubble_me));
-                this.f51490e.setTextColor(this.o.getResources().getColor(R.color.CAM_X0111));
-                this.f51491f.setTextColor(this.o.getResources().getColor(R.color.CAM_X0111));
+                this.f46146j.setBackgroundDrawable(this.o.getResources().getDrawable(R.drawable.selector_msg_text_bubble_me));
+                this.f46141e.setTextColor(this.o.getResources().getColor(R.color.CAM_X0111));
+                this.f46142f.setTextColor(this.o.getResources().getColor(R.color.CAM_X0111));
             } else {
-                this.f51490e.setTextColor(this.o.getResources().getColor(R.color.CAM_X0105));
-                this.f51491f.setTextColor(this.o.getResources().getColor(R.color.CAM_X0106));
-                this.j.setBackgroundDrawable(this.o.getResources().getDrawable(R.drawable.selector_msg_text_bubble_other));
+                this.f46141e.setTextColor(this.o.getResources().getColor(R.color.CAM_X0105));
+                this.f46142f.setTextColor(this.o.getResources().getColor(R.color.CAM_X0106));
+                this.f46146j.setBackgroundDrawable(this.o.getResources().getDrawable(R.drawable.selector_msg_text_bubble_other));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                layoutParams.setMargins(l.g(getContext(), R.dimen.ds14), 0, 0, 0);
-                layoutParams.height = l.g(getContext(), R.dimen.ds48);
-                this.k.setLayoutParams(layoutParams);
+                layoutParams.setMargins(l.f(getContext(), R.dimen.ds14), 0, 0, 0);
+                layoutParams.height = l.f(getContext(), R.dimen.ds48);
+                this.f46147k.setLayoutParams(layoutParams);
             }
-            this.f51490e.setText(this.n.getTitle());
-            this.f51492g.setDefaultResource(R.drawable.pic_avatar_ba_140);
-            this.f51492g.setAutoChangeStyle(false);
-            this.f51492g.startLoad(this.n.getImageUrl(), 10, false);
-            this.f51491f.setText(this.n.getContent());
-            this.f51493h.setTextColor(this.o.getResources().getColor(R.color.CAM_X0105));
-            this.f51493h.setBackgroundResource(R.drawable.btn_appdownload);
+            this.f46141e.setText(this.n.getTitle());
+            this.f46143g.setDefaultResource(R.drawable.pic_avatar_ba_140);
+            this.f46143g.setAutoChangeStyle(false);
+            this.f46143g.startLoad(this.n.getImageUrl(), 10, false);
+            this.f46142f.setText(this.n.getContent());
+            this.f46144h.setTextColor(this.o.getResources().getColor(R.color.CAM_X0105));
+            this.f46144h.setBackgroundResource(R.drawable.btn_appdownload);
             if (!TextUtils.isEmpty(this.n.getButton())) {
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, l.g(getContext(), R.dimen.ds60));
-                int g2 = l.g(getContext(), R.dimen.ds30);
-                layoutParams2.setMargins(g2, l.g(getContext(), R.dimen.ds18), g2, g2);
-                this.f51493h.setLayoutParams(layoutParams2);
-                this.f51493h.setVisibility(0);
-                this.f51493h.setText(this.n.getButton());
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, l.f(getContext(), R.dimen.ds60));
+                int f2 = l.f(getContext(), R.dimen.ds30);
+                layoutParams2.setMargins(f2, l.f(getContext(), R.dimen.ds18), f2, f2);
+                this.f46144h.setLayoutParams(layoutParams2);
+                this.f46144h.setVisibility(0);
+                this.f46144h.setText(this.n.getButton());
             } else {
                 LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-                int g3 = l.g(getContext(), R.dimen.ds30);
-                layoutParams3.setMargins(g3, l.g(getContext(), R.dimen.ds20), g3, g3);
-                this.f51493h.setVisibility(8);
+                int f3 = l.f(getContext(), R.dimen.ds30);
+                layoutParams3.setMargins(f3, l.f(getContext(), R.dimen.ds20), f3, f3);
+                this.f46144h.setVisibility(8);
                 this.l.setLayoutParams(layoutParams3);
             }
             if (TextUtils.isEmpty(this.n.getShareSource())) {
-                this.k.setVisibility(8);
+                this.f46147k.setVisibility(8);
             }
             this.m.setText(this.n.getShareSource());
-            this.f51494i.setDefaultResource(R.drawable.tb_launcher_icon);
-            this.f51494i.setAutoChangeStyle(false);
-            this.f51494i.startLoad(this.n.getShareSourceIcon(), 10, false);
+            this.f46145i.setDefaultResource(R.drawable.tb_launcher_icon);
+            this.f46145i.setAutoChangeStyle(false);
+            this.f46145i.startLoad(this.n.getShareSourceIcon(), 10, false);
             TiebaStatic.eventStat(this.o, "game_show", "show", 1, "dev_id", b.a(this.n.getShareSourceUrl()), "ref_id", GameCenterCoreUtils.REF_TYPE_IM);
         }
     }
@@ -122,19 +126,19 @@ public class ShareFromGameCenter extends LinearLayout {
     public LinearLayout getContentBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46146j : (LinearLayout) invokeV.objValue;
     }
 
     public LinearLayout getTail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46147k : (LinearLayout) invokeV.objValue;
     }
 
     public ImageView getTiebaIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51494i : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46145i : (ImageView) invokeV.objValue;
     }
 
     public void initUI() {
@@ -142,20 +146,20 @@ public class ShareFromGameCenter extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.share_from_game_center_pic_and_word, this);
             setOrientation(1);
-            this.j = (LinearLayout) findViewById(R.id.share_info_layout);
+            this.f46146j = (LinearLayout) findViewById(R.id.share_info_layout);
             this.l = (LinearLayout) findViewById(R.id.game_share_content);
-            this.k = (LinearLayout) findViewById(R.id.small_tail);
-            this.f51490e = (TextView) findViewById(R.id.game_title);
-            this.f51491f = (TextView) findViewById(R.id.game_desc);
+            this.f46147k = (LinearLayout) findViewById(R.id.small_tail);
+            this.f46141e = (TextView) findViewById(R.id.game_title);
+            this.f46142f = (TextView) findViewById(R.id.game_desc);
             HeadImageView headImageView = (HeadImageView) findViewById(R.id.game_img);
-            this.f51492g = headImageView;
+            this.f46143g = headImageView;
             headImageView.setDefaultResource(R.drawable.pic_avatar_ba_140);
-            this.f51492g.setAutoChangeStyle(false);
-            this.f51493h = (Button) findViewById(R.id.accept_invite_button);
+            this.f46143g.setAutoChangeStyle(false);
+            this.f46144h = (Button) findViewById(R.id.accept_invite_button);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.tail_icon);
-            this.f51494i = tbImageView;
+            this.f46145i = tbImageView;
             tbImageView.setDefaultResource(R.drawable.tb_launcher_icon);
-            this.f51494i.setAutoChangeStyle(false);
+            this.f46145i.setAutoChangeStyle(false);
             this.m = (TextView) findViewById(R.id.tail_game_from);
         }
     }
@@ -172,7 +176,7 @@ public class ShareFromGameCenter extends LinearLayout {
     public void setTiebaIcon(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbImageView) == null) {
-            this.f51494i = tbImageView;
+            this.f46145i = tbImageView;
         }
     }
 

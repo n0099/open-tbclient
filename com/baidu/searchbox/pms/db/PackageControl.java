@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.Closeables;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.pms.bean.PackageInfo;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PackageControl {
     public static /* synthetic */ Interceptable $ic;
     public static volatile PackageControl sInstance;
@@ -326,7 +325,7 @@ public class PackageControl {
     private Cursor getQueryCursor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? PmsContentProviderImpl.queryExt(this.mContext, "select * from package_info", null) : (Cursor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? PmsContentProviderImpl.queryExt(this.mContext, "select * from package_info", null) : (Cursor) invokeV.objValue;
     }
 
     public synchronized long addOrUpdate(PackageInfo packageInfo) {

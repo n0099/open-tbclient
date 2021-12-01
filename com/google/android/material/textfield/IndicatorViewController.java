@@ -23,7 +23,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.TextViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +33,7 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class IndicatorViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
@@ -106,7 +105,7 @@ public final class IndicatorViewController {
 
     private void createCaptionAnimators(@NonNull List<Animator> list, boolean z, @Nullable TextView textView, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{list, Boolean.valueOf(z), textView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && textView != null && z) {
+        if ((interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{list, Boolean.valueOf(z), textView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && textView != null && z) {
             if (i2 == i4 || i2 == i3) {
                 list.add(createCaptionOpacityAnimator(textView, i4 == i2));
                 if (i4 == i2) {
@@ -119,7 +118,7 @@ public final class IndicatorViewController {
     private ObjectAnimator createCaptionOpacityAnimator(TextView textView, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, this, textView, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, this, textView, z)) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(textView, View.ALPHA, z ? 1.0f : 0.0f);
             ofFloat.setDuration(167L);
             ofFloat.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);

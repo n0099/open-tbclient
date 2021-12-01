@@ -20,6 +20,7 @@ import com.kwad.sdk.core.imageloader.core.assist.FlushedInputStream;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.assist.QueueProcessingType;
 import com.kwad.sdk.core.imageloader.core.decode.ImageDecoder;
+import com.kwad.sdk.core.imageloader.core.download.ConnectionConfig;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.core.process.BitmapProcessor;
 import com.kwad.sdk.core.imageloader.utils.L;
@@ -45,6 +46,7 @@ public final class ImageLoaderConfiguration {
     public final BitmapProcessor processorForDiskCache;
     public final Resources resources;
     public final ImageDownloader slowNetworkDownloader;
+    public final Executor taskDistributor;
     public final Executor taskExecutor;
     public final Executor taskExecutorForCachedImages;
     public final QueueProcessingType tasksProcessingType;
@@ -95,6 +97,8 @@ public final class ImageLoaderConfiguration {
         public static final String WARNING_OVERLAP_EXECUTOR = "threadPoolSize(), threadPriority() and tasksProcessingOrder() calls can overlap taskExecutor() and taskExecutorForCachedImages() calls.";
         public static final String WARNING_OVERLAP_MEMORY_CACHE = "memoryCache() and memoryCacheSize() calls overlap each other";
         public transient /* synthetic */ FieldHolder $fh;
+        public String cacheParentDir;
+        public ConnectionConfig connectionConfig;
         public Context context;
         public boolean customExecutor;
         public boolean customExecutorForCachedImages;
@@ -113,6 +117,7 @@ public final class ImageLoaderConfiguration {
         public MemoryCache memoryCache;
         public int memoryCacheSize;
         public BitmapProcessor processorForDiskCache;
+        public Executor taskDistributor;
         public Executor taskExecutor;
         public Executor taskExecutorForCachedImages;
         public QueueProcessingType tasksProcessingType;
@@ -158,6 +163,7 @@ public final class ImageLoaderConfiguration {
             this.processorForDiskCache = null;
             this.taskExecutor = null;
             this.taskExecutorForCachedImages = null;
+            this.taskDistributor = null;
             this.customExecutor = false;
             this.customExecutorForCachedImages = false;
             this.threadPoolSize = 3;
@@ -178,7 +184,7 @@ public final class ImageLoaderConfiguration {
 
         private void initEmptyFieldsWithDefaultValues() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(65557, this) == null) {
+            if (interceptable == null || interceptable.invokeV(65558, this) == null) {
                 if (this.taskExecutor == null) {
                     this.taskExecutor = DefaultConfigurationFactory.createExecutor(this.threadPoolSize, this.threadPriority, this.tasksProcessingType);
                 } else {
@@ -189,11 +195,17 @@ public final class ImageLoaderConfiguration {
                 } else {
                     this.customExecutorForCachedImages = true;
                 }
+                if (this.taskDistributor == null) {
+                    this.taskDistributor = DefaultConfigurationFactory.createTaskDistributor();
+                }
                 if (this.diskCache == null) {
                     if (this.diskCacheFileNameGenerator == null) {
                         this.diskCacheFileNameGenerator = DefaultConfigurationFactory.createFileNameGenerator();
                     }
-                    this.diskCache = DefaultConfigurationFactory.createDiskCache(this.context, this.diskCacheFileNameGenerator, this.diskCacheSize, this.diskCacheFileCount);
+                    if (this.cacheParentDir == null) {
+                        this.cacheParentDir = this.context.getExternalCacheDir().getPath();
+                    }
+                    this.diskCache = DefaultConfigurationFactory.createDiskCache(this.context, this.diskCacheFileNameGenerator, this.diskCacheSize, this.diskCacheFileCount, this.cacheParentDir);
                 }
                 if (this.memoryCache == null) {
                     this.memoryCache = DefaultConfigurationFactory.createMemoryCache(this.context, this.memoryCacheSize);
@@ -223,10 +235,30 @@ public final class ImageLoaderConfiguration {
             return (ImageLoaderConfiguration) invokeV.objValue;
         }
 
+        public Builder cacheParentDir(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.cacheParentDir = str;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
+        public Builder connectionConfig(ConnectionConfig connectionConfig) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, connectionConfig)) == null) {
+                this.connectionConfig = connectionConfig;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
         public Builder defaultDisplayImageOptions(DisplayImageOptions displayImageOptions) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, displayImageOptions)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, displayImageOptions)) == null) {
                 this.defaultDisplayImageOptions = displayImageOptions;
                 return this;
             }
@@ -236,7 +268,7 @@ public final class ImageLoaderConfiguration {
         public Builder denyCacheImageMultipleSizesInMemory() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 this.denyCacheImageMultipleSizesInMemory = true;
                 return this;
             }
@@ -247,41 +279,41 @@ public final class ImageLoaderConfiguration {
         public Builder discCache(DiskCache diskCache) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, diskCache)) == null) ? diskCache(diskCache) : (Builder) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, diskCache)) == null) ? diskCache(diskCache) : (Builder) invokeL.objValue;
         }
 
         @Deprecated
         public Builder discCacheExtraOptions(int i2, int i3, BitmapProcessor bitmapProcessor) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i2, i3, bitmapProcessor)) == null) ? diskCacheExtraOptions(i2, i3, bitmapProcessor) : (Builder) invokeIIL.objValue;
+            return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i2, i3, bitmapProcessor)) == null) ? diskCacheExtraOptions(i2, i3, bitmapProcessor) : (Builder) invokeIIL.objValue;
         }
 
         @Deprecated
         public Builder discCacheFileCount(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? diskCacheFileCount(i2) : (Builder) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? diskCacheFileCount(i2) : (Builder) invokeI.objValue;
         }
 
         @Deprecated
         public Builder discCacheFileNameGenerator(FileNameGenerator fileNameGenerator) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fileNameGenerator)) == null) ? diskCacheFileNameGenerator(fileNameGenerator) : (Builder) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fileNameGenerator)) == null) ? diskCacheFileNameGenerator(fileNameGenerator) : (Builder) invokeL.objValue;
         }
 
         @Deprecated
         public Builder discCacheSize(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? diskCacheSize(i2) : (Builder) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? diskCacheSize(i2) : (Builder) invokeI.objValue;
         }
 
         public Builder diskCache(DiskCache diskCache) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, diskCache)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, diskCache)) == null) {
                 if (this.diskCacheSize > 0 || this.diskCacheFileCount > 0) {
                     L.w(WARNING_OVERLAP_DISK_CACHE_PARAMS, new Object[0]);
                 }
@@ -297,7 +329,7 @@ public final class ImageLoaderConfiguration {
         public Builder diskCacheExtraOptions(int i2, int i3, BitmapProcessor bitmapProcessor) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048585, this, i2, i3, bitmapProcessor)) == null) {
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048587, this, i2, i3, bitmapProcessor)) == null) {
                 this.maxImageWidthForDiskCache = i2;
                 this.maxImageHeightForDiskCache = i3;
                 this.processorForDiskCache = bitmapProcessor;
@@ -309,7 +341,7 @@ public final class ImageLoaderConfiguration {
         public Builder diskCacheFileCount(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
                 if (i2 > 0) {
                     if (this.diskCache != null) {
                         L.w(WARNING_OVERLAP_DISK_CACHE_PARAMS, new Object[0]);
@@ -325,7 +357,7 @@ public final class ImageLoaderConfiguration {
         public Builder diskCacheFileNameGenerator(FileNameGenerator fileNameGenerator) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, fileNameGenerator)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, fileNameGenerator)) == null) {
                 if (this.diskCache != null) {
                     L.w(WARNING_OVERLAP_DISK_CACHE_NAME_GENERATOR, new Object[0]);
                 }
@@ -338,7 +370,7 @@ public final class ImageLoaderConfiguration {
         public Builder diskCacheSize(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
                 if (i2 > 0) {
                     if (this.diskCache != null) {
                         L.w(WARNING_OVERLAP_DISK_CACHE_PARAMS, new Object[0]);
@@ -354,7 +386,7 @@ public final class ImageLoaderConfiguration {
         public Builder imageDecoder(ImageDecoder imageDecoder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, imageDecoder)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, imageDecoder)) == null) {
                 this.decoder = imageDecoder;
                 return this;
             }
@@ -364,7 +396,7 @@ public final class ImageLoaderConfiguration {
         public Builder imageDownloader(ImageDownloader imageDownloader) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, imageDownloader)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, imageDownloader)) == null) {
                 this.downloader = imageDownloader;
                 return this;
             }
@@ -374,7 +406,7 @@ public final class ImageLoaderConfiguration {
         public Builder memoryCache(MemoryCache memoryCache) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, memoryCache)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, memoryCache)) == null) {
                 if (this.memoryCacheSize != 0) {
                     L.w(WARNING_OVERLAP_MEMORY_CACHE, new Object[0]);
                 }
@@ -387,7 +419,7 @@ public final class ImageLoaderConfiguration {
         public Builder memoryCacheExtraOptions(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048592, this, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048594, this, i2, i3)) == null) {
                 this.maxImageWidthForMemoryCache = i2;
                 this.maxImageHeightForMemoryCache = i3;
                 return this;
@@ -398,7 +430,7 @@ public final class ImageLoaderConfiguration {
         public Builder memoryCacheSize(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
                 if (i2 > 0) {
                     if (this.memoryCache != null) {
                         L.w(WARNING_OVERLAP_MEMORY_CACHE, new Object[0]);
@@ -414,7 +446,7 @@ public final class ImageLoaderConfiguration {
         public Builder memoryCacheSizePercentage(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
                 if (i2 <= 0 || i2 >= 100) {
                     throw new IllegalArgumentException("availableMemoryPercent must be in range (0 < % < 100)");
                 }
@@ -427,10 +459,20 @@ public final class ImageLoaderConfiguration {
             return (Builder) invokeI.objValue;
         }
 
+        public Builder setTaskDistributor(Executor executor) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, executor)) == null) {
+                this.taskDistributor = executor;
+                return this;
+            }
+            return (Builder) invokeL.objValue;
+        }
+
         public Builder taskExecutor(Executor executor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, executor)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, executor)) == null) {
                 if (this.threadPoolSize != 3 || this.threadPriority != 3 || this.tasksProcessingType != DEFAULT_TASK_PROCESSING_TYPE) {
                     L.w(WARNING_OVERLAP_EXECUTOR, new Object[0]);
                 }
@@ -443,7 +485,7 @@ public final class ImageLoaderConfiguration {
         public Builder taskExecutorForCachedImages(Executor executor) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, executor)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, executor)) == null) {
                 if (this.threadPoolSize != 3 || this.threadPriority != 3 || this.tasksProcessingType != DEFAULT_TASK_PROCESSING_TYPE) {
                     L.w(WARNING_OVERLAP_EXECUTOR, new Object[0]);
                 }
@@ -456,7 +498,7 @@ public final class ImageLoaderConfiguration {
         public Builder tasksProcessingOrder(QueueProcessingType queueProcessingType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, queueProcessingType)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, queueProcessingType)) == null) {
                 if (this.taskExecutor != null || this.taskExecutorForCachedImages != null) {
                     L.w(WARNING_OVERLAP_EXECUTOR, new Object[0]);
                 }
@@ -469,7 +511,7 @@ public final class ImageLoaderConfiguration {
         public Builder threadPoolSize(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
                 if (this.taskExecutor != null || this.taskExecutorForCachedImages != null) {
                     L.w(WARNING_OVERLAP_EXECUTOR, new Object[0]);
                 }
@@ -482,7 +524,7 @@ public final class ImageLoaderConfiguration {
         public Builder threadPriority(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
                 if (this.taskExecutor != null || this.taskExecutorForCachedImages != null) {
                     L.w(WARNING_OVERLAP_EXECUTOR, new Object[0]);
                 }
@@ -503,7 +545,7 @@ public final class ImageLoaderConfiguration {
         public Builder writeDebugLogs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
                 this.writeLogs = true;
                 return this;
             }
@@ -610,6 +652,7 @@ public final class ImageLoaderConfiguration {
         this.processorForDiskCache = builder.processorForDiskCache;
         this.taskExecutor = builder.taskExecutor;
         this.taskExecutorForCachedImages = builder.taskExecutorForCachedImages;
+        this.taskDistributor = builder.taskDistributor;
         this.threadPoolSize = builder.threadPoolSize;
         this.threadPriority = builder.threadPriority;
         this.tasksProcessingType = builder.tasksProcessingType;

@@ -6,16 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog f42846a;
+    public final /* synthetic */ CommonDialog a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog.Builder f42847b;
+    public final /* synthetic */ CommonDialog.Builder f38324b;
 
     public a(CommonDialog.Builder builder, CommonDialog commonDialog) {
         Interceptable interceptable = $ic;
@@ -32,8 +30,8 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        this.f42847b = builder;
-        this.f42846a = commonDialog;
+        this.f38324b = builder;
+        this.a = commonDialog;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,9 +39,9 @@ public class a implements View.OnClickListener {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            onClickListener = this.f42847b.f42845i;
+            onClickListener = this.f38324b.f38322i;
             onClickListener.onClick(view);
-            this.f42846a.dismiss();
+            this.a.dismiss();
         }
     }
 }

@@ -6,7 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,15 +23,13 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class bo {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Proxy f42026a;
+    public static final Proxy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f42027b;
+    public static final Proxy f37155b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,8 +45,8 @@ public final class bo {
                 return;
             }
         }
-        f42026a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-        f42027b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+        a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+        f37155b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
     }
 
     public static String a() {
@@ -67,40 +64,41 @@ public final class bo {
 
     public static String b(String str) {
         InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65544, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        File a2 = a(str);
-        if (a2 == null || !a2.exists()) {
-            return "";
-        }
-        FileInputStream fileInputStream = null;
-        try {
-            FileInputStream fileInputStream2 = new FileInputStream(a2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            File a2 = a(str);
+            if (a2 == null || !a2.exists()) {
+                return "";
+            }
+            FileInputStream fileInputStream2 = null;
             try {
-                byte[] a3 = a(fileInputStream2);
+                fileInputStream = new FileInputStream(a2);
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                byte[] a3 = a(fileInputStream);
                 if (a3 == null) {
-                    bu.a(fileInputStream2);
+                    bu.a(fileInputStream);
                     return "";
                 }
                 String str2 = new String(a3, "utf-8");
-                bu.a(fileInputStream2);
+                bu.a(fileInputStream);
                 return str2;
-            } catch (Exception unused) {
-                fileInputStream = fileInputStream2;
-                bu.a(fileInputStream);
+            } catch (Exception unused2) {
+                fileInputStream2 = fileInputStream;
+                bu.a(fileInputStream2);
                 return "";
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = fileInputStream2;
-                bu.a(fileInputStream);
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                bu.a(fileInputStream2);
                 throw th;
             }
-        } catch (Exception unused2) {
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (String) invokeL.objValue;
     }
 
     public static boolean c(String str) {
@@ -171,7 +169,7 @@ public final class bo {
 
     public static void a(Context context, String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, Boolean.valueOf(z)}) == null) || context == null) {
             return;
         }
         FileOutputStream fileOutputStream = null;
@@ -195,7 +193,7 @@ public final class bo {
     public static void a(String str, String str2, boolean z) {
         File parentFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
             FileOutputStream fileOutputStream = null;
             try {
                 File a2 = a(str);
@@ -278,10 +276,10 @@ public final class bo {
                     String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                     if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                         if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            httpURLConnection = (HttpURLConnection) url.openConnection(f42027b);
+                            httpURLConnection = (HttpURLConnection) url.openConnection(f37155b);
                         }
                     } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(f42026a);
+                        httpURLConnection = (HttpURLConnection) url.openConnection(a);
                     }
                 }
                 httpURLConnection = null;

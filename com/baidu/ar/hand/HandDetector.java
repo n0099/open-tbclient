@@ -13,7 +13,6 @@ import com.baidu.ar.d.e;
 import com.baidu.ar.d.l;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HandDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HandDetector";
@@ -68,7 +67,7 @@ public class HandDetector extends com.baidu.ar.b.a.a {
     public int d(int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (i2 != -90) {
                 if (i2 != 90) {
                     if (i2 != 180) {
@@ -122,7 +121,7 @@ public class HandDetector extends com.baidu.ar.b.a.a {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) {
-                    boolean z = aVar.f37295tv;
+                    boolean z = aVar.f33391tv;
                     String[] strArr = aVar.tw;
                     return z ? ARMdlInterfaceJNI.initHandSkeletonFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initHandSkeleton(strArr[0], strArr[1]);
                 }

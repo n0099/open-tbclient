@@ -32,12 +32,12 @@ public class b implements m {
 
     @Override // com.ss.android.socialbase.downloader.depend.m
     public void a(DownloadInfo downloadInfo) throws BaseException {
-        PackageInfo a2;
+        PackageInfo a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || (a2 = com.ss.android.socialbase.appdownloader.c.a(j.getContext(), downloadInfo, downloadInfo.getSavePath(), downloadInfo.getName())) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) || (a = com.ss.android.socialbase.appdownloader.c.a(j.getContext(), downloadInfo, downloadInfo.getSavePath(), downloadInfo.getName())) == null) {
             return;
         }
-        downloadInfo.setAppVersionCode(a2.versionCode);
+        downloadInfo.setAppVersionCode(a.versionCode);
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.m

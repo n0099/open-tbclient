@@ -7,7 +7,6 @@ import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -497,7 +496,7 @@ public class ConstraintWidget {
         int i20;
         boolean z14;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{linearSystem, Boolean.valueOf(z), solverVariable, solverVariable2, dimensionBehaviour, Boolean.valueOf(z2), constraintAnchor, constraintAnchor2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Float.valueOf(f3), Boolean.valueOf(z5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{linearSystem, Boolean.valueOf(z), solverVariable, solverVariable2, dimensionBehaviour, Boolean.valueOf(z2), constraintAnchor, constraintAnchor2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Float.valueOf(f3), Boolean.valueOf(z5)}) == null) {
             SolverVariable createObjectVariable3 = linearSystem.createObjectVariable(constraintAnchor);
             SolverVariable createObjectVariable4 = linearSystem.createObjectVariable(constraintAnchor2);
             SolverVariable createObjectVariable5 = linearSystem.createObjectVariable(constraintAnchor.getTarget());
@@ -837,7 +836,7 @@ public class ConstraintWidget {
     private boolean isChainHead(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
             int i3 = i2 * 2;
             ConstraintAnchor[] constraintAnchorArr = this.mListAnchors;
             if (constraintAnchorArr[i3].mTarget != null && constraintAnchorArr[i3].mTarget.mTarget != constraintAnchorArr[i3]) {

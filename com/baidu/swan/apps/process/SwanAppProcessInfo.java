@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.SwanAppActivity1;
@@ -26,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SwanAppProcessInfo {
     public static final /* synthetic */ SwanAppProcessInfo[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -126,7 +125,7 @@ public final class SwanAppProcessInfo {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (sIndices == null) {
                 SwanAppProcessInfo[] values = values();
                 sIndices = new SwanAppProcessInfo[values.length];
@@ -159,7 +158,7 @@ public final class SwanAppProcessInfo {
     public static SwanAppProcessInfo init(SwanAppProcessInfo swanAppProcessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, swanAppProcessInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, swanAppProcessInfo)) == null) {
             if (!isInited() && swanAppProcessInfo != null && !sCurrent.equals(swanAppProcessInfo) && !UNKNOWN.equals(swanAppProcessInfo)) {
                 sCurrent = swanAppProcessInfo;
             }

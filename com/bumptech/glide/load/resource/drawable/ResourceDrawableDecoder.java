@@ -18,7 +18,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.facebook.common.util.UriUtil;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_PATH_SEGMENTS = 1;

@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DensityUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public float f42594a;
+    public float a;
 
     public DensityUtil() {
         Interceptable interceptable = $ic;
@@ -28,7 +26,7 @@ public class DensityUtil {
                 return;
             }
         }
-        this.f42594a = Resources.getSystem().getDisplayMetrics().density;
+        this.a = Resources.getSystem().getDisplayMetrics().density;
     }
 
     public static int dp2px(float f2) {
@@ -46,12 +44,12 @@ public class DensityUtil {
     public int dip2px(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) ((f2 * this.f42594a) + 0.5f) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) ((f2 * this.a) + 0.5f) : invokeF.intValue;
     }
 
     public float px2dip(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? f2 / this.f42594a : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? f2 / this.a : invokeF.floatValue;
     }
 }

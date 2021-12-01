@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
@@ -34,7 +33,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownloadContext {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Executor SERIAL_EXECUTOR;
@@ -47,7 +46,7 @@ public class DownloadContext {
     public final DownloadTask[] tasks;
     public Handler uiHandler;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AlterContext {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +86,7 @@ public class DownloadContext {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,7 +258,7 @@ public class DownloadContext {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class QueueAttachTaskStartEndListener extends DownloadTaskStartEndListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,7 +309,7 @@ public class DownloadContext {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class QueueSet {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -637,7 +636,7 @@ public class DownloadContext {
     public void callbackQueueEndOnSerialLoop(boolean z) {
         DownloadContextListener downloadContextListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, this, z) == null) || (downloadContextListener = this.contextListener) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65541, this, z) == null) || (downloadContextListener = this.contextListener) == null) {
             return;
         }
         if (z) {

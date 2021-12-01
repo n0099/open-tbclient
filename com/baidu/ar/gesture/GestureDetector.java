@@ -15,7 +15,6 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.d.e;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GestureDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GestureDetector";
@@ -94,7 +93,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
     public int c(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, bundle)) == null) {
             if (bundle == null) {
                 return 1;
             }
@@ -152,7 +151,7 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
                     float f2 = this.qr.getFloat("det_thresh", 0.25f);
                     float f3 = this.qr.getFloat("first_cls_thresh", 0.75f);
                     float f4 = this.qr.getFloat("second_cls_thresh", 0.5f);
-                    return aVar.f37295tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1);
+                    return aVar.f33391tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i2, f2, f3, f4, 1);
                 }
                 return invokeL2.intValue;
             }

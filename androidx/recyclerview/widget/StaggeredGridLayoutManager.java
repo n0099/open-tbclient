@@ -17,7 +17,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -552,7 +551,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     private int calculateScrollDirectionForPosition(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
             if (getChildCount() == 0) {
                 return this.mShouldReverseLayout ? 1 : -1;
             }
@@ -564,7 +563,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     private boolean checkSpanForGap(Span span) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, span)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, span)) == null) {
             if (this.mShouldReverseLayout) {
                 if (span.getEndLine() < this.mPrimaryOrientation.getEndAfterPadding()) {
                     ArrayList<View> arrayList = span.mViews;
@@ -659,7 +658,7 @@ public class StaggeredGridLayoutManager extends RecyclerView.LayoutManager imple
     /* JADX DEBUG: Multi-variable search result rejected for r16v0, resolved type: androidx.recyclerview.widget.StaggeredGridLayoutManager */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r9v0 */
-    /* JADX WARN: Type inference failed for: r9v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r9v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r9v7 */
     private int fill(RecyclerView.Recycler recycler, LayoutState layoutState, RecyclerView.State state) {
         InterceptResult invokeLLL;

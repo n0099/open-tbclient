@@ -11,12 +11,10 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f69122a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f69123b;
+    public long f60987b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -31,40 +29,40 @@ public final class d {
                 return;
             }
         }
-        this.f69122a = "";
+        this.a = "";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69122a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public final void a(long j) {
+    public final void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f69123b = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.f60987b = j2;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f69122a = str;
+            this.a = str;
         }
     }
 
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69123b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60987b : invokeV.longValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "_$101005Bean{url='" + this.f69122a + ExtendedMessageFormat.QUOTE + ", time=" + this.f69123b + ExtendedMessageFormat.END_FE;
+            return "_$101005Bean{url='" + this.a + ExtendedMessageFormat.QUOTE + ", time=" + this.f60987b + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

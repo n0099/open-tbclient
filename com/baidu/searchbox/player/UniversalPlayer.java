@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.callback.UniversalPlayerCallbackManager;
 import com.baidu.searchbox.player.constants.PlayerConstant;
@@ -35,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UniversalPlayer extends BDVideoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UniversalPlayer";
@@ -48,7 +47,7 @@ public class UniversalPlayer extends BDVideoPlayer {
     public ITimerTask mProgressHelper;
     public IPlayerStyleSwitchHelper mStyleSwitchHelper;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DELAY_TIME = 1000;
@@ -161,7 +160,7 @@ public class UniversalPlayer extends BDVideoPlayer {
 
     private void syncWork() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             if (this.mVideoSession.getStatus() == PlayerStatus.PLAYING) {
                 this.mProgressHelper.start();
             } else {

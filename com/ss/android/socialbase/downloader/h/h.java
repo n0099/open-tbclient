@@ -12,9 +12,7 @@ import java.lang.ref.WeakReference;
 public class h extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<a> f70348a;
+    public final WeakReference<a> a;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -39,14 +37,14 @@ public class h extends Handler {
                 return;
             }
         }
-        this.f70348a = new WeakReference<>(aVar);
+        this.a = new WeakReference<>(aVar);
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.f70348a.get()) == null || message == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (aVar = this.a.get()) == null || message == null) {
             return;
         }
         aVar.a(message);

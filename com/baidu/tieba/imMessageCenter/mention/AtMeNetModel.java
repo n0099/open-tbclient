@@ -1,8 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import b.a.q0.k0.b.g;
-import b.a.r0.m1.b.b;
-import b.a.r0.m1.b.c;
+import c.a.q0.l0.b.g;
+import c.a.r0.s1.b.b;
+import c.a.r0.s1.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

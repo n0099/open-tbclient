@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ScoreMetaBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,15 +25,15 @@ public class ScoreMetaBuilder {
         }
     }
 
-    public static ScoreMetaData buildLaunchSpeedMetaData(long j) {
+    public static ScoreMetaData buildLaunchSpeedMetaData(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) {
             ScoreMetaData scoreMetaData = new ScoreMetaData();
             scoreMetaData.type = IDeviceScore.TYPE_LAUNCH_SPEED;
             HashMap hashMap = new HashMap(1);
             scoreMetaData.params = hashMap;
-            hashMap.put(ParamKeys.KEY_LAUNCH_SPEED_LAUNCH_TS, Long.valueOf(j));
+            hashMap.put(ParamKeys.KEY_LAUNCH_SPEED_LAUNCH_TS, Long.valueOf(j2));
             return scoreMetaData;
         }
         return (ScoreMetaData) invokeJ.objValue;

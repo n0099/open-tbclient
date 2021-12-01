@@ -2,7 +2,6 @@ package com.baidu.wallet.newbindcard.c;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,40 +13,36 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f60221a = "";
+    public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60222b = "";
+    public static String f53225b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f60223c = "";
+    public static String f53226c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f60224d = "";
+    public static String f53227d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f60225e = "";
+    public static String f53228e = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.newbindcard.c.a$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.newbindcard.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1848a {
+    /* loaded from: classes12.dex */
+    public static class C1920a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static a f60226a;
+        public static a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -63,7 +58,7 @@ public class a {
                     return;
                 }
             }
-            f60226a = new a(null);
+            a = new a(null);
         }
     }
 
@@ -88,7 +83,7 @@ public class a {
 
     public static void a(String str, Map<String, Object> map, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, map, strArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, map, strArr) == null) {
             f();
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -112,37 +107,37 @@ public class a {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f60223c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f53226c : (String) invokeV.objValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f60224d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f53227d : (String) invokeV.objValue;
     }
 
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f60225e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f53228e : (String) invokeV.objValue;
     }
 
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
             f();
-            f60221a = null;
-            f60222b = null;
-            f60223c = null;
-            f60224d = null;
-            f60225e = null;
+            a = null;
+            f53225b = null;
+            f53226c = null;
+            f53227d = null;
+            f53228e = null;
         }
     }
 
     public static a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? C1848a.f60226a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? C1920a.a : (a) invokeV.objValue;
     }
 
     public static String g() {
@@ -150,11 +145,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             f();
-            if (!TextUtils.isEmpty(f60221a)) {
-                return f60221a;
+            if (!TextUtils.isEmpty(a)) {
+                return a;
             }
             String h2 = h();
-            f60221a = h2;
+            a = h2;
             return h2;
         }
         return (String) invokeV.objValue;
@@ -188,27 +183,27 @@ public class a {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f60223c = str;
+            f53226c = str;
         }
     }
 
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            f60224d = str;
+            f53227d = str;
         }
     }
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            f60225e = str;
+            f53228e = str;
         }
     }
 
     public static void a(String str, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, strArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, strArr) == null) {
             f();
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -227,13 +222,13 @@ public class a {
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f60222b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f53225b : (String) invokeV.objValue;
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f60222b = str;
+            f53225b = str;
         }
     }
 }

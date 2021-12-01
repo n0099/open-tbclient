@@ -34,7 +34,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.TextViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -190,7 +189,7 @@ public class SwitchCompat extends CompoundButton {
 
     private void applyThumbTint() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.mThumbDrawable == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.mThumbDrawable == null) {
             return;
         }
         if (this.mHasThumbTint || this.mHasThumbTintMode) {
@@ -210,7 +209,7 @@ public class SwitchCompat extends CompoundButton {
 
     private void applyTrackTint() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || this.mTrackDrawable == null) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.mTrackDrawable == null) {
             return;
         }
         if (this.mHasTrackTint || this.mHasTrackTintMode) {

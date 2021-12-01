@@ -3,19 +3,18 @@ package com.baidu.apollon.utils.support;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class ViewHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +126,7 @@ public final class ViewHelper {
 
         public static void b(View view, float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(AdIconUtil.AD_TEXT_ID, null, view, f2) == null) {
+            if (interceptable == null || interceptable.invokeLF(65541, null, view, f2) == null) {
                 view.setPivotX(f2);
             }
         }
@@ -211,7 +210,7 @@ public final class ViewHelper {
 
         public static void b(View view, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, view, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(65542, null, view, i2) == null) {
                 view.setScrollY(i2);
             }
         }
@@ -272,13 +271,13 @@ public final class ViewHelper {
     public static float getPivotX(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, view)) == null) ? AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotX() : a.b(view) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view)) == null) ? AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotX() : a.b(view) : invokeL.floatValue;
     }
 
     public static float getPivotY(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, view)) == null) ? AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotY() : a.c(view) : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) ? AnimatorProxy.NEEDS_PROXY ? AnimatorProxy.wrap(view).getPivotY() : a.c(view) : invokeL.floatValue;
     }
 
     public static float getRotation(View view) {

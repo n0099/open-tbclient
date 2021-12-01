@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RotateFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PaintFlagsDrawFilter f55656e;
+    public PaintFlagsDrawFilter f49745e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RotateFrameLayout(Context context) {
@@ -42,7 +42,7 @@ public class RotateFrameLayout extends FrameLayout {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.setDrawFilter(this.f55656e);
+            canvas.setDrawFilter(this.f49745e);
             super.onDraw(canvas);
         }
     }
@@ -87,6 +87,6 @@ public class RotateFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f55656e = new PaintFlagsDrawFilter(0, 3);
+        this.f49745e = new PaintFlagsDrawFilter(0, 3);
     }
 }

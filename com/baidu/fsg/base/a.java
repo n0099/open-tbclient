@@ -4,38 +4,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f38136a = false;
+    public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38137b = "com.baidu.fsg.base";
+    public static final String f34134b = "com.baidu.fsg.base";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38138c = "release";
+    public static final String f34135c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38139d = "";
+    public static final String f34136d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f38140e = 1;
+    public static final int f34137e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38141f = "1.0";
+    public static final String f34138f = "1.0";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38142g = "test";
+    public static final String f34139g = "test";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38143h = "BgAAAA";
+    public static final String f34140h = "BgAAAA";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f38144i = false;
-    public static final boolean j = false;
-    public static final String k = "2.1.0.0";
+    public static final boolean f34141i = false;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final boolean f34142j = false;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final String f34143k = "2.1.0.0";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

@@ -4,7 +4,6 @@ import android.graphics.ColorSpace;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +32,7 @@ import java.io.InputStream;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class EncodedImage implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SAMPLE_SIZE = 1;
@@ -81,7 +80,7 @@ public class EncodedImage implements Closeable {
         this.mSampleSize = 1;
         this.mStreamSize = -1;
         Preconditions.checkArgument(CloseableReference.isValid(closeableReference));
-        this.mPooledByteBufferRef = closeableReference.m52clone();
+        this.mPooledByteBufferRef = closeableReference.m100clone();
         this.mInputStreamSupplier = null;
     }
 
@@ -109,7 +108,7 @@ public class EncodedImage implements Closeable {
     public static boolean isMetaDataAvailable(EncodedImage encodedImage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, encodedImage)) == null) ? encodedImage.mRotationAngle >= 0 && encodedImage.mWidth >= 0 && encodedImage.mHeight >= 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, encodedImage)) == null) ? encodedImage.mRotationAngle >= 0 && encodedImage.mWidth >= 0 && encodedImage.mHeight >= 0 : invokeL.booleanValue;
     }
 
     private void parseMetaDataIfNeeded() {
@@ -472,7 +471,7 @@ public class EncodedImage implements Closeable {
     public static boolean isValid(@Nullable EncodedImage encodedImage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, encodedImage)) == null) ? encodedImage != null && encodedImage.isValid() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, encodedImage)) == null) ? encodedImage != null && encodedImage.isValid() : invokeL.booleanValue;
     }
 
     @Nullable

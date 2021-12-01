@@ -1,7 +1,6 @@
 package com.baidu.pass.biometrics.base.debug;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,15 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f42553a = "SAPI_BIOMETRIC";
+    public static final String a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f42554b;
+    public static boolean f38099b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -89,7 +86,7 @@ public final class Log {
 
     public static void d(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f42554b) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f38099b) {
             a(str, objArr);
         }
     }
@@ -104,27 +101,27 @@ public final class Log {
     public static void enable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            f42554b = z;
+            f38099b = z;
         }
     }
 
     public static void i(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) && f42554b) {
+        if ((interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) && f38099b) {
             a(str, objArr);
         }
     }
 
     public static void w(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) && f42554b) {
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) && f38099b) {
             a(str, objArr);
         }
     }
 
     public static void e(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, th) == null) {
             e(str, th);
         }
     }
@@ -138,7 +135,7 @@ public final class Log {
 
     public static void e(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) && f42554b) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, objArr) == null) && f38099b) {
             a(str, objArr);
         }
     }

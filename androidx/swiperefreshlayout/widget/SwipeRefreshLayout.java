@@ -29,7 +29,6 @@ import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.ListViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -187,7 +186,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
 
     private void createProgressView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.mCircleView = new CircleImageView(getContext(), CIRCLE_BG_LIGHT);
             CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(getContext());
             this.mProgress = circularProgressDrawable;
@@ -200,7 +199,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingPare
 
     private void ensureTarget() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && this.mTarget == null) {
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.mTarget == null) {
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (!childAt.equals(this.mCircleView)) {

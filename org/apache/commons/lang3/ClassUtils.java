@@ -3,7 +3,6 @@ package org.apache.commons.lang3;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -225,7 +224,7 @@ public class ClassUtils {
     public static List<Class<?>> getAllInterfaces(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
             if (cls == null) {
                 return null;
             }
@@ -506,7 +505,7 @@ public class ClassUtils {
     public static String getAbbreviatedName(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) {
             if (i2 > 0) {
                 if (str == null) {
                     return "";

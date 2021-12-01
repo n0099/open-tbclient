@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.x0.t.t;
+import c.a.d.f.p.l;
+import c.a.x0.t.t;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,28 +23,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class RecordPreviewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56493e;
+    public int f50552e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f56494f;
+    public float f50553f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f56495g;
+    public int f50554g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56496h;
+    public int f50555h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f56497i;
-    public long j;
-    public boolean k;
+    public long f50556i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public long f50557j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public boolean f50558k;
     public boolean l;
     public boolean m;
     public float n;
@@ -61,13 +65,13 @@ public class RecordPreviewContainer extends FrameLayout {
     public e y;
     public f z;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecordPreviewContainer f56498e;
+        public final /* synthetic */ RecordPreviewContainer f50559e;
 
         public a(RecordPreviewContainer recordPreviewContainer) {
             Interceptable interceptable = $ic;
@@ -84,29 +88,29 @@ public class RecordPreviewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f56498e = recordPreviewContainer;
+            this.f50559e = recordPreviewContainer;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56498e.k();
-                this.f56498e.j();
+                this.f50559e.k();
+                this.f50559e.j();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MotionEvent f56499e;
+        public final /* synthetic */ MotionEvent f50560e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RecordPreviewContainer f56500f;
+        public final /* synthetic */ RecordPreviewContainer f50561f;
 
         public b(RecordPreviewContainer recordPreviewContainer, MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
@@ -123,32 +127,32 @@ public class RecordPreviewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f56500f = recordPreviewContainer;
-            this.f56499e = motionEvent;
+            this.f50561f = recordPreviewContainer;
+            this.f50560e = motionEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f56500f.z == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50561f.z == null) {
                 return;
             }
-            f fVar = this.f56500f.z;
-            MotionEvent motionEvent = this.f56499e;
-            fVar.c(motionEvent, motionEvent.getX(), this.f56499e.getY());
+            f fVar = this.f50561f.z;
+            MotionEvent motionEvent = this.f50560e;
+            fVar.c(motionEvent, motionEvent.getX(), this.f50560e.getY());
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MotionEvent f56501e;
+        public final /* synthetic */ MotionEvent f50562e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RecordPreviewContainer f56502f;
+        public final /* synthetic */ RecordPreviewContainer f50563f;
 
         public c(RecordPreviewContainer recordPreviewContainer, MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
@@ -165,25 +169,25 @@ public class RecordPreviewContainer extends FrameLayout {
                     return;
                 }
             }
-            this.f56502f = recordPreviewContainer;
-            this.f56501e = motionEvent;
+            this.f50563f = recordPreviewContainer;
+            this.f50562e = motionEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f56502f.k || !this.f56502f.l || Math.abs(this.f56502f.p - this.f56501e.getX()) >= 30.0f || this.f56502f.z == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50563f.f50558k || !this.f50563f.l || Math.abs(this.f50563f.p - this.f50562e.getX()) >= 30.0f || this.f50563f.z == null) {
                 return;
             }
-            this.f56502f.z.d(this.f56501e);
+            this.f50563f.z.d(this.f50562e);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface d {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface e {
         void a(MotionEvent motionEvent, int i2);
 
@@ -192,7 +196,7 @@ public class RecordPreviewContainer extends FrameLayout {
         void c();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface f {
         void a(MotionEvent motionEvent);
 
@@ -226,7 +230,7 @@ public class RecordPreviewContainer extends FrameLayout {
 
     public final void g(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || this.k || !this.l || Math.abs(this.p - motionEvent.getX()) >= 30.0f || Math.abs(this.q - motionEvent.getY()) >= 30.0f) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || this.f50558k || !this.l || Math.abs(this.p - motionEvent.getX()) >= 30.0f || Math.abs(this.q - motionEvent.getY()) >= 30.0f) {
             return;
         }
         this.s.removeCallbacks(this.t);
@@ -252,7 +256,7 @@ public class RecordPreviewContainer extends FrameLayout {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (this.k) {
+            if (this.f50558k) {
                 if (Math.abs(this.o - motionEvent.getX()) < this.r && Math.abs(this.n - motionEvent.getY()) < this.r) {
                     this.s.postDelayed(new b(this, motionEvent), 200L);
                     return true;
@@ -283,11 +287,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.f56495g || x < t.k(R.dimen.ds64)) {
+                if (y > this.f50554g || x < t.k(R.dimen.ds64)) {
                     return true;
                 }
-                int a2 = b.a.r0.d4.j.a.h.a.a(x, Opcodes.IFNE, this.f56496h - Opcodes.IFNE);
-                int a3 = b.a.r0.d4.j.a.h.a.a(y, Opcodes.IFNE, this.f56495g - Opcodes.IFNE);
+                int a2 = c.a.r0.k4.k.a.h.a.a(x, Opcodes.IFNE, this.f50555h - Opcodes.IFNE);
+                int a3 = c.a.r0.k4.k.a.h.a.a(y, Opcodes.IFNE, this.f50554g - Opcodes.IFNE);
                 e eVar = this.y;
                 if (eVar != null) {
                     eVar.b(motionEvent, 308, 308, a2, a3);
@@ -295,9 +299,9 @@ public class RecordPreviewContainer extends FrameLayout {
                 if (this.v == null) {
                     j();
                 }
-                int k = l.k(getContext());
+                int k2 = l.k(getContext());
                 int i2 = l.i(getContext());
-                this.v.setTranslationX(motionEvent.getX() - (k * 0.5f));
+                this.v.setTranslationX(motionEvent.getX() - (k2 * 0.5f));
                 this.v.setTranslationY(motionEvent.getY() - (i2 * 0.5f));
                 this.v.beginFocus();
             }
@@ -317,30 +321,30 @@ public class RecordPreviewContainer extends FrameLayout {
                     if (action != 2) {
                         if (action != 3) {
                             if (action == 5) {
-                                this.f56493e = 1;
-                                this.f56494f = m(motionEvent);
+                                this.f50552e = 1;
+                                this.f50553f = m(motionEvent);
                             }
                         }
-                    } else if (this.f56493e == 1) {
+                    } else if (this.f50552e == 1) {
                         if (motionEvent.getPointerCount() < 2) {
                             return false;
                         }
                         float m = m(motionEvent);
-                        int i2 = (int) ((m - this.f56494f) / 100.0f);
+                        int i2 = (int) ((m - this.f50553f) / 100.0f);
                         if ((i2 >= 1 || i2 <= -1) && (eVar = this.y) != null) {
                             this.A = true;
                             eVar.a(motionEvent, i2);
-                            this.f56494f = m;
+                            this.f50553f = m;
                         }
                     } else if (Math.abs(this.p - motionEvent.getX()) > this.r || Math.abs(this.q - motionEvent.getY()) > this.r) {
                         l();
                     }
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f56497i < 100 && currentTimeMillis - this.j < 500) {
-                    this.k = true;
+                if (currentTimeMillis - this.f50556i < 100 && currentTimeMillis - this.f50557j < 500) {
+                    this.f50558k = true;
                 } else {
-                    this.k = false;
+                    this.f50558k = false;
                 }
                 if (!this.A) {
                     if (!h(motionEvent)) {
@@ -354,7 +358,7 @@ public class RecordPreviewContainer extends FrameLayout {
                     this.A = false;
                     eVar2.c();
                 }
-                this.j = currentTimeMillis;
+                this.f50557j = currentTimeMillis;
             } else {
                 float x = motionEvent.getX();
                 this.p = x;
@@ -362,10 +366,10 @@ public class RecordPreviewContainer extends FrameLayout {
                 float y = motionEvent.getY();
                 this.q = y;
                 this.n = y;
-                this.f56493e = 0;
-                this.f56497i = System.currentTimeMillis();
+                this.f50552e = 0;
+                this.f50556i = System.currentTimeMillis();
                 this.l = true;
-                this.k = false;
+                this.f50558k = false;
             }
             return true;
         }
@@ -390,7 +394,7 @@ public class RecordPreviewContainer extends FrameLayout {
             if (this.w != null) {
                 int width = getWidth();
                 int width2 = this.w.getWidth();
-                int i2 = this.f56496h;
+                int i2 = this.f50555h;
                 int i3 = (((i2 * 3) / 4) - (width2 / 2)) + ((width - i2) / 2);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds44), UtilHelper.getDimenPixelSize(R.dimen.tbds52));
                 layoutParams.gravity = 17;
@@ -427,8 +431,8 @@ public class RecordPreviewContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onFinishInflate();
             this.r = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-            this.f56496h = l.k(getContext());
-            this.f56495g = l.i(getContext());
+            this.f50555h = l.k(getContext());
+            this.f50554g = l.i(getContext());
             this.x = (AspectGLSurfaceView) findViewById(R.id.capture_surface_view);
             this.s = new Handler();
             postDelayed(new a(this), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
@@ -532,7 +536,7 @@ public class RecordPreviewContainer extends FrameLayout {
                 return;
             }
         }
-        this.f56493e = 0;
+        this.f50552e = 0;
         this.m = true;
         this.A = false;
         this.u = context;

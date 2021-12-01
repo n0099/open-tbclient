@@ -1,7 +1,6 @@
 package org.apache.http.client.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +73,7 @@ public class URLEncodedUtils {
 
     public static void parse(List<NameValuePair> list, Scanner scanner, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, list, scanner, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, list, scanner, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }

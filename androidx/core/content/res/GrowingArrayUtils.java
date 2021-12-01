@@ -1,7 +1,6 @@
 package androidx.core.content.res;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +46,7 @@ public final class GrowingArrayUtils {
     public static int growSize(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             if (i2 <= 4) {
                 return 8;
             }
@@ -92,7 +91,7 @@ public final class GrowingArrayUtils {
     public static int[] insert(int[] iArr, int i2, int i3, int i4) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(AdIconUtil.BAIDU_LOGO_ID, null, iArr, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65542, null, iArr, i2, i3, i4)) == null) {
             if (i2 + 1 <= iArr.length) {
                 System.arraycopy(iArr, i3, iArr, i3 + 1, i2 - i3);
                 iArr[i3] = i4;
@@ -107,16 +106,16 @@ public final class GrowingArrayUtils {
         return (int[]) invokeLIII.objValue;
     }
 
-    public static long[] append(long[] jArr, int i2, long j) {
+    public static long[] append(long[] jArr, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jArr, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jArr, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             if (i2 + 1 > jArr.length) {
                 long[] jArr2 = new long[growSize(i2)];
                 System.arraycopy(jArr, 0, jArr2, 0, i2);
                 jArr = jArr2;
             }
-            jArr[i2] = j;
+            jArr[i2] = j2;
             return jArr;
         }
         return (long[]) invokeCommon.objValue;
@@ -137,18 +136,18 @@ public final class GrowingArrayUtils {
         return (boolean[]) invokeCommon.objValue;
     }
 
-    public static long[] insert(long[] jArr, int i2, int i3, long j) {
+    public static long[] insert(long[] jArr, int i2, int i3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{jArr, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{jArr, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
             if (i2 + 1 <= jArr.length) {
                 System.arraycopy(jArr, i3, jArr, i3 + 1, i2 - i3);
-                jArr[i3] = j;
+                jArr[i3] = j2;
                 return jArr;
             }
             long[] jArr2 = new long[growSize(i2)];
             System.arraycopy(jArr, 0, jArr2, 0, i3);
-            jArr2[i3] = j;
+            jArr2[i3] = j2;
             System.arraycopy(jArr, i3, jArr2, i3 + 1, jArr.length - i3);
             return jArr2;
         }

@@ -1,8 +1,7 @@
 package com.google.common.base;
 
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdDownloadApkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,19 +11,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractIterator<T> implements Iterator<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public State f64035e;
+    public State f55973e;
 
     /* renamed from: f  reason: collision with root package name */
-    public T f64036f;
+    public T f55974f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -49,7 +48,7 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
             }
             READY = new State("READY", 0);
             NOT_READY = new State("NOT_READY", 1);
-            DONE = new State(AdDownloadApkUtils.DL_STATUS_DONE, 2);
+            DONE = new State("DONE", 2);
             State state = new State("FAILED", 3);
             FAILED = state;
             $VALUES = new State[]{READY, NOT_READY, DONE, state};
@@ -87,12 +86,10 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f64037a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -109,13 +106,13 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
                 }
             }
             int[] iArr = new int[State.values().length];
-            f64037a = iArr;
+            a = iArr;
             try {
                 iArr[State.READY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f64037a[State.DONE.ordinal()] = 2;
+                a[State.DONE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -134,7 +131,7 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
                 return;
             }
         }
-        this.f64035e = State.NOT_READY;
+        this.f55973e = State.NOT_READY;
     }
 
     public abstract T a();
@@ -143,7 +140,7 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.f64035e = State.DONE;
+            this.f55973e = State.DONE;
             return null;
         }
         return (T) invokeV.objValue;
@@ -153,10 +150,10 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f64035e = State.FAILED;
-            this.f64036f = a();
-            if (this.f64035e != State.DONE) {
-                this.f64035e = State.READY;
+            this.f55973e = State.FAILED;
+            this.f55974f = a();
+            if (this.f55973e != State.DONE) {
+                this.f55973e = State.READY;
                 return true;
             }
             return false;
@@ -169,8 +166,8 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n.w(this.f64035e != State.FAILED);
-            int i2 = a.f64037a[this.f64035e.ordinal()];
+            n.w(this.f55973e != State.FAILED);
+            int i2 = a.a[this.f55973e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return c();
@@ -188,9 +185,9 @@ public abstract class AbstractIterator<T> implements Iterator<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (hasNext()) {
-                this.f64035e = State.NOT_READY;
-                T t = this.f64036f;
-                this.f64036f = null;
+                this.f55973e = State.NOT_READY;
+                T t = this.f55974f;
+                this.f55974f = null;
                 return t;
             }
             throw new NoSuchElementException();

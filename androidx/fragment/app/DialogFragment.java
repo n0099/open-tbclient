@@ -270,7 +270,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
                     this.mDialog.setCancelable(this.mCancelable);
                     this.mDialog.setOnCancelListener(this.mOnCancelListener);
                     this.mDialog.setOnDismissListener(this.mOnDismissListener);
-                    if (bundle == null || (bundle2 = bundle.getBundle("android:savedDialogState")) == null) {
+                    if (bundle == null || (bundle2 = bundle.getBundle(SAVED_DIALOG_STATE_TAG)) == null) {
                         return;
                     }
                     this.mDialog.onRestoreInstanceState(bundle2);
@@ -399,7 +399,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             super.onSaveInstanceState(bundle);
             Dialog dialog = this.mDialog;
             if (dialog != null) {
-                bundle.putBundle("android:savedDialogState", dialog.onSaveInstanceState());
+                bundle.putBundle(SAVED_DIALOG_STATE_TAG, dialog.onSaveInstanceState());
             }
             int i2 = this.mStyle;
             if (i2 != 0) {

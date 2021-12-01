@@ -2,7 +2,6 @@ package com.bytedance.pangle.f;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +9,7 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import kotlin.UShort;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,8 +21,8 @@ public abstract class s {
             if (randomAccessFile.length() < 22) {
                 return null;
             }
-            Pair<ByteBuffer, Long> a2 = a(randomAccessFile, 0);
-            return a2 != null ? a2 : a(randomAccessFile, 65535);
+            Pair<ByteBuffer, Long> a = a(randomAccessFile, 0);
+            return a != null ? a : a(randomAccessFile, 65535);
         }
         return (Pair) invokeL.objValue;
     }
@@ -31,7 +30,7 @@ public abstract class s {
     public static long b(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, byteBuffer)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
             c(byteBuffer);
             return a(byteBuffer, byteBuffer.position() + 12);
         }
@@ -40,7 +39,7 @@ public abstract class s {
 
     public static void c(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
+        if ((interceptable == null || interceptable.invokeL(65542, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
             throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
         }
     }
@@ -95,15 +94,15 @@ public abstract class s {
         return (Pair) invokeLI.objValue;
     }
 
-    public static final boolean a(RandomAccessFile randomAccessFile, long j) {
+    public static final boolean a(RandomAccessFile randomAccessFile, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, randomAccessFile, j)) == null) {
-            long j2 = j - 20;
-            if (j2 < 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, randomAccessFile, j2)) == null) {
+            long j3 = j2 - 20;
+            if (j3 < 0) {
                 return false;
             }
-            randomAccessFile.seek(j2);
+            randomAccessFile.seek(j3);
             return randomAccessFile.readInt() == 1347094023;
         }
         return invokeLJ.booleanValue;

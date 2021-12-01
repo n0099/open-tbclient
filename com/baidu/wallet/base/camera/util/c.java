@@ -7,16 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Thread[] f58285a;
+    public Thread[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedBlockingQueue<Runnable> f58286b;
+    public LinkedBlockingQueue<Runnable> f51946b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,9 +29,9 @@ public final class c {
                 return;
             }
         }
-        this.f58285a = null;
-        this.f58286b = null;
-        this.f58286b = new LinkedBlockingQueue<>();
+        this.a = null;
+        this.f51946b = null;
+        this.f51946b = new LinkedBlockingQueue<>();
     }
 
     public static int a(int i2) {
@@ -55,14 +53,14 @@ public final class c {
             if (str == null) {
                 str = "";
             }
-            int a2 = a(i2);
+            int a = a(i2);
             c cVar = new c();
-            cVar.f58285a = new Thread[a2];
-            for (int i3 = a2 - 1; i3 >= 0; i3 += -1) {
-                cVar.f58285a[i3] = new Thread(new d(cVar.f58286b));
-                cVar.f58285a[i3].setPriority(5);
-                cVar.f58285a[i3].setName(str + " " + a2 + "." + (i3 + 1));
-                cVar.f58285a[i3].start();
+            cVar.a = new Thread[a];
+            for (int i3 = a - 1; i3 >= 0; i3 += -1) {
+                cVar.a[i3] = new Thread(new d(cVar.f51946b));
+                cVar.a[i3].setPriority(5);
+                cVar.a[i3].setName(str + " " + a + "." + (i3 + 1));
+                cVar.a[i3].start();
             }
             return cVar;
         }
@@ -75,7 +73,7 @@ public final class c {
             return;
         }
         try {
-            this.f58286b.put(runnable);
+            this.f51946b.put(runnable);
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
@@ -85,17 +83,17 @@ public final class c {
         Thread[] threadArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58286b.clear();
-            for (Thread thread : this.f58285a) {
+            this.f51946b.clear();
+            for (Thread thread : this.a) {
                 if (thread.isAlive()) {
-                    this.f58286b.offer(new b());
+                    this.f51946b.offer(new b());
                 }
             }
-            for (Thread thread2 : this.f58285a) {
+            for (Thread thread2 : this.a) {
                 if (thread2.isAlive()) {
                     try {
                         synchronized (this) {
-                            wait(2000 / this.f58285a.length);
+                            wait(2000 / this.a.length);
                         }
                     } catch (InterruptedException unused) {
                     }

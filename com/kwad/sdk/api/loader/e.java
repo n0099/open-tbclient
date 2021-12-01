@@ -1,9 +1,8 @@
 package com.kwad.sdk.api.loader;
 
-import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
@@ -24,6 +23,8 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.HashMap;
+import java.util.Map;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,15 +32,19 @@ import org.json.JSONObject;
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f64846a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64847b;
+    public String f56995b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64848c;
+    public int f56996c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Map<String, String> f56997d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public IKsAdSDK f56998e;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -48,12 +53,12 @@ public class e {
         void a(Exception exc);
     }
 
-    public e(String str) {
+    public e(String str, IKsAdSDK iKsAdSDK) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, iKsAdSDK};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -63,8 +68,10 @@ public class e {
                 return;
             }
         }
-        this.f64847b = str;
-        this.f64846a = str;
+        this.f56997d = new HashMap();
+        this.f56995b = str;
+        this.a = str;
+        this.f56998e = iKsAdSDK;
     }
 
     private String a() {
@@ -72,9 +79,7 @@ public class e {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            Context context = Loader.get().getContext();
-            int i3 = com.kwad.sdk.api.a.f64806a;
-            String valueOf = String.valueOf(Loader.get().a(context));
+            String valueOf = String.valueOf(Loader.get().a(Loader.get().getContext()));
             IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
             if (ksAdSDKImpl != null) {
                 if (TextUtils.isEmpty(valueOf)) {
@@ -89,17 +94,29 @@ public class e {
             JSONObject networkInfo = Loader.get().getKsAdSDKImpl().getNetworkInfo();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("sdkApiVersion", "3.3.11.4");
-                jSONObject.put("sdkApiVersionCode", 3031104);
+                jSONObject.put("sdkApiVersion", "3.3.17.4");
+                jSONObject.put("sdkApiVersionCode", 3031704);
                 jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
                 jSONObject.put("SDKVersionCode", i2);
-                jSONObject.put("sdkType", i3);
+                jSONObject.put("sdkType", 1);
                 jSONObject.put(DI.APP_INFO_NAME, appInfo);
                 jSONObject.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, deviceInfo);
                 jSONObject.put("networkInfo", networkInfo);
                 jSONObject.put("sdkAbi", s.b());
             } catch (JSONException e2) {
                 e2.printStackTrace();
+            }
+            if (this.f56998e != null) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("version", "3.3.17.4");
+                    jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
+                    jSONObject2.put("message", this.f56998e.getRM(jSONObject.toString()));
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
+                this.f56998e.sR(this.f56995b.replace("https://open.e.kuaishou.com", ""), this.f56997d, jSONObject2.toString());
+                return jSONObject2.toString();
             }
             return jSONObject.toString();
         }
@@ -163,7 +180,7 @@ public class e {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             URLConnection openConnection = new URL(str).openConnection();
             TLSConnectionUtils.wrapHttpURLConnection(openConnection);
-            openConnection.setRequestProperty("Accept-Language", "zh-CN");
+            a("Accept-Language", "zh-CN");
             if (i2 > 0) {
                 openConnection.setConnectTimeout(i2);
             }
@@ -172,27 +189,38 @@ public class e {
             }
             openConnection.setUseCaches(z);
             openConnection.setDoInput(true);
-            openConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-            openConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+            a(HTTP.CONN_DIRECTIVE, "keep-alive");
+            a(BOSTokenRequest.CHARSET, "UTF-8");
             return openConnection;
         }
         return (URLConnection) invokeCommon.objValue;
+    }
+
+    private void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, str2) == null) {
+            this.f56997d.put(str, str2);
+        }
     }
 
     @Nullable
     private HttpURLConnection b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (TextUtils.isEmpty(this.f64846a)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
                 return null;
             }
-            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f64846a, 10000, 30000, false);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.a, 10000, 30000, false);
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setInstanceFollowRedirects(true);
-            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            httpURLConnection.setRequestProperty("User-Agent", RequestParamsUtils.getUserAgent());
+            a("Content-Type", "application/json; charset=UTF-8");
+            a("User-Agent", RequestParamsUtils.getUserAgent());
+            IKsAdSDK iKsAdSDK = this.f56998e;
+            if (iKsAdSDK != null) {
+                iKsAdSDK.addHp(this.f56997d);
+            }
             return httpURLConnection;
         }
         return (HttpURLConnection) invokeV.objValue;
@@ -201,7 +229,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, aVar) != null) {
+        if (interceptable != null && interceptable.invokeL(65543, this, aVar) != null) {
             return;
         }
         HttpURLConnection httpURLConnection = null;
@@ -209,19 +237,29 @@ public class e {
             try {
                 httpURLConnection = b();
                 if (httpURLConnection != null) {
+                    String a2 = a();
+                    if (this.f56997d != null) {
+                        for (Map.Entry<String, String> entry : this.f56997d.entrySet()) {
+                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                        }
+                    }
                     httpURLConnection.connect();
-                    new DataOutputStream(httpURLConnection.getOutputStream()).write(a().getBytes());
+                    new DataOutputStream(httpURLConnection.getOutputStream()).write(a2.getBytes());
                     int responseCode = httpURLConnection.getResponseCode();
                     if (responseCode == 200) {
-                        String a2 = a(httpURLConnection.getInputStream());
+                        String a3 = a(httpURLConnection.getInputStream());
                         a.b bVar = new a.b();
-                        bVar.a(new JSONObject(a2));
+                        JSONObject jSONObject = new JSONObject(a3);
+                        if (this.f56998e != null) {
+                            jSONObject.put("data", new JSONObject(this.f56998e.getRD(jSONObject.optString("data"))));
+                        }
+                        bVar.a(jSONObject);
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f64848c < 21) {
-                        this.f64846a = httpURLConnection.getHeaderField("Location");
-                        this.f64848c++;
+                    } else if (this.f56996c < 21) {
+                        this.a = httpURLConnection.getHeaderField("Location");
+                        this.f56996c++;
                         b(aVar);
                     }
                 }
@@ -255,12 +293,10 @@ public class e {
             i.a(new Runnable(this, aVar) { // from class: com.kwad.sdk.api.loader.e.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f64849a;
+                public final /* synthetic */ a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f64850b;
+                public final /* synthetic */ e f56999b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -277,15 +313,15 @@ public class e {
                             return;
                         }
                     }
-                    this.f64850b = this;
-                    this.f64849a = aVar;
+                    this.f56999b = this;
+                    this.a = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f64850b.b(this.f64849a);
+                        this.f56999b.b(this.a);
                     }
                 }
             });

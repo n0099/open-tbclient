@@ -1,7 +1,6 @@
 package io.reactivex.internal.schedulers;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SchedulerPoolFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<ScheduledThreadPoolExecutor, Object> POOLS;
@@ -31,7 +30,7 @@ public final class SchedulerPoolFactory {
     public static final AtomicReference<ScheduledExecutorService> PURGE_THREAD;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class PurgeProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +73,7 @@ public final class SchedulerPoolFactory {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ScheduledTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,14 +179,14 @@ public final class SchedulerPoolFactory {
 
     public static void tryPutIntoPool(boolean z, ScheduledExecutorService scheduledExecutorService) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(AdIconUtil.AD_TEXT_ID, null, z, scheduledExecutorService) == null) && z && (scheduledExecutorService instanceof ScheduledThreadPoolExecutor)) {
+        if ((interceptable == null || interceptable.invokeZL(65541, null, z, scheduledExecutorService) == null) && z && (scheduledExecutorService instanceof ScheduledThreadPoolExecutor)) {
             POOLS.put((ScheduledThreadPoolExecutor) scheduledExecutorService, scheduledExecutorService);
         }
     }
 
     public static void tryStart(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) != null) || !z) {
+        if ((interceptable != null && interceptable.invokeZ(65542, null, z) != null) || !z) {
             return;
         }
         while (true) {

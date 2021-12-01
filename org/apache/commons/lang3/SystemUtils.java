@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -266,13 +265,13 @@ public class SystemUtils {
     public static boolean getOSMatches(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) ? isOSMatch(OS_NAME, OS_VERSION, str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) ? isOSMatch(OS_NAME, OS_VERSION, str, str2) : invokeLL.booleanValue;
     }
 
     public static boolean getOSMatchesName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? isOSNameMatch(OS_NAME, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? isOSNameMatch(OS_NAME, str) : invokeL.booleanValue;
     }
 
     public static String getSystemProperty(String str) {

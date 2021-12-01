@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaAEffectConfig implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MediaAEffectConfig> CREATOR;
@@ -18,7 +18,7 @@ public class MediaAEffectConfig implements Parcelable, Cloneable {
     public MediaAEffect mMediaAEffect;
     public ShaderConfig mShaderConfig;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Parcelable.Creator<MediaAEffectConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class MediaAEffectConfig implements Parcelable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 MediaAEffectConfig mediaAEffectConfig = (MediaAEffectConfig) super.clone();
-                mediaAEffectConfig.mMediaAEffect = this.mMediaAEffect.m15clone();
+                mediaAEffectConfig.mMediaAEffect = this.mMediaAEffect.m35clone();
                 mediaAEffectConfig.mShaderConfig = (ShaderConfig) this.mShaderConfig.clone();
                 return mediaAEffectConfig;
             } catch (Exception e2) {

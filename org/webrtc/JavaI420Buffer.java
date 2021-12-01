@@ -2,7 +2,6 @@ package org.webrtc;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +70,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i9);
             nativeAllocateByteBuffer.limit(i9 + i8);
-            return new JavaI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: g.c.o
+            return new JavaI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: h.c.o
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -117,7 +116,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
                 ByteBuffer slice3 = dataV.slice();
                 int strideV = i420Buffer.getStrideV();
                 i420Buffer.getClass();
-                return wrap(i6, i7, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: g.c.f0
+                return wrap(i6, i7, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: h.c.f0
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -142,7 +141,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
     public static JavaI420Buffer wrap(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, @Nullable Runnable runnable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), runnable})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), runnable})) == null) {
             if (byteBuffer != null && byteBuffer2 != null && byteBuffer3 != null) {
                 if (byteBuffer.isDirect() && byteBuffer2.isDirect() && byteBuffer3.isDirect()) {
                     ByteBuffer slice = byteBuffer.slice();

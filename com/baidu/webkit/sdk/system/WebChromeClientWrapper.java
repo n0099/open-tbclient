@@ -29,7 +29,7 @@ import com.baidu.webkit.sdk.system.GeolocationPermissionsImpl;
 import com.baidu.webkit.sdk.system.WebStorageImpl;
 import com.baidu.webkit.sdk.system.WebViewImpl;
 import java.util.Objects;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class WebChromeClientWrapper extends WebChromeClient {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -38,13 +38,13 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     public final WebViewImpl mWebView;
 
     /* renamed from: com.baidu.webkit.sdk.system.WebChromeClientWrapper$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class CustomViewCallbackImpl implements WebChromeClient.CustomViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @TargetApi(21)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -247,10 +247,10 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+    public final void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            this.mClient.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater == null ? null : new WebStorageImpl.QuotaUpdater(quotaUpdater));
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
+            this.mClient.onExceededDatabaseQuota(str, str2, j2, j3, j4, quotaUpdater == null ? null : new WebStorageImpl.QuotaUpdater(quotaUpdater));
         }
     }
 
@@ -338,10 +338,10 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
+    public final void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
-            this.mClient.onReachedMaxAppCacheSize(j, j2, quotaUpdater == null ? null : new WebStorageImpl.QuotaUpdater(quotaUpdater));
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            this.mClient.onReachedMaxAppCacheSize(j2, j3, quotaUpdater == null ? null : new WebStorageImpl.QuotaUpdater(quotaUpdater));
         }
     }
 

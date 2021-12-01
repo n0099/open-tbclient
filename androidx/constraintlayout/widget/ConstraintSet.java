@@ -14,10 +14,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Constraints;
 import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.HorizontalTranslateLayout;
-import com.baidu.adp.widget.VerticalTranslateLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -310,7 +307,7 @@ public class ConstraintSet {
         /* JADX INFO: Access modifiers changed from: private */
         public void fillFrom(int i2, ConstraintLayout.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, layoutParams) == null) {
+            if (interceptable == null || interceptable.invokeIL(65541, this, i2, layoutParams) == null) {
                 this.mViewId = i2;
                 this.leftToLeft = layoutParams.leftToLeft;
                 this.leftToRight = layoutParams.leftToRight;
@@ -533,7 +530,7 @@ public class ConstraintSet {
         /* JADX INFO: Access modifiers changed from: private */
         public void fillFromConstraints(int i2, Constraints.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, this, i2, layoutParams) == null) {
+            if (interceptable == null || interceptable.invokeIL(65542, this, i2, layoutParams) == null) {
                 fillFrom(i2, layoutParams);
                 this.alpha = layoutParams.alpha;
                 this.rotation = layoutParams.rotation;
@@ -713,7 +710,7 @@ public class ConstraintSet {
     private Constraint get(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
             if (!this.mConstraints.containsKey(Integer.valueOf(i2))) {
                 this.mConstraints.put(Integer.valueOf(i2), new Constraint(null));
             }
@@ -725,7 +722,7 @@ public class ConstraintSet {
     public static int lookupID(TypedArray typedArray, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, typedArray, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, typedArray, i2, i3)) == null) {
             int resourceId = typedArray.getResourceId(i2, i3);
             return resourceId == -1 ? typedArray.getInt(i2, -1) : resourceId;
         }
@@ -956,9 +953,9 @@ public class ConstraintSet {
                 case 1:
                     return "left";
                 case 2:
-                    return HorizontalTranslateLayout.RIGHT;
+                    return "right";
                 case 3:
-                    return VerticalTranslateLayout.TOP;
+                    return "top";
                 case 4:
                     return "bottom";
                 case 5:

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Mp4Info {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,12 +17,12 @@ public final class Mp4Info {
     public final int mRotation;
     public final int mWidth;
 
-    public Mp4Info(int i2, int i3, int i4, int i5, long j) {
+    public Mp4Info(int i2, int i3, int i4, int i5, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)};
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
@@ -36,7 +36,7 @@ public final class Mp4Info {
         this.mHeight = i3;
         this.mRotation = i4;
         this.mBitrate = i5;
-        this.mDurationUs = j;
+        this.mDurationUs = j2;
     }
 
     public int getBitrate() {

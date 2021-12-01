@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterEngineCache {
     public static /* synthetic */ Interceptable $ic;
     public static FlutterEngineCache instance;
@@ -48,22 +48,29 @@ public class FlutterEngineCache {
         return (FlutterEngineCache) invokeV.objValue;
     }
 
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.cachedEngines.clear();
+        }
+    }
+
     public boolean contains(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.cachedEngines.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.cachedEngines.containsKey(str) : invokeL.booleanValue;
     }
 
     @Nullable
     public FlutterEngine get(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.cachedEngines.get(str) : (FlutterEngine) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.cachedEngines.get(str) : (FlutterEngine) invokeL.objValue;
     }
 
     public void put(@NonNull String str, @Nullable FlutterEngine flutterEngine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, flutterEngine) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, flutterEngine) == null) {
             if (flutterEngine != null) {
                 this.cachedEngines.put(str, flutterEngine);
             } else {
@@ -74,7 +81,7 @@ public class FlutterEngineCache {
 
     public void remove(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             put(str, null);
         }
     }

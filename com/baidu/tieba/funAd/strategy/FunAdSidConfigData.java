@@ -1,7 +1,7 @@
 package com.baidu.tieba.funAd.strategy;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.q.p;
+import c.a.q0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FunAdSidConfigData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class FunAdSidConfigData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mThreshold : invokeV.intValue;
     }
 
-    @Override // b.a.q0.s.q.p
+    @Override // c.a.q0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
@@ -110,10 +110,10 @@ public class FunAdSidConfigData extends p implements Serializable {
         }
     }
 
-    public void setExpiryTime(long j) {
+    public void setExpiryTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.mExpiryTime = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.mExpiryTime = j2;
         }
     }
 
@@ -131,10 +131,10 @@ public class FunAdSidConfigData extends p implements Serializable {
         }
     }
 
-    public void setSpace(long j) {
+    public void setSpace(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.mSpace = j;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.mSpace = j2;
         }
     }
 

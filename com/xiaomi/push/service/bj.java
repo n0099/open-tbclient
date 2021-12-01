@@ -12,13 +12,11 @@ import com.xiaomi.push.cw;
 import com.xiaomi.push.dt;
 import com.xiaomi.push.service.bi;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bj extends al.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bi f72387a;
+    public final /* synthetic */ bi a;
 
     /* renamed from: a  reason: collision with other field name */
     public boolean f938a;
@@ -38,7 +36,7 @@ public class bj extends al.b {
                 return;
             }
         }
-        this.f72387a = biVar;
+        this.a = biVar;
         this.f938a = false;
     }
 
@@ -50,51 +48,51 @@ public class bj extends al.b {
     */
     public void b() {
         String str;
-        dt.a a2;
+        dt.a a;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
             return;
         }
         try {
-            String a3 = a.a(com.xiaomi.push.t.m639a()).a();
-            if (!TextUtils.isEmpty(a3) && !com.xiaomi.push.o.f72272a.name().equals(a3)) {
+            String a2 = a.a(com.xiaomi.push.t.m688a()).a();
+            if (!TextUtils.isEmpty(a2) && !com.xiaomi.push.o.a.name().equals(a2)) {
                 str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
-                a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m639a(), str, (List<com.xiaomi.push.bf>) null), 10));
-                if (a2 == null) {
-                    this.f72387a.f936a = a2;
+                a = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m688a(), str, (List<com.xiaomi.push.bf>) null), 10));
+                if (a == null) {
+                    this.a.f936a = a;
                     this.f938a = true;
-                    this.f72387a.e();
+                    this.a.e();
                     return;
                 }
                 return;
             }
             str = "https://resolver.msg.xiaomi.net/psc/?t=a";
-            a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m639a(), str, (List<com.xiaomi.push.bf>) null), 10));
-            if (a2 == null) {
+            a = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m688a(), str, (List<com.xiaomi.push.bf>) null), 10));
+            if (a == null) {
             }
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m73a("fetch config failure: " + e2.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m122a("fetch config failure: " + e2.getMessage());
         }
     }
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo245c() {
+    public void mo294c() {
         List list;
         List list2;
         bi.a[] aVarArr;
         dt.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f72387a.f935a = null;
+            this.a.f935a = null;
             if (this.f938a) {
-                synchronized (this.f72387a) {
-                    list = this.f72387a.f937a;
-                    list2 = this.f72387a.f937a;
+                synchronized (this.a) {
+                    list = this.a.f937a;
+                    list2 = this.a.f937a;
                     aVarArr = (bi.a[]) list.toArray(new bi.a[list2.size()]);
                 }
                 for (bi.a aVar2 : aVarArr) {
-                    aVar = this.f72387a.f936a;
+                    aVar = this.a.f936a;
                     aVar2.a(aVar);
                 }
             }

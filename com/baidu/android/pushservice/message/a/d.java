@@ -10,13 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f36585a;
+    public Context a;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +31,7 @@ public abstract class d {
                 return;
             }
         }
-        this.f36585a = context;
+        this.a = context;
     }
 
     public abstract com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr);
@@ -41,7 +39,7 @@ public abstract class d {
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ("com.baidu.searchbox_samsung".equals(str) && "com.baidu.searchbox".equals(this.f36585a.getPackageName())) ? "com.baidu.searchbox" : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? ("com.baidu.searchbox_samsung".equals(str) && "com.baidu.searchbox".equals(this.a.getPackageName())) ? "com.baidu.searchbox" : str : (String) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x0037 A[ORIG_RETURN, RETURN] */
@@ -60,7 +58,7 @@ public abstract class d {
         try {
             jSONObject = new JSONObject(new String(bArr));
         } catch (Exception e2) {
-            new b.c(this.f36585a).a(Log.getStackTraceString(e2)).a();
+            new b.c(this.a).a(Log.getStackTraceString(e2)).a();
         }
         if (!jSONObject.isNull("bccs_fb")) {
             i2 = Integer.parseInt(jSONObject.getString("bccs_fb"));

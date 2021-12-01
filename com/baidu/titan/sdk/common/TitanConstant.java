@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.common;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TitanConstant {
     public static final String APKID_ASSETS_PATH = "titan/apkid";
     public static final String APKID_PATH = "assets/titan/apkid";
@@ -16,7 +16,7 @@ public class TitanConstant {
     public static final int PATCH_STATUS_ENABLE = 1;
     public static final String VERIFY_CONFIG_ASSETS_PATH = "titan/verify-config";
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class PatchInfoConstant {
         public static final String KEY_BOOT_LOAD_SYNC_POLICY = "bootLoadSyncPolicy";
         public static final String KEY_HOST_VERSIONCODE = "hostVersionCode";

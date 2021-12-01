@@ -16,7 +16,6 @@ import androidx.collection.ArrayMap;
 import androidx.collection.ArraySet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -186,7 +185,7 @@ public abstract class VersionedParcel {
     private <T> int getType(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, t)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, t)) == null) {
             if (t instanceof String) {
                 return 4;
             }
@@ -216,7 +215,7 @@ public abstract class VersionedParcel {
     private Method getWriteMethod(Class cls) throws IllegalAccessException, NoSuchMethodException, ClassNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, cls)) == null) {
             Method method = this.mWriteCache.get(cls.getName());
             if (method == null) {
                 Class findParcelClass = findParcelClass(cls);
@@ -466,10 +465,10 @@ public abstract class VersionedParcel {
 
     public abstract long readLong();
 
-    public long readLong(long j, int i2) {
+    public long readLong(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? !readField(i2) ? j : readLong() : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? !readField(i2) ? j2 : readLong() : invokeCommon.longValue;
     }
 
     public long[] readLongArray(long[] jArr, int i2) {
@@ -841,13 +840,13 @@ public abstract class VersionedParcel {
         }
     }
 
-    public abstract void writeLong(long j);
+    public abstract void writeLong(long j2);
 
-    public void writeLong(long j, int i2) {
+    public void writeLong(long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             setOutputField(i2);
-            writeLong(j);
+            writeLong(j2);
         }
     }
 
@@ -1350,8 +1349,8 @@ public abstract class VersionedParcel {
         if (interceptable == null || interceptable.invokeL(1048661, this, jArr) == null) {
             if (jArr != null) {
                 writeInt(jArr.length);
-                for (long j : jArr) {
-                    writeLong(j);
+                for (long j2 : jArr) {
+                    writeLong(j2);
                 }
                 return;
             }

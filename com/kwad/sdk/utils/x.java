@@ -1,177 +1,245 @@
 package com.kwad.sdk.utils;
 
 import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Application;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.util.Observable;
 /* loaded from: classes2.dex */
-public class x {
+public class x extends Observable {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Method f67643a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Method f67644b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Field f67645c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static int f67646d;
+    public static volatile x a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835012, "Lcom/kwad/sdk/utils/x;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1510835012, "Lcom/kwad/sdk/utils/x;");
-                return;
-            }
-        }
-        try {
-            f67643a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
-        } catch (NoSuchMethodException e2) {
-            e2.printStackTrace();
-        }
-        try {
-            f67644b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
-        } catch (NoSuchMethodException e3) {
-            e3.printStackTrace();
-        }
-        try {
-            f67645c = WindowManager.LayoutParams.class.getField("statusBarColor");
-        } catch (NoSuchFieldException e4) {
-            e4.printStackTrace();
-        }
-        try {
-            f67646d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
-        } catch (IllegalAccessException e5) {
-            e5.printStackTrace();
-        } catch (NoSuchFieldException e6) {
-            e6.printStackTrace();
-        }
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public WeakReference<Activity> f59665b;
 
-    public static void a(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) {
-            a(activity, z, true);
-        }
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public WeakReference<Activity> f59666c;
 
-    public static void a(Activity activity, boolean z, boolean z2) {
+    public x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Method method = f67644b;
-            if (method == null) {
-                if (z2) {
-                    a(activity.getWindow(), z);
-                    return;
-                }
-                return;
-            }
-            try {
-                method.invoke(activity, Boolean.valueOf(z));
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(View view, boolean z) {
+    public static x a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, view, z) == null) {
-            int systemUiVisibility = view.getSystemUiVisibility();
-            int i2 = z ? f67646d | systemUiVisibility : (~f67646d) & systemUiVisibility;
-            if (i2 != systemUiVisibility) {
-                view.setSystemUiVisibility(i2);
-            }
-        }
-    }
-
-    public static void a(Window window, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i2) == null) {
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            Field field = f67645c;
-            if (field != null) {
-                try {
-                    if (field.getInt(attributes) != i2) {
-                        f67645c.set(attributes, Integer.valueOf(i2));
-                        window.setAttributes(attributes);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (x.class) {
+                    if (a == null) {
+                        a = new x();
                     }
-                } catch (IllegalAccessException e2) {
-                    e2.printStackTrace();
                 }
             }
+            return a;
+        }
+        return (x) invokeV.objValue;
+    }
+
+    public void a(Context context) {
+        Context applicationContext;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (applicationContext = context.getApplicationContext()) == null) {
+            return;
+        }
+        Application application = null;
+        com.kwad.sdk.core.d.a.a("LifecycleHolder", "init appContext: " + applicationContext);
+        if (!(applicationContext instanceof Application)) {
+            Field[] declaredFields = applicationContext.getClass().getDeclaredFields();
+            int length = declaredFields.length;
+            int i2 = 0;
+            while (true) {
+                if (i2 >= length) {
+                    break;
+                }
+                Field field = declaredFields[i2];
+                field.setAccessible(true);
+                try {
+                    obj = field.get(applicationContext);
+                } catch (Throwable th) {
+                    com.kwad.sdk.core.d.a.b(th);
+                }
+                if (obj instanceof Application) {
+                    application = (Application) obj;
+                    break;
+                } else {
+                    continue;
+                    i2++;
+                }
+            }
+        } else {
+            application = (Application) applicationContext;
+        }
+        com.kwad.sdk.core.d.a.a("LifecycleHolder", "init application: " + application);
+        if (application != null) {
+            application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks(this) { // from class: com.kwad.sdk.utils.x.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ x a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public int f59667b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = this;
+                    this.f59667b = 0;
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, bundle) == null) {
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityDestroyed(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityPaused(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.a.f59665b == null || this.a.f59665b.get() == null || !((Activity) this.a.f59665b.get()).equals(activity)) {
+                        return;
+                    }
+                    this.a.f59665b = null;
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityResumed(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
+                        this.a.f59665b = new WeakReference(activity);
+                        this.a.f59666c = new WeakReference(activity);
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(1048580, this, activity, bundle) == null) {
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityStarted(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
+                        int i3 = this.f59667b + 1;
+                        this.f59667b = i3;
+                        if (i3 == 1) {
+                            this.a.e();
+                        }
+                    }
+                }
+
+                @Override // android.app.Application.ActivityLifecycleCallbacks
+                public void onActivityStopped(@NonNull Activity activity) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
+                        int i3 = this.f59667b - 1;
+                        this.f59667b = i3;
+                        if (i3 == 0) {
+                            this.a.f();
+                        }
+                        if (this.a.f59666c == null || this.a.f59666c.get() == null || !((Activity) this.a.f59666c.get()).equals(activity)) {
+                            return;
+                        }
+                        this.a.f59666c = null;
+                    }
+                }
+            });
         }
     }
 
-    public static void a(Window window, boolean z) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, window, z) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                a(window.getAttributes(), "MEIZU_FLAG_DARK_STATUS_BAR_ICON", z);
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() != null : invokeV.booleanValue;
+    }
+
+    @Nullable
+    public Activity c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            WeakReference<Activity> weakReference = this.f59665b;
+            if (weakReference == null) {
+                return null;
             }
-            View decorView = window.getDecorView();
-            if (decorView != null) {
-                a(decorView, z);
-                a(window, 0);
+            return weakReference.get();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WeakReference<Activity> weakReference = this.f59666c;
+            if (weakReference == null || (activity = weakReference.get()) == null) {
+                return 0;
             }
+            return activity.getClass().hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            com.kwad.sdk.core.d.a.a("LifecycleHolder", "onAppBackToForeground");
+            setChanged();
+            notifyObservers("ACTION_APP_BACK_TO_FOREGROUND");
         }
     }
 
-    public static boolean a(WindowManager.LayoutParams layoutParams, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, layoutParams, str, z)) == null) {
-            try {
-                Field declaredField = layoutParams.getClass().getDeclaredField(str);
-                declaredField.setAccessible(true);
-                int i2 = declaredField.getInt(layoutParams);
-                Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
-                declaredField2.setAccessible(true);
-                int i3 = declaredField2.getInt(layoutParams);
-                int i4 = z ? i2 | i3 : (~i2) & i3;
-                if (i3 != i4) {
-                    declaredField2.setInt(layoutParams, i4);
-                    return true;
-                }
-                return false;
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-                return false;
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
-                return false;
-            } catch (NoSuchFieldException e4) {
-                e4.printStackTrace();
-                return false;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            com.kwad.sdk.core.d.a.a("LifecycleHolder", "onAppGoToBackground");
+            setChanged();
+            notifyObservers("ACTION_APP_GO_TO_BACKGROUND");
         }
-        return invokeLLZ.booleanValue;
     }
 }

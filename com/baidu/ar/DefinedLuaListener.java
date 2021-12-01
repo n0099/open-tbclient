@@ -1,7 +1,7 @@
 package com.baidu.ar;
 
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface DefinedLuaListener {
     void onOpenUrl(String str, int i2, HashMap<String, Object> hashMap);
 

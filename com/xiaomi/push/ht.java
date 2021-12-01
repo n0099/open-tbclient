@@ -9,21 +9,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ht {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final ht f72075a;
+    public static final ht a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ ht[] f559a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ht f72076b;
+    public static final ht f63053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ht f72077c;
+    public static final ht f63054c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -42,11 +40,11 @@ public final class ht {
                 return;
             }
         }
-        f72075a = new ht("RegIdExpired", 0, 0);
-        f72076b = new ht("PackageUnregistered", 1, 1);
+        a = new ht("RegIdExpired", 0, 0);
+        f63053b = new ht("PackageUnregistered", 1, 1);
         ht htVar = new ht("Init", 2, 2);
-        f72077c = htVar;
-        f559a = new ht[]{f72075a, f72076b, htVar};
+        f63054c = htVar;
+        f559a = new ht[]{a, f63053b, htVar};
     }
 
     public ht(String str, int i2, int i3) {
@@ -79,11 +77,11 @@ public final class ht {
                     if (i2 != 2) {
                         return null;
                     }
-                    return f72077c;
+                    return f63054c;
                 }
-                return f72076b;
+                return f63053b;
             }
-            return f72075a;
+            return a;
         }
         return (ht) invokeI.objValue;
     }

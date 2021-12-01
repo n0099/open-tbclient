@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.media.audio.service;
 
-import com.baidu.mobads.container.info.XDeviceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BgMusicPlayState {
     public static final /* synthetic */ BgMusicPlayState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +37,7 @@ public final class BgMusicPlayState {
         }
         PLAY = new BgMusicPlayState("PLAY", 0);
         REPLAY = new BgMusicPlayState("REPLAY", 1);
-        PAUSE = new BgMusicPlayState(XDeviceInfo.ABILITY_PAUSE, 2);
+        PAUSE = new BgMusicPlayState("PAUSE", 2);
         STOP = new BgMusicPlayState("STOP", 3);
         INTERRUPT = new BgMusicPlayState("INTERRUPT", 4);
         LOADING = new BgMusicPlayState("LOADING", 5);

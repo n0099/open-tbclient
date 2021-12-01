@@ -13,30 +13,30 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.a {
+public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f66179a;
+    public VideoPosition a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPosition f66180b;
+    public a f57969b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f66181c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Handler f66182d;
+    public Handler f57970c;
 
     /* loaded from: classes2.dex */
-    public static final class VideoPosition extends com.kwad.sdk.core.response.a.a implements Serializable {
+    public static final class VideoPosition extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3445790097441569428L;
         public transient /* synthetic */ FieldHolder $fh;
+        public int borderRadius;
+        public int height;
         public double heightWidthRation;
+        public int leftMargin;
         public double leftMarginRation;
+        public int topMargin;
         public double topMarginRation;
+        public int width;
         public double widthRation;
 
         public VideoPosition() {
@@ -59,12 +59,12 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
         void a(VideoPosition videoPosition);
     }
 
-    public WebCardVideoPositionHandler(com.kwad.sdk.core.webview.a aVar, a aVar2) {
+    public WebCardVideoPositionHandler(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, aVar2};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -74,13 +74,12 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
                 return;
             }
         }
-        this.f66180b = new VideoPosition();
-        this.f66182d = new Handler(Looper.getMainLooper());
-        this.f66179a = aVar;
-        this.f66181c = aVar2;
+        this.a = new VideoPosition();
+        this.f57970c = new Handler(Looper.getMainLooper());
+        this.f57969b = aVar;
     }
 
-    @Override // com.kwad.sdk.core.webview.a.a
+    @Override // com.kwad.sdk.core.webview.kwai.a
     @NonNull
     public String a() {
         InterceptResult invokeV;
@@ -88,19 +87,17 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "videoPosition" : (String) invokeV.objValue;
     }
 
-    @Override // com.kwad.sdk.core.webview.a.a
-    public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             try {
-                this.f66180b.parseJson(new JSONObject(str));
-                if (this.f66181c != null) {
-                    this.f66182d.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler.1
+                this.a.parseJson(new JSONObject(str));
+                if (this.f57969b != null) {
+                    this.f57970c.post(new Runnable(this) { // from class: com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ WebCardVideoPositionHandler f66183a;
+                        public final /* synthetic */ WebCardVideoPositionHandler a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -117,14 +114,14 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
                                     return;
                                 }
                             }
-                            this.f66183a = this;
+                            this.a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f66183a.f66181c.a(this.f66183a.f66180b);
+                                this.a.f57969b.a(this.a.a);
                             }
                         }
                     });
@@ -136,11 +133,11 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
         }
     }
 
-    @Override // com.kwad.sdk.core.webview.a.a
+    @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f66182d.removeCallbacksAndMessages(null);
+            this.f57970c.removeCallbacksAndMessages(null);
         }
     }
 }

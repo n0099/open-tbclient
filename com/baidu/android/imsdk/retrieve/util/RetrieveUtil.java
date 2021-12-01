@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RetrieveUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long RETRIEVE_PAUID_ONLINE = 17592197488700L;
@@ -29,16 +29,16 @@ public class RetrieveUtil {
         }
     }
 
-    public static boolean isRetrievePaUid(Context context, long j) {
+    public static boolean isRetrievePaUid(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j2)) == null) {
             int readIntData = Utility.readIntData(context, Constants.KEY_ENV, 0);
             if (readIntData != 0) {
-                if ((readIntData != 1 && readIntData != 2 && readIntData != 3) || j != RETRIEVE_PAUID_TEST) {
+                if ((readIntData != 1 && readIntData != 2 && readIntData != 3) || j2 != RETRIEVE_PAUID_TEST) {
                     return false;
                 }
-            } else if (j != RETRIEVE_PAUID_ONLINE) {
+            } else if (j2 != RETRIEVE_PAUID_ONLINE) {
                 return false;
             }
             return true;

@@ -2,7 +2,6 @@ package com.baidu.searchbox.pms.init.response;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ParseUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +129,7 @@ public class ParseUtils {
     public static PackageInfo parsePkgItem(String str, String str2, JSONObject jSONObject) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, jSONObject)) == null) ? parsePkgItem(true, str, str2, jSONObject) : (PackageInfo) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, jSONObject)) == null) ? parsePkgItem(true, str, str2, jSONObject) : (PackageInfo) invokeLLL.objValue;
     }
 
     public static List<PackageInfo> parseItems(String str, JSONObject jSONObject) {
@@ -151,7 +150,7 @@ public class ParseUtils {
     public static PackageInfo parsePkgItem(boolean z, String str, String str2, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Boolean.valueOf(z), str, str2, jSONObject})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), str, str2, jSONObject})) == null) {
             if (jSONObject == null) {
                 return null;
             }

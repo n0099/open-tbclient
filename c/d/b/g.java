@@ -1,0 +1,302 @@
+package c.d.b;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
+import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import javax.annotation.Nullable;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import okhttp3.CertificatePinner;
+import okio.ByteString;
+/* loaded from: classes7.dex */
+public final class g {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final g f28366c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Set<b> a;
+    @Nullable
+
+    /* renamed from: b  reason: collision with root package name */
+    public final c.d.b.e0.p.c f28367b;
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List<b> a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new ArrayList();
+        }
+
+        public g a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new g(new LinkedHashSet(this.a), null) : (g) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final String f28368b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final String f28369c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final ByteString f28370d;
+
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (this.a.startsWith(CertificatePinner.Pin.WILDCARD)) {
+                    int indexOf = str.indexOf(46);
+                    if ((str.length() - indexOf) - 1 == this.f28368b.length()) {
+                        String str2 = this.f28368b;
+                        if (str.regionMatches(false, indexOf + 1, str2, 0, str2.length())) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                return str.equals(this.f28368b);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (obj instanceof b) {
+                    b bVar = (b) obj;
+                    if (this.a.equals(bVar.a) && this.f28369c.equals(bVar.f28369c) && this.f28370d.equals(bVar.f28370d)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.a.hashCode()) * 31) + this.f28369c.hashCode()) * 31) + this.f28370d.hashCode() : invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.f28369c + this.f28370d.base64();
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1810733116, "Lc/d/b/g;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1810733116, "Lc/d/b/g;");
+                return;
+            }
+        }
+        f28366c = new a().a();
+    }
+
+    public g(Set<b> set, @Nullable c.d.b.e0.p.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {set, cVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = set;
+        this.f28367b = cVar;
+    }
+
+    public static String c(Certificate certificate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, certificate)) == null) {
+            if (certificate instanceof X509Certificate) {
+                return "sha256/" + e((X509Certificate) certificate).base64();
+            }
+            throw new IllegalArgumentException("Certificate pinning requires X509 certificates");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static ByteString d(X509Certificate x509Certificate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, x509Certificate)) == null) ? ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha1() : (ByteString) invokeL.objValue;
+    }
+
+    public static ByteString e(X509Certificate x509Certificate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) ? ByteString.of(x509Certificate.getPublicKey().getEncoded()).sha256() : (ByteString) invokeL.objValue;
+    }
+
+    public void a(String str, List<Certificate> list) throws SSLPeerUnverifiedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) {
+            List<b> b2 = b(str);
+            if (b2.isEmpty()) {
+                return;
+            }
+            c.d.b.e0.p.c cVar = this.f28367b;
+            if (cVar != null) {
+                list = cVar.a(list, str);
+            }
+            int size = list.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                X509Certificate x509Certificate = (X509Certificate) list.get(i2);
+                int size2 = b2.size();
+                ByteString byteString = null;
+                ByteString byteString2 = null;
+                for (int i3 = 0; i3 < size2; i3++) {
+                    b bVar = b2.get(i3);
+                    if (bVar.f28369c.equals("sha256/")) {
+                        if (byteString == null) {
+                            byteString = e(x509Certificate);
+                        }
+                        if (bVar.f28370d.equals(byteString)) {
+                            return;
+                        }
+                    } else if (bVar.f28369c.equals("sha1/")) {
+                        if (byteString2 == null) {
+                            byteString2 = d(x509Certificate);
+                        }
+                        if (bVar.f28370d.equals(byteString2)) {
+                            return;
+                        }
+                    } else {
+                        throw new AssertionError("unsupported hashAlgorithm: " + bVar.f28369c);
+                    }
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("Certificate pinning failure!");
+            sb.append("\n  Peer certificate chain:");
+            int size3 = list.size();
+            for (int i4 = 0; i4 < size3; i4++) {
+                X509Certificate x509Certificate2 = (X509Certificate) list.get(i4);
+                sb.append("\n    ");
+                sb.append(c(x509Certificate2));
+                sb.append(": ");
+                sb.append(x509Certificate2.getSubjectDN().getName());
+            }
+            sb.append("\n  Pinned certificates for ");
+            sb.append(str);
+            sb.append(":");
+            int size4 = b2.size();
+            for (int i5 = 0; i5 < size4; i5++) {
+                sb.append("\n    ");
+                sb.append(b2.get(i5));
+            }
+            throw new SSLPeerUnverifiedException(sb.toString());
+        }
+    }
+
+    public List<b> b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            List<b> emptyList = Collections.emptyList();
+            for (b bVar : this.a) {
+                if (bVar.a(str)) {
+                    if (emptyList.isEmpty()) {
+                        emptyList = new ArrayList<>();
+                    }
+                    emptyList.add(bVar);
+                }
+            }
+            return emptyList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public boolean equals(@Nullable Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (obj == this) {
+                return true;
+            }
+            if (obj instanceof g) {
+                g gVar = (g) obj;
+                if (c.d.b.e0.e.p(this.f28367b, gVar.f28367b) && this.a.equals(gVar.a)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public g f(@Nullable c.d.b.e0.p.c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cVar)) == null) ? c.d.b.e0.e.p(this.f28367b, cVar) ? this : new g(this.a, cVar) : (g) invokeL.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            c.d.b.e0.p.c cVar = this.f28367b;
+            return ((cVar != null ? cVar.hashCode() : 0) * 31) + this.a.hashCode();
+        }
+        return invokeV.intValue;
+    }
+}

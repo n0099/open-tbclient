@@ -2,11 +2,11 @@ package com.baidu.tieba.flutter.plugin.performanceMonitor;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import b.a.e.f.n.a;
-import b.a.p.d.a;
-import b.a.q0.q0.j;
-import b.a.q0.q0.k;
-import b.a.r0.t0.a.h.e;
+import c.a.d.f.n.a;
+import c.a.o.d.a;
+import c.a.q0.r0.j;
+import c.a.q0.r0.k;
+import c.a.r0.z0.a.h.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -14,7 +14,6 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.searchbox.fluency.utils.FpsConstants;
 import com.baidu.searchbox.perfframe.ioc.Constant;
@@ -33,14 +32,14 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonitorAuto.HostPerformanceMonitor {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, String> flutterEngineStartInfo;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener mFlutterEngineInitListener;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class PerfCPULogAsync extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +155,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 }
             }
         };
-        b.a.p.d.a.b().c(new a.InterfaceC0110a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
+        c.a.o.d.a.b().c(new a.InterfaceC0165a(this) { // from class: com.baidu.tieba.flutter.plugin.performanceMonitor.PerformanceMonitorPlugin.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PerformanceMonitorPlugin this$0;
@@ -179,7 +178,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 this.this$0 = this;
             }
 
-            @Override // b.a.p.d.a.InterfaceC0110a
+            @Override // c.a.o.d.a.InterfaceC0165a
             public void report(String str, HashMap<String, Object> hashMap) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, hashMap) == null) {
@@ -198,7 +197,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
     public void uploadFpsData(HashMap<String, Object> hashMap) {
         HashMap hashMap2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, hashMap) == null) || !k.d().g() || hashMap == null || (hashMap2 = (HashMap) hashMap.get(Constant.KEY_BUSINESS)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, hashMap) == null) || !k.d().g() || hashMap == null || (hashMap2 = (HashMap) hashMap.get(Constant.KEY_BUSINESS)) == null) {
             return;
         }
         Long l = (Long) hashMap.get("time");
@@ -228,7 +227,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
                 list = list2;
             } else {
                 double d6 = size;
-                b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+                c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
                 statsItem.c("time", l);
                 statsItem.c(FpsConstants.REPORT_FPS, Double.valueOf(d2 / d6));
                 statsItem.c("cpu", Double.valueOf(d3 / d6));
@@ -247,7 +246,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
     public void uploadOpenPageData(HashMap<String, Object> hashMap) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, hashMap) == null) && k.d().g()) {
+        if ((interceptable == null || interceptable.invokeL(65542, this, hashMap) == null) && k.d().g()) {
             HashMap<String, Integer> baseSwitchs = SwitchManager.getInstance().getBaseSwitchs();
             if (((baseSwitchs == null || !baseSwitchs.containsKey("flutter_open_disable")) ? 0 : baseSwitchs.get("flutter_open_disable").intValue()) >= 1 || hashMap == null || hashMap == null || hashMap.get("viewCreateTime") == null || ((Double) hashMap.get("viewCreateTime")).doubleValue() <= 0.0d || (str = (String) hashMap.get("pageName")) == null || str.isEmpty()) {
                 return;
@@ -257,63 +256,63 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
             } else if (OpenFlutter.FRAGMENT_MYTAB.equals(str)) {
                 str = "user_center_flt";
             }
-            b.a.e.f.n.a a2 = j.a();
-            a2.b("action", "time");
-            a2.c("ishttp", hashMap.get("isHttp"));
-            a2.b("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-            a2.b("nettype", k.d().f());
+            c.a.d.f.n.a a = j.a();
+            a.b("action", "time");
+            a.c("ishttp", hashMap.get("isHttp"));
+            a.b("issuccess", hashMap.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
+            a.b("nettype", k.d().f());
             if (hashMap.containsKey("whiteTime") && (hashMap.get("whiteTime") instanceof Double)) {
-                a2.c("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
+                a.c("wt", Double.valueOf(((Double) hashMap.get("whiteTime")).doubleValue() * 1000.0d));
             }
-            a2.c("qt", hashMap.get("queneTime"));
-            a2.c("connt", hashMap.get("netConTime"));
-            a2.c("rwt", hashMap.get("netRWTime"));
-            a2.c("fbt", hashMap.get("firstByteTime"));
-            a2.c("abt", hashMap.get("allDataReadTime"));
-            a2.c("dect", hashMap.get("dataDeCompressTime"));
-            a2.c("tqt", hashMap.get("taskWaitTime"));
+            a.c("qt", hashMap.get("queneTime"));
+            a.c("connt", hashMap.get("netConTime"));
+            a.c("rwt", hashMap.get("netRWTime"));
+            a.c("fbt", hashMap.get("firstByteTime"));
+            a.c("abt", hashMap.get("allDataReadTime"));
+            a.c("dect", hashMap.get("dataDeCompressTime"));
+            a.c("tqt", hashMap.get("taskWaitTime"));
             if (hashMap.containsKey("dataParseTime") && (hashMap.get("dataParseTime") instanceof Double)) {
-                a2.c("parset", Double.valueOf(((Double) hashMap.get("dataParseTime")).doubleValue() * 1000.0d));
+                a.c("parset", Double.valueOf(((Double) hashMap.get("dataParseTime")).doubleValue() * 1000.0d));
             }
             if (hashMap.containsKey("drawTime") && (hashMap.get("drawTime") instanceof Double)) {
-                a2.c("rendert", Double.valueOf(((Double) hashMap.get("drawTime")).doubleValue() * 1000.0d));
+                a.c("rendert", Double.valueOf(((Double) hashMap.get("drawTime")).doubleValue() * 1000.0d));
             }
             if (hashMap.get("isHttp") == "1") {
-                a2.c("hrtn", hashMap.get("httpRetryNum"));
-                a2.c("hrtt", hashMap.get("httpRetryCostTime"));
+                a.c("hrtn", hashMap.get("httpRetryNum"));
+                a.c("hrtt", hashMap.get("httpRetryCostTime"));
             }
             if (hashMap.get("errCode") != "0") {
-                a2.c("errcode", hashMap.get("errCode"));
+                a.c("errcode", hashMap.get("errCode"));
             }
             if (hashMap.containsKey("viewCreateTime") && (hashMap.get("viewCreateTime") instanceof Double)) {
-                a2.c("ct", Double.valueOf(((Double) hashMap.get("viewCreateTime")).doubleValue() * 1000.0d));
+                a.c("ct", Double.valueOf(((Double) hashMap.get("viewCreateTime")).doubleValue() * 1000.0d));
             }
             if (hashMap.containsKey("channelTransTime") && (hashMap.get("channelTransTime") instanceof Double)) {
-                a2.c("transt", Double.valueOf(((Double) hashMap.get("channelTransTime")).doubleValue() * 1000.0d));
+                a.c("transt", Double.valueOf(((Double) hashMap.get("channelTransTime")).doubleValue() * 1000.0d));
             }
             if (hashMap.containsKey("dartItemParseTime") && (hashMap.get("dartItemParseTime") instanceof Double)) {
-                a2.c("dpt", Double.valueOf(((Double) hashMap.get("dartItemParseTime")).doubleValue() * 1000.0d));
+                a.c("dpt", Double.valueOf(((Double) hashMap.get("dartItemParseTime")).doubleValue() * 1000.0d));
             }
             if (hashMap.containsKey("reqWaitTime") && (hashMap.get("reqWaitTime") instanceof Double)) {
-                a2.c("rqwt", Double.valueOf(((Double) hashMap.get("reqWaitTime")).doubleValue() * 1000.0d));
+                a.c("rqwt", Double.valueOf(((Double) hashMap.get("reqWaitTime")).doubleValue() * 1000.0d));
             }
             if (hashMap.containsKey("renderTime") && (hashMap.get("renderTime") instanceof Double)) {
-                a2.c("rdt", Double.valueOf(((Double) hashMap.get("renderTime")).doubleValue() * 1000.0d));
+                a.c("rdt", Double.valueOf(((Double) hashMap.get("renderTime")).doubleValue() * 1000.0d));
             }
-            a2.c("hs", hashMap.get("httpSize"));
+            a.c("hs", hashMap.get("httpSize"));
             if (hashMap.containsKey("navigationCostTime")) {
-                a2.c("navigationCostTime", hashMap.get("navigationCostTime"));
+                a.c("navigationCostTime", hashMap.get("navigationCostTime"));
             }
             if (hashMap.containsKey("netRequestCostTime")) {
-                a2.c("netRequestCostTime", hashMap.get("netRequestCostTime"));
+                a.c("netRequestCostTime", hashMap.get("netRequestCostTime"));
             }
             if (hashMap.containsKey("pageRenderCostTime")) {
-                a2.c("pageRenderCostTime", hashMap.get("pageRenderCostTime"));
+                a.c("pageRenderCostTime", hashMap.get("pageRenderCostTime"));
             }
             if (hashMap.containsKey("openPageTotalCostTime")) {
-                a2.c("openPageTotalCostTime", hashMap.get("openPageTotalCostTime"));
+                a.c("openPageTotalCostTime", hashMap.get("openPageTotalCostTime"));
             }
-            BdStatisticsManager.getInstance().performance(str, a2);
+            BdStatisticsManager.getInstance().performance(str, a);
         }
     }
 
@@ -342,7 +341,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
             return;
         }
         HashMap params = mapParam.getParams();
-        b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
         statsItem.b("action", "engine_perf");
         HashMap<String, String> hashMap = flutterEngineStartInfo;
         if (hashMap != null && !hashMap.isEmpty()) {
@@ -364,7 +363,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         if (interceptable == null || interceptable.invokeL(1048579, this, fpsParam) == null) {
             String page = fpsParam.getPage();
             double doubleValue = fpsParam.getFps().doubleValue();
-            b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+            c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
             statsItem.b("action", FpsTracer.UBC_KEY_FLUENCY);
             statsItem.b("page", page);
             statsItem.c(FpsConstants.REPORT_FPS, Double.valueOf(doubleValue));
@@ -400,13 +399,13 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
             return;
         }
         HashMap params = mapParam.getParams();
-        b.a.e.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
         statsItem.b("action", "image_perf");
         statsItem.c(UriUtil.LOCAL_RESOURCE_SCHEME, params.get("isBundleFile"));
         statsItem.c("try", params.get("tryTimes"));
         statsItem.c("ct", params.get("contentType"));
         statsItem.c("dc", params.get("dartCodecCost"));
-        statsItem.c(com.baidu.fsg.base.statistics.k.f38358h, params.get("loadingCost"));
+        statsItem.c(com.baidu.fsg.base.statistics.k.f34316h, params.get("loadingCost"));
         statsItem.c("trans", params.get("channelTransTime"));
         statsItem.c("cc", params.get("codecCost"));
         statsItem.c("tc", params.get("totalCost"));
@@ -428,50 +427,50 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, PerformanceMonit
         } else if (OpenFlutter.FRAGMENT_MYTAB.equals(str)) {
             str = "user_center_flt";
         }
-        b.a.e.f.n.a a2 = j.a();
-        a2.b("action", "time");
-        a2.c("ishttp", params.get("isHttp"));
-        a2.b("issuccess", params.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-        a2.b("nettype", k.d().f());
+        c.a.d.f.n.a a = j.a();
+        a.b("action", "time");
+        a.c("ishttp", params.get("isHttp"));
+        a.b("issuccess", params.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
+        a.b("nettype", k.d().f());
         if (params.containsKey("whiteTime") && (params.get("whiteTime") instanceof Double)) {
-            a2.c("wt", Double.valueOf(((Double) params.get("whiteTime")).doubleValue() * 1000.0d));
+            a.c("wt", Double.valueOf(((Double) params.get("whiteTime")).doubleValue() * 1000.0d));
         }
-        a2.c("qt", params.get("queneTime"));
-        a2.c("connt", params.get("netConTime"));
-        a2.c("rwt", params.get("netRWTime"));
-        a2.c("fbt", params.get("firstByteTime"));
-        a2.c("abt", params.get("allDataReadTime"));
-        a2.c("dect", params.get("dataDeCompressTime"));
-        a2.c("tqt", params.get("taskWaitTime"));
+        a.c("qt", params.get("queneTime"));
+        a.c("connt", params.get("netConTime"));
+        a.c("rwt", params.get("netRWTime"));
+        a.c("fbt", params.get("firstByteTime"));
+        a.c("abt", params.get("allDataReadTime"));
+        a.c("dect", params.get("dataDeCompressTime"));
+        a.c("tqt", params.get("taskWaitTime"));
         if (params.containsKey("dataParseTime") && (params.get("dataParseTime") instanceof Double)) {
-            a2.c("parset", Double.valueOf(((Double) params.get("dataParseTime")).doubleValue() * 1000.0d));
+            a.c("parset", Double.valueOf(((Double) params.get("dataParseTime")).doubleValue() * 1000.0d));
         }
         if (params.containsKey("drawTime") && (params.get("drawTime") instanceof Double)) {
-            a2.c("rendert", Double.valueOf(((Double) params.get("drawTime")).doubleValue() * 1000.0d));
+            a.c("rendert", Double.valueOf(((Double) params.get("drawTime")).doubleValue() * 1000.0d));
         }
         if (params.get("isHttp") == "1") {
-            a2.c("hrtn", params.get("httpRetryNum"));
-            a2.c("hrtt", params.get("httpRetryCostTime"));
+            a.c("hrtn", params.get("httpRetryNum"));
+            a.c("hrtt", params.get("httpRetryCostTime"));
         }
         if (params.get("errCode") != "0") {
-            a2.c("errcode", params.get("errCode"));
+            a.c("errcode", params.get("errCode"));
         }
         if (params.containsKey("viewCreateTime") && (params.get("viewCreateTime") instanceof Double)) {
-            a2.c("ct", Double.valueOf(((Double) params.get("viewCreateTime")).doubleValue() * 1000.0d));
+            a.c("ct", Double.valueOf(((Double) params.get("viewCreateTime")).doubleValue() * 1000.0d));
         }
         if (params.containsKey("channelTransTime") && (params.get("channelTransTime") instanceof Double)) {
-            a2.c("transt", Double.valueOf(((Double) params.get("channelTransTime")).doubleValue() * 1000.0d));
+            a.c("transt", Double.valueOf(((Double) params.get("channelTransTime")).doubleValue() * 1000.0d));
         }
         if (params.containsKey("dartItemParseTime") && (params.get("dartItemParseTime") instanceof Double)) {
-            a2.c("dpt", Double.valueOf(((Double) params.get("dartItemParseTime")).doubleValue() * 1000.0d));
+            a.c("dpt", Double.valueOf(((Double) params.get("dartItemParseTime")).doubleValue() * 1000.0d));
         }
         if (params.containsKey("reqWaitTime") && (params.get("reqWaitTime") instanceof Double)) {
-            a2.c("rqwt", Double.valueOf(((Double) params.get("reqWaitTime")).doubleValue() * 1000.0d));
+            a.c("rqwt", Double.valueOf(((Double) params.get("reqWaitTime")).doubleValue() * 1000.0d));
         }
         if (params.containsKey("renderTime") && (params.get("renderTime") instanceof Double)) {
-            a2.c("rdt", Double.valueOf(((Double) params.get("renderTime")).doubleValue() * 1000.0d));
+            a.c("rdt", Double.valueOf(((Double) params.get("renderTime")).doubleValue() * 1000.0d));
         }
-        a2.c("hs", params.get("httpSize"));
-        BdStatisticsManager.getInstance().performance(str, a2);
+        a.c("hs", params.get("httpSize"));
+        BdStatisticsManager.getInstance().performance(str, a);
     }
 }

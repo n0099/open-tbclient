@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +29,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 @SuppressLint({"BDOfflineUrl"})
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AppConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_FILE = "searchbox_config.ini";
@@ -55,7 +54,7 @@ public class AppConfig {
     public File mConfigFile;
     public File mTimestampFile;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AppInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
@@ -144,13 +143,13 @@ public class AppConfig {
         public static boolean isDaily() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? AppConfig.sIsDaily : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? AppConfig.sIsDaily : invokeV.booleanValue;
         }
 
         public static boolean isModifyPkg() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? !TextUtils.equals(getPackageName(), "com.baidu.searchbox") : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? !TextUtils.equals(getPackageName(), "com.baidu.searchbox") : invokeV.booleanValue;
         }
 
         public static boolean isPreview() {
@@ -172,12 +171,12 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ConfigValueFilter {
         boolean isIllegalContent(String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ConfigWhiteList {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] WHITE_LIST;
@@ -229,7 +228,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Debug {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,7 +254,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Downloads {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,7 +286,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class HTTPSConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TMP_USE_HTTP_DELTA = 518400000;
@@ -330,7 +329,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Speed {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -488,7 +487,7 @@ public class AppConfig {
         InterceptResult invokeLZ;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, str, z)) == null) {
             HashMap<String, String> hashMap = sConfigMap;
             return (hashMap == null || (str2 = hashMap.get(str)) == null) ? z : Boolean.parseBoolean(str2);
         }
@@ -498,7 +497,7 @@ public class AppConfig {
     public static String getCommunityPreConnectImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? HostConfig.isSearchboxUseHttps() ? "https://timgmb.bdimg.com/timg" : "http://timgmb.bdimg.com/timg" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? HostConfig.isSearchboxUseHttps() ? "https://timgmb.bdimg.com/timg" : "http://timgmb.bdimg.com/timg" : (String) invokeV.objValue;
     }
 
     public static String getConfigFileContent() {

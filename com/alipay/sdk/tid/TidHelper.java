@@ -6,14 +6,13 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.packet.impl.c;
 import com.alipay.sdk.sys.b;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TidHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,16 +44,16 @@ public class TidHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                com.alipay.sdk.packet.b a2 = new c().a(com.alipay.sdk.sys.a.e(), context);
-                if (a2 != null) {
-                    JSONObject jSONObject = new JSONObject(a2.a());
-                    a a3 = a.a(context);
+                com.alipay.sdk.packet.b a = new c().a(com.alipay.sdk.sys.a.e(), context);
+                if (a != null) {
+                    JSONObject jSONObject = new JSONObject(a.a());
+                    a a2 = a.a(context);
                     String optString = jSONObject.optString("tid");
-                    String string = jSONObject.getString(a.j);
+                    String string = jSONObject.getString(a.f31398j);
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(string)) {
-                        a3.a(optString, string);
+                        a2.a(optString, string);
                     }
-                    return a(context, a3);
+                    return a(context, a2);
                 }
             } catch (Throwable unused) {
             }
@@ -73,7 +72,7 @@ public class TidHelper {
     public static String getIMEI(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             a(context);
             return com.alipay.sdk.util.a.b(context).b();
         }
@@ -83,7 +82,7 @@ public class TidHelper {
     public static String getIMSI(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             a(context);
             return com.alipay.sdk.util.a.b(context).c();
         }
@@ -130,11 +129,11 @@ public class TidHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            a a2 = a.a(context);
-            if (a2.h()) {
+            a a = a.a(context);
+            if (a.h()) {
                 return null;
             }
-            return new Tid(a2.d(), a2.c(), a2.e().longValue());
+            return new Tid(a.d(), a.c(), a.e().longValue());
         }
         return (Tid) invokeL.objValue;
     }
@@ -167,11 +166,11 @@ public class TidHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             a(context);
-            Tid a2 = a(context, a.a(context));
-            if (a2 == null) {
+            Tid a = a(context, a.a(context));
+            if (a == null) {
                 com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "load_tid null");
             }
-            return a2;
+            return a;
         }
         return (Tid) invokeL.objValue;
     }

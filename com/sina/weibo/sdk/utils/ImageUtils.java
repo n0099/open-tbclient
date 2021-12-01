@@ -13,7 +13,6 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,7 +100,7 @@ public class ImageUtils {
         InterceptResult invokeL;
         File parentFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
             if (file == null || (parentFile = file.getParentFile()) == null || parentFile.exists()) {
                 return false;
             }
@@ -113,7 +112,7 @@ public class ImageUtils {
     public static boolean isWifi(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             return activeNetworkInfo != null && activeNetworkInfo.getType() == 1;
         }

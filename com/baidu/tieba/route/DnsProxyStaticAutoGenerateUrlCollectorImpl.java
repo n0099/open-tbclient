@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class DnsProxyStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,6 +37,7 @@ public final class DnsProxyStaticAutoGenerateUrlCollectorImpl implements ICmdRou
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2007015", "com.baidu.tieba.dnsproxy.DnsProxyStatic");
+            hashMap.put("2921644", "com.baidu.tieba.dnsproxy.DnsProxyStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

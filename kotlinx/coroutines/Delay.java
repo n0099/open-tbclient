@@ -16,12 +16,12 @@ public interface Delay {
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes3.dex */
     public static final class DefaultImpls {
-        public static Object delay(Delay delay, long j, Continuation<? super Unit> continuation) {
-            if (j <= 0) {
+        public static Object delay(Delay delay, long j2, Continuation<? super Unit> continuation) {
+            if (j2 <= 0) {
                 return Unit.INSTANCE;
             }
             CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation), 1);
-            delay.scheduleResumeAfterDelay(j, cancellableContinuationImpl);
+            delay.scheduleResumeAfterDelay(j2, cancellableContinuationImpl);
             Object result = cancellableContinuationImpl.getResult();
             if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                 DebugProbesKt.probeCoroutineSuspended(continuation);
@@ -29,14 +29,14 @@ public interface Delay {
             return result;
         }
 
-        public static DisposableHandle invokeOnTimeout(Delay delay, long j, Runnable runnable) {
-            return DefaultExecutorKt.getDefaultDelay().invokeOnTimeout(j, runnable);
+        public static DisposableHandle invokeOnTimeout(Delay delay, long j2, Runnable runnable) {
+            return DefaultExecutorKt.getDefaultDelay().invokeOnTimeout(j2, runnable);
         }
     }
 
-    Object delay(long j, Continuation<? super Unit> continuation);
+    Object delay(long j2, Continuation<? super Unit> continuation);
 
-    DisposableHandle invokeOnTimeout(long j, Runnable runnable);
+    DisposableHandle invokeOnTimeout(long j2, Runnable runnable);
 
-    void scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation);
+    void scheduleResumeAfterDelay(long j2, CancellableContinuation<? super Unit> cancellableContinuation);
 }

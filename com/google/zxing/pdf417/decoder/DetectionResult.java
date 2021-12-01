@@ -2,14 +2,13 @@ package com.google.zxing.pdf417.decoder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Formatter;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class DetectionResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADJUST_ROW_NUMBER_SKIP = 2;
@@ -102,7 +101,7 @@ public final class DetectionResult {
     private int adjustRowNumbersByRow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             adjustRowNumbersFromBothRI();
             return adjustRowNumbersFromLRI() + adjustRowNumbersFromRRI();
         }
@@ -294,7 +293,7 @@ public final class DetectionResult {
 
     private void adjustRowNumbers(int i2, int i3, Codeword[] codewordArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(AdIconUtil.AD_TEXT_ID, this, i2, i3, codewordArr) == null) {
+        if (interceptable == null || interceptable.invokeIIL(65541, this, i2, i3, codewordArr) == null) {
             Codeword codeword = codewordArr[i3];
             Codeword[] codewords = this.detectionResultColumns[i2 - 1].getCodewords();
             DetectionResultColumn[] detectionResultColumnArr = this.detectionResultColumns;

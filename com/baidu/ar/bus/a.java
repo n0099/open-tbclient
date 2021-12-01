@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class a {
     public Looper kv;
 
     /* renamed from: com.baidu.ar.bus.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] kw;
@@ -219,9 +219,9 @@ public class a {
     public void d(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            List<e> a2 = this.ks.a(obj.getClass());
+            List<e> a = this.ks.a(obj.getClass());
             synchronized (this) {
-                for (e eVar : a2) {
+                for (e eVar : a) {
                     a(obj, eVar);
                 }
             }

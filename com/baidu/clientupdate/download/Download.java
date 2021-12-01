@@ -14,22 +14,20 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Download implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f37756a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f37757b;
+    public long f33846b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37758c;
+    public int f33847c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37759d;
+    public boolean f33848d;
     public long mCurrentLength;
     public String mETag;
     public String mFailReason;
@@ -73,10 +71,10 @@ public class Download implements Serializable {
         this.mSourceKey = "";
         this.mNeedNotification = false;
         this.mRequestHeaders = new ArrayList();
-        this.f37756a = 0L;
-        this.f37757b = 0L;
-        this.f37758c = 0;
-        this.f37759d = true;
+        this.a = 0L;
+        this.f33846b = 0L;
+        this.f33847c = 0;
+        this.f33848d = true;
     }
 
     public void addRequestHeader(String str, String str2) {
@@ -145,13 +143,13 @@ public class Download implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            long j = this.mCurrentLength;
-            if (j != 0) {
-                long j2 = this.mFileLength;
-                if (j2 == 0) {
+            long j2 = this.mCurrentLength;
+            if (j2 != 0) {
+                long j3 = this.mFileLength;
+                if (j3 == 0) {
                     return 0;
                 }
-                int i2 = (int) ((j * 100) / j2);
+                int i2 = (int) ((j2 * 100) / j3);
                 if (i2 >= 100) {
                     return 99;
                 }

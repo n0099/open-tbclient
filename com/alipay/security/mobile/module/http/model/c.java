@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int l = 1;
@@ -17,27 +17,31 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35165c;
+    public String f31507c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35166d;
+    public String f31508d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35167e;
+    public String f31509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35168f;
+    public String f31510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35169g;
+    public String f31511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35170h;
+    public String f31512h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35171i;
-    public String j;
-    public String k;
+    public String f31513i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f31514j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public String f31515k;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -52,14 +56,14 @@ public class c extends a {
                 return;
             }
         }
-        this.k = "";
+        this.f31515k = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f35168f;
+            String str = this.f31510f;
             return str == null ? "0" : str;
         }
         return (String) invokeV.objValue;
@@ -68,12 +72,12 @@ public class c extends a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f35167e) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f31509e) : invokeV.booleanValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35163a ? com.alipay.security.mobile.module.a.a.a(this.f35165c) ? 2 : 1 : o.equals(this.f35164b) ? 3 : 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a ? com.alipay.security.mobile.module.a.a.a(this.f31507c) ? 2 : 1 : o.equals(this.f31506b) ? 3 : 2 : invokeV.intValue;
     }
 }

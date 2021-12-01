@@ -1,6 +1,5 @@
 package com.ksad.download;
 
-import android.content.Intent;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import android.text.TextUtils;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.exception.FileDownloadNetworkPolicyException;
 import com.kwai.filedownloader.i;
-import com.kwai.filedownloader.q;
+import com.kwai.filedownloader.r;
 import java.io.File;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
@@ -84,7 +83,7 @@ public class DownloadTask implements Serializable {
             }
             this.mDestinationDir = b.b().getPath();
             this.mDownloadUrl = str;
-            NetworkInfo c2 = com.ksad.download.d.b.c(b.a());
+            NetworkInfo c2 = com.ksad.download.c.b.c(b.a());
             if (c2 == null || c2.getType() != 0) {
                 this.mAllowedNetworkTypes = 2;
             } else {
@@ -337,7 +336,7 @@ public class DownloadTask implements Serializable {
                 }
                 aVar.g();
                 e.a().a(getId());
-                q.a().a(getId(), this.mBaseDownloadTask.o());
+                r.a().a(getId(), this.mBaseDownloadTask.o());
                 releaseDownloadTask();
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -365,20 +364,19 @@ public class DownloadTask implements Serializable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onConnected(com.kwai.filedownloader.a aVar, String str, boolean z, int i2, int i3) {
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{aVar, str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            long j2 = i3;
+            long j3 = i3;
             try {
-                j = com.ksad.download.d.a.a(new File(this.mDestinationDir).exists() ? this.mDestinationDir : Environment.getExternalStorageDirectory().getPath());
+                j2 = com.ksad.download.c.a.a(new File(this.mDestinationDir).exists() ? this.mDestinationDir : Environment.getExternalStorageDirectory().getPath());
             } catch (Exception e2) {
                 e2.printStackTrace();
-                j = j2;
+                j2 = j3;
             }
-            if (j < j2) {
-                Intent intent = new Intent(com.kwad.sdk.core.download.a.n);
-                intent.putExtra("download.intent.action.EXTRA_TASK_ID", aVar.h());
-                b.a().sendBroadcast(intent);
+            if (j2 < j3) {
+                d.a().c(aVar.h());
+                e.a().a(aVar.h());
                 onLowStorage(aVar);
                 return;
             }
@@ -563,7 +561,7 @@ public class DownloadTask implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             long s = this.mBaseDownloadTask.s();
             int q = s != 0 ? (int) ((this.mBaseDownloadTask.q() * 100.0f) / ((float) s)) : 0;
-            if (q != 100 || com.ksad.download.d.a.a(new File(this.mBaseDownloadTask.o()))) {
+            if (q != 100 || com.ksad.download.c.a.a(new File(this.mBaseDownloadTask.o()))) {
                 return q;
             }
             return 0;
@@ -669,12 +667,10 @@ public class DownloadTask implements Serializable {
     public void instantiateDownloadTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.mBaseDownloadTask = q.a().a(this.mUrl).a(true).a(3).a(TextUtils.isEmpty(this.mDestinationFileName) ? this.mDestinationDir : new File(this.mDestinationDir, this.mDestinationFileName).getPath(), TextUtils.isEmpty(this.mDestinationFileName)).a(new i(this) { // from class: com.ksad.download.DownloadTask.1
+            this.mBaseDownloadTask = r.a().a(this.mUrl).a(true).a(3).a(TextUtils.isEmpty(this.mDestinationFileName) ? this.mDestinationDir : new File(this.mDestinationDir, this.mDestinationFileName).getPath(), TextUtils.isEmpty(this.mDestinationFileName)).a(new i(this) { // from class: com.ksad.download.DownloadTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DownloadTask f64684a;
+                public final /* synthetic */ DownloadTask a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -691,14 +687,14 @@ public class DownloadTask implements Serializable {
                             return;
                         }
                     }
-                    this.f64684a = this;
+                    this.a = this;
                 }
 
                 @Override // com.kwai.filedownloader.i
                 public void a(com.kwai.filedownloader.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
-                        this.f64684a.onStarted(aVar);
+                        this.a.onStarted(aVar);
                     }
                 }
 
@@ -706,7 +702,7 @@ public class DownloadTask implements Serializable {
                 public void a(com.kwai.filedownloader.a aVar, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, i2, i3) == null) {
-                        this.f64684a.onPending(aVar, i2, i3);
+                        this.a.onPending(aVar, i2, i3);
                     }
                 }
 
@@ -714,7 +710,7 @@ public class DownloadTask implements Serializable {
                 public void a(com.kwai.filedownloader.a aVar, String str, boolean z, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-                        this.f64684a.onConnected(aVar, str, z, i2, i3);
+                        this.a.onConnected(aVar, str, z, i2, i3);
                     }
                 }
 
@@ -722,7 +718,7 @@ public class DownloadTask implements Serializable {
                 public void a(com.kwai.filedownloader.a aVar, Throwable th) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048579, this, aVar, th) == null) {
-                        this.f64684a.onError(aVar, th);
+                        this.a.onError(aVar, th);
                     }
                 }
 
@@ -730,7 +726,7 @@ public class DownloadTask implements Serializable {
                 public void b(com.kwai.filedownloader.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048580, this, aVar) == null) {
-                        this.f64684a.onBlockCompleted(aVar);
+                        this.a.onBlockCompleted(aVar);
                     }
                 }
 
@@ -738,7 +734,7 @@ public class DownloadTask implements Serializable {
                 public void b(com.kwai.filedownloader.a aVar, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLII(1048581, this, aVar, i2, i3) == null) {
-                        this.f64684a.onDownloading(aVar, i2, i3);
+                        this.a.onDownloading(aVar, i2, i3);
                     }
                 }
 
@@ -746,7 +742,7 @@ public class DownloadTask implements Serializable {
                 public void c(com.kwai.filedownloader.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, aVar) == null) {
-                        this.f64684a.onCompleted(aVar);
+                        this.a.onCompleted(aVar);
                     }
                 }
 
@@ -754,7 +750,7 @@ public class DownloadTask implements Serializable {
                 public void c(com.kwai.filedownloader.a aVar, int i2, int i3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLII(1048583, this, aVar, i2, i3) == null) {
-                        this.f64684a.onPause(aVar, i2, i3);
+                        this.a.onPause(aVar, i2, i3);
                     }
                 }
 
@@ -762,7 +758,7 @@ public class DownloadTask implements Serializable {
                 public void d(com.kwai.filedownloader.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-                        this.f64684a.onWarn(aVar);
+                        this.a.onWarn(aVar);
                     }
                 }
             });
@@ -841,7 +837,7 @@ public class DownloadTask implements Serializable {
 
     public void resume(DownloadRequest downloadRequest) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048607, this, downloadRequest) == null) && com.ksad.download.d.b.a(b.a())) {
+        if ((interceptable == null || interceptable.invokeL(1048607, this, downloadRequest) == null) && com.ksad.download.c.b.a(b.a())) {
             if (downloadRequest != null) {
                 initDownloadRequestParams(downloadRequest);
                 initDownloadTaskParams();
@@ -851,7 +847,7 @@ public class DownloadTask implements Serializable {
                 return;
             }
             try {
-                if (com.kwai.filedownloader.d.d.a(this.mBaseDownloadTask.v())) {
+                if (com.kwai.filedownloader.c.d.a(this.mBaseDownloadTask.v())) {
                     this.mBaseDownloadTask.b();
                 }
                 submit();

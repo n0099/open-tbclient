@@ -4,15 +4,14 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
-import b.a.e.f.p.l;
-import b.a.q0.s.k;
-import b.a.r0.o;
-import b.a.r0.z1.d;
+import c.a.d.f.p.l;
+import c.a.q0.s.k;
+import c.a.r0.f2.d;
+import c.a.r0.s;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SyncLoginService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public static String mStatistics;
@@ -35,13 +34,13 @@ public class SyncLoginService extends BdBaseService {
     public Runnable mRunnable;
     public b mSyncTask;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SyncLoginService f54678e;
+        public final /* synthetic */ SyncLoginService f48886e;
 
         public a(SyncLoginService syncLoginService) {
             Interceptable interceptable = $ic;
@@ -58,14 +57,14 @@ public class SyncLoginService extends BdBaseService {
                     return;
                 }
             }
-            this.f54678e = syncLoginService;
+            this.f48886e = syncLoginService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54678e.checkPassV6Switch();
+                this.f48886e.checkPassV6Switch();
             }
         }
     }
@@ -106,7 +105,7 @@ public class SyncLoginService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     public void checkPassV6Switch() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             b bVar = this.mSyncTask;
             if (bVar != null) {
                 bVar.cancel();
@@ -156,16 +155,14 @@ public class SyncLoginService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b extends BdAsyncTask<String, Integer, d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public NetWork f54679a;
+        public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SyncLoginService f54680b;
+        public final /* synthetic */ SyncLoginService f48887b;
 
         public b(SyncLoginService syncLoginService) {
             Interceptable interceptable = $ic;
@@ -182,8 +179,8 @@ public class SyncLoginService extends BdBaseService {
                     return;
                 }
             }
-            this.f54680b = syncLoginService;
-            this.f54679a = null;
+            this.f48887b = syncLoginService;
+            this.a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -198,42 +195,42 @@ public class SyncLoginService extends BdBaseService {
             d dVar = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
-                this.f54679a = netWork;
+                this.a = netWork;
                 netWork.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f54679a.addPostData("_phone_screen", stringBuffer.toString());
-                this.f54679a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
-                this.f54679a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
-                this.f54679a.addPostData("scr_dip", String.valueOf(l.h(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("_phone_screen", stringBuffer.toString());
+                this.a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
+                this.a.addPostData("scr_dip", String.valueOf(l.h(TbadkCoreApplication.getInst().getApp())));
                 String str = "0";
-                if (b.a.q0.t.d.d.d().e() > 0) {
-                    this.f54679a.addPostData("_msg_status", "0");
+                if (c.a.q0.t.d.d.d().e() > 0) {
+                    this.a.addPostData("_msg_status", "0");
                 } else {
-                    this.f54679a.addPostData("_msg_status", "1");
+                    this.a.addPostData("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() >= 1) {
                         str = activeVersion;
                     }
-                    this.f54679a.addPostData("_active", str);
+                    this.a.addPostData("_active", str);
                 }
-                this.f54679a.addPostData("_pic_quality", String.valueOf(k.c().e()));
+                this.a.addPostData("_pic_quality", String.valueOf(k.c().e()));
                 if (SyncLoginService.mStatistics != null) {
-                    this.f54679a.addPostData("_msg_type", SyncLoginService.mStatistics);
+                    this.a.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.f54679a.addPostData("package", packageName);
+                this.a.addPostData("package", packageName);
                 int versionCode = TbadkCoreApplication.getInst().getVersionCode();
-                NetWork netWork2 = this.f54679a;
+                NetWork netWork2 = this.a;
                 netWork2.addPostData("versioncode", versionCode + "");
-                this.f54679a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.f54679a.addPostData(PackageTable.MD5, o.a());
-                String postNetData = this.f54679a.postNetData();
-                if (this.f54679a.getNetContext().getResponse().isRequestSuccess()) {
+                this.a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.a.addPostData(PackageTable.MD5, s.a());
+                String postNetData = this.a.postNetData();
+                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
                     d dVar2 = new d();
                     try {
                         dVar2.a(postNetData);
@@ -259,7 +256,7 @@ public class SyncLoginService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
                 super.onPostExecute(dVar);
-                this.f54680b.mSyncTask = null;
+                this.f48887b.mSyncTask = null;
             }
         }
 
@@ -267,8 +264,8 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f54680b.mSyncTask = null;
-                NetWork netWork = this.f54679a;
+                this.f48887b.mSyncTask = null;
+                NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }

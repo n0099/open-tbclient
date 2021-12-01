@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.ContextThemeWrapper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,12 +16,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.base.widget.LoadingDialog;
 import com.dxmpay.wallet.core.BaseActivity;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class WalletGlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Dialog f63513a = null;
+    public static Dialog a = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +55,7 @@ public final class WalletGlobalUtils {
     public static void DismissLoadingDialog() {
         Dialog dialog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = f63513a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (dialog = a) == null) {
             return;
         }
         Context context = dialog.getContext();
@@ -69,11 +66,11 @@ public final class WalletGlobalUtils {
             return;
         }
         try {
-            f63513a.dismiss();
+            a.dismiss();
         } catch (Throwable th) {
             LogUtil.e("globalUtils", "dialog Exception", th);
         }
-        f63513a = null;
+        a = null;
     }
 
     public static void safeDismissDialog(BaseActivity baseActivity, int i2) {
@@ -105,21 +102,21 @@ public final class WalletGlobalUtils {
 
     public static void showLoadingDialog(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
-            if (f63513a == null) {
-                f63513a = new LoadingDialog(context);
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            if (a == null) {
+                a = new LoadingDialog(context);
             }
-            f63513a.show();
+            a.show();
         }
     }
 
     public static void showLoadingDialog(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2) == null) {
-            if (f63513a == null) {
-                f63513a = new LoadingDialog(context, str, str2);
+        if (interceptable == null || interceptable.invokeLLL(65542, null, context, str, str2) == null) {
+            if (a == null) {
+                a = new LoadingDialog(context, str, str2);
             }
-            f63513a.show();
+            a.show();
         }
     }
 }

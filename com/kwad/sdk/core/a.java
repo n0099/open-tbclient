@@ -19,12 +19,10 @@ import org.json.JSONObject;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, DownloadParams> f65192a;
+    public ConcurrentHashMap<String, DownloadParams> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, AdTemplate> f65193b;
+    public ConcurrentHashMap<String, AdTemplate> f57210b;
 
     /* renamed from: com.kwad.sdk.core.a$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -35,11 +33,9 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C1937a {
+    public static final class C2012a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f65194a;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,7 +51,7 @@ public class a {
                     return;
                 }
             }
-            f65194a = new a(null);
+            a = new a(null);
         }
     }
 
@@ -72,8 +68,8 @@ public class a {
                 return;
             }
         }
-        this.f65192a = new ConcurrentHashMap<>();
-        this.f65193b = new ConcurrentHashMap<>();
+        this.a = new ConcurrentHashMap<>();
+        this.f57210b = new ConcurrentHashMap<>();
     }
 
     public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -83,7 +79,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1937a.f65194a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2012a.a : (a) invokeV.objValue;
     }
 
     public DownloadParams a(String str) {
@@ -93,7 +89,7 @@ public class a {
             if (KsAdSDKImpl.get().getContext() == null) {
                 return null;
             }
-            DownloadParams downloadParams = this.f65192a.get(str);
+            DownloadParams downloadParams = this.a.get(str);
             if (downloadParams != null) {
                 return downloadParams;
             }
@@ -117,7 +113,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, downloadParams) == null) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f65192a.put(str, downloadParams);
+        this.a.put(str, downloadParams);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().putString(str, downloadParams.toJson().toString()).apply();
     }
 
@@ -126,7 +122,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, adTemplate) == null) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f65193b.put(str, adTemplate);
+        this.f57210b.put(str, adTemplate);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().putString(str, adTemplate.toJson().toString()).apply();
     }
 
@@ -135,7 +131,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f65192a.remove(str);
+        this.a.remove(str);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().remove(str).apply();
     }
 
@@ -146,7 +142,7 @@ public class a {
             if (KsAdSDKImpl.get().getContext() == null) {
                 return null;
             }
-            AdTemplate adTemplate = this.f65193b.get(str);
+            AdTemplate adTemplate = this.f57210b.get(str);
             if (adTemplate != null) {
                 return adTemplate;
             }
@@ -170,7 +166,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
-        this.f65193b.remove(str);
+        this.f57210b.remove(str);
         KsAdSDKImpl.get().getContext().getSharedPreferences("ksadsdk_notification_download_complete", 0).edit().remove(str).apply();
     }
 }

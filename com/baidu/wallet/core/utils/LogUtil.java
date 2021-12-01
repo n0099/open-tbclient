@@ -1,35 +1,32 @@
 package com.baidu.wallet.core.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f58959a = "LogUtil";
+    public static final String a = "LogUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f58960b = false;
+    public static final boolean f52427b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f58961c = false;
+    public static final boolean f52428c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f58962d = false;
+    public static final boolean f52429d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f58963e = false;
+    public static final boolean f52430e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f58964f = false;
+    public static final boolean f52431f = false;
     public transient /* synthetic */ FieldHolder $fh;
 
     public LogUtil() {
@@ -49,7 +46,7 @@ public final class LogUtil {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            d(f58959a, str);
+            d(a, str);
         }
     }
 
@@ -73,14 +70,14 @@ public final class LogUtil {
 
     public static void errord(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
         }
     }
 
     public static String getTAG() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             try {
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 StringBuilder sb = new StringBuilder();

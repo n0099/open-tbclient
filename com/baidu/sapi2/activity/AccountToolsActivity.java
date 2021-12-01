@@ -14,24 +14,24 @@ import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.result.AccountToolsResult;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.SapiHost;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.x;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AccountToolsActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
     public static final String EXTRA_SWEEP_LIGHT_LOADING = "sweepLightLoading";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public AccountToolsResult f43270a;
+    public AccountToolsResult a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f43271b;
+    public AccountToolsCallback f38629b;
 
     public AccountToolsActivity() {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class AccountToolsActivity extends Activity {
                 return;
             }
         }
-        this.f43270a = new AccountToolsResult();
+        this.a = new AccountToolsResult();
     }
 
     @Override // android.app.Activity
@@ -55,16 +55,14 @@ public class AccountToolsActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-            this.f43271b = CoreViewRouter.getInstance().getAccountToolsCallback();
+            this.f38629b = CoreViewRouter.getInstance().getAccountToolsCallback();
             AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
             accountCenterDTO.accountToolsUrl = a(intExtra);
             accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
             CoreViewRouter.getInstance().loadAccountCenter(new AccountCenterCallback(this) { // from class: com.baidu.sapi2.activity.AccountToolsActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ AccountToolsActivity f43272a;
+                public final /* synthetic */ AccountToolsActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -81,16 +79,16 @@ public class AccountToolsActivity extends Activity {
                             return;
                         }
                     }
-                    this.f43272a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.callback.AccountCenterCallback
                 public void onFinish(AccountCenterResult accountCenterResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, accountCenterResult) == null) {
-                        this.f43272a.f43270a.setResultCode(accountCenterResult.getResultCode());
-                        this.f43272a.f43270a.setResultMsg(accountCenterResult.getResultMsg());
-                        this.f43272a.a();
+                        this.a.a.setResultCode(accountCenterResult.getResultCode());
+                        this.a.a.setResultMsg(accountCenterResult.getResultMsg());
+                        this.a.a();
                     }
                 }
 
@@ -109,9 +107,9 @@ public class AccountToolsActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            AccountToolsCallback accountToolsCallback = this.f43271b;
+            AccountToolsCallback accountToolsCallback = this.f38629b;
             if (accountToolsCallback != null) {
-                accountToolsCallback.onFinish(this.f43270a);
+                accountToolsCallback.onFinish(this.a);
             }
             finish();
         }
@@ -132,8 +130,8 @@ public class AccountToolsActivity extends Activity {
             } else if (i2 == 4) {
                 str = "/v4/appeal/";
             } else if (i2 == 5) {
-                hashMap.put("u", SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd");
-                hashMap.put("banner", "1");
+                hashMap.put(x.o, SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd");
+                hashMap.put(SpeedStatsUtils.UBC_VALUE_BANNER, "1");
                 str = "/wp/wappassword";
             } else {
                 throw new RuntimeException("account tools type is not support");

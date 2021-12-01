@@ -9,18 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f42818a = "e";
+    public static final String a = "e";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f42819b;
+    public static final Pattern f38305b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f42820c;
+    public static boolean f38306c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +34,8 @@ public class e {
                 return;
             }
         }
-        f42819b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
-        f42820c = false;
+        f38305b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+        f38306c = false;
     }
 
     public e() {
@@ -57,20 +55,20 @@ public class e {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            boolean z = f42820c;
+            boolean z = f38306c;
         }
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f42819b.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f38305b.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a(f42818a, str);
+            a(a, str);
         }
     }
 }

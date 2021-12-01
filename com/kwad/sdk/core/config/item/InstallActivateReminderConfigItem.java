@@ -16,7 +16,7 @@ public class InstallActivateReminderConfigItem extends b<InstallActivateReminder
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class InstallActivateReminderConfig extends com.kwad.sdk.core.response.a.a implements Serializable {
+    public static class InstallActivateReminderConfig extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6457271849826128465L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,9 +85,9 @@ public class InstallActivateReminderConfigItem extends b<InstallActivateReminder
     public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            InstallActivateReminderConfig a2 = a();
-            if (a2 == null) {
-                a2 = new InstallActivateReminderConfig();
+            InstallActivateReminderConfig a = a();
+            if (a == null) {
+                a = new InstallActivateReminderConfig();
             }
             JSONObject jSONObject = null;
             try {
@@ -96,9 +96,9 @@ public class InstallActivateReminderConfigItem extends b<InstallActivateReminder
                 com.kwad.sdk.core.d.a.b(e2);
             }
             if (jSONObject != null) {
-                a2.parseJson(jSONObject);
+                a.parseJson(jSONObject);
             }
-            a((InstallActivateReminderConfigItem) a2);
+            a((InstallActivateReminderConfigItem) a);
         }
     }
 

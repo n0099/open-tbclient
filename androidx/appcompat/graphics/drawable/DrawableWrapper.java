@@ -171,10 +171,10 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
-            scheduleSelf(runnable, j);
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
+            scheduleSelf(runnable, j2);
         }
     }
 

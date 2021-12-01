@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fy;
 import com.xiaomi.push.gc;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bu implements fy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f72398a;
+    public final /* synthetic */ XMPushService a;
 
     public bu(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public class bu implements fy {
                 return;
             }
         }
-        this.f72398a = xMPushService;
+        this.a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fy

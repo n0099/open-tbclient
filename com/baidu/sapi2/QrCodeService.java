@@ -22,6 +22,7 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,36 +33,32 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class QrCodeService extends AbstractService implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static QrCodeService f43216c;
+    public static QrCodeService f38605c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public HttpClientWrap f43217a;
+    public HttpClientWrap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PassHttpClientRequest f43218b;
+    public PassHttpClientRequest f38606b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SapiCallback f43219a;
+        public final /* synthetic */ SapiCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GetQrCodeImageResult f43220b;
+        public final /* synthetic */ GetQrCodeImageResult f38607b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f43221c;
+        public final /* synthetic */ boolean f38608c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ QrCodeService f43222d;
+        public final /* synthetic */ QrCodeService f38609d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(QrCodeService qrCodeService, Looper looper, SapiCallback sapiCallback, GetQrCodeImageResult getQrCodeImageResult, boolean z) {
@@ -81,18 +78,18 @@ public class QrCodeService extends AbstractService implements NoProguard {
                     return;
                 }
             }
-            this.f43222d = qrCodeService;
-            this.f43219a = sapiCallback;
-            this.f43220b = getQrCodeImageResult;
-            this.f43221c = z;
+            this.f38609d = qrCodeService;
+            this.a = sapiCallback;
+            this.f38607b = getQrCodeImageResult;
+            this.f38608c = z;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f43220b.setResultCode(i2);
-                this.f43219a.onFailure(this.f43220b);
+                this.f38607b.setResultCode(i2);
+                this.a.onFailure(this.f38607b);
             }
         }
 
@@ -100,7 +97,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f43219a.onFinish();
+                this.a.onFinish();
             }
         }
 
@@ -108,7 +105,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f43219a.onStart();
+                this.a.onStart();
             }
         }
 
@@ -120,44 +117,42 @@ public class QrCodeService extends AbstractService implements NoProguard {
                     JSONObject jSONObject = new JSONObject(str);
                     int parseInt = Integer.parseInt(jSONObject.optString("errno"));
                     String optString = jSONObject.optString("errmsg");
-                    this.f43220b.setResultCode(parseInt);
-                    this.f43220b.setResultMsg(optString);
+                    this.f38607b.setResultCode(parseInt);
+                    this.f38607b.setResultMsg(optString);
                     if (parseInt != 0) {
-                        this.f43219a.onFailure(this.f43220b);
+                        this.a.onFailure(this.f38607b);
                         return;
                     }
-                    GetQrCodeImageResult getQrCodeImageResult = this.f43220b;
+                    GetQrCodeImageResult getQrCodeImageResult = this.f38607b;
                     getQrCodeImageResult.imageUrl = "https://" + jSONObject.optString("imgurl");
-                    this.f43220b.prompt = jSONObject.optString("prompt");
-                    this.f43220b.channelId = jSONObject.optString("sign");
-                    if (this.f43221c) {
-                        this.f43220b.contentUrl = jSONObject.optString("qrcontent_url");
+                    this.f38607b.prompt = jSONObject.optString("prompt");
+                    this.f38607b.channelId = jSONObject.optString("sign");
+                    if (this.f38608c) {
+                        this.f38607b.contentUrl = jSONObject.optString("qrcontent_url");
                     }
-                    this.f43219a.onSuccess(this.f43220b);
+                    this.a.onSuccess(this.f38607b);
                 } catch (Throwable th) {
-                    this.f43219a.onFailure(this.f43220b);
+                    this.a.onFailure(this.f38607b);
                     Log.e(th);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class b extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SapiCallback f43223a;
+        public final /* synthetic */ SapiCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GetQrCodeImageResult f43224b;
+        public final /* synthetic */ GetQrCodeImageResult f38610b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f43225c;
+        public final /* synthetic */ boolean f38611c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ QrCodeService f43226d;
+        public final /* synthetic */ QrCodeService f38612d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(QrCodeService qrCodeService, Looper looper, SapiCallback sapiCallback, GetQrCodeImageResult getQrCodeImageResult, boolean z) {
@@ -177,18 +172,18 @@ public class QrCodeService extends AbstractService implements NoProguard {
                     return;
                 }
             }
-            this.f43226d = qrCodeService;
-            this.f43223a = sapiCallback;
-            this.f43224b = getQrCodeImageResult;
-            this.f43225c = z;
+            this.f38612d = qrCodeService;
+            this.a = sapiCallback;
+            this.f38610b = getQrCodeImageResult;
+            this.f38611c = z;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f43224b.setResultCode(i2);
-                this.f43223a.onFailure(this.f43224b);
+                this.f38610b.setResultCode(i2);
+                this.a.onFailure(this.f38610b);
             }
         }
 
@@ -196,7 +191,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f43223a.onFinish();
+                this.a.onFinish();
             }
         }
 
@@ -204,7 +199,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f43223a.onStart();
+                this.a.onStart();
             }
         }
 
@@ -216,47 +211,45 @@ public class QrCodeService extends AbstractService implements NoProguard {
                     JSONObject jSONObject = new JSONObject(str);
                     int parseInt = Integer.parseInt(jSONObject.optString("errno"));
                     String optString = jSONObject.optString("errmsg");
-                    this.f43224b.setResultCode(parseInt);
-                    this.f43224b.setResultMsg(optString);
+                    this.f38610b.setResultCode(parseInt);
+                    this.f38610b.setResultMsg(optString);
                     if (parseInt != 0) {
-                        this.f43223a.onFailure(this.f43224b);
+                        this.a.onFailure(this.f38610b);
                         return;
                     }
-                    GetQrCodeImageResult getQrCodeImageResult = this.f43224b;
+                    GetQrCodeImageResult getQrCodeImageResult = this.f38610b;
                     getQrCodeImageResult.imageUrl = "https://" + jSONObject.optString("imgurl");
-                    this.f43224b.prompt = jSONObject.optString("prompt");
-                    this.f43224b.channelId = jSONObject.optString("sign");
-                    if (this.f43225c) {
-                        this.f43224b.contentUrl = jSONObject.optString("qrcontent_url");
+                    this.f38610b.prompt = jSONObject.optString("prompt");
+                    this.f38610b.channelId = jSONObject.optString("sign");
+                    if (this.f38611c) {
+                        this.f38610b.contentUrl = jSONObject.optString("qrcontent_url");
                     }
-                    this.f43223a.onSuccess(this.f43224b);
+                    this.a.onSuccess(this.f38610b);
                 } catch (Throwable th) {
-                    this.f43223a.onFailure(this.f43224b);
+                    this.a.onFailure(this.f38610b);
                     Log.e(th);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class c extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f43227a;
+        public final /* synthetic */ boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ QrLoginStatusCheckCallback f43228b;
+        public final /* synthetic */ QrLoginStatusCheckCallback f38613b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ QrLoginStatusCheckResult f43229c;
+        public final /* synthetic */ QrLoginStatusCheckResult f38614c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ QrLoginStstusCheckDTO f43230d;
+        public final /* synthetic */ QrLoginStstusCheckDTO f38615d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ QrCodeService f43231e;
+        public final /* synthetic */ QrCodeService f38616e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(QrCodeService qrCodeService, Looper looper, boolean z, QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, QrLoginStstusCheckDTO qrLoginStstusCheckDTO) {
@@ -276,20 +269,20 @@ public class QrCodeService extends AbstractService implements NoProguard {
                     return;
                 }
             }
-            this.f43231e = qrCodeService;
-            this.f43227a = z;
-            this.f43228b = qrLoginStatusCheckCallback;
-            this.f43229c = qrLoginStatusCheckResult;
-            this.f43230d = qrLoginStstusCheckDTO;
+            this.f38616e = qrCodeService;
+            this.a = z;
+            this.f38613b = qrLoginStatusCheckCallback;
+            this.f38614c = qrLoginStatusCheckResult;
+            this.f38615d = qrLoginStstusCheckDTO;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f43229c.setResultCode(i2);
-                this.f43228b.onFailure(this.f43229c);
-                this.f43228b.onFinish();
+                this.f38614c.setResultCode(i2);
+                this.f38613b.onFailure(this.f38614c);
+                this.f38613b.onFinish();
             }
         }
 
@@ -303,8 +296,8 @@ public class QrCodeService extends AbstractService implements NoProguard {
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f43227a) {
-                this.f43228b.onStart();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a) {
+                this.f38613b.onStart();
             }
         }
 
@@ -316,58 +309,56 @@ public class QrCodeService extends AbstractService implements NoProguard {
                     JSONObject jSONObject = new JSONObject(str.substring(3, str.length() - 2));
                     int parseInt = Integer.parseInt(jSONObject.optString("errno"));
                     String optString = jSONObject.optString("errmsg");
-                    this.f43229c.setResultCode(parseInt);
-                    this.f43229c.setResultMsg(optString);
+                    this.f38614c.setResultCode(parseInt);
+                    this.f38614c.setResultMsg(optString);
                     if (parseInt != 0) {
                         if (parseInt != 1) {
-                            this.f43228b.onFailure(this.f43229c);
-                            this.f43228b.onFinish();
+                            this.f38613b.onFailure(this.f38614c);
+                            this.f38613b.onFinish();
                             return;
                         }
-                        this.f43231e.qrLoginStatusCheck(this.f43228b, this.f43230d, false);
+                        this.f38616e.qrLoginStatusCheck(this.f38613b, this.f38615d, false);
                         return;
                     }
                     JSONObject jSONObject2 = new JSONObject(jSONObject.optString("channel_v"));
                     int optInt = jSONObject2.optInt("status");
-                    this.f43229c.status = optInt;
+                    this.f38614c.status = optInt;
                     if (optInt == 1) {
-                        this.f43228b.onScanQrCodeDone(this.f43229c);
-                        this.f43231e.qrLoginStatusCheck(this.f43228b, this.f43230d, false);
+                        this.f38613b.onScanQrCodeDone(this.f38614c);
+                        this.f38616e.qrLoginStatusCheck(this.f38613b, this.f38615d, false);
                     } else if (optInt == 0) {
-                        this.f43231e.getQrLoginResult(this.f43228b, this.f43229c, jSONObject2.optString("v"), this.f43230d.hostDeviceId, this.f43230d.isJoinCodeLogin);
+                        this.f38616e.getQrLoginResult(this.f38613b, this.f38614c, jSONObject2.optString("v"), this.f38615d.hostDeviceId, this.f38615d.isJoinCodeLogin);
                     } else if (optInt == 2) {
-                        this.f43229c.setResultCode(optInt);
-                        this.f43229c.setResultMsg("您已取消操作");
-                        this.f43228b.onFailure(this.f43229c);
-                        this.f43228b.onFinish();
+                        this.f38614c.setResultCode(optInt);
+                        this.f38614c.setResultMsg("您已取消操作");
+                        this.f38613b.onFailure(this.f38614c);
+                        this.f38613b.onFinish();
                     } else {
-                        this.f43231e.qrLoginStatusCheck(this.f43228b, this.f43230d, false);
+                        this.f38616e.qrLoginStatusCheck(this.f38613b, this.f38615d, false);
                     }
                 } catch (Throwable th) {
-                    this.f43228b.onFailure(this.f43229c);
-                    this.f43228b.onFinish();
+                    this.f38613b.onFailure(this.f38614c);
+                    this.f38613b.onFinish();
                     Log.e(th);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class d extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ QrLoginStatusCheckCallback f43232a;
+        public final /* synthetic */ QrLoginStatusCheckCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ QrLoginStatusCheckResult f43233b;
+        public final /* synthetic */ QrLoginStatusCheckResult f38617b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f43234c;
+        public final /* synthetic */ boolean f38618c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ QrCodeService f43235d;
+        public final /* synthetic */ QrCodeService f38619d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(QrCodeService qrCodeService, Looper looper, QrLoginStatusCheckCallback qrLoginStatusCheckCallback, QrLoginStatusCheckResult qrLoginStatusCheckResult, boolean z) {
@@ -387,18 +378,18 @@ public class QrCodeService extends AbstractService implements NoProguard {
                     return;
                 }
             }
-            this.f43235d = qrCodeService;
-            this.f43232a = qrLoginStatusCheckCallback;
-            this.f43233b = qrLoginStatusCheckResult;
-            this.f43234c = z;
+            this.f38619d = qrCodeService;
+            this.a = qrLoginStatusCheckCallback;
+            this.f38617b = qrLoginStatusCheckResult;
+            this.f38618c = z;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f43233b.setResultCode(i2);
-                this.f43232a.onFailure(this.f43233b);
+                this.f38617b.setResultCode(i2);
+                this.a.onFailure(this.f38617b);
             }
         }
 
@@ -406,7 +397,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f43232a.onFinish();
+                this.a.onFinish();
             }
         }
 
@@ -426,43 +417,41 @@ public class QrCodeService extends AbstractService implements NoProguard {
                     JSONObject jSONObject = new JSONObject(str);
                     int parseInt = Integer.parseInt(jSONObject.optString("errno"));
                     String optString = jSONObject.optString("errmsg");
-                    this.f43233b.setResultCode(parseInt);
-                    this.f43233b.setResultMsg(optString);
+                    this.f38617b.setResultCode(parseInt);
+                    this.f38617b.setResultMsg(optString);
                     if (parseInt != 0 && parseInt != 110000) {
-                        this.f43232a.onFailure(this.f43233b);
+                        this.a.onFailure(this.f38617b);
                         return;
                     }
-                    if (this.f43234c) {
+                    if (this.f38618c) {
                         optJSONObject = jSONObject.optJSONObject("data");
                     } else {
                         optJSONObject = jSONObject.optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
                     }
-                    SapiAccount parseAccount = this.f43235d.parseAccount(optJSONObject);
+                    SapiAccount parseAccount = this.f38619d.parseAccount(optJSONObject);
                     parseAccount.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(optJSONObject).tplStokenMap);
                     SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.QR.getName());
                     ServiceManager.getInstance().getIsAccountManager().validate(parseAccount);
-                    this.f43232a.onSuccess(this.f43233b);
+                    this.a.onSuccess(this.f38617b);
                 } catch (Throwable th) {
-                    this.f43232a.onFailure(this.f43233b);
+                    this.a.onFailure(this.f38617b);
                     Log.e(th);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class e extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SapiCallback f43236a;
+        public final /* synthetic */ SapiCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ QrAppLoginResult f43237b;
+        public final /* synthetic */ QrAppLoginResult f38620b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ QrCodeService f43238c;
+        public final /* synthetic */ QrCodeService f38621c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(QrCodeService qrCodeService, Looper looper, SapiCallback sapiCallback, QrAppLoginResult qrAppLoginResult) {
@@ -482,17 +471,17 @@ public class QrCodeService extends AbstractService implements NoProguard {
                     return;
                 }
             }
-            this.f43238c = qrCodeService;
-            this.f43236a = sapiCallback;
-            this.f43237b = qrAppLoginResult;
+            this.f38621c = qrCodeService;
+            this.a = sapiCallback;
+            this.f38620b = qrAppLoginResult;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) {
-                this.f43237b.setResultCode(i2);
-                this.f43236a.onFailure(this.f43237b);
+                this.f38620b.setResultCode(i2);
+                this.a.onFailure(this.f38620b);
             }
         }
 
@@ -500,7 +489,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f43236a.onFinish();
+                this.a.onFinish();
             }
         }
 
@@ -508,7 +497,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f43236a.onStart();
+                this.a.onStart();
             }
         }
 
@@ -519,20 +508,20 @@ public class QrCodeService extends AbstractService implements NoProguard {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     int parseInt = Integer.parseInt(jSONObject.optString("errno"));
-                    this.f43237b.setResultCode(parseInt);
+                    this.f38620b.setResultCode(parseInt);
                     if (parseInt != 0) {
-                        this.f43236a.onFailure(this.f43237b);
+                        this.a.onFailure(this.f38620b);
                         return;
                     }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("local");
+                    JSONObject optJSONObject = jSONObject.optJSONObject(MainTabActivity.TAB_CODE_LOCAL);
                     if (optJSONObject != null) {
-                        this.f43237b.country = optJSONObject.optString("country");
-                        this.f43237b.province = optJSONObject.optString("provice");
-                        this.f43237b.city = optJSONObject.optString("city");
+                        this.f38620b.country = optJSONObject.optString("country");
+                        this.f38620b.province = optJSONObject.optString("provice");
+                        this.f38620b.city = optJSONObject.optString("city");
                     }
-                    this.f43236a.onSuccess(this.f43237b);
+                    this.a.onSuccess(this.f38620b);
                 } catch (Throwable th) {
-                    this.f43236a.onFailure(this.f43237b);
+                    this.a.onFailure(this.f38620b);
                     Log.e(th);
                 }
             }
@@ -566,10 +555,10 @@ public class QrCodeService extends AbstractService implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, sapiConfiguration, str)) == null) {
             synchronized (QrCodeService.class) {
-                if (f43216c == null) {
-                    f43216c = new QrCodeService(sapiConfiguration, str);
+                if (f38605c == null) {
+                    f38605c = new QrCodeService(sapiConfiguration, str);
                 }
-                qrCodeService = f43216c;
+                qrCodeService = f38605c;
             }
             return qrCodeService;
         }
@@ -641,7 +630,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
             httpHashMapWrap.put("hostDeviceId", str2);
             String str3 = z ? SapiEnv.GET_QR_JOIN_LOGIN_RESULT : SapiEnv.GET_QR_LOGIN_RESULT;
             HttpClientWrap httpClientWrap = new HttpClientWrap();
-            this.f43217a = httpClientWrap;
+            this.a = httpClientWrap;
             httpClientWrap.get(str3, ReqPriority.IMMEDIATE, httpHashMapWrap, null, getUaInfo(), new d(this, Looper.getMainLooper(), qrLoginStatusCheckCallback, qrLoginStatusCheckResult, z));
         }
     }
@@ -680,20 +669,20 @@ public class QrCodeService extends AbstractService implements NoProguard {
             httpHashMapWrap.put("channel_id", qrLoginStstusCheckDTO.channelId);
             httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
             HttpClientWrap httpClientWrap = new HttpClientWrap();
-            this.f43217a = httpClientWrap;
-            this.f43218b = httpClientWrap.get(SapiEnv.GET_QR_LOGIN_STATUS_CHECK, ReqPriority.IMMEDIATE, httpHashMapWrap, null, getUaInfo(), 40000, new c(this, Looper.getMainLooper(), z, qrLoginStatusCheckCallback, qrLoginStatusCheckResult, qrLoginStstusCheckDTO));
+            this.a = httpClientWrap;
+            this.f38606b = httpClientWrap.get(SapiEnv.GET_QR_LOGIN_STATUS_CHECK, ReqPriority.IMMEDIATE, httpHashMapWrap, null, getUaInfo(), 40000, new c(this, Looper.getMainLooper(), z, qrLoginStatusCheckCallback, qrLoginStatusCheckResult, qrLoginStstusCheckDTO));
         }
     }
 
     public void stopLoginStatusCheck() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            PassHttpClientRequest passHttpClientRequest = this.f43218b;
+            PassHttpClientRequest passHttpClientRequest = this.f38606b;
             if (passHttpClientRequest != null) {
                 passHttpClientRequest.cancel();
             }
-            if (this.f43217a != null) {
-                this.f43217a = null;
+            if (this.a != null) {
+                this.a = null;
             }
         }
     }

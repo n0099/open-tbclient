@@ -9,16 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class a implements IInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final IBinder f63838a;
+    public final IBinder a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f63839b;
+    public final String f55787b;
 
     public a(IBinder iBinder, String str) {
         Interceptable interceptable = $ic;
@@ -35,8 +33,8 @@ public class a implements IInterface {
                 return;
             }
         }
-        this.f63838a = iBinder;
-        this.f63839b = str;
+        this.a = iBinder;
+        this.f55787b = str;
     }
 
     public final Parcel a() {
@@ -44,7 +42,7 @@ public class a implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Parcel obtain = Parcel.obtain();
-            obtain.writeInterfaceToken(this.f63839b);
+            obtain.writeInterfaceToken(this.f55787b);
             return obtain;
         }
         return (Parcel) invokeV.objValue;
@@ -54,14 +52,14 @@ public class a implements IInterface {
     public IBinder asBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63838a : (IBinder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (IBinder) invokeV.objValue;
     }
 
     public final void b(int i2, Parcel parcel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, parcel) == null) {
             try {
-                this.f63838a.transact(i2, parcel, null, 1);
+                this.a.transact(i2, parcel, null, 1);
             } finally {
                 parcel.recycle();
             }
@@ -75,7 +73,7 @@ public class a implements IInterface {
             Parcel obtain = Parcel.obtain();
             try {
                 try {
-                    this.f63838a.transact(i2, parcel, obtain, 0);
+                    this.a.transact(i2, parcel, obtain, 0);
                     obtain.readException();
                     return obtain;
                 } catch (RuntimeException e2) {

@@ -1,101 +1,127 @@
 package com.kwad.sdk.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.location.Location;
+import android.location.LocationManager;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.R;
+import com.kuaishou.weapon.adsdk.DeviceInfo;
 /* loaded from: classes2.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Handler f67631a;
+    public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f67632b;
+    public static Location f59662b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835198, "Lcom/kwad/sdk/utils/r;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1510835198, "Lcom/kwad/sdk/utils/r;");
-                return;
-            }
-        }
-        f67631a = new Handler(Looper.getMainLooper());
-        f67632b = false;
-    }
-
-    public static void a(Context context, String str) {
+    @Nullable
+    public static Location a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            a(context, str, R.layout.ksad_content_alliance_toast_2);
-        }
-    }
-
-    public static void a(Context context, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, context, str, i2) == null) {
-            a(context, str, i2, 800L);
-        }
-    }
-
-    public static void a(Context context, String str, int i2, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || f67632b) {
-            return;
-        }
-        f67632b = true;
-        View inflate = LayoutInflater.from(context).inflate(i2, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
-        Toast toast = new Toast(context.getApplicationContext());
-        toast.setGravity(17, 0, 0);
-        toast.setDuration(0);
-        toast.setView(inflate);
-        toast.show();
-        f67631a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.r.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (!ao.a() || ao.b() == null) {
+                if (a || f59662b != null || context == null) {
+                    return f59662b;
+                }
+                if (!ao.a() && !com.kwad.sdk.core.config.b.a(64L)) {
+                    if (com.kwad.sdk.b.a.booleanValue()) {
+                        return DeviceInfo.getLocation(context);
+                    }
+                    try {
+                        LocationManager locationManager = (LocationManager) context.getSystemService("location");
+                        if (locationManager.isProviderEnabled("gps")) {
+                            f59662b = a(context, locationManager);
+                        }
+                        if (f59662b == null && locationManager.isProviderEnabled("network")) {
+                            f59662b = b(context, locationManager);
+                        }
+                        if (f59662b == null && locationManager.isProviderEnabled("passive")) {
+                            f59662b = c(context, locationManager);
+                        }
+                        return f59662b;
+                    } catch (Exception e2) {
+                        a = true;
+                        com.kwad.sdk.core.d.a.b(e2);
                     }
                 }
+                return null;
             }
+            return ao.b();
+        }
+        return (Location) invokeL.objValue;
+    }
 
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    boolean unused = r.f67632b = false;
+    @SuppressLint({"MissingPermission"})
+    public static Location a(Context context, LocationManager locationManager) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, locationManager)) == null) {
+            try {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56842g) == 0) {
+                    Location lastKnownLocation = locationManager.getLastKnownLocation("gps");
+                    if (lastKnownLocation == null) {
+                        a = true;
+                    }
+                    return lastKnownLocation;
                 }
+                return null;
+            } catch (Exception e2) {
+                a = true;
+                com.kwad.sdk.core.d.a.b(e2);
+                return null;
             }
-        }, j);
+        }
+        return (Location) invokeLL.objValue;
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public static Location b(Context context, LocationManager locationManager) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, locationManager)) == null) {
+            try {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56842g) == 0 || ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56843h) == 0) {
+                    Location lastKnownLocation = locationManager.getLastKnownLocation("network");
+                    if (lastKnownLocation == null) {
+                        a = true;
+                    }
+                    return lastKnownLocation;
+                }
+                return null;
+            } catch (Exception e2) {
+                a = true;
+                com.kwad.sdk.core.d.a.b(e2);
+                return null;
+            }
+        }
+        return (Location) invokeLL.objValue;
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public static Location c(Context context, LocationManager locationManager) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, locationManager)) == null) {
+            try {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f56843h) == 0) {
+                    Location lastKnownLocation = locationManager.getLastKnownLocation("passive");
+                    if (lastKnownLocation == null) {
+                        a = true;
+                    }
+                    return lastKnownLocation;
+                }
+                return null;
+            } catch (Exception e2) {
+                a = true;
+                com.kwad.sdk.core.d.a.b(e2);
+                return null;
+            }
+        }
+        return (Location) invokeLL.objValue;
     }
 }

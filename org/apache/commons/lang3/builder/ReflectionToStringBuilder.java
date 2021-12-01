@@ -2,7 +2,6 @@ package org.apache.commons.lang3.builder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +61,7 @@ public class ReflectionToStringBuilder extends ToStringBuilder {
     public static String[] toNoNullStringArray(Collection<String> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, collection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, collection)) == null) {
             if (collection == null) {
                 return ArrayUtils.EMPTY_STRING_ARRAY;
             }
@@ -220,7 +219,7 @@ public class ReflectionToStringBuilder extends ToStringBuilder {
     public static String[] toNoNullStringArray(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, objArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
             ArrayList arrayList = new ArrayList(objArr.length);
             for (Object obj : objArr) {
                 if (obj != null) {

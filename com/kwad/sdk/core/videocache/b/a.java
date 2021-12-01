@@ -1,35 +1,34 @@
 package com.kwad.sdk.core.videocache.b;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.kwad.sdk.core.videocache.f;
 /* loaded from: classes2.dex */
-public class a implements b {
+public class a {
     public static /* synthetic */ Interceptable $ic;
+    public static f a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.kwad.sdk.core.videocache.b.b
-    public Map<String, String> a(String str) {
+    public static f a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new HashMap() : (Map) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            f fVar = a;
+            if (fVar == null) {
+                f b2 = b(context);
+                a = b2;
+                return b2;
+            }
+            return fVar;
+        }
+        return (f) invokeL.objValue;
+    }
+
+    public static f b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? new f.a(context).a(104857600L).a() : (f) invokeL.objValue;
     }
 }

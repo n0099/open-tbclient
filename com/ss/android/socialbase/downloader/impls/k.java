@@ -19,15 +19,13 @@ import java.util.Map;
 public class k implements com.ss.android.socialbase.downloader.downloader.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final SparseArray<DownloadInfo> f70482a;
+    public final SparseArray<DownloadInfo> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f70483b;
+    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f61945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SparseArray<Map<Long, com.ss.android.socialbase.downloader.f.i>> f70484c;
+    public final SparseArray<Map<Long, com.ss.android.socialbase.downloader.f.i>> f61946c;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -42,15 +40,15 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 return;
             }
         }
-        this.f70482a = new SparseArray<>();
-        this.f70483b = new SparseArray<>();
-        this.f70484c = new SparseArray<>();
+        this.a = new SparseArray<>();
+        this.f61945b = new SparseArray<>();
+        this.f61946c = new SparseArray<>();
     }
 
     public SparseArray<DownloadInfo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70482a : (SparseArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (SparseArray) invokeV.objValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -68,7 +66,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
             synchronized (this) {
                 try {
-                    downloadInfo = this.f70482a.get(i2);
+                    downloadInfo = this.a.get(i2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     downloadInfo = null;
@@ -102,12 +100,12 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (this.f70482a.size() == 0) {
+                if (this.a.size() == 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f70482a.size(); i2++) {
-                    DownloadInfo downloadInfo = this.f70482a.get(this.f70482a.keyAt(i2));
+                for (int i2 = 0; i2 < this.a.size(); i2++) {
+                    DownloadInfo downloadInfo = this.a.get(this.a.keyAt(i2));
                     if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && downloadInfo.getStatus() == -3) {
                         arrayList.add(downloadInfo);
                     }
@@ -127,12 +125,12 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (this.f70482a.size() == 0) {
+                if (this.a.size() == 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f70482a.size(); i2++) {
-                    DownloadInfo downloadInfo = this.f70482a.get(this.f70482a.keyAt(i2));
+                for (int i2 = 0; i2 < this.a.size(); i2++) {
+                    DownloadInfo downloadInfo = this.a.get(this.a.keyAt(i2));
                     if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && DownloadStatus.isUnCompletedStatus(downloadInfo.getStatus())) {
                         arrayList.add(downloadInfo);
                     }
@@ -169,7 +167,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
             synchronized (this) {
-                this.f70482a.remove(i2);
+                this.a.remove(i2);
             }
             return true;
         }
@@ -179,7 +177,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     public SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f70483b : (SparseArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f61945b : (SparseArray) invokeV.objValue;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -246,7 +244,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) {
             synchronized (this) {
-                map = this.f70484c.get(i2);
+                map = this.f61946c.get(i2);
             }
             return map;
         }
@@ -258,7 +256,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
             synchronized (this) {
-                this.f70484c.remove(i2);
+                this.f61946c.remove(i2);
             }
         }
     }
@@ -269,7 +267,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
             synchronized (this) {
-                Map<Long, com.ss.android.socialbase.downloader.f.i> map = this.f70484c.get(i2);
+                Map<Long, com.ss.android.socialbase.downloader.f.i> map = this.f61946c.get(i2);
                 if (map != null && !map.isEmpty()) {
                     return new ArrayList(map.values());
                 }
@@ -288,9 +286,9 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
             synchronized (this) {
                 arrayList = new ArrayList();
                 try {
-                    int size = this.f70482a.size();
+                    int size = this.a.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        DownloadInfo valueAt = this.f70482a.valueAt(i2);
+                        DownloadInfo valueAt = this.a.valueAt(i2);
                         if (str != null && str.equals(valueAt.getUrl())) {
                             arrayList.add(valueAt);
                         }
@@ -326,12 +324,12 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
-                if (this.f70482a.size() == 0) {
+                if (this.a.size() == 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < this.f70482a.size(); i2++) {
-                    DownloadInfo downloadInfo = this.f70482a.get(this.f70482a.keyAt(i2));
+                for (int i2 = 0; i2 < this.a.size(); i2++) {
+                    DownloadInfo downloadInfo = this.a.get(this.a.keyAt(i2));
                     if (downloadInfo != null && !TextUtils.isEmpty(downloadInfo.getMimeType()) && downloadInfo.getMimeType().equals(str) && DownloadStatus.isFailedStatus(downloadInfo.getStatus())) {
                         arrayList.add(downloadInfo);
                     }
@@ -346,11 +344,11 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            int k = bVar.k();
-            List<com.ss.android.socialbase.downloader.model.b> list = this.f70483b.get(k);
+            int k2 = bVar.k();
+            List<com.ss.android.socialbase.downloader.model.b> list = this.f61945b.get(k2);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f70483b.put(k, list);
+                this.f61945b.put(k2, list);
             }
             list.add(bVar);
         }
@@ -363,9 +361,9 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void a(int i2, int i3, long j) {
+    public synchronized void a(int i2, int i3, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
             synchronized (this) {
                 List<com.ss.android.socialbase.downloader.model.b> c2 = c(i2);
                 if (c2 == null) {
@@ -392,7 +390,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
             synchronized (this) {
-                list = this.f70483b.get(i2);
+                list = this.f61945b.get(i2);
             }
             return list;
         }
@@ -404,7 +402,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
             synchronized (this) {
-                this.f70483b.remove(i2);
+                this.f61945b.remove(i2);
             }
         }
     }
@@ -414,20 +412,20 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             synchronized (this) {
-                this.f70482a.clear();
-                this.f70483b.clear();
+                this.a.clear();
+                this.f61945b.clear();
             }
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo d(int i2, long j) {
+    public DownloadInfo d(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             DownloadInfo b2 = b(i2);
             if (b2 != null) {
-                b2.setCurBytes(j, false);
+                b2.setCurBytes(j2, false);
                 b2.setStatus(-2);
             }
             return b2;
@@ -441,12 +439,12 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             synchronized (this) {
-                if (this.f70482a.size() == 0) {
+                if (this.a.size() == 0) {
                     return null;
                 }
-                ArrayList arrayList = new ArrayList(this.f70482a.size());
-                for (int i2 = 0; i2 < this.f70482a.size(); i2++) {
-                    DownloadInfo valueAt = this.f70482a.valueAt(i2);
+                ArrayList arrayList = new ArrayList(this.a.size());
+                for (int i2 = 0; i2 < this.a.size(); i2++) {
+                    DownloadInfo valueAt = this.a.valueAt(i2);
                     if (valueAt != null) {
                         arrayList.add(valueAt);
                     }
@@ -458,13 +456,13 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo c(int i2, long j) {
+    public DownloadInfo c(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             DownloadInfo b2 = b(i2);
             if (b2 != null) {
-                b2.setCurBytes(j, false);
+                b2.setCurBytes(j2, false);
                 b2.setStatus(-3);
                 b2.setFirstDownload(false);
                 b2.setFirstSuccess(false);
@@ -499,9 +497,9 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void a(int i2, int i3, int i4, long j) {
+    public synchronized void a(int i2, int i3, int i4, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
             synchronized (this) {
                 List<com.ss.android.socialbase.downloader.model.b> c2 = c(i2);
                 if (c2 == null) {
@@ -522,13 +520,13 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo b(int i2, long j) {
+    public DownloadInfo b(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             DownloadInfo b2 = b(i2);
             if (b2 != null) {
-                b2.setCurBytes(j, false);
+                b2.setCurBytes(j2, false);
                 b2.setStatus(-1);
                 b2.setFirstDownload(false);
             }
@@ -572,10 +570,10 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
                 if (downloadInfo == null) {
                     return true;
                 }
-                if (this.f70482a.get(downloadInfo.getId()) == null) {
+                if (this.a.get(downloadInfo.getId()) == null) {
                     z = false;
                 }
-                this.f70482a.put(downloadInfo.getId(), downloadInfo);
+                this.a.put(downloadInfo.getId(), downloadInfo);
                 return z;
             }
         }
@@ -583,13 +581,13 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo a(int i2, long j, String str, String str2) {
+    public DownloadInfo a(int i2, long j2, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, str2})) == null) {
             DownloadInfo b2 = b(i2);
             if (b2 != null) {
-                b2.setTotalBytes(j);
+                b2.setTotalBytes(j2);
                 b2.seteTag(str);
                 if (TextUtils.isEmpty(b2.getName()) && !TextUtils.isEmpty(str2)) {
                     b2.setName(str2);
@@ -602,13 +600,13 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
-    public DownloadInfo a(int i2, long j) {
+    public DownloadInfo a(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             DownloadInfo b2 = b(i2);
             if (b2 != null) {
-                b2.setCurBytes(j, false);
+                b2.setCurBytes(j2, false);
                 if (b2.getStatus() != -3 && b2.getStatus() != -2 && !DownloadStatus.isFailedStatus(b2.getStatus()) && b2.getStatus() != -4) {
                     b2.setStatus(4);
                 }
@@ -647,7 +645,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, map)) == null) {
             synchronized (this) {
-                this.f70484c.put(i2, map);
+                this.f61946c.put(i2, map);
             }
             return false;
         }

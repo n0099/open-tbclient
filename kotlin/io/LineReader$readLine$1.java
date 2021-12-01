@@ -3,7 +3,7 @@ package kotlin.io;
 import java.nio.charset.CharsetDecoder;
 import kotlin.Metadata;
 import kotlin.jvm.internal.MutablePropertyReference0Impl;
-@Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
+@Metadata(k = 3, mv = {1, 5, 1})
 /* loaded from: classes3.dex */
 public final /* synthetic */ class LineReader$readLine$1 extends MutablePropertyReference0Impl {
     public LineReader$readLine$1(LineReader lineReader) {

@@ -7,7 +7,6 @@ import android.view.MenuItem;
 import android.view.View;
 import androidx.core.internal.view.SupportMenuItem;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,7 +86,7 @@ public final class MenuItemCompat {
     public static int getAlphabeticModifiers(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, menuItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, menuItem)) == null) {
             if (menuItem instanceof SupportMenuItem) {
                 return ((SupportMenuItem) menuItem).getAlphabeticModifiers();
             }
@@ -102,7 +101,7 @@ public final class MenuItemCompat {
     public static CharSequence getContentDescription(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, menuItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, menuItem)) == null) {
             if (menuItem instanceof SupportMenuItem) {
                 return ((SupportMenuItem) menuItem).getContentDescription();
             }

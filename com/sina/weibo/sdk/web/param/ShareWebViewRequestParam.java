@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +62,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
 
     private void getBaseUrl() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             StringBuilder sb = new StringBuilder();
             TextObject textObject = this.multiMessage.textObject;
             if (textObject instanceof TextObject) {

@@ -30,7 +30,7 @@ public class d {
             if (z2) {
                 return;
             }
-            activity.findViewById(16908290).setPadding(0, av.a((Context) activity), 0, 0);
+            activity.findViewById(16908290).setPadding(0, com.kwad.sdk.a.kwai.a.a((Context) activity), 0, 0);
         }
     }
 
@@ -80,10 +80,10 @@ public class d {
                 i4 = 9472;
                 window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                 window.addFlags(Integer.MIN_VALUE);
-                if (aj.a()) {
+                if (an.b()) {
                     a(activity, true);
-                } else if (aj.b()) {
-                    x.a(activity, true);
+                } else if (an.c()) {
+                    ab.a(activity, true);
                 }
             }
             window.getDecorView().setSystemUiVisibility(i4);

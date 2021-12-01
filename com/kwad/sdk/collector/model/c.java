@@ -1,15 +1,15 @@
 package com.kwad.sdk.collector.model;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.AppStatusRules;
+import com.kwad.sdk.collector.model.jni.AnalyseTaskNative;
+import com.kwad.sdk.collector.model.jni.AppRunningInfoNative;
 import com.kwad.sdk.collector.model.jni.RulesTargetNative;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
 import java.util.ArrayList;
@@ -25,33 +25,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static com.kwad.sdk.collector.model.jni.b a(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
+    public static AppRunningInfoNative a(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, appPackageInfo, strategy)) == null) {
-            if (appPackageInfo == null) {
-                return null;
-            }
-            if (appPackageInfo.appName == null) {
-                appPackageInfo.appName = "";
-            }
-            if (TextUtils.isEmpty(appPackageInfo.packageName)) {
-                return null;
-            }
-            return new com.kwad.sdk.collector.model.jni.b(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
+            return new AppRunningInfoNative(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
         }
-        return (com.kwad.sdk.collector.model.jni.b) invokeLL.objValue;
+        return (AppRunningInfoNative) invokeLL.objValue;
     }
 
     public static String a(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            if (bVar instanceof com.kwad.sdk.collector.model.jni.b) {
-                return AppStatusNative.appRunningInfoGetName((com.kwad.sdk.collector.model.jni.b) bVar);
+            if (bVar instanceof AppRunningInfoNative) {
+                return AppStatusNative.appRunningInfoGetName((AppRunningInfoNative) bVar);
             }
-            if (bVar instanceof com.kwad.sdk.collector.model.a.b) {
-                return ((com.kwad.sdk.collector.model.a.b) bVar).b();
+            if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
+                return ((com.kwad.sdk.collector.model.kwai.b) bVar).b();
             }
             return null;
         }
@@ -65,8 +56,8 @@ public class c {
             if (dVar instanceof RulesTargetNative) {
                 return AppStatusNative.rulesTargetGetPackageName((RulesTargetNative) dVar);
             }
-            if (dVar instanceof com.kwad.sdk.collector.model.a.c) {
-                return ((com.kwad.sdk.collector.model.a.c) dVar).a();
+            if (dVar instanceof com.kwad.sdk.collector.model.kwai.c) {
+                return ((com.kwad.sdk.collector.model.kwai.c) dVar).a();
             }
             return null;
         }
@@ -80,7 +71,7 @@ public class c {
             if (jSONArray == null) {
                 return null;
             }
-            return com.kwad.sdk.core.config.c.ac() ? b(jSONArray) : c(jSONArray);
+            return com.kwad.sdk.core.config.b.ai() ? b(jSONArray) : c(jSONArray);
         }
         return (ArrayList) invokeL.objValue;
     }
@@ -89,7 +80,7 @@ public class c {
         InstalledAppInfoManager.AppPackageInfo appPackageInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, strategy, map, list) == null) {
-            boolean ac = com.kwad.sdk.core.config.c.ac();
+            boolean ai = com.kwad.sdk.core.config.b.ai();
             ArrayList<d> target = strategy.getTarget();
             if (target == null || target.size() == 0) {
                 return;
@@ -98,41 +89,41 @@ public class c {
                 if (b(dVar) != null && b(dVar).size() != 0 && (appPackageInfo = map.get(a(dVar))) != null) {
                     HashSet hashSet = new HashSet(b(dVar));
                     long startTimeWithMS = strategy.getStartTimeWithMS();
-                    list.add(ac ? new com.kwad.sdk.collector.model.jni.a(a(appPackageInfo, strategy), hashSet, startTimeWithMS) : new com.kwad.sdk.collector.model.a.a(b(appPackageInfo, strategy), hashSet, startTimeWithMS));
+                    list.add(ai ? new AnalyseTaskNative(a(appPackageInfo, strategy), hashSet, startTimeWithMS) : new com.kwad.sdk.collector.model.kwai.a(b(appPackageInfo, strategy), hashSet, startTimeWithMS));
                 }
             }
         }
     }
 
-    public static void a(b bVar, long j) {
+    public static void a(b bVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.AD_TEXT_ID, null, bVar, j) == null) {
-            if (bVar instanceof com.kwad.sdk.collector.model.jni.b) {
-                AppStatusNative.appRunningInfoSetLastRunningTime((com.kwad.sdk.collector.model.jni.b) bVar, j);
-            } else if (bVar instanceof com.kwad.sdk.collector.model.a.b) {
-                ((com.kwad.sdk.collector.model.a.b) bVar).b(j);
+        if (interceptable == null || interceptable.invokeLJ(65541, null, bVar, j2) == null) {
+            if (bVar instanceof AppRunningInfoNative) {
+                AppStatusNative.appRunningInfoSetLastRunningTime((AppRunningInfoNative) bVar, j2);
+            } else if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
+                ((com.kwad.sdk.collector.model.kwai.b) bVar).b(j2);
             }
         }
     }
 
-    public static com.kwad.sdk.collector.model.a.b b(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
+    public static com.kwad.sdk.collector.model.kwai.b b(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, appPackageInfo, strategy)) == null) {
-            return new com.kwad.sdk.collector.model.a.b(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, appPackageInfo, strategy)) == null) {
+            return new com.kwad.sdk.collector.model.kwai.b(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
         }
-        return (com.kwad.sdk.collector.model.a.b) invokeLL.objValue;
+        return (com.kwad.sdk.collector.model.kwai.b) invokeLL.objValue;
     }
 
     public static String b(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bVar)) == null) {
-            if (bVar instanceof com.kwad.sdk.collector.model.jni.b) {
-                return AppStatusNative.appRunningInfoGetPackageName((com.kwad.sdk.collector.model.jni.b) bVar);
+            if (bVar instanceof AppRunningInfoNative) {
+                return AppStatusNative.appRunningInfoGetPackageName((AppRunningInfoNative) bVar);
             }
-            if (bVar instanceof com.kwad.sdk.collector.model.a.b) {
-                return ((com.kwad.sdk.collector.model.a.b) bVar).c();
+            if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
+                return ((com.kwad.sdk.collector.model.kwai.b) bVar).c();
             }
             return null;
         }
@@ -169,8 +160,8 @@ public class c {
             if (dVar instanceof RulesTargetNative) {
                 return Arrays.asList(AppStatusNative.rulesTargetGetPaths((RulesTargetNative) dVar));
             }
-            if (dVar instanceof com.kwad.sdk.collector.model.a.c) {
-                return ((com.kwad.sdk.collector.model.a.c) dVar).b();
+            if (dVar instanceof com.kwad.sdk.collector.model.kwai.c) {
+                return ((com.kwad.sdk.collector.model.kwai.c) dVar).b();
             }
             return null;
         }
@@ -181,11 +172,11 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bVar)) == null) {
-            if (bVar instanceof com.kwad.sdk.collector.model.jni.b) {
-                return AppStatusNative.appRunningInfoGetLastRunningTime((com.kwad.sdk.collector.model.jni.b) bVar);
+            if (bVar instanceof AppRunningInfoNative) {
+                return AppStatusNative.appRunningInfoGetLastRunningTime((AppRunningInfoNative) bVar);
             }
-            if (bVar instanceof com.kwad.sdk.collector.model.a.b) {
-                return ((com.kwad.sdk.collector.model.a.b) bVar).d();
+            if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
+                return ((com.kwad.sdk.collector.model.kwai.b) bVar).d();
             }
             return 0L;
         }
@@ -204,7 +195,7 @@ public class c {
             for (int i2 = 0; i2 < length; i2++) {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    com.kwad.sdk.collector.model.a.c cVar = new com.kwad.sdk.collector.model.a.c();
+                    com.kwad.sdk.collector.model.kwai.c cVar = new com.kwad.sdk.collector.model.kwai.c();
                     cVar.parseJson(jSONObject);
                     arrayList.add(cVar);
                 } catch (JSONException unused) {

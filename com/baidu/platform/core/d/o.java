@@ -7,7 +7,6 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.route.WalkingRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class o extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +45,9 @@ public class o extends k {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, jSONArray, list)) == null) {
             if (jSONArray != null && (length = jSONArray.length()) > 0) {
                 for (int i2 = 0; i2 < length; i2++) {
-                    RouteNode a2 = a(jSONArray.optJSONObject(i2));
+                    RouteNode a = a(jSONArray.optJSONObject(i2));
                     if (i2 == length - 1) {
-                        return a2;
+                        return a;
                     }
                     if (list == null) {
                         list = new ArrayList<>();
@@ -56,7 +55,7 @@ public class o extends k {
                     if (list == null) {
                         list = new ArrayList<>();
                     }
-                    list.add(a2);
+                    list.add(a);
                 }
             }
             return null;
@@ -147,7 +146,7 @@ public class o extends k {
         InterceptResult invokeLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, walkingRouteResult)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, walkingRouteResult)) == null) {
             if (str != null && !"".equals(str)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
@@ -178,8 +177,8 @@ public class o extends k {
                     if (optJSONObject3 == null || optJSONArray2 == null) {
                         return false;
                     }
-                    RouteNode a2 = a(optJSONObject3.optJSONObject("start"));
-                    RouteNode a3 = a(optJSONObject3.optJSONArray("end"), (List<RouteNode>) null);
+                    RouteNode a = a(optJSONObject3.optJSONObject("start"));
+                    RouteNode a2 = a(optJSONObject3.optJSONArray("end"), (List<RouteNode>) null);
                     ArrayList arrayList = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i2);
@@ -188,8 +187,8 @@ public class o extends k {
                                 JSONObject optJSONObject5 = optJSONArray.optJSONObject(i2);
                                 if (optJSONObject5 != null) {
                                     WalkingRouteLine walkingRouteLine = new WalkingRouteLine();
-                                    walkingRouteLine.setStarting(a2);
-                                    walkingRouteLine.setTerminal(a3);
+                                    walkingRouteLine.setStarting(a);
+                                    walkingRouteLine.setTerminal(a2);
                                     walkingRouteLine.setDistance(optJSONObject5.optInt("distance"));
                                     walkingRouteLine.setDuration(optJSONObject5.optInt("duration"));
                                     walkingRouteLine.setSteps(a(optJSONObject5.optJSONArray("steps")));

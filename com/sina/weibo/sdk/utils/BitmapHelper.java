@@ -3,7 +3,6 @@ package com.sina.weibo.sdk.utils;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +67,7 @@ public final class BitmapHelper {
     public static boolean verifyBitmap(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) ? verifyBitmap(new ByteArrayInputStream(bArr)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) ? verifyBitmap(new ByteArrayInputStream(bArr)) : invokeL.booleanValue;
     }
 
     public static boolean verifyBitmap(InputStream inputStream) {
@@ -97,7 +96,7 @@ public final class BitmapHelper {
     public static boolean verifyBitmap(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
                 return verifyBitmap(new FileInputStream(str));
             } catch (FileNotFoundException e2) {

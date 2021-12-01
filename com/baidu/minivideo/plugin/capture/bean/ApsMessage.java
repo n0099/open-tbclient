@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ApsMessage<T extends Jsonable> implements Jsonable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JN_K_DATA = "data";
@@ -91,22 +91,22 @@ public class ApsMessage<T extends Jsonable> implements Jsonable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
                 jSONObject = new JSONObject();
-            } catch (Exception e3) {
-                jSONObject = null;
-                e2 = e3;
-            }
-            try {
-                jSONObject.put("status", this.status);
-                jSONObject.put("msg", this.msg);
-                jSONObject.put("type", this.type);
-                T data = getData();
-                if (data != null) {
-                    jSONObject.put("data", data.toJson());
+                try {
+                    jSONObject.put("status", this.status);
+                    jSONObject.put("msg", this.msg);
+                    jSONObject.put("type", this.type);
+                    T data = getData();
+                    if (data != null) {
+                        jSONObject.put("data", data.toJson());
+                    }
+                } catch (Exception e3) {
+                    e2 = e3;
+                    e2.printStackTrace();
+                    return jSONObject;
                 }
             } catch (Exception e4) {
+                jSONObject = null;
                 e2 = e4;
-                e2.printStackTrace();
-                return jSONObject;
             }
             return jSONObject;
         }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.ITTProvider;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TTMultiProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

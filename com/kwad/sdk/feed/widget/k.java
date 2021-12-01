@@ -23,21 +23,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.contentalliance.detail.video.c;
+import com.kwad.sdk.core.download.a.a;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
+import com.kwad.sdk.core.report.p;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.video.videoview.AdVideoPlayerViewCache;
 import com.kwad.sdk.core.video.videoview.a;
 import com.kwad.sdk.core.view.ScaleAnimSeekBar;
 import com.kwad.sdk.feed.widget.base.RatioFrameLayout;
-import com.kwad.sdk.utils.ab;
-import com.kwad.sdk.utils.aq;
-import com.kwad.sdk.utils.av;
-import com.kwad.sdk.utils.ax;
+import com.kwad.sdk.utils.af;
+import com.kwad.sdk.utils.aw;
+import com.kwad.sdk.utils.bb;
+import com.kwad.sdk.utils.bd;
+import com.kwad.sdk.utils.z;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollingChild, View.OnClickListener {
+public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollingChild {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
@@ -45,25 +48,28 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     public KsAdVideoPlayConfig C;
     public a D;
     public View E;
-    public Runnable F;
-    public ax G;
-
-    /* renamed from: a  reason: collision with root package name */
-    public RatioFrameLayout f66668a;
+    public com.kwad.sdk.core.download.a.b F;
+    public Runnable G;
+    public bd H;
+    public RatioFrameLayout a;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f66669f;
+    public ImageView f58560f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Integer> f66670g;
+    public List<Integer> f58561g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f66671h;
+    public TextView f58562h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f66672i;
-    public TextView j;
-    public ScaleAnimSeekBar k;
+    public TextView f58563i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f58564j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public ScaleAnimSeekBar f58565k;
     public ImageView l;
     public ImageView m;
     public ImageView n;
@@ -109,9 +115,7 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
         Runnable runnable = new Runnable(this) { // from class: com.kwad.sdk.feed.widget.k.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ k f66673a;
+            public final /* synthetic */ k a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -128,38 +132,38 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                         return;
                     }
                 }
-                this.f66673a = this;
+                this.a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f66673a.o.setVisibility(8);
-                    this.f66673a.n.setVisibility(8);
-                    if (this.f66673a.u != null) {
-                        this.f66673a.u.a(true);
+                    this.a.o.setVisibility(8);
+                    this.a.n.setVisibility(8);
+                    if (this.a.u != null) {
+                        this.a.u.a(true);
                     }
                 }
             }
         };
-        this.F = runnable;
-        this.G = new ax(runnable);
+        this.G = runnable;
+        this.H = new bd(runnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
-            int ceil = (int) Math.ceil(((float) j) / 1000.0f);
-            List<Integer> list = this.f66670g;
+        if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
+            int ceil = (int) Math.ceil(((float) j2) / 1000.0f);
+            List<Integer> list = this.f58561g;
             if (list == null || list.isEmpty()) {
                 return;
             }
-            Iterator<Integer> it = this.f66670g.iterator();
+            Iterator<Integer> it = this.f58561g.iterator();
             while (it.hasNext()) {
                 if (ceil >= it.next().intValue()) {
-                    com.kwad.sdk.core.report.a.b(((com.kwad.sdk.feed.widget.base.a) this).f66630b, ceil, null);
+                    com.kwad.sdk.core.report.a.b(((com.kwad.sdk.feed.widget.base.a) this).f58528b, ceil, null);
                     it.remove();
                     return;
                 }
@@ -173,9 +177,7 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
             this.s.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.feed.widget.k.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ k f66674a;
+                public final /* synthetic */ k a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -192,66 +194,64 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                             return;
                         }
                     }
-                    this.f66674a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f66674a.o.getVisibility() != 8) {
-                            if (this.f66674a.getHandler() != null) {
-                                this.f66674a.getHandler().removeCallbacks(this.f66674a.F);
-                                if (this.f66674a.A) {
+                        if (this.a.o.getVisibility() != 8) {
+                            if (this.a.getHandler() != null) {
+                                this.a.getHandler().removeCallbacks(this.a.G);
+                                if (this.a.A) {
                                     return;
                                 }
-                                this.f66674a.getHandler().postDelayed(this.f66674a.G, 1000L);
+                                this.a.getHandler().postDelayed(this.a.H, 1000L);
                                 return;
                             }
                             return;
                         }
-                        if (!this.f66674a.p.i()) {
-                            this.f66674a.o.setVisibility(0);
-                            this.f66674a.n.setVisibility(0);
-                            if (this.f66674a.u != null) {
-                                this.f66674a.u.a(false);
+                        if (!this.a.p.i()) {
+                            this.a.o.setVisibility(0);
+                            this.a.n.setVisibility(0);
+                            if (this.a.u != null) {
+                                this.a.u.a(false);
                             }
-                            if (this.f66674a.getHandler() == null) {
+                            if (this.a.getHandler() == null) {
                                 return;
                             }
-                        } else if (this.f66674a.v != 101) {
-                            if (this.f66674a.B != null) {
-                                this.f66674a.B.onClick(view);
+                        } else if (this.a.v != 101) {
+                            if (this.a.B != null) {
+                                this.a.B.onClick(view);
                                 return;
                             }
                             return;
                         } else {
-                            this.f66674a.o.setVisibility(0);
-                            this.f66674a.n.setVisibility(8);
-                            if (this.f66674a.u != null) {
-                                this.f66674a.u.a(false);
+                            this.a.o.setVisibility(0);
+                            this.a.n.setVisibility(8);
+                            if (this.a.u != null) {
+                                this.a.u.a(false);
                             }
-                            if (this.f66674a.getHandler() == null) {
+                            if (this.a.getHandler() == null) {
                                 return;
                             }
                         }
-                        this.f66674a.getHandler().removeCallbacks(this.f66674a.F);
-                        this.f66674a.getHandler().postDelayed(this.f66674a.G, 5000L);
+                        this.a.getHandler().removeCallbacks(this.a.G);
+                        this.a.getHandler().postDelayed(this.a.H, 5000L);
                     }
                 }
             });
             aVar.setVideoPlayCallback(new a.b(this, bVar) { // from class: com.kwad.sdk.feed.widget.k.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.kwad.sdk.core.video.videoview.b f66675a;
+                public final /* synthetic */ com.kwad.sdk.core.video.videoview.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ k f66676b;
+                public final /* synthetic */ k f58566b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public boolean f66677c;
+                public boolean f58567c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -268,62 +268,60 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                             return;
                         }
                     }
-                    this.f66676b = this;
-                    this.f66675a = bVar;
-                    this.f66677c = false;
+                    this.f58566b = this;
+                    this.a = bVar;
+                    this.f58567c = false;
                 }
 
                 @Override // com.kwad.sdk.core.video.videoview.a.b
-                public void a() {
+                public void a(long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.kwad.sdk.core.report.a.i(((com.kwad.sdk.feed.widget.base.a) this.f66676b).f66630b);
-                        this.f66676b.f66671h.setText(aq.a(this.f66675a.getDuration()));
-                    }
-                }
-
-                @Override // com.kwad.sdk.core.video.videoview.a.b
-                public void a(long j) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                        this.f66676b.a(j);
-                        float duration = (((float) j) * 100.0f) / ((float) this.f66675a.getDuration());
-                        if (!this.f66676b.A) {
-                            this.f66676b.k.setProgress((int) duration);
-                            this.f66676b.f66672i.setText(aq.a(j));
+                    if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j2) == null) {
+                        this.f58566b.a(j2);
+                        float duration = (((float) j2) * 100.0f) / ((float) this.a.getDuration());
+                        if (!this.f58566b.A) {
+                            this.f58566b.f58565k.setProgress((int) duration);
+                            this.f58566b.f58563i.setText(aw.a(j2));
                         }
-                        this.f66676b.f66671h.setText(aq.a(this.f66675a.getDuration()));
+                        this.f58566b.f58562h.setText(aw.a(this.a.getDuration()));
                     }
                 }
 
                 @Override // com.kwad.sdk.core.video.videoview.a.b
-                public void b() {
+                public void b_() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f66677c) {
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        com.kwad.sdk.core.report.a.i(((com.kwad.sdk.feed.widget.base.a) this.f58566b).f58528b);
+                        this.f58566b.f58562h.setText(aw.a(this.a.getDuration()));
+                    }
+                }
+
+                @Override // com.kwad.sdk.core.video.videoview.a.b
+                public void e() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f58567c) {
                         return;
                     }
-                    this.f66677c = true;
-                    com.kwad.sdk.core.report.d.a(((com.kwad.sdk.feed.widget.base.a) this.f66676b).f66630b, System.currentTimeMillis(), 1);
+                    this.f58567c = true;
+                    com.kwad.sdk.core.report.d.a(((com.kwad.sdk.feed.widget.base.a) this.f58566b).f58528b, System.currentTimeMillis(), 1);
                 }
 
                 @Override // com.kwad.sdk.core.video.videoview.a.b
-                public void c() {
+                public void f() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                        com.kwad.sdk.core.report.a.j(((com.kwad.sdk.feed.widget.base.a) this.f66676b).f66630b);
-                        this.f66676b.o.setVisibility(8);
-                        this.f66676b.n.setVisibility(8);
-                        this.f66676b.k.setProgress((int) 100.0f);
-                        this.f66676b.f66672i.setText(aq.a(this.f66675a.getDuration()));
+                        com.kwad.sdk.core.report.a.j(((com.kwad.sdk.feed.widget.base.a) this.f58566b).f58528b);
+                        this.f58566b.o.setVisibility(8);
+                        this.f58566b.n.setVisibility(8);
+                        this.f58566b.f58565k.setProgress((int) 100.0f);
+                        this.f58566b.f58563i.setText(aw.a(this.a.getDuration()));
                     }
                 }
             });
-            this.u.setVideoClickListener(new a.InterfaceC1952a(this) { // from class: com.kwad.sdk.feed.widget.k.4
+            this.u.setAdClickListener(new a.InterfaceC2027a(this) { // from class: com.kwad.sdk.feed.widget.k.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ k f66678a;
+                public final /* synthetic */ k a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -340,26 +338,71 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                             return;
                         }
                     }
-                    this.f66678a = this;
+                    this.a = this;
                 }
 
-                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC1952a
-                public void a() {
+                @Override // com.kwad.sdk.core.video.videoview.a.InterfaceC2027a
+                public void a(int i2, z.a aVar2) {
+                    int i3;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f66678a.l();
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, aVar2) == null) {
+                        int i4 = 2;
+                        boolean z = false;
+                        if (i2 == 1) {
+                            i3 = 13;
+                        } else if (i2 == 2) {
+                            i3 = 82;
+                        } else if (i2 != 3) {
+                            i3 = 108;
+                        } else {
+                            i3 = 83;
+                            i4 = 1;
+                            z = true;
+                        }
+                        p.a aVar3 = new p.a();
+                        aVar3.f57686g = aVar2;
+                        aVar3.f57681b = i3;
+                        com.kwad.sdk.core.download.a.a.a(new a.C2015a(bb.a(this.a.s)).a(((com.kwad.sdk.feed.widget.base.a) this.a).f58528b).a(this.a.F).a(i4).a(z).c(true).a(aVar3).a(new a.b(this) { // from class: com.kwad.sdk.feed.widget.k.4.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AnonymousClass4 a;
+
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i5 = newInitContext.flag;
+                                    if ((i5 & 1) != 0) {
+                                        int i6 = i5 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.a = this;
+                            }
+
+                            @Override // com.kwad.sdk.core.download.a.a.b
+                            public void a() {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                    this.a.a.l();
+                                }
+                            }
+                        }));
                     }
                 }
             });
-            this.k.setOnSeekBarChangeListener(new ScaleAnimSeekBar.a(this, bVar) { // from class: com.kwad.sdk.feed.widget.k.5
+            this.f58565k.setOnSeekBarChangeListener(new ScaleAnimSeekBar.a(this, bVar) { // from class: com.kwad.sdk.feed.widget.k.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.kwad.sdk.core.video.videoview.b f66679a;
+                public final /* synthetic */ com.kwad.sdk.core.video.videoview.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ k f66680b;
+                public final /* synthetic */ k f58568b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -376,17 +419,17 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                             return;
                         }
                     }
-                    this.f66680b = this;
-                    this.f66679a = bVar;
+                    this.f58568b = this;
+                    this.a = bVar;
                 }
 
                 @Override // com.kwad.sdk.core.view.ScaleAnimSeekBar.a
                 public void a(ScaleAnimSeekBar scaleAnimSeekBar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, scaleAnimSeekBar) == null) {
-                        this.f66680b.k.a(true);
-                        this.f66680b.getHandler().removeCallbacks(this.f66680b.G);
-                        this.f66680b.A = true;
+                        this.f58568b.f58565k.a(true);
+                        this.f58568b.getHandler().removeCallbacks(this.f58568b.H);
+                        this.f58568b.A = true;
                     }
                 }
 
@@ -394,10 +437,10 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                 public void a(ScaleAnimSeekBar scaleAnimSeekBar, int i2, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{scaleAnimSeekBar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && z) {
-                        this.f66680b.k.a(true);
-                        this.f66680b.getHandler().removeCallbacks(this.f66680b.G);
-                        this.f66680b.A = true;
-                        this.f66680b.f66672i.setText(aq.a((int) ((this.f66679a.getDuration() * scaleAnimSeekBar.getProgress()) / scaleAnimSeekBar.getMaxProgress())));
+                        this.f58568b.f58565k.a(true);
+                        this.f58568b.getHandler().removeCallbacks(this.f58568b.H);
+                        this.f58568b.A = true;
+                        this.f58568b.f58563i.setText(aw.a((int) ((this.a.getDuration() * scaleAnimSeekBar.getProgress()) / scaleAnimSeekBar.getMaxProgress())));
                     }
                 }
 
@@ -405,25 +448,23 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                 public void b(ScaleAnimSeekBar scaleAnimSeekBar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleAnimSeekBar) == null) {
-                        this.f66680b.k.a(false);
-                        this.f66679a.a((int) ((this.f66679a.getDuration() * scaleAnimSeekBar.getProgress()) / scaleAnimSeekBar.getMaxProgress()));
-                        if (this.f66680b.getHandler() != null) {
-                            this.f66680b.getHandler().removeCallbacks(this.f66680b.G);
-                            this.f66680b.getHandler().postDelayed(this.f66680b.G, 5000L);
+                        this.f58568b.f58565k.a(false);
+                        this.a.a((int) ((this.a.getDuration() * scaleAnimSeekBar.getProgress()) / scaleAnimSeekBar.getMaxProgress()));
+                        if (this.f58568b.getHandler() != null) {
+                            this.f58568b.getHandler().removeCallbacks(this.f58568b.H);
+                            this.f58568b.getHandler().postDelayed(this.f58568b.H, 5000L);
                         }
-                        this.f66680b.A = false;
+                        this.f58568b.A = false;
                     }
                 }
             });
             this.l.setOnClickListener(new View.OnClickListener(this, bVar) { // from class: com.kwad.sdk.feed.widget.k.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.kwad.sdk.core.video.videoview.b f66681a;
+                public final /* synthetic */ com.kwad.sdk.core.video.videoview.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ k f66682b;
+                public final /* synthetic */ k f58569b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -440,8 +481,8 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                             return;
                         }
                     }
-                    this.f66682b = this;
-                    this.f66681a = bVar;
+                    this.f58569b = this;
+                    this.a = bVar;
                 }
 
                 /* JADX WARN: Removed duplicated region for block: B:16:0x009f  */
@@ -458,48 +499,43 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                     if (interceptable2 != null && interceptable2.invokeL(1048576, this, view) != null) {
                         return;
                     }
-                    if (!this.f66681a.h() && !this.f66681a.d()) {
-                        if (this.f66681a.g()) {
-                            this.f66682b.u.m();
-                            this.f66682b.n.setVisibility(0);
-                            this.f66682b.n.setImageDrawable(this.f66682b.getContext().getResources().getDrawable(R.drawable.ksad_video_player_play_center));
-                            imageView = this.f66682b.l;
-                            resources = this.f66682b.getContext().getResources();
+                    if (!this.a.h() && !this.a.d()) {
+                        if (this.a.g()) {
+                            this.f58569b.u.n();
+                            this.f58569b.n.setVisibility(0);
+                            this.f58569b.n.setImageDrawable(this.f58569b.getContext().getResources().getDrawable(R.drawable.ksad_video_player_play_center));
+                            imageView = this.f58569b.l;
+                            resources = this.f58569b.getContext().getResources();
                             i2 = R.drawable.ksad_video_player_play_btn;
                         }
-                        if (this.f66682b.getHandler() == null) {
-                            this.f66682b.getHandler().removeCallbacks(this.f66682b.G);
-                            this.f66682b.getHandler().postDelayed(this.f66682b.G, 5000L);
+                        if (this.f58569b.getHandler() == null) {
+                            this.f58569b.getHandler().removeCallbacks(this.f58569b.H);
+                            this.f58569b.getHandler().postDelayed(this.f58569b.H, 5000L);
                             return;
                         }
                         return;
                     }
-                    this.f66682b.u.n();
-                    this.f66682b.l.setImageDrawable(this.f66682b.getContext().getResources().getDrawable(R.drawable.ksad_video_player_pause_btn));
-                    imageView = this.f66682b.n;
-                    resources = this.f66682b.getContext().getResources();
+                    this.f58569b.u.o();
+                    this.f58569b.l.setImageDrawable(this.f58569b.getContext().getResources().getDrawable(R.drawable.ksad_video_player_pause_btn));
+                    imageView = this.f58569b.n;
+                    resources = this.f58569b.getContext().getResources();
                     i2 = R.drawable.ksad_video_player_pause_center;
                     imageView.setImageDrawable(resources.getDrawable(i2));
-                    if (this.f66682b.getHandler() == null) {
+                    if (this.f58569b.getHandler() == null) {
                     }
                 }
             });
-            this.n.setOnClickListener(new View.OnClickListener(this, bVar) { // from class: com.kwad.sdk.feed.widget.k.7
+            this.n.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.feed.widget.k.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.kwad.sdk.core.video.videoview.b f66683a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ k f66684b;
+                public final /* synthetic */ k a;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bVar};
+                        Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -509,56 +545,29 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                             return;
                         }
                     }
-                    this.f66684b = this;
-                    this.f66683a = bVar;
+                    this.a = this;
                 }
 
-                /* JADX WARN: Removed duplicated region for block: B:16:0x009f  */
-                /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
                 @Override // android.view.View.OnClickListener
-                /*
-                    Code decompiled incorrectly, please refer to instructions dump.
-                */
                 public void onClick(View view) {
-                    ImageView imageView;
-                    Resources resources;
-                    int i2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null && interceptable2.invokeL(1048576, this, view) != null) {
-                        return;
-                    }
-                    if (!this.f66683a.h() && !this.f66683a.d()) {
-                        if (this.f66683a.g()) {
-                            this.f66684b.u.m();
-                            this.f66684b.n.setVisibility(0);
-                            this.f66684b.n.setImageDrawable(this.f66684b.getContext().getResources().getDrawable(R.drawable.ksad_video_player_play_center));
-                            imageView = this.f66684b.l;
-                            resources = this.f66684b.getContext().getResources();
-                            i2 = R.drawable.ksad_video_player_play_btn;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                        if (this.a.p.h() || this.a.p.d()) {
+                            this.a.g();
+                        } else if (this.a.p.g()) {
+                            this.a.h();
                         }
-                        if (this.f66684b.getHandler() == null) {
-                            this.f66684b.getHandler().removeCallbacks(this.f66684b.G);
-                            this.f66684b.getHandler().postDelayed(this.f66684b.G, 5000L);
-                            return;
+                        if (this.a.getHandler() != null) {
+                            this.a.getHandler().removeCallbacks(this.a.H);
+                            this.a.getHandler().postDelayed(this.a.H, 5000L);
                         }
-                        return;
-                    }
-                    this.f66684b.u.n();
-                    this.f66684b.l.setImageDrawable(this.f66684b.getContext().getResources().getDrawable(R.drawable.ksad_video_player_pause_btn));
-                    imageView = this.f66684b.n;
-                    resources = this.f66684b.getContext().getResources();
-                    i2 = R.drawable.ksad_video_player_pause_center;
-                    imageView.setImageDrawable(resources.getDrawable(i2));
-                    if (this.f66684b.getHandler() == null) {
                     }
                 }
             });
             this.q.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.feed.widget.k.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ k f66685a;
+                public final /* synthetic */ k a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -575,23 +584,21 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                             return;
                         }
                     }
-                    this.f66685a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f66685a.i();
+                        this.a.p();
                     }
                 }
             });
             this.m.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.feed.widget.k.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ k f66686a;
+                public final /* synthetic */ k a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -608,17 +615,17 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                             return;
                         }
                     }
-                    this.f66686a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f66686a.v == 100) {
-                            this.f66686a.h();
-                        } else if (this.f66686a.v == 101) {
-                            this.f66686a.i();
+                        if (this.a.v == 100) {
+                            this.a.o();
+                        } else if (this.a.v == 101) {
+                            this.a.p();
                         }
                     }
                 }
@@ -626,10 +633,31 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
         }
     }
 
-    private boolean g() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+            this.u.o();
+            this.l.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ksad_video_player_pause_btn));
+            this.n.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ksad_video_player_pause_center));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+            this.u.n();
+            this.n.setVisibility(0);
+            this.n.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ksad_video_player_play_center));
+            this.l.setImageDrawable(getContext().getResources().getDrawable(R.drawable.ksad_video_player_play_btn));
+        }
+    }
+
+    private boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             int i2 = ((elapsedRealtime - this.y) > 888L ? 1 : ((elapsedRealtime - this.y) == 888L ? 0 : -1));
             if (i2 > 0) {
@@ -641,24 +669,24 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             a aVar = this.D;
             if (aVar != null) {
                 aVar.a();
             }
-            if ((this.v == 100) && g()) {
+            if ((this.v == 100) && i()) {
                 this.q.setVisibility(0);
-                this.r.setText(((com.kwad.sdk.feed.widget.base.a) this).f66631c.adBaseInfo.adDescription);
-                boolean z = com.kwad.sdk.core.response.b.a.e(((com.kwad.sdk.feed.widget.base.a) this).f66631c) > com.kwad.sdk.core.response.b.a.d(((com.kwad.sdk.feed.widget.base.a) this).f66631c);
-                this.w = ab.a(getContext());
-                this.x = ab.e(getContext());
+                this.r.setText(((com.kwad.sdk.feed.widget.base.a) this).f58529c.adBaseInfo.adDescription);
+                boolean z = com.kwad.sdk.core.response.a.a.f(((com.kwad.sdk.feed.widget.base.a) this).f58529c) > com.kwad.sdk.core.response.a.a.e(((com.kwad.sdk.feed.widget.base.a) this).f58529c);
+                this.w = af.a(getContext());
+                this.x = af.e(getContext());
                 Context context = getContext();
                 if (z) {
-                    ab.d(context);
+                    af.d(context);
                 } else {
-                    ab.c(context);
+                    af.c(context);
                 }
                 ViewGroup viewGroup = (ViewGroup) this.s.getParent();
                 this.t = viewGroup;
@@ -669,13 +697,13 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                     view.setLayoutParams(new ViewGroup.LayoutParams(this.s.getWidth(), this.s.getHeight()));
                     viewGroup.addView(this.E);
                 }
-                ab.a(getContext(), false);
-                Context a2 = av.a(this);
+                af.a(getContext(), false);
+                Context a2 = bb.a(this);
                 if (a2 instanceof Activity) {
                     ViewGroup viewGroup2 = (ViewGroup) ((Activity) a2).getWindow().getDecorView();
                     this.s.setLayoutParams(new ViewGroup.LayoutParams(viewGroup2.getWidth(), viewGroup2.getHeight()));
                     if (z && viewGroup2.getWidth() != 0) {
-                        this.f66668a.setRatio(viewGroup2.getHeight() / viewGroup2.getWidth());
+                        this.a.setRatio(viewGroup2.getHeight() / viewGroup2.getWidth());
                     }
                     viewGroup2.addView(this.s, new FrameLayout.LayoutParams(-1, -1));
                     setUIWithStateAndMode(101);
@@ -685,28 +713,28 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void i() {
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            if ((this.v == 101) & g()) {
+        if (interceptable == null || interceptable.invokeV(65560, this) == null) {
+            if ((this.v == 101) & i()) {
                 this.q.setVisibility(8);
                 if (this.w) {
-                    ab.a(getContext());
+                    af.a(getContext());
                 } else {
-                    ab.b(getContext());
+                    af.b(getContext());
                 }
                 if (this.x) {
-                    ab.d(getContext());
+                    af.d(getContext());
                 } else {
-                    ab.c(getContext());
+                    af.c(getContext());
                 }
-                ab.a(getContext(), true);
+                af.a(getContext(), true);
                 ViewGroup viewGroup = (ViewGroup) this.s.getParent();
                 if (viewGroup != null) {
                     viewGroup.removeView(this.s);
                 }
                 this.s.setLayoutParams(new ViewGroup.LayoutParams(this.t.getWidth(), this.t.getHeight()));
-                this.f66668a.setRatio(0.56f);
+                this.a.setRatio(0.56f);
                 View view = this.E;
                 if (view != null) {
                     this.t.removeView(view);
@@ -723,22 +751,30 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
         }
     }
 
-    public void a(@NonNull KsAdVideoPlayConfig ksAdVideoPlayConfig) {
-        j jVar;
+    @Override // com.kwad.sdk.widget.KSFrameLayout, com.kwad.sdk.widget.j
+    public void a(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ksAdVideoPlayConfig) == null) {
-            com.kwad.sdk.core.response.model.c T = com.kwad.sdk.core.response.b.a.T(((com.kwad.sdk.feed.widget.base.a) this).f66631c);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            super.a(view);
+        }
+    }
+
+    public void a(@NonNull KsAdVideoPlayConfig ksAdVideoPlayConfig, com.kwad.sdk.core.download.a.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksAdVideoPlayConfig, bVar) == null) {
+            this.F = bVar;
+            com.kwad.sdk.core.response.model.c aa = com.kwad.sdk.core.response.a.a.aa(((com.kwad.sdk.feed.widget.base.a) this).f58529c);
             this.C = ksAdVideoPlayConfig;
-            String a2 = T.a();
+            String a2 = aa.a();
             if (TextUtils.isEmpty(a2)) {
-                this.f66669f.setVisibility(8);
+                this.f58560f.setVisibility(8);
             } else {
-                this.f66669f.setImageDrawable(null);
-                KSImageLoader.loadImage(this.f66669f, a2, ((com.kwad.sdk.feed.widget.base.a) this).f66630b);
-                this.f66669f.setVisibility(0);
+                this.f58560f.setImageDrawable(null);
+                KSImageLoader.loadImage(this.f58560f, a2, ((com.kwad.sdk.feed.widget.base.a) this).f58528b);
+                this.f58560f.setVisibility(0);
             }
-            this.f66670g = com.kwad.sdk.core.response.b.a.I(((com.kwad.sdk.feed.widget.base.a) this).f66631c);
-            String a3 = com.kwad.sdk.core.response.b.a.a(((com.kwad.sdk.feed.widget.base.a) this).f66631c);
+            this.f58561g = com.kwad.sdk.core.response.a.a.S(((com.kwad.sdk.feed.widget.base.a) this).f58529c);
+            String a3 = com.kwad.sdk.core.response.a.a.a(((com.kwad.sdk.feed.widget.base.a) this).f58529c);
             if (TextUtils.isEmpty(a3)) {
                 return;
             }
@@ -746,44 +782,45 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
             this.p = b2;
             if (b2 == null) {
                 this.p = new com.kwad.sdk.core.video.videoview.b(getContext());
-                com.kwad.sdk.core.response.b.a.i(((com.kwad.sdk.feed.widget.base.a) this).f66631c);
-                this.p.a(new c.a().a(((com.kwad.sdk.feed.widget.base.a) this).f66630b.mVideoPlayerStatus).a(com.kwad.sdk.core.response.b.c.l(((com.kwad.sdk.feed.widget.base.a) this).f66630b)).b(com.kwad.sdk.core.response.b.e.b(com.kwad.sdk.core.response.b.c.j(((com.kwad.sdk.feed.widget.base.a) this).f66630b))).a(new com.kwad.sdk.contentalliance.detail.video.b(((com.kwad.sdk.feed.widget.base.a) this).f66630b, System.currentTimeMillis())).a(), (Map<String, String>) null);
+                com.kwad.sdk.core.response.a.a.l(((com.kwad.sdk.feed.widget.base.a) this).f58529c);
+                this.p.a(new c.a(((com.kwad.sdk.feed.widget.base.a) this).f58528b).a(((com.kwad.sdk.feed.widget.base.a) this).f58528b.mVideoPlayerStatus).a(com.kwad.sdk.core.response.a.d.m(((com.kwad.sdk.feed.widget.base.a) this).f58528b)).b(com.kwad.sdk.core.response.a.f.b(com.kwad.sdk.core.response.a.d.k(((com.kwad.sdk.feed.widget.base.a) this).f58528b))).a(new com.kwad.sdk.contentalliance.detail.video.b(((com.kwad.sdk.feed.widget.base.a) this).f58528b, System.currentTimeMillis())).a(), (Map<String, String>) null);
                 this.p.setVideoSoundEnable(ksAdVideoPlayConfig.isVideoSoundEnable());
-                j jVar2 = new j(((com.kwad.sdk.feed.widget.base.a) this).f66633e, ((com.kwad.sdk.feed.widget.base.a) this).f66630b, this.p);
-                this.u = jVar2;
-                jVar2.setDataFlowAutoStart(ksAdVideoPlayConfig.isDataFlowAutoStart());
+                j jVar = new j(((com.kwad.sdk.feed.widget.base.a) this).f58531e, ((com.kwad.sdk.feed.widget.base.a) this).f58528b, this.p);
+                this.u = jVar;
+                jVar.setDataFlowAutoStart(ksAdVideoPlayConfig.isDataFlowAutoStart());
                 this.p.setController(this.u);
-                jVar = this.u;
+                this.u.setAutoRelease(false);
             } else {
                 if (b2.getTag() != null) {
                     try {
-                        this.f66670g = (List) this.p.getTag();
+                        this.f58561g = (List) this.p.getTag();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
-                jVar = (j) this.p.getController();
-                this.u = jVar;
+                j jVar2 = (j) this.p.getController();
+                this.u = jVar2;
+                jVar2.setAutoRelease(false);
+                this.u.getAdTemplate().mAdWebVideoPageShowing = true;
             }
-            jVar.setAutoRelease(false);
             this.p.setVideoSoundEnable(ksAdVideoPlayConfig.isVideoSoundEnable());
             if (this.p.getParent() != null) {
                 ((ViewGroup) this.p.getParent()).removeView(this.p);
             }
-            if (this.f66668a.getTag() != null) {
-                RatioFrameLayout ratioFrameLayout = this.f66668a;
+            if (this.a.getTag() != null) {
+                RatioFrameLayout ratioFrameLayout = this.a;
                 ratioFrameLayout.removeView((View) ratioFrameLayout.getTag());
-                this.f66668a.setTag(null);
+                this.a.setTag(null);
             }
-            this.f66668a.addView(this.p);
-            this.f66668a.setTag(this.p);
+            this.a.addView(this.p);
+            this.a.setTag(this.p);
             this.o.setVisibility(8);
             this.n.setVisibility(8);
-            if (((com.kwad.sdk.feed.widget.base.a) this).f66631c.adConversionInfo.h5Type == 1) {
-                this.j.setVisibility(8);
+            if (((com.kwad.sdk.feed.widget.base.a) this).f58529c.adConversionInfo.h5Type == 1) {
+                this.f58564j.setVisibility(8);
             } else {
-                this.j.setVisibility(0);
-                this.j.setText(((com.kwad.sdk.feed.widget.base.a) this).f66631c.adBaseInfo.adDescription);
+                this.f58564j.setVisibility(0);
+                this.f58564j.setText(((com.kwad.sdk.feed.widget.base.a) this).f58529c.adBaseInfo.adDescription);
             }
             a(this.u, this.p);
         }
@@ -792,7 +829,7 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adTemplate) == null) {
             super.a(adTemplate);
         }
     }
@@ -800,19 +837,19 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.z = new NestedScrollingChildHelper(this);
             RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.ksad_video_container);
-            this.f66668a = ratioFrameLayout;
+            this.a = ratioFrameLayout;
             ratioFrameLayout.setRatio(0.56f);
-            this.f66669f = (ImageView) findViewById(R.id.ksad_video_first_frame_container);
-            this.j = (TextView) findViewById(R.id.ksad_video_text_below);
+            this.f58560f = (ImageView) findViewById(R.id.ksad_video_first_frame_container);
+            this.f58564j = (TextView) findViewById(R.id.ksad_video_text_below);
             ScaleAnimSeekBar scaleAnimSeekBar = (ScaleAnimSeekBar) findViewById(R.id.ksad_web_video_seek_bar);
-            this.k = scaleAnimSeekBar;
+            this.f58565k = scaleAnimSeekBar;
             scaleAnimSeekBar.setMaxProgress(100);
-            this.k.setMinProgress(0);
-            this.f66671h = (TextView) findViewById(R.id.ksad_video_control_play_total);
-            this.f66672i = (TextView) findViewById(R.id.ksad_video_control_play_duration);
+            this.f58565k.setMinProgress(0);
+            this.f58562h = (TextView) findViewById(R.id.ksad_video_control_play_total);
+            this.f58563i = (TextView) findViewById(R.id.ksad_video_control_play_duration);
             this.l = (ImageView) findViewById(R.id.ksad_video_control_play_button);
             this.n = (ImageView) findViewById(R.id.ksad_video_control_play_status);
             this.m = (ImageView) findViewById(R.id.ksad_video_control_fullscreen);
@@ -826,9 +863,9 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.v == 101) {
-                i();
+                p();
                 return true;
             }
             return false;
@@ -840,69 +877,94 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     public boolean dispatchNestedFling(float f2, float f3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.z.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.z.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.z.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.z.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.z.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.z.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.z.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.z.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.feed.widget.base.a, com.kwad.sdk.core.j.d
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.e();
+            com.kwad.sdk.core.video.videoview.b bVar = this.p;
+            if (bVar == null || bVar.g()) {
+                return;
+            }
+            g();
+            if (getHandler() != null) {
+                getHandler().removeCallbacks(this.H);
+                getHandler().postDelayed(this.H, 5000L);
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.feed.widget.base.a, com.kwad.sdk.core.j.d
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.f();
+            if (this.p != null) {
+                h();
+                if (getHandler() != null) {
+                    getHandler().removeCallbacks(this.H);
+                    getHandler().postDelayed(this.H, 5000L);
+                }
+            }
+        }
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.layout.ksad_feed_video : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? R.layout.ksad_feed_video : invokeV.intValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean hasNestedScrollingParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.z.hasNestedScrollingParent() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.z.hasNestedScrollingParent() : invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.z.isNestedScrollingEnabled() : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.z.isNestedScrollingEnabled() : invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.z.setNestedScrollingEnabled(z);
         }
     }
 
     public void setOnEndBtnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, onClickListener) == null) {
             this.B = onClickListener;
         }
     }
@@ -912,7 +974,7 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
         Resources resources;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
             if (i2 == 101) {
                 imageView = this.m;
                 resources = getContext().getResources();
@@ -929,7 +991,7 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
 
     public void setWindowFullScreenListener(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, aVar) == null) {
             this.D = aVar;
         }
     }
@@ -938,13 +1000,13 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     public boolean startNestedScroll(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) ? this.z.startNestedScroll(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) ? this.z.startNestedScroll(i2) : invokeI.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             this.z.stopNestedScroll();
         }
     }

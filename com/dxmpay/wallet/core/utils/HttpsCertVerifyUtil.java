@@ -5,7 +5,6 @@ import android.net.http.SslError;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HttpsCertVerifyUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +110,7 @@ public class HttpsCertVerifyUtil {
     public static String[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String str = SdkInitResponse.getInstance().certWhiteList;
             if (TextUtils.isEmpty(str)) {
                 return null;
@@ -126,7 +125,7 @@ public class HttpsCertVerifyUtil {
         String[] e2;
         byte[] c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, sslError)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sslError)) == null) {
             if (sslError == null) {
                 return false;
             }

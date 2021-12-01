@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PushThreadActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_FORUM_ID = "forum_id";
@@ -18,13 +18,13 @@ public class PushThreadActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PushThreadActivityConfig(Context context, int i2, long j, long j2, long j3, PushStatusData pushStatusData) {
+    public PushThreadActivityConfig(Context context, int i2, long j2, long j3, long j4, PushStatusData pushStatusData) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), pushStatusData};
+            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), pushStatusData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -37,9 +37,9 @@ public class PushThreadActivityConfig extends IntentConfig {
         }
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
-        getIntent().putExtra("forum_id", j);
-        getIntent().putExtra("thread_id", j2);
-        getIntent().putExtra("user_id", j3);
+        getIntent().putExtra("forum_id", j2);
+        getIntent().putExtra("thread_id", j3);
+        getIntent().putExtra("user_id", j4);
         getIntent().putExtra(KEY_PUSH_DATA, pushStatusData);
     }
 }

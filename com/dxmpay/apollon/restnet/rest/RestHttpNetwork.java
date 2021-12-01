@@ -1,10 +1,10 @@
 package com.dxmpay.apollon.restnet.rest;
 
-import b.e.a.g.a;
-import b.e.a.g.d.c;
-import b.e.a.g.d.d;
-import b.e.a.g.d.e;
-import b.e.a.g.d.g;
+import c.f.a.g.a;
+import c.f.a.g.d.c;
+import c.f.a.g.d.d;
+import c.f.a.g.d.e;
+import c.f.a.g.d.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,16 +16,14 @@ import com.dxmpay.apollon.utils.LogUtil;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RestHttpNetwork implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final c f63064a;
+    public final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f63065b;
+    public final g f55131b;
 
     public RestHttpNetwork(c cVar) {
         Interceptable interceptable = $ic;
@@ -42,8 +40,8 @@ public class RestHttpNetwork implements c {
                 return;
             }
         }
-        this.f63064a = cVar;
-        this.f63065b = new g(3, 1000);
+        this.a = cVar;
+        this.f55131b = new g(3, 1000);
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -82,18 +80,18 @@ public class RestHttpNetwork implements c {
         	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
         */
     /* JADX WARN: Removed duplicated region for block: B:42:0x00b6 A[SYNTHETIC] */
-    @Override // b.e.a.g.d.c
+    @Override // c.f.a.g.d.c
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public b.e.a.g.d.e a(b.e.a.g.d.d r11) throws java.lang.Exception {
+    public c.f.a.g.d.e a(c.f.a.g.d.d r11) throws java.lang.Exception {
         /*
             r10 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.dxmpay.apollon.restnet.rest.RestHttpNetwork.$ic
             if (r0 != 0) goto Le3
         L4:
             java.lang.String r0 = r11.f()
-            b.e.a.g.a$a r1 = b.e.a.g.a.a()
+            c.f.a.g.a$a r1 = c.f.a.g.a.a()
             r2 = 0
             r3 = 1
             r4 = 0
@@ -101,8 +99,8 @@ public class RestHttpNetwork implements c {
             r6 = 0
         L11:
             if (r5 == 0) goto Le2
-            b.e.a.g.d.c r4 = r10.f63064a     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
-            b.e.a.g.d.e r4 = r4.a(r11)     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            c.f.a.g.d.c r4 = r10.a     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
+            c.f.a.g.d.e r4 = r4.a(r11)     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             if (r4 == 0) goto L30
             com.dxmpay.apollon.restnet.http.HttpStatus r5 = r4.d()     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
             com.dxmpay.apollon.restnet.http.HttpStatus r7 = com.dxmpay.apollon.restnet.http.HttpStatus.OK     // Catch: java.io.IOException -> L31 java.util.concurrent.TimeoutException -> L3c java.lang.NullPointerException -> L60 java.net.UnknownHostException -> L87
@@ -115,7 +113,7 @@ public class RestHttpNetwork implements c {
             return r4
         L31:
             r4 = move-exception
-            b.e.a.g.d.g r5 = r10.f63065b
+            c.f.a.g.d.g r5 = r10.f55131b
             int r6 = r6 + 1
             boolean r5 = r5.a(r4, r6)
             goto Lb2
@@ -130,7 +128,7 @@ public class RestHttpNetwork implements c {
             r7.append(r8)
             java.lang.String r7 = r7.toString()
             r5.<init>(r7)
-            b.e.a.g.d.g r7 = r10.f63065b
+            c.f.a.g.d.g r7 = r10.f55131b
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
             goto L83
@@ -145,7 +143,7 @@ public class RestHttpNetwork implements c {
             r7.append(r4)
             java.lang.String r4 = r7.toString()
             r5.<init>(r4)
-            b.e.a.g.d.g r4 = r10.f63065b
+            c.f.a.g.d.g r4 = r10.f55131b
             int r6 = r6 + 1
             boolean r4 = r4.a(r5, r6)
         L83:
@@ -165,7 +163,7 @@ public class RestHttpNetwork implements c {
             java.lang.String r7 = r7.toString()
             r5.<init>(r7)
             if (r6 <= 0) goto Lb0
-            b.e.a.g.d.g r7 = r10.f63065b
+            c.f.a.g.d.g r7 = r10.f55131b
             int r6 = r6 + 1
             boolean r4 = r7.a(r4, r6)
             if (r4 == 0) goto Lb0
@@ -202,17 +200,17 @@ public class RestHttpNetwork implements c {
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r8.invokeL(r9, r10, r11)
             if (r0 == 0) goto L4
             java.lang.Object r1 = r0.objValue
-            b.e.a.g.d.e r1 = (b.e.a.g.d.e) r1
+            c.f.a.g.d.e r1 = (c.f.a.g.d.e) r1
             return r1
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.dxmpay.apollon.restnet.rest.RestHttpNetwork.a(b.e.a.g.d.d):b.e.a.g.d.e");
+        throw new UnsupportedOperationException("Method not decompiled: com.dxmpay.apollon.restnet.rest.RestHttpNetwork.a(c.f.a.g.d.d):c.f.a.g.d.e");
     }
 
-    @Override // b.e.a.g.d.c
+    @Override // c.f.a.g.d.c
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f63064a.a();
+            this.a.a();
         }
     }
 }

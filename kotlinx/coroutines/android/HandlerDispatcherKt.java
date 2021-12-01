@@ -32,18 +32,18 @@ public final class HandlerDispatcherKt {
     public static volatile Choreographer choreographer;
 
     static {
-        Object m652constructorimpl;
+        Object m702constructorimpl;
         try {
             Result.Companion companion = Result.Companion;
-            m652constructorimpl = Result.m652constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), "Main"));
+            m702constructorimpl = Result.m702constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), "Main"));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m652constructorimpl = Result.m652constructorimpl(ResultKt.createFailure(th));
+            m702constructorimpl = Result.m702constructorimpl(ResultKt.createFailure(th));
         }
-        if (Result.m658isFailureimpl(m652constructorimpl)) {
-            m652constructorimpl = null;
+        if (Result.m708isFailureimpl(m702constructorimpl)) {
+            m702constructorimpl = null;
         }
-        Main = (HandlerDispatcher) m652constructorimpl;
+        Main = (HandlerDispatcher) m702constructorimpl;
     }
 
     @Deprecated(level = DeprecationLevel.HIDDEN, message = "Use Dispatchers.Main instead")
@@ -117,8 +117,8 @@ public final class HandlerDispatcherKt {
     public static final void postFrameCallback(Choreographer choreographer2, final CancellableContinuation<? super Long> cancellableContinuation) {
         choreographer2.postFrameCallback(new Choreographer.FrameCallback() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$postFrameCallback$1
             @Override // android.view.Choreographer.FrameCallback
-            public final void doFrame(long j) {
-                CancellableContinuation.this.resumeUndispatched(Dispatchers.getMain(), Long.valueOf(j));
+            public final void doFrame(long j2) {
+                CancellableContinuation.this.resumeUndispatched(Dispatchers.getMain(), Long.valueOf(j2));
             }
         });
     }

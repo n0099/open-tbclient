@@ -39,7 +39,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MultiPointOutputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService FILE_IO_EXECUTOR;
@@ -72,7 +72,7 @@ public class MultiPointOutputStream {
     public final Runnable syncRunnable;
     public final DownloadTask task;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class StreamsState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -385,15 +385,15 @@ public class MultiPointOutputStream {
         SparseArray sparseArray = new SparseArray(size);
         int i2 = 0;
         while (true) {
-            long j = 0;
+            long j2 = 0;
             if (i2 >= size) {
                 break;
             }
             try {
                 int keyAt = this.outputStreamMap.keyAt(i2);
-                long j2 = this.noSyncLengthMap.get(keyAt).get();
-                if (j2 > 0) {
-                    sparseArray.put(keyAt, Long.valueOf(j2));
+                long j3 = this.noSyncLengthMap.get(keyAt).get();
+                if (j3 > 0) {
+                    sparseArray.put(keyAt, Long.valueOf(j3));
                     this.outputStreamMap.get(keyAt).flushAndSync();
                 }
                 i2++;
@@ -409,11 +409,11 @@ public class MultiPointOutputStream {
                 int keyAt2 = sparseArray.keyAt(i3);
                 long longValue = ((Long) sparseArray.valueAt(i3)).longValue();
                 this.store.onSyncToFilesystemSuccess(this.info, keyAt2, longValue);
-                j += longValue;
+                j2 += longValue;
                 this.noSyncLengthMap.get(keyAt2).addAndGet(-longValue);
                 Util.d(TAG, "OutputStream sync success (" + this.task.getId() + ") block(" + keyAt2 + ")  syncLength(" + longValue + ") currentOffset(" + this.info.getBlock(keyAt2).getCurrentOffset() + SmallTailInfo.EMOTION_SUFFIX);
             }
-            this.allNoSyncLength.addAndGet(-j);
+            this.allNoSyncLength.addAndGet(-j2);
             this.lastSyncTimestamp.set(SystemClock.uptimeMillis());
             return;
         }
@@ -458,12 +458,12 @@ public class MultiPointOutputStream {
         }
     }
 
-    public void inspectFreeSpace(StatFs statFs, long j) throws PreAllocateException {
+    public void inspectFreeSpace(StatFs statFs, long j2) throws PreAllocateException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, statFs, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, statFs, j2) == null) {
             long freeSpaceBytes = Util.getFreeSpaceBytes(statFs);
-            if (freeSpaceBytes < j) {
-                throw new PreAllocateException(j, freeSpaceBytes);
+            if (freeSpaceBytes < j2) {
+                throw new PreAllocateException(j2, freeSpaceBytes);
             }
         }
     }
@@ -574,10 +574,10 @@ public class MultiPointOutputStream {
         return (DownloadOutputStream) invokeI.objValue;
     }
 
-    public void parkThread(long j) {
+    public void parkThread(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos(j));
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos(j2));
         }
     }
 
@@ -587,10 +587,10 @@ public class MultiPointOutputStream {
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             Util.d(TAG, "OutputStream start flush looper task[" + this.task.getId() + "] with syncBufferIntervalMills[" + this.syncBufferIntervalMills + "] syncBufferSize[" + this.syncBufferSize + PreferencesUtil.RIGHT_MOUNT);
             this.runSyncThread = Thread.currentThread();
-            long j = (long) this.syncBufferIntervalMills;
+            long j2 = (long) this.syncBufferIntervalMills;
             flushProcess();
             while (true) {
-                parkThread(j);
+                parkThread(j2);
                 inspectStreamState(this.state);
                 if (this.state.isStreamsEndOrChanged()) {
                     Util.d(TAG, "runSync state change isNoMoreStream[" + this.state.isNoMoreStream + "] newNoMoreStreamBlockList[" + this.state.newNoMoreStreamBlockList + PreferencesUtil.RIGHT_MOUNT);
@@ -611,13 +611,13 @@ public class MultiPointOutputStream {
                     if (isNoNeedFlushForLength()) {
                         i2 = this.syncBufferIntervalMills;
                     } else {
-                        j = getNextParkMillisecond();
-                        if (j <= 0) {
+                        j2 = getNextParkMillisecond();
+                        if (j2 <= 0) {
                             flushProcess();
                             i2 = this.syncBufferIntervalMills;
                         }
                     }
-                    j = i2;
+                    j2 = i2;
                 }
             }
             int size = this.parkedRunBlockThreadMap.size();
@@ -666,9 +666,9 @@ public class MultiPointOutputStream {
                     return;
                 }
                 outputStream(i2).write(bArr, 0, i3);
-                long j = i3;
-                this.allNoSyncLength.addAndGet(j);
-                this.noSyncLengthMap.get(i2).addAndGet(j);
+                long j2 = i3;
+                this.allNoSyncLength.addAndGet(j2);
+                this.noSyncLengthMap.get(i2).addAndGet(j2);
                 inspectAndPersist();
             }
         }

@@ -8,19 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class w implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public z f42479a;
+    public z a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f42480b;
+    public Object f37515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f42481c;
+    public Class<?> f37516c;
 
     public w(Object obj) {
         Interceptable interceptable = $ic;
@@ -37,11 +35,11 @@ public class w implements a {
                 return;
             }
         }
-        this.f42479a = z.f42495a;
+        this.a = z.a;
         if (obj != null) {
             if ("com.baidu.bottom.remote.BPStretegyController2".equals(obj.getClass().getName())) {
-                this.f42480b = obj;
-                this.f42481c = obj.getClass();
+                this.f37515b = obj;
+                this.f37516c = obj.getClass();
                 return;
             }
             throw new IllegalArgumentException("class isn't com.baidu.bottom.remote.BPStretegyController2");
@@ -57,7 +55,7 @@ public class w implements a {
                 a(new Object[]{context, jSONObject}, "startDataAnynalyze", new Class[]{Context.class, JSONObject.class});
             } catch (Exception e2) {
                 bb.c().b(e2);
-                this.f42479a.a(context, jSONObject);
+                this.a.a(context, jSONObject);
             }
         }
     }
@@ -70,7 +68,7 @@ public class w implements a {
                 a(new Object[]{context, str}, "saveRemoteSign", new Class[]{Context.class, String.class});
             } catch (Exception e2) {
                 bb.c().b(e2);
-                this.f42479a.b(context, str);
+                this.a.b(context, str);
             }
         }
     }
@@ -83,7 +81,7 @@ public class w implements a {
                 a(new Object[]{context, str}, "saveRemoteConfig2", new Class[]{Context.class, String.class});
             } catch (Exception e2) {
                 bb.c().b(e2);
-                this.f42479a.a(context, str);
+                this.a.a(context, str);
             }
         }
     }
@@ -97,21 +95,21 @@ public class w implements a {
                 return ((Boolean) a(new Object[]{context}, "canStartService", new Class[]{Context.class})).booleanValue();
             } catch (Exception e2) {
                 bb.c().b(e2);
-                return this.f42479a.b(context);
+                return this.a.b(context);
             }
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.baidu.mobstat.a
-    public void a(Context context, long j) {
+    public void a(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, context, j2) == null) {
             try {
-                a(new Object[]{context, Long.valueOf(j)}, "setLastUpdateTime", new Class[]{Context.class, Long.TYPE});
+                a(new Object[]{context, Long.valueOf(j2)}, "setLastUpdateTime", new Class[]{Context.class, Long.TYPE});
             } catch (Exception e2) {
                 bb.c().b(e2);
-                this.f42479a.a(context, j);
+                this.a.a(context, j2);
             }
         }
     }
@@ -125,7 +123,7 @@ public class w implements a {
                 return ((Boolean) a(new Object[]{context}, "needUpdate", new Class[]{Context.class})).booleanValue();
             } catch (Exception e2) {
                 bb.c().b(e2);
-                return this.f42479a.a(context);
+                return this.a.a(context);
             }
         }
         return invokeL.booleanValue;
@@ -134,6 +132,6 @@ public class w implements a {
     private <T> T a(Object[] objArr, String str, Class<?>[] clsArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f42481c.getMethod(str, clsArr).invoke(this.f42480b, objArr) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f37516c.getMethod(str, clsArr).invoke(this.f37515b, objArr) : (T) invokeLLL.objValue;
     }
 }

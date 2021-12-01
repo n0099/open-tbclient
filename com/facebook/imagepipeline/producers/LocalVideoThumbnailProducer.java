@@ -11,7 +11,6 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.ImageClipActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +30,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LocalVideoThumbnailProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -92,7 +91,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
         InterceptResult invokeLII;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, this, str, i2, i3)) == null) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             try {
                 try {
@@ -137,13 +136,13 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
         String str;
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, imageRequest)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, imageRequest)) == null) {
             Uri sourceUri = imageRequest.getSourceUri();
             if (UriUtil.isLocalFileUri(sourceUri)) {
                 return imageRequest.getSourceFile().getPath();
             }
             if (UriUtil.isLocalContentUri(sourceUri)) {
-                if (Build.VERSION.SDK_INT < 19 || !ImageClipActivity.k.equals(sourceUri.getAuthority())) {
+                if (Build.VERSION.SDK_INT < 19 || !ImageClipActivity.f38665k.equals(sourceUri.getAuthority())) {
                     uri = sourceUri;
                     str = null;
                     strArr = null;

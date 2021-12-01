@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.io.File;
 import java.util.Random;
 import java.util.UUID;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DeviceManager {
     public static final /* synthetic */ DeviceManager[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -142,7 +141,7 @@ public final class DeviceManager {
     private String getInnerPath(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             try {
                 stringBuffer.append(context.getFilesDir().getAbsolutePath());
@@ -161,7 +160,7 @@ public final class DeviceManager {
     private String getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             try {
                 return Coder.encryptMD5(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(10000000));
             } catch (Throwable unused) {

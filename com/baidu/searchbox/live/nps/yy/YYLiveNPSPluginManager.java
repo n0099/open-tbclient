@@ -7,7 +7,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.w.g.b.a;
+import c.a.w.g.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
@@ -36,7 +36,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class YYLiveNPSPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOAD_FROM_NPS_DOWNLOAD = "nps_download";
@@ -63,12 +63,12 @@ public class YYLiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface PluginLoadCallback {
         void onResult(int i2, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static YYLiveNPSPluginManager instance;
@@ -440,14 +440,14 @@ public class YYLiveNPSPluginManager {
                 }
 
                 @Override // com.baidu.nps.main.install.IInstallCallback
-                public void onProgress(long j, long j2) {
+                public void onProgress(long j2, long j3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                         this.this$0.fromDownLoad = true;
                         if (this.this$0.loadingCallback == null || this.this$0.isLoadingCanceled) {
                             return;
                         }
-                        this.this$0.loadingCallback.onLoadingProgress(j, j2);
+                        this.this$0.loadingCallback.onLoadingProgress(j2, j3);
                     }
                 }
 
@@ -1078,14 +1078,14 @@ public class YYLiveNPSPluginManager {
         return invokeV.booleanValue;
     }
 
-    public void onDiskClearCacheChange(long j, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback) {
+    public void onDiskClearCacheChange(long j2, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback}) == null) {
             String str = "start DiskClearCacheChange t=" + System.currentTimeMillis();
             checkHandler();
             IYYLiveNPSPlugin iYYLiveNPSPlugin = this.impl;
             if (iYYLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, "_diskCleaner", new PluginLoadCallback(this, j, i2, i3, iLiveDiskClearCacheCallback) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.9
+                loadNPSPluginImpl(false, "_diskCleaner", new PluginLoadCallback(this, j2, i2, i3, iLiveDiskClearCacheCallback) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ YYLiveNPSPluginManager this$0;
@@ -1099,7 +1099,7 @@ public class YYLiveNPSPluginManager {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback};
+                            Object[] objArr = {this, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i4 = newInitContext.flag;
                             if ((i4 & 1) != 0) {
@@ -1110,7 +1110,7 @@ public class YYLiveNPSPluginManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$quota = j;
+                        this.val$quota = j2;
                         this.val$oldState = i2;
                         this.val$newState = i3;
                         this.val$callback = iLiveDiskClearCacheCallback;
@@ -1171,7 +1171,7 @@ public class YYLiveNPSPluginManager {
                 return;
             }
             try {
-                iYYLiveNPSPlugin.onDiskClearCacheChange(j, i2, i3, iLiveDiskClearCacheCallback);
+                iYYLiveNPSPlugin.onDiskClearCacheChange(j2, i2, i3, iLiveDiskClearCacheCallback);
             } catch (Throwable th) {
                 th.printStackTrace();
             }

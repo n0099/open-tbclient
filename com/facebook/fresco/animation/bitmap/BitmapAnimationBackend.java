@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BitmapAnimationBackend implements AnimationBackend, AnimationBackendDelegateWithInactivityCheck.InactivityListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAME_TYPE_CACHED = 0;
@@ -55,7 +54,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     public final Paint mPaint;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface FrameListener {
         void onDrawFrameStart(BitmapAnimationBackend bitmapAnimationBackend, int i2);
 
@@ -65,7 +64,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public @interface FrameType {
     }
 
@@ -199,7 +198,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
 
     private void updateBitmapDimensions() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             int intrinsicWidth = this.mBitmapFrameRenderer.getIntrinsicWidth();
             this.mBitmapWidth = intrinsicWidth;
             if (intrinsicWidth == -1) {

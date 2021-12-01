@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class V8NativeInit {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,5 +57,5 @@ public class V8NativeInit {
         }
     }
 
-    public static native synchronized void initialize(long j, AssetManager assetManager, AssetManager assetManager2, V8Timer v8Timer, Object obj, long j2);
+    public static native synchronized void initialize(long j2, AssetManager assetManager, AssetManager assetManager2, V8Timer v8Timer, Object obj, long j3);
 }

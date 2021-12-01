@@ -27,7 +27,7 @@ import com.facebook.imageutils.BitmapUtil;
 import java.util.Locale;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EOI;

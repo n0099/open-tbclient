@@ -10,9 +10,9 @@ public final class TimeoutCoroutine<U, T extends U> extends ScopeCoroutine<T> im
     @JvmField
     public final long time;
 
-    public TimeoutCoroutine(long j, Continuation<? super U> continuation) {
+    public TimeoutCoroutine(long j2, Continuation<? super U> continuation) {
         super(continuation.getContext(), continuation);
-        this.time = j;
+        this.time = j2;
     }
 
     @Override // kotlinx.coroutines.AbstractCoroutine, kotlinx.coroutines.JobSupport

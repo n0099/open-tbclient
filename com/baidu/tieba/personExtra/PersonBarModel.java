@@ -1,10 +1,10 @@
 package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.f;
-import b.a.e.f.d.l;
-import b.a.q0.s.r.a;
-import b.a.r0.o2.b;
+import c.a.d.a.f;
+import c.a.d.f.d.l;
+import c.a.q0.s.r.a;
+import c.a.r0.u2.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -22,26 +22,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PersonBarModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f54008i;
-    public static TbHttpMessageTask j;
+    public static final String f48249i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static TbHttpMessageTask f48250j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f54009e;
+    public b f48251e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54010f;
+    public boolean f48252f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54011g;
+    public String f48253g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f54012h;
+    public int f48254h;
 
     static {
         InterceptResult invokeClinit;
@@ -57,11 +59,11 @@ public class PersonBarModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
-        f54008i = str;
+        f48249i = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, str);
-        j = tbHttpMessageTask;
+        f48250j = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(j);
+        MessageManager.getInstance().registerTask(f48250j);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,13 +84,13 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.f54009e = new b();
-        this.f54010f = z;
+        this.f48251e = new b();
+        this.f48252f = z;
     }
 
     public void A(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f54012h == 1 && this.f54010f) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.f48254h == 1 && this.f48252f) {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
@@ -107,14 +109,14 @@ public class PersonBarModel extends BdBaseModel {
     public void B(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f54012h = i2;
+            this.f48254h = i2;
         }
     }
 
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f54011g = str;
+            this.f48253g = str;
         }
     }
 
@@ -131,7 +133,7 @@ public class PersonBarModel extends BdBaseModel {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54011g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48253g : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -153,13 +155,13 @@ public class PersonBarModel extends BdBaseModel {
     public b w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f54009e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f48251e : (b) invokeV.objValue;
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f54010f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f48252f : invokeV.booleanValue;
     }
 
     public void y() {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BeanConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ANIMSTYLE = null;
@@ -58,9 +58,9 @@ public abstract class BeanConstants {
         ERROR_MSG_CHECKSIGN = ResUtils.string("error_msg_checksign");
         ERROR_MSG_SPNO_INVALIDATE = ResUtils.string("error_msg_spno_invalidate");
         rim_timeout_error = ResUtils.string("rim_timeout_error");
-        CHANNEL_ID = a.f38142g;
+        CHANNEL_ID = a.f34139g;
         CHANNEL_ID_RIM = "Channel";
-        VERSION_NO = a.k;
+        VERSION_NO = a.f34143k;
         SDK_VERSION = "";
         ANIMSTYLE = "1";
         TestSpNo = "1000000001";

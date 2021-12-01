@@ -1,9 +1,8 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class UnsignedInts {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class LexicographicalComparator implements Comparator<int[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -140,12 +139,12 @@ public final class UnsignedInts {
     public static long f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? i2 & 4294967295L : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? i2 & 4294967295L : invokeI.longValue;
     }
 
     public static String g(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) ? Long.toString(i2 & 4294967295L, i3) : (String) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) ? Long.toString(i2 & 4294967295L, i3) : (String) invokeII.objValue;
     }
 }

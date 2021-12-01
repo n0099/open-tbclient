@@ -40,7 +40,6 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +58,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class AppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES;
@@ -93,7 +92,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     public int[] tmpStatesArray;
     public int totalScrollRange;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class BaseBehavior<T extends AppBarLayout> extends HeaderBehavior<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_POSITION = -1;
@@ -109,7 +108,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         public float offsetToChildIndexOnLayoutPerc;
         public BaseDragCallback onDragCallback;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public static abstract class BaseDragCallback<T extends AppBarLayout> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +256,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         private void animateOffsetTo(CoordinatorLayout coordinatorLayout, @NonNull T t, int i2, float f2) {
             int height;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{coordinatorLayout, t, Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{coordinatorLayout, t, Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
                 int abs = Math.abs(getTopBottomOffsetForScrollingSibling() - i2);
                 float abs2 = Math.abs(f2);
                 if (abs2 > 0.0f) {
@@ -271,7 +270,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
         private void animateOffsetWithDuration(CoordinatorLayout coordinatorLayout, T t, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(AdIconUtil.BAIDU_LOGO_ID, this, coordinatorLayout, t, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLLII(65542, this, coordinatorLayout, t, i2, i3) == null) {
                 int topBottomOffsetForScrollingSibling = getTopBottomOffsetForScrollingSibling();
                 if (topBottomOffsetForScrollingSibling == i2) {
                     ValueAnimator valueAnimator = this.offsetAnimator;
@@ -898,7 +897,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             this.offsetToChildIndexOnLayout = -1;
         }
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public static class SavedState extends AbsSavedState {
             public static /* synthetic */ Interceptable $ic;
             public static final Parcelable.Creator<SavedState> CREATOR;
@@ -1025,17 +1024,17 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface BaseOnOffsetChangedListener<T extends AppBarLayout> {
         void onOffsetChanged(T t, int i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class Behavior extends BaseBehavior<AppBarLayout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public static abstract class DragCallback extends BaseBehavior.BaseDragCallback<AppBarLayout> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1176,13 +1175,13 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface OnOffsetChangedListener extends BaseOnOffsetChangedListener<AppBarLayout> {
         @Override // com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         void onOffsetChanged(AppBarLayout appBarLayout, int i2);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class ScrollingViewBehavior extends HeaderScrollingViewBehavior {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1467,7 +1466,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, view)) == null) {
             if (this.liftOnScrollTargetView == null && (i2 = this.liftOnScrollTargetViewId) != -1) {
                 View findViewById = view != null ? view.findViewById(i2) : null;
                 if (findViewById == null && (getParent() instanceof ViewGroup)) {
@@ -1489,7 +1488,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     private boolean hasCollapsibleChild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             int childCount = getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
                 if (((LayoutParams) getChildAt(i2).getLayoutParams()).isCollapsible()) {
@@ -2338,7 +2337,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return (LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COLLAPSIBLE_FLAGS = 10;
@@ -2357,7 +2356,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes11.dex */
+        /* loaded from: classes2.dex */
         public @interface ScrollFlags {
         }
 
@@ -2520,13 +2519,13 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeUnInit(65541, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((LinearLayout.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                    interceptable.invokeInitBody(65541, newInitContext);
                     return;
                 }
             }
@@ -2542,13 +2541,13 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                interceptable.invokeUnInit(65542, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((LinearLayout.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                    interceptable.invokeInitBody(65542, newInitContext);
                     return;
                 }
             }

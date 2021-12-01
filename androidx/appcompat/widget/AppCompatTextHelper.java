@@ -22,7 +22,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.widget.AutoSizeableTextView;
 import androidx.core.widget.TextViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -170,7 +169,7 @@ public class AppCompatTextHelper {
 
     private void setTextSizeInternal(int i2, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
             this.mAutoSizeTextHelper.setTextSizeInternal(i2, f2);
         }
     }
@@ -179,7 +178,7 @@ public class AppCompatTextHelper {
         int i2;
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, context, tintTypedArray) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, context, tintTypedArray) == null) {
             this.mStyle = tintTypedArray.getInt(R.styleable.TextAppearance_android_textStyle, this.mStyle);
             if (Build.VERSION.SDK_INT >= 28) {
                 int i3 = tintTypedArray.getInt(R.styleable.TextAppearance_android_textFontWeight, -1);

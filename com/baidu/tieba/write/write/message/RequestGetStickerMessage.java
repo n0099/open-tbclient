@@ -1,8 +1,6 @@
 package com.baidu.tieba.write.write.message;
 
-import GetSticker.DataReq;
-import GetSticker.GetStickerReqIdl;
-import b.a.q0.c1.z;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,13 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
-/* loaded from: classes9.dex */
+import tbclient.GetSticker.DataReq;
+import tbclient.GetSticker.GetStickerReqIdl;
+/* loaded from: classes11.dex */
 public class RequestGetStickerMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f57033common;
+    public CommonReq f51072common;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetStickerMessage() {
@@ -45,7 +45,7 @@ public class RequestGetStickerMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1001common = this.f57033common;
+            builder.f64629common = this.f51072common;
             if (z) {
                 z.a(builder, true);
             }
@@ -59,7 +59,7 @@ public class RequestGetStickerMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f57033common = commonReq;
+            this.f51072common = commonReq;
         }
     }
 }

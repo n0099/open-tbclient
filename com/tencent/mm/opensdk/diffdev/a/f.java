@@ -10,16 +10,18 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class f extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public OAuthListener k;
+
+    /* renamed from: k  reason: collision with root package name */
+    public OAuthListener f62254k;
     public String n;
     public int t;
     public String url;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +124,7 @@ public final class f extends AsyncTask<Void, Void, a> {
             }
         }
         this.n = str;
-        this.k = oAuthListener;
+        this.f62254k = oAuthListener;
         this.url = String.format("https://long.open.weixin.qq.com/connect/l/qrconnect?f=json&uuid=%s", str);
     }
 
@@ -164,7 +166,7 @@ public final class f extends AsyncTask<Void, Void, a> {
                 int i2 = b2.v;
                 this.t = i2;
                 if (i2 == g.y.getCode()) {
-                    this.k.onQrcodeScanned();
+                    this.f62254k.onQrcodeScanned();
                 } else if (b2.v != g.A.getCode() && b2.v == g.z.getCode()) {
                     String str3 = b2.u;
                     if (str3 == null || str3.length() == 0) {
@@ -186,6 +188,6 @@ public final class f extends AsyncTask<Void, Void, a> {
     @Override // android.os.AsyncTask
     public final /* synthetic */ void onPostExecute(a aVar) {
         a aVar2 = aVar;
-        this.k.onAuthFinish(aVar2.m, aVar2.u);
+        this.f62254k.onAuthFinish(aVar2.m, aVar2.u);
     }
 }

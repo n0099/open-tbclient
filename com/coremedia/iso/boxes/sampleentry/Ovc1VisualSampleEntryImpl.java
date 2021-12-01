@@ -14,7 +14,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Ovc1VisualSampleEntryImpl extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "ovc1";
@@ -74,10 +74,10 @@ public class Ovc1VisualSampleEntryImpl extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j2));
             dataSource.read(allocate);
             allocate.position(6);
             this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);

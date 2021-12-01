@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.chatmessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IDialogSyncListener {
-    void onDialogDel(int i2, long j);
+    void onDialogDel(int i2, long j2);
 
-    void onDialogReaded(int i2, long j);
+    void onDialogReaded(int i2, long j2);
 }

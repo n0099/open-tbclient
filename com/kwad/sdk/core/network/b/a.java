@@ -1,37 +1,19 @@
 package com.kwad.sdk.core.network.b;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
+import com.kwad.sdk.core.network.c;
+import com.kwad.sdk.export.proxy.AdHttpProxy;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a {
+public class a implements AdHttpProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f65696a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f65697b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f65698c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f65699d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f65700e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f65701f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f65702g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,13 +29,31 @@ public class a {
         }
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
+    public c doGet(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "NetworkMonitorInfo{requestTotalTime=" + this.f65696a + ", mRequestCreateTime" + this.f65697b + ", requestResponseTime=" + this.f65698c + ", requestParseDataTime=" + this.f65699d + ", requestCallbackTime=" + this.f65700e + ", requestFailReason='" + this.f65701f + ExtendedMessageFormat.QUOTE + ", requestUrl='" + this.f65702g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, map)) == null) ? com.kwad.sdk.core.network.kwai.a.a(str, map) : (c) invokeLL.objValue;
+    }
+
+    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
+    public c doGetWithoutResponse(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map)) == null) ? com.kwad.sdk.core.network.kwai.a.a(str, map, false) : (c) invokeLL.objValue;
+    }
+
+    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
+    public c doPost(String str, Map<String, String> map, Map<String, String> map2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2)) == null) ? com.kwad.sdk.core.network.kwai.a.a(str, map, map2) : (c) invokeLLL.objValue;
+    }
+
+    @Override // com.kwad.sdk.export.proxy.AdHttpProxy
+    public c doPost(String str, Map<String, String> map, JSONObject jSONObject) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, map, jSONObject)) == null) ? com.kwad.sdk.core.network.kwai.a.a(str, map, jSONObject) : (c) invokeLLL.objValue;
     }
 }

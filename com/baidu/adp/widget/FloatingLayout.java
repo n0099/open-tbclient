@@ -15,22 +15,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FloatingLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35342e;
+    public int f31772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35343f;
+    public int f31773f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35344g;
+    public int f31774g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35345h;
+    public int f31775h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FloatingLayout(Context context) {
@@ -70,7 +70,7 @@ public class FloatingLayout extends LinearLayout {
                     }
                     int measuredWidth2 = ((LinearLayout.LayoutParams) layoutParams).leftMargin + ((LinearLayout.LayoutParams) layoutParams).rightMargin + childAt.getMeasuredWidth();
                     int measuredHeight = ((LinearLayout.LayoutParams) layoutParams).topMargin + ((LinearLayout.LayoutParams) layoutParams).bottomMargin + childAt.getMeasuredHeight();
-                    if (measuredWidth - paddingLeft < measuredWidth2 || (layoutParams.f35346a & 1) == 1) {
+                    if (measuredWidth - paddingLeft < measuredWidth2 || (layoutParams.a & 1) == 1) {
                         paddingLeft = getPaddingLeft();
                         paddingTop += i2;
                         i2 = 0;
@@ -81,7 +81,7 @@ public class FloatingLayout extends LinearLayout {
                     if (measuredHeight > i2) {
                         i2 = measuredHeight;
                     }
-                    if ((layoutParams.f35346a & 2) == 2) {
+                    if ((layoutParams.a & 2) == 2) {
                         paddingLeft = getPaddingLeft();
                         paddingTop += i2;
                         i2 = 0;
@@ -105,7 +105,7 @@ public class FloatingLayout extends LinearLayout {
                 if (childAt != null && childAt.getVisibility() != 8 && (layoutParams = (LayoutParams) childAt.getLayoutParams()) != null) {
                     int measuredWidth = ((LinearLayout.LayoutParams) layoutParams).leftMargin + ((LinearLayout.LayoutParams) layoutParams).rightMargin + childAt.getMeasuredWidth();
                     int measuredHeight2 = ((LinearLayout.LayoutParams) layoutParams).topMargin + ((LinearLayout.LayoutParams) layoutParams).bottomMargin + childAt.getMeasuredHeight();
-                    if (measuredHeight - paddingTop < measuredHeight2 || (layoutParams.f35346a & 1) == 1) {
+                    if (measuredHeight - paddingTop < measuredHeight2 || (layoutParams.a & 1) == 1) {
                         paddingLeft += i2;
                         paddingTop = getPaddingTop();
                         i2 = 0;
@@ -116,7 +116,7 @@ public class FloatingLayout extends LinearLayout {
                     if (measuredWidth > i2) {
                         i2 = measuredWidth;
                     }
-                    if ((layoutParams.f35346a & 2) == 2) {
+                    if ((layoutParams.a & 2) == 2) {
                         paddingLeft += i2;
                         paddingTop = getPaddingTop();
                         i2 = 0;
@@ -129,7 +129,7 @@ public class FloatingLayout extends LinearLayout {
     public final void c(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.f35343f = 0;
+            this.f31773f = 0;
             int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
             int childCount = getChildCount();
             int i5 = 0;
@@ -141,30 +141,30 @@ public class FloatingLayout extends LinearLayout {
                         layoutParams = generateDefaultLayoutParams();
                     }
                     LayoutParams layoutParams2 = layoutParams;
-                    if (i4 <= this.f35342e || (layoutParams2.f35346a & 1) == 1) {
-                        this.f35342e = 0;
+                    if (i4 <= this.f31772e || (layoutParams2.a & 1) == 1) {
+                        this.f31772e = 0;
                     }
-                    measureChildWithMargins(childAt, i2, this.f35342e, i3, this.f35343f);
+                    measureChildWithMargins(childAt, i2, this.f31772e, i3, this.f31773f);
                     int measuredWidth = childAt.getMeasuredWidth() + ((LinearLayout.LayoutParams) layoutParams2).leftMargin + ((LinearLayout.LayoutParams) layoutParams2).rightMargin;
                     int measuredHeight = childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
-                    if ((layoutParams2.f35346a & 1) == 1) {
-                        this.f35343f += i5;
+                    if ((layoutParams2.a & 1) == 1) {
+                        this.f31773f += i5;
                         i5 = 0;
                     }
                     i5 = Math.max(measuredHeight, i5);
-                    int i7 = this.f35342e + measuredWidth;
-                    this.f35342e = i7;
-                    this.f35344g = Math.max(this.f35344g, i7);
-                    if ((layoutParams2.f35346a & 2) == 2) {
-                        this.f35342e = 0;
-                        this.f35343f += i5;
+                    int i7 = this.f31772e + measuredWidth;
+                    this.f31772e = i7;
+                    this.f31774g = Math.max(this.f31774g, i7);
+                    if ((layoutParams2.a & 2) == 2) {
+                        this.f31772e = 0;
+                        this.f31773f += i5;
                         i5 = 0;
                     }
                 }
             }
-            int i8 = this.f35343f + i5;
-            this.f35343f = i8;
-            this.f35345h = i8;
+            int i8 = this.f31773f + i5;
+            this.f31773f = i8;
+            this.f31775h = i8;
         }
     }
 
@@ -182,27 +182,27 @@ public class FloatingLayout extends LinearLayout {
                         layoutParams = generateDefaultLayoutParams();
                     }
                     LayoutParams layoutParams2 = layoutParams;
-                    if (i4 <= this.f35343f || (layoutParams2.f35346a & 1) == 1) {
-                        this.f35343f = 0;
+                    if (i4 <= this.f31773f || (layoutParams2.a & 1) == 1) {
+                        this.f31773f = 0;
                     }
-                    measureChildWithMargins(childAt, i2, this.f35342e, i3, this.f35343f);
+                    measureChildWithMargins(childAt, i2, this.f31772e, i3, this.f31773f);
                     i5 = Math.max(childAt.getMeasuredWidth() + ((LinearLayout.LayoutParams) layoutParams2).leftMargin + ((LinearLayout.LayoutParams) layoutParams2).rightMargin, i5);
-                    this.f35342e = i5;
-                    int measuredHeight = this.f35343f + childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
-                    this.f35343f = measuredHeight;
-                    this.f35345h = Math.max(measuredHeight, this.f35345h);
-                    if ((layoutParams2.f35346a & 2) != 2) {
-                        if ((layoutParams2.f35346a & 1) == 1) {
-                            this.f35342e += i5;
+                    this.f31772e = i5;
+                    int measuredHeight = this.f31773f + childAt.getMeasuredHeight() + ((LinearLayout.LayoutParams) layoutParams2).topMargin + ((LinearLayout.LayoutParams) layoutParams2).bottomMargin;
+                    this.f31773f = measuredHeight;
+                    this.f31775h = Math.max(measuredHeight, this.f31775h);
+                    if ((layoutParams2.a & 2) != 2) {
+                        if ((layoutParams2.a & 1) == 1) {
+                            this.f31772e += i5;
                         }
                     } else {
-                        this.f35343f = 0;
-                        this.f35342e += i5;
+                        this.f31773f = 0;
+                        this.f31772e += i5;
                     }
                     i5 = 0;
                 }
             }
-            this.f35344g = this.f35342e;
+            this.f31774g = this.f31772e;
         }
     }
 
@@ -223,14 +223,14 @@ public class FloatingLayout extends LinearLayout {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) {
-            this.f35342e = 0;
-            this.f35343f = 0;
+            this.f31772e = 0;
+            this.f31773f = 0;
             if (getOrientation() == 1) {
                 d(i2, i3);
             } else if (getOrientation() == 0) {
                 c(i2, i3);
             }
-            setMeasuredDimension(this.f35344g + getPaddingLeft() + getPaddingRight(), this.f35345h + getPaddingTop() + getPaddingBottom());
+            setMeasuredDimension(this.f31774g + getPaddingLeft() + getPaddingRight(), this.f31775h + getPaddingTop() + getPaddingBottom());
         }
     }
 
@@ -279,13 +279,11 @@ public class FloatingLayout extends LinearLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, attributeSet)) == null) ? new LayoutParams(getContext(), attributeSet) : (LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f35346a;
+        public int a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
@@ -306,16 +304,16 @@ public class FloatingLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f35346a = 0;
+            this.a = 0;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingLayout_Layout);
             String string = obtainStyledAttributes.getString(R.styleable.FloatingLayout_Layout_layout_clear);
             if (string != null) {
                 if ("before".equals(string)) {
-                    this.f35346a = 1;
+                    this.a = 1;
                 } else if ("after".equals(string)) {
-                    this.f35346a = 2;
+                    this.a = 2;
                 } else if (ShareDirectionType.BOTH.equals(string)) {
-                    this.f35346a = 3;
+                    this.a = 3;
                 }
             }
             obtainStyledAttributes.recycle();
@@ -340,7 +338,7 @@ public class FloatingLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f35346a = 0;
+            this.a = 0;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -362,8 +360,8 @@ public class FloatingLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f35346a = 0;
-            this.f35346a = i4;
+            this.a = 0;
+            this.a = i4;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -384,7 +382,7 @@ public class FloatingLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f35346a = 0;
+            this.a = 0;
         }
     }
 }

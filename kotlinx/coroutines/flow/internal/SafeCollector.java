@@ -44,7 +44,7 @@ public final class SafeCollector<T> extends ContinuationImpl implements FlowColl
     }
 
     private final void exceptionTransparencyViolated(DownstreamExceptionElement downstreamExceptionElement, Object obj) {
-        throw new IllegalStateException(StringsKt__IndentKt.trimIndent("\n            Flow exception transparency is violated:\n                Previous 'emit' call has thrown exception " + downstreamExceptionElement.f73479e + ", but then emission attempt of value '" + obj + "' has been detected.\n                Emissions from 'catch' blocks are prohibited in order to avoid unspecified behaviour, 'Flow.catch' operator can be used instead.\n                For a more detailed explanation, please refer to Flow documentation.\n            ").toString());
+        throw new IllegalStateException(StringsKt__IndentKt.trimIndent("\n            Flow exception transparency is violated:\n                Previous 'emit' call has thrown exception " + downstreamExceptionElement.f64302e + ", but then emission attempt of value '" + obj + "' has been detected.\n                Emissions from 'catch' blocks are prohibited in order to avoid unspecified behaviour, 'Flow.catch' operator can be used instead.\n                For a more detailed explanation, please refer to Flow documentation.\n            ").toString());
     }
 
     @Override // kotlinx.coroutines.flow.FlowCollector
@@ -70,9 +70,9 @@ public final class SafeCollector<T> extends ContinuationImpl implements FlowColl
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public Object invokeSuspend(Object obj) {
-        Throwable m655exceptionOrNullimpl = Result.m655exceptionOrNullimpl(obj);
-        if (m655exceptionOrNullimpl != null) {
-            this.lastEmissionContext = new DownstreamExceptionElement(m655exceptionOrNullimpl);
+        Throwable m705exceptionOrNullimpl = Result.m705exceptionOrNullimpl(obj);
+        if (m705exceptionOrNullimpl != null) {
+            this.lastEmissionContext = new DownstreamExceptionElement(m705exceptionOrNullimpl);
         }
         Continuation<? super Unit> continuation = this.completion;
         if (continuation != null) {

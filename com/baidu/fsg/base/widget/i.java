@@ -7,16 +7,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f38561a;
+    public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardPopupWindow f38562b;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f34482b;
 
     public i(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow, View view) {
         Interceptable interceptable = $ic;
@@ -33,8 +31,8 @@ public class i implements Runnable {
                 return;
             }
         }
-        this.f38562b = safeKeyBoardPopupWindow;
-        this.f38561a = view;
+        this.f34482b = safeKeyBoardPopupWindow;
+        this.a = view;
     }
 
     @Override // java.lang.Runnable
@@ -46,27 +44,27 @@ public class i implements Runnable {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int selectionStart = this.f38562b.mySafeEditText.getSelectionStart();
-            int selectionEnd = this.f38562b.mySafeEditText.getSelectionEnd();
-            Editable text = this.f38562b.mySafeEditText.getText();
+            int selectionStart = this.f34482b.mySafeEditText.getSelectionStart();
+            int selectionEnd = this.f34482b.mySafeEditText.getSelectionEnd();
+            Editable text = this.f34482b.mySafeEditText.getText();
             if (selectionStart >= 0) {
                 if (selectionStart < selectionEnd) {
-                    obj = this.f38561a.getTag().toString();
-                    length = this.f38561a.getTag().toString().length();
+                    obj = this.a.getTag().toString();
+                    length = this.a.getTag().toString().length();
                     i2 = 0;
                     editable = text;
                     i3 = selectionStart;
                     selectionStart = selectionEnd;
                 } else if (selectionStart != selectionEnd) {
-                    text.replace(selectionEnd, selectionStart, this.f38561a.getTag().toString(), 0, this.f38561a.getTag().toString().length());
-                    int selectionEnd2 = this.f38562b.mySafeEditText.getSelectionEnd() + this.f38561a.getTag().toString().length();
-                    if (selectionEnd2 >= 0 && selectionEnd2 <= this.f38562b.mySafeEditText.getText().toString().length()) {
-                        Selection.setSelection(this.f38562b.mySafeEditText.getEditableText(), selectionEnd2);
+                    text.replace(selectionEnd, selectionStart, this.a.getTag().toString(), 0, this.a.getTag().toString().length());
+                    int selectionEnd2 = this.f34482b.mySafeEditText.getSelectionEnd() + this.a.getTag().toString().length();
+                    if (selectionEnd2 >= 0 && selectionEnd2 <= this.f34482b.mySafeEditText.getText().toString().length()) {
+                        Selection.setSelection(this.f34482b.mySafeEditText.getEditableText(), selectionEnd2);
                     }
                     Selection.setSelection(text, text.length());
                 } else {
-                    obj = this.f38561a.getTag().toString();
-                    length = this.f38561a.getTag().toString().length();
+                    obj = this.a.getTag().toString();
+                    length = this.a.getTag().toString().length();
                     i2 = 0;
                     editable = text;
                     i3 = selectionStart;

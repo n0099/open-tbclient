@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.m.e.n;
-import b.a.e.m.e.q;
-import b.a.q0.s.g0.f;
-import b.a.q0.s.q.d2;
+import c.a.d.m.e.n;
+import c.a.d.m.e.q;
+import c.a.q0.s.g0.f;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -39,27 +39,31 @@ import tbclient.AlaLiveInfo;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.ThreadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISquareRefreshHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b.a.r0.w.f.b.e.a f47726e;
+    public c.a.r0.a0.f.b.e.a f42724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.r0.w.f.b.c.a f47727f;
+    public c.a.r0.a0.f.b.c.a f42725f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.r0.w.f.b.d.a f47728g;
+    public c.a.r0.a0.f.b.d.a f42726g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AlaSquareLiveModel f47729h;
+    public AlaSquareLiveModel f42727h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47730i;
-    public boolean j;
-    public int k;
+    public int f42728i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f42729j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f42730k;
     public AlaSquareTabInfo l;
     public AlaSquareRefreshManager m;
     public IAlaSquareTabController n;
@@ -69,13 +73,13 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
     public AbsListView.OnScrollListener r;
     public AlaSquareLiveModel.b s;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaSquareLiveFragment f47731e;
+        public final /* synthetic */ AlaSquareLiveFragment f42731e;
 
         public a(AlaSquareLiveFragment alaSquareLiveFragment) {
             Interceptable interceptable = $ic;
@@ -92,26 +96,26 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
                     return;
                 }
             }
-            this.f47731e = alaSquareLiveFragment;
+            this.f42731e = alaSquareLiveFragment;
         }
 
-        @Override // b.a.q0.s.g0.f.g
+        @Override // c.a.q0.s.g0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f47731e.f47729h == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f42731e.f42727h == null) {
                 return;
             }
-            this.f47731e.f47729h.refresh();
+            this.f42731e.f42727h.refresh();
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaSquareLiveFragment f47732e;
+        public final /* synthetic */ AlaSquareLiveFragment f42732e;
 
         public b(AlaSquareLiveFragment alaSquareLiveFragment) {
             Interceptable interceptable = $ic;
@@ -128,26 +132,24 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
                     return;
                 }
             }
-            this.f47732e = alaSquareLiveFragment;
+            this.f42732e = alaSquareLiveFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47732e.f47729h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42732e.f42727h == null) {
                 return;
             }
-            this.f47732e.f47729h.loadMore();
+            this.f42732e.f42727h.loadMore();
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c implements BdListView.o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaSquareLiveFragment f47733a;
+        public final /* synthetic */ AlaSquareLiveFragment a;
 
         public c(AlaSquareLiveFragment alaSquareLiveFragment) {
             Interceptable interceptable = $ic;
@@ -164,7 +166,7 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
                     return;
                 }
             }
-            this.f47733a = alaSquareLiveFragment;
+            this.a = alaSquareLiveFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.o
@@ -173,18 +175,18 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
                 MessageManager.getInstance().removeMessage(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, null);
                 MessageManager.getInstance().removeMessage(AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2, null);
-                this.f47733a.refreshCurrentPage();
+                this.a.refreshCurrentPage();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaSquareLiveFragment f47734e;
+        public final /* synthetic */ AlaSquareLiveFragment f42733e;
 
         public d(AlaSquareLiveFragment alaSquareLiveFragment) {
             Interceptable interceptable = $ic;
@@ -201,42 +203,42 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
                     return;
                 }
             }
-            this.f47734e = alaSquareLiveFragment;
+            this.f42733e = alaSquareLiveFragment;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) {
-                if (this.f47734e.f47730i != i2) {
+                if (this.f42733e.f42728i != i2) {
                     if (i2 == 1) {
-                        if (this.f47734e.f47728g != null) {
-                            this.f47734e.f47728g.b();
-                            if (this.f47734e.f47728g.c() != null) {
-                                b.a.r0.w.f.b.b.c c2 = this.f47734e.f47728g.c();
+                        if (this.f42733e.f42726g != null) {
+                            this.f42733e.f42726g.b();
+                            if (this.f42733e.f42726g.c() != null) {
+                                c.a.r0.a0.f.b.b.c c2 = this.f42733e.f42726g.c();
                                 StatisticItem statisticItem = new StatisticItem("c12644");
-                                int i5 = c2.f26057b;
+                                int i5 = c2.f13883b;
                                 if (i5 == 0) {
                                     statisticItem.param("obj_type", 1);
                                 } else if (i5 == 1) {
                                     statisticItem.param("obj_type", 2);
                                 }
-                                statisticItem.param("tid", c2.f26056a.t1());
+                                statisticItem.param("tid", c2.a.v1());
                                 TiebaStatic.log(statisticItem);
                             }
                         }
                     } else if (i2 != 2) {
-                        if (i2 > 1 && this.f47734e.f47728g != null) {
-                            this.f47734e.f47728g.j();
+                        if (i2 > 1 && this.f42733e.f42726g != null) {
+                            this.f42733e.f42726g.j();
                         }
                     } else {
-                        b.a.r0.w.f.e.a.c().b("c12647");
-                        if (this.f47734e.f47728g != null) {
-                            this.f47734e.f47728g.j();
+                        c.a.r0.a0.f.e.a.c().b("c12647");
+                        if (this.f42733e.f42726g != null) {
+                            this.f42733e.f42726g.j();
                         }
                     }
                 }
-                this.f47734e.f47730i = i2;
+                this.f42733e.f42728i = i2;
             }
         }
 
@@ -244,18 +246,16 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) && i2 == 0) {
-                b.a.r0.w.f.e.a.c().g();
+                c.a.r0.a0.f.e.a.c().g();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class e implements AlaSquareLiveModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AlaSquareLiveFragment f47735a;
+        public final /* synthetic */ AlaSquareLiveFragment a;
 
         public e(AlaSquareLiveFragment alaSquareLiveFragment) {
             Interceptable interceptable = $ic;
@@ -272,52 +272,52 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
                     return;
                 }
             }
-            this.f47735a = alaSquareLiveFragment;
+            this.a = alaSquareLiveFragment;
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live.model.AlaSquareLiveModel.b
         public void a(boolean z, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || this.f47735a.getPageContext() == null || this.f47735a.f47726e == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || this.a.getPageContext() == null || this.a.f42724e == null) {
                 return;
             }
-            List<n> L = z2 ? null : this.f47735a.f47729h.L();
+            List<n> L = z2 ? null : this.a.f42727h.L();
             if (z2 && ListUtils.getCount(L) == 0) {
                 return;
             }
             if (z3) {
-                this.f47735a.f47726e.j(L, z, this.f47735a.f47729h.O());
+                this.a.f42724e.j(L, z, this.a.f42727h.O());
             } else {
-                AlaSquareLiveFragment alaSquareLiveFragment = this.f47735a;
-                alaSquareLiveFragment.hideLoadingView(alaSquareLiveFragment.f47726e.e());
-                this.f47735a.f47726e.d();
-                this.f47735a.k(z2);
-                this.f47735a.f47726e.j(L, z, this.f47735a.f47729h.O());
+                AlaSquareLiveFragment alaSquareLiveFragment = this.a;
+                alaSquareLiveFragment.hideLoadingView(alaSquareLiveFragment.f42724e.e());
+                this.a.f42724e.d();
+                this.a.o(z2);
+                this.a.f42724e.j(L, z, this.a.f42727h.O());
             }
             if (ListUtils.getCount(L) == 0) {
-                AlaSquareLiveFragment alaSquareLiveFragment2 = this.f47735a;
-                alaSquareLiveFragment2.showNetRefreshView(alaSquareLiveFragment2.f47726e.e(), this.f47735a.getString(R.string.no_data_text), false);
+                AlaSquareLiveFragment alaSquareLiveFragment2 = this.a;
+                alaSquareLiveFragment2.showNetRefreshView(alaSquareLiveFragment2.f42724e.e(), this.a.getString(R.string.no_data_text), false);
                 return;
             }
-            AlaSquareLiveFragment alaSquareLiveFragment3 = this.f47735a;
-            alaSquareLiveFragment3.hideNetRefreshView(alaSquareLiveFragment3.f47726e.e());
+            AlaSquareLiveFragment alaSquareLiveFragment3 = this.a;
+            alaSquareLiveFragment3.hideNetRefreshView(alaSquareLiveFragment3.f42724e.e());
         }
 
         @Override // com.baidu.tieba.ala.alasquare.live.model.AlaSquareLiveModel.b
         public void onLoadError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                if (this.f47735a.f47726e != null) {
-                    AlaSquareLiveFragment alaSquareLiveFragment = this.f47735a;
-                    alaSquareLiveFragment.hideLoadingView(alaSquareLiveFragment.f47726e.e());
-                    this.f47735a.f47726e.d();
+                if (this.a.f42724e != null) {
+                    AlaSquareLiveFragment alaSquareLiveFragment = this.a;
+                    alaSquareLiveFragment.hideLoadingView(alaSquareLiveFragment.f42724e.e());
+                    this.a.f42724e.d();
                 }
-                if (ListUtils.getCount(this.f47735a.f47729h.L()) > 0 && this.f47735a.f47726e != null) {
-                    this.f47735a.showToast(str);
+                if (ListUtils.getCount(this.a.f42727h.L()) > 0 && this.a.f42724e != null) {
+                    this.a.showToast(str);
                     return;
                 }
-                AlaSquareLiveFragment alaSquareLiveFragment2 = this.f47735a;
-                alaSquareLiveFragment2.showNetRefreshView(alaSquareLiveFragment2.f47726e.e(), str, false);
+                AlaSquareLiveFragment alaSquareLiveFragment2 = this.a;
+                alaSquareLiveFragment2.showNetRefreshView(alaSquareLiveFragment2.f42724e.e(), str, false);
             }
         }
     }
@@ -335,10 +335,10 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
                 return;
             }
         }
-        this.f47726e = null;
-        this.f47729h = null;
-        this.f47730i = -1;
-        this.k = 0;
+        this.f42724e = null;
+        this.f42727h = null;
+        this.f42728i = -1;
+        this.f42730k = 0;
         this.o = new a(this);
         this.p = new b(this);
         this.q = new c(this);
@@ -354,10 +354,10 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
             if (alaSquareRefreshManager != null) {
                 alaSquareRefreshManager.onPause();
             }
-            b.a.r0.w.f.b.d.a aVar = this.f47728g;
+            c.a.r0.a0.f.b.d.a aVar = this.f42726g;
             if (aVar != null) {
                 aVar.e(true);
-                this.f47728g.j();
+                this.f42726g.j();
             }
         }
     }
@@ -370,10 +370,10 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
             if (alaSquareRefreshManager != null) {
                 alaSquareRefreshManager.onPageForeground(0);
             }
-            b.a.r0.w.f.b.d.a aVar = this.f47728g;
+            c.a.r0.a0.f.b.d.a aVar = this.f42726g;
             if (aVar != null) {
                 aVar.e(false);
-                this.f47728g.b();
+                this.f42726g.b();
             }
         }
     }
@@ -383,7 +383,7 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AlaSquareLiveModel alaSquareLiveModel = this.f47729h;
+            AlaSquareLiveModel alaSquareLiveModel = this.f42727h;
             if (alaSquareLiveModel != null) {
                 return alaSquareLiveModel.K();
             }
@@ -392,7 +392,7 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -413,85 +413,271 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
         return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? isAdded() && isPrimary() : invokeI.booleanValue;
     }
 
-    public final void j(boolean z) {
+    @Override // com.baidu.ala.refresh.ISquareRefreshHandler
+    public void markDataLoaded(int i2) {
+        AlaSquareRefreshManager alaSquareRefreshManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (m(this.f47729h.M())) {
-                this.f47727f.h().setVisibility(0);
-                this.f47727f.f(this.f47729h.M());
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (alaSquareRefreshManager = this.m) == null) {
+            return;
+        }
+        alaSquareRefreshManager.reset(i2);
+    }
+
+    @Override // com.baidu.ala.refresh.AlaAutoRefreshFragment, com.baidu.ala.refresh.ISquareRefreshHandler
+    public void markHasReaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    public final void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            if (q(this.f42727h.M())) {
+                this.f42725f.h().setVisibility(0);
+                this.f42725f.f(this.f42727h.M());
                 return;
             }
-            b.a.r0.w.f.b.c.a aVar = this.f47727f;
+            c.a.r0.a0.f.b.c.a aVar = this.f42725f;
             if (aVar == null || aVar.h() == null) {
                 return;
             }
-            this.f47726e.f().removeHeaderView(this.f47727f.h());
-            this.f47727f.h().setVisibility(8);
+            this.f42724e.f().removeHeaderView(this.f42725f.h());
+            this.f42725f.h().setVisibility(8);
         }
     }
 
-    public final void k(boolean z) {
+    public final void o(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || getPageContext() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || getPageContext() == null) {
             return;
         }
-        if (this.f47728g == null) {
-            b.a.r0.w.f.b.d.a aVar = new b.a.r0.w.f.b.d.a(getPageContext());
-            this.f47728g = aVar;
+        if (this.f42726g == null) {
+            c.a.r0.a0.f.b.d.a aVar = new c.a.r0.a0.f.b.d.a(getPageContext());
+            this.f42726g = aVar;
             aVar.d().setVisibility(8);
         }
-        this.f47726e.f().removeHeaderView(this.f47728g.d());
-        this.f47726e.f().addHeaderView(this.f47728g.d(), 1);
-        if (this.f47727f == null) {
-            b.a.r0.w.f.b.c.a aVar2 = new b.a.r0.w.f.b.c.a(getPageContext());
-            this.f47727f = aVar2;
+        this.f42724e.f().removeHeaderView(this.f42726g.d());
+        this.f42724e.f().addHeaderView(this.f42726g.d(), 1);
+        if (this.f42725f == null) {
+            c.a.r0.a0.f.b.c.a aVar2 = new c.a.r0.a0.f.b.c.a(getPageContext());
+            this.f42725f = aVar2;
             aVar2.h().setVisibility(8);
         }
-        this.f47726e.f().removeHeaderView(this.f47727f.h());
-        this.f47726e.f().addHeaderView(this.f47727f.h(), 2);
-        l(z);
-        j(z);
+        this.f42724e.f().removeHeaderView(this.f42725f.h());
+        this.f42724e.f().addHeaderView(this.f42725f.h(), 2);
+        p(z);
+        n(z);
     }
 
-    public final void l(boolean z) {
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            HeadLiveInfo N = this.f47729h.N();
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            super.onChangeSkinType(i2);
+            c.a.r0.a0.f.b.e.a aVar = this.f42724e;
+            if (aVar != null) {
+                aVar.i(i2);
+            }
+            c.a.r0.a0.f.b.c.a aVar2 = this.f42725f;
+            if (aVar2 != null) {
+                aVar2.l(i2);
+            }
+            c.a.r0.a0.f.b.d.a aVar3 = this.f42726g;
+            if (aVar3 != null) {
+                aVar3.g();
+            }
+        }
+    }
+
+    @Override // com.baidu.ala.refresh.AlaAutoRefreshFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
+            super.onCreate(bundle);
+            this.f42727h = new AlaSquareLiveModel(getPageContext(), getUniqueId(), this.s);
+            AlaSquareRefreshManager alaSquareRefreshManager = new AlaSquareRefreshManager();
+            this.m = alaSquareRefreshManager;
+            alaSquareRefreshManager.init(this, new long[]{30000});
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
+            if (this.f42730k == 0) {
+                this.f42730k = (int) getPageContext().getResources().getDimension(R.dimen.ds80);
+            }
+            c.a.r0.a0.f.b.e.a aVar = new c.a.r0.a0.f.b.e.a(getPageContext(), getUniqueId(), this.f42730k);
+            this.f42724e = aVar;
+            aVar.k(this.o);
+            this.f42724e.n(this.p);
+            this.f42724e.m(this.q, 2000);
+            this.f42724e.l(this.r);
+            TiebaStatic.log("c12654");
+            return this.f42724e.g();
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            super.onDestroy();
+            AlaSquareRefreshManager alaSquareRefreshManager = this.m;
+            if (alaSquareRefreshManager != null) {
+                alaSquareRefreshManager.onDestory();
+            }
+            c.a.r0.a0.f.b.c.a aVar = this.f42725f;
+            if (aVar != null) {
+                aVar.m();
+            }
+            c.a.r0.a0.f.b.d.a aVar2 = this.f42726g;
+            if (aVar2 != null) {
+                aVar2.h();
+            }
+            AlaSquareLiveModel alaSquareLiveModel = this.f42727h;
+            if (alaSquareLiveModel != null) {
+                alaSquareLiveModel.onDestroy();
+            }
+            this.n = null;
+            System.gc();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public q onGetPreLoadListView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            c.a.r0.a0.f.b.e.a aVar = this.f42724e;
+            if (aVar != null && aVar.f() != null) {
+                return this.f42724e.f().getPreLoadHandle();
+            }
+            return super.onGetPreLoadListView();
+        }
+        return (q) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ala.alasquare.AlaSquareBaseFragment, com.baidu.tbadk.core.BaseFragment
+    public void onNetRefreshButtonClicked() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onNetRefreshButtonClicked();
+            MessageManager.getInstance().sendMessage(new CustomMessage(AlaCmdConfigCustom.CMD_ALA_LIVE_FRAGMENT_NET_BTN_CLICKED));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            super.onPause();
+            AlaSquareRefreshManager alaSquareRefreshManager = this.m;
+            if (alaSquareRefreshManager != null) {
+                alaSquareRefreshManager.onPause();
+            }
+            c.a.r0.a0.f.b.d.a aVar = this.f42726g;
+            if (aVar != null) {
+                aVar.e(true);
+                this.f42726g.j();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            super.onPrimary();
+            if (isAdded() && isPrimary()) {
+                AlaSquareLiveModel alaSquareLiveModel = this.f42727h;
+                if (alaSquareLiveModel != null && ListUtils.isEmpty(alaSquareLiveModel.L()) && !this.f42727h.R()) {
+                    refreshWholePage();
+                }
+                AlaSquareRefreshManager alaSquareRefreshManager = this.m;
+                if (alaSquareRefreshManager != null) {
+                    alaSquareRefreshManager.onPageForeground(0);
+                }
+                c.a.r0.a0.f.b.d.a aVar = this.f42726g;
+                if (aVar != null) {
+                    aVar.e(false);
+                    this.f42726g.b();
+                    return;
+                }
+                return;
+            }
+            c.a.r0.a0.f.e.a.c().h(false);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onViewCreated(View view, Bundle bundle) {
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, view, bundle) == null) {
+            super.onViewCreated(view, bundle);
+            if (this.f42729j || (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class)) == null || runTask.getData() == null) {
+                return;
+            }
+            IAlaSquareTabController iAlaSquareTabController = (IAlaSquareTabController) runTask.getData();
+            this.n = iAlaSquareTabController;
+            this.f42724e.o(iAlaSquareTabController);
+        }
+    }
+
+    public final void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            HeadLiveInfo N = this.f42727h.N();
             if (N != null && !ListUtils.isEmpty(N.head_live)) {
                 ThreadInfo threadInfo = N.head_live.get(0);
                 AlaLiveInfo alaLiveInfo = threadInfo.ala_info;
                 if (alaLiveInfo != null && alaLiveInfo.live_status.intValue() == 1) {
-                    this.f47728g.d().setVisibility(0);
-                    b.a.r0.w.f.b.b.c cVar = new b.a.r0.w.f.b.b.c();
+                    this.f42726g.d().setVisibility(0);
+                    c.a.r0.a0.f.b.b.c cVar = new c.a.r0.a0.f.b.b.c();
                     d2 d2Var = new d2();
-                    d2Var.a3(threadInfo);
-                    cVar.f26056a = d2Var;
-                    cVar.f26057b = N.is_set.intValue();
-                    this.f47728g.f(cVar);
-                    this.f47728g.b();
+                    d2Var.c3(threadInfo);
+                    cVar.a = d2Var;
+                    cVar.f13883b = N.is_set.intValue();
+                    this.f42726g.f(cVar);
+                    this.f42726g.b();
                     return;
                 }
-                b.a.r0.w.f.b.d.a aVar = this.f47728g;
+                c.a.r0.a0.f.b.d.a aVar = this.f42726g;
                 if (aVar == null || aVar.d() == null) {
                     return;
                 }
-                this.f47726e.f().removeHeaderView(this.f47728g.d());
-                this.f47728g.d().setVisibility(8);
+                this.f42724e.f().removeHeaderView(this.f42726g.d());
+                this.f42726g.d().setVisibility(8);
                 return;
             }
-            b.a.r0.w.f.b.d.a aVar2 = this.f47728g;
+            c.a.r0.a0.f.b.d.a aVar2 = this.f42726g;
             if (aVar2 == null || aVar2.d() == null) {
                 return;
             }
-            this.f47726e.f().removeHeaderView(this.f47728g.d());
-            this.f47728g.d().setVisibility(8);
+            this.f42724e.f().removeHeaderView(this.f42726g.d());
+            this.f42726g.d().setVisibility(8);
         }
     }
 
-    public final boolean m(List<FunctionListInfo> list) {
+    @Override // com.baidu.ala.refresh.AlaAutoRefreshFragment
+    public void processCloseLives(List<Long> list) {
+        AlaSquareLiveModel alaSquareLiveModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, list) == null) || ListUtils.isEmpty(list) || (alaSquareLiveModel = this.f42727h) == null || ListUtils.isEmpty(alaSquareLiveModel.L())) {
+            return;
+        }
+        this.f42727h.Q(list);
+    }
+
+    public final boolean q(List<FunctionListInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, list)) == null) {
             if (!ListUtils.isEmpty(list) && ListUtils.getCount(list) >= 2 && ListUtils.getCount(list) <= 3) {
                 int i2 = 0;
                 for (FunctionListInfo functionListInfo : list) {
@@ -506,209 +692,23 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.ala.refresh.ISquareRefreshHandler
-    public void markDataLoaded(int i2) {
-        AlaSquareRefreshManager alaSquareRefreshManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (alaSquareRefreshManager = this.m) == null) {
-            return;
-        }
-        alaSquareRefreshManager.reset(i2);
-    }
-
-    @Override // com.baidu.ala.refresh.AlaAutoRefreshFragment, com.baidu.ala.refresh.ISquareRefreshHandler
-    public void markHasReaded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            b.a.r0.w.f.b.e.a aVar = this.f47726e;
-            if (aVar != null) {
-                aVar.i(i2);
-            }
-            b.a.r0.w.f.b.c.a aVar2 = this.f47727f;
-            if (aVar2 != null) {
-                aVar2.l(i2);
-            }
-            b.a.r0.w.f.b.d.a aVar3 = this.f47728g;
-            if (aVar3 != null) {
-                aVar3.g();
-            }
-        }
-    }
-
-    @Override // com.baidu.ala.refresh.AlaAutoRefreshFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
-            super.onCreate(bundle);
-            this.f47729h = new AlaSquareLiveModel(getPageContext(), getUniqueId(), this.s);
-            AlaSquareRefreshManager alaSquareRefreshManager = new AlaSquareRefreshManager();
-            this.m = alaSquareRefreshManager;
-            alaSquareRefreshManager.init(this, new long[]{30000});
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.k == 0) {
-                this.k = (int) getPageContext().getResources().getDimension(R.dimen.ds80);
-            }
-            b.a.r0.w.f.b.e.a aVar = new b.a.r0.w.f.b.e.a(getPageContext(), getUniqueId(), this.k);
-            this.f47726e = aVar;
-            aVar.k(this.o);
-            this.f47726e.n(this.p);
-            this.f47726e.m(this.q, 2000);
-            this.f47726e.l(this.r);
-            TiebaStatic.log("c12654");
-            return this.f47726e.g();
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            super.onDestroy();
-            AlaSquareRefreshManager alaSquareRefreshManager = this.m;
-            if (alaSquareRefreshManager != null) {
-                alaSquareRefreshManager.onDestory();
-            }
-            b.a.r0.w.f.b.c.a aVar = this.f47727f;
-            if (aVar != null) {
-                aVar.m();
-            }
-            b.a.r0.w.f.b.d.a aVar2 = this.f47728g;
-            if (aVar2 != null) {
-                aVar2.h();
-            }
-            AlaSquareLiveModel alaSquareLiveModel = this.f47729h;
-            if (alaSquareLiveModel != null) {
-                alaSquareLiveModel.onDestroy();
-            }
-            this.n = null;
-            System.gc();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public q onGetPreLoadListView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            b.a.r0.w.f.b.e.a aVar = this.f47726e;
-            if (aVar != null && aVar.f() != null) {
-                return this.f47726e.f().getPreLoadHandle();
-            }
-            return super.onGetPreLoadListView();
-        }
-        return (q) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ala.alasquare.AlaSquareBaseFragment, com.baidu.tbadk.core.BaseFragment
-    public void onNetRefreshButtonClicked() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            super.onNetRefreshButtonClicked();
-            MessageManager.getInstance().sendMessage(new CustomMessage(AlaCmdConfigCustom.CMD_ALA_LIVE_FRAGMENT_NET_BTN_CLICKED));
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            super.onPause();
-            AlaSquareRefreshManager alaSquareRefreshManager = this.m;
-            if (alaSquareRefreshManager != null) {
-                alaSquareRefreshManager.onPause();
-            }
-            b.a.r0.w.f.b.d.a aVar = this.f47728g;
-            if (aVar != null) {
-                aVar.e(true);
-                this.f47728g.j();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            super.onPrimary();
-            if (isAdded() && isPrimary()) {
-                AlaSquareLiveModel alaSquareLiveModel = this.f47729h;
-                if (alaSquareLiveModel != null && ListUtils.isEmpty(alaSquareLiveModel.L()) && !this.f47729h.R()) {
-                    refreshWholePage();
-                }
-                AlaSquareRefreshManager alaSquareRefreshManager = this.m;
-                if (alaSquareRefreshManager != null) {
-                    alaSquareRefreshManager.onPageForeground(0);
-                }
-                b.a.r0.w.f.b.d.a aVar = this.f47728g;
-                if (aVar != null) {
-                    aVar.e(false);
-                    this.f47728g.b();
-                    return;
-                }
-                return;
-            }
-            b.a.r0.w.f.e.a.c().h(false);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onViewCreated(View view, Bundle bundle) {
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, view, bundle) == null) {
-            super.onViewCreated(view, bundle);
-            if (this.j || (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_SQUARE_TAB_CONTROLLER, IAlaSquareTabController.class)) == null || runTask.getData() == null) {
-                return;
-            }
-            IAlaSquareTabController iAlaSquareTabController = (IAlaSquareTabController) runTask.getData();
-            this.n = iAlaSquareTabController;
-            this.f47726e.o(iAlaSquareTabController);
-        }
-    }
-
-    @Override // com.baidu.ala.refresh.AlaAutoRefreshFragment
-    public void processCloseLives(List<Long> list) {
-        AlaSquareLiveModel alaSquareLiveModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, list) == null) || ListUtils.isEmpty(list) || (alaSquareLiveModel = this.f47729h) == null || ListUtils.isEmpty(alaSquareLiveModel.L())) {
-            return;
-        }
-        this.f47729h.Q(list);
-    }
-
     @Override // com.baidu.tieba.ala.alasquare.AlaSquareBaseFragment
     public void refreshWholePage() {
-        b.a.r0.w.f.b.e.a aVar;
+        c.a.r0.a0.f.b.e.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            hideNetRefreshView(this.f47726e.e());
-            if (ListUtils.getCount(this.f47729h.L()) == 0 && (aVar = this.f47726e) != null) {
+            hideNetRefreshView(this.f42724e.e());
+            if (ListUtils.getCount(this.f42727h.L()) == 0 && (aVar = this.f42724e) != null) {
                 showLoadingView(aVar.e());
             }
-            this.f47729h.refresh();
+            this.f42727h.refresh();
         }
     }
 
     public void setPaddingTop(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.k = i2;
+            this.f42730k = i2;
         }
     }
 
@@ -735,16 +735,16 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
                 return;
             }
         }
-        this.f47726e = null;
-        this.f47729h = null;
-        this.f47730i = -1;
-        this.k = 0;
+        this.f42724e = null;
+        this.f42727h = null;
+        this.f42728i = -1;
+        this.f42730k = 0;
         this.o = new a(this);
         this.p = new b(this);
         this.q = new c(this);
         this.r = new d(this);
         this.s = new e(this);
-        this.j = z;
+        this.f42729j = z;
     }
 
     public AlaSquareLiveFragment(AlaSquareTabInfo alaSquareTabInfo) {
@@ -762,10 +762,10 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
                 return;
             }
         }
-        this.f47726e = null;
-        this.f47729h = null;
-        this.f47730i = -1;
-        this.k = 0;
+        this.f42724e = null;
+        this.f42727h = null;
+        this.f42728i = -1;
+        this.f42730k = 0;
         this.o = new a(this);
         this.p = new b(this);
         this.q = new c(this);

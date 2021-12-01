@@ -1,13 +1,10 @@
 package com.baidu.sapi2.utils;
 
 import android.content.Context;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
 import java.io.FileInputStream;
-import java.net.NetworkInterface;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SapiDeviceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +115,7 @@ public class SapiDeviceUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() && PassPermissions.checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
+                if (!isForbidDangerousPermissionApp(context) && Build.VERSION.SDK_INT < 29 && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() && PassPermissions.checkRequestPermission(s.f56838c, context)) {
                     String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                     return deviceId == null ? "" : deviceId;
                 }
@@ -131,46 +127,10 @@ public class SapiDeviceUtils {
         return (String) invokeL.objValue;
     }
 
-    public static String getMac(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-            } catch (Exception e2) {
-                Log.e(e2);
-            }
-            if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                        if (networkInterface.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME)) {
-                            byte[] hardwareAddress = networkInterface.getHardwareAddress();
-                            if (hardwareAddress == null) {
-                                return "";
-                            }
-                            StringBuilder sb = new StringBuilder();
-                            int length = hardwareAddress.length;
-                            for (int i2 = 0; i2 < length; i2++) {
-                                sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i2])));
-                            }
-                            if (sb.length() > 0) {
-                                sb.deleteCharAt(sb.length() - 1);
-                            }
-                            return sb.toString().toLowerCase();
-                        }
-                    }
-                    return "02:00:00:00:00:00";
-                }
-                return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
-            }
-            return "02:00:00:00:00:00";
-        }
-        return (String) invokeL.objValue;
-    }
-
     public static boolean isForbidDangerousPermissionApp(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             ArrayList<String> arrayList = new ArrayList();
             arrayList.add("com.baidu.(.*)input(.*)");
             String packageName = context.getPackageName();

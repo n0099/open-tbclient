@@ -11,7 +11,7 @@ import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.services.sts.model.GetSessionTokenResponse;
 import com.baidubce.util.JsonUtils;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BceStsJsonResponseHandler extends BceJsonResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -10,7 +10,6 @@ import com.baidu.ar.record.EncoderParams;
 import com.baidu.ar.recorder.b.c;
 import com.baidu.ar.recorder.b.d;
 import com.baidu.ar.recorder.b.f;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "b";
@@ -29,7 +28,7 @@ public class b {
     public volatile boolean ua;
     public d un;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +127,7 @@ public class b {
 
     private void a(d dVar, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, dVar, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, dVar, cVar) == null) {
             HandlerThread handlerThread = new HandlerThread("VideoRecorderThread");
             this.uI = handlerThread;
             handlerThread.start();
@@ -190,9 +189,9 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void w(long j) {
+    public void w(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65550, this, j) == null) || Build.VERSION.SDK_INT < 18) {
+        if (!(interceptable == null || interceptable.invokeJ(65550, this, j2) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
         this.uK.Q(false);
@@ -256,11 +255,11 @@ public class b {
         }
     }
 
-    public void v(long j) {
+    public void v(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            int i2 = (int) (j >> 32);
-            int i3 = (int) j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            int i2 = (int) (j2 >> 32);
+            int i3 = (int) j2;
             if (this.uJ == null || !this.ua) {
                 return;
             }

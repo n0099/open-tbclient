@@ -10,13 +10,11 @@ import com.xiaomi.push.ai;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class p extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f71556a;
+    public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ ie f100a;
@@ -37,12 +35,12 @@ public final class p extends ai.a {
             }
         }
         this.f100a = ieVar;
-        this.f71556a = context;
+        this.a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo187a() {
+    public String mo236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.tencent.connect.common.Constants.VIA_REPORT_TYPE_DATALINE : (String) invokeV.objValue;
@@ -56,6 +54,6 @@ public final class p extends ai.a {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.f71556a.getApplicationContext()).a((an) this.f100a, hf.f71998i, true, (hs) null, true);
+        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f62975i, true, (hs) null, true);
     }
 }

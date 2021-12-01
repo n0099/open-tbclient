@@ -5,7 +5,6 @@ import android.os.Handler;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,18 +20,16 @@ import org.json.JSONObject;
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Handler f69520a;
+    public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ss.android.downloadlib.addownload.b.e f69521b;
+    public com.ss.android.downloadlib.addownload.b.e f61273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f69522c;
+    public AtomicBoolean f61274c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f69523d;
+    public AtomicBoolean f61275d;
 
     public d(Handler handler) {
         Interceptable interceptable = $ic;
@@ -49,9 +46,9 @@ public class d {
                 return;
             }
         }
-        this.f69522c = new AtomicBoolean(false);
-        this.f69523d = new AtomicBoolean(false);
-        this.f69520a = handler;
+        this.f61274c = new AtomicBoolean(false);
+        this.f61275d = new AtomicBoolean(false);
+        this.a = handler;
     }
 
     public static long b() {
@@ -72,13 +69,13 @@ public class d {
         return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? com.ss.android.downloadlib.g.l.a(0L) : invokeV.longValue;
     }
 
-    private void b(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject, long j, long j2) {
+    private void b(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{bVar, jSONObject, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{bVar, jSONObject, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             bVar.l("1");
             com.ss.android.downloadlib.addownload.b.i.a().a(bVar);
             try {
-                jSONObject.putOpt("quite_clean_size", Long.valueOf(j2 - j));
+                jSONObject.putOpt("quite_clean_size", Long.valueOf(j3 - j2));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -89,38 +86,38 @@ public class d {
     public void a(com.ss.android.downloadlib.addownload.b.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-            this.f69521b = eVar;
+            this.f61273b = eVar;
         }
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f69523d.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61275d.get() : invokeV.booleanValue;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f69523d.set(z);
+            this.f61275d.set(z);
         }
     }
 
-    public void a(int i2, long j, long j2, e.a aVar) {
+    public void a(int i2, long j2, long j3, e.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), aVar}) == null) {
-            this.f69523d.set(false);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), aVar}) == null) {
+            this.f61275d.set(false);
             if (aVar == null) {
                 return;
             }
             if (com.ss.android.downloadlib.g.e.f(i2) && com.ss.android.downloadlib.g.e.e(i2)) {
                 long c2 = com.ss.android.downloadlib.g.e.c(i2);
-                this.f69522c.set(false);
-                String downloadUrl = this.f69521b.f69434b.getDownloadUrl();
+                this.f61274c.set(false);
+                String downloadUrl = this.f61273b.f61223b.getDownloadUrl();
                 com.ss.android.downloadad.api.a.b b2 = com.ss.android.downloadlib.addownload.b.f.a().b(downloadUrl);
                 if (b2 == null) {
-                    com.ss.android.downloadlib.addownload.b.e eVar = this.f69521b;
-                    b2 = new com.ss.android.downloadad.api.a.b(eVar.f69434b, eVar.f69435c, eVar.f69436d, 0);
+                    com.ss.android.downloadlib.addownload.b.e eVar = this.f61273b;
+                    b2 = new com.ss.android.downloadad.api.a.b(eVar.f61223b, eVar.f61224c, eVar.f61225d, 0);
                     com.ss.android.downloadlib.addownload.b.f.a().a(b2);
                 }
                 com.ss.android.downloadad.api.a.b bVar = b2;
@@ -130,37 +127,35 @@ public class d {
                 }
                 com.ss.android.downloadlib.addownload.c.d.a().a(bVar.a());
                 boolean d2 = com.ss.android.downloadlib.g.e.d(i2);
-                if (j2 > 0) {
-                    a(i2, downloadUrl, j2, bVar, j, aVar);
+                if (j3 > 0) {
+                    a(i2, downloadUrl, j3, bVar, j2, aVar);
                 } else if (d2) {
-                    a(downloadUrl, bVar, new e.b(this, i2, downloadUrl, bVar, j, aVar) { // from class: com.ss.android.downloadlib.addownload.d.1
+                    a(downloadUrl, bVar, new e.b(this, i2, downloadUrl, bVar, j2, aVar) { // from class: com.ss.android.downloadlib.addownload.d.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ int f69524a;
+                        public final /* synthetic */ int a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f69525b;
+                        public final /* synthetic */ String f61276b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f69526c;
+                        public final /* synthetic */ com.ss.android.downloadad.api.a.b f61277c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ long f69527d;
+                        public final /* synthetic */ long f61278d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ e.a f69528e;
+                        public final /* synthetic */ e.a f61279e;
 
                         /* renamed from: f  reason: collision with root package name */
-                        public final /* synthetic */ d f69529f;
+                        public final /* synthetic */ d f61280f;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Integer.valueOf(i2), downloadUrl, bVar, Long.valueOf(j), aVar};
+                                Object[] objArr = {this, Integer.valueOf(i2), downloadUrl, bVar, Long.valueOf(j2), aVar};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i3 = newInitContext.flag;
                                 if ((i3 & 1) != 0) {
@@ -170,34 +165,32 @@ public class d {
                                     return;
                                 }
                             }
-                            this.f69529f = this;
-                            this.f69524a = i2;
-                            this.f69525b = downloadUrl;
-                            this.f69526c = bVar;
-                            this.f69527d = j;
-                            this.f69528e = aVar;
+                            this.f61280f = this;
+                            this.a = i2;
+                            this.f61276b = downloadUrl;
+                            this.f61277c = bVar;
+                            this.f61278d = j2;
+                            this.f61279e = aVar;
                         }
 
                         @Override // com.ss.android.downloadlib.addownload.e.b
-                        public void a(long j3) {
+                        public void a(long j4) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j3) == null) {
-                                this.f69529f.a(this.f69524a, this.f69525b, j3, this.f69526c, this.f69527d, this.f69528e);
+                            if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j4) == null) {
+                                this.f61280f.a(this.a, this.f61276b, j4, this.f61277c, this.f61278d, this.f61279e);
                             }
                         }
                     });
                 } else {
                     c2 = 0;
                 }
-                this.f69520a.postDelayed(new Runnable(this, aVar) { // from class: com.ss.android.downloadlib.addownload.d.2
+                this.a.postDelayed(new Runnable(this, aVar) { // from class: com.ss.android.downloadlib.addownload.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ e.a f69530a;
+                    public final /* synthetic */ e.a a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ d f69531b;
+                    public final /* synthetic */ d f61281b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -214,18 +207,18 @@ public class d {
                                 return;
                             }
                         }
-                        this.f69531b = this;
-                        this.f69530a = aVar;
+                        this.f61281b = this;
+                        this.a = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f69531b.f69522c.get()) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f61281b.f61274c.get()) {
                             return;
                         }
-                        this.f69531b.f69522c.set(true);
-                        this.f69530a.a();
+                        this.f61281b.f61274c.set(true);
+                        this.a.a();
                     }
                 }, c2);
                 return;
@@ -242,12 +235,10 @@ public class d {
         com.ss.android.socialbase.downloader.network.a.b.a(str, new com.ss.android.socialbase.downloader.network.j(this, bVar2) { // from class: com.ss.android.downloadlib.addownload.d.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ e.b f69532a;
+            public final /* synthetic */ e.b a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d f69533b;
+            public final /* synthetic */ d f61282b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -264,28 +255,28 @@ public class d {
                         return;
                     }
                 }
-                this.f69533b = this;
-                this.f69532a = bVar2;
+                this.f61282b = this;
+                this.a = bVar2;
             }
 
             @Override // com.ss.android.socialbase.downloader.network.j
             public void a(Map<String, String> map) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) || this.f69533b.f69522c.get()) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, map) == null) || this.f61282b.f61274c.get()) {
                     return;
                 }
-                this.f69533b.f69522c.set(true);
-                long a2 = this.f69533b.a(map);
-                if (a2 > 0) {
+                this.f61282b.f61274c.set(true);
+                long a = this.f61282b.a(map);
+                if (a > 0) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.putOpt("apk_size", Long.valueOf(a2));
+                        jSONObject.putOpt("apk_size", Long.valueOf(a));
                         jSONObject.putOpt("available_space", Long.valueOf(d.d()));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
                 }
-                this.f69532a.a(a2);
+                this.a.a(a);
             }
         });
     }
@@ -313,19 +304,19 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, String str, long j, com.ss.android.downloadad.api.a.b bVar, long j2, e.a aVar) {
+    public void a(int i2, String str, long j2, com.ss.android.downloadad.api.a.b bVar, long j3, e.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j), bVar, Long.valueOf(j2), aVar}) == null) {
-            this.f69522c.set(true);
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), bVar, Long.valueOf(j3), aVar}) == null) {
+            this.f61274c.set(true);
             boolean z = false;
-            if (j > 0) {
+            if (j2 > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.putOpt("apk_size", Long.valueOf(j));
+                    jSONObject.putOpt("apk_size", Long.valueOf(j2));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                long longValue = (Double.valueOf((com.ss.android.downloadlib.g.e.a(i2) + 1.0d) * j).longValue() + com.ss.android.downloadlib.g.e.b(i2)) - j2;
+                long longValue = (Double.valueOf((com.ss.android.downloadlib.g.e.a(i2) + 1.0d) * j2).longValue() + com.ss.android.downloadlib.g.e.b(i2)) - j3;
                 long d2 = d();
                 if (d2 < longValue) {
                     a(bVar, jSONObject, longValue, d2);
@@ -333,29 +324,27 @@ public class d {
                     long d3 = d();
                     if (d3 < longValue) {
                         bVar.d(true);
-                        String a2 = bVar.a();
-                        com.ss.android.downloadlib.addownload.c.d.a().a(a2, new com.ss.android.downloadlib.addownload.c.e(this, bVar, aVar, a2) { // from class: com.ss.android.downloadlib.addownload.d.4
+                        String a = bVar.a();
+                        com.ss.android.downloadlib.addownload.c.d.a().a(a, new com.ss.android.downloadlib.addownload.c.e(this, bVar, aVar, a) { // from class: com.ss.android.downloadlib.addownload.d.4
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ com.ss.android.downloadad.api.a.b f69534a;
+                            public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ e.a f69535b;
+                            public final /* synthetic */ e.a f61283b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ String f69536c;
+                            public final /* synthetic */ String f61284c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ d f69537d;
+                            public final /* synthetic */ d f61285d;
 
                             {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, bVar, aVar, a2};
+                                    Object[] objArr = {this, bVar, aVar, a};
                                     interceptable2.invokeUnInit(65536, newInitContext);
                                     int i3 = newInitContext.flag;
                                     if ((i3 & 1) != 0) {
@@ -365,10 +354,10 @@ public class d {
                                         return;
                                     }
                                 }
-                                this.f69537d = this;
-                                this.f69534a = bVar;
-                                this.f69535b = aVar;
-                                this.f69536c = a2;
+                                this.f61285d = this;
+                                this.a = bVar;
+                                this.f61283b = aVar;
+                                this.f61284c = a;
                             }
                         });
                         z = a(i2, bVar, str, longValue);
@@ -383,15 +372,13 @@ public class d {
             if (z) {
                 return;
             }
-            this.f69520a.post(new Runnable(this, aVar) { // from class: com.ss.android.downloadlib.addownload.d.5
+            this.a.post(new Runnable(this, aVar) { // from class: com.ss.android.downloadlib.addownload.d.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ e.a f69538a;
+                public final /* synthetic */ e.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f69539b;
+                public final /* synthetic */ d f61286b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -408,28 +395,28 @@ public class d {
                             return;
                         }
                     }
-                    this.f69539b = this;
-                    this.f69538a = aVar;
+                    this.f61286b = this;
+                    this.a = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f69538a.a();
+                        this.a.a();
                     }
                 }
             });
         }
     }
 
-    private boolean a(int i2, @NonNull com.ss.android.downloadad.api.a.b bVar, String str, long j) {
+    private boolean a(int i2, @NonNull com.ss.android.downloadad.api.a.b bVar, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i2), bVar, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i2), bVar, str, Long.valueOf(j2)})) == null) {
             if (com.ss.android.downloadlib.g.e.f(i2)) {
                 if (j.l() != null) {
-                    return j.l().a(i2, str, true, j);
+                    return j.l().a(i2, str, true, j2);
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -445,20 +432,18 @@ public class d {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean a(DownloadInfo downloadInfo, long j) {
+    public static boolean a(DownloadInfo downloadInfo, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, downloadInfo, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, downloadInfo, j2)) == null) {
             int id = downloadInfo.getId();
             boolean z = false;
             if (com.ss.android.downloadlib.g.e.f(id)) {
-                if (j.l() != null && (z = j.l().a(id, downloadInfo.getUrl(), false, j))) {
+                if (j.l() != null && (z = j.l().a(id, downloadInfo.getUrl(), false, j2))) {
                     com.ss.android.downloadlib.addownload.c.d.a().a(downloadInfo.getUrl(), new com.ss.android.downloadlib.addownload.c.e(downloadInfo) { // from class: com.ss.android.downloadlib.addownload.d.6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ DownloadInfo f69540a;
+                        public final /* synthetic */ DownloadInfo a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -475,7 +460,7 @@ public class d {
                                     return;
                                 }
                             }
-                            this.f69540a = downloadInfo;
+                            this.a = downloadInfo;
                         }
                     });
                 }
@@ -503,7 +488,7 @@ public class d {
 
     public static void a(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2) == null) && com.ss.android.downloadlib.g.e.f(i2) && j.l() != null && j.l().b()) {
+        if ((interceptable == null || interceptable.invokeI(65541, null, i2) == null) && com.ss.android.downloadlib.g.e.f(i2) && j.l() != null && j.l().b()) {
             j.l().c();
         }
     }
@@ -531,12 +516,12 @@ public class d {
         }
     }
 
-    private void a(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject, long j, long j2) {
+    private void a(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{bVar, jSONObject, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{bVar, jSONObject, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             try {
-                jSONObject.putOpt("available_space", Long.valueOf(j2));
-                jSONObject.putOpt("apk_download_need_size", Long.valueOf(j));
+                jSONObject.putOpt("available_space", Long.valueOf(j3));
+                jSONObject.putOpt("apk_download_need_size", Long.valueOf(j2));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

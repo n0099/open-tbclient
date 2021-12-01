@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,9 +27,7 @@ import org.json.JSONObject;
 public class d extends h<Long, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final Map<Long, SoftReference<a>> f69512a;
+    public final Map<Long, SoftReference<a>> a;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -40,9 +37,7 @@ public class d extends h<Long, Bitmap> {
     /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static d f69519a;
+        public static d a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -58,14 +53,14 @@ public class d extends h<Long, Bitmap> {
                     return;
                 }
             }
-            f69519a = new d();
+            a = new d();
         }
     }
 
     public static int b(int i2, int i3, BitmapFactory.Options options) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(AdIconUtil.AD_TEXT_ID, null, i2, i3, options)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65541, null, i2, i3, options)) == null) {
             if (options.outWidth > i2 || options.outHeight > i3) {
                 return Math.min(Math.round(options.outWidth / i2), Math.round(options.outHeight / i3));
             }
@@ -91,60 +86,58 @@ public class d extends h<Long, Bitmap> {
                 return;
             }
         }
-        this.f69512a = new HashMap();
+        this.a = new HashMap();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f69519a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (d) invokeV.objValue;
     }
 
-    public void a(long j, @NonNull a aVar) {
+    public void a(long j2, @NonNull a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, aVar) == null) {
-            if (get(Long.valueOf(j)) != null) {
-                aVar.a(get(Long.valueOf(j)));
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, aVar) == null) {
+            if (get(Long.valueOf(j2)) != null) {
+                aVar.a(get(Long.valueOf(j2)));
             } else {
-                this.f69512a.put(Long.valueOf(j), new SoftReference<>(aVar));
+                this.a.put(Long.valueOf(j2), new SoftReference<>(aVar));
             }
         }
     }
 
-    public void a(long j, long j2, String str) {
+    public void a(long j2, long j3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            if (get(Long.valueOf(j)) != null) {
-                SoftReference<a> remove = this.f69512a.remove(Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
+            if (get(Long.valueOf(j2)) != null) {
+                SoftReference<a> remove = this.a.remove(Long.valueOf(j2));
                 if (remove == null || remove.get() == null) {
                     return;
                 }
-                remove.get().a(get(Long.valueOf(j)));
+                remove.get().a(get(Long.valueOf(j2)));
             } else if (TextUtils.isEmpty(str)) {
-                e.a(12, j2);
+                e.a(12, j3);
             } else {
-                com.ss.android.downloadlib.g.c.a((c.a<Object, R>) new c.a<Object, Object>(this, str, j2, j) { // from class: com.ss.android.downloadlib.addownload.compliance.d.2
+                com.ss.android.downloadlib.g.c.a((c.a<Object, R>) new c.a<Object, Object>(this, str, j3, j2) { // from class: com.ss.android.downloadlib.addownload.compliance.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f69515a;
+                    public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ long f69516b;
+                    public final /* synthetic */ long f61270b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ long f69517c;
+                    public final /* synthetic */ long f61271c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ d f69518d;
+                    public final /* synthetic */ d f61272d;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, Long.valueOf(j2), Long.valueOf(j)};
+                            Object[] objArr = {this, str, Long.valueOf(j3), Long.valueOf(j2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -154,10 +147,10 @@ public class d extends h<Long, Bitmap> {
                                 return;
                             }
                         }
-                        this.f69518d = this;
-                        this.f69515a = str;
-                        this.f69516b = j2;
-                        this.f69517c = j;
+                        this.f61272d = this;
+                        this.a = str;
+                        this.f61270b = j3;
+                        this.f61271c = j2;
                     }
 
                     @Override // com.ss.android.downloadlib.g.c.a
@@ -169,7 +162,7 @@ public class d extends h<Long, Bitmap> {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
                             try {
-                                a2 = com.ss.android.socialbase.downloader.downloader.c.a(true, 0, this.f69515a, null);
+                                a2 = com.ss.android.socialbase.downloader.downloader.c.a(true, 0, this.a, null);
                             } catch (Exception e2) {
                                 e = e2;
                                 bufferedInputStream = null;
@@ -206,8 +199,8 @@ public class d extends h<Long, Bitmap> {
                                     } catch (Exception e3) {
                                         e3.printStackTrace();
                                     }
-                                    com.ss.android.downloadlib.d.a.a().a("ttd_pref_monitor", jSONObject, this.f69516b);
-                                    this.f69518d.put(Long.valueOf(this.f69517c), decodeStream);
+                                    com.ss.android.downloadlib.d.a.a().a("ttd_pref_monitor", jSONObject, this.f61270b);
+                                    this.f61272d.put(Long.valueOf(this.f61271c), decodeStream);
                                     f.a(bufferedInputStream);
                                 } catch (Exception e4) {
                                     e = e4;
@@ -224,22 +217,20 @@ public class d extends h<Long, Bitmap> {
                         }
                         return invokeL.objValue;
                     }
-                }, (Object) null).a(new c.a<Object, Object>(this, j) { // from class: com.ss.android.downloadlib.addownload.compliance.d.1
+                }, (Object) null).a(new c.a<Object, Object>(this, j2) { // from class: com.ss.android.downloadlib.addownload.compliance.d.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ long f69513a;
+                    public final /* synthetic */ long a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ d f69514b;
+                    public final /* synthetic */ d f61269b;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j)};
+                            Object[] objArr = {this, Long.valueOf(j2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -249,8 +240,8 @@ public class d extends h<Long, Bitmap> {
                                 return;
                             }
                         }
-                        this.f69514b = this;
-                        this.f69513a = j;
+                        this.f61269b = this;
+                        this.a = j2;
                     }
 
                     @Override // com.ss.android.downloadlib.g.c.a
@@ -258,11 +249,11 @@ public class d extends h<Long, Bitmap> {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
-                            SoftReference softReference = (SoftReference) this.f69514b.f69512a.remove(Long.valueOf(this.f69513a));
+                            SoftReference softReference = (SoftReference) this.f61269b.a.remove(Long.valueOf(this.a));
                             if (softReference == null || softReference.get() == null) {
                                 return null;
                             }
-                            ((a) softReference.get()).a(this.f69514b.get(Long.valueOf(this.f69513a)));
+                            ((a) softReference.get()).a(this.f61269b.get(Long.valueOf(this.a)));
                             return null;
                         }
                         return invokeL.objValue;

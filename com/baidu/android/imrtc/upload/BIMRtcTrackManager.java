@@ -7,12 +7,11 @@ import com.baidu.android.imrtc.utils.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
 import com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BIMRtcTrackManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcTrackManager";
@@ -86,7 +85,7 @@ public class BIMRtcTrackManager {
 
     public static void uploadRtcActionData(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) && context != null && RequsetNetworkUtils.isConnected(context)) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, context) == null) && context != null && RequsetNetworkUtils.isConnected(context)) {
             TaskManager.getInstance().submitForNetWork(new Runnable(context) { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

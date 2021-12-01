@@ -3,7 +3,6 @@ package org.apache.commons.codec.binary4util.bdapp;
 import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -537,7 +536,7 @@ public class Base64 {
     public static byte[] encode(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, bArr, i2)) == null) ? encode(bArr, 0, bArr.length, i2) : (byte[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bArr, i2)) == null) ? encode(bArr, 0, bArr.length, i2) : (byte[]) invokeLI.objValue;
     }
 
     public static String encodeToString(byte[] bArr, int i2) {
@@ -563,7 +562,7 @@ public class Base64 {
     public static byte[] encode(byte[] bArr, int i2, int i3, int i4) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65542, null, bArr, i2, i3, i4)) == null) {
             Encoder encoder = new Encoder(i4, null);
             int i5 = (i3 / 3) * 4;
             if (encoder.do_padding) {

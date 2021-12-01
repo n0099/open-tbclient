@@ -3,9 +3,10 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.k;
+import c.a.d.f.p.k;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VersionData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FORCE_UPDATE = 1;
@@ -204,7 +205,7 @@ public class VersionData implements Serializable {
             this.isOfficialVersion = jSONObject.optInt("android_is_official_version", 0) == 1;
             if (hasNewVersion()) {
                 this.hasNewVer = 1;
-                this.newFile = "tieba_" + this.newVer + ".apk";
+                this.newFile = "tieba_" + this.newVer + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
             }
         } catch (Exception e2) {
             BdLog.detailException(e2);

@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.TransitionUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,7 +80,7 @@ public class ChangeImageTransform extends Transition {
                 return;
             }
         }
-        sTransitionProperties = new String[]{"android:changeImageTransform:matrix", "android:changeImageTransform:bounds"};
+        sTransitionProperties = new String[]{PROPNAME_MATRIX, PROPNAME_BOUNDS};
         NULL_MATRIX_EVALUATOR = new TypeEvaluator<Matrix>() { // from class: androidx.transition.ChangeImageTransform.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -182,8 +181,8 @@ public class ChangeImageTransform extends Transition {
                     return;
                 }
                 Map<String, Object> map = transitionValues.values;
-                map.put("android:changeImageTransform:bounds", new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
-                map.put("android:changeImageTransform:matrix", copyImageMatrix(imageView));
+                map.put(PROPNAME_BOUNDS, new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
+                map.put(PROPNAME_MATRIX, copyImageMatrix(imageView));
             }
         }
     }
@@ -214,7 +213,7 @@ public class ChangeImageTransform extends Transition {
     public static Matrix copyImageMatrix(@NonNull ImageView imageView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, imageView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, imageView)) == null) {
             Drawable drawable = imageView.getDrawable();
             if (drawable.getIntrinsicWidth() > 0 && drawable.getIntrinsicHeight() > 0) {
                 int i2 = AnonymousClass3.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
@@ -233,7 +232,7 @@ public class ChangeImageTransform extends Transition {
     private ObjectAnimator createMatrixAnimator(ImageView imageView, Matrix matrix, Matrix matrix2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, imageView, matrix, matrix2)) == null) ? ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) new TransitionUtils.MatrixEvaluator(), (Object[]) new Matrix[]{matrix, matrix2}) : (ObjectAnimator) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, imageView, matrix, matrix2)) == null) ? ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) new TransitionUtils.MatrixEvaluator(), (Object[]) new Matrix[]{matrix, matrix2}) : (ObjectAnimator) invokeLLL.objValue;
     }
 
     @NonNull
@@ -285,13 +284,13 @@ public class ChangeImageTransform extends Transition {
             if (transitionValues == null || transitionValues2 == null) {
                 return null;
             }
-            Rect rect = (Rect) transitionValues.values.get("android:changeImageTransform:bounds");
-            Rect rect2 = (Rect) transitionValues2.values.get("android:changeImageTransform:bounds");
+            Rect rect = (Rect) transitionValues.values.get(PROPNAME_BOUNDS);
+            Rect rect2 = (Rect) transitionValues2.values.get(PROPNAME_BOUNDS);
             if (rect == null || rect2 == null) {
                 return null;
             }
-            Matrix matrix = (Matrix) transitionValues.values.get("android:changeImageTransform:matrix");
-            Matrix matrix2 = (Matrix) transitionValues2.values.get("android:changeImageTransform:matrix");
+            Matrix matrix = (Matrix) transitionValues.values.get(PROPNAME_MATRIX);
+            Matrix matrix2 = (Matrix) transitionValues2.values.get(PROPNAME_MATRIX);
             boolean z = (matrix == null && matrix2 == null) || (matrix != null && matrix.equals(matrix2));
             if (rect.equals(rect2) && z) {
                 return null;

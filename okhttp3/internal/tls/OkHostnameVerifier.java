@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -119,7 +118,7 @@ public final class OkHostnameVerifier implements HostnameVerifier {
     private boolean verifyIpAddress(String str, X509Certificate x509Certificate) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, x509Certificate)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, x509Certificate)) == null) {
             List<String> subjectAltNames = getSubjectAltNames(x509Certificate, 7);
             int size = subjectAltNames.size();
             for (int i2 = 0; i2 < size; i2++) {

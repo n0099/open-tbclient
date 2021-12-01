@@ -1,5 +1,5 @@
 package com.airbnb.lottie.model;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Marker {
     public static String CARRIAGE_RETURN = "\r";
     public final float durationFrames;

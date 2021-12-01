@@ -1,5 +1,6 @@
 package com.baidu.swan.apps.res.ui.pullrefresh;
 
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ILoadingLayout$State {
     public static final /* synthetic */ ILoadingLayout$State[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +38,7 @@ public final class ILoadingLayout$State {
                 return;
             }
         }
-        NONE = new ILoadingLayout$State("NONE", 0);
+        NONE = new ILoadingLayout$State(PolyActivity.NONE_PANEL_TYPE, 0);
         RESET = new ILoadingLayout$State("RESET", 1);
         PULL_TO_REFRESH = new ILoadingLayout$State("PULL_TO_REFRESH", 2);
         RELEASE_TO_REFRESH = new ILoadingLayout$State("RELEASE_TO_REFRESH", 3);

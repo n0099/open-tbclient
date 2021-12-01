@@ -21,12 +21,10 @@ public class AppleTrackNumberBox extends AppleDataBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_3 = null;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f64600a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64601b;
+    public int f56523b;
 
     static {
         InterceptResult invokeClinit;
@@ -76,7 +74,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_0, this, this));
-            return this.f64600a;
+            return this.a;
         }
         return invokeV.intValue;
     }
@@ -86,7 +84,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return this.f64601b;
+            return this.f56523b;
         }
         return invokeV.intValue;
     }
@@ -105,8 +103,8 @@ public class AppleTrackNumberBox extends AppleDataBox {
     public void parseData(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
-            this.f64600a = byteBuffer.getInt();
-            this.f64601b = byteBuffer.getInt();
+            this.a = byteBuffer.getInt();
+            this.f56523b = byteBuffer.getInt();
         }
     }
 
@@ -114,7 +112,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            this.f64600a = i2;
+            this.a = i2;
         }
     }
 
@@ -122,7 +120,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i2)));
-            this.f64601b = i2;
+            this.f56523b = i2;
         }
     }
 
@@ -132,8 +130,8 @@ public class AppleTrackNumberBox extends AppleDataBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(8);
-            allocate.putInt(this.f64600a);
-            allocate.putInt(this.f64601b);
+            allocate.putInt(this.a);
+            allocate.putInt(this.f56523b);
             return allocate.array();
         }
         return (byte[]) invokeV.objValue;

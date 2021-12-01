@@ -9,16 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f38071a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<e> f38072b;
+    public ArrayList<e> f34091b;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -35,14 +33,14 @@ public class c {
                 return;
             }
         }
-        this.f38071a = i2;
-        this.f38072b = new ArrayList<>();
+        this.a = i2;
+        this.f34091b = new ArrayList<>();
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38071a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
@@ -52,13 +50,13 @@ public class c {
             if (jSONObject == null) {
                 return jSONObject;
             }
-            int i2 = this.f38071a;
+            int i2 = this.a;
             if (i2 != 24321 && i2 != 24323 && i2 != 24322 && i2 != 20488) {
                 jSONObject.put("type", i2);
             }
-            int size = this.f38072b.size();
+            int size = this.f34091b.size();
             for (int i3 = 0; i3 < size; i3++) {
-                e eVar = this.f38072b.get(i3);
+                e eVar = this.f34091b.get(i3);
                 if (eVar != null) {
                     jSONObject.put(eVar.a(), eVar.b());
                 }
@@ -71,14 +69,14 @@ public class c {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f38072b.add(eVar);
+            this.f34091b.add(eVar);
         }
     }
 
     public void b() {
         ArrayList<e> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.f38072b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.f34091b) == null) {
             return;
         }
         arrayList.clear();

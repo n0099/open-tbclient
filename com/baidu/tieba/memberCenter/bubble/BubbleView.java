@@ -20,28 +20,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BubbleView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int BCODE_NONE = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f52353e;
+    public Context f46877e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f52354f;
+    public ViewGroup f46878f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f52355g;
+    public TbImageView f46879g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f52356h;
+    public ImageView f46880h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f52357i;
-    public ImageView j;
-    public ImageView k;
+    public ImageView f46881i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ImageView f46882j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public ImageView f46883k;
     public ImageView l;
     public ImageView m;
     public View n;
@@ -71,20 +75,20 @@ public class BubbleView extends RelativeLayout {
                 return;
             }
         }
-        this.f52353e = context;
+        this.f46877e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f52353e).inflate(getXmlLayoutResId(), this);
-            this.f52354f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
-            this.f52355g = (TbImageView) inflate.findViewById(R.id.bubble_image);
-            this.f52356h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
-            this.f52357i = (ImageView) inflate.findViewById(R.id.free_tip);
-            this.j = (ImageView) inflate.findViewById(R.id.defualt_tip);
-            this.k = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
+            View inflate = LayoutInflater.from(this.f46877e).inflate(getXmlLayoutResId(), this);
+            this.f46878f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
+            this.f46879g = (TbImageView) inflate.findViewById(R.id.bubble_image);
+            this.f46880h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
+            this.f46881i = (ImageView) inflate.findViewById(R.id.free_tip);
+            this.f46882j = (ImageView) inflate.findViewById(R.id.defualt_tip);
+            this.f46883k = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
             this.l = (ImageView) inflate.findViewById(R.id.bubble_round_up);
             this.m = (ImageView) inflate.findViewById(R.id.bubble_round_full);
             this.n = inflate.findViewById(R.id.bubble_center_line);
@@ -108,12 +112,12 @@ public class BubbleView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.f52356h.setVisibility(0);
-                this.j.setVisibility(0);
+                this.f46880h.setVisibility(0);
+                this.f46882j.setVisibility(0);
                 return;
             }
-            this.f52356h.setVisibility(8);
-            this.j.setVisibility(8);
+            this.f46880h.setVisibility(8);
+            this.f46882j.setVisibility(8);
         }
     }
 
@@ -132,9 +136,9 @@ public class BubbleView extends RelativeLayout {
     public void setCurrentNotUse() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f52354f.setVisibility(8);
-            this.k.setVisibility(0);
-            this.f52357i.setVisibility(8);
+            this.f46878f.setVisibility(8);
+            this.f46883k.setVisibility(0);
+            this.f46881i.setVisibility(8);
             if (!this.t) {
                 this.n.setVisibility(8);
                 this.o.setVisibility(8);
@@ -148,7 +152,7 @@ public class BubbleView extends RelativeLayout {
             this.m.setVisibility(8);
             this.p.setVisibility(8);
             this.s.setVisibility(0);
-            this.s.setText(this.f52353e.getString(R.string.bubble_notuse_text));
+            this.s.setText(this.f46877e.getString(R.string.bubble_notuse_text));
         }
     }
 
@@ -159,27 +163,27 @@ public class BubbleView extends RelativeLayout {
         }
         if (bubbleData.getBcode() == 0) {
             setCurrentNotUse();
-            this.j.setVisibility(z ? 0 : 8);
-            this.f52356h.setVisibility(z ? 0 : 8);
+            this.f46882j.setVisibility(z ? 0 : 8);
+            this.f46880h.setVisibility(z ? 0 : 8);
             return;
         }
-        this.f52354f.setVisibility(0);
-        this.k.setVisibility(8);
+        this.f46878f.setVisibility(0);
+        this.f46883k.setVisibility(8);
         if (bubbleData.isDef()) {
-            this.f52356h.setVisibility(0);
-            this.j.setVisibility(0);
+            this.f46880h.setVisibility(0);
+            this.f46882j.setVisibility(0);
         } else {
-            this.f52356h.setVisibility(8);
-            this.j.setVisibility(8);
+            this.f46880h.setVisibility(8);
+            this.f46882j.setVisibility(8);
         }
         if (bubbleData.isFree()) {
-            this.f52357i.setVisibility(0);
+            this.f46881i.setVisibility(0);
         } else {
-            this.f52357i.setVisibility(8);
+            this.f46881i.setVisibility(8);
         }
         if (!TextUtils.isEmpty(bubbleData.getB_url())) {
-            this.f52355g.setTag(bubbleData.getB_url());
-            this.f52355g.startLoad(bubbleData.getB_url(), 10, false);
+            this.f46879g.setTag(bubbleData.getB_url());
+            this.f46879g.startLoad(bubbleData.getB_url(), 10, false);
         }
         if (!this.t) {
             this.n.setVisibility(8);
@@ -231,7 +235,7 @@ public class BubbleView extends RelativeLayout {
                 return;
             }
         }
-        this.f52353e = context;
+        this.f46877e = context;
         a();
     }
 
@@ -253,7 +257,7 @@ public class BubbleView extends RelativeLayout {
                 return;
             }
         }
-        this.f52353e = context;
+        this.f46877e = context;
         a();
     }
 }

@@ -15,16 +15,14 @@ import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
 import com.baidu.wallet.paysdk.ui.WelcomeActivity;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class RemotePaySplashActivity extends PayBaseBeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f61806a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrecashierCreateOrderResponse f61807b;
+    public PrecashierCreateOrderResponse f54212b;
 
     public RemotePaySplashActivity() {
         Interceptable interceptable = $ic;
@@ -50,8 +48,8 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
                 finish();
                 return;
             }
-            this.f61806a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
-            this.f61807b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
+            this.a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
+            this.f54212b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
         }
     }
 
@@ -97,8 +95,8 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Intent intent = new Intent(this, WelcomeActivity.class);
-            intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.f61806a);
-            PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f61807b;
+            intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.a);
+            PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f54212b;
             if (precashierCreateOrderResponse != null) {
                 intent.putExtra(BaiduPay.PRECASHIER_PAY_RESPONSE, precashierCreateOrderResponse);
             }

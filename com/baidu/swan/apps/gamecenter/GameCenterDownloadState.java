@@ -2,8 +2,6 @@ package com.baidu.swan.apps.gamecenter;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.info.XDeviceInfo;
-import com.baidu.mobads.container.util.AdDownloadApkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class GameCenterDownloadState {
     public static final /* synthetic */ GameCenterDownloadState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -39,8 +37,8 @@ public final class GameCenterDownloadState {
             }
         }
         WAITING = new GameCenterDownloadState("WAITING", 0);
-        DOWNLOADING = new GameCenterDownloadState(AdDownloadApkUtils.DL_STATUS_DOWNLOADING, 1);
-        PAUSE = new GameCenterDownloadState(XDeviceInfo.ABILITY_PAUSE, 2);
+        DOWNLOADING = new GameCenterDownloadState("DOWNLOADING", 1);
+        PAUSE = new GameCenterDownloadState("PAUSE", 2);
         FAILED = new GameCenterDownloadState("FAILED", 3);
         CANCEL = new GameCenterDownloadState("CANCEL", 4);
         FINISH = new GameCenterDownloadState("FINISH", 5);

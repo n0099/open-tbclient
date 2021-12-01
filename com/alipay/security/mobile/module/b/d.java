@@ -5,8 +5,6 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.j0;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static d f35140a;
+    public static d a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +33,7 @@ public final class d {
                 return;
             }
         }
-        f35140a = new d();
+        a = new d();
     }
 
     public d() {
@@ -56,7 +53,7 @@ public final class d {
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35140a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (d) invokeV.objValue;
     }
 
     public static String a(String str, String str2) {
@@ -96,7 +93,7 @@ public final class d {
                             return true;
                         }
                     }
-                    return com.alipay.security.mobile.module.a.a.a(Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID));
+                    return com.alipay.security.mobile.module.a.a.a(Settings.Secure.getString(context.getContentResolver(), "android_id"));
                 }
                 return true;
             } catch (Exception unused) {
@@ -109,17 +106,17 @@ public final class d {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? "android" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "android" : (String) invokeV.objValue;
     }
 
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             String[] strArr = {"/system/bin/", "/system/xbin/", "/system/sbin/", "/sbin/", "/vendor/bin/"};
             for (int i2 = 0; i2 < 5; i2++) {
                 try {
-                    if (new File(strArr[i2] + "su").exists()) {
+                    if (new File(strArr[i2] + j0.f56676b).exists()) {
                         return true;
                     }
                 } catch (Exception unused) {

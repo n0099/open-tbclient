@@ -11,8 +11,8 @@ public final class TaskImpl extends Task {
     @JvmField
     public final Runnable block;
 
-    public TaskImpl(Runnable runnable, long j, TaskContext taskContext) {
-        super(j, taskContext);
+    public TaskImpl(Runnable runnable, long j2, TaskContext taskContext) {
+        super(j2, taskContext);
         this.block = runnable;
     }
 

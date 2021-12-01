@@ -17,20 +17,20 @@ public class c {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a() {
-        List<DownloadInfo> a2;
+        List<DownloadInfo> a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (a2 = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext())) == null || a2.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (a = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext())) == null || a.size() <= 0) {
             return;
         }
-        for (int i2 = 0; i2 < a2.size(); i2++) {
-            DownloadInfo downloadInfo = a2.get(i2);
+        for (int i2 = 0; i2 < a.size(); i2++) {
+            DownloadInfo downloadInfo = a.get(i2);
             File file = new File(downloadInfo.getTempPath(), downloadInfo.getTempName());
             long lastModified = file.lastModified();
-            long a3 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_file_expire_hours", 0) * 3600000;
-            if (a3 <= 0) {
-                a3 = 604800000;
+            long a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_file_expire_hours", 0) * 3600000;
+            if (a2 <= 0) {
+                a2 = 604800000;
             }
-            if (file.isFile() && file.exists() && System.currentTimeMillis() - lastModified >= a3) {
+            if (file.isFile() && file.exists() && System.currentTimeMillis() - lastModified >= a2) {
                 a(file);
                 Downloader.getInstance(j.getContext()).clearDownloadData(downloadInfo.getId());
             }
@@ -50,12 +50,12 @@ public class c {
                 File file = new File(str);
                 if (file.exists()) {
                     long currentTimeMillis = System.currentTimeMillis() - file.lastModified();
-                    long a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_complete_file_expire_hours", 0) * 3600000;
-                    if (a2 <= 0) {
-                        a2 = 604800000;
+                    long a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_complete_file_expire_hours", 0) * 3600000;
+                    if (a <= 0) {
+                        a = 604800000;
                     }
                     boolean z = true;
-                    if (currentTimeMillis < a2 && !l.e(j.getContext(), str)) {
+                    if (currentTimeMillis < a && !l.e(j.getContext(), str)) {
                         z = false;
                     }
                     if (z) {

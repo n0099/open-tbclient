@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ParcelableSparseArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class BadgeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean USE_COMPAT_PARENT;
@@ -111,7 +110,7 @@ public class BadgeUtils {
 
     public static void detachBadgeDrawable(@Nullable BadgeDrawable badgeDrawable, @NonNull View view, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, badgeDrawable, view, frameLayout) == null) || badgeDrawable == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, badgeDrawable, view, frameLayout) == null) || badgeDrawable == null) {
             return;
         }
         if (USE_COMPAT_PARENT) {
@@ -123,7 +122,7 @@ public class BadgeUtils {
 
     public static void setBadgeDrawableBounds(@NonNull BadgeDrawable badgeDrawable, @NonNull View view, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, badgeDrawable, view, frameLayout) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, badgeDrawable, view, frameLayout) == null) {
             Rect rect = new Rect();
             (USE_COMPAT_PARENT ? frameLayout : view).getDrawingRect(rect);
             badgeDrawable.setBounds(rect);

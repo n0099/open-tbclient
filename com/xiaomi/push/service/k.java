@@ -16,13 +16,11 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ j f72425a;
+    public final /* synthetic */ j a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f965a;
@@ -31,7 +29,7 @@ public class k extends XMPushService.i {
     public final /* synthetic */ List f966a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f72426b;
+    public final /* synthetic */ String f63278b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(j jVar, int i2, String str, List list, String str2) {
@@ -51,10 +49,10 @@ public class k extends XMPushService.i {
                 return;
             }
         }
-        this.f72425a = jVar;
+        this.a = jVar;
         this.f965a = str;
         this.f966a = list;
-        this.f72426b = str2;
+        this.f63278b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -66,32 +64,32 @@ public class k extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        String a2;
+        String a;
         XMPushService xMPushService;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a2 = this.f72425a.a(this.f965a);
-            ArrayList<ie> a3 = bm.a(this.f966a, this.f965a, a2, 32768);
-            if (a3 == null) {
+            a = this.a.a(this.f965a);
+            ArrayList<ie> a2 = bm.a(this.f966a, this.f965a, a, 32768);
+            if (a2 == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
                 return;
             }
-            Iterator<ie> it = a3.iterator();
+            Iterator<ie> it = a2.iterator();
             while (it.hasNext()) {
                 ie next = it.next();
                 next.a("uploadWay", "longXMPushService");
-                ib a4 = y.a(this.f965a, a2, next, hf.f71998i);
-                if (!TextUtils.isEmpty(this.f72426b) && !TextUtils.equals(this.f965a, this.f72426b)) {
-                    if (a4.m453a() == null) {
+                ib a3 = y.a(this.f965a, a, next, hf.f62975i);
+                if (!TextUtils.isEmpty(this.f63278b) && !TextUtils.equals(this.f965a, this.f63278b)) {
+                    if (a3.m502a() == null) {
                         hs hsVar = new hs();
                         hsVar.a("-1");
-                        a4.a(hsVar);
+                        a3.a(hsVar);
                     }
-                    a4.m453a().b("ext_traffic_source_pkg", this.f72426b);
+                    a3.m502a().b("ext_traffic_source_pkg", this.f63278b);
                 }
-                byte[] a5 = ip.a(a4);
-                xMPushService = this.f72425a.f72424a;
-                xMPushService.a(this.f965a, a5, true);
+                byte[] a4 = ip.a(a3);
+                xMPushService = this.a.a;
+                xMPushService.a(this.f965a, a4, true);
             }
         }
     }

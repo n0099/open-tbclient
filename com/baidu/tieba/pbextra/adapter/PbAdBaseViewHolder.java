@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.f.p.l;
-import b.a.q0.e.c;
-import b.a.r0.k2.u.f.h1.d;
+import c.a.d.f.p.l;
+import c.a.q0.e.c;
+import c.a.r0.q2.u.f.h1.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -31,13 +31,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public UserIconBox f53858a;
+    public UserIconBox a;
     public TextView floor;
     public TextView floorOwner;
     public PbGiftListView giftListView;
@@ -121,7 +119,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
         this.headPhoto = (HeadImageView) view.findViewById(R.id.photo);
         this.pendantHeadPhoto = (HeadPendantView) view.findViewById(R.id.pendant_photo);
         this.mHeadMaskViewStub = (ViewStub) view.findViewById(R.id.viewstub_headimage_mask);
-        this.headPhoto.setRadius(l.g(view.getContext(), R.dimen.ds30));
+        this.headPhoto.setRadius(l.f(view.getContext(), R.dimen.ds30));
         this.pendantHeadPhoto.setHasPendantStyle();
         if (this.pendantHeadPhoto.getHeadView() != null) {
             this.pendantHeadPhoto.getHeadView().setIsRound(true);
@@ -164,7 +162,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
         this.richText.setDisplayImage(z, false);
         this.richText.setVoiceViewRes(R.layout.voice_play_btn_new);
         this.mUserIconLayout = (UserIconBox) view.findViewById(R.id.user_icon_box);
-        this.f53858a = (UserIconBox) view.findViewById(R.id.user_tshow_icon_box);
+        this.a = (UserIconBox) view.findViewById(R.id.user_tshow_icon_box);
         this.mAddPostLayout = (LinearLayout) view.findViewById(R.id.add_post_footer_layout);
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.addition_more_container);
         this.mAdditionMoreContainer = linearLayout;
@@ -186,10 +184,10 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
         this.mPbListContent = (LinearLayout) view.findViewById(R.id.pb_list_content);
         this.mPbVideoExtraViewHolder = new d(tbPageContext, view);
         this.mPbTriangleShapeView = (TriangleShapeView) view.findViewById(R.id.triangle_view);
-        View a2 = c.b().a(tbPageContext.getPageActivity(), 3);
-        this.userOnLiving = a2;
-        if (a2 != null) {
-            this.mMiddleLayout.addView(a2, 2);
+        View a = c.b().a(tbPageContext.getPageActivity(), 3);
+        this.userOnLiving = a;
+        if (a != null) {
+            this.mMiddleLayout.addView(a, 2);
             this.userOnLiving.setVisibility(8);
         }
     }

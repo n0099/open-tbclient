@@ -21,11 +21,11 @@ public final class TickerChannelsKt$ticker$3 extends SuspendLambda implements Fu
     public ProducerScope p$;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TickerChannelsKt$ticker$3(TickerMode tickerMode, long j, long j2, Continuation continuation) {
+    public TickerChannelsKt$ticker$3(TickerMode tickerMode, long j2, long j3, Continuation continuation) {
         super(2, continuation);
         this.$mode = tickerMode;
-        this.$delayMillis = j;
-        this.$initialDelayMillis = j2;
+        this.$delayMillis = j2;
+        this.$initialDelayMillis = j3;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -50,21 +50,21 @@ public final class TickerChannelsKt$ticker$3 extends SuspendLambda implements Fu
             ProducerScope producerScope = this.p$;
             int i3 = TickerChannelsKt.WhenMappings.$EnumSwitchMapping$0[this.$mode.ordinal()];
             if (i3 == 1) {
-                long j = this.$delayMillis;
-                long j2 = this.$initialDelayMillis;
+                long j2 = this.$delayMillis;
+                long j3 = this.$initialDelayMillis;
                 SendChannel channel = producerScope.getChannel();
                 this.L$0 = producerScope;
                 this.label = 1;
-                if (TickerChannelsKt.fixedPeriodTicker(j, j2, channel, this) == coroutine_suspended) {
+                if (TickerChannelsKt.fixedPeriodTicker(j2, j3, channel, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             } else if (i3 == 2) {
-                long j3 = this.$delayMillis;
-                long j4 = this.$initialDelayMillis;
+                long j4 = this.$delayMillis;
+                long j5 = this.$initialDelayMillis;
                 SendChannel channel2 = producerScope.getChannel();
                 this.L$0 = producerScope;
                 this.label = 2;
-                if (TickerChannelsKt.fixedDelayTicker(j3, j4, channel2, this) == coroutine_suspended) {
+                if (TickerChannelsKt.fixedDelayTicker(j4, j5, channel2, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             }

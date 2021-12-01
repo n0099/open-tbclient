@@ -4,7 +4,6 @@ import android.hardware.SensorManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.representation.Matrix;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h implements Observer {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -115,10 +114,10 @@ public class h implements Observer {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fArr) == null) {
             Matrix.invertM(this.sj, 0, fArr, 0);
             Matrix.multiplyMM(this.sp, 0, sf, 0, this.sj, 0);
-            float j = j(this.sp);
-            this.sk = j;
-            if (j > 0.0f) {
-                float pow = (float) (Math.pow(1.13d, j) + 600.0d);
+            float j2 = j(this.sp);
+            this.sk = j2;
+            if (j2 > 0.0f) {
+                float pow = (float) (Math.pow(1.13d, j2) + 600.0d);
                 this.sl = pow;
                 if (pow > 15000.0f) {
                     this.sl = 15000.0f;
@@ -140,7 +139,7 @@ public class h implements Observer {
     private float i(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, fArr)) == null) {
             float f2 = -fArr[0];
             float f3 = -fArr[1];
             int i2 = (f3 > 0.0f ? 1 : (f3 == 0.0f ? 0 : -1));
@@ -172,7 +171,7 @@ public class h implements Observer {
     private float j(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, fArr)) == null) {
             Matrix.multiplyMV(this.so, 0, fArr, 0, sg, 0);
             float[] fArr2 = this.so;
             if (fArr2[2] > 0.0f) {

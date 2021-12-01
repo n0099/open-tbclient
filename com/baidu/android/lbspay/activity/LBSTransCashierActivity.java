@@ -16,7 +16,6 @@ import com.baidu.android.lbspay.beans.LbsPayBeanFactory;
 import com.baidu.android.lbspay.beans.NewCashierBean;
 import com.baidu.android.lbspay.channelpay.baidu.ChannelBaiduPayForTransCashier;
 import com.baidu.android.lbspay.network.NewCashierContent;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +32,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LBSTransCashierActivity extends LBSBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TAG = "LBSTransCashierActivity";
@@ -132,7 +131,7 @@ public class LBSTransCashierActivity extends LBSBaseActivity {
 
     private void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             setContentView(ResUtils.layout(getActivity(), "dxm_wallet_base_layout_loading"));
             AnimationDrawable animationDrawable = (AnimationDrawable) ((ImageView) findViewById(ResUtils.id(getActivity(), "img_anim"))).getDrawable();
             animationDrawable.stop();

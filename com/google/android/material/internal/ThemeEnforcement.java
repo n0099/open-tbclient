@@ -12,7 +12,6 @@ import androidx.annotation.StyleRes;
 import androidx.annotation.StyleableRes;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class ThemeEnforcement {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] APPCOMPAT_CHECK_ATTRS;
@@ -95,7 +94,7 @@ public final class ThemeEnforcement {
     public static void checkTextAppearance(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i2, @StyleRes int i3, @Nullable @StyleableRes int... iArr2) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i2), Integer.valueOf(i3), iArr2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i2), Integer.valueOf(i3), iArr2}) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ThemeEnforcement, i2, i3);
             if (!obtainStyledAttributes.getBoolean(R.styleable.ThemeEnforcement_enforceTextAppearance, false)) {
                 obtainStyledAttributes.recycle();
@@ -115,7 +114,7 @@ public final class ThemeEnforcement {
 
     public static void checkTheme(@NonNull Context context, @NonNull int[] iArr, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, iArr, str) == null) || isTheme(context, iArr)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, context, iArr, str) == null) || isTheme(context, iArr)) {
             return;
         }
         throw new IllegalArgumentException("The style on this component requires your app theme to be " + str + " (or a descendant).");

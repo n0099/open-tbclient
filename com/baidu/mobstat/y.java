@@ -9,42 +9,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static y f42486a;
+    public static y a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f42487b;
+    public Context f37519b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f42488c;
+    public JSONObject f37520c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f42489d;
+    public long f37521d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f42490e;
+    public long f37522e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f42491f;
+    public long f37523f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f42492g;
+    public long f37524g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f42493h;
+    public long f37525h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f42494i;
-    public long j;
-    public long k;
+    public long f37526i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public long f37527j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public long f37528k;
     public long l;
     public long m;
     public long n;
@@ -67,22 +70,22 @@ public class y {
                 return;
             }
         }
-        this.f42488c = new JSONObject();
-        this.f42489d = 24L;
-        this.f42490e = 0L;
-        this.f42491f = 0L;
-        this.f42492g = 0L;
-        this.f42493h = 5L;
-        this.f42494i = 24L;
-        this.j = 15L;
-        this.k = 15L;
+        this.f37520c = new JSONObject();
+        this.f37521d = 24L;
+        this.f37522e = 0L;
+        this.f37523f = 0L;
+        this.f37524g = 0L;
+        this.f37525h = 5L;
+        this.f37526i = 24L;
+        this.f37527j = 15L;
+        this.f37528k = 15L;
         this.l = 30L;
         this.m = 12L;
         this.n = 1L;
         this.o = 24L;
         this.p = "";
         this.q = "";
-        this.f42487b = context;
+        this.f37519b = context;
         m();
         j();
         k();
@@ -92,14 +95,14 @@ public class y {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f42486a == null) {
+            if (a == null) {
                 synchronized (y.class) {
-                    if (f42486a == null) {
-                        f42486a = new y(context);
+                    if (a == null) {
+                        a = new y(context);
                     }
                 }
             }
-            return f42486a;
+            return a;
         }
         return (y) invokeL.objValue;
     }
@@ -112,7 +115,7 @@ public class y {
                 if (TextUtils.isEmpty(b2)) {
                     return;
                 }
-                this.f42488c = new JSONObject(b2);
+                this.f37520c = new JSONObject(b2);
             } catch (Exception unused) {
             }
         }
@@ -121,13 +124,13 @@ public class y {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42491f != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37523f != 0 : invokeV.booleanValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42489d * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37521d * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long d() {
@@ -139,25 +142,25 @@ public class y {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f42493h * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f37525h * 60 * 1000 : invokeV.longValue;
     }
 
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f42494i * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f37526i * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j * 24 * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f37527j * 24 * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.k * 24 * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f37528k * 24 * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long i() {
@@ -170,33 +173,33 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f42487b, ".config2").getBytes())));
+                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f37519b, ".config2").getBytes())));
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
                 JSONObject jSONObject = new JSONObject(str);
                 try {
-                    this.f42490e = jSONObject.getLong("c");
+                    this.f37522e = jSONObject.getLong("c");
                 } catch (JSONException e2) {
                     bb.c().b(e2);
                 }
                 try {
-                    this.f42493h = jSONObject.getLong("d");
+                    this.f37525h = jSONObject.getLong("d");
                 } catch (JSONException e3) {
                     bb.c().b(e3);
                 }
                 try {
-                    this.f42494i = jSONObject.getLong("e");
+                    this.f37526i = jSONObject.getLong("e");
                 } catch (JSONException e4) {
                     bb.c().b(e4);
                 }
                 try {
-                    this.j = jSONObject.getLong("i");
+                    this.f37527j = jSONObject.getLong("i");
                 } catch (JSONException e5) {
                     bb.c().b(e5);
                 }
                 try {
-                    this.f42489d = jSONObject.getLong("f");
+                    this.f37521d = jSONObject.getLong("f");
                 } catch (JSONException e6) {
                     bb.c().b(e6);
                 }
@@ -206,7 +209,7 @@ public class y {
                     bb.c().b(e7);
                 }
                 try {
-                    this.k = jSONObject.getLong("pk");
+                    this.f37528k = jSONObject.getLong(PushConstants.URI_PACKAGE_NAME);
                 } catch (JSONException e8) {
                     bb.c().b(e8);
                 }
@@ -226,12 +229,12 @@ public class y {
                     bb.c().b(e11);
                 }
                 try {
-                    this.f42491f = jSONObject.getLong("mc");
+                    this.f37523f = jSONObject.getLong("mc");
                 } catch (JSONException e12) {
                     bb.c().b(e12);
                 }
                 try {
-                    this.f42492g = jSONObject.getLong("lsc");
+                    this.f37524g = jSONObject.getLong("lsc");
                 } catch (JSONException e13) {
                     bb.c().b(e13);
                 }
@@ -245,7 +248,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f42487b, ".sign").getBytes())));
+                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f37519b, ".sign").getBytes())));
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -271,7 +274,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long a2 = a(g.f42449h);
+            long a2 = a(g.f37493h);
             long d2 = d();
             bb c2 = bb.c();
             c2.a("canSend now=" + currentTimeMillis + ";lastSendTime=" + a2 + ";sendLogTimeInterval=" + d2);
@@ -283,7 +286,7 @@ public class y {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            bo.a(this.f42487b, ".sign", str, false);
+            bo.a(this.f37519b, ".sign", str, false);
             k();
         }
     }
@@ -294,14 +297,14 @@ public class y {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? (TextUtils.isEmpty(this.p) || !this.p.equals(str) || TextUtils.isEmpty(this.q)) ? "" : this.q : (String) invokeL.objValue;
     }
 
-    private long b(long j) {
+    private long b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
-            if (j - System.currentTimeMillis() > 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) {
+            if (j2 - System.currentTimeMillis() > 0) {
                 return 0L;
             }
-            return j;
+            return j2;
         }
         return invokeJ.longValue;
     }
@@ -309,13 +312,13 @@ public class y {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42490e != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37522e != 0 : invokeV.booleanValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            bo.a(this.f42487b, ".config2", str, false);
+            bo.a(this.f37519b, ".config2", str, false);
             j();
         }
     }
@@ -324,43 +327,43 @@ public class y {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
-            long j = gVar.j;
+            long j2 = gVar.f37496j;
             try {
                 String str = gVar.toString();
-                if (this.f42488c.has(str)) {
-                    j = this.f42488c.getLong(str);
+                if (this.f37520c.has(str)) {
+                    j2 = this.f37520c.getLong(str);
                 }
             } catch (Exception e2) {
                 bb.c().a(e2);
             }
-            return b(j);
+            return b(j2);
         }
         return invokeL.longValue;
     }
 
-    public void a(g gVar, long j) {
+    public void a(g gVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, j) == null) {
-            gVar.j = j;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, j2) == null) {
+            gVar.f37496j = j2;
             try {
-                this.f42488c.put(gVar.toString(), j);
+                this.f37520c.put(gVar.toString(), j2);
             } catch (Exception e2) {
                 bb.c().a(e2);
             }
             try {
-                bo.a("backups/system/.timestamp", this.f42488c.toString(), false);
+                bo.a("backups/system/.timestamp", this.f37520c.toString(), false);
             } catch (Exception e3) {
                 bb.c().a(e3);
             }
         }
     }
 
-    public boolean a(long j) {
+    public boolean a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
-            return simpleDateFormat.format(Long.valueOf(j)).equals(simpleDateFormat.format(Long.valueOf(System.currentTimeMillis())));
+            return simpleDateFormat.format(Long.valueOf(j2)).equals(simpleDateFormat.format(Long.valueOf(System.currentTimeMillis())));
         }
         return invokeJ.booleanValue;
     }

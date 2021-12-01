@@ -19,12 +19,10 @@ import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static SDKMonitor f62331a;
+    public static SDKMonitor a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,10 +45,10 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f62331a == null) {
-                f62331a = SDKMonitorUtils.getInstance("7520");
+            if (a == null) {
+                a = SDKMonitorUtils.getInstance("7520");
             }
-            return f62331a;
+            return a;
         }
         return (SDKMonitor) invokeV.objValue;
     }

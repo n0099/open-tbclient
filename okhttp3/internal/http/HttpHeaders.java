@@ -2,7 +2,6 @@ package okhttp3.internal.http;
 
 import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,7 +84,7 @@ public final class HttpHeaders {
     public static boolean hasVaryAll(Response response) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, response)) == null) ? hasVaryAll(response.headers()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, response)) == null) ? hasVaryAll(response.headers()) : invokeL.booleanValue;
     }
 
     public static List<Challenge> parseChallenges(Headers headers, String str) {
@@ -235,7 +234,7 @@ public final class HttpHeaders {
     public static boolean hasVaryAll(Headers headers) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, headers)) == null) ? varyFields(headers).contains(ProxyConfig.MATCH_ALL_SCHEMES) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, headers)) == null) ? varyFields(headers).contains(ProxyConfig.MATCH_ALL_SCHEMES) : invokeL.booleanValue;
     }
 
     public static Set<String> varyFields(Headers headers) {

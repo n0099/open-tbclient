@@ -8,31 +8,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetSocketAddress;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface by {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f42036a;
+        public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f42037b;
+        public static final a f37160b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f42038c;
+        public static final a f37161c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f42039d;
+        public static final a f37162d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f42040e;
+        public static final a f37163e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f42041f;
+        public static final /* synthetic */ a[] f37164f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,13 +46,13 @@ public interface by {
                     return;
                 }
             }
-            f42036a = new a("NOT_YET_CONNECTED", 0);
-            f42037b = new a("CONNECTING", 1);
-            f42038c = new a("OPEN", 2);
-            f42039d = new a("CLOSING", 3);
+            a = new a("NOT_YET_CONNECTED", 0);
+            f37160b = new a("CONNECTING", 1);
+            f37161c = new a("OPEN", 2);
+            f37162d = new a("CLOSING", 3);
             a aVar = new a("CLOSED", 4);
-            f42040e = aVar;
-            f42041f = new a[]{f42036a, f42037b, f42038c, f42039d, aVar};
+            f37163e = aVar;
+            f37164f = new a[]{a, f37160b, f37161c, f37162d, aVar};
         }
 
         public a(String str, int i2) {
@@ -85,20 +83,18 @@ public interface by {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f42041f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f37164f.clone() : (a[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final b f42042a;
+        public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ b[] f42043b;
+        public static final /* synthetic */ b[] f37165b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -115,8 +111,8 @@ public interface by {
                 }
             }
             b bVar = new b("CLIENT", 0);
-            f42042a = bVar;
-            f42043b = new b[]{bVar};
+            a = bVar;
+            f37165b = new b[]{bVar};
         }
 
         public b(String str, int i2) {
@@ -147,7 +143,7 @@ public interface by {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f42043b.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f37165b.clone() : (b[]) invokeV.objValue;
         }
     }
 

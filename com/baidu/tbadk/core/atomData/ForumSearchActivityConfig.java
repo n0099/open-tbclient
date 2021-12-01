@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ForumSearchActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,12 +51,12 @@ public class ForumSearchActivityConfig extends IntentConfig {
         getIntent().putExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, i2);
     }
 
-    public void setLiveId(long j) {
+    public void setLiveId(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra("extra_key_live_id", j);
+        getIntent().putExtra("extra_key_live_id", j2);
     }
 
     public void setMoreForumImg(String str) {

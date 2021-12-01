@@ -18,48 +18,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ProgressView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public View f61778a;
+    public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f61779b;
+    public View f54193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f61780c;
+    public a f54194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f61781d;
+    public b f54195d;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class a extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f61783a;
+        public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f61784b;
+        public int f54196b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ProgressView f61785c;
+        public final /* synthetic */ ProgressView f54197c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Paint f61786d;
+        public Paint f54198d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Rect f61787e;
+        public Rect f54199e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Path f61788f;
+        public Path f54200f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f61789g;
+        public int f54201g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ProgressView progressView, Context context) {
@@ -79,27 +75,27 @@ public class ProgressView extends RelativeLayout implements View.OnClickListener
                     return;
                 }
             }
-            this.f61785c = progressView;
-            this.f61786d = new Paint();
-            this.f61787e = new Rect();
-            this.f61788f = new Path();
-            this.f61789g = 0;
-            this.f61783a = 1;
-            this.f61784b = 0;
-            this.f61789g = DisplayUtils.dip2px(getContext(), 1.0f);
+            this.f54197c = progressView;
+            this.f54198d = new Paint();
+            this.f54199e = new Rect();
+            this.f54200f = new Path();
+            this.f54201g = 0;
+            this.a = 1;
+            this.f54196b = 0;
+            this.f54201g = DisplayUtils.dip2px(getContext(), 1.0f);
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f61783a = i2;
+                this.a = i2;
             }
         }
 
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f61784b = i2;
+                this.f54196b = i2;
             }
         }
 
@@ -107,30 +103,30 @@ public class ProgressView extends RelativeLayout implements View.OnClickListener
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-                float height = (getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2)) - (((getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2)) * this.f61784b) / this.f61783a);
+                float height = (getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2)) - (((getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2)) * this.f54196b) / this.a);
                 int i2 = (int) height;
-                this.f61787e.set((getWidth() - this.f61789g) / 2, DisplayUtils.dip2px(getContext(), 6.0f), (getWidth() + this.f61789g) / 2, i2);
-                Path path = this.f61788f;
-                Rect rect = this.f61787e;
+                this.f54199e.set((getWidth() - this.f54201g) / 2, DisplayUtils.dip2px(getContext(), 6.0f), (getWidth() + this.f54201g) / 2, i2);
+                Path path = this.f54200f;
+                Rect rect = this.f54199e;
                 path.addRect(new RectF(rect.left, rect.top, rect.right, rect.bottom), Path.Direction.CW);
-                this.f61786d.setColor(-1);
-                this.f61786d.setAlpha(33);
-                canvas.drawRect(this.f61787e, this.f61786d);
-                this.f61787e.set((getWidth() - this.f61789g) / 2, i2 + DisplayUtils.dip2px(getContext(), 6.0f), (getWidth() + this.f61789g) / 2, getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2));
-                Path path2 = this.f61788f;
-                Rect rect2 = this.f61787e;
+                this.f54198d.setColor(-1);
+                this.f54198d.setAlpha(33);
+                canvas.drawRect(this.f54199e, this.f54198d);
+                this.f54199e.set((getWidth() - this.f54201g) / 2, i2 + DisplayUtils.dip2px(getContext(), 6.0f), (getWidth() + this.f54201g) / 2, getHeight() - (DisplayUtils.dip2px(getContext(), 6.0f) * 2));
+                Path path2 = this.f54200f;
+                Rect rect2 = this.f54199e;
                 path2.addRect(new RectF(rect2.left, rect2.top, rect2.right, rect2.bottom), Path.Direction.CW);
-                this.f61786d.setColor(-1);
-                this.f61786d.setAlpha(127);
-                canvas.drawRect(this.f61787e, this.f61786d);
-                this.f61786d.setAlpha(255);
-                canvas.drawCircle(getWidth() / 2, height + DisplayUtils.dip2px(getContext(), 6.0f), DisplayUtils.dip2px(getContext(), 6.0f), this.f61786d);
+                this.f54198d.setColor(-1);
+                this.f54198d.setAlpha(127);
+                canvas.drawRect(this.f54199e, this.f54198d);
+                this.f54198d.setAlpha(255);
+                canvas.drawCircle(getWidth() / 2, height + DisplayUtils.dip2px(getContext(), 6.0f), DisplayUtils.dip2px(getContext(), 6.0f), this.f54198d);
                 super.draw(canvas);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a();
 
@@ -162,34 +158,34 @@ public class ProgressView extends RelativeLayout implements View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            b bVar = this.f61781d;
+            b bVar = this.f54195d;
             if (bVar != null) {
                 bVar.a();
             }
-            if (view == this.f61778a) {
-                a aVar = this.f61780c;
-                int i2 = aVar.f61784b + 2;
-                int i3 = aVar.f61783a;
+            if (view == this.a) {
+                a aVar = this.f54194c;
+                int i2 = aVar.f54196b + 2;
+                int i3 = aVar.a;
                 if (i2 > i3) {
                     i2 = i3;
                 }
-                this.f61780c.b(i2);
-                this.f61780c.invalidate();
-                b bVar2 = this.f61781d;
+                this.f54194c.b(i2);
+                this.f54194c.invalidate();
+                b bVar2 = this.f54195d;
                 if (bVar2 != null) {
-                    bVar2.a(this.f61780c.f61784b);
+                    bVar2.a(this.f54194c.f54196b);
                 }
             }
-            if (view == this.f61779b) {
-                int i4 = this.f61780c.f61784b - 2;
+            if (view == this.f54193b) {
+                int i4 = this.f54194c.f54196b - 2;
                 if (i4 < 0) {
                     i4 = 0;
                 }
-                this.f61780c.b(i4);
-                this.f61780c.invalidate();
-                b bVar3 = this.f61781d;
+                this.f54194c.b(i4);
+                this.f54194c.invalidate();
+                b bVar3 = this.f54195d;
                 if (bVar3 != null) {
-                    bVar3.a(this.f61780c.f61784b);
+                    bVar3.a(this.f54194c.f54196b);
                 }
             }
         }
@@ -198,22 +194,22 @@ public class ProgressView extends RelativeLayout implements View.OnClickListener
     public void setMaxPregress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f61780c.a(i2);
+            this.f54194c.a(i2);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f61780c.b(i2);
-            this.f61780c.invalidate();
+            this.f54194c.b(i2);
+            this.f54194c.invalidate();
         }
     }
 
     public void setProgressStatusChangeListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f61781d = bVar;
+            this.f54195d = bVar;
         }
     }
 
@@ -221,33 +217,31 @@ public class ProgressView extends RelativeLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             View view = new View(getContext());
-            this.f61778a = view;
+            this.a = view;
             view.setBackgroundResource(ResUtils.drawable(getContext(), "wallet_qrscanner_progress_add"));
-            this.f61778a.setOnClickListener(this);
+            this.a.setOnClickListener(this);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 12.0f), DisplayUtils.dip2px(getContext(), 12.0f));
             layoutParams.addRule(10);
             layoutParams.addRule(14, -1);
             layoutParams.topMargin = DisplayUtils.dip2px(getContext(), 6.0f);
-            addView(this.f61778a, layoutParams);
+            addView(this.a, layoutParams);
             View view2 = new View(getContext());
-            this.f61779b = view2;
+            this.f54193b = view2;
             view2.setBackgroundResource(ResUtils.drawable(getContext(), "wallet_qrscanner_progress_cut"));
-            this.f61779b.setOnClickListener(this);
+            this.f54193b.setOnClickListener(this);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 12.0f), DisplayUtils.dip2px(getContext(), 12.0f));
             layoutParams2.addRule(12);
             layoutParams2.addRule(14, -1);
             layoutParams2.bottomMargin = DisplayUtils.dip2px(getContext(), 6.0f);
-            addView(this.f61779b, layoutParams2);
-            this.f61780c = new a(this, getContext());
+            addView(this.f54193b, layoutParams2);
+            this.f54194c = new a(this, getContext());
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 12.0f), DisplayUtils.dip2px(getContext(), 192.0f));
             layoutParams3.addRule(13, -1);
-            addView(this.f61780c, layoutParams3);
-            this.f61780c.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.wallet.qrcodescanner.widget.ProgressView.1
+            addView(this.f54194c, layoutParams3);
+            this.f54194c.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.baidu.wallet.qrcodescanner.widget.ProgressView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ProgressView f61782a;
+                public final /* synthetic */ ProgressView a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -264,7 +258,7 @@ public class ProgressView extends RelativeLayout implements View.OnClickListener
                             return;
                         }
                     }
-                    this.f61782a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -272,39 +266,39 @@ public class ProgressView extends RelativeLayout implements View.OnClickListener
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) {
-                        if (this.f61782a.f61781d != null) {
-                            this.f61782a.f61781d.a();
+                        if (this.a.f54195d != null) {
+                            this.a.f54195d.a();
                         }
                         if (motionEvent.getAction() == 0) {
-                            int height = this.f61782a.f61780c.getHeight();
+                            int height = this.a.f54194c.getHeight();
                             int[] iArr = new int[2];
-                            this.f61782a.f61780c.getLocationOnScreen(iArr);
+                            this.a.f54194c.getLocationOnScreen(iArr);
                             int i2 = iArr[1];
                             if (motionEvent.getRawY() >= i2) {
                                 float f2 = i2 + height;
                                 if (motionEvent.getRawY() <= f2) {
-                                    int rawY = (int) (((f2 - motionEvent.getRawY()) / height) * this.f61782a.f61780c.f61783a);
-                                    this.f61782a.f61780c.b(rawY);
-                                    this.f61782a.f61780c.invalidate();
-                                    if (this.f61782a.f61781d != null) {
-                                        this.f61782a.f61781d.a(rawY);
+                                    int rawY = (int) (((f2 - motionEvent.getRawY()) / height) * this.a.f54194c.a);
+                                    this.a.f54194c.b(rawY);
+                                    this.a.f54194c.invalidate();
+                                    if (this.a.f54195d != null) {
+                                        this.a.f54195d.a(rawY);
                                     }
                                 }
                             }
                             return true;
                         } else if (motionEvent.getAction() == 2) {
-                            int height2 = this.f61782a.f61780c.getHeight();
+                            int height2 = this.a.f54194c.getHeight();
                             int[] iArr2 = new int[2];
-                            this.f61782a.f61780c.getLocationOnScreen(iArr2);
+                            this.a.f54194c.getLocationOnScreen(iArr2);
                             int i3 = iArr2[1];
                             if (motionEvent.getRawY() >= i3) {
                                 float f3 = i3 + height2;
                                 if (motionEvent.getRawY() <= f3) {
-                                    int rawY2 = (int) (((f3 - motionEvent.getRawY()) / height2) * this.f61782a.f61780c.f61783a);
-                                    this.f61782a.f61780c.b(rawY2);
-                                    this.f61782a.f61780c.invalidate();
-                                    if (this.f61782a.f61781d != null) {
-                                        this.f61782a.f61781d.a(rawY2);
+                                    int rawY2 = (int) (((f3 - motionEvent.getRawY()) / height2) * this.a.f54194c.a);
+                                    this.a.f54194c.b(rawY2);
+                                    this.a.f54194c.invalidate();
+                                    if (this.a.f54195d != null) {
+                                        this.a.f54195d.a(rawY2);
                                         return false;
                                     }
                                     return false;

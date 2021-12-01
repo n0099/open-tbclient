@@ -1,12 +1,12 @@
 package com.baidu.adp.plugin.install;
 
 import android.content.Intent;
-import b.a.e.i.g.d;
+import c.a.d.i.g.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PluginInstallerRetryService extends HighPriorityIntentService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class PluginInstallerRetryService extends HighPriorityIntentService {
     public void onHandleIntent(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-            d.p(intent);
+            d.o(intent);
         }
     }
 

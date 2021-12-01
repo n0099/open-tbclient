@@ -3,10 +3,11 @@ package com.vivo.push.util;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.kwad.yoga.YogaNodeJNIBase;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +19,7 @@ public final class g {
             int length = bArr.length;
             char[] cArr = new char[length];
             for (int i2 = 0; i2 < length; i2++) {
-                cArr[i2] = (char) (bArr[i2] ^ 16);
+                cArr[i2] = (char) (bArr[i2] ^ YogaNodeJNIBase.HAS_NEW_LAYOUT);
             }
             return new String(cArr);
         }

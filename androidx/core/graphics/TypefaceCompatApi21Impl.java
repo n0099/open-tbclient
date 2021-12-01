@@ -15,8 +15,6 @@ import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +125,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
         Class<?> cls;
         Method method2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || sHasInitBeenCalled) {
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || sHasInitBeenCalled) {
             return;
         }
         sHasInitBeenCalled = true;
@@ -153,7 +151,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
     public static Object newFamily() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             init();
             try {
                 return sFontFamilyCtor.newInstance(new Object[0]);
@@ -204,7 +202,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
                 return null;
             }
             try {
-                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo(fontInfoArr, i2).getUri(), r.f41000a, cancellationSignal);
+                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo(fontInfoArr, i2).getUri(), "r", cancellationSignal);
                 if (openFileDescriptor == null) {
                     if (openFileDescriptor != null) {
                         openFileDescriptor.close();

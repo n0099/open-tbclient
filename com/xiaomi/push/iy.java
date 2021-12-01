@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class iy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final byte f72248a;
+    public final byte a;
 
     /* renamed from: a  reason: collision with other field name */
     public final String f814a;
@@ -54,7 +52,7 @@ public class iy {
             }
         }
         this.f814a = str;
-        this.f72248a = b2;
+        this.a = b2;
         this.f815a = s;
     }
 
@@ -62,7 +60,7 @@ public class iy {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "<TField name:'" + this.f814a + "' type:" + ((int) this.f72248a) + " field-id:" + ((int) this.f815a) + ">";
+            return "<TField name:'" + this.f814a + "' type:" + ((int) this.a) + " field-id:" + ((int) this.f815a) + ">";
         }
         return (String) invokeV.objValue;
     }

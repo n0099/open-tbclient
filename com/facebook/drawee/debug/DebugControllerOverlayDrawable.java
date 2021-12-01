@@ -18,7 +18,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.debug.listener.ImageLoadingTimeListener;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DebugControllerOverlayDrawable extends Drawable implements ImageLoadingTimeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_SIZE_THRESHOLD_NOT_OK = 0.5f;
@@ -194,9 +194,9 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
             if (scaleType != null) {
                 addDebugText(canvas, "scale: %s", scaleType);
             }
-            long j = this.mFinalImageTimeMs;
-            if (j >= 0) {
-                addDebugText(canvas, "t: %d ms", Long.valueOf(j));
+            long j2 = this.mFinalImageTimeMs;
+            if (j2 >= 0) {
+                addDebugText(canvas, "t: %d ms", Long.valueOf(j2));
             }
             String str3 = this.mOrigin;
             if (str3 != null) {
@@ -225,10 +225,10 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     }
 
     @Override // com.facebook.drawee.debug.listener.ImageLoadingTimeListener
-    public void onFinalImageSet(long j) {
+    public void onFinalImageSet(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.mFinalImageTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.mFinalImageTimeMs = j2;
             invalidateSelf();
         }
     }
@@ -292,10 +292,10 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         }
     }
 
-    public void setFinalImageTimeMs(long j) {
+    public void setFinalImageTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.mFinalImageTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.mFinalImageTimeMs = j2;
         }
     }
 

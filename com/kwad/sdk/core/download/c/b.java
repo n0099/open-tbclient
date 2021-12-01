@@ -1,103 +1,36 @@
 package com.kwad.sdk.core.download.c;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.widget.RemoteViews;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.core.ICompletedRemoteView;
-import com.kwad.sdk.api.core.RemoteViewBuilder;
+import com.kwad.sdk.export.proxy.AdInstallProxy;
+import com.kwad.sdk.utils.ag;
 /* loaded from: classes2.dex */
-public class b {
+public class b implements AdInstallProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public ICompletedRemoteView f65424a;
-
-    public b(ICompletedRemoteView iCompletedRemoteView) {
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iCompletedRemoteView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f65424a = iCompletedRemoteView;
     }
 
-    public static b a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.export.proxy.AdInstallProxy, com.ksad.download.a
+    public void installApp(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? new b(RemoteViewBuilder.createCompletedView(context)) : (b) invokeL.objValue;
-    }
-
-    public RemoteViews a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ICompletedRemoteView iCompletedRemoteView = this.f65424a;
-            if (iCompletedRemoteView != null) {
-                return iCompletedRemoteView.build();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            ag.d(context, str);
         }
-        return (RemoteViews) invokeV.objValue;
-    }
-
-    public void a(Bitmap bitmap) {
-        ICompletedRemoteView iCompletedRemoteView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (iCompletedRemoteView = this.f65424a) == null) {
-            return;
-        }
-        iCompletedRemoteView.setIcon(bitmap);
-    }
-
-    public void a(String str) {
-        ICompletedRemoteView iCompletedRemoteView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (iCompletedRemoteView = this.f65424a) == null) {
-            return;
-        }
-        iCompletedRemoteView.setName(str);
-    }
-
-    public void b(String str) {
-        ICompletedRemoteView iCompletedRemoteView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (iCompletedRemoteView = this.f65424a) == null) {
-            return;
-        }
-        iCompletedRemoteView.setStatus(str);
-    }
-
-    public void c(String str) {
-        ICompletedRemoteView iCompletedRemoteView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iCompletedRemoteView = this.f65424a) == null) {
-            return;
-        }
-        iCompletedRemoteView.setSize(str);
-    }
-
-    public void d(String str) {
-        ICompletedRemoteView iCompletedRemoteView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (iCompletedRemoteView = this.f65424a) == null) {
-            return;
-        }
-        iCompletedRemoteView.setInstallText(str);
     }
 }

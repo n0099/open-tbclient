@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RevenueSdk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RevenueSdk";
@@ -108,7 +107,7 @@ public class RevenueSdk {
         InterceptResult invokeII;
         IRevenue iRevenue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
             synchronized (RevenueSdk.class) {
                 String revenueMapKey = getRevenueMapKey(i2, i3);
                 iRevenue = iRevenueMap.get(revenueMapKey);
@@ -124,7 +123,7 @@ public class RevenueSdk {
     public static String getRevenueMapKey(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) {
             return i2 + "-" + i3;
         }
         return (String) invokeII.objValue;

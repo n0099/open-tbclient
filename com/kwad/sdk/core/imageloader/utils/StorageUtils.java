@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.al;
 import java.io.File;
 /* loaded from: classes2.dex */
 public final class StorageUtils {
@@ -29,20 +28,20 @@ public final class StorageUtils {
         }
     }
 
-    public static File getIndividualCacheDirectory(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? getIndividualCacheDirectory(context, INDIVIDUAL_DIR_NAME) : (File) invokeL.objValue;
-    }
-
     public static File getIndividualCacheDirectory(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            File b2 = al.b(context);
-            File file = new File(b2, str);
-            return (file.exists() || file.mkdir()) ? file : b2;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) ? getIndividualCacheDirectory(context, str, INDIVIDUAL_DIR_NAME) : (File) invokeLL.objValue;
+    }
+
+    public static File getIndividualCacheDirectory(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, str2)) == null) {
+            File file = new File(str);
+            File file2 = new File(str, str2);
+            return (file2.exists() || file2.mkdir()) ? file2 : file;
         }
-        return (File) invokeLL.objValue;
+        return (File) invokeLLL.objValue;
     }
 }

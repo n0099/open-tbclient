@@ -2,7 +2,6 @@ package com.baidu.apollon.utils;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.ApollonConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,15 +30,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f37141a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class DataType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,13 +82,13 @@ public final class JsonUtils {
         public static boolean isMap(Class<?> cls) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) ? cls != null && Map.class.isAssignableFrom(cls) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) ? cls != null && Map.class.isAssignableFrom(cls) : invokeL.booleanValue;
         }
 
         public static boolean isNull(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
                 if (obj instanceof JSONObject) {
                     return JSONObject.NULL.equals(obj);
                 }
@@ -138,7 +135,7 @@ public final class JsonUtils {
                 return;
             }
         }
-        f37141a = ApollonConstants.DEBUG & false;
+        a = ApollonConstants.DEBUG & false;
     }
 
     public JsonUtils() {
@@ -182,7 +179,7 @@ public final class JsonUtils {
         return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class Encoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,7 +234,7 @@ public final class JsonUtils {
                     }
                     jSONStringer.endArray();
                 } catch (Exception e2) {
-                    if (JsonUtils.f37141a) {
+                    if (JsonUtils.a) {
                         e2.printStackTrace();
                     }
                 }
@@ -257,7 +254,7 @@ public final class JsonUtils {
                     }
                     jSONStringer.endArray();
                 } catch (Exception e2) {
-                    if (JsonUtils.f37141a) {
+                    if (JsonUtils.a) {
                         e2.printStackTrace();
                     }
                 }
@@ -275,7 +272,7 @@ public final class JsonUtils {
                     }
                     jSONStringer.endObject();
                 } catch (Exception e2) {
-                    if (JsonUtils.f37141a) {
+                    if (JsonUtils.a) {
                         e2.printStackTrace();
                     }
                 }
@@ -284,11 +281,11 @@ public final class JsonUtils {
 
         public static void serializeNull(JSONStringer jSONStringer) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, jSONStringer) == null) {
+            if (interceptable == null || interceptable.invokeL(65541, null, jSONStringer) == null) {
                 try {
                     jSONStringer.value((Object) null);
                 } catch (JSONException e2) {
-                    if (JsonUtils.f37141a) {
+                    if (JsonUtils.a) {
                         e2.printStackTrace();
                     }
                 }
@@ -303,7 +300,7 @@ public final class JsonUtils {
                     serializeObject(jSONStringer, obj.getClass(), obj);
                     jSONStringer.endObject();
                 } catch (Exception e2) {
-                    if (JsonUtils.f37141a) {
+                    if (JsonUtils.a) {
                         e2.printStackTrace();
                     }
                 }
@@ -316,7 +313,7 @@ public final class JsonUtils {
                 try {
                     jSONStringer.value(obj);
                 } catch (JSONException e2) {
-                    if (JsonUtils.f37141a) {
+                    if (JsonUtils.a) {
                         e2.printStackTrace();
                     }
                 }
@@ -326,7 +323,7 @@ public final class JsonUtils {
         public static void serializeObject(JSONStringer jSONStringer, Class<?> cls, Object obj) {
             Field[] declaredFields;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONStringer, cls, obj) == null) || cls == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(65542, null, jSONStringer, cls, obj) == null) || cls == null) {
                 return;
             }
             serializeObject(jSONStringer, cls.getSuperclass(), obj);
@@ -348,7 +345,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class Decoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -401,7 +398,7 @@ public final class JsonUtils {
                     try {
                         tArr[i2] = deserializeJSONArray(jSONArray, i2, cls, z);
                     } catch (JSONException e2) {
-                        if (JsonUtils.f37141a) {
+                        if (JsonUtils.a) {
                             e2.printStackTrace();
                         }
                     }
@@ -431,7 +428,7 @@ public final class JsonUtils {
                     try {
                         r5.add(deserializeJSONArray(jSONArray, i2, cls2, z));
                     } catch (JSONException e2) {
-                        if (JsonUtils.f37141a) {
+                        if (JsonUtils.a) {
                             e2.printStackTrace();
                         }
                     }
@@ -441,20 +438,20 @@ public final class JsonUtils {
             return (T) invokeLL.objValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:66:0x00eb  */
+        /* JADX WARN: Removed duplicated region for block: B:66:0x00ea  */
         /* JADX WARN: Removed duplicated region for block: B:80:? A[RETURN, SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public static void deserializeField(JSONObject jSONObject, Object obj, Field field) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, jSONObject, obj, field) == null) {
+            if (interceptable == null || interceptable.invokeLLL(65541, null, jSONObject, obj, field) == null) {
                 Class<?> type = field.getType();
                 String name = field.getName();
                 Object obj2 = null;
                 try {
                 } catch (Exception e2) {
-                    if (JsonUtils.f37141a) {
+                    if (JsonUtils.a) {
                     }
                 }
                 if (DataType.isRaw(type)) {
@@ -462,7 +459,7 @@ public final class JsonUtils {
                         try {
                             obj2 = Integer.valueOf(jSONObject.getInt(name));
                         } catch (JSONException e3) {
-                            if (JsonUtils.f37141a) {
+                            if (JsonUtils.a) {
                                 e3.printStackTrace();
                             }
                         }
@@ -470,7 +467,7 @@ public final class JsonUtils {
                         try {
                             obj2 = Long.valueOf(jSONObject.getLong(name));
                         } catch (JSONException e4) {
-                            if (JsonUtils.f37141a) {
+                            if (JsonUtils.a) {
                                 e4.printStackTrace();
                             }
                         }
@@ -480,7 +477,7 @@ public final class JsonUtils {
                                 try {
                                     obj2 = Boolean.valueOf(jSONObject.getBoolean(name));
                                 } catch (JSONException e5) {
-                                    if (JsonUtils.f37141a) {
+                                    if (JsonUtils.a) {
                                         e5.printStackTrace();
                                     }
                                 }
@@ -491,12 +488,12 @@ public final class JsonUtils {
                         try {
                             obj2 = Double.valueOf(jSONObject.getDouble(name));
                         } catch (JSONException e6) {
-                            if (JsonUtils.f37141a) {
+                            if (JsonUtils.a) {
                                 e6.printStackTrace();
                             }
                         }
                     }
-                    if (JsonUtils.f37141a) {
+                    if (JsonUtils.a) {
                         return;
                     }
                     e2.printStackTrace();
@@ -521,7 +518,7 @@ public final class JsonUtils {
         public static <T> T deserializeJSONArray(JSONArray jSONArray, int i2, Class<T> cls, boolean z) throws JSONException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{jSONArray, Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{jSONArray, Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) {
                 if (z) {
                     return (T) deserialize(jSONArray.getJSONArray(i2), cls);
                 }
@@ -548,7 +545,7 @@ public final class JsonUtils {
                     }
                     return map;
                 } catch (JSONException e2) {
-                    if (JsonUtils.f37141a) {
+                    if (JsonUtils.a) {
                         e2.printStackTrace();
                         return null;
                     }
@@ -615,7 +612,7 @@ public final class JsonUtils {
                     field.set(obj, obj2);
                 }
             } catch (Exception e2) {
-                if (JsonUtils.f37141a) {
+                if (JsonUtils.a) {
                     e2.printStackTrace();
                 }
             }

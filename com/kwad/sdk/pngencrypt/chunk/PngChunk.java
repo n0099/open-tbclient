@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.AdParamInfo;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,30 +14,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class PngChunk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f66806a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f66807b;
+    public final boolean f58697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f66808c;
+    public final boolean f58698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f66809d;
+    public final boolean f58699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.pngencrypt.k f66810e;
+    public final com.kwad.sdk.pngencrypt.k f58700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f66811f;
+    public d f58701f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f66812g;
+    public int f58702g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f66813h;
+    public boolean f58703h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -66,13 +64,13 @@ public abstract class PngChunk {
                     return;
                 }
             }
-            NONE = new ChunkOrderingConstraint("NONE", 0);
+            NONE = new ChunkOrderingConstraint(PolyActivity.NONE_PANEL_TYPE, 0);
             BEFORE_PLTE_AND_IDAT = new ChunkOrderingConstraint("BEFORE_PLTE_AND_IDAT", 1);
             AFTER_PLTE_BEFORE_IDAT = new ChunkOrderingConstraint("AFTER_PLTE_BEFORE_IDAT", 2);
             AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED = new ChunkOrderingConstraint("AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED", 3);
             BEFORE_IDAT = new ChunkOrderingConstraint("BEFORE_IDAT", 4);
             AFTER_IDAT = new ChunkOrderingConstraint("AFTER_IDAT", 5);
-            ChunkOrderingConstraint chunkOrderingConstraint = new ChunkOrderingConstraint(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA, 6);
+            ChunkOrderingConstraint chunkOrderingConstraint = new ChunkOrderingConstraint("NA", 6);
             NA = chunkOrderingConstraint;
             $VALUES = new ChunkOrderingConstraint[]{NONE, BEFORE_PLTE_AND_IDAT, AFTER_PLTE_BEFORE_IDAT, AFTER_PLTE_BEFORE_IDAT_PLTE_REQUIRED, BEFORE_IDAT, AFTER_IDAT, chunkOrderingConstraint};
         }
@@ -175,22 +173,22 @@ public abstract class PngChunk {
                 return;
             }
         }
-        this.f66813h = false;
-        this.f66812g = -1;
-        this.f66806a = str;
-        this.f66810e = kVar;
-        this.f66807b = b.b(str);
-        this.f66808c = b.c(str);
-        this.f66809d = b.d(str);
+        this.f58703h = false;
+        this.f58702g = -1;
+        this.a = str;
+        this.f58700e = kVar;
+        this.f58697b = b.b(str);
+        this.f58698c = b.c(str);
+        this.f58699d = b.d(str);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d dVar = this.f66811f;
+            d dVar = this.f58701f;
             if (dVar != null) {
-                return dVar.f66829a;
+                return dVar.a;
             }
             return -1;
         }
@@ -200,7 +198,7 @@ public abstract class PngChunk {
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f66812g = i2;
+            this.f58702g = i2;
         }
     }
 
@@ -210,7 +208,7 @@ public abstract class PngChunk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d dVar = this.f66811f;
+            d dVar = this.f58701f;
             if (dVar != null) {
                 return dVar.c();
             }
@@ -222,7 +220,7 @@ public abstract class PngChunk {
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f66811f = dVar;
+            this.f58701f = dVar;
         }
     }
 
@@ -230,7 +228,7 @@ public abstract class PngChunk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "chunk id= " + this.f66806a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
+            return "chunk id= " + this.a + " (len=" + a() + " offset=" + b() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

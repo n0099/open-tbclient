@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +21,7 @@ public class i {
     public static com.ss.android.downloadlib.addownload.b.g b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) ? h.b(context, str) : (com.ss.android.downloadlib.addownload.b.g) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? h.b(context, str) : (com.ss.android.downloadlib.addownload.b.g) invokeLL.objValue;
     }
 
     public static boolean c(Context context, String str) {
@@ -52,7 +51,7 @@ public class i {
     public static com.ss.android.downloadlib.addownload.b.g a(String str, @NonNull com.ss.android.downloadad.api.a.a aVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, aVar)) == null) ? h.b(str, aVar) : (com.ss.android.downloadlib.addownload.b.g) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, aVar)) == null) ? h.b(str, aVar) : (com.ss.android.downloadlib.addownload.b.g) invokeLL.objValue;
     }
 
     public static com.ss.android.downloadlib.addownload.b.g a(@NonNull com.ss.android.downloadad.api.a.b bVar, String str, String str2) {

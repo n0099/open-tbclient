@@ -1,6 +1,5 @@
 package androidx.multidex;
 
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,17 +59,17 @@ public final class ZipUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, centralDirectory)) == null) {
             CRC32 crc32 = new CRC32();
-            long j = centralDirectory.size;
+            long j2 = centralDirectory.size;
             randomAccessFile.seek(centralDirectory.offset);
             byte[] bArr = new byte[16384];
-            int read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j));
+            int read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j2));
             while (read != -1) {
                 crc32.update(bArr, 0, read);
-                j -= read;
-                if (j == 0) {
+                j2 -= read;
+                if (j2 == 0) {
                     break;
                 }
-                read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j));
+                read = randomAccessFile.read(bArr, 0, (int) Math.min(16384L, j2));
             }
             return crc32.getValue();
         }
@@ -83,8 +82,8 @@ public final class ZipUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, randomAccessFile)) == null) {
             long length = randomAccessFile.length() - 22;
             if (length >= 0) {
-                long j = length - 65536;
-                long j2 = j >= 0 ? j : 0L;
+                long j2 = length - 65536;
+                long j3 = j2 >= 0 ? j2 : 0L;
                 int reverseBytes = Integer.reverseBytes(101010256);
                 do {
                     randomAccessFile.seek(length);
@@ -99,7 +98,7 @@ public final class ZipUtil {
                         return centralDirectory;
                     }
                     length--;
-                } while (length >= j2);
+                } while (length >= j3);
                 throw new ZipException("End Of Central Directory signature not found");
             }
             throw new ZipException("File too short to be a zip file: " + randomAccessFile.length());
@@ -111,7 +110,7 @@ public final class ZipUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f41000a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
             try {
                 return computeCrcOfCentralDir(randomAccessFile, findCentralDirectory(randomAccessFile));
             } finally {

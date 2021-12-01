@@ -5,7 +5,6 @@ import android.view.View;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.selector.ColorSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TBSelector {
     public static /* synthetic */ Interceptable $ic;
     public static final float RESOURCE_ALPHA_DISABLE;
@@ -77,13 +76,13 @@ public class TBSelector {
     public static ColorSelector makeTextColorSelector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? ColorSelector.make().textType(1) : (ColorSelector) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ColorSelector.make().textType(1) : (ColorSelector) invokeV.objValue;
     }
 
     public static ColorSelector makeTextHintColorSelector() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? ColorSelector.make().textType(2) : (ColorSelector) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? ColorSelector.make().textType(2) : (ColorSelector) invokeV.objValue;
     }
 
     public static DrawableSelector selectorBackgroundColor(@ColorRes int i2, @ColorRes int i3, int i4) {

@@ -2,7 +2,6 @@ package com.baidu.fsg.base.utils.reflect;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +15,10 @@ import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Field> f38450a;
+    public static Map<String, Field> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +34,7 @@ public class FieldUtils {
                 return;
             }
         }
-        f38450a = new HashMap();
+        a = new HashMap();
     }
 
     public FieldUtils() {
@@ -72,8 +69,8 @@ public class FieldUtils {
             Validate.a(cls != null, "The class must not be null", new Object[0]);
             Validate.a(!TextUtils.isEmpty(str), "The field name must not be blank/empty", new Object[0]);
             String a2 = a(cls, str);
-            synchronized (f38450a) {
-                field = f38450a.get(a2);
+            synchronized (a) {
+                field = a.get(a2);
             }
             if (field != null) {
                 if (z && !field.isAccessible()) {
@@ -93,8 +90,8 @@ public class FieldUtils {
                         continue;
                     }
                 }
-                synchronized (f38450a) {
-                    f38450a.put(a2, declaredField);
+                synchronized (a) {
+                    a.put(a2, declaredField);
                 }
                 return declaredField;
             }
@@ -107,8 +104,8 @@ public class FieldUtils {
                 } catch (NoSuchFieldException unused2) {
                 }
             }
-            synchronized (f38450a) {
-                f38450a.put(a2, field2);
+            synchronized (a) {
+                a.put(a2, field2);
             }
             return field2;
         }
@@ -140,13 +137,13 @@ public class FieldUtils {
     public static Field getField(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cls, str)) == null) ? a(cls, str, true) : (Field) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, str)) == null) ? a(cls, str, true) : (Field) invokeLL.objValue;
     }
 
     public static Object readField(Object obj, String str) throws IllegalAccessException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, obj, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
             Validate.a(obj != null, "target object must not be null", new Object[0]);
             Class<?> cls = obj.getClass();
             Field a2 = a(cls, str, true);

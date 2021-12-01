@@ -8,11 +8,10 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.HandlerThread;
-import b.a.x0.b;
-import b.a.x0.t.c;
-import b.a.x0.t.h;
+import c.a.x0.b;
+import c.a.x0.t.c;
+import c.a.x0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(17)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VideoKeyFrameModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoKeyFrameModel";
@@ -55,7 +54,7 @@ public class VideoKeyFrameModel {
     public VideoEffectData mVideoEffectData;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel$4  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$magicmusic$EffectType;
         public static /* synthetic */ Interceptable $ic;
@@ -83,16 +82,16 @@ public class VideoKeyFrameModel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnAPeriodOfTimeFrameAvailableListener extends OnDecodeFrameAvailableListener {
         void onDecodeFrameEnd();
 
         void onDecodeFrameError();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface OnDecodeFrameAvailableListener {
-        void onFrameAvailable(long j, Bitmap bitmap);
+        void onFrameAvailable(long j2, Bitmap bitmap);
     }
 
     public VideoKeyFrameModel() {
@@ -126,11 +125,11 @@ public class VideoKeyFrameModel {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void doExtract(MediaExtractor mediaExtractor, int i2, MediaCodec mediaCodec, BaseOutputSurface baseOutputSurface, List<Long> list, boolean z) throws IOException {
-        long j;
         long j2;
         long j3;
-        String str;
         long j4;
+        String str;
+        long j5;
         int i3;
         boolean z2;
         boolean z3;
@@ -138,45 +137,45 @@ public class VideoKeyFrameModel {
         OnDecodeFrameAvailableListener onDecodeFrameAvailableListener;
         int dequeueInputBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{mediaExtractor, Integer.valueOf(i2), mediaCodec, baseOutputSurface, list, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{mediaExtractor, Integer.valueOf(i2), mediaCodec, baseOutputSurface, list, Boolean.valueOf(z)}) == null) {
             MediaExtractor mediaExtractor2 = mediaExtractor;
             ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             if (h.e(list) || list.size() != 1) {
-                j = 0;
-                j2 = -1;
+                j2 = 0;
+                j3 = -1;
             } else {
                 long longValue = list.get(0).longValue();
-                long j5 = longValue <= 0 ? 1L : longValue;
+                long j6 = longValue <= 0 ? 1L : longValue;
                 mediaExtractor.getSampleTime();
                 if (z) {
-                    mediaExtractor2.seekTo(j5, 0);
+                    mediaExtractor2.seekTo(j6, 0);
                 } else {
-                    mediaExtractor2.seekTo(j5, 2);
+                    mediaExtractor2.seekTo(j6, 2);
                 }
-                j = 0;
-                if (mediaExtractor.getSampleTime() > j5) {
+                j2 = 0;
+                if (mediaExtractor.getSampleTime() > j6) {
                     mediaExtractor2.seekTo(0L, 2);
                 }
-                j2 = j5;
+                j3 = j6;
             }
             if (h.e(list)) {
-                if (this.mStartPosition > j) {
+                if (this.mStartPosition > j2) {
                     mediaExtractor.getSampleTime();
-                    long j6 = this.mStartPosition;
+                    long j7 = this.mStartPosition;
                     if (z) {
-                        mediaExtractor2.seekTo(j6, 0);
+                        mediaExtractor2.seekTo(j7, 0);
                     } else {
-                        mediaExtractor2.seekTo(j6, 2);
+                        mediaExtractor2.seekTo(j7, 2);
                     }
                     if (mediaExtractor.getSampleTime() > this.mStartPosition) {
-                        j3 = 0;
+                        j4 = 0;
                         mediaExtractor2.seekTo(0L, 2);
                     }
                 }
-                j3 = 0;
+                j4 = 0;
             } else {
-                j3 = j;
+                j4 = j2;
             }
             int i4 = 0;
             boolean z5 = false;
@@ -184,19 +183,19 @@ public class VideoKeyFrameModel {
             while (!z5 && !this.mIsRelease) {
                 if (z6 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
                     str = TAG;
-                    j4 = j3;
+                    j5 = j4;
                     i3 = i4;
                 } else {
                     int readSampleData = mediaExtractor2.readSampleData(inputBuffers[dequeueInputBuffer], 0);
                     if (readSampleData < 0) {
                         str = TAG;
-                        j4 = j3;
+                        j5 = j4;
                         i3 = i4;
                         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                         z6 = true;
                     } else {
                         str = TAG;
-                        j4 = j3;
+                        j5 = j4;
                         i3 = i4;
                         if (mediaExtractor.getSampleTrackIndex() != i2) {
                             c.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i2);
@@ -207,7 +206,7 @@ public class VideoKeyFrameModel {
                 }
                 if (z5) {
                     i4 = i3;
-                    j3 = j4;
+                    j4 = j5;
                     mediaExtractor2 = mediaExtractor;
                 } else {
                     int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
@@ -218,7 +217,7 @@ public class VideoKeyFrameModel {
                             c.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                         } else {
                             boolean z7 = (bufferInfo.flags & 4) != 0 ? true : z5;
-                            if (this.mDuration > j4 || h.e(list)) {
+                            if (this.mDuration > j5 || h.e(list)) {
                                 if (bufferInfo.size != 0) {
                                     z2 = z7;
                                     if (bufferInfo.presentationTimeUs >= this.mStartPosition) {
@@ -232,8 +231,8 @@ public class VideoKeyFrameModel {
                                         if (z4) {
                                             baseOutputSurface.awaitNewImage();
                                             baseOutputSurface.drawImage((int) (bufferInfo.presentationTimeUs / 1000));
-                                            long j7 = this.mLastPresentTime;
-                                            if ((j7 == j4 || bufferInfo.presentationTimeUs - j7 >= 1000000 / this.mPerSecondFrame) && (onDecodeFrameAvailableListener = this.mOnDecodeFrameAvailableListener) != null) {
+                                            long j8 = this.mLastPresentTime;
+                                            if ((j8 == j5 || bufferInfo.presentationTimeUs - j8 >= 1000000 / this.mPerSecondFrame) && (onDecodeFrameAvailableListener = this.mOnDecodeFrameAvailableListener) != null) {
                                                 onDecodeFrameAvailableListener.onFrameAvailable(bufferInfo.presentationTimeUs, baseOutputSurface.getFrameBitmap());
                                                 this.mLastPresentTime = bufferInfo.presentationTimeUs;
                                             }
@@ -261,10 +260,10 @@ public class VideoKeyFrameModel {
                                 if (z9) {
                                     baseOutputSurface.awaitNewImage();
                                     baseOutputSurface.drawImage((int) (bufferInfo.presentationTimeUs / 1000));
-                                    if (j2 != -1) {
+                                    if (j3 != -1) {
                                         if (!z) {
                                             this.mBitmap = baseOutputSurface.getFrameBitmap();
-                                        } else if (bufferInfo.presentationTimeUs >= j2) {
+                                        } else if (bufferInfo.presentationTimeUs >= j3) {
                                             long currentTimeMillis = System.currentTimeMillis();
                                             this.mBitmap = baseOutputSurface.getFrameBitmap();
                                             c.c("zmy", "draw cost : " + (System.currentTimeMillis() - currentTimeMillis));
@@ -274,7 +273,7 @@ public class VideoKeyFrameModel {
                                         z5 = z7;
                                     } else {
                                         long longValue2 = list.get(i3).longValue();
-                                        if (longValue2 <= j4) {
+                                        if (longValue2 <= j5) {
                                             longValue2 = 1;
                                         } else if (i3 == list.size() - 1) {
                                             longValue2 -= 800000;
@@ -296,12 +295,12 @@ public class VideoKeyFrameModel {
                                 z5 = z7;
                             }
                             mediaExtractor2 = mediaExtractor;
-                            j3 = j4;
+                            j4 = j5;
                         }
                     }
                     i4 = i3;
                     mediaExtractor2 = mediaExtractor;
-                    j3 = j4;
+                    j4 = j5;
                 }
             }
         }
@@ -356,7 +355,7 @@ public class VideoKeyFrameModel {
         r1 = r2;
      */
     /* JADX WARN: Code restructure failed: missing block: B:55:0x00fc, code lost:
-        b.a.x0.t.c.g(r0);
+        c.a.x0.t.c.g(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:56:0x00ff, code lost:
         if (r1 != null) goto L39;
@@ -581,16 +580,16 @@ public class VideoKeyFrameModel {
         this.mVideoEffectData.setMagicEffectList(arrayList);
     }
 
-    public Bitmap getFrameAtTime(String str, long j, boolean z) {
+    public Bitmap getFrameAtTime(String str, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)})) == null) ? getFrameAtTime(str, j, z, 0, 0) : (Bitmap) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? getFrameAtTime(str, j2, z, 0, 0) : (Bitmap) invokeCommon.objValue;
     }
 
-    public Bitmap getFrameAtTime(String str, long j, boolean z, int i2, int i3) {
+    public Bitmap getFrameAtTime(String str, long j2, boolean z, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             HandlerThread handlerThread = new HandlerThread(this, "fuck_code") { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -643,7 +642,7 @@ public class VideoKeyFrameModel {
                     }
                 }
             }
-            Thread thread = new Thread(new Runnable(this, j, str, z, i2, i3) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel.2
+            Thread thread = new Thread(new Runnable(this, j2, str, z, i2, i3) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ VideoKeyFrameModel this$0;
@@ -658,7 +657,7 @@ public class VideoKeyFrameModel {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j), str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+                        Object[] objArr = {this, Long.valueOf(j2), str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i4 = newInitContext.flag;
                         if ((i4 & 1) != 0) {
@@ -669,7 +668,7 @@ public class VideoKeyFrameModel {
                         }
                     }
                     this.this$0 = this;
-                    this.val$timeUs = j;
+                    this.val$timeUs = j2;
                     this.val$videoPath = str;
                     this.val$exactTime = z;
                     this.val$width = i2;

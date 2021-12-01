@@ -18,7 +18,7 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.dxmpay.apollon.restnet.RestNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class q extends r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

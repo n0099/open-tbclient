@@ -7,9 +7,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.l.d;
-import b.a.e.f.m.e;
-import b.a.e.f.p.k;
+import c.a.d.f.l.d;
+import c.a.d.f.m.e;
+import c.a.d.f.p.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FrameAnimationView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,13 +33,13 @@ public class FrameAnimationView extends TbImageView {
     public BdUniqueId W;
     public Runnable a0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrameAnimationView f56200e;
+        public final /* synthetic */ FrameAnimationView f50253e;
 
         public a(FrameAnimationView frameAnimationView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class FrameAnimationView extends TbImageView {
                     return;
                 }
             }
-            this.f56200e = frameAnimationView;
+            this.f50253e = frameAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f56200e.a0);
-                if (this.f56200e.T != null) {
-                    this.f56200e.v();
+                e.a().removeCallbacks(this.f50253e.a0);
+                if (this.f50253e.T != null) {
+                    this.f50253e.v();
                 }
             }
         }
@@ -109,7 +109,7 @@ public class FrameAnimationView extends TbImageView {
             String frameUrl = getFrameUrl();
             this.P++;
             if (!k.isEmpty(frameUrl)) {
-                b.a.e.m.d.a aVar = (b.a.e.m.d.a) d.h().n(frameUrl, 10, new Object[0]);
+                c.a.d.m.d.a aVar = (c.a.d.m.d.a) d.h().n(frameUrl, 10, new Object[0]);
                 if (aVar != null) {
                     return aVar.p();
                 }

@@ -10,22 +10,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.identifier.IdentifierIdClient;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c implements com.baidu.sofire.k.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public b f44084a;
+    public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44085b;
+    public String f39167b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f44086c;
+    public Context f39168c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f44087d;
+    public a f39169d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -45,11 +43,11 @@ public final class c implements com.baidu.sofire.k.b {
     public final void a(Context context, com.baidu.sofire.k.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
-            this.f44084a = new b(context);
-            this.f44086c = context;
+            this.a = new b(context);
+            this.f39168c = context;
             if ("1".equals(com.baidu.sofire.p.a.a(IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0"))) {
-                this.f44087d = new a(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f44087d);
+                this.f39169d = new a(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.f39169d);
             }
         }
     }
@@ -59,10 +57,10 @@ public final class c implements com.baidu.sofire.k.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f44085b)) {
-                this.f44085b = this.f44084a.a();
+            if (TextUtils.isEmpty(this.f39167b)) {
+                this.f39167b = this.a.a();
             }
-            return this.f44085b;
+            return this.f39167b;
         }
         return (String) invokeV.objValue;
     }

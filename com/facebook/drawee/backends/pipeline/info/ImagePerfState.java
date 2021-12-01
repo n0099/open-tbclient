@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImagePerfState {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -116,24 +116,24 @@ public class ImagePerfState {
         }
     }
 
-    public void setControllerCancelTimeMs(long j) {
+    public void setControllerCancelTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.mControllerCancelTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.mControllerCancelTimeMs = j2;
         }
     }
 
-    public void setControllerFailureTimeMs(long j) {
+    public void setControllerFailureTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.mControllerFailureTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.mControllerFailureTimeMs = j2;
         }
     }
 
-    public void setControllerFinalImageSetTimeMs(long j) {
+    public void setControllerFinalImageSetTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.mControllerFinalImageSetTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.mControllerFinalImageSetTimeMs = j2;
         }
     }
 
@@ -144,17 +144,17 @@ public class ImagePerfState {
         }
     }
 
-    public void setControllerIntermediateImageSetTimeMs(long j) {
+    public void setControllerIntermediateImageSetTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.mControllerIntermediateImageSetTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.mControllerIntermediateImageSetTimeMs = j2;
         }
     }
 
-    public void setControllerSubmitTimeMs(long j) {
+    public void setControllerSubmitTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.mControllerSubmitTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.mControllerSubmitTimeMs = j2;
         }
     }
 
@@ -186,24 +186,24 @@ public class ImagePerfState {
         }
     }
 
-    public void setImageRequestEndTimeMs(long j) {
+    public void setImageRequestEndTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.mImageRequestEndTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.mImageRequestEndTimeMs = j2;
         }
     }
 
-    public void setImageRequestStartTimeMs(long j) {
+    public void setImageRequestStartTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.mImageRequestStartTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.mImageRequestStartTimeMs = j2;
         }
     }
 
-    public void setInvisibilityEventTimeMs(long j) {
+    public void setInvisibilityEventTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.mInvisibilityEventTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.mInvisibilityEventTimeMs = j2;
         }
     }
 
@@ -235,10 +235,10 @@ public class ImagePerfState {
         }
     }
 
-    public void setVisibilityEventTimeMs(long j) {
+    public void setVisibilityEventTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.mVisibilityEventTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            this.mVisibilityEventTimeMs = j2;
         }
     }
 

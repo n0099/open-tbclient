@@ -17,26 +17,22 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38366a = "LogSender";
+    public static final String a = "LogSender";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38367b = 10000;
+    public static final int f34322b = 10000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38368c = 10001;
+    public static final int f34323c = 10001;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static n f38369a;
+        public static n a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,7 +48,7 @@ public class n {
                     return;
                 }
             }
-            f38369a = new n(null);
+            a = new n(null);
         }
 
         public a() {
@@ -91,7 +87,7 @@ public class n {
     public static n a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f38369a : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (n) invokeV.objValue;
     }
 
     private JSONArray a(h[] hVarArr) {
@@ -100,7 +96,7 @@ public class n {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, hVarArr)) == null) {
             JSONArray jSONArray = new JSONArray();
             for (h hVar : hVarArr) {
-                LogUtil.d(f38366a, hVar.a().toString());
+                LogUtil.d(a, hVar.a().toString());
                 jSONArray.put(hVar.a());
             }
             return jSONArray;
@@ -156,7 +152,7 @@ public class n {
             StringBuilder sb = new StringBuilder();
             sb.append("=====sendLogData=====");
             sb.append(str);
-            LogUtil.d(f38366a, sb.toString() == "normal_log" ? "normal" : "crash");
+            LogUtil.d(a, sb.toString() == "normal_log" ? "normal" : "crash");
             if ((str.equals(b.o) && g.b().c()) || (appContext = RimStatisticsUtil.getAppContext()) == null || !com.baidu.fsg.base.statistics.a.c(appContext)) {
                 return;
             }

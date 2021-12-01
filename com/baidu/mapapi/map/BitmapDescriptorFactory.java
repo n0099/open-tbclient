@@ -9,7 +9,6 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.SysOSUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,15 +19,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BitmapDescriptorFactory {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f40138a;
+    public static final /* synthetic */ boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f40139b;
+    public static final String f35782b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,8 +41,8 @@ public class BitmapDescriptorFactory {
                 return;
             }
         }
-        f40138a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        f40139b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
+        f35782b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
     public BitmapDescriptorFactory() {
@@ -73,7 +70,7 @@ public class BitmapDescriptorFactory {
             try {
                 Bitmap a2 = com.baidu.mapsdkplatform.comapi.commonutils.a.a(str, context);
                 BitmapDescriptor fromBitmap = fromBitmap(a2);
-                if (!f40138a && a2 == null) {
+                if (!a && a2 == null) {
                     throw new AssertionError();
                 }
                 a2.recycle();
@@ -152,7 +149,7 @@ public class BitmapDescriptorFactory {
         InterceptResult invokeL;
         Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (str == null || str.equals("") || (context = BMapManager.getContext()) == null) {
                 return null;
             }
@@ -176,7 +173,7 @@ public class BitmapDescriptorFactory {
         InterceptResult invokeLI;
         Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i2)) == null) {
             if (str == null || str.equals("") || (context = BMapManager.getContext()) == null) {
                 return null;
             }

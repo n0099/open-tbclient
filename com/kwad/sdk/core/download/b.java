@@ -1,134 +1,111 @@
 package com.kwad.sdk.core.download;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ksad.download.DownloadTask;
-import com.kwad.sdk.utils.w;
+import com.kwad.sdk.KsAdSDKImpl;
 /* loaded from: classes2.dex */
-public class b extends com.ksad.download.c {
+public class b {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(303278443, "Lcom/kwad/sdk/core/download/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(303278443, "Lcom/kwad/sdk/core/download/b;");
+                return;
             }
         }
+        a = KsAdSDKImpl.get().isDebugLogEnable();
     }
 
-    private String g(DownloadTask downloadTask) {
-        InterceptResult invokeL;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, downloadTask)) == null) ? w.a(downloadTask.getUrl()) : (String) invokeL.objValue;
-    }
-
-    @Override // com.ksad.download.c
-    public void a(DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadTask) == null) {
-        }
-    }
-
-    @Override // com.ksad.download.c
-    public void a(DownloadTask downloadTask, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, i2, i3) == null) {
-        }
-    }
-
-    @Override // com.ksad.download.c
-    public void a(DownloadTask downloadTask, String str, boolean z, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{downloadTask, str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-        }
-    }
-
-    @Override // com.ksad.download.c
-    public void a(DownloadTask downloadTask, Throwable th) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, downloadTask, th) == null) {
-            if (th == null || th.getStackTrace().length <= 0) {
-                str = "";
-            } else {
-                str = th.getMessage() + " @ " + th.getStackTrace()[0].getFileName() + th.getStackTrace()[0].getClassName() + th.getStackTrace()[0].getLineNumber();
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            if (a) {
+                com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadStart(), id=" + str);
             }
-            c.a(g(downloadTask), 0, str);
+            DownloadStatusManager.a().a(str);
         }
     }
 
-    @Override // com.ksad.download.c
-    public void b(DownloadTask downloadTask) {
+    public static void a(String str, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, downloadTask) == null) {
-            c.a(g(downloadTask), downloadTask.getTargetFilePath());
+        if (interceptable == null || interceptable.invokeLIII(65538, null, str, i2, i3, i4) == null) {
+            if (a) {
+                com.kwad.sdk.core.d.a.a("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i2 + " soFarBytes=" + i3 + " totalBytes=" + i4);
+            }
+            DownloadStatusManager.a().a(str, i2, i3, i4);
         }
     }
 
-    @Override // com.ksad.download.c
-    public void b(DownloadTask downloadTask, int i2, int i3) {
+    public static void a(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, downloadTask, i2, i3) == null) {
-            c.a(g(downloadTask), i3 > 0 ? (int) ((i2 * 100.0f) / i3) : 0, i2, i3);
+        if (interceptable == null || interceptable.invokeLIL(65539, null, str, i2, str2) == null) {
+            if (a) {
+                com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFail(), id=" + str + " errorCode=" + i2 + " errorMsg=" + str2);
+            }
+            DownloadStatusManager.a().a(str, i2, str2);
         }
     }
 
-    @Override // com.ksad.download.c
-    public void c(DownloadTask downloadTask) {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, downloadTask) == null) && downloadTask.getSmallFileSoFarBytes() == 0) {
-            c.a(g(downloadTask));
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            if (a) {
+                com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFinished(), id=" + str + " filePath=" + str2);
+            }
+            DownloadStatusManager.a().a(str, str2);
         }
     }
 
-    @Override // com.ksad.download.c
-    public void c(DownloadTask downloadTask, int i2, int i3) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, downloadTask, i2, i3) == null) {
-            c.b(g(downloadTask));
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            if (a) {
+                com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadPaused(), id=" + str);
+            }
+            DownloadStatusManager.a().b(str);
         }
     }
 
-    @Override // com.ksad.download.c
-    public void d(DownloadTask downloadTask) {
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadTask) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            if (a) {
+                com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadResumed(), id=" + str);
+            }
+            DownloadStatusManager.a().c(str);
         }
     }
 
-    @Override // com.ksad.download.c
-    public void d(DownloadTask downloadTask, int i2, int i3) {
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, downloadTask, i2, i3) == null) {
-            c.c(g(downloadTask));
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            if (a) {
+                com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
+            }
+            DownloadStatusManager.a().d(str);
         }
     }
 
-    @Override // com.ksad.download.c
-    public void e(DownloadTask downloadTask) {
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, downloadTask) == null) {
-            c.d(g(downloadTask));
-        }
-    }
-
-    @Override // com.ksad.download.c
-    public void f(DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, downloadTask) == null) {
-            c.e(g(downloadTask));
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            if (a) {
+                com.kwad.sdk.core.d.a.a("DownloadMonitor", "onLowStorage(), id=" + str);
+            }
+            DownloadStatusManager.a().e(str);
         }
     }
 }

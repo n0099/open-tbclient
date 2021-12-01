@@ -3,7 +3,6 @@ package com.ss.android.downloadlib.a.a;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +31,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                str = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                str = Settings.Secure.getString(context.getContentResolver(), "android_id");
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str = null;

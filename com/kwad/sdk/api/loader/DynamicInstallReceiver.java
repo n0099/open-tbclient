@@ -19,8 +19,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Keep
 /* loaded from: classes2.dex */
 public class DynamicInstallReceiver extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
     public static final AtomicBoolean HAS_REGISTER;
+    public static final String TAG = "DynamicInstallReceiver";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,7 +60,9 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || context == null || HAS_REGISTER.get() || context.getApplicationContext() == null) {
             return;
         }
-        context.getApplicationContext().registerReceiver(new DynamicInstallReceiver(), new IntentFilter(context.getPackageName() + ".loader.install.DynamicApk"));
+        String str = context.getPackageName() + ".loader.install.DynamicApk";
+        String str2 = "registerToApp action:" + str;
+        context.getApplicationContext().registerReceiver(new DynamicInstallReceiver(), new IntentFilter(str));
         HAS_REGISTER.set(true);
     }
 
@@ -73,21 +76,20 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
         String stringExtra2 = intent.getStringExtra(CommandMessage.SDK_VERSION);
         File file = new File(stringExtra);
         if (file.exists()) {
+            String str = "downloadFile is exists, apkPath :" + stringExtra + " sdkVersion:" + stringExtra2;
             AsyncTask.execute(new Runnable(this, context, file, stringExtra2) { // from class: com.kwad.sdk.api.loader.DynamicInstallReceiver.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f64810a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f64811b;
+                public final /* synthetic */ File f56965b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f64812c;
+                public final /* synthetic */ String f56966c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DynamicInstallReceiver f64813d;
+                public final /* synthetic */ DynamicInstallReceiver f56967d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -104,10 +106,10 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                             return;
                         }
                     }
-                    this.f64813d = this;
-                    this.f64810a = context;
-                    this.f64811b = file;
-                    this.f64812c = stringExtra2;
+                    this.f56967d = this;
+                    this.a = context;
+                    this.f56965b = file;
+                    this.f56966c = stringExtra2;
                 }
 
                 @Override // java.lang.Runnable
@@ -115,11 +117,12 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (b.a(this.f64810a, this.f64811b.getPath(), this.f64812c)) {
-                                f.a(this.f64810a, f.f64851a, this.f64812c);
-                                g.a(this.f64811b);
+                            if (b.a(this.a, this.f56965b.getPath(), this.f56966c)) {
+                                f.a(this.a, f.a, this.f56966c);
+                                g.a(this.f56965b);
                             }
                         } catch (Exception e2) {
+                            String str2 = "onReceive ApkInstaller installApk error:" + e2;
                             e2.printStackTrace();
                         }
                     }

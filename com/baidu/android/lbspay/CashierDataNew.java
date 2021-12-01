@@ -13,7 +13,7 @@ import com.dxmpay.apollon.restnet.RestNameValuePair;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CashierDataNew implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORIZE_DATA_ID = "authorizeData";

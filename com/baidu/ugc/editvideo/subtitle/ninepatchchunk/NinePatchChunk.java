@@ -7,9 +7,8 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.c;
+import c.a.x0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +26,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NinePatchChunk implements Externalizable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DENSITY = 160;
@@ -87,7 +86,7 @@ public class NinePatchChunk implements Externalizable {
     public static ImageLoadingResult createChunkFromRawBitmap(Context context, Bitmap bitmap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, bitmap)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, bitmap)) == null) {
             BitmapType determineBitmapType = BitmapType.determineBitmapType(bitmap);
             NinePatchChunk createChunk = determineBitmapType.createChunk(bitmap);
             return new ImageLoadingResult(determineBitmapType.modifyBitmap(context.getResources(), bitmap, createChunk), createChunk);
@@ -98,7 +97,7 @@ public class NinePatchChunk implements Externalizable {
     public static ImageLoadingResult createChunkFromRawBitmap(Context context, InputStream inputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, inputStream)) == null) ? createChunkFromRawBitmap(context, inputStream, 160) : (ImageLoadingResult) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, inputStream)) == null) ? createChunkFromRawBitmap(context, inputStream, 160) : (ImageLoadingResult) invokeLL.objValue;
     }
 
     public static ImageLoadingResult createChunkFromRawBitmap(Context context, InputStream inputStream, int i2) {

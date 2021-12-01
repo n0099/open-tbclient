@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class h extends com.kwai.sodler.lib.a.f<g> {
+public class h extends com.kwai.sodler.lib.kwai.f<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public h(com.kwai.sodler.lib.b.b bVar, String str) {
+    public h(com.kwai.sodler.lib.a.b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,13 +26,13 @@ public class h extends com.kwai.sodler.lib.a.f<g> {
             }
         }
         this.p = bVar;
-        this.f68007a = str;
+        this.a = str;
     }
 
-    @Override // com.kwai.sodler.lib.a.f
-    public com.kwai.sodler.lib.a.a a(String str) {
+    @Override // com.kwai.sodler.lib.kwai.f
+    public com.kwai.sodler.lib.kwai.a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new i(str) : (com.kwai.sodler.lib.a.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new i(str) : (com.kwai.sodler.lib.kwai.a) invokeL.objValue;
     }
 }

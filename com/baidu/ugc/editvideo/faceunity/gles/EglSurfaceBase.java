@@ -5,7 +5,7 @@ import android.opengl.EGL14;
 import android.opengl.EGLSurface;
 import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.c;
+import c.a.x0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class EglSurfaceBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Grafika";
@@ -158,10 +158,10 @@ public class EglSurfaceBase {
         }
     }
 
-    public void setPresentationTime(long j) {
+    public void setPresentationTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.mEglCore.setPresentationTime(this.mEGLSurface, j);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.mEglCore.setPresentationTime(this.mEGLSurface, j2);
         }
     }
 

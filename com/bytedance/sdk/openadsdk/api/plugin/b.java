@@ -6,12 +6,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.MessageDigest;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char[] f62561a;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,7 +25,7 @@ public final class b {
                 return;
             }
         }
-        f62561a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static String a(byte[] bArr) {
@@ -54,7 +52,7 @@ public final class b {
                     for (int i6 = 0; i6 < i3; i6++) {
                         int i7 = bArr[i6 + i2] & 255;
                         int i8 = i5 + 1;
-                        char[] cArr2 = f62561a;
+                        char[] cArr2 = a;
                         cArr[i5] = cArr2[i7 >> 4];
                         i5 = i8 + 1;
                         cArr[i8] = cArr2[i7 & 15];

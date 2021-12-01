@@ -1,7 +1,7 @@
 package com.baidu.sapi2.ecommerce.callback;
 
 import com.baidu.pass.ecommerce.callback.GetLocationCallback;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface MapStatusAndLocateCallback {
     boolean isMapInitSuccess();
 

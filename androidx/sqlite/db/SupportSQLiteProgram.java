@@ -7,7 +7,7 @@ public interface SupportSQLiteProgram extends Closeable {
 
     void bindDouble(int i2, double d2);
 
-    void bindLong(int i2, long j);
+    void bindLong(int i2, long j2);
 
     void bindNull(int i2);
 

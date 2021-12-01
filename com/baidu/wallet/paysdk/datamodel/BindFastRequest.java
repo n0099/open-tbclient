@@ -3,7 +3,6 @@ package com.baidu.wallet.paysdk.datamodel;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import com.dxmpay.wallet.core.beans.NetworkBean;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BindFastRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BIND_FROM_BIND = 1;
@@ -146,7 +145,7 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
     public static PayRequestCache.BindCategory getCategory(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             if (PayRequestCache.getInstance().isPaying()) {
                 return PayRequestCache.BindCategory.Other;
             }
@@ -164,7 +163,7 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
     private String getNumFromString(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "0";
             }

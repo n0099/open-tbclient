@@ -18,8 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -222,7 +220,7 @@ public class FileProvider extends ContentProvider {
         InterceptResult invokeLL;
         PathStrategy pathStrategy;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             synchronized (sCache) {
                 pathStrategy = sCache.get(str);
                 if (pathStrategy == null) {
@@ -244,14 +242,14 @@ public class FileProvider extends ContentProvider {
     public static Uri getUriForFile(@NonNull Context context, @NonNull String str, @NonNull File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, file)) == null) ? getPathStrategy(context, str).getUriForFile(file) : (Uri) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, file)) == null) ? getPathStrategy(context, str).getUriForFile(file) : (Uri) invokeLLL.objValue;
     }
 
     public static int modeToMode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (r.f41000a.equals(str)) {
+            if ("r".equals(str)) {
                 return 268435456;
             }
             if ("w".equals(str) || "wt".equals(str)) {

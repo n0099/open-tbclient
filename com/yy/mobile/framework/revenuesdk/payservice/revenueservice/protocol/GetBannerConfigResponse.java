@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetBannerConfigResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +115,7 @@ public class GetBannerConfigResponse implements IBaseJsonResponse {
                     if (this.cmd == optInt) {
                         this.result = jSONObject.optInt("result");
                         this.uid = jSONObject.optLong("uid");
-                        this.seq = jSONObject.optString(IAdRequestParam.SEQ);
+                        this.seq = jSONObject.optString("seq");
                         this.expand = jSONObject.optString("expand");
                         this.message = jSONObject.optString("message");
                         this.bannerConfigItemList.addAll(optBannerConfigItemList(jSONObject.optJSONArray("confList")));

@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,7 +103,7 @@ public class PagerSnapHelper extends SnapHelper {
     private OrientationHelper getVerticalHelper(@NonNull RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, layoutManager)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, layoutManager)) == null) {
             OrientationHelper orientationHelper = this.mVerticalHelper;
             if (orientationHelper == null || orientationHelper.mLayoutManager != layoutManager) {
                 this.mVerticalHelper = OrientationHelper.createVerticalHelper(layoutManager);
@@ -117,7 +116,7 @@ public class PagerSnapHelper extends SnapHelper {
     private boolean isForwardFling(RecyclerView.LayoutManager layoutManager, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, this, layoutManager, i2, i3)) == null) ? layoutManager.canScrollHorizontally() ? i2 > 0 : i3 > 0 : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, this, layoutManager, i2, i3)) == null) ? layoutManager.canScrollHorizontally() ? i2 > 0 : i3 > 0 : invokeLII.booleanValue;
     }
 
     private boolean isReverseLayout(RecyclerView.LayoutManager layoutManager) {

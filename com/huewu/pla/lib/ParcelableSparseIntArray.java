@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,7 +78,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
 
     private void append(SparseArray<Integer> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, sparseArray) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, sparseArray) == null) {
             int size = sparseArray.size();
             for (int i2 = 0; i2 < size; i2++) {
                 put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).intValue());
@@ -90,7 +89,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
     private SparseArray<Object> toSparseArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             SparseArray<Object> sparseArray = new SparseArray<>();
             int size = size();
             for (int i2 = 0; i2 < size; i2++) {

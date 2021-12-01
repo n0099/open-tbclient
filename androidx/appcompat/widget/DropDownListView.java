@@ -20,7 +20,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.widget.ListViewAutoScrollHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -279,7 +278,7 @@ public class DropDownListView extends ListView {
 
     private void positionSelectorLikeFocusCompat(int i2, View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, view) == null) {
+        if (interceptable == null || interceptable.invokeIL(65541, this, i2, view) == null) {
             Drawable selector = getSelector();
             boolean z = (selector == null || i2 == -1) ? false : true;
             if (z) {
@@ -298,7 +297,7 @@ public class DropDownListView extends ListView {
 
     private void positionSelectorLikeTouchCompat(int i2, View view, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Integer.valueOf(i2), view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             positionSelectorLikeFocusCompat(i2, view);
             Drawable selector = getSelector();
             if (selector == null || i2 == -1) {

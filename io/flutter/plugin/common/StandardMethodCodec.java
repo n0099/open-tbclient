@@ -9,9 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.plugin.common.StandardMessageCodec;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class StandardMethodCodec implements MethodCodec {
     public static /* synthetic */ Interceptable $ic;
     public static final StandardMethodCodec INSTANCE;
@@ -50,6 +52,17 @@ public final class StandardMethodCodec implements MethodCodec {
             }
         }
         this.messageCodec = standardMessageCodec;
+    }
+
+    public static String getStackTrace(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            th.printStackTrace(new PrintWriter(stringWriter));
+            return stringWriter.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0012, code lost:
@@ -107,7 +120,11 @@ public final class StandardMethodCodec implements MethodCodec {
             exposedByteArrayOutputStream.write(1);
             this.messageCodec.writeValue(exposedByteArrayOutputStream, str);
             this.messageCodec.writeValue(exposedByteArrayOutputStream, str2);
-            this.messageCodec.writeValue(exposedByteArrayOutputStream, obj);
+            if (obj instanceof Throwable) {
+                this.messageCodec.writeValue(exposedByteArrayOutputStream, getStackTrace((Throwable) obj));
+            } else {
+                this.messageCodec.writeValue(exposedByteArrayOutputStream, obj);
+            }
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(exposedByteArrayOutputStream.size());
             allocateDirect.put(exposedByteArrayOutputStream.buffer(), 0, exposedByteArrayOutputStream.size());
             return allocateDirect;
@@ -116,10 +133,32 @@ public final class StandardMethodCodec implements MethodCodec {
     }
 
     @Override // io.flutter.plugin.common.MethodCodec
+    public ByteBuffer encodeErrorEnvelopeWithStacktrace(String str, String str2, Object obj, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, obj, str3)) == null) {
+            StandardMessageCodec.ExposedByteArrayOutputStream exposedByteArrayOutputStream = new StandardMessageCodec.ExposedByteArrayOutputStream();
+            exposedByteArrayOutputStream.write(1);
+            this.messageCodec.writeValue(exposedByteArrayOutputStream, str);
+            this.messageCodec.writeValue(exposedByteArrayOutputStream, str2);
+            if (obj instanceof Throwable) {
+                this.messageCodec.writeValue(exposedByteArrayOutputStream, getStackTrace((Throwable) obj));
+            } else {
+                this.messageCodec.writeValue(exposedByteArrayOutputStream, obj);
+            }
+            this.messageCodec.writeValue(exposedByteArrayOutputStream, str3);
+            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(exposedByteArrayOutputStream.size());
+            allocateDirect.put(exposedByteArrayOutputStream.buffer(), 0, exposedByteArrayOutputStream.size());
+            return allocateDirect;
+        }
+        return (ByteBuffer) invokeLLLL.objValue;
+    }
+
+    @Override // io.flutter.plugin.common.MethodCodec
     public ByteBuffer encodeMethodCall(MethodCall methodCall) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, methodCall)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, methodCall)) == null) {
             StandardMessageCodec.ExposedByteArrayOutputStream exposedByteArrayOutputStream = new StandardMessageCodec.ExposedByteArrayOutputStream();
             this.messageCodec.writeValue(exposedByteArrayOutputStream, methodCall.method);
             this.messageCodec.writeValue(exposedByteArrayOutputStream, methodCall.arguments);
@@ -134,7 +173,7 @@ public final class StandardMethodCodec implements MethodCodec {
     public ByteBuffer encodeSuccessEnvelope(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             StandardMessageCodec.ExposedByteArrayOutputStream exposedByteArrayOutputStream = new StandardMessageCodec.ExposedByteArrayOutputStream();
             exposedByteArrayOutputStream.write(0);
             this.messageCodec.writeValue(exposedByteArrayOutputStream, obj);

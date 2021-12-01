@@ -10,7 +10,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StreamUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,24 +35,24 @@ public class StreamUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) ? getBytesFromStream(inputStream, inputStream.available()) : (byte[]) invokeL.objValue;
     }
 
-    public static long skip(InputStream inputStream, long j) throws IOException {
+    public static long skip(InputStream inputStream, long j2) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, inputStream, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, inputStream, j2)) == null) {
             Preconditions.checkNotNull(inputStream);
-            Preconditions.checkArgument(j >= 0);
-            long j2 = j;
-            while (j2 > 0) {
-                long skip = inputStream.skip(j2);
+            Preconditions.checkArgument(j2 >= 0);
+            long j3 = j2;
+            while (j3 > 0) {
+                long skip = inputStream.skip(j3);
                 if (skip <= 0) {
                     if (inputStream.read() == -1) {
-                        return j - j2;
+                        return j2 - j3;
                     }
                     skip = 1;
                 }
-                j2 -= skip;
+                j3 -= skip;
             }
-            return j;
+            return j2;
         }
         return invokeLJ.longValue;
     }

@@ -1,7 +1,6 @@
 package com.kwad.sdk.pngencrypt;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -113,13 +112,13 @@ public final class FilterType {
     public static FilterType[] getAllStandardNoneLast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? new FilterType[]{FILTER_SUB, FILTER_UP, FILTER_AVERAGE, FILTER_PAETH, FILTER_NONE} : (FilterType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new FilterType[]{FILTER_SUB, FILTER_UP, FILTER_AVERAGE, FILTER_PAETH, FILTER_NONE} : (FilterType[]) invokeV.objValue;
     }
 
     public static FilterType getByVal(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? byVal.get(Integer.valueOf(i2)) : (FilterType) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? byVal.get(Integer.valueOf(i2)) : (FilterType) invokeI.objValue;
     }
 
     public static boolean isAdaptive(FilterType filterType) {

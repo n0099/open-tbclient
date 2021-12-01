@@ -8,12 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.f.p.l;
-import b.a.r0.o0.d.c;
+import c.a.d.f.p.l;
+import c.a.r0.u0.d.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,7 +24,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_ENTER_FORUM = 0;
@@ -33,19 +32,19 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f48643e;
+    public LinearLayout f43648e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48644f;
+    public TextView f43649f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f48645g;
+    public ImageView f43650g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f48646h;
+    public c f43651h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f48647i;
+    public int f43652i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumHeaderView(Context context) {
@@ -65,7 +64,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f48647i = 0;
+        this.f43652i = 0;
         init();
     }
 
@@ -74,33 +73,33 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-            this.f48643e = (LinearLayout) findViewById(R.id.search_container);
-            this.f48644f = (TextView) findViewById(R.id.search_text);
-            this.f48645g = (ImageView) findViewById(R.id.search_icon);
+            this.f43648e = (LinearLayout) findViewById(R.id.search_container);
+            this.f43649f = (TextView) findViewById(R.id.search_text);
+            this.f43650g = (ImageView) findViewById(R.id.search_icon);
             setDescendantFocusability(262144);
-            this.f48643e.setOnClickListener(this);
+            this.f43648e.setOnClickListener(this);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c cVar = this.f48646h;
-            if (cVar != null && cVar.f23060a) {
-                if (cVar.f23062c > 0) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48645g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                    SkinManager.setViewTextColor(this.f48644f, R.color.white_alpha50);
-                    SkinManager.setBackgroundResource(this.f48643e, R.drawable.enter_forum_search_ad_bg);
+            c cVar = this.f43651h;
+            if (cVar != null && cVar.a) {
+                if (cVar.f24106c > 0) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f43650g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                    SkinManager.setViewTextColor(this.f43649f, R.color.white_alpha50);
+                    SkinManager.setBackgroundResource(this.f43648e, R.drawable.enter_forum_search_ad_bg);
                     return;
                 }
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48645g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                SkinManager.setViewTextColor(this.f48644f, R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f48643e, R.drawable.enter_forum_search_bg);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f43650g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.f43649f, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f43648e, R.drawable.enter_forum_search_bg);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48645g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f48644f, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f48643e, R.drawable.enter_forum_search_bg);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f43650g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f43649f, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.f43648e, R.drawable.enter_forum_search_bg);
         }
     }
 
@@ -109,9 +108,9 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             if (!TbadkCoreApplication.isLogin()) {
-                TiebaStatic.eventStat(getContext(), "notlogin_8", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                TiebaStatic.eventStat(getContext(), "notlogin_8", "click", 1, new Object[0]);
             }
-            if (this.f48647i != 1) {
+            if (this.f43652i != 1) {
                 TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
             } else {
                 TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
@@ -124,14 +123,14 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.g(getContext(), R.dimen.tbds114), 1073741824));
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.f(getContext(), R.dimen.tbds114), 1073741824));
         }
     }
 
     public void setAdState(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f48646h = cVar;
+            this.f43651h = cVar;
             onChangeSkinType();
         }
     }
@@ -139,21 +138,21 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void setFrom(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f48647i = i2;
+            this.f43652i = i2;
         }
     }
 
     public void setSearchHint(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f48644f.setText(str);
+            this.f43649f.setText(str);
         }
     }
 
     public void updateMarginTop(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f48643e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f43648e.getLayoutParams();
             layoutParams.topMargin = i2;
             setLayoutParams(layoutParams);
         }
@@ -178,7 +177,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f48647i = 0;
+        this.f43652i = 0;
         init();
     }
 
@@ -201,7 +200,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f48647i = 0;
+        this.f43652i = 0;
         init();
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.tieba.homepage.channel.message;
 
-import b.a.r0.h1.b.a.a;
+import c.a.r0.n1.b.a.a;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +40,15 @@ public class HomePageChannelTabHttpResponsedMessage extends JsonHttpResponsedMes
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
             super.decodeLogicInBackGround(i2, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                a aVar = new a();
-                this.channelTabRespData = aVar;
-                aVar.f(jSONObject);
+                this.channelTabRespData = new a();
+                Message<?> orginalMessage = getOrginalMessage();
+                if (orginalMessage instanceof HttpMessage) {
+                    Object obj = ((HttpMessage) orginalMessage).getParams().get("tab_code");
+                    if (obj instanceof String) {
+                        this.channelTabRespData.g((String) obj);
+                    }
+                }
+                this.channelTabRespData.f(jSONObject);
             }
         }
     }

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.config.AppConfig;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"BDOfflineUrl"})
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HostConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_ABTEST_SCOP = "scop_abtest";
@@ -29,7 +28,7 @@ public final class HostConfig {
     public static ConfigInterceptor sConfigInterceptor;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ConfigInterceptor {
         boolean getBooleanConfig(String str, String str2);
     }
@@ -77,13 +76,13 @@ public final class HostConfig {
     public static String getBaiduLogoHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? getOldSearchboxHostForHttps() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? getOldSearchboxHostForHttps() : (String) invokeV.objValue;
     }
 
     public static String getBoxMessageHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? AppConfig.getStringConfig("BOX_MESSAGE_HOST", getSearchboxHostForHttps()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? AppConfig.getStringConfig("BOX_MESSAGE_HOST", getSearchboxHostForHttps()) : (String) invokeV.objValue;
     }
 
     public static String getComicFEHost() {

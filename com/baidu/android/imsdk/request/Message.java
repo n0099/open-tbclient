@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -265,10 +265,10 @@ public abstract class Message {
         }
     }
 
-    public void setAppid(long j) {
+    public void setAppid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.mAppid = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.mAppid = j2;
         }
     }
 
@@ -286,10 +286,10 @@ public abstract class Message {
         }
     }
 
-    public void setMsgId(long j) {
+    public void setMsgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.msgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.msgId = j2;
         }
     }
 
@@ -328,10 +328,10 @@ public abstract class Message {
         }
     }
 
-    public void setUk(long j) {
+    public void setUk(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
-            this.mUk = j;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
+            this.mUk = j2;
         }
     }
 

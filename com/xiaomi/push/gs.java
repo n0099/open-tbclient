@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gv;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class gs implements av.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f71969a;
+    public int a;
 
     /* renamed from: a  reason: collision with other field name */
     public fl f455a;
@@ -48,7 +46,7 @@ public class gs implements av.b.a {
         }
         this.f459a = false;
         this.f456a = xMPushService;
-        this.f458a = av.c.f72357b;
+        this.f458a = av.c.f63251b;
         this.f457a = bVar;
     }
 
@@ -72,29 +70,29 @@ public class gs implements av.b.a {
             return;
         }
         b();
-        if (!this.f459a || this.f71969a == 11) {
+        if (!this.f459a || this.a == 11) {
             return;
         }
-        ex m368a = gx.m366a().m368a();
-        int i2 = gu.f71971a[this.f458a.ordinal()];
+        ex m417a = gx.m415a().m417a();
+        int i2 = gu.a[this.f458a.ordinal()];
         if (i2 != 1) {
             if (i2 == 3) {
                 ewVar = ew.H;
             }
-            if (m368a != null) {
-                m368a.b(this.f455a.m324a());
-                m368a.d(this.f457a.f919b);
-                m368a.f353b = 1;
+            if (m417a != null) {
+                m417a.b(this.f455a.m373a());
+                m417a.d(this.f457a.f919b);
+                m417a.f353b = 1;
                 try {
-                    m368a.a((byte) Integer.parseInt(this.f457a.f72348g));
+                    m417a.a((byte) Integer.parseInt(this.f457a.f63245g));
                 } catch (NumberFormatException unused) {
                 }
-                gx.m366a().a(m368a);
+                gx.m415a().a(m417a);
                 return;
             }
             return;
         }
-        int i3 = this.f71969a;
+        int i3 = this.a;
         if (i3 == 17) {
             ewVar = ew.L;
         } else if (i3 == 21) {
@@ -102,16 +100,16 @@ public class gs implements av.b.a {
         } else {
             try {
                 gv.a c2 = gv.c(gx.a().a());
-                m368a.f350a = c2.f71972a.a();
-                m368a.c(c2.f460a);
+                m417a.f350a = c2.a.a();
+                m417a.c(c2.f460a);
             } catch (NullPointerException unused2) {
-                m368a = null;
+                m417a = null;
             }
-            if (m368a != null) {
+            if (m417a != null) {
             }
         }
-        m368a.f350a = ewVar.a();
-        if (m368a != null) {
+        m417a.f350a = ewVar.a();
+        if (m417a != null) {
         }
     }
 
@@ -119,7 +117,7 @@ public class gs implements av.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f457a.a(this);
-            this.f455a = this.f456a.m563a();
+            this.f455a = this.f456a.m612a();
         }
     }
 
@@ -127,9 +125,9 @@ public class gs implements av.b.a {
     public void a(av.c cVar, av.c cVar2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, i2) == null) {
-            if (!this.f459a && cVar == av.c.f72357b) {
+            if (!this.f459a && cVar == av.c.f63251b) {
                 this.f458a = cVar2;
-                this.f71969a = i2;
+                this.a = i2;
                 this.f459a = true;
             }
             this.f456a.a(new gt(this, 4));

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
@@ -29,7 +28,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FaceLoginService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FACE_SHARE_V2_MAX_ACCOUNT_SIZE = 10;
@@ -136,12 +135,12 @@ public class FaceLoginService {
     private List<FaceLoginModel> getUidsMapFromV2PriStrage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? str2ShareModelV2List(SapiContext.getInstance().getV2FaceLivingUnames()) : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? str2ShareModelV2List(SapiContext.getInstance().getV2FaceLivingUnames()) : (List) invokeV.objValue;
     }
 
     private void setV2ShareFaceUids(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
             if (SapiContext.getInstance().getShareCommonStorageEnabel() && !TextUtils.isEmpty(str) && SapiContext.getInstance().shareLivingunameEnable()) {
                 ShareStorage shareStorage = new ShareStorage();
                 shareStorage.setSp(KEY_SHARE_FACE_LOGIN_V2, str);

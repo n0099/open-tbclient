@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.data;
 
-import b.a.q0.s.q.p;
+import c.a.q0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PollOption;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PollOptionData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class PollOptionData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.text : (String) invokeV.objValue;
     }
 
-    @Override // b.a.q0.s.q.p
+    @Override // c.a.q0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
@@ -83,10 +83,10 @@ public class PollOptionData extends p implements Serializable {
         }
     }
 
-    public void setNum(long j) {
+    public void setNum(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.num = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.num = j2;
         }
     }
 

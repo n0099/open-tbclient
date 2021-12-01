@@ -15,12 +15,10 @@ import java.util.Properties;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69152a = "a";
+    public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f69153b;
+    public static final boolean f61009b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +34,7 @@ public class a {
                 return;
             }
         }
-        f69153b = f.f69125b;
+        f61009b = f.f60988b;
     }
 
     public a() {
@@ -64,8 +62,8 @@ public class a {
             try {
                 properties.load(SDKManager.getContext().getAssets().open(str));
             } catch (IOException unused) {
-                String str3 = f69152a;
-                c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f69153b));
+                String str3 = a;
+                c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f61009b));
             }
             return properties.getProperty(str2);
         }

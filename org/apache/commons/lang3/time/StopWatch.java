@@ -408,8 +408,8 @@ public class StopWatch {
 
     public long getNanoTime() {
         InterceptResult invokeV;
-        long j;
         long j2;
+        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             State state = this.runningState;
@@ -418,16 +418,16 @@ public class StopWatch {
                     return 0L;
                 }
                 if (state == State.RUNNING) {
-                    j = System.nanoTime();
-                    j2 = this.startTime;
+                    j2 = System.nanoTime();
+                    j3 = this.startTime;
                 } else {
                     throw new RuntimeException("Illegal running state has occurred.");
                 }
             } else {
-                j = this.stopTime;
-                j2 = this.startTime;
+                j2 = this.stopTime;
+                j3 = this.startTime;
             }
-            return j - j2;
+            return j2 - j3;
         }
         return invokeV.longValue;
     }

@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DuzhanUpMsgCreator {
     public static /* synthetic */ Interceptable $ic = null;
     public static int REQ_TYPE_BOX = 0;
@@ -131,7 +130,7 @@ public class DuzhanUpMsgCreator {
     public static int getReqType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             if (i2 == 7) {
                 return REQ_TYPE_PA;
             }
@@ -149,7 +148,7 @@ public class DuzhanUpMsgCreator {
     public static ChatMsg reCreateChatMsg(int i2, ChatMsg chatMsg) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, chatMsg)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, chatMsg)) == null) {
             chatMsg.setChatType(i2);
             chatMsg.setExtraContent(generateExtJson(chatMsg));
             return chatMsg;

@@ -10,23 +10,21 @@ import java.io.File;
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final File f66052a;
+    public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a.c f66053b;
+    public final com.kwad.sdk.core.videocache.kwai.c f57889b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a.a f66054c;
+    public final com.kwad.sdk.core.videocache.kwai.a f57890c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.d.b f66055d;
+    public final com.kwad.sdk.core.videocache.c.b f57891d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.b.b f66056e;
+    public final com.kwad.sdk.core.videocache.a.b f57892e;
 
-    public c(File file, com.kwad.sdk.core.videocache.a.c cVar, com.kwad.sdk.core.videocache.a.a aVar, com.kwad.sdk.core.videocache.d.b bVar, com.kwad.sdk.core.videocache.b.b bVar2) {
+    public c(File file, com.kwad.sdk.core.videocache.kwai.c cVar, com.kwad.sdk.core.videocache.kwai.a aVar, com.kwad.sdk.core.videocache.c.b bVar, com.kwad.sdk.core.videocache.a.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,16 +39,16 @@ public class c {
                 return;
             }
         }
-        this.f66052a = file;
-        this.f66053b = cVar;
-        this.f66054c = aVar;
-        this.f66055d = bVar;
-        this.f66056e = bVar2;
+        this.a = file;
+        this.f57889b = cVar;
+        this.f57890c = aVar;
+        this.f57891d = bVar;
+        this.f57892e = bVar2;
     }
 
     public File a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new File(this.f66052a, this.f66053b.a(str)) : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new File(this.a, this.f57889b.a(str)) : (File) invokeL.objValue;
     }
 }

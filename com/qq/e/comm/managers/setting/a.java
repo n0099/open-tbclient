@@ -49,7 +49,7 @@ public class a extends b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            JSONObject optJSONObject = this.f68946a.optJSONObject("ps");
+            JSONObject optJSONObject = this.a.optJSONObject("ps");
             JSONObject optJSONObject2 = optJSONObject != null ? optJSONObject.optJSONObject(str2) : null;
             if (optJSONObject2 != null) {
                 return optJSONObject2.opt(str);

@@ -26,7 +26,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyChannelsRe
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryRechargeHistoryReqParams;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IAppPayService {
     void addAlipaySdkProxy(IAlipaySdkServiceProxy iAlipaySdkServiceProxy);
 

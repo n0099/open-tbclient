@@ -1,6 +1,5 @@
 package com.baidu.fsg.base.statistics;
 
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,15 +11,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38371a = "logsender";
+    public static final String a = "logsender";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
 
@@ -79,7 +76,7 @@ public class r {
                     httpURLConnection.setUseCaches(false);
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setRequestMethod("POST");
-                    httpURLConnection.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                    httpURLConnection.setRequestProperty("Content-Encoding", "gzip");
                     httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                     String a2 = a(map);
                     httpURLConnection.setFixedLengthStreamingMode(a2.length());

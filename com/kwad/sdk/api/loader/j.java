@@ -17,24 +17,22 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f64865a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f64866b;
+    public final String f57007b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f64867c;
+    public final String f57008c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f64868d;
+    public Resources f57009d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ClassLoader f64869e;
+    public ClassLoader f57010e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IKsAdSDK f64870f;
+    public IKsAdSDK f57011f;
 
     public j(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -51,25 +49,25 @@ public class j {
                 return;
             }
         }
-        this.f64865a = str;
-        this.f64866b = str2;
-        this.f64867c = str3;
+        this.a = str;
+        this.f57007b = str2;
+        this.f57008c = str3;
     }
 
     public static synchronized j a(Context context, String str) {
         InterceptResult invokeLL;
-        j a2;
+        j a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             synchronized (j.class) {
                 try {
-                    a2 = a(context, g.d(context, str), g.e(context, str), g.f(context, str));
+                    a = a(context, g.d(context, str), g.e(context, str), g.f(context, str));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
                 }
             }
-            return a2;
+            return a;
         }
         return (j) invokeLL.objValue;
     }
@@ -96,28 +94,27 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             d();
-            Resources a2 = o.a(context, context.getResources(), this.f64865a);
-            ClassLoader a3 = d.a(context, this.f64865a, this.f64866b, this.f64867c);
-            IKsAdSDK a4 = Loader.a(a3);
-            this.f64868d = a2;
-            this.f64869e = a3;
-            this.f64870f = a4;
-            int sDKType = a4.getSDKType();
-            int i2 = com.kwad.sdk.api.a.f64806a;
-            if (sDKType == i2) {
+            Resources a = o.a(context, context.getResources(), this.a);
+            ClassLoader a2 = d.a(context, this.a, this.f57007b, this.f57008c);
+            IKsAdSDK a3 = Loader.a(a2);
+            this.f57009d = a;
+            this.f57010e = a2;
+            this.f57011f = a3;
+            int sDKType = a3.getSDKType();
+            if (sDKType == 1) {
                 return;
             }
-            throw new RuntimeException("sdkType error apiType: " + i2 + " , sdkType:" + sDKType);
+            throw new RuntimeException("sdkType error apiType: 1 , sdkType:" + sDKType);
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            if (TextUtils.isEmpty(this.f64865a)) {
+            if (TextUtils.isEmpty(this.a)) {
                 throw new RuntimeException("mApk is null");
             }
-            File file = new File(this.f64865a);
+            File file = new File(this.a);
             if (!file.isFile() || !file.exists()) {
                 throw new RuntimeException("mApk not a file");
             }
@@ -127,26 +124,26 @@ public class j {
     public Resources a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64868d : (Resources) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57009d : (Resources) invokeV.objValue;
     }
 
     public ClassLoader b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64869e : (ClassLoader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57010e : (ClassLoader) invokeV.objValue;
     }
 
     public IKsAdSDK c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64870f : (IKsAdSDK) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57011f : (IKsAdSDK) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "ExternalPackage{mApk='" + this.f64865a + ExtendedMessageFormat.QUOTE + ", mDexDir='" + this.f64866b + ExtendedMessageFormat.QUOTE + ", mNativeLibDir='" + this.f64867c + ExtendedMessageFormat.QUOTE + ", mResource=" + this.f64868d + ", mClassLoader=" + this.f64869e + ", mKsSdk=" + this.f64870f + ExtendedMessageFormat.END_FE;
+            return "ExternalPackage{mApk='" + this.a + ExtendedMessageFormat.QUOTE + ", mDexDir='" + this.f57007b + ExtendedMessageFormat.QUOTE + ", mNativeLibDir='" + this.f57008c + ExtendedMessageFormat.QUOTE + ", mResource=" + this.f57009d + ", mClassLoader=" + this.f57010e + ", mKsSdk=" + this.f57011f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

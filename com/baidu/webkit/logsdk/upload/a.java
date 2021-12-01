@@ -6,37 +6,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.logsdk.d.c;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f62006a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62007b;
+    public int f54347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f62008c;
+    public boolean f54348c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f62009d;
+    public long f54349d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b.a f62010e;
+    public com.baidu.webkit.logsdk.b.a f54350e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62011f;
+    public String f54351f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62012g;
+    public String f54352g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62013h;
+    public String f54353h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f62014i;
+    public String f54354i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(com.baidu.webkit.logsdk.b.a aVar, String str) {
@@ -74,16 +72,16 @@ public final class a {
                 return;
             }
         }
-        this.f62006a = str;
-        this.f62007b = 0;
-        this.f62008c = false;
-        this.f62010e = aVar;
-        int a2 = !TextUtils.isEmpty(str2) ? c.a(str2) : -1;
-        if (a2 <= 1 && a2 >= 0) {
-            this.f62011f = str2;
+        this.a = str;
+        this.f54347b = 0;
+        this.f54348c = false;
+        this.f54350e = aVar;
+        int a = !TextUtils.isEmpty(str2) ? c.a(str2) : -1;
+        if (a <= 1 && a >= 0) {
+            this.f54351f = str2;
             return;
         }
-        this.f62011f = aVar.f61977c;
-        this.f62012g = aVar.f61978d;
+        this.f54351f = aVar.f54327c;
+        this.f54352g = aVar.f54328d;
     }
 }

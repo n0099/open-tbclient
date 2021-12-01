@@ -5,14 +5,12 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.j;
-import b.a.f.m.a;
+import c.a.d.f.p.j;
+import c.a.e.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -31,7 +29,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VideoPasterRequestData extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static String _ANDROID_ID = "";
@@ -90,8 +88,8 @@ public class VideoPasterRequestData extends HttpMessage {
         }
         addParam("is_https", 1);
         addParam("flr", String.valueOf(aVar.b()));
-        addParam("sw", String.valueOf(aVar.f()));
-        addParam(IAdRequestParam.SCREEN_HEIGHT, String.valueOf(aVar.e()));
+        addParam(TbConfig.SW_APID, String.valueOf(aVar.f()));
+        addParam("sh", String.valueOf(aVar.e()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("fc", String.valueOf(aVar.b()));
         addParam("ft", aVar.c());
@@ -111,7 +109,7 @@ public class VideoPasterRequestData extends HttpMessage {
             addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
             addParam("net_type", String.valueOf(j.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-            addParam(IAdRequestParam.ANDROID_ID, androidId());
+            addParam("android_id", androidId());
         }
     }
 
@@ -121,7 +119,7 @@ public class VideoPasterRequestData extends HttpMessage {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (TextUtils.isEmpty(_ANDROID_ID)) {
                 try {
-                    _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), IAdRequestParam.ANDROID_ID);
+                    _ANDROID_ID = Settings.System.getString(TbadkCoreApplication.getInst().getContentResolver(), "android_id");
                 } catch (Exception unused) {
                 }
             }
@@ -149,7 +147,7 @@ public class VideoPasterRequestData extends HttpMessage {
     public static String getExt(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, aVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, aVar)) == null) {
             if (aVar == null || aVar.d() == null || aVar.d().isEmpty()) {
                 return null;
             }

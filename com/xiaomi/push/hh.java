@@ -10,41 +10,43 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class hh {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final hh f72001a;
+    public static final hh a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hh[] f480a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hh f72002b;
+    public static final hh f62979b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hh f72003c;
+    public static final hh f62980c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hh f72004d;
+    public static final hh f62981d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hh f72005e;
+    public static final hh f62982e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hh f72006f;
+    public static final hh f62983f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hh f72007g;
+    public static final hh f62984g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hh f72008h;
+    public static final hh f62985h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hh f72009i;
-    public static final hh j;
-    public static final hh k;
+    public static final hh f62986i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final hh f62987j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final hh f62988k;
     public static final hh l;
     public static final hh m;
     public static final hh n;
@@ -76,17 +78,17 @@ public final class hh {
                 return;
             }
         }
-        f72001a = new hh("DeviceInfo", 0, 1);
-        f72002b = new hh("AppInstallList", 1, 2);
-        f72003c = new hh("AppActiveList", 2, 3);
-        f72004d = new hh("Bluetooth", 3, 4);
-        f72005e = new hh("Location", 4, 5);
-        f72006f = new hh("Account", 5, 6);
-        f72007g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
-        f72008h = new hh("Cellular", 7, 8);
-        f72009i = new hh("TopApp", 8, 9);
-        j = new hh("BroadcastAction", 9, 10);
-        k = new hh("BroadcastActionAdded", 10, 11);
+        a = new hh("DeviceInfo", 0, 1);
+        f62979b = new hh("AppInstallList", 1, 2);
+        f62980c = new hh("AppActiveList", 2, 3);
+        f62981d = new hh("Bluetooth", 3, 4);
+        f62982e = new hh("Location", 4, 5);
+        f62983f = new hh("Account", 5, 6);
+        f62984g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
+        f62985h = new hh("Cellular", 7, 8);
+        f62986i = new hh("TopApp", 8, 9);
+        f62987j = new hh("BroadcastAction", 9, 10);
+        f62988k = new hh("BroadcastActionAdded", 10, 11);
         l = new hh("BroadcastActionRemoved", 11, 12);
         m = new hh("BroadcastActionReplaced", 12, 13);
         n = new hh("BroadcastActionDataCleared", 13, 14);
@@ -101,7 +103,7 @@ public final class hh {
         w = new hh("Storage", 22, 23);
         hh hhVar = new hh("AppIsInstalled", 23, 24);
         x = hhVar;
-        f480a = new hh[]{f72001a, f72002b, f72003c, f72004d, f72005e, f72006f, f72007g, f72008h, f72009i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
+        f480a = new hh[]{a, f62979b, f62980c, f62981d, f62982e, f62983f, f62984g, f62985h, f62986i, f62987j, f62988k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
     }
 
     public hh(String str, int i2, int i3) {
@@ -131,27 +133,27 @@ public final class hh {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             switch (i2) {
                 case 1:
-                    return f72001a;
+                    return a;
                 case 2:
-                    return f72002b;
+                    return f62979b;
                 case 3:
-                    return f72003c;
+                    return f62980c;
                 case 4:
-                    return f72004d;
+                    return f62981d;
                 case 5:
-                    return f72005e;
+                    return f62982e;
                 case 6:
-                    return f72006f;
+                    return f62983f;
                 case 7:
-                    return f72007g;
+                    return f62984g;
                 case 8:
-                    return f72008h;
+                    return f62985h;
                 case 9:
-                    return f72009i;
+                    return f62986i;
                 case 10:
-                    return j;
+                    return f62987j;
                 case 11:
-                    return k;
+                    return f62988k;
                 case 12:
                     return l;
                 case 13:

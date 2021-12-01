@@ -10,18 +10,15 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ap implements ar {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f71585a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -40,18 +37,16 @@ public class ap implements ar {
     public volatile String f127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f71586b;
+    public volatile String f62715b;
 
     /* renamed from: b  reason: collision with other field name */
     public volatile boolean f128b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ap f71587a;
+        public final /* synthetic */ ap a;
 
         public a(ap apVar) {
             Interceptable interceptable = $ic;
@@ -68,7 +63,7 @@ public class ap implements ar {
                     return;
                 }
             }
-            this.f71587a = apVar;
+            this.a = apVar;
         }
 
         public /* synthetic */ a(ap apVar, aq aqVar) {
@@ -81,31 +76,31 @@ public class ap implements ar {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
-                    this.f71587a.f127a = b.a(iBinder);
-                    this.f71587a.f128b = b.m153a(iBinder);
-                    this.f71587a.b();
-                    this.f71587a.f123a = 2;
-                    synchronized (this.f71587a.f126a) {
+                    this.a.f127a = b.a(iBinder);
+                    this.a.f128b = b.m202a(iBinder);
+                    this.a.b();
+                    this.a.f123a = 2;
+                    synchronized (this.a.f126a) {
                         try {
-                            this.f71587a.f126a.notifyAll();
+                            this.a.f126a.notifyAll();
                         } catch (Exception unused) {
                         }
                     }
                 } catch (Exception unused2) {
-                    this.f71587a.b();
-                    this.f71587a.f123a = 2;
-                    synchronized (this.f71587a.f126a) {
+                    this.a.b();
+                    this.a.f123a = 2;
+                    synchronized (this.a.f126a) {
                         try {
-                            this.f71587a.f126a.notifyAll();
+                            this.a.f126a.notifyAll();
                         } catch (Exception unused3) {
                         }
                     }
                 } catch (Throwable th) {
-                    this.f71587a.b();
-                    this.f71587a.f123a = 2;
-                    synchronized (this.f71587a.f126a) {
+                    this.a.b();
+                    this.a.f123a = 2;
+                    synchronized (this.a.f126a) {
                         try {
-                            this.f71587a.f126a.notifyAll();
+                            this.a.f126a.notifyAll();
                         } catch (Exception unused4) {
                         }
                         throw th;
@@ -122,7 +117,7 @@ public class ap implements ar {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +142,7 @@ public class ap implements ar {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m153a(IBinder iBinder) {
+        public static boolean m202a(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -185,7 +180,7 @@ public class ap implements ar {
         this.f123a = 0;
         this.f127a = null;
         this.f128b = false;
-        this.f71586b = null;
+        this.f62715b = null;
         this.f126a = new Object();
         this.f124a = context;
         a();
@@ -230,7 +225,7 @@ public class ap implements ar {
     private void a() {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.f125a = new a(this, null);
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
@@ -248,7 +243,7 @@ public class ap implements ar {
         if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f123a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f126a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m73a("huawei's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m122a("huawei's " + str + " wait...");
                     this.f126a.wait(3000L);
                 } catch (Exception unused) {
                 }
@@ -257,7 +252,7 @@ public class ap implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m151a(Context context) {
+    public static boolean m200a(Context context) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -265,7 +260,7 @@ public class ap implements ar {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
                 z = (packageInfo.applicationInfo.flags & 1) != 0;
-                f71585a = packageInfo.versionCode >= 20602000;
+                a = packageInfo.versionCode >= 20602000;
             } catch (Exception unused) {
             }
             return z;
@@ -300,12 +295,12 @@ public class ap implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f71585a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b  reason: collision with other method in class */
-    public String mo152b() {
+    public String mo201b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -330,14 +325,14 @@ public class ap implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f71586b == null) {
+            if (this.f62715b == null) {
                 synchronized (this) {
-                    if (this.f71586b == null) {
-                        this.f71586b = a(this.f124a);
+                    if (this.f62715b == null) {
+                        this.f62715b = a(this.f124a);
                     }
                 }
             }
-            return this.f71586b;
+            return this.f62715b;
         }
         return (String) invokeV.objValue;
     }

@@ -2,9 +2,9 @@ package com.baidu.swan.apps.jsbridge;
 
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import b.a.p0.a.h0.f.a;
-import b.a.p0.a.k;
-import b.a.p0.a.y1.c.f.b;
+import c.a.p0.a.h0.f.a;
+import c.a.p0.a.k;
+import c.a.p0.a.y1.c.f.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SwanAppPreloadJsBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -35,7 +35,7 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        DEBUG = k.f6863a;
+        DEBUG = k.a;
     }
 
     public SwanAppPreloadJsBridge(a aVar) {

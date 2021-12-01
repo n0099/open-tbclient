@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.permission;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface RequestPermissionDialogCallBack {
     void isAllAgree(boolean z);
 }

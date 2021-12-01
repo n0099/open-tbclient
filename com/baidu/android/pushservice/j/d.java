@@ -10,16 +10,14 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public byte[] f36540a;
+    public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataInputStream f36541b;
+    public DataInputStream f32792b;
 
     public d(InputStream inputStream) {
         Interceptable interceptable = $ic;
@@ -36,8 +34,8 @@ public class d {
                 return;
             }
         }
-        this.f36541b = new DataInputStream(inputStream);
-        this.f36540a = new byte[8];
+        this.f32792b = new DataInputStream(inputStream);
+        this.a = new byte[8];
     }
 
     private int a(int i2) throws IOException {
@@ -46,7 +44,7 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
             int i3 = 0;
             while (i3 < i2) {
-                int read = this.f36541b.read(this.f36540a, i3, i2 - i3);
+                int read = this.f32792b.read(this.a, i3, i2 - i3);
                 if (read == -1) {
                     return read;
                 }
@@ -60,14 +58,14 @@ public class d {
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f36541b.close();
+            this.f32792b.close();
         }
     }
 
     public final void a(byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            this.f36541b.readFully(bArr, 0, bArr.length);
+            this.f32792b.readFully(bArr, 0, bArr.length);
         }
     }
 
@@ -76,7 +74,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (a(4) >= 0) {
-                byte[] bArr = this.f36540a;
+                byte[] bArr = this.a;
                 return (bArr[0] & 255) | ((bArr[3] & 255) << 24) | ((bArr[2] & 255) << 16) | ((bArr[1] & 255) << 8);
             }
             throw new EOFException();
@@ -89,7 +87,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (a(2) >= 0) {
-                byte[] bArr = this.f36540a;
+                byte[] bArr = this.a;
                 return (short) ((bArr[0] & 255) | ((bArr[1] & 255) << 8));
             }
             throw new EOFException();
@@ -102,7 +100,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (a(8) >= 0) {
-                byte[] bArr = this.f36540a;
+                byte[] bArr = this.a;
                 return (((((((bArr[7] & 255) << 24) | ((bArr[6] & 255) << 16)) | ((bArr[5] & 255) << 8)) | (bArr[4] & 255)) & 4294967295L) << 32) | (4294967295L & (((bArr[1] & 255) << 8) | ((bArr[3] & 255) << 24) | ((bArr[2] & 255) << 16) | (bArr[0] & 255)));
             }
             throw new EOFException();

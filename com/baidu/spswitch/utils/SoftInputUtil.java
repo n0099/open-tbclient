@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.IPanelHeightTarget;
 import com.baidu.spswitch.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SoftInputUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -33,12 +32,12 @@ public class SoftInputUtil {
     public static int sMinSoftInputHeight;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface OnSoftInputShowingListener {
         void onSoftInputShowing(boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SoftInputStatusListener implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,7 +244,7 @@ public class SoftInputUtil {
 
     public static void detach(Activity activity, ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, activity, onGlobalLayoutListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, activity, onGlobalLayoutListener) == null) {
             ((ViewGroup) activity.findViewById(16908290)).getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
         }
     }
@@ -253,7 +252,7 @@ public class SoftInputUtil {
     public static ViewGroup getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             WeakReference<ViewGroup> weakReference = sContentViewRef;
             if (weakReference == null) {
                 return null;
@@ -367,9 +366,9 @@ public class SoftInputUtil {
         }
     }
 
-    public static void showSoftInputDelay(View view, long j) {
+    public static void showSoftInputDelay(View view, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65553, null, view, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65553, null, view, j2) == null) {
             view.postDelayed(new Runnable(view) { // from class: com.baidu.spswitch.utils.SoftInputUtil.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -400,7 +399,7 @@ public class SoftInputUtil {
                         SoftInputUtil.showSoftInput(this.val$focusView);
                     }
                 }
-            }, j);
+            }, j2);
         }
     }
 }

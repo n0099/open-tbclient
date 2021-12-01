@@ -2,13 +2,11 @@ package com.alipay.apmobilesecuritysdk.e;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.DeviceUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +40,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (a.class) {
-                com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING, "");
+                com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", "deviceid", "");
                 com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx", "");
             }
         }
@@ -54,11 +52,11 @@ public final class a {
             synchronized (a.class) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("apdid", bVar.f34755a);
-                    jSONObject.put("deviceInfoHash", bVar.f34756b);
-                    jSONObject.put("timestamp", bVar.f34757c);
+                    jSONObject.put("apdid", bVar.a);
+                    jSONObject.put("deviceInfoHash", bVar.f31181b);
+                    jSONObject.put("timestamp", bVar.f31182c);
                     String jSONObject2 = jSONObject.toString();
-                    com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING, jSONObject2);
+                    com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", "deviceid", jSONObject2);
                     com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx", jSONObject2);
                 } catch (Exception e2) {
                     com.alipay.apmobilesecuritysdk.c.a.a(e2);
@@ -72,11 +70,11 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (a.class) {
-                String a2 = com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx");
-                if (com.alipay.security.mobile.module.a.a.a(a2)) {
+                String a = com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx");
+                if (com.alipay.security.mobile.module.a.a.a(a)) {
                     return null;
                 }
-                return a(a2);
+                return a(a);
             }
         }
         return (b) invokeV.objValue;
@@ -84,17 +82,17 @@ public final class a {
 
     public static synchronized b b(Context context) {
         InterceptResult invokeL;
-        b a2;
+        b a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             synchronized (a.class) {
-                String a3 = com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING);
-                if (com.alipay.security.mobile.module.a.a.a(a3)) {
-                    a3 = com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx");
+                String a2 = com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", "deviceid");
+                if (com.alipay.security.mobile.module.a.a.a(a2)) {
+                    a2 = com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx");
                 }
-                a2 = a(a3);
+                a = a(a2);
             }
-            return a2;
+            return a;
         }
         return (b) invokeL.objValue;
     }
@@ -102,13 +100,13 @@ public final class a {
     public static synchronized b c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             synchronized (a.class) {
-                String a2 = com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING);
-                if (com.alipay.security.mobile.module.a.a.a(a2)) {
+                String a = com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", "deviceid");
+                if (com.alipay.security.mobile.module.a.a.a(a)) {
                     return null;
                 }
-                return a(a2);
+                return a(a);
             }
         }
         return (b) invokeL.objValue;

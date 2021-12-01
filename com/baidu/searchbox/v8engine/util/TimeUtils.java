@@ -2,7 +2,6 @@ package com.baidu.searchbox.v8engine.util;
 
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
@@ -89,16 +88,16 @@ public class TimeUtils {
         return invokeCommon.intValue;
     }
 
-    public static void formatDuration(long j, StringBuilder sb) {
+    public static void formatDuration(long j2, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(AdIconUtil.BAIDU_LOGO_ID, null, j, sb) == null) {
+        if (interceptable == null || interceptable.invokeJL(65542, null, j2, sb) == null) {
             synchronized (sFormatSync) {
-                sb.append(sFormatStr, 0, formatDurationLocked(j, 0));
+                sb.append(sFormatStr, 0, formatDurationLocked(j2, 0));
             }
         }
     }
 
-    public static int formatDurationLocked(long j, int i2) {
+    public static int formatDurationLocked(long j2, int i2) {
         InterceptResult invokeCommon;
         char c2;
         int i3;
@@ -107,14 +106,14 @@ public class TimeUtils {
         int i6;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
-            long j2 = j;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+            long j3 = j2;
             if (sFormatStr.length < i2) {
                 sFormatStr = new char[i2];
             }
             char[] cArr = sFormatStr;
             int i8 = 0;
-            int i9 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+            int i9 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
             if (i9 == 0) {
                 int i10 = i2 - 1;
                 while (i8 < i10) {
@@ -128,10 +127,10 @@ public class TimeUtils {
                 c2 = '+';
             } else {
                 c2 = SignatureImpl.SEP;
-                j2 = -j2;
+                j3 = -j3;
             }
-            int i11 = (int) (j2 % 1000);
-            int floor = (int) Math.floor(j2 / 1000);
+            int i11 = (int) (j3 % 1000);
+            int floor = (int) Math.floor(j3 / 1000);
             if (floor >= 86400) {
                 i3 = floor / 86400;
                 floor -= 86400 * i3;
@@ -179,39 +178,39 @@ public class TimeUtils {
         return invokeCommon.intValue;
     }
 
-    public static String formatForLogging(long j) {
+    public static String formatForLogging(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j)) == null) ? j <= 0 ? "unknown" : sLoggingFormat.format(new Date(j)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65544, null, j2)) == null) ? j2 <= 0 ? "unknown" : sLoggingFormat.format(new Date(j2)) : (String) invokeJ.objValue;
     }
 
-    public static String formatUptime(long j) {
+    public static String formatUptime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) {
-            long uptimeMillis = j - SystemClock.uptimeMillis();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) {
+            long uptimeMillis = j2 - SystemClock.uptimeMillis();
             int i2 = (uptimeMillis > 0L ? 1 : (uptimeMillis == 0L ? 0 : -1));
             if (i2 > 0) {
-                return j + " (in " + uptimeMillis + " ms)";
+                return j2 + " (in " + uptimeMillis + " ms)";
             } else if (i2 < 0) {
-                return j + " (" + (-uptimeMillis) + " ms ago)";
+                return j2 + " (" + (-uptimeMillis) + " ms ago)";
             } else {
-                return j + " (now)";
+                return j2 + " (now)";
             }
         }
         return (String) invokeJ.objValue;
     }
 
-    public static String logTimeOfDay(long j) {
+    public static String logTimeOfDay(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j2)) == null) {
             Calendar calendar = Calendar.getInstance();
-            if (j >= 0) {
-                calendar.setTimeInMillis(j);
+            if (j2 >= 0) {
+                calendar.setTimeInMillis(j2);
                 return String.format("%tm-%td %tH:%tM:%tS.%tL", calendar, calendar, calendar, calendar, calendar, calendar);
             }
-            return Long.toString(j);
+            return Long.toString(j2);
         }
         return (String) invokeJ.objValue;
     }
@@ -267,29 +266,29 @@ public class TimeUtils {
         return invokeCommon.intValue;
     }
 
-    public static void formatDuration(long j, PrintWriter printWriter, int i2) {
+    public static void formatDuration(long j2, PrintWriter printWriter, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j), printWriter, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j2), printWriter, Integer.valueOf(i2)}) == null) {
             synchronized (sFormatSync) {
-                printWriter.print(new String(sFormatStr, 0, formatDurationLocked(j, i2)));
+                printWriter.print(new String(sFormatStr, 0, formatDurationLocked(j2, i2)));
             }
         }
     }
 
-    public static void formatDuration(long j, PrintWriter printWriter) {
+    public static void formatDuration(long j2, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j, printWriter) == null) {
-            formatDuration(j, printWriter, 0);
+        if (interceptable == null || interceptable.invokeJL(InputDeviceCompat.SOURCE_TRACKBALL, null, j2, printWriter) == null) {
+            formatDuration(j2, printWriter, 0);
         }
     }
 
-    public static void formatDuration(long j, long j2, PrintWriter printWriter) {
+    public static void formatDuration(long j2, long j3, PrintWriter printWriter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), printWriter}) == null) {
-            if (j == 0) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), printWriter}) == null) {
+            if (j2 == 0) {
                 printWriter.print("--");
             } else {
-                formatDuration(j - j2, printWriter, 0);
+                formatDuration(j2 - j3, printWriter, 0);
             }
         }
     }

@@ -8,8 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import b.a.e.f.p.l;
-import b.a.e.m.e.n;
+import c.a.d.f.p.l;
+import c.a.d.m.e.n;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -30,12 +30,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FORUM_NUM = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b.a.e.m.e.a> mAdapters;
+    public List<c.a.d.m.e.a> mAdapters;
     public ImageView mBackImageView;
     public View mBackView;
     public List<n> mDataList;
@@ -46,18 +46,18 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public TransmitSelectAdapter mSelectAdapter;
     public View mTopView;
     public TextView mTransmitConfirmButton;
-    public b.a.r0.e4.q.a mTransmitForumCallback;
+    public c.a.r0.l4.q.a mTransmitForumCallback;
     public TextView mTransmitSubTitle;
     public TextView mTransmitTipsView;
     public TextView mTransmitTitle;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumActivity f56765e;
+        public final /* synthetic */ TransmitForumActivity f50847e;
 
         public a(TransmitForumActivity transmitForumActivity) {
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                     return;
                 }
             }
-            this.f56765e = transmitForumActivity;
+            this.f50847e = transmitForumActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -83,29 +83,27 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (view.getId() != this.f56765e.mTransmitConfirmButton.getId()) {
-                if (view.getId() == this.f56765e.mBackView.getId() || view.getId() == this.f56765e.mTopView.getId()) {
-                    this.f56765e.setResult(0);
-                    this.f56765e.startExitAnimation();
+            if (view.getId() != this.f50847e.mTransmitConfirmButton.getId()) {
+                if (view.getId() == this.f50847e.mBackView.getId() || view.getId() == this.f50847e.mTopView.getId()) {
+                    this.f50847e.setResult(0);
+                    this.f50847e.startExitAnimation();
                     return;
                 }
                 return;
             }
-            ArrayList<TransmitForumData> selectedList = this.f56765e.getSelectedList();
+            ArrayList<TransmitForumData> selectedList = this.f50847e.getSelectedList();
             Intent intent = new Intent();
-            intent.putExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED, this.f56765e.generateSelectResult(selectedList));
-            this.f56765e.setResult(-1, intent);
-            this.f56765e.startExitAnimation();
+            intent.putExtra(TransmitForumActivityConfig.KEY_FORUM_LIST_SELECTED, this.f50847e.generateSelectResult(selectedList));
+            this.f50847e.setResult(-1, intent);
+            this.f50847e.startExitAnimation();
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b implements b.a.r0.e4.q.a {
+    /* loaded from: classes11.dex */
+    public class b implements c.a.r0.l4.q.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumActivity f56766a;
+        public final /* synthetic */ TransmitForumActivity a;
 
         public b(TransmitForumActivity transmitForumActivity) {
             Interceptable interceptable = $ic;
@@ -122,40 +120,38 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                     return;
                 }
             }
-            this.f56766a = transmitForumActivity;
+            this.a = transmitForumActivity;
         }
 
-        @Override // b.a.r0.e4.q.a
+        @Override // c.a.r0.l4.q.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f56766a.setTransmitConfirmButtonText();
+                this.a.setTransmitConfirmButtonText();
             }
         }
 
-        @Override // b.a.r0.e4.q.a
+        @Override // c.a.r0.l4.q.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f56766a.showToast(R.string.transmit_max_commit);
+                this.a.showToast(R.string.transmit_max_commit);
             }
         }
 
-        @Override // b.a.r0.e4.q.a
+        @Override // c.a.r0.l4.q.a
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.f56766a.getSelectedList()) >= 3 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.a.getSelectedList()) >= 3 : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumActivity f56767a;
+        public final /* synthetic */ TransmitForumActivity a;
 
         public c(TransmitForumActivity transmitForumActivity) {
             Interceptable interceptable = $ic;
@@ -172,14 +168,14 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                     return;
                 }
             }
-            this.f56767a = transmitForumActivity;
+            this.a = transmitForumActivity;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f56767a.finish();
+                this.a.finish();
             }
         }
 
@@ -371,9 +367,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             } else {
                 arrayList = null;
             }
-            this.mDataList.add(new b.a.r0.e4.q.c());
+            this.mDataList.add(new c.a.r0.l4.q.c());
             this.mForumAdapter = new TransmitForumAdapter(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
-            this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), b.a.r0.e4.q.c.f17613e, getUniqueId(), arrayList);
+            this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), c.a.r0.l4.q.c.f19599e, getUniqueId(), arrayList);
             this.mForumAdapter.j0(this.mTransmitForumCallback);
             this.mAdapters.add(this.mForumAdapter);
             this.mAdapters.add(this.mSelectAdapter);

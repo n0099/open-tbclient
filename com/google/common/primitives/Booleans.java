@@ -1,9 +1,8 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,12 +17,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Booleans {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class BooleanArrayAsList extends AbstractList<Boolean> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -239,7 +238,7 @@ public final class Booleans {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class BooleanComparator implements Comparator<Boolean> {
         public static final /* synthetic */ BooleanComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -322,7 +321,7 @@ public final class Booleans {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class LexicographicalComparator implements Comparator<boolean[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -440,7 +439,7 @@ public final class Booleans {
     public static int f(boolean[] zArr, boolean z, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{zArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{zArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             for (int i4 = i3 - 1; i4 >= i2; i4--) {
                 if (zArr[i4] == z) {
                     return i4;

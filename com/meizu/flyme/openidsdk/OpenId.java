@@ -53,10 +53,10 @@ public class OpenId {
         }
     }
 
-    public void updateExpiredTime(long j) {
+    public void updateExpiredTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.expiredTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.expiredTime = j2;
         }
     }
 

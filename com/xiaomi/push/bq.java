@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +16,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +34,13 @@ public class bq {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String a2 = bt.a(context).a("sp_client_report_status", "sp_client_report_key", "");
-            if (TextUtils.isEmpty(a2)) {
-                String a3 = bm.a(20);
-                bt.a(context).m192a("sp_client_report_status", "sp_client_report_key", a3);
-                return a3;
+            String a = bt.a(context).a("sp_client_report_status", "sp_client_report_key", "");
+            if (TextUtils.isEmpty(a)) {
+                String a2 = bm.a(20);
+                bt.a(context).m241a("sp_client_report_status", "sp_client_report_key", a2);
+                return a2;
             }
-            return a2;
+            return a;
         }
         return (String) invokeL.objValue;
     }
@@ -103,7 +102,7 @@ public class bq {
                     if (!TextUtils.isEmpty(file3.getAbsolutePath())) {
                         file = new File(file3.getAbsolutePath() + ".lock");
                         try {
-                            y.m646a(file);
+                            y.m695a(file);
                             randomAccessFile = new RandomAccessFile(file, "rw");
                             try {
                                 try {
@@ -182,7 +181,7 @@ public class bq {
 
     public static void a(Context context, List<String> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0 || !m188a(context)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0 || !m237a(context)) {
             return;
         }
         for (String str : list) {
@@ -193,10 +192,10 @@ public class bq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m188a(Context context) {
+    public static boolean m237a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 return context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= 108;
             } catch (PackageManager.NameNotFoundException e2) {
@@ -208,12 +207,12 @@ public class bq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m189a(Context context, String str) {
+    public static boolean m238a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             File file = new File(str);
-            long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m78a().getMaxFileLength();
+            long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m127a().getMaxFileLength();
             if (file.exists()) {
                 try {
                     if (file.length() > maxFileLength) {
@@ -224,7 +223,7 @@ public class bq {
                     return false;
                 }
             } else {
-                y.m646a(file);
+                y.m695a(file);
             }
             return true;
         }
@@ -236,7 +235,7 @@ public class bq {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            byte[] copyOf = Arrays.copyOf(bj.m183a(str), 16);
+            byte[] copyOf = Arrays.copyOf(bj.m232a(str), 16);
             copyOf[0] = 68;
             copyOf[15] = 84;
             return copyOf;
@@ -245,7 +244,7 @@ public class bq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static File[] m190a(Context context, String str) {
+    public static File[] m239a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {

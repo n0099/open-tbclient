@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ InitDelayThread f38182a;
+    public final /* synthetic */ InitDelayThread a;
 
     public b(InitDelayThread initDelayThread) {
         Interceptable interceptable = $ic;
@@ -28,14 +26,14 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f38182a = initDelayThread;
+        this.a = initDelayThread;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         InitDelayThread.InitDelayCallback initDelayCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (initDelayCallback = this.f38182a.mCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (initDelayCallback = this.a.mCallback) == null) {
             return;
         }
         initDelayCallback.callBack();

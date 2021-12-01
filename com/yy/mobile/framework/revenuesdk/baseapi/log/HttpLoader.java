@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
 import android.text.TextUtils;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +58,7 @@ public class HttpLoader {
                         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                         httpURLConnection.setRequestMethod("POST");
                         httpURLConnection.setRequestProperty("referer", "https://www.yy.com/index.html");
-                        httpURLConnection.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                        httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
                         httpURLConnection.setDoOutput(true);
                         httpURLConnection.setDoInput(true);
                         httpURLConnection.setUseCaches(false);

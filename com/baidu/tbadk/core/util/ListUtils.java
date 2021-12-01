@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ListUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +64,7 @@ public class ListUtils {
     public static <T> ArrayList<T> convertJSONArrayToList(ArrayList<T> arrayList, JSONArray jSONArray) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, arrayList, jSONArray)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, arrayList, jSONArray)) == null) {
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
             }
@@ -83,7 +82,7 @@ public class ListUtils {
     public static <T> boolean equalList(List<T> list, List<T> list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, list, list2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, list, list2)) == null) {
             if (list == list2) {
                 return true;
             }

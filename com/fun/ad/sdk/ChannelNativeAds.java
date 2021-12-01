@@ -2,20 +2,17 @@ package com.fun.ad.sdk;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ChannelNativeAds {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public GdtADStatusChangeListener f63611a;
+    public GdtADStatusChangeListener a;
     public final Object baiduNative;
     public final Object baiduNative2;
     public final Object csjNative;
@@ -24,7 +21,7 @@ public class ChannelNativeAds {
     public final Object kdsNative;
     public final Object ksNative;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface GdtADStatusChangeListener {
         void onADStatusChanged(NativeUnifiedADData nativeUnifiedADData);
     }
@@ -80,13 +77,13 @@ public class ChannelNativeAds {
     public static ChannelNativeAds createJy(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? new ChannelNativeAds(null, null, null, null, obj, null, null) : (ChannelNativeAds) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? new ChannelNativeAds(null, null, null, null, obj, null, null) : (ChannelNativeAds) invokeL.objValue;
     }
 
     public static ChannelNativeAds createKds(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? new ChannelNativeAds(null, null, null, null, null, null, obj) : (ChannelNativeAds) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? new ChannelNativeAds(null, null, null, null, null, null, obj) : (ChannelNativeAds) invokeL.objValue;
     }
 
     public static ChannelNativeAds createKs(Object obj) {
@@ -98,13 +95,13 @@ public class ChannelNativeAds {
     public GdtADStatusChangeListener getGdtADStatusChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63611a : (GdtADStatusChangeListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (GdtADStatusChangeListener) invokeV.objValue;
     }
 
     public void setGdtADStatusChangeListener(GdtADStatusChangeListener gdtADStatusChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gdtADStatusChangeListener) == null) {
-            this.f63611a = gdtADStatusChangeListener;
+            this.a = gdtADStatusChangeListener;
         }
     }
 }

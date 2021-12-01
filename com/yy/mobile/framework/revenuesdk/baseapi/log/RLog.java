@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEADER = "MidPay:";
@@ -58,7 +57,7 @@ public class RLog {
 
     public static void debug(Object obj, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, obj, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, obj, str, objArr) == null) {
             if (!logDelegates.isEmpty()) {
                 Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {
@@ -187,7 +186,7 @@ public class RLog {
 
     public static void error(Object obj, String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, obj, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, obj, str, th) == null) {
             if (!logDelegates.isEmpty()) {
                 Iterator<IRLogDelegate> it = logDelegates.iterator();
                 while (it.hasNext()) {

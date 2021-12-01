@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.ThemeCardInUser;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ThemeCardInUserData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -78,10 +78,10 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
         this.coordinate = themeCardInUser.coordinate;
     }
 
-    public void setCardId(long j) {
+    public void setCardId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.cardId = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.cardId = j2;
         }
     }
 

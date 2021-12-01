@@ -16,7 +16,6 @@ import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.McastConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,61 +24,61 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f39970a;
+    public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f39971b;
+    public static i f35646b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public WifiManager f39972c;
+    public WifiManager f35647c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f39973d;
+    public a f35648d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f39974e;
+    public h f35649e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39975f;
+    public long f35650f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f39976g;
+    public long f35651g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f39977h;
+    public boolean f35652h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f39978i;
-    public boolean j;
-    public long k;
+    public Handler f35653i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f35654j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public long f35655k;
     public long l;
 
     /* renamed from: com.baidu.location.c.i$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ i f39979a;
+        public final /* synthetic */ i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f39980b;
+        public long f35656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f39981c;
+        public boolean f35657c;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -96,9 +95,9 @@ public class i {
                     return;
                 }
             }
-            this.f39979a = iVar;
-            this.f39980b = 0L;
-            this.f39981c = false;
+            this.a = iVar;
+            this.f35656b = 0L;
+            this.f35657c = false;
         }
 
         public /* synthetic */ a(i iVar, AnonymousClass1 anonymousClass1) {
@@ -113,14 +112,14 @@ public class i {
             }
             String action = intent.getAction();
             if (action.equals("android.net.wifi.SCAN_RESULTS")) {
-                i.f39970a = System.currentTimeMillis() / 1000;
-                this.f39979a.f39978i.post(new j(this, intent.getBooleanExtra("resultsUpdated", true)));
-            } else if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED) && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.f39980b >= 5000) {
-                this.f39980b = System.currentTimeMillis();
-                if (this.f39981c) {
+                i.a = System.currentTimeMillis() / 1000;
+                this.a.f35653i.post(new j(this, intent.getBooleanExtra("resultsUpdated", true)));
+            } else if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED) && ((NetworkInfo) intent.getParcelableExtra("networkInfo")).getState().equals(NetworkInfo.State.CONNECTED) && System.currentTimeMillis() - this.f35656b >= 5000) {
+                this.f35656b = System.currentTimeMillis();
+                if (this.f35657c) {
                     return;
                 }
-                this.f39981c = true;
+                this.f35657c = true;
             }
         }
     }
@@ -153,15 +152,15 @@ public class i {
                 return;
             }
         }
-        this.f39972c = null;
-        this.f39973d = null;
-        this.f39974e = null;
-        this.f39975f = 0L;
-        this.f39976g = 0L;
-        this.f39977h = false;
-        this.f39978i = new Handler();
-        this.j = false;
-        this.k = 0L;
+        this.f35647c = null;
+        this.f35648d = null;
+        this.f35649e = null;
+        this.f35650f = 0L;
+        this.f35651g = 0L;
+        this.f35652h = false;
+        this.f35653i = new Handler();
+        this.f35654j = false;
+        this.f35655k = 0L;
         this.l = 0L;
     }
 
@@ -171,28 +170,28 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (i.class) {
-                if (f39971b == null) {
-                    f39971b = new i();
+                if (f35646b == null) {
+                    f35646b = new i();
                 }
-                iVar = f39971b;
+                iVar = f35646b;
             }
             return iVar;
         }
         return (i) invokeV.objValue;
     }
 
-    private String a(long j) {
+    private String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j2)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(String.valueOf((int) (j & 255)));
+            stringBuffer.append(String.valueOf((int) (j2 & 255)));
             stringBuffer.append('.');
-            stringBuffer.append(String.valueOf((int) ((j >> 8) & 255)));
+            stringBuffer.append(String.valueOf((int) ((j2 >> 8) & 255)));
             stringBuffer.append('.');
-            stringBuffer.append(String.valueOf((int) ((j >> 16) & 255)));
+            stringBuffer.append(String.valueOf((int) ((j2 >> 16) & 255)));
             stringBuffer.append('.');
-            stringBuffer.append(String.valueOf((int) ((j >> 24) & 255)));
+            stringBuffer.append(String.valueOf((int) ((j2 >> 24) & 255)));
             return stringBuffer.toString();
         }
         return (String) invokeJ.objValue;
@@ -203,7 +202,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, hVar, hVar2)) == null) {
             boolean a2 = a(hVar, hVar2, 0.7f);
-            long currentTimeMillis = System.currentTimeMillis() - com.baidu.location.b.a.f39760c;
+            long currentTimeMillis = System.currentTimeMillis() - com.baidu.location.b.a.f35472c;
             if (currentTimeMillis <= 0 || currentTimeMillis >= 30000 || !a2 || hVar2.g() - hVar.g() <= 30) {
                 return a2;
             }
@@ -215,10 +214,10 @@ public class i {
     public static boolean a(h hVar, h hVar2, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{hVar, hVar2, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{hVar, hVar2, Float.valueOf(f2)})) == null) {
             if (hVar != null && hVar2 != null) {
-                List<ScanResult> list = hVar.f39965a;
-                List<ScanResult> list2 = hVar2.f39965a;
+                List<ScanResult> list = hVar.a;
+                List<ScanResult> list2 = hVar2.a;
                 if (list == list2) {
                     return true;
                 }
@@ -279,16 +278,16 @@ public class i {
     public void q() {
         WifiManager wifiManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (wifiManager = this.f39972c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (wifiManager = this.f35647c) == null) {
             return;
         }
         try {
             List<ScanResult> scanResults = wifiManager.getScanResults();
             if (scanResults != null) {
                 h hVar = new h(scanResults, System.currentTimeMillis());
-                h hVar2 = this.f39974e;
+                h hVar2 = this.f35649e;
                 if (hVar2 == null || !hVar.a(hVar2)) {
-                    this.f39974e = hVar;
+                    this.f35649e = hVar;
                 }
             }
         } catch (Exception unused) {
@@ -298,7 +297,7 @@ public class i {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.k = 0L;
+            this.f35655k = 0L;
         }
     }
 
@@ -306,17 +305,17 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (this.f39977h) {
+                if (this.f35652h) {
                     return;
                 }
                 if (com.baidu.location.f.isServing) {
-                    this.f39972c = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
-                    this.f39973d = new a(this, null);
+                    this.f35647c = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
+                    this.f35648d = new a(this, null);
                     try {
-                        com.baidu.location.f.getServiceContext().registerReceiver(this.f39973d, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
+                        com.baidu.location.f.getServiceContext().registerReceiver(this.f35648d, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
                     } catch (Exception unused) {
                     }
-                    this.f39977h = true;
+                    this.f35652h = true;
                 }
             }
         }
@@ -326,15 +325,15 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f39977h) {
+                if (this.f35652h) {
                     try {
-                        com.baidu.location.f.getServiceContext().unregisterReceiver(this.f39973d);
-                        f39970a = 0L;
+                        com.baidu.location.f.getServiceContext().unregisterReceiver(this.f35648d);
+                        a = 0L;
                     } catch (Exception unused) {
                     }
-                    this.f39973d = null;
-                    this.f39972c = null;
-                    this.f39977h = false;
+                    this.f35648d = null;
+                    this.f35647c = null;
+                    this.f35652h = false;
                 }
             }
         }
@@ -345,9 +344,9 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f39976g;
-            if (currentTimeMillis - j <= 0 || currentTimeMillis - j > 5000) {
-                this.f39976g = currentTimeMillis;
+            long j2 = this.f35651g;
+            if (currentTimeMillis - j2 <= 0 || currentTimeMillis - j2 > 5000) {
+                this.f35651g = currentTimeMillis;
                 b();
                 return f();
             }
@@ -360,17 +359,17 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f39972c == null) {
+            if (this.f35647c == null) {
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f39975f;
-            if (currentTimeMillis - j > 0) {
-                long j2 = this.k;
-                if (currentTimeMillis - j <= j2 + 5000 || currentTimeMillis - (f39970a * 1000) <= j2 + 5000) {
+            long j2 = this.f35650f;
+            if (currentTimeMillis - j2 > 0) {
+                long j3 = this.f35655k;
+                if (currentTimeMillis - j2 <= j3 + 5000 || currentTimeMillis - (a * 1000) <= j3 + 5000) {
                     return false;
                 }
-                if (i() && currentTimeMillis - this.f39975f <= this.k + 10000) {
+                if (i() && currentTimeMillis - this.f35650f <= this.f35655k + 10000) {
                     return false;
                 }
             }
@@ -384,14 +383,14 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            WifiManager wifiManager = this.f39972c;
+            WifiManager wifiManager = this.f35647c;
             if (wifiManager != null) {
                 try {
                     if (!wifiManager.isWifiEnabled()) {
                         if (Build.VERSION.SDK_INT <= 17) {
                             return "";
                         }
-                        if (!this.f39972c.isScanAlwaysAvailable()) {
+                        if (!this.f35647c.isScanAlwaysAvailable()) {
                             return "";
                         }
                     }
@@ -414,11 +413,11 @@ public class i {
             if (currentTimeMillis < 0 || currentTimeMillis > 2000) {
                 this.l = System.currentTimeMillis();
                 try {
-                    if (!this.f39972c.isWifiEnabled() && (Build.VERSION.SDK_INT <= 17 || !this.f39972c.isScanAlwaysAvailable())) {
+                    if (!this.f35647c.isWifiEnabled() && (Build.VERSION.SDK_INT <= 17 || !this.f35647c.isScanAlwaysAvailable())) {
                         return false;
                     }
-                    this.f39972c.startScan();
-                    this.f39975f = System.currentTimeMillis();
+                    this.f35647c.startScan();
+                    this.f35650f = System.currentTimeMillis();
                     return true;
                 } catch (Exception | NoSuchMethodError unused) {
                     return false;
@@ -435,8 +434,8 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
-                if ((this.f39972c.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.f39972c.isScanAlwaysAvailable())) && !i()) {
-                    return new h(this.f39972c.getScanResults(), 0L).e();
+                if ((this.f35647c.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.f35647c.isScanAlwaysAvailable())) && !i()) {
+                    return new h(this.f35647c.getScanResults(), 0L).e();
                 }
                 return false;
             } catch (Exception | NoSuchMethodError unused) {
@@ -450,7 +449,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            WifiManager wifiManager = this.f39972c;
+            WifiManager wifiManager = this.f35647c;
             if (wifiManager == null) {
                 return null;
             }
@@ -480,10 +479,10 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            WifiInfo k = a().k();
-            if (k != null && k.getBSSID() != null) {
-                String replace = k.getBSSID().replace(":", "");
-                int rssi = k.getRssi();
+            WifiInfo k2 = a().k();
+            if (k2 != null && k2.getBSSID() != null) {
+                String replace = k2.getBSSID().replace(":", "");
+                int rssi = k2.getRssi();
                 String m = a().m();
                 if (rssi < 0) {
                     rssi = -rssi;
@@ -493,7 +492,7 @@ public class i {
                     stringBuffer.append(replace);
                     stringBuffer.append(";");
                     stringBuffer.append("" + rssi + ";");
-                    String ssid = k.getSSID();
+                    String ssid = k2.getSSID();
                     if (ssid != null && (ssid.contains("&") || ssid.contains(";"))) {
                         ssid = ssid.replace("&", "_");
                     }
@@ -516,7 +515,7 @@ public class i {
         DhcpInfo dhcpInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            WifiManager wifiManager = this.f39972c;
+            WifiManager wifiManager = this.f35647c;
             if (wifiManager == null || (dhcpInfo = wifiManager.getDhcpInfo()) == null) {
                 return null;
             }
@@ -529,8 +528,8 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            h hVar = this.f39974e;
-            return (hVar == null || !hVar.j()) ? p() : this.f39974e;
+            h hVar = this.f35649e;
+            return (hVar == null || !hVar.j()) ? p() : this.f35649e;
         }
         return (h) invokeV.objValue;
     }
@@ -539,8 +538,8 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            h hVar = this.f39974e;
-            return (hVar == null || !hVar.k()) ? p() : this.f39974e;
+            h hVar = this.f35649e;
+            return (hVar == null || !hVar.k()) ? p() : this.f35649e;
         }
         return (h) invokeV.objValue;
     }
@@ -549,10 +548,10 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WifiManager wifiManager = this.f39972c;
+            WifiManager wifiManager = this.f35647c;
             if (wifiManager != null) {
                 try {
-                    return new h(wifiManager.getScanResults(), this.f39975f);
+                    return new h(wifiManager.getScanResults(), this.f35650f);
                 } catch (Exception unused) {
                 }
             }

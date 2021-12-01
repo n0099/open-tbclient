@@ -12,7 +12,6 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ClearTextEndIconDelegate extends EndIconDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_FADE_DURATION = 100;
@@ -206,7 +205,7 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
     /* JADX INFO: Access modifiers changed from: private */
     public void animateIcon(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
             boolean z2 = this.textInputLayout.isEndIconVisible() == z;
             if (z) {
                 this.iconOutAnim.cancel();
@@ -228,7 +227,7 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
     private ValueAnimator getAlphaAnimator(float... fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, fArr)) == null) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(fArr);
             ofFloat.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
             ofFloat.setDuration(100L);

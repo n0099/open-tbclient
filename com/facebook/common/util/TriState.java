@@ -2,7 +2,6 @@ package com.facebook.common.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.infer.annotation.Functional;
 import javax.annotation.Nullable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class TriState {
     public static final /* synthetic */ TriState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -23,7 +22,7 @@ public final class TriState {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.util.TriState$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$util$TriState;
         public static /* synthetic */ Interceptable $ic;
@@ -123,7 +122,7 @@ public final class TriState {
     public static TriState[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (TriState[]) $VALUES.clone() : (TriState[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (TriState[]) $VALUES.clone() : (TriState[]) invokeV.objValue;
     }
 
     @Functional
@@ -196,7 +195,7 @@ public final class TriState {
     public static TriState valueOf(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z)) == null) ? z ? YES : NO : (TriState) invokeZ.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z ? YES : NO : (TriState) invokeZ.objValue;
     }
 
     @Functional

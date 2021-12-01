@@ -2,7 +2,6 @@ package com.yy.gslbsdk.control;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IP_V4 = 1;
@@ -73,7 +72,7 @@ public class NetworkStatus {
     public static NetworkStatus getInstanceClone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().m647clone() : (NetworkStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().m696clone() : (NetworkStatus) invokeV.objValue;
     }
 
     public static void updateEnableV6(boolean z) {
@@ -85,7 +84,7 @@ public class NetworkStatus {
 
     public static void updateStatus(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, null, i2) == null) {
             getInstance().mStatus = i2;
         }
     }
@@ -139,7 +138,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m647clone() {
+    public NetworkStatus m696clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

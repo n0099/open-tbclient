@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ay extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ av.b.c f72361a;
+    public final /* synthetic */ av.b.c a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ay(av.b.c cVar, int i2) {
@@ -34,7 +32,7 @@ public class ay extends XMPushService.i {
                 return;
             }
         }
-        this.f72361a = cVar;
+        this.a = cVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -48,12 +46,12 @@ public class ay extends XMPushService.i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            av a2 = av.a();
-            av.b bVar = this.f72361a.f923a;
-            if (a2.a(bVar.f72348g, bVar.f919b).f910a == null) {
-                XMPushService xMPushService = this.f72361a.f72355b.f912a;
-                av.b bVar2 = this.f72361a.f923a;
-                xMPushService.a(bVar2.f72348g, bVar2.f919b, 2, null, null);
+            av a = av.a();
+            av.b bVar = this.a.f923a;
+            if (a.a(bVar.f63245g, bVar.f919b).f910a == null) {
+                XMPushService xMPushService = this.a.f63250b.f912a;
+                av.b bVar2 = this.a.f923a;
+                xMPushService.a(bVar2.f63245g, bVar2.f919b, 2, null, null);
             }
         }
     }

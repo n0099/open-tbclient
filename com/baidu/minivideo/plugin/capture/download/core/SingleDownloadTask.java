@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SingleDownloadTask extends DownloadTaskImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public class SingleDownloadTask extends DownloadTaskImpl {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
-    public RandomAccessFile getFile(File file, String str, long j) throws IOException {
+    public RandomAccessFile getFile(File file, String str, long j2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j2)})) == null) {
             RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
             randomAccessFile.seek(0L);
             return randomAccessFile;

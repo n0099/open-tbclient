@@ -19,7 +19,6 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CompatibleUtile {
     public static /* synthetic */ Interceptable $ic;
     public static CompatibleUtile mCompatibleUtile;
@@ -42,7 +41,7 @@ public class CompatibleUtile {
     public static Object9 mObject9;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class FullscreenableChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +53,7 @@ public class CompatibleUtile {
         public FrameLayout mFullscreenContainer;
         public int mOriginalOrientation;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public class FullscreenHolder extends FrameLayout {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +175,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class Object14 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +210,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class Object5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +285,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class Object7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -327,7 +326,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class Object8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -400,7 +399,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class Object9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -532,7 +531,7 @@ public class CompatibleUtile {
     private Object11 getObject11() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (Build.VERSION.SDK_INT >= 11 && mObject11 == null) {
                 mObject11 = new Object11(this, null);
             }
@@ -544,7 +543,7 @@ public class CompatibleUtile {
     private Object14 getObject14() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             if (Build.VERSION.SDK_INT >= 14 && mObject14 == null) {
                 mObject14 = new Object14(this, null);
             }
@@ -867,7 +866,7 @@ public class CompatibleUtile {
         return invokeL.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class Object11 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

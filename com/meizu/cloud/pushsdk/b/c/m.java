@@ -11,21 +11,19 @@ import java.util.TimeZone;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class m {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f68269a = new byte[0];
+    public static final byte[] a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f68270b = new String[0];
+    public static final String[] f60317b = new String[0];
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f68271c = Charset.forName("UTF-8");
+    public static final Charset f60318c = Charset.forName("UTF-8");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final TimeZone f68272d = TimeZone.getTimeZone("GMT");
+    public static final TimeZone f60319d = TimeZone.getTimeZone("GMT");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f68273e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f60320e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     public static int a(String str, int i2, int i3) {
         while (i2 < i3) {
@@ -77,8 +75,8 @@ public class m {
         return Collections.unmodifiableList(new ArrayList(list));
     }
 
-    public static void a(long j, long j2, long j3) {
-        if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
+    public static void a(long j2, long j3, long j4) {
+        if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
             throw new ArrayIndexOutOfBoundsException();
         }
     }

@@ -2,7 +2,6 @@ package com.alipay.apmobilesecuritysdk.d;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +11,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f34753a;
+    public static Map<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f34754b;
+    public static final String[] f31180b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +33,7 @@ public final class e {
                 return;
             }
         }
-        f34754b = new String[]{"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
+        f31180b = new String[]{"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
     }
 
     public static String a(Map<String, String> map) {
@@ -74,11 +71,11 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, map)) == null) {
             synchronized (e.class) {
-                if (f34753a == null) {
+                if (a == null) {
                     c(context, map);
                 }
-                f34753a.putAll(d.a());
-                map2 = f34753a;
+                a.putAll(d.a());
+                map2 = a;
             }
             return map2;
         }
@@ -89,7 +86,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (e.class) {
-                f34753a = null;
+                a = null;
             }
         }
     }
@@ -103,9 +100,9 @@ public final class e {
             synchronized (e.class) {
                 a(context, map);
                 TreeMap treeMap = new TreeMap();
-                for (String str : f34754b) {
-                    if (f34753a.containsKey(str)) {
-                        treeMap.put(str, f34753a.get(str));
+                for (String str : f31180b) {
+                    if (a.containsKey(str)) {
+                        treeMap.put(str, a.get(str));
                     }
                 }
                 a2 = com.alipay.security.mobile.module.a.a.b.a(a(treeMap));
@@ -117,14 +114,14 @@ public final class e {
 
     public static synchronized void c(Context context, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, map) == null) {
             synchronized (e.class) {
                 TreeMap treeMap = new TreeMap();
-                f34753a = treeMap;
+                a = treeMap;
                 treeMap.putAll(b.a(context, map));
-                f34753a.putAll(d.a(context));
-                f34753a.putAll(c.a(context));
-                f34753a.putAll(a.a(context, map));
+                a.putAll(d.a(context));
+                a.putAll(c.a(context));
+                a.putAll(a.a(context, map));
             }
         }
     }

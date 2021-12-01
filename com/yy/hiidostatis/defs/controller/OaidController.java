@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class OaidController {
     public static final /* synthetic */ OaidController[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -32,13 +31,13 @@ public final class OaidController {
     public OaidHelper oaidHelper;
 
     /* renamed from: com.yy.hiidostatis.defs.controller.OaidController$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OaidInitListener {
         void initFinish(boolean z, String str, String str2);
     }
@@ -120,7 +119,7 @@ public final class OaidController {
     public static OaidController[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (OaidController[]) $VALUES.clone() : (OaidController[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (OaidController[]) $VALUES.clone() : (OaidController[]) invokeV.objValue;
     }
 
     public void addListener(OaidInitListener oaidInitListener) {
@@ -149,7 +148,7 @@ public final class OaidController {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.oaidHelper.getOaid() : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class OaidHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TIME_OUT = 20000;
@@ -183,7 +182,7 @@ public final class OaidController {
         private int callFromReflect(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context)) == null) ? MdidSdkHelper.InitSdk(context, true, new IIdentifierListener(this) { // from class: com.yy.hiidostatis.defs.controller.OaidController.OaidHelper.2
+            return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) ? MdidSdkHelper.InitSdk(context, true, new IIdentifierListener(this) { // from class: com.yy.hiidostatis.defs.controller.OaidController.OaidHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ OaidHelper this$1;

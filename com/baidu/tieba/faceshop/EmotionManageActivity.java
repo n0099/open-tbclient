@@ -37,27 +37,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<f> f48681e;
+    public List<f> f43683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<String> f48682f;
+    public final List<String> f43684f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f48683g;
+    public g f43685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f48684h;
+    public d f43686h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f48685i;
-    public NavigationBar j;
-    public View k;
+    public LinearLayout f43687i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public NavigationBar f43688j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public View f43689k;
     public TextView l;
     public TextView m;
     public TextView n;
@@ -71,13 +75,13 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     public final AdapterView.OnItemClickListener v;
     public final CustomMessageListener w;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionManageActivity f48686e;
+        public final /* synthetic */ EmotionManageActivity f43690e;
 
         public a(EmotionManageActivity emotionManageActivity) {
             Interceptable interceptable = $ic;
@@ -94,41 +98,41 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     return;
                 }
             }
-            this.f48686e = emotionManageActivity;
+            this.f43690e = emotionManageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f48686e.l) {
-                    this.f48686e.N();
-                } else if (view == this.f48686e.m) {
-                    if (this.f48686e.t) {
-                        this.f48686e.y();
-                        this.f48686e.f48682f.clear();
+                if (view == this.f43690e.l) {
+                    this.f43690e.G();
+                } else if (view == this.f43690e.m) {
+                    if (this.f43690e.t) {
+                        this.f43690e.y();
+                        this.f43690e.f43684f.clear();
                     } else {
-                        this.f48686e.z();
+                        this.f43690e.z();
                     }
-                    this.f48686e.s.notifyDataSetChanged();
-                } else if (view == this.f48686e.q) {
-                    IntentConfig intentConfig = new IntentConfig(this.f48686e.getActivity());
+                    this.f43690e.s.notifyDataSetChanged();
+                } else if (view == this.f43690e.q) {
+                    IntentConfig intentConfig = new IntentConfig(this.f43690e.getActivity());
                     intentConfig.getIntent().putExtra("emotion_manage", "emotion_manage");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2902015, intentConfig));
-                    this.f48686e.y();
-                    this.f48686e.K(true);
+                    this.f43690e.y();
+                    this.f43690e.D(true);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionManageActivity f48687e;
+        public final /* synthetic */ EmotionManageActivity f43691e;
 
         public b(EmotionManageActivity emotionManageActivity) {
             Interceptable interceptable = $ic;
@@ -145,32 +149,32 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     return;
                 }
             }
-            this.f48687e = emotionManageActivity;
+            this.f43691e = emotionManageActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             h hVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                if (this.f48687e.t) {
-                    if (this.f48687e.f48681e.get(i2) == null || (hVar = (h) view.getTag()) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                if (this.f43691e.t) {
+                    if (this.f43691e.f43683e.get(i2) == null || (hVar = (h) view.getTag()) == null) {
                         return;
                     }
-                    Object tag = hVar.f48697a.getTag();
+                    Object tag = hVar.a.getTag();
                     if (tag instanceof String) {
                         String str = (String) tag;
-                        for (f fVar : this.f48687e.f48681e) {
-                            if (fVar.f48691a.equals(str)) {
-                                if (this.f48687e.f48682f.contains(str)) {
-                                    SkinManager.setImageResource(hVar.f48697a, R.drawable.btn_expression_choose_n);
-                                    this.f48687e.f48682f.remove(str);
-                                    this.f48687e.M(str);
-                                    fVar.f48693c = false;
+                        for (f fVar : this.f43691e.f43683e) {
+                            if (fVar.a.equals(str)) {
+                                if (this.f43691e.f43684f.contains(str)) {
+                                    SkinManager.setImageResource(hVar.a, R.drawable.btn_expression_choose_n);
+                                    this.f43691e.f43684f.remove(str);
+                                    this.f43691e.F(str);
+                                    fVar.f43694c = false;
                                 } else {
-                                    SkinManager.setImageResource(hVar.f48697a, R.drawable.btn_expression_choose_s);
-                                    this.f48687e.x(str);
-                                    fVar.f48693c = true;
+                                    SkinManager.setImageResource(hVar.a, R.drawable.btn_expression_choose_s);
+                                    this.f43691e.x(str);
+                                    fVar.f43694c = true;
                                 }
                             }
                         }
@@ -178,18 +182,16 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     }
                     return;
                 }
-                this.f48687e.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f48687e.getPageContext().getPageActivity(), ((f) this.f48687e.f48681e.get(i2)).f48691a, false, "emotion_manage")));
+                this.f43691e.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.f43691e.getPageContext().getPageActivity(), ((f) this.f43691e.f43683e.get(i2)).a, false, "emotion_manage")));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionManageActivity f48688a;
+        public final /* synthetic */ EmotionManageActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(EmotionManageActivity emotionManageActivity, int i2) {
@@ -209,7 +211,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     return;
                 }
             }
-            this.f48688a = emotionManageActivity;
+            this.a = emotionManageActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -217,19 +219,17 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001117) {
-                this.f48688a.f48683g = new g(this.f48688a, null);
-                this.f48688a.f48683g.execute(new String[0]);
+                this.a.f43685g = new g(this.a, null);
+                this.a.f43685g.execute(new String[0]);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class d extends BdAsyncTask<List<String>, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionManageActivity f48689a;
+        public final /* synthetic */ EmotionManageActivity a;
 
         public d(EmotionManageActivity emotionManageActivity) {
             Interceptable interceptable = $ic;
@@ -246,7 +246,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     return;
                 }
             }
-            this.f48689a = emotionManageActivity;
+            this.a = emotionManageActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -263,7 +263,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                         MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
                         myEmotionGroupData.setGroupId(str);
                         myEmotionGroupData.setUid(TbadkCoreApplication.getCurrentAccount());
-                        if (b.a.r0.s0.a.c().b(myEmotionGroupData)) {
+                        if (c.a.r0.y0.a.c().b(myEmotionGroupData)) {
                             i2++;
                         }
                     }
@@ -289,20 +289,20 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                 super.onPostExecute((d) bool);
                 if (bool.booleanValue()) {
                     MessageManager.getInstance().runTask(2004603, (Class) null);
-                    this.f48689a.t = true;
-                    this.f48689a.K(true);
+                    this.a.t = true;
+                    this.a.D(true);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class e extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionManageActivity f48690e;
+        public final /* synthetic */ EmotionManageActivity f43692e;
 
         public e(EmotionManageActivity emotionManageActivity) {
             Interceptable interceptable = $ic;
@@ -319,18 +319,18 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     return;
                 }
             }
-            this.f48690e = emotionManageActivity;
+            this.f43692e = emotionManageActivity;
         }
 
         public final View a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                View inflate = View.inflate(this.f48690e.getPageContext().getPageActivity(), R.layout.emotion_manage_list_item, null);
+                View inflate = View.inflate(this.f43692e.getPageContext().getPageActivity(), R.layout.emotion_manage_list_item, null);
                 h hVar = new h(null);
-                hVar.f48697a = (ImageView) inflate.findViewById(R.id.emotion_group_select);
-                hVar.f48698b = (ImageView) inflate.findViewById(R.id.emotion_group_photo);
-                hVar.f48699c = (TextView) inflate.findViewById(R.id.emotion_group_name);
+                hVar.a = (ImageView) inflate.findViewById(R.id.emotion_group_select);
+                hVar.f43697b = (ImageView) inflate.findViewById(R.id.emotion_group_photo);
+                hVar.f43698c = (TextView) inflate.findViewById(R.id.emotion_group_name);
                 inflate.setTag(hVar);
                 return inflate;
             }
@@ -342,10 +342,10 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f48690e.f48681e == null) {
+                if (this.f43692e.f43683e == null) {
                     return 0;
                 }
-                return this.f48690e.f48681e.size();
+                return this.f43692e.f43683e.size();
             }
             return invokeV.intValue;
         }
@@ -355,10 +355,10 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                if (this.f48690e.f48681e == null || i2 > this.f48690e.f48681e.size()) {
+                if (this.f43692e.f43683e == null || i2 > this.f43692e.f43683e.size()) {
                     return null;
                 }
-                return this.f48690e.f48681e.get(i2);
+                return this.f43692e.f43683e.get(i2);
             }
             return invokeI.objValue;
         }
@@ -368,7 +368,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                if (this.f48690e.f48681e == null || i2 > this.f48690e.f48681e.size()) {
+                if (this.f43692e.f43683e == null || i2 > this.f43692e.f43683e.size()) {
                     return 0L;
                 }
                 return i2;
@@ -385,25 +385,25 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     view = a();
                 }
                 h hVar = (h) view.getTag();
-                Bitmap bitmap = ((f) this.f48690e.f48681e.get(i2)).f48694d;
+                Bitmap bitmap = ((f) this.f43692e.f43683e.get(i2)).f43695d;
                 if (bitmap != null) {
-                    hVar.f48698b.setImageBitmap(bitmap);
+                    hVar.f43697b.setImageBitmap(bitmap);
                 } else {
-                    SkinManager.setImageResource(hVar.f48698b, R.drawable.pic_image_h_not);
+                    SkinManager.setImageResource(hVar.f43697b, R.drawable.pic_image_h_not);
                 }
-                if (this.f48690e.t) {
-                    if (this.f48690e.f48682f.contains(((f) this.f48690e.f48681e.get(i2)).f48691a)) {
-                        SkinManager.setImageResource(hVar.f48697a, R.drawable.btn_expression_choose_s);
+                if (this.f43692e.t) {
+                    if (this.f43692e.f43684f.contains(((f) this.f43692e.f43683e.get(i2)).a)) {
+                        SkinManager.setImageResource(hVar.a, R.drawable.btn_expression_choose_s);
                     } else {
-                        SkinManager.setImageResource(hVar.f48697a, R.drawable.btn_expression_choose_n);
+                        SkinManager.setImageResource(hVar.a, R.drawable.btn_expression_choose_n);
                     }
-                    hVar.f48697a.setVisibility(0);
-                    hVar.f48697a.setTag(((f) this.f48690e.f48681e.get(i2)).f48691a);
+                    hVar.a.setVisibility(0);
+                    hVar.a.setTag(((f) this.f43692e.f43683e.get(i2)).a);
                 } else {
-                    hVar.f48697a.setVisibility(8);
+                    hVar.a.setVisibility(8);
                 }
-                hVar.f48699c.setText(((f) this.f48690e.f48681e.get(i2)).f48692b);
-                this.f48690e.getLayoutMode().j(view);
+                hVar.f43698c.setText(((f) this.f43692e.f43683e.get(i2)).f43693b);
+                this.f43692e.getLayoutMode().j(view);
                 return view;
             }
             return (View) invokeILL.objValue;
@@ -414,25 +414,23 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f48691a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f48692b;
+        public String f43693b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f48693c;
+        public boolean f43694c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Bitmap f48694d;
+        public Bitmap f43695d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionManageActivity f48695e;
+        public final /* synthetic */ EmotionManageActivity f43696e;
 
         public f(EmotionManageActivity emotionManageActivity) {
             Interceptable interceptable = $ic;
@@ -449,7 +447,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     return;
                 }
             }
-            this.f48695e = emotionManageActivity;
+            this.f43696e = emotionManageActivity;
         }
 
         public /* synthetic */ f(EmotionManageActivity emotionManageActivity, a aVar) {
@@ -457,13 +455,11 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class g extends BdAsyncTask<String, Integer, List<f>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionManageActivity f48696a;
+        public final /* synthetic */ EmotionManageActivity a;
 
         public g(EmotionManageActivity emotionManageActivity) {
             Interceptable interceptable = $ic;
@@ -480,7 +476,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                     return;
                 }
             }
-            this.f48696a = emotionManageActivity;
+            this.a = emotionManageActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -490,19 +486,19 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                List<MyEmotionGroupData> h2 = b.a.r0.s0.a.c().h(TbadkCoreApplication.getCurrentAccount());
-                List<EmotionGroupData> l = b.a.r0.s0.g.k().l(1);
+                List<MyEmotionGroupData> h2 = c.a.r0.y0.a.c().h(TbadkCoreApplication.getCurrentAccount());
+                List<EmotionGroupData> l = c.a.r0.y0.g.k().l(1);
                 LinkedList linkedList = new LinkedList();
                 for (MyEmotionGroupData myEmotionGroupData : h2) {
                     Iterator<EmotionGroupData> it = l.iterator();
                     while (true) {
                         if (it.hasNext()) {
                             EmotionGroupData next = it.next();
-                            if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && b.a.r0.s0.b.d(next.getGroupId())) {
-                                f fVar = new f(this.f48696a, null);
-                                fVar.f48691a = next.getGroupId();
-                                fVar.f48692b = next.getGroupName();
-                                fVar.f48694d = b.a.r0.s0.b.f(fVar.f48691a, "list.png");
+                            if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && c.a.r0.y0.b.d(next.getGroupId())) {
+                                f fVar = new f(this.a, null);
+                                fVar.a = next.getGroupId();
+                                fVar.f43693b = next.getGroupName();
+                                fVar.f43695d = c.a.r0.y0.b.f(fVar.a, "list.png");
                                 linkedList.add(fVar);
                                 break;
                             }
@@ -526,10 +522,10 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                 if (list == null) {
                     list = new LinkedList<>();
                 }
-                this.f48696a.f48681e = list;
-                this.f48696a.K(false);
-                this.f48696a.hideProgressBar();
-                this.f48696a.L();
+                this.a.f43683e = list;
+                this.a.D(false);
+                this.a.hideProgressBar();
+                this.a.E();
             }
         }
 
@@ -538,7 +534,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 super.onPreExecute();
-                this.f48696a.showProgressBar();
+                this.a.showProgressBar();
             }
         }
 
@@ -547,19 +543,17 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public ImageView f48697a;
+        public ImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f48698b;
+        public ImageView f43697b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f48699c;
+        public TextView f43698c;
 
         public h() {
             Interceptable interceptable = $ic;
@@ -593,7 +587,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                 return;
             }
         }
-        this.f48682f = new LinkedList();
+        this.f43684f = new LinkedList();
         this.t = false;
         this.u = new a(this);
         this.v = new b(this);
@@ -605,7 +599,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerListener(2001117, this.w);
             g gVar = new g(this, null);
-            this.f48683g = gVar;
+            this.f43685g = gVar;
             gVar.execute(new String[0]);
             e eVar = new e(this, null);
             this.s = eVar;
@@ -616,16 +610,16 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48685i = (LinearLayout) findViewById(R.id.emotion_manage_root);
+            this.f43687i = (LinearLayout) findViewById(R.id.emotion_manage_root);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.j = navigationBar;
+            this.f43688j = navigationBar;
             navigationBar.setTitleText(R.string.title_activity_emotion_manage);
-            this.k = this.j.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            NavigationBar navigationBar2 = this.j;
+            this.f43689k = this.f43688j.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            NavigationBar navigationBar2 = this.f43688j;
             NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_LEFT;
-            this.l = navigationBar2.addTextButton(controlAlign, getString(R.string.delete) + "(" + this.f48682f.size() + SmallTailInfo.EMOTION_SUFFIX, this.u, true);
-            D();
-            TextView addTextButton = this.j.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit), this.u);
+            this.l = navigationBar2.addTextButton(controlAlign, getString(R.string.delete) + "(" + this.f43684f.size() + SmallTailInfo.EMOTION_SUFFIX, this.u, true);
+            C();
+            TextView addTextButton = this.f43688j.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit), this.u);
             this.m = addTextButton;
             SkinManager.setViewTextColor(addTextButton, R.color.CAM_X0106, 1);
             this.n = (TextView) findViewById(R.id.emotion_manager_title);
@@ -640,17 +634,17 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
             this.q = textView;
             textView.setOnClickListener(this.u);
             getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-            getLayoutMode().j(this.f48685i);
+            getLayoutMode().j(this.f43687i);
             getLayoutMode().j(this.r);
             y();
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public final void D() {
+    public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int size = this.f48682f.size();
+            int size = this.f43684f.size();
             TextView textView = this.l;
             textView.setText(getString(R.string.delete) + "(" + size + SmallTailInfo.EMOTION_SUFFIX);
             if (size == 0) {
@@ -662,18 +656,18 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         }
     }
 
-    public final void K(boolean z) {
+    public final void D(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.f48682f.clear();
+                this.f43684f.clear();
             } else {
-                for (String str : this.f48682f) {
+                for (String str : this.f43684f) {
                     boolean z2 = false;
-                    Iterator<f> it = this.f48681e.iterator();
+                    Iterator<f> it = this.f43683e.iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            if (str.equals(it.next().f48691a)) {
+                            if (str.equals(it.next().a)) {
                                 z2 = true;
                                 break;
                             }
@@ -682,20 +676,20 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
                         }
                     }
                     if (!z2) {
-                        this.f48682f.remove(str);
+                        this.f43684f.remove(str);
                     }
                 }
             }
-            D();
-            L();
+            C();
+            E();
             this.s.notifyDataSetChanged();
         }
     }
 
-    public final void L() {
+    public final void E() {
         List<f> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.f48681e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.f43683e) == null) {
             return;
         }
         if (list.size() == 0) {
@@ -710,20 +704,20 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         this.o.setVisibility(0);
     }
 
-    public final void M(String str) {
+    public final void F(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f48682f.remove(str);
-            D();
+            this.f43684f.remove(str);
+            C();
         }
     }
 
-    public final void N() {
+    public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             d dVar = new d(this, null);
-            this.f48684h = dVar;
-            dVar.execute(this.f48682f);
+            this.f43686h = dVar;
+            dVar.execute(this.f43684f);
         }
     }
 
@@ -733,7 +727,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.t) {
                 y();
-                this.f48682f.clear();
+                this.f43684f.clear();
                 this.t = false;
                 this.s.notifyDataSetChanged();
                 return;
@@ -747,7 +741,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.j.onChangeSkinType(getPageContext(), i2);
+            this.f43688j.onChangeSkinType(getPageContext(), i2);
             SkinManager.setBackgroundResource(this.l, R.drawable.btn_delete_groupupdates);
         }
     }
@@ -760,7 +754,7 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
             setContentView(R.layout.activity_emotion_manage);
             B();
             A();
-            K(true);
+            D(true);
         }
     }
 
@@ -769,27 +763,27 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            d dVar = this.f48684h;
+            d dVar = this.f43686h;
             if (dVar != null) {
                 dVar.cancel(true);
-                this.f48684h = null;
+                this.f43686h = null;
             }
         }
     }
 
     public final void x(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || this.f48682f.contains(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || this.f43684f.contains(str)) {
             return;
         }
-        this.f48682f.add(str);
-        D();
+        this.f43684f.add(str);
+        C();
     }
 
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.k.setVisibility(0);
+            this.f43689k.setVisibility(0);
             this.l.setVisibility(8);
             this.m.setText(getString(R.string.edit));
             this.t = false;
@@ -800,9 +794,9 @@ public class EmotionManageActivity extends ProxyAdkBaseActivity<EmotionManageAct
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.k.setVisibility(8);
+            this.f43689k.setVisibility(8);
             this.l.setVisibility(0);
-            D();
+            C();
             this.m.setText(getString(R.string.cancel));
             this.t = true;
             this.r.setVisibility(8);

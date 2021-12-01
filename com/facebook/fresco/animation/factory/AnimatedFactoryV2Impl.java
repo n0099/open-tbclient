@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +37,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @DoNotStrip
 @NotThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AnimatedFactoryV2Impl implements AnimatedFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUMBER_OF_FRAMES_TO_PREPARE = 3;
@@ -116,7 +115,7 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
     private ExperimentalBitmapAnimationDrawableFactory createDrawableFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             return new ExperimentalBitmapAnimationDrawableFactory(getAnimatedDrawableBackendProvider(), UiThreadImmediateExecutorService.getInstance(), new DefaultSerialExecutorService(this.mExecutorSupplier.forDecode()), RealtimeSinceBootClock.get(), this.mPlatformBitmapFactory, this.mBackingCache, new Supplier<Integer>(this) { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +192,7 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
     private AnimatedDrawableBackendProvider getAnimatedDrawableBackendProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             if (this.mAnimatedDrawableBackendProvider == null) {
                 this.mAnimatedDrawableBackendProvider = new AnimatedDrawableBackendProvider(this) { // from class: com.facebook.fresco.animation.factory.AnimatedFactoryV2Impl.5
                     public static /* synthetic */ Interceptable $ic;

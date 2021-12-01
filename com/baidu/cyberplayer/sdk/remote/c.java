@@ -11,24 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C1645a implements c {
+        /* loaded from: classes8.dex */
+        public static class C1722a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public IBinder a;
 
-            /* renamed from: a  reason: collision with root package name */
-            public IBinder f38005a;
-
-            public C1645a(IBinder iBinder) {
+            public C1722a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +41,7 @@ public interface c extends IInterface {
                         return;
                     }
                 }
-                this.f38005a = iBinder;
+                this.a = iBinder;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.c
@@ -55,7 +53,7 @@ public interface c extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                        this.f38005a.transact(2, obtain, obtain2, 0);
+                        this.a.transact(2, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readStrongBinder();
                     } finally {
@@ -76,7 +74,7 @@ public interface c extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
                         obtain.writeInt(i2);
-                        this.f38005a.transact(1, obtain, obtain2, 0);
+                        this.a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readStrongBinder();
                     } finally {
@@ -112,7 +110,7 @@ public interface c extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        this.f38005a.transact(3, obtain, obtain2, 0);
+                        this.a.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -131,7 +129,7 @@ public interface c extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
                         obtain.writeString(str);
-                        this.f38005a.transact(4, obtain, obtain2, 0);
+                        this.a.transact(4, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -146,7 +144,7 @@ public interface c extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38005a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.c
@@ -159,7 +157,7 @@ public interface c extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
                         obtain.writeString(str);
-                        this.f38005a.transact(5, obtain, obtain2, 0);
+                        this.a.transact(5, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readInt() != 0;
                     } finally {
@@ -195,7 +193,7 @@ public interface c extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C1645a(iBinder) : (c) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C1722a(iBinder) : (c) queryLocalInterface;
             }
             return (c) invokeL.objValue;
         }
@@ -214,15 +212,15 @@ public interface c extends IInterface {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
                 if (i2 == 1) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    IBinder a2 = a(parcel.readInt());
+                    IBinder a = a(parcel.readInt());
                     parcel2.writeNoException();
-                    parcel2.writeStrongBinder(a2);
+                    parcel2.writeStrongBinder(a);
                     return true;
                 } else if (i2 == 2) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    IBinder a3 = a();
+                    IBinder a2 = a();
                     parcel2.writeNoException();
-                    parcel2.writeStrongBinder(a3);
+                    parcel2.writeStrongBinder(a2);
                     return true;
                 } else if (i2 == 3) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
@@ -231,9 +229,9 @@ public interface c extends IInterface {
                     return true;
                 } else if (i2 == 4) {
                     parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-                    boolean a4 = a(parcel.readString());
+                    boolean a3 = a(parcel.readString());
                     parcel2.writeNoException();
-                    parcel2.writeInt(a4 ? 1 : 0);
+                    parcel2.writeInt(a3 ? 1 : 0);
                     return true;
                 } else if (i2 != 5) {
                     if (i2 != 1598968902) {

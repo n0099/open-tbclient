@@ -7,7 +7,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
+import com.kuaishou.weapon.un.s;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RequsetNetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequsetNetworkUtils";
@@ -64,7 +63,7 @@ public class RequsetNetworkUtils {
             if (context == null) {
                 return mConnManager;
             }
-            if (context.checkCallingOrSelfPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0 && mConnManager == null) {
+            if (context.checkCallingOrSelfPermission("android.permission.ACCESS_NETWORK_STATE") == 0 && mConnManager == null) {
                 mConnManager = (ConnectivityManager) context.getSystemService("connectivity");
             }
             return mConnManager;
@@ -142,7 +141,7 @@ public class RequsetNetworkUtils {
     public static String getNetInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (isNetworkAvailable(context)) {
                 if (isWifiConnected(context)) {
                     return "wifi|" + getWifiIp(context);
@@ -157,7 +156,7 @@ public class RequsetNetworkUtils {
     public static NetworkInfo getNetWorkInfo(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             try {
                 ConnectivityManager connectivityManager = getConnectivityManager(context.getApplicationContext());
                 if (connectivityManager != null) {
@@ -185,7 +184,7 @@ public class RequsetNetworkUtils {
             if (context == null) {
                 return mTelephonyManager;
             }
-            if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0 && mTelephonyManager == null) {
+            if (context.checkCallingOrSelfPermission(s.f56838c) == 0 && mTelephonyManager == null) {
                 mTelephonyManager = (TelephonyManager) context.getSystemService("phone");
             }
             return mTelephonyManager;
@@ -198,7 +197,7 @@ public class RequsetNetworkUtils {
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission("android.permission.ACCESS_WIFI_STATE") != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (context.checkCallingOrSelfPermission(s.f56839d) != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return "nonWifiIp";
             }
             int ipAddress = connectionInfo.getIpAddress();

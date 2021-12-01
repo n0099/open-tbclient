@@ -46,10 +46,10 @@ public final class HttpResponseCache extends ResponseCache {
         return (HttpResponseCache) invokeV.objValue;
     }
 
-    public static synchronized HttpResponseCache install(File file, long j) throws IOException {
+    public static synchronized HttpResponseCache install(File file, long j2) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, file, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, file, j2)) == null) {
             synchronized (HttpResponseCache.class) {
                 throw new RuntimeException("Stub!");
             }

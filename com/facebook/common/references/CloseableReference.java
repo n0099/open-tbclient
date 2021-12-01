@@ -2,7 +2,6 @@ package com.facebook.common.references;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class CloseableReference<T> implements Cloneable, Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final ResourceReleaser<Closeable> DEFAULT_CLOSEABLE_RELEASER;
@@ -34,7 +33,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
     public final LeakHandler mLeakHandler;
     public final SharedReference<T> mSharedReference;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface LeakHandler {
         void reportLeak(SharedReference<Object> sharedReference);
     }
@@ -134,7 +133,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
 
     public static void closeSafely(@Nullable CloseableReference<?> closeableReference) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, closeableReference) == null) || closeableReference == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, closeableReference) == null) || closeableReference == null) {
             return;
         }
         closeableReference.close();
@@ -154,7 +153,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
                 if (isValid()) {
-                    return m52clone();
+                    return m100clone();
                 }
                 return null;
             }
@@ -277,7 +276,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public synchronized CloseableReference<T> m52clone() {
+    public synchronized CloseableReference<T> m100clone() {
         InterceptResult invokeV;
         CloseableReference<T> closeableReference;
         Interceptable interceptable = $ic;
@@ -325,7 +324,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
     public static <T> List<CloseableReference<T>> cloneOrNull(@PropagatesNullable Collection<CloseableReference<T>> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, collection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, collection)) == null) {
             if (collection == null) {
                 return null;
             }

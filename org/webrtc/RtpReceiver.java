@@ -24,12 +24,12 @@ public class RtpReceiver {
     }
 
     @CalledByNative
-    public RtpReceiver(long j) {
+    public RtpReceiver(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -39,8 +39,8 @@ public class RtpReceiver {
                 return;
             }
         }
-        this.nativeRtpReceiver = j;
-        this.cachedTrack = MediaStreamTrack.createMediaStreamTrack(nativeGetTrack(j));
+        this.nativeRtpReceiver = j2;
+        this.cachedTrack = MediaStreamTrack.createMediaStreamTrack(nativeGetTrack(j2));
     }
 
     private void checkRtpReceiverExists() {
@@ -50,27 +50,27 @@ public class RtpReceiver {
         }
     }
 
-    public static native String nativeGetId(long j);
+    public static native String nativeGetId(long j2);
 
-    public static native RtpParameters nativeGetParameters(long j);
+    public static native RtpParameters nativeGetParameters(long j2);
 
-    public static native long nativeGetTrack(long j);
+    public static native long nativeGetTrack(long j2);
 
-    public static native void nativeSetFrameDecryptor(long j, long j2);
+    public static native void nativeSetFrameDecryptor(long j2, long j3);
 
-    public static native long nativeSetObserver(long j, Observer observer);
+    public static native long nativeSetObserver(long j2, Observer observer);
 
-    public static native boolean nativeSetParameters(long j, RtpParameters rtpParameters);
+    public static native boolean nativeSetParameters(long j2, RtpParameters rtpParameters);
 
-    public static native void nativeUnsetObserver(long j, long j2);
+    public static native void nativeUnsetObserver(long j2, long j3);
 
     public void SetObserver(Observer observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
             checkRtpReceiverExists();
-            long j = this.nativeObserver;
-            if (j != 0) {
-                nativeUnsetObserver(this.nativeRtpReceiver, j);
+            long j2 = this.nativeObserver;
+            if (j2 != 0) {
+                nativeUnsetObserver(this.nativeRtpReceiver, j2);
             }
             this.nativeObserver = nativeSetObserver(this.nativeRtpReceiver, observer);
         }
@@ -82,9 +82,9 @@ public class RtpReceiver {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             checkRtpReceiverExists();
             this.cachedTrack.dispose();
-            long j = this.nativeObserver;
-            if (j != 0) {
-                nativeUnsetObserver(this.nativeRtpReceiver, j);
+            long j2 = this.nativeObserver;
+            if (j2 != 0) {
+                nativeUnsetObserver(this.nativeRtpReceiver, j2);
                 this.nativeObserver = 0L;
             }
             JniCommon.nativeReleaseRef(this.nativeRtpReceiver);

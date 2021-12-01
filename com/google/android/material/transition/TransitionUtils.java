@@ -16,7 +16,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import androidx.transition.TransitionSet;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,18 +27,18 @@ import com.google.android.material.shape.AbsoluteCornerSize;
 import com.google.android.material.shape.CornerSize;
 import com.google.android.material.shape.RelativeCornerSize;
 import com.google.android.material.shape.ShapeAppearanceModel;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class TransitionUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final RectF transformAlphaRectF;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface CanvasOperation {
         void run(Canvas canvas);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface CornerSizeBinaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize, @NonNull CornerSize cornerSize2);
@@ -127,13 +126,13 @@ public class TransitionUtils {
     public static <T> T defaultIfNull(@Nullable T t, @NonNull T t2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, t, t2)) == null) ? t != null ? t : t2 : (T) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, t, t2)) == null) ? t != null ? t : t2 : (T) invokeLL.objValue;
     }
 
     public static View findAncestorById(View view, @IdRes int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, view, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, view, i2)) == null) {
             String resourceName = view.getResources().getResourceName(i2);
             while (view != null) {
                 if (view.getId() != i2) {

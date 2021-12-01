@@ -2,7 +2,7 @@ package com.baidu.tbadk.baseEditMark;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.k;
+import c.a.d.f.p.k;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.db.DBTableDefine;
@@ -23,7 +23,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MarkData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2647743141824773827L;
@@ -414,10 +414,10 @@ public class MarkData implements Serializable {
         }
     }
 
-    public void setCartoonId(long j) {
+    public void setCartoonId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048614, this, j) == null) {
-            this.cartoonId = j;
+        if (interceptable == null || interceptable.invokeJ(1048614, this, j2) == null) {
+            this.cartoonId = j2;
         }
     }
 
@@ -554,10 +554,10 @@ public class MarkData implements Serializable {
         }
     }
 
-    public void setTime(long j) {
+    public void setTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048634, this, j) == null) {
-            this.mTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048634, this, j2) == null) {
+            this.mTime = j2;
         }
     }
 

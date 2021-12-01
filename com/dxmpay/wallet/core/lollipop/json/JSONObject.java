@@ -3,7 +3,6 @@ package com.dxmpay.wallet.core.lollipop.json;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class JSONObject {
     public static /* synthetic */ Interceptable $ic;
     public static final Double NEGATIVE_ZERO;
@@ -91,7 +90,7 @@ public class JSONObject {
     public static String numberToString(Number number) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, number)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, number)) == null) {
             if (number != null) {
                 double doubleValue = number.doubleValue();
                 JSON.checkDouble(doubleValue);
@@ -524,12 +523,12 @@ public class JSONObject {
         return invokeLI.intValue;
     }
 
-    public long optLong(String str, long j) {
+    public long optLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048603, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048603, this, str, j2)) == null) {
             Long l = JSON.toLong(opt(str));
-            return l != null ? l.longValue() : j;
+            return l != null ? l.longValue() : j2;
         }
         return invokeLJ.longValue;
     }
@@ -562,13 +561,13 @@ public class JSONObject {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {map};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 this();
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -592,11 +591,11 @@ public class JSONObject {
         return (JSONObject) invokeLI.objValue;
     }
 
-    public JSONObject put(String str, long j) throws JSONException {
+    public JSONObject put(String str, long j2) throws JSONException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048608, this, str, j)) == null) {
-            this.nameValuePairs.put(checkName(str), Long.valueOf(j));
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048608, this, str, j2)) == null) {
+            this.nameValuePairs.put(checkName(str), Long.valueOf(j2));
             return this;
         }
         return (JSONObject) invokeLJ.objValue;

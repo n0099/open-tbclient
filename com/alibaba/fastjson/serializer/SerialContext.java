@@ -6,7 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.tachikoma.core.utility.FileUtil;
+/* loaded from: classes7.dex */
 public class SerialContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,18 +112,18 @@ public class SerialContext {
                     for (int i3 = 0; i3 < obj2.length(); i3++) {
                         char charAt2 = obj2.charAt(i3);
                         if (charAt2 == '\\') {
-                            sb.append('\\');
-                            sb.append('\\');
-                            sb.append('\\');
+                            sb.append(FileUtil.WINDOWS_SEPARATOR);
+                            sb.append(FileUtil.WINDOWS_SEPARATOR);
+                            sb.append(FileUtil.WINDOWS_SEPARATOR);
                         } else if ((charAt2 >= '0' && charAt2 <= '9') || ((charAt2 >= 'A' && charAt2 <= 'Z') || ((charAt2 >= 'a' && charAt2 <= 'z') || charAt2 > 128))) {
                             sb.append(charAt2);
                         } else if (charAt2 == '\"') {
-                            sb.append('\\');
-                            sb.append('\\');
-                            sb.append('\\');
+                            sb.append(FileUtil.WINDOWS_SEPARATOR);
+                            sb.append(FileUtil.WINDOWS_SEPARATOR);
+                            sb.append(FileUtil.WINDOWS_SEPARATOR);
                         } else {
-                            sb.append('\\');
-                            sb.append('\\');
+                            sb.append(FileUtil.WINDOWS_SEPARATOR);
+                            sb.append(FileUtil.WINDOWS_SEPARATOR);
                         }
                         sb.append(charAt2);
                     }

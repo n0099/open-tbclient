@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardUtil f38564a;
+    public final /* synthetic */ SafeKeyBoardUtil a;
 
     public k(SafeKeyBoardUtil safeKeyBoardUtil) {
         Interceptable interceptable = $ic;
@@ -28,7 +26,7 @@ public class k implements Runnable {
                 return;
             }
         }
-        this.f38564a = safeKeyBoardUtil;
+        this.a = safeKeyBoardUtil;
     }
 
     @Override // java.lang.Runnable
@@ -36,11 +34,11 @@ public class k implements Runnable {
         SafeScrollView safeScrollView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f38564a.mPopupWindow;
+            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.a.mPopupWindow;
             if (safeKeyBoardPopupWindow != null && safeKeyBoardPopupWindow.isShowing()) {
-                safeScrollView = this.f38564a.f38539e;
+                safeScrollView = this.a.f34466e;
                 if (safeScrollView.hasWindowFocus()) {
-                    this.f38564a.b();
+                    this.a.b();
                     return;
                 }
             }

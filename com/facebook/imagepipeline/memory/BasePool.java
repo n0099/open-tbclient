@@ -5,7 +5,6 @@ import android.util.SparseArray;
 import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +26,7 @@ import java.util.Set;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BasePool<V> implements Pool<V> {
     public static /* synthetic */ Interceptable $ic;
     public static OnFailedListener mOnFailedListener;
@@ -50,7 +49,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     @VisibleForTesting
     @NotThreadSafe
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Counter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "com.facebook.imagepipeline.memory.BasePool.Counter";
@@ -103,7 +102,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class InvalidSizeException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +128,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class InvalidValueException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,12 +154,12 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnFailedListener {
         void onFailed();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class PoolSizeViolationException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,7 +185,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class SizeTooLargeException extends InvalidSizeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,7 +297,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     private synchronized void legacyInitBuckets(SparseIntArray sparseIntArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, sparseIntArray) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, sparseIntArray) == null) {
             synchronized (this) {
                 Preconditions.checkNotNull(sparseIntArray);
                 this.mBuckets.clear();
@@ -319,7 +318,7 @@ public abstract class BasePool<V> implements Pool<V> {
     @SuppressLint({"InvalidAccessToGuardedField"})
     private void logStats() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && FLog.isLoggable(2)) {
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && FLog.isLoggable(2)) {
             FLog.v(this.TAG, "Used = (%d, %d); Free = (%d, %d)", Integer.valueOf(this.mUsed.mCount), Integer.valueOf(this.mUsed.mNumBytes), Integer.valueOf(this.mFree.mCount), Integer.valueOf(this.mFree.mNumBytes));
         }
     }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BaseRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +53,7 @@ public class BaseRouter {
     public static boolean invokeScheme(Context context, Uri uri, String str, CallbackHandler callbackHandler) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, context, uri, str, callbackHandler)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, context, uri, str, callbackHandler)) == null) {
             if (context == null) {
                 context = AppRuntime.getAppContext();
             }
@@ -67,7 +66,7 @@ public class BaseRouter {
     public static boolean invokeSchemeForInner(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, uri)) == null) ? SchemeRouter.invokeSchemeForInner(context, uri) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, uri)) == null) ? SchemeRouter.invokeSchemeForInner(context, uri) : invokeLL.booleanValue;
     }
 
     @Deprecated

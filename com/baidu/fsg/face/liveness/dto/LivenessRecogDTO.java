@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LivenessRecogDTO extends SapiBiometricDto {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_FLAG_CUTIMAGE = 1;
@@ -93,11 +93,11 @@ public class LivenessRecogDTO extends SapiBiometricDto {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            SapiBiometricDto a2 = c.a().a("request_data");
-            if (a2 == null || !(a2 instanceof LivenessRecogDTO)) {
+            SapiBiometricDto a = c.a().a("request_data");
+            if (a == null || !(a instanceof LivenessRecogDTO)) {
                 return 0;
             }
-            LivenessRecogDTO livenessRecogDTO = (LivenessRecogDTO) a2;
+            LivenessRecogDTO livenessRecogDTO = (LivenessRecogDTO) a;
             if (TextUtils.isEmpty(livenessRecogDTO.imageFlag)) {
                 return 0;
             }

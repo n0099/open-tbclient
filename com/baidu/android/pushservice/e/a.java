@@ -18,34 +18,30 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile a f36131a;
+    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OkHttpClient f36132b;
+    public final OkHttpClient f32444b;
 
     /* renamed from: com.baidu.android.pushservice.e.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.android.pushservice.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C1585a implements Interceptor {
+    /* loaded from: classes8.dex */
+    public class C1662a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f36134a;
-
-        public C1585a(a aVar) {
+        public C1662a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,10 +56,10 @@ public class a {
                     return;
                 }
             }
-            this.f36134a = aVar;
+            this.a = aVar;
         }
 
-        public /* synthetic */ C1585a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1662a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
 
@@ -99,21 +95,21 @@ public class a {
                 return;
             }
         }
-        this.f36132b = new OkHttpClient.Builder().addInterceptor(new C1585a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
+        this.f32444b = new OkHttpClient.Builder().addInterceptor(new C1662a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f36131a == null) {
+            if (a == null) {
                 synchronized (a.class) {
-                    if (f36131a == null) {
-                        f36131a = new a();
+                    if (a == null) {
+                        a = new a();
                     }
                 }
             }
-            return f36131a;
+            return a;
         }
         return (a) invokeV.objValue;
     }
@@ -173,7 +169,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(hashMap));
                 }
-                Response execute = this.f36132b.newCall(headers.build()).execute();
+                Response execute = this.f32444b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {
@@ -198,7 +194,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(str3, str4));
                 }
-                Response execute = this.f36132b.newCall(headers.build()).execute();
+                Response execute = this.f32444b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {

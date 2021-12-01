@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.http;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface HttpRequestManager {
     HttpRequest getRequest(HttpRequestEntity httpRequestEntity);
 }

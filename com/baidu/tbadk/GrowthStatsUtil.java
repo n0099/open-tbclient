@@ -3,8 +3,7 @@ package com.baidu.tbadk;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.b0.a;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.q0.b0.a;
 import com.baidu.searchbox.datacollector.growth.GrowthCollectManager;
 import com.baidu.searchbox.datacollector.growth.model.ActiveData;
 import com.baidu.searchbox.datacollector.growth.model.ChannelData;
@@ -18,12 +17,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GrowthStatsUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SPLASH_SOURCE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PUSH = "push";
@@ -45,7 +44,7 @@ public class GrowthStatsUtil {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SPLASH_TYPE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLD = "cold_start";
@@ -121,7 +120,7 @@ public class GrowthStatsUtil {
     public static String getValueFromJson(String[] strArr, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, strArr, jSONObject)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, strArr, jSONObject)) == null) {
             if (strArr == null || jSONObject == null) {
                 return "";
             }
@@ -139,7 +138,7 @@ public class GrowthStatsUtil {
     public static String getValueFromSchema(String[] strArr, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, strArr, uri)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, strArr, uri)) == null) {
             if (strArr == null || uri == null) {
                 return "";
             }

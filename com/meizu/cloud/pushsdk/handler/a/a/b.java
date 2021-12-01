@@ -14,12 +14,10 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes2.dex */
 public class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    public File f68511a;
+    public File a;
 
     public b(String str) {
-        this.f68511a = new File(str);
+        this.a = new File(str);
     }
 
     private void a(File file, ZipOutputStream zipOutputStream, String str) throws Exception {
@@ -34,7 +32,7 @@ public class b {
             }
             return;
         }
-        b.j.a.a.a.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
+        c.k.a.a.a.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
         if (file.length() >= 10485760) {
             return;
         }
@@ -62,8 +60,8 @@ public class b {
     }
 
     public boolean a(List<String> list) throws Exception {
-        if (!this.f68511a.exists()) {
-            this.f68511a.getParentFile().mkdirs();
+        if (!this.a.exists()) {
+            this.a.getParentFile().mkdirs();
         }
         ArrayList arrayList = new ArrayList();
         String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -74,7 +72,7 @@ public class b {
                 arrayList.add(file);
             }
         }
-        a(arrayList, this.f68511a);
+        a(arrayList, this.a);
         return true;
     }
 }

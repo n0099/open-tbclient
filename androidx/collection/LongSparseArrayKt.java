@@ -2,7 +2,6 @@ package androidx.collection;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,10 +20,10 @@ public final class LongSparseArrayKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T> boolean contains(LongSparseArray<T> longSparseArray, long j) {
+    public static final <T> boolean contains(LongSparseArray<T> longSparseArray, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65536, null, longSparseArray, j)) == null) ? longSparseArray.containsKey(j) : invokeLJ.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65536, null, longSparseArray, j2)) == null) ? longSparseArray.containsKey(j2) : invokeLJ.booleanValue;
     }
 
     public static final <T> void forEach(LongSparseArray<T> longSparseArray, Function2<? super Long, ? super T, Unit> function2) {
@@ -37,17 +36,17 @@ public final class LongSparseArrayKt {
         }
     }
 
-    public static final <T> T getOrDefault(LongSparseArray<T> longSparseArray, long j, T t) {
+    public static final <T> T getOrDefault(LongSparseArray<T> longSparseArray, long j2, T t) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{longSparseArray, Long.valueOf(j), t})) == null) ? longSparseArray.get(j, t) : (T) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{longSparseArray, Long.valueOf(j2), t})) == null) ? longSparseArray.get(j2, t) : (T) invokeCommon.objValue;
     }
 
-    public static final <T> T getOrElse(LongSparseArray<T> longSparseArray, long j, Function0<? extends T> function0) {
+    public static final <T> T getOrElse(LongSparseArray<T> longSparseArray, long j2, Function0<? extends T> function0) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{longSparseArray, Long.valueOf(j), function0})) == null) {
-            T t = longSparseArray.get(j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{longSparseArray, Long.valueOf(j2), function0})) == null) {
+            T t = longSparseArray.get(j2);
             return t != null ? t : function0.invoke();
         }
         return (T) invokeCommon.objValue;
@@ -62,13 +61,13 @@ public final class LongSparseArrayKt {
     public static final <T> boolean isNotEmpty(LongSparseArray<T> longSparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, longSparseArray)) == null) ? !longSparseArray.isEmpty() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, longSparseArray)) == null) ? !longSparseArray.isEmpty() : invokeL.booleanValue;
     }
 
     public static final <T> LongIterator keyIterator(final LongSparseArray<T> longSparseArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, longSparseArray)) == null) ? new LongIterator(longSparseArray) { // from class: androidx.collection.LongSparseArrayKt$keyIterator$1
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, longSparseArray)) == null) ? new LongIterator(longSparseArray) { // from class: androidx.collection.LongSparseArrayKt$keyIterator$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LongSparseArray $this_keyIterator;
@@ -140,16 +139,16 @@ public final class LongSparseArrayKt {
     }
 
     @Deprecated(message = "Replaced with member function. Remove extension import!")
-    public static final <T> boolean remove(LongSparseArray<T> longSparseArray, long j, T t) {
+    public static final <T> boolean remove(LongSparseArray<T> longSparseArray, long j2, T t) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{longSparseArray, Long.valueOf(j), t})) == null) ? longSparseArray.remove(j, t) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{longSparseArray, Long.valueOf(j2), t})) == null) ? longSparseArray.remove(j2, t) : invokeCommon.booleanValue;
     }
 
-    public static final <T> void set(LongSparseArray<T> longSparseArray, long j, T t) {
+    public static final <T> void set(LongSparseArray<T> longSparseArray, long j2, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{longSparseArray, Long.valueOf(j), t}) == null) {
-            longSparseArray.put(j, t);
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{longSparseArray, Long.valueOf(j2), t}) == null) {
+            longSparseArray.put(j2, t);
         }
     }
 

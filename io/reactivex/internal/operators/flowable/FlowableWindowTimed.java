@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T, Flowable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
     public final long timespan;
     public final TimeUnit unit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WindowExactBoundedSubscriber<T> extends QueueDrainSubscriber<T, Object, Flowable<T>> implements Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,19 +59,19 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         public UnicastProcessor<T> window;
         public final Scheduler.Worker worker;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class ConsumerIndexHolder implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final long index;
             public final WindowExactBoundedSubscriber<?> parent;
 
-            public ConsumerIndexHolder(long j, WindowExactBoundedSubscriber<?> windowExactBoundedSubscriber) {
+            public ConsumerIndexHolder(long j2, WindowExactBoundedSubscriber<?> windowExactBoundedSubscriber) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Long.valueOf(j), windowExactBoundedSubscriber};
+                    Object[] objArr = {Long.valueOf(j2), windowExactBoundedSubscriber};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -81,7 +81,7 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                         return;
                     }
                 }
-                this.index = j;
+                this.index = j2;
                 this.parent = windowExactBoundedSubscriber;
             }
 
@@ -104,13 +104,13 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactBoundedSubscriber(Subscriber<? super Flowable<T>> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler, int i2, long j2, boolean z) {
+        public WindowExactBoundedSubscriber(Subscriber<? super Flowable<T>> subscriber, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, long j3, boolean z) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)};
+                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2), Long.valueOf(j3), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -123,11 +123,11 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                 }
             }
             this.timer = new SequentialDisposable();
-            this.timespan = j;
+            this.timespan = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
             this.bufferSize = i2;
-            this.maxSize = j2;
+            this.maxSize = j3;
             this.restartTimerOnMaxSize = z;
             if (z) {
                 this.worker = scheduler.createWorker();
@@ -209,8 +209,8 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                             }
                         } else {
                             unicastProcessor.onNext(NotificationLite.getValue(poll));
-                            long j = this.count + 1;
-                            if (j >= this.maxSize) {
+                            long j2 = this.count + 1;
+                            if (j2 >= this.maxSize) {
                                 this.producerIndex++;
                                 this.count = 0L;
                                 unicastProcessor.onComplete();
@@ -226,8 +226,8 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                                         this.timer.get().dispose();
                                         Scheduler.Worker worker = this.worker;
                                         ConsumerIndexHolder consumerIndexHolder2 = new ConsumerIndexHolder(this.producerIndex, this);
-                                        long j2 = this.timespan;
-                                        this.timer.replace(worker.schedulePeriodically(consumerIndexHolder2, j2, j2, this.unit));
+                                        long j3 = this.timespan;
+                                        this.timer.replace(worker.schedulePeriodically(consumerIndexHolder2, j3, j3, this.unit));
                                     }
                                     unicastProcessor = create;
                                 } else {
@@ -238,7 +238,7 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                                     return;
                                 }
                             } else {
-                                this.count = j;
+                                this.count = j2;
                             }
                         }
                         i2 = i3;
@@ -286,8 +286,8 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
             if (fastEnter()) {
                 UnicastProcessor<T> unicastProcessor = this.window;
                 unicastProcessor.onNext(t);
-                long j = this.count + 1;
-                if (j >= this.maxSize) {
+                long j2 = this.count + 1;
+                if (j2 >= this.maxSize) {
                     this.producerIndex++;
                     this.count = 0L;
                     unicastProcessor.onComplete();
@@ -303,8 +303,8 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                             this.timer.get().dispose();
                             Scheduler.Worker worker = this.worker;
                             ConsumerIndexHolder consumerIndexHolder = new ConsumerIndexHolder(this.producerIndex, this);
-                            long j2 = this.timespan;
-                            this.timer.replace(worker.schedulePeriodically(consumerIndexHolder, j2, j2, this.unit));
+                            long j3 = this.timespan;
+                            this.timer.replace(worker.schedulePeriodically(consumerIndexHolder, j3, j3, this.unit));
                         }
                     } else {
                         this.window = null;
@@ -314,7 +314,7 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                         return;
                     }
                 } else {
-                    this.count = j;
+                    this.count = j2;
                 }
                 if (leave(-1) == 0) {
                     return;
@@ -350,12 +350,12 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                     ConsumerIndexHolder consumerIndexHolder = new ConsumerIndexHolder(this.producerIndex, this);
                     if (this.restartTimerOnMaxSize) {
                         Scheduler.Worker worker = this.worker;
-                        long j = this.timespan;
-                        schedulePeriodicallyDirect = worker.schedulePeriodically(consumerIndexHolder, j, j, this.unit);
+                        long j2 = this.timespan;
+                        schedulePeriodicallyDirect = worker.schedulePeriodically(consumerIndexHolder, j2, j2, this.unit);
                     } else {
                         Scheduler scheduler = this.scheduler;
-                        long j2 = this.timespan;
-                        schedulePeriodicallyDirect = scheduler.schedulePeriodicallyDirect(consumerIndexHolder, j2, j2, this.unit);
+                        long j3 = this.timespan;
+                        schedulePeriodicallyDirect = scheduler.schedulePeriodicallyDirect(consumerIndexHolder, j3, j3, this.unit);
                     }
                     if (this.timer.replace(schedulePeriodicallyDirect)) {
                         subscription.request(Long.MAX_VALUE);
@@ -370,15 +370,15 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-                requested(j);
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+                requested(j2);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WindowExactUnboundedSubscriber<T> extends QueueDrainSubscriber<T, Object, Flowable<T>> implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public static final Object NEXT;
@@ -409,13 +409,13 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactUnboundedSubscriber(Subscriber<? super Flowable<T>> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+        public WindowExactUnboundedSubscriber(Subscriber<? super Flowable<T>> subscriber, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -428,7 +428,7 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                 }
             }
             this.timer = new SequentialDisposable();
-            this.timespan = j;
+            this.timespan = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
             this.bufferSize = i2;
@@ -589,8 +589,8 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                     }
                     SequentialDisposable sequentialDisposable = this.timer;
                     Scheduler scheduler = this.scheduler;
-                    long j = this.timespan;
-                    if (sequentialDisposable.replace(scheduler.schedulePeriodicallyDirect(this, j, j, this.unit))) {
+                    long j2 = this.timespan;
+                    if (sequentialDisposable.replace(scheduler.schedulePeriodicallyDirect(this, j2, j2, this.unit))) {
                         subscription.request(Long.MAX_VALUE);
                         return;
                     }
@@ -603,10 +603,10 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-                requested(j);
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+                requested(j2);
             }
         }
 
@@ -626,7 +626,7 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WindowSkipSubscriber<T> extends QueueDrainSubscriber<T, Object, Flowable<T>> implements Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -639,7 +639,7 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         public final List<UnicastProcessor<T>> windows;
         public final Scheduler.Worker worker;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public final class Completion implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -674,7 +674,7 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class SubjectWork<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -702,13 +702,13 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowSkipSubscriber(Subscriber<? super Flowable<T>> subscriber, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker, int i2) {
+        public WindowSkipSubscriber(Subscriber<? super Flowable<T>> subscriber, long j2, long j3, TimeUnit timeUnit, Scheduler.Worker worker, int i2) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j), Long.valueOf(j2), timeUnit, worker, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, Long.valueOf(j2), Long.valueOf(j3), timeUnit, worker, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -720,8 +720,8 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                     return;
                 }
             }
-            this.timespan = j;
-            this.timeskip = j2;
+            this.timespan = j2;
+            this.timeskip = j3;
             this.unit = timeUnit;
             this.worker = worker;
             this.bufferSize = i2;
@@ -889,8 +889,8 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                     }
                     this.worker.schedule(new Completion(this, create), this.timespan, this.unit);
                     Scheduler.Worker worker = this.worker;
-                    long j = this.timeskip;
-                    worker.schedulePeriodically(this, j, j, this.unit);
+                    long j2 = this.timeskip;
+                    worker.schedulePeriodically(this, j2, j2, this.unit);
                     subscription.request(Long.MAX_VALUE);
                     return;
                 }
@@ -900,10 +900,10 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-                requested(j);
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+                requested(j2);
             }
         }
 
@@ -923,13 +923,13 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWindowTimed(Flowable<T> flowable, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, int i2, boolean z) {
+    public FlowableWindowTimed(Flowable<T> flowable, long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, long j4, int i2, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {flowable, Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {flowable, Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler, Long.valueOf(j4), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -940,11 +940,11 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
                 return;
             }
         }
-        this.timespan = j;
-        this.timeskip = j2;
+        this.timespan = j2;
+        this.timeskip = j3;
         this.unit = timeUnit;
         this.scheduler = scheduler;
-        this.maxSize = j3;
+        this.maxSize = j4;
         this.bufferSize = i2;
         this.restartTimerOnMaxSize = z;
     }
@@ -954,19 +954,19 @@ public final class FlowableWindowTimed<T> extends AbstractFlowableWithUpstream<T
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
             SerializedSubscriber serializedSubscriber = new SerializedSubscriber(subscriber);
-            long j = this.timespan;
-            long j2 = this.timeskip;
-            if (j == j2) {
-                long j3 = this.maxSize;
-                if (j3 == Long.MAX_VALUE) {
+            long j2 = this.timespan;
+            long j3 = this.timeskip;
+            if (j2 == j3) {
+                long j4 = this.maxSize;
+                if (j4 == Long.MAX_VALUE) {
                     this.source.subscribe((FlowableSubscriber) new WindowExactUnboundedSubscriber(serializedSubscriber, this.timespan, this.unit, this.scheduler, this.bufferSize));
                     return;
                 } else {
-                    this.source.subscribe((FlowableSubscriber) new WindowExactBoundedSubscriber(serializedSubscriber, j, this.unit, this.scheduler, this.bufferSize, j3, this.restartTimerOnMaxSize));
+                    this.source.subscribe((FlowableSubscriber) new WindowExactBoundedSubscriber(serializedSubscriber, j2, this.unit, this.scheduler, this.bufferSize, j4, this.restartTimerOnMaxSize));
                     return;
                 }
             }
-            this.source.subscribe((FlowableSubscriber) new WindowSkipSubscriber(serializedSubscriber, j, j2, this.unit, this.scheduler.createWorker(), this.bufferSize));
+            this.source.subscribe((FlowableSubscriber) new WindowSkipSubscriber(serializedSubscriber, j2, j3, this.unit, this.scheduler.createWorker(), this.bufferSize));
         }
     }
 }

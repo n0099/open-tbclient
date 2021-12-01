@@ -12,7 +12,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MessageMonitorImpl implements MessageMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROCESS_ID_KEY = "hiido_process_id";
@@ -22,7 +22,7 @@ public class MessageMonitorImpl implements MessageMonitor {
     public final ConcurrentHashMap<String, MessageParams> msgParams;
     public int processId;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MessageParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

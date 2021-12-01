@@ -15,7 +15,7 @@ import io.reactivex.internal.util.EndConsumerHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Disposable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,10 +83,10 @@ public abstract class ResourceSubscriber<T> implements FlowableSubscriber<T>, Di
         }
     }
 
-    public final void request(long j) {
+    public final void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            SubscriptionHelper.deferredRequest(this.s, this.missedRequested, j);
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            SubscriptionHelper.deferredRequest(this.s, this.missedRequested, j2);
         }
     }
 }

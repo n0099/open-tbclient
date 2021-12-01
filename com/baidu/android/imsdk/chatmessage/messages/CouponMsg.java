@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CouponMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CouponMsg> CREATOR;
@@ -185,10 +185,10 @@ public class CouponMsg extends NormalMsg {
         return invokeV.booleanValue;
     }
 
-    public void setAppid(long j) {
+    public void setAppid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.mAppid = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.mAppid = j2;
         }
     }
 

@@ -6,7 +6,6 @@ import android.media.audiofx.NoiseSuppressor;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.button.StyleHelper;
 import java.util.UUID;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
@@ -107,7 +107,7 @@ public class WebRtcAudioEffects {
     public static boolean isAcousticEchoCancelerSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (Build.VERSION.SDK_INT < 18) {
                 return false;
             }
@@ -119,7 +119,7 @@ public class WebRtcAudioEffects {
     public static boolean isEffectTypeAvailable(UUID uuid, UUID uuid2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, uuid, uuid2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, uuid, uuid2)) == null) {
             AudioEffect.Descriptor[] availableEffects = getAvailableEffects();
             if (availableEffects == null) {
                 return false;
@@ -166,11 +166,11 @@ public class WebRtcAudioEffects {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append("AcousticEchoCanceler: was ");
-                    sb.append(enabled ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
+                    sb.append(enabled ? SapiOptions.KEY_CACHE_ENABLED : StyleHelper.KEY_ONDISABLE);
                     sb.append(", enable: ");
                     sb.append(z2);
                     sb.append(", is now: ");
-                    sb.append(this.aec.getEnabled() ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
+                    sb.append(this.aec.getEnabled() ? SapiOptions.KEY_CACHE_ENABLED : StyleHelper.KEY_ONDISABLE);
                     Logging.d(TAG, sb.toString());
                 } else {
                     Logging.e(TAG, "Failed to create the AcousticEchoCanceler instance");
@@ -187,12 +187,12 @@ public class WebRtcAudioEffects {
                     }
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("NoiseSuppressor: was ");
-                    sb2.append(enabled2 ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
+                    sb2.append(enabled2 ? SapiOptions.KEY_CACHE_ENABLED : StyleHelper.KEY_ONDISABLE);
                     sb2.append(", enable: ");
                     sb2.append(z);
                     sb2.append(", is now: ");
                     if (!this.ns.getEnabled()) {
-                        str = "disabled";
+                        str = StyleHelper.KEY_ONDISABLE;
                     }
                     sb2.append(str);
                     Logging.d(TAG, sb2.toString());

@@ -25,10 +25,10 @@ public class c implements com.ss.android.socialbase.downloader.downloader.h {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.h
-    public int a(long j) {
+    public int a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
             return 1;
         }
         return invokeJ.intValue;

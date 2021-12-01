@@ -2,16 +2,15 @@ package com.baidu.ugc.editvideo.record.transition;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.j.b;
+import c.a.x0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VideoFollowData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUDIO_TYPE_FOLLOW = 0;
@@ -87,7 +86,7 @@ public class VideoFollowData implements Serializable {
     public static VideoFollowData parse(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -103,7 +102,7 @@ public class VideoFollowData implements Serializable {
     public static String toJson(VideoFollowData videoFollowData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, videoFollowData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, videoFollowData)) == null) {
             if (videoFollowData == null) {
                 return null;
             }

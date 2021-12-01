@@ -3,60 +3,29 @@ package com.kwad.sdk.core.webview.jshandler;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.KsAdSDKImpl;
-import com.kwad.sdk.utils.ap;
-import com.kwad.sdk.utils.av;
-import com.kwad.sdk.utils.z;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class d implements com.kwad.sdk.core.webview.a.a {
+public class d implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final com.kwad.sdk.core.webview.a a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f57993b;
 
     /* loaded from: classes2.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f66204a;
+        public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f66205b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f66206c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f66207d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f66208e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f66209f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public String f66210g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public String f66211h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public int f66212i;
-        public int j;
-        public String k;
-        public String l;
-        public String m;
-        public String n;
-        public int o;
-        public int p;
+        public int f57994b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -72,32 +41,6 @@ public class d implements com.kwad.sdk.core.webview.a.a {
             }
         }
 
-        public static a a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                a aVar = new a();
-                aVar.f66204a = ap.p(KsAdSDKImpl.get().getContext());
-                aVar.f66205b = "";
-                aVar.f66206c = String.valueOf(z.c(KsAdSDKImpl.get().getContext()));
-                aVar.f66207d = ap.g();
-                aVar.f66208e = ap.e();
-                aVar.f66209f = ap.j();
-                aVar.f66210g = ap.d();
-                aVar.f66211h = ap.n();
-                aVar.f66212i = av.c(KsAdSDKImpl.get().getContext());
-                aVar.j = av.b(KsAdSDKImpl.get().getContext());
-                aVar.k = ap.d(KsAdSDKImpl.get().getContext());
-                aVar.l = com.kwad.sdk.core.f.a.a();
-                aVar.m = ap.m(KsAdSDKImpl.get().getContext());
-                aVar.n = ap.o(KsAdSDKImpl.get().getContext());
-                aVar.o = av.a(KsAdSDKImpl.get().getContext());
-                aVar.p = av.a(KsAdSDKImpl.get().getContext(), 50.0f);
-                return aVar;
-            }
-            return (a) invokeV.objValue;
-        }
-
         @Override // com.kwad.sdk.core.b
         public void parseJson(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -111,62 +54,72 @@ public class d implements com.kwad.sdk.core.webview.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, "appVersion", this.f66204a);
-                com.kwad.sdk.utils.q.a(jSONObject, "globalId", this.f66205b);
-                com.kwad.sdk.utils.q.a(jSONObject, "networkType", this.f66206c);
-                com.kwad.sdk.utils.q.a(jSONObject, HttpConstants.HTTP_MANUFACTURER, this.f66207d);
-                com.kwad.sdk.utils.q.a(jSONObject, "model", this.f66208e);
-                com.kwad.sdk.utils.q.a(jSONObject, "systemVersion", this.f66209f);
-                com.kwad.sdk.utils.q.a(jSONObject, "locale", this.f66210g);
-                com.kwad.sdk.utils.q.a(jSONObject, "uuid", this.f66211h);
-                com.kwad.sdk.utils.q.a(jSONObject, "screenWidth", this.f66212i);
-                com.kwad.sdk.utils.q.a(jSONObject, "screenHeight", this.j);
-                com.kwad.sdk.utils.q.a(jSONObject, "imei", this.k);
-                com.kwad.sdk.utils.q.a(jSONObject, "oaid", this.l);
-                com.kwad.sdk.utils.q.a(jSONObject, "androidId", this.m);
-                com.kwad.sdk.utils.q.a(jSONObject, "mac", this.n);
-                com.kwad.sdk.utils.q.a(jSONObject, "statusBarHeight", this.o);
-                com.kwad.sdk.utils.q.a(jSONObject, "titleBarHeight", this.p);
+                com.kwad.sdk.utils.t.a(jSONObject, "width", this.a);
+                com.kwad.sdk.utils.t.a(jSONObject, "height", this.f57994b);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
         }
     }
 
-    public d() {
+    /* loaded from: classes2.dex */
+    public interface b {
+        void a(a aVar);
+    }
+
+    public d(com.kwad.sdk.core.webview.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = aVar;
     }
 
-    @Override // com.kwad.sdk.core.webview.a.a
+    @Override // com.kwad.sdk.core.webview.kwai.a
     @NonNull
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "getDeviceInfo" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "getContainerLimit" : (String) invokeV.objValue;
     }
 
-    @Override // com.kwad.sdk.core.webview.a.a
-    public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
+    public void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            cVar.a(a.a());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.f57993b = bVar;
         }
     }
 
-    @Override // com.kwad.sdk.core.webview.a.a
+    @Override // com.kwad.sdk.core.webview.kwai.a
+    public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
+            a aVar = new a();
+            b bVar = this.f57993b;
+            if (bVar != null) {
+                bVar.a(aVar);
+            } else {
+                aVar.a = this.a.f57957d.getWidth();
+                aVar.f57994b = this.a.f57957d.getHeight();
+            }
+            cVar.a(aVar);
+        }
+    }
+
+    @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 }

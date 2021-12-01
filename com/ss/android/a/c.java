@@ -1,7 +1,6 @@
 package com.ss.android.a;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,9 +14,7 @@ import java.security.MessageDigest;
 /* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char[] f69221a;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.ss.android.a.c$1  reason: invalid class name */
@@ -31,21 +28,19 @@ public class c {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f69222a;
+        public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f69223b;
+        public int f61047b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f69224c;
+        public int f61048c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f69225d;
+        public long f61049d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f69226e;
+        public String f61050e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -79,7 +74,7 @@ public class c {
                 return;
             }
         }
-        f69221a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static String a(File file) {
@@ -88,20 +83,20 @@ public class c {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) ? a(file, 9, 8192L) : (String) invokeL.objValue;
     }
 
-    public static String b(File file, int i2, long j) throws Exception {
+    public static String b(File file, int i2, long j2) throws Exception {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{file, Integer.valueOf(i2), Long.valueOf(j)})) == null) ? a(new com.ss.android.a.a(file), i2, j) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{file, Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? a(new com.ss.android.a.a(file), i2, j2) : (String) invokeCommon.objValue;
     }
 
-    public static String a(File file, int i2, long j) {
+    public static String a(File file, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{file, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{file, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             if (file != null) {
                 try {
                     if (file.exists()) {
-                        return b(file, i2, j);
+                        return b(file, i2, j2);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -146,30 +141,30 @@ public class c {
                     return 5;
                 }
                 int i2 = -1;
-                long j = -1;
+                long j2 = -1;
                 try {
                     a a2 = a(str);
                     if (a2 != null) {
-                        if (a2.f69222a > 1) {
+                        if (a2.a > 1) {
                             return 3;
                         }
-                        i2 = a2.f69224c;
-                        j = a2.f69225d;
+                        i2 = a2.f61048c;
+                        j2 = a2.f61049d;
                     }
                     a aVar = null;
                     if (bVar != null) {
-                        b2 = a(bVar, i2, j);
+                        b2 = a(bVar, i2, j2);
                     } else {
-                        b2 = b(file, i2, j);
+                        b2 = b(file, i2, j2);
                     }
                     if (b2 != null && b2.length() != 0) {
-                        if (a2 != null && (a2.f69222a != 1 || a2.f69223b != 1)) {
-                            if (a2.f69226e != null) {
+                        if (a2 != null && (a2.a != 1 || a2.f61047b != 1)) {
+                            if (a2.f61050e != null) {
                                 try {
                                     aVar = a(b2);
                                 } catch (Throwable unused2) {
                                 }
-                                if (aVar != null && a2.f69224c == aVar.f69224c && a2.f69225d == aVar.f69225d && a2.f69226e.equals(aVar.f69226e)) {
+                                if (aVar != null && a2.f61048c == aVar.f61048c && a2.f61049d == aVar.f61049d && a2.f61050e.equals(aVar.f61050e)) {
                                     return 0;
                                 }
                             }
@@ -194,12 +189,12 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String a(b bVar, int i2, long j) throws Exception {
+    public static String a(b bVar, int i2, long j2) throws Exception {
         InterceptResult invokeCommon;
-        long j2;
+        long j3;
         String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{bVar, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bVar, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             int i3 = i2;
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             if (messageDigest == null) {
@@ -207,38 +202,38 @@ public class c {
             }
             try {
                 long a3 = bVar.a();
-                if (i3 > 0 && j > 0 && i3 * j <= (8 * a3) / 10) {
-                    j2 = j;
+                if (i3 > 0 && j2 > 0 && i3 * j2 <= (8 * a3) / 10) {
+                    j3 = j2;
                     byte[] bArr = new byte[8192];
-                    long j3 = 0;
-                    a(bVar, messageDigest, bArr, 0L, j2);
+                    long j4 = 0;
+                    a(bVar, messageDigest, bArr, 0L, j3);
                     if (i3 > 2) {
                         int i4 = i3 - 1;
-                        long j4 = (a3 - (i3 * j2)) / i4;
+                        long j5 = (a3 - (i3 * j3)) / i4;
                         int i5 = 1;
                         while (i5 < i4) {
-                            j3 += j2 + j4;
-                            a(bVar, messageDigest, bArr, j3, j2);
+                            j4 += j3 + j5;
+                            a(bVar, messageDigest, bArr, j4, j3);
                             i5++;
                             i4 = i4;
                         }
                     }
                     if (i3 > 1) {
-                        a(bVar, messageDigest, bArr, a3 - j2, j2);
+                        a(bVar, messageDigest, bArr, a3 - j3, j3);
                     }
                     a2 = a(messageDigest.digest());
-                    if (i3 == 1 || j2 != a3) {
-                        String str = a(i3, j2) + ";" + a2;
+                    if (i3 == 1 || j3 != a3) {
+                        String str = a(i3, j3) + ";" + a2;
                         bVar.b();
                         return str;
                     }
                     return a2;
                 }
-                j2 = a3;
+                j3 = a3;
                 i3 = 1;
                 byte[] bArr2 = new byte[8192];
-                long j32 = 0;
-                a(bVar, messageDigest, bArr2, 0L, j2);
+                long j42 = 0;
+                a(bVar, messageDigest, bArr2, 0L, j3);
                 if (i3 > 2) {
                 }
                 if (i3 > 1) {
@@ -246,7 +241,7 @@ public class c {
                 a2 = a(messageDigest.digest());
                 if (i3 == 1) {
                 }
-                String str2 = a(i3, j2) + ";" + a2;
+                String str2 = a(i3, j3) + ";" + a2;
                 bVar.b();
                 return str2;
             } finally {
@@ -259,18 +254,18 @@ public class c {
         return (String) invokeCommon.objValue;
     }
 
-    public static void a(b bVar, MessageDigest messageDigest, byte[] bArr, long j, long j2) throws IOException {
+    public static void a(b bVar, MessageDigest messageDigest, byte[] bArr, long j2, long j3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{bVar, messageDigest, bArr, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            bVar.a(j, j2);
-            long j3 = 0;
-            while (j3 < j2) {
-                int a2 = bVar.a(bArr, 0, (int) Math.min(j2 - j3, bArr.length));
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{bVar, messageDigest, bArr, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            bVar.a(j2, j3);
+            long j4 = 0;
+            while (j4 < j3) {
+                int a2 = bVar.a(bArr, 0, (int) Math.min(j3 - j4, bArr.length));
                 if (a2 > 0) {
                     messageDigest.update(bArr, 0, a2);
-                    j3 += a2;
+                    j4 += a2;
                 } else {
-                    throw new IOException("updateSample unexpected readCount <= 0, readCount = " + a2 + ", readTotalCount = " + j3 + ", sampleSize = " + j2);
+                    throw new IOException("updateSample unexpected readCount <= 0, readCount = " + a2 + ", readTotalCount = " + j4 + ", sampleSize = " + j3);
                 }
             }
         }
@@ -288,7 +283,7 @@ public class c {
                 for (int i4 = 0; i4 < length; i4++) {
                     int i5 = bArr[i4 + 0] & 255;
                     int i6 = i3 + 1;
-                    char[] cArr2 = f69221a;
+                    char[] cArr2 = a;
                     cArr[i3] = cArr2[i5 >> 4];
                     i3 = i6 + 1;
                     cArr[i6] = cArr2[i5 & 15];
@@ -300,11 +295,11 @@ public class c {
         return (String) invokeL.objValue;
     }
 
-    public static String a(int i2, long j) {
+    public static String a(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            return "ttmd5:1:1:" + a(i2) + "g" + a(j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+            return "ttmd5:1:1:" + a(i2) + "g" + a(j2);
         }
         return (String) invokeCommon.objValue;
     }
@@ -317,15 +312,15 @@ public class c {
                 String[] split = str.split(";");
                 String[] split2 = split[0].split(":");
                 a aVar = new a(null);
-                aVar.f69222a = Integer.parseInt(split2[1]);
-                if (aVar.f69222a > 1) {
+                aVar.a = Integer.parseInt(split2[1]);
+                if (aVar.a > 1) {
                     return aVar;
                 }
-                aVar.f69223b = Integer.parseInt(split2[2]);
+                aVar.f61047b = Integer.parseInt(split2[2]);
                 String[] split3 = split2[3].split("g");
-                aVar.f69224c = (int) b(split3[0]);
-                aVar.f69225d = b(split3[1]);
-                aVar.f69226e = split[1];
+                aVar.f61048c = (int) b(split3[0]);
+                aVar.f61049d = b(split3[1]);
+                aVar.f61050e = split[1];
                 return aVar;
             }
             return null;
@@ -333,9 +328,9 @@ public class c {
         return (a) invokeL.objValue;
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j)) == null) ? Long.toHexString((j << 4) + 31) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j2)) == null) ? Long.toHexString((j2 << 4) + 31) : (String) invokeJ.objValue;
     }
 }

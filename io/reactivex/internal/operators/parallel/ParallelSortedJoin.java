@@ -20,14 +20,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ParallelSortedJoin<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Comparator<? super T> comparator;
     public final ParallelFlowable<List<T>> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SortedJoinInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<List<T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6751017204873808094L;
@@ -97,7 +97,7 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SortedJoinSubscription<T> extends AtomicInteger implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3481980673745556697L;
@@ -257,10 +257,10 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
             int length = iArr.length;
             int i3 = 1;
             while (true) {
-                long j = this.requested.get();
-                long j2 = 0;
+                long j2 = this.requested.get();
+                long j3 = 0;
                 while (true) {
-                    int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    int i4 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                     if (i4 == 0) {
                         break;
                     } else if (this.cancelled) {
@@ -309,7 +309,7 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
                         }
                         subscriber.onNext(t);
                         iArr[i5] = iArr[i5] + 1;
-                        j2++;
+                        j3++;
                     }
                 }
                 i3 = i2;
@@ -338,10 +338,10 @@ public final class ParallelSortedJoin<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 if (this.remaining.get() == 0) {
                     drain();
                 }

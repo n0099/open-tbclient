@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,7 @@ import java.io.StringWriter;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PlatformViewsChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PlatformViewsChannel";
@@ -29,7 +28,7 @@ public class PlatformViewsChannel {
     public PlatformViewsHandler handler;
     public final MethodChannel.MethodCallHandler parsingHandler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PlatformViewCreationRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +65,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PlatformViewResizeRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +94,7 @@ public class PlatformViewsChannel {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PlatformViewTouch {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,6 +108,7 @@ public class PlatformViewsChannel {
         public final Number eventTime;
         public final int flags;
         public final int metaState;
+        public final long motionEventId;
         public final int pointerCount;
         @NonNull
         public final Object rawPointerCoords;
@@ -119,12 +119,12 @@ public class PlatformViewsChannel {
         public final float xPrecision;
         public final float yPrecision;
 
-        public PlatformViewTouch(int i2, @NonNull Number number, @NonNull Number number2, int i3, int i4, @NonNull Object obj, @NonNull Object obj2, int i5, int i6, float f2, float f3, int i7, int i8, int i9, int i10) {
+        public PlatformViewTouch(int i2, @NonNull Number number, @NonNull Number number2, int i3, int i4, @NonNull Object obj, @NonNull Object obj2, int i5, int i6, float f2, float f3, int i7, int i8, int i9, int i10, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r3;
-                Object[] objArr = {Integer.valueOf(i2), number, number2, Integer.valueOf(i3), Integer.valueOf(i4), obj, obj2, Integer.valueOf(i5), Integer.valueOf(i6), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)};
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2), number, number2, Integer.valueOf(i3), Integer.valueOf(i4), obj, obj2, Integer.valueOf(i5), Integer.valueOf(i6), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i11 = newInitContext.flag;
                 if ((i11 & 1) != 0) {
@@ -149,22 +149,29 @@ public class PlatformViewsChannel {
             this.edgeFlags = i8;
             this.source = i9;
             this.flags = i10;
+            this.motionEventId = j2;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PlatformViewsHandler {
         void clearFocus(int i2);
 
-        long createPlatformView(@NonNull PlatformViewCreationRequest platformViewCreationRequest);
+        void createAndroidViewForPlatformView(@NonNull PlatformViewCreationRequest platformViewCreationRequest);
 
-        void disposePlatformView(int i2);
+        long createVirtualDisplayForPlatformView(@NonNull PlatformViewCreationRequest platformViewCreationRequest);
+
+        void disposeAndroidViewForPlatformView(int i2);
+
+        void disposeVirtualDisplayForPlatformView(int i2);
 
         void onTouch(@NonNull PlatformViewTouch platformViewTouch);
 
         void resizePlatformView(@NonNull PlatformViewResizeRequest platformViewResizeRequest, @NonNull Runnable runnable);
 
         void setDirection(int i2, int i3);
+
+        void synchronizeToNativeViewHierarchy(boolean z);
     }
 
     public PlatformViewsChannel(@NonNull DartExecutor dartExecutor) {
@@ -221,8 +228,15 @@ public class PlatformViewsChannel {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(65538, this, methodCall, result) == null) {
                     Map map = (Map) methodCall.arguments();
+                    boolean z = map.containsKey("hybrid") && ((Boolean) map.get("hybrid")).booleanValue();
+                    PlatformViewCreationRequest platformViewCreationRequest = new PlatformViewCreationRequest(((Integer) map.get("id")).intValue(), (String) map.get("viewType"), z ? 0.0d : ((Double) map.get("width")).doubleValue(), z ? 0.0d : ((Double) map.get("height")).doubleValue(), ((Integer) map.get("direction")).intValue(), map.containsKey("params") ? ByteBuffer.wrap((byte[]) map.get("params")) : null);
                     try {
-                        result.success(Long.valueOf(this.this$0.handler.createPlatformView(new PlatformViewCreationRequest(((Integer) map.get("id")).intValue(), (String) map.get("viewType"), ((Double) map.get("width")).doubleValue(), ((Double) map.get("height")).doubleValue(), ((Integer) map.get("direction")).intValue(), map.containsKey("params") ? ByteBuffer.wrap((byte[]) map.get("params")) : null))));
+                        if (z) {
+                            this.this$0.handler.createAndroidViewForPlatformView(platformViewCreationRequest);
+                            result.success(null);
+                        } else {
+                            result.success(Long.valueOf(this.this$0.handler.createVirtualDisplayForPlatformView(platformViewCreationRequest)));
+                        }
                     } catch (IllegalStateException e2) {
                         result.error("error", PlatformViewsChannel.detailedExceptionString(e2), null);
                     }
@@ -232,8 +246,14 @@ public class PlatformViewsChannel {
             private void dispose(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(65539, this, methodCall, result) == null) {
+                    Map map = (Map) methodCall.arguments();
+                    int intValue = ((Integer) map.get("id")).intValue();
                     try {
-                        this.this$0.handler.disposePlatformView(((Integer) methodCall.arguments()).intValue());
+                        if (map.containsKey("hybrid") && ((Boolean) map.get("hybrid")).booleanValue()) {
+                            this.this$0.handler.disposeAndroidViewForPlatformView(intValue);
+                        } else {
+                            this.this$0.handler.disposeVirtualDisplayForPlatformView(intValue);
+                        }
                         result.success(null);
                     } catch (IllegalStateException e2) {
                         result.error("error", PlatformViewsChannel.detailedExceptionString(e2), null);
@@ -287,7 +307,7 @@ public class PlatformViewsChannel {
 
             private void setDirection(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(AdIconUtil.AD_TEXT_ID, this, methodCall, result) == null) {
+                if (interceptable2 == null || interceptable2.invokeLL(65541, this, methodCall, result) == null) {
                     Map map = (Map) methodCall.arguments();
                     try {
                         this.this$0.handler.setDirection(((Integer) map.get("id")).intValue(), ((Integer) map.get("direction")).intValue());
@@ -298,15 +318,27 @@ public class PlatformViewsChannel {
                 }
             }
 
+            private void synchronizeToNativeViewHierarchy(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(65542, this, methodCall, result) == null) {
+                    try {
+                        this.this$0.handler.synchronizeToNativeViewHierarchy(((Boolean) methodCall.arguments()).booleanValue());
+                        result.success(null);
+                    } catch (IllegalStateException e2) {
+                        result.error("error", PlatformViewsChannel.detailedExceptionString(e2), null);
+                    }
+                }
+            }
+
             private void touch(@NonNull MethodCall methodCall, @NonNull MethodChannel.Result result) {
                 MethodChannel.Result result2;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && interceptable2.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, methodCall, result) != null) {
+                if (interceptable2 != null && interceptable2.invokeLL(65543, this, methodCall, result) != null) {
                     return;
                 }
                 List list = (List) methodCall.arguments();
                 try {
-                    this.this$0.handler.onTouch(new PlatformViewTouch(((Integer) list.get(0)).intValue(), (Number) list.get(1), (Number) list.get(2), ((Integer) list.get(3)).intValue(), ((Integer) list.get(4)).intValue(), list.get(5), list.get(6), ((Integer) list.get(7)).intValue(), ((Integer) list.get(8)).intValue(), (float) ((Double) list.get(9)).doubleValue(), (float) ((Double) list.get(10)).doubleValue(), ((Integer) list.get(11)).intValue(), ((Integer) list.get(12)).intValue(), ((Integer) list.get(13)).intValue(), ((Integer) list.get(14)).intValue()));
+                    this.this$0.handler.onTouch(new PlatformViewTouch(((Integer) list.get(0)).intValue(), (Number) list.get(1), (Number) list.get(2), ((Integer) list.get(3)).intValue(), ((Integer) list.get(4)).intValue(), list.get(5), list.get(6), ((Integer) list.get(7)).intValue(), ((Integer) list.get(8)).intValue(), (float) ((Double) list.get(9)).doubleValue(), (float) ((Double) list.get(10)).doubleValue(), ((Integer) list.get(11)).intValue(), ((Integer) list.get(12)).intValue(), ((Integer) list.get(13)).intValue(), ((Integer) list.get(14)).intValue(), ((Number) list.get(15)).longValue()));
                     result2 = result;
                     try {
                         result2.success(null);
@@ -348,6 +380,12 @@ public class PlatformViewsChannel {
                             break;
                         }
                         break;
+                    case -308988850:
+                        if (str.equals("synchronizeToNativeViewHierarchy")) {
+                            c2 = 6;
+                            break;
+                        }
+                        break;
                     case 110550847:
                         if (str.equals("touch")) {
                             c2 = 3;
@@ -367,20 +405,31 @@ public class PlatformViewsChannel {
                         }
                         break;
                 }
-                if (c2 == 0) {
-                    create(methodCall, result);
-                } else if (c2 == 1) {
-                    dispose(methodCall, result);
-                } else if (c2 == 2) {
-                    resize(methodCall, result);
-                } else if (c2 == 3) {
-                    touch(methodCall, result);
-                } else if (c2 == 4) {
-                    setDirection(methodCall, result);
-                } else if (c2 != 5) {
-                    result.notImplemented();
-                } else {
-                    clearFocus(methodCall, result);
+                switch (c2) {
+                    case 0:
+                        create(methodCall, result);
+                        return;
+                    case 1:
+                        dispose(methodCall, result);
+                        return;
+                    case 2:
+                        resize(methodCall, result);
+                        return;
+                    case 3:
+                        touch(methodCall, result);
+                        return;
+                    case 4:
+                        setDirection(methodCall, result);
+                        return;
+                    case 5:
+                        clearFocus(methodCall, result);
+                        return;
+                    case 6:
+                        synchronizeToNativeViewHierarchy(methodCall, result);
+                        return;
+                    default:
+                        result.notImplemented();
+                        return;
                 }
             }
         };

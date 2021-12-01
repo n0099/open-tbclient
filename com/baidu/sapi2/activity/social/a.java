@@ -25,28 +25,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static a f43514a;
+    public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.sapi2.activity.social.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1694a extends HttpHandlerWrap {
+    /* loaded from: classes9.dex */
+    public class C1764a extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThirdLoginCallback f43515a;
+        public final /* synthetic */ ThirdLoginCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f43516b;
+        public final /* synthetic */ a f38720b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1694a(a aVar, Looper looper, ThirdLoginCallback thirdLoginCallback) {
+        public C1764a(a aVar, Looper looper, ThirdLoginCallback thirdLoginCallback) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -63,27 +59,27 @@ public class a {
                     return;
                 }
             }
-            this.f43516b = aVar;
-            this.f43515a = thirdLoginCallback;
+            this.f38720b = aVar;
+            this.a = thirdLoginCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onFailure(Throwable th, int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) || this.f43515a == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) || this.a == null) {
                 return;
             }
             WebAuthResult webAuthResult = new WebAuthResult();
             webAuthResult.setResultCode(i2);
             webAuthResult.setResultMsg(str);
-            this.f43515a.onFailure(webAuthResult);
+            this.a.onFailure(webAuthResult);
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i2, String str, HashMap<String, String> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, hashMap) == null) {
-                this.f43516b.b(str, this.f43515a);
+                this.f38720b.b(str, this.a);
             }
         }
     }
@@ -150,10 +146,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f43514a == null) {
-                f43514a = new a();
+            if (a == null) {
+                a = new a();
             }
-            return f43514a;
+            return a;
         }
         return (a) invokeV.objValue;
     }
@@ -171,7 +167,7 @@ public class a {
             }
             hashMap.put("json", "1");
             String addExtras = ParamsUtil.addExtras(str, hashMap);
-            new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C1694a(this, Looper.getMainLooper(), thirdLoginCallback));
+            new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C1764a(this, Looper.getMainLooper(), thirdLoginCallback));
         }
     }
 }

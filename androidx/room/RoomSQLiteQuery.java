@@ -153,10 +153,10 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
                 }
 
                 @Override // androidx.sqlite.db.SupportSQLiteProgram
-                public void bindLong(int i2, long j) {
+                public void bindLong(int i2, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                        this.val$query.bindLong(i2, j);
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                        this.val$query.bindLong(i2, j2);
                     }
                 }
 
@@ -233,11 +233,11 @@ public class RoomSQLiteQuery implements SupportSQLiteQuery, SupportSQLiteProgram
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindLong(int i2, long j) {
+    public void bindLong(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             this.mBindingTypes[i2] = 2;
-            this.mLongBindings[i2] = j;
+            this.mLongBindings[i2] = j2;
         }
     }
 

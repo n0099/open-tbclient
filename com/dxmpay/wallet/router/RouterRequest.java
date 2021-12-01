@@ -11,7 +11,7 @@ import com.dxmpay.wallet.core.NoProguard;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RouterRequest implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RouterRequest";

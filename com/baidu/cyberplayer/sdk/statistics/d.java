@@ -4,13 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.CyberVersion;
 import com.baidu.cyberplayer.sdk.o;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,19 +21,17 @@ import java.io.InputStreamReader;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f38073a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38074b;
+    public String f34092b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38075c;
+    public String f34093c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -50,10 +46,10 @@ public class d {
                 return;
             }
         }
-        this.f38073a = null;
-        this.f38074b = null;
-        this.f38075c = null;
-        this.f38075c = "video_session";
+        this.a = null;
+        this.f34092b = null;
+        this.f34093c = null;
+        this.f34093c = "video_session";
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -72,10 +68,10 @@ public class d {
                 return;
             }
         }
-        this.f38073a = null;
-        this.f38074b = null;
-        this.f38075c = null;
-        this.f38075c = str;
+        this.a = null;
+        this.f34092b = null;
+        this.f34093c = null;
+        this.f34093c = str;
         a(CyberPlayerManager.getApplicationContext());
     }
 
@@ -217,7 +213,7 @@ public class d {
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -229,15 +225,15 @@ public class d {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f38073a) || TextUtils.isEmpty(this.f38074b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f34092b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            String str = this.f38073a;
+            String str = this.a;
             if (b(str)) {
-                String str2 = this.f38074b;
+                String str2 = this.f34092b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -260,20 +256,20 @@ public class d {
         }
         new File(b2).mkdirs();
         String coreVersionInternal = CyberVersion.getCoreVersionInternal();
-        this.f38073a = b2 + File.separator + this.f38075c + "_" + coreVersionInternal + ".bak";
-        this.f38074b = b2 + File.separator + this.f38075c + "_log_" + coreVersionInternal + ".tmp";
+        this.a = b2 + File.separator + this.f34093c + "_" + coreVersionInternal + ".bak";
+        this.f34092b = b2 + File.separator + this.f34093c + "_log_" + coreVersionInternal + ".tmp";
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.f38073a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.a)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
             try {
-                a(this.f38073a, bArr, Part.CRLF);
+                a(this.a, bArr, "\r\n");
             } catch (AssertionError unused) {
                 CyberLog.e("DpStatFileWriter", "write data to file fail");
             }
@@ -292,8 +288,8 @@ public class d {
                 FileInputStream fileInputStream = new FileInputStream(str);
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String a2 = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f38075c.equals("live_show_session") ? 24 : 1);
-                if (TextUtils.isEmpty(a2)) {
+                String a = DpSessionDatasUploader.getInstance().a("sailor_monitor", this.f34093c.equals("live_show_session") ? 24 : 1);
+                if (TextUtils.isEmpty(a)) {
                     z = true;
                 } else {
                     while (true) {
@@ -301,9 +297,9 @@ public class d {
                             String readLine = bufferedReader.readLine();
                             if (readLine == null) {
                                 break;
-                            } else if (!DpSessionDatasUploader.getInstance().a(Base64.decode(readLine, 2), a2, false)) {
+                            } else if (!DpSessionDatasUploader.getInstance().a(Base64.decode(readLine, 2), a, false)) {
                                 try {
-                                    a(str2, readLine.getBytes(), Part.CRLF);
+                                    a(str2, readLine.getBytes(), "\r\n");
                                     z2 = false;
                                 } catch (Exception e2) {
                                     e = e2;

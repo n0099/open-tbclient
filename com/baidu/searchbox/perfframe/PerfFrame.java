@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PerfFrame implements IPerfFrame {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "PerfFrame";
@@ -25,13 +25,13 @@ public class PerfFrame implements IPerfFrame {
     public boolean mIsNeedStaticperf;
 
     /* renamed from: com.baidu.searchbox.perfframe.PerfFrame$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,12 +121,12 @@ public class PerfFrame implements IPerfFrame {
     }
 
     @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrame
-    public void submitPerformanceData(String str, String str2, long j, long j2, String str3, String str4, String str5) {
+    public void submitPerformanceData(String str, String str2, long j2, long j3, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4, str5}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), str3, str4, str5}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        PerfExpInfo perfExpInfo = new PerfExpInfo(str, str2, j, j2, str3, str4, str5);
+        PerfExpInfo perfExpInfo = new PerfExpInfo(str, str2, j2, j3, str3, str4, str5);
         perfExpInfo.setNeedDynamicperf(this.mIsNeedDynamicperf);
         perfExpInfo.setNeedStaticperf(this.mIsNeedStaticperf);
         perfExpInfo.setNeedPageTrace(this.mIsNeedPageTrace);

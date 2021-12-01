@@ -1,9 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.j;
+import c.a.d.f.p.j;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.deeplink.DeepLinkManager1;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetWorkCoreFacotry {
     public static /* synthetic */ Interceptable $ic = null;
     public static int INTERVAL_TIME = 300000;
@@ -124,7 +123,7 @@ public class NetWorkCoreFacotry {
 
     public static void setNetType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, null, i2) == null) {
             currentType = i2;
         }
     }

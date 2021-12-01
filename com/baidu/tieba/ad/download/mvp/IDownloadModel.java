@@ -3,7 +3,7 @@ package com.baidu.tieba.ad.download.mvp;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IDownloadModel extends Serializable {
     String adId();
 

@@ -18,35 +18,31 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f66083a;
+    public final AtomicInteger a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f66084b;
+    public final String f57911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile e f66085c;
+    public volatile e f57912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<b> f66086d;
+    public final List<b> f57913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f66087e;
+    public final b f57914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f66088f;
+    public final c f57915f;
 
     /* loaded from: classes2.dex */
     public static final class a extends Handler implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final String f66089a;
+        public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<b> f66090b;
+        public final List<b> f57916b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, List<b> list) {
@@ -66,8 +62,8 @@ public final class g {
                     return;
                 }
             }
-            this.f66089a = str;
-            this.f66090b = list;
+            this.a = str;
+            this.f57916b = list;
         }
 
         @Override // com.kwad.sdk.core.videocache.b
@@ -85,8 +81,8 @@ public final class g {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                for (b bVar : this.f66090b) {
-                    bVar.a((File) message.obj, this.f66089a, message.arg1);
+                for (b bVar : this.f57916b) {
+                    bVar.a((File) message.obj, this.a, message.arg1);
                 }
             }
         }
@@ -107,18 +103,18 @@ public final class g {
                 return;
             }
         }
-        this.f66083a = new AtomicInteger(0);
-        this.f66086d = new CopyOnWriteArrayList();
-        this.f66084b = (String) j.a(str);
-        this.f66088f = (c) j.a(cVar);
-        this.f66087e = new a(str, this.f66086d);
+        this.a = new AtomicInteger(0);
+        this.f57913d = new CopyOnWriteArrayList();
+        this.f57911b = (String) j.a(str);
+        this.f57915f = (c) j.a(cVar);
+        this.f57914e = new a(str, this.f57913d);
     }
 
     private synchronized void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             synchronized (this) {
-                this.f66085c = this.f66085c == null ? e() : this.f66085c;
+                this.f57912c = this.f57912c == null ? e() : this.f57912c;
             }
         }
     }
@@ -127,9 +123,9 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             synchronized (this) {
-                if (this.f66083a.decrementAndGet() <= 0) {
-                    this.f66085c.a();
-                    this.f66085c = null;
+                if (this.a.decrementAndGet() <= 0) {
+                    this.f57912c.a();
+                    this.f57912c = null;
                 }
             }
         }
@@ -139,10 +135,10 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            String str = this.f66084b;
-            c cVar = this.f66088f;
-            e eVar = new e(new h(str, cVar.f66055d, cVar.f66056e), new com.kwad.sdk.core.videocache.a.b(this.f66088f.a(this.f66084b), this.f66088f.f66054c));
-            eVar.a(this.f66087e);
+            String str = this.f57911b;
+            c cVar = this.f57915f;
+            e eVar = new e(new h(str, cVar.f57891d, cVar.f57892e), new com.kwad.sdk.core.videocache.kwai.b(this.f57915f.a(this.f57911b), this.f57915f.f57890c));
+            eVar.a(this.f57914e);
             return eVar;
         }
         return (e) invokeV.objValue;
@@ -151,13 +147,13 @@ public final class g {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f66086d.clear();
-            if (this.f66085c != null) {
-                this.f66085c.a((b) null);
-                this.f66085c.a();
-                this.f66085c = null;
+            this.f57913d.clear();
+            if (this.f57912c != null) {
+                this.f57912c.a((b) null);
+                this.f57912c.a();
+                this.f57912c = null;
             }
-            this.f66083a.set(0);
+            this.a.set(0);
         }
     }
 
@@ -166,8 +162,8 @@ public final class g {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, socket) == null) {
             c();
             try {
-                this.f66083a.incrementAndGet();
-                this.f66085c.a(dVar, socket);
+                this.a.incrementAndGet();
+                this.f57912c.a(dVar, socket);
             } finally {
                 d();
             }
@@ -177,6 +173,6 @@ public final class g {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f66083a.get() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.get() : invokeV.intValue;
     }
 }

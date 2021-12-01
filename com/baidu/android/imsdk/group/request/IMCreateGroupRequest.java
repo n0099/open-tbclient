@@ -32,7 +32,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMCreateGroupRequest";
@@ -42,7 +42,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     public String mKey;
     public String mName;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,52 +74,52 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
         public void run() {
             int i2;
             String str;
-            long j;
+            long j2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long j2 = 0;
+                long j3 = 0;
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i2 = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                    j = (i2 == 0 && jSONObject.has("response_params")) ? jSONObject.getJSONObject("response_params").optLong("group_id", -1L) : 0L;
+                    j2 = (i2 == 0 && jSONObject.has("response_params")) ? jSONObject.getJSONObject("response_params").optLong("group_id", -1L) : 0L;
                 } catch (JSONException e2) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
                     i2 = 1010;
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                    j = 0;
+                    j2 = 0;
                 }
                 if (i2 == 0) {
                     if (this.this$0.mAddingList != null && this.this$0.mAddingList.size() > 0) {
-                        IMAddGroupMemberRequest iMAddGroupMemberRequest = new IMAddGroupMemberRequest(this.this$0.mContext, this.this$0.mKey, this.this$0.mAppid, j, this.this$0.mAddingList, true);
+                        IMAddGroupMemberRequest iMAddGroupMemberRequest = new IMAddGroupMemberRequest(this.this$0.mContext, this.this$0.mKey, this.this$0.mAppid, j2, this.this$0.mAddingList, true);
                         LogUtils.d(IMCreateGroupRequest.TAG, "FXF create group info --->  add member to group ");
                         HttpHelper.executor(this.this$0.mContext, iMAddGroupMemberRequest, iMAddGroupMemberRequest);
                     } else {
                         ArrayList arrayList = new ArrayList();
-                        arrayList.add(String.valueOf(j));
+                        arrayList.add(String.valueOf(j2));
                         IMQueryGroupRequest iMQueryGroupRequest = new IMQueryGroupRequest(this.this$0.mContext, this.this$0.mKey, this.this$0.mAppid, arrayList, true, null);
                         LogUtils.d(IMCreateGroupRequest.TAG, "FXF create group info --->  query group info");
                         HttpHelper.executor(this.this$0.mContext, iMQueryGroupRequest, iMQueryGroupRequest);
                     }
-                    if (GroupInfoDAOImpl.createGroup(this.this$0.mContext, String.valueOf(j)) >= 0) {
-                        ChatSession chatSession = new ChatSession(1, j, j, "");
+                    if (GroupInfoDAOImpl.createGroup(this.this$0.mContext, String.valueOf(j2)) >= 0) {
+                        ChatSession chatSession = new ChatSession(1, j2, j2, "");
                         chatSession.setChatType(3);
                         chatSession.setLastMsgTime(1L);
                         chatSession.setLastOpenTime(1L);
                         chatSession.setLastMsg("");
                         ChatMessageDBManager.getInstance(this.this$0.mContext).updateChatSession(1, chatSession);
-                        GroupInfoDAOImpl.activeGroupState(this.this$0.mContext, String.valueOf(j));
+                        GroupInfoDAOImpl.activeGroupState(this.this$0.mContext, String.valueOf(j2));
                     }
                     ArrayList arrayList2 = new ArrayList();
                     try {
-                        j2 = Long.valueOf(AccountManagerImpl.getInstance(this.this$0.mContext).getUid()).longValue();
+                        j3 = Long.valueOf(AccountManagerImpl.getInstance(this.this$0.mContext).getUid()).longValue();
                     } catch (Exception e3) {
                         LogUtils.e(IMCreateGroupRequest.TAG, e3.getMessage());
                         new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e3)).build();
                     }
-                    arrayList2.add(new GroupMember(String.valueOf(j), AccountManagerImpl.getInstance(this.this$0.mContext).getUK(), "", j2, 1, System.currentTimeMillis() / 1000));
-                    long addMemberToGroup = GroupInfoDAOImpl.addMemberToGroup(this.this$0.mContext, String.valueOf(j), arrayList2);
+                    arrayList2.add(new GroupMember(String.valueOf(j2), AccountManagerImpl.getInstance(this.this$0.mContext).getUK(), "", j3, 1, System.currentTimeMillis() / 1000));
+                    long addMemberToGroup = GroupInfoDAOImpl.addMemberToGroup(this.this$0.mContext, String.valueOf(j2), arrayList2);
                     LogUtils.d(IMCreateGroupRequest.TAG, "addMemberToGroup  " + addMemberToGroup);
                     return;
                 }
@@ -130,7 +130,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                     return;
                 }
                 CreateResultInfo createResultInfo = new CreateResultInfo();
-                createResultInfo.groupid = String.valueOf(j);
+                createResultInfo.groupid = String.valueOf(j2);
                 ((BIMValueCallBack) removeListener).onResult(i2, str, createResultInfo);
             }
         }
@@ -151,12 +151,12 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMCreateGroupRequest(Context context, String str, long j, int i2, String str2, ArrayList<String> arrayList) {
+    public IMCreateGroupRequest(Context context, String str, long j2, int i2, String str2, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), Integer.valueOf(i2), str2, arrayList};
+            Object[] objArr = {context, str, Long.valueOf(j2), Integer.valueOf(i2), str2, arrayList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -167,7 +167,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j;
+        this.mAppid = j2;
         this.mKey = str;
         this.mType = i2;
         this.mName = str2;

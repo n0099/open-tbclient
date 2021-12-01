@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.response.model;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.core.b.d;
-import com.kwad.sdk.core.b.e;
+import com.kwad.sdk.core.a.d;
+import com.kwad.sdk.core.a.e;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.f;
-import com.kwad.sdk.utils.an;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.at;
+import com.kwad.sdk.utils.t;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -101,13 +102,13 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
         }
     }
 
-    private SceneImpl getAdScene(long j) {
+    private SceneImpl getAdScene(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j2)) == null) {
             Map<Long, SceneImpl> map = this.mRequestAdSceneMap;
-            SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j)) : null;
-            return sceneImpl == null ? new SceneImpl(j) : sceneImpl;
+            SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j2)) : null;
+            return sceneImpl == null ? new SceneImpl(j2) : sceneImpl;
         }
         return (SceneImpl) invokeJ.objValue;
     }
@@ -141,10 +142,6 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.adTemplateList.isEmpty()) {
-                com.kwad.sdk.core.d.a.e(TAG, "adTemplateList is empty");
-                return true;
-            }
             return false;
         }
         return invokeV.booleanValue;
@@ -163,26 +160,30 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                 e.a(jSONObject.optString("egid"));
                 try {
                     String optString = jSONObject.optString("pageInfo");
-                    if (!an.a(optString)) {
+                    if (!at.a(optString)) {
                         this.pageInfo.parseJson(new JSONObject(d.b(optString)));
                     }
                 } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.a("json bug", e2.toString());
                     com.kwad.sdk.core.d.a.a(e2);
                 }
-                String b2 = d.b(jSONObject.optString("impAdInfo"));
-                if (!an.a(b2)) {
-                    JSONArray jSONArray = new JSONArray(b2);
-                    if (jSONArray.length() > 0) {
-                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                            JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                            if (optJSONObject != null) {
-                                AdTemplate adTemplate = new AdTemplate();
-                                adTemplate.parseJson(optJSONObject);
-                                adTemplate.llsid = this.llsid;
-                                adTemplate.extra = this.extra;
-                                adTemplate.mAdScene = getAdScene(adTemplate.posId);
-                                adTemplate.mPageInfo = this.pageInfo;
-                                this.adTemplateList.add(adTemplate);
+                String optString2 = jSONObject.optString("impAdInfo");
+                if (!TextUtils.isEmpty(optString2)) {
+                    String b2 = d.b(optString2);
+                    if (!at.a(b2)) {
+                        JSONArray jSONArray = new JSONArray(b2);
+                        if (jSONArray.length() > 0) {
+                            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                                if (optJSONObject != null) {
+                                    AdTemplate adTemplate = new AdTemplate();
+                                    adTemplate.parseJson(optJSONObject);
+                                    adTemplate.llsid = this.llsid;
+                                    adTemplate.extra = this.extra;
+                                    adTemplate.mAdScene = getAdScene(adTemplate.posId);
+                                    adTemplate.mPageInfo = this.pageInfo;
+                                    this.adTemplateList.add(adTemplate);
+                                }
                             }
                         }
                     }
@@ -190,14 +191,14 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                 try {
                     JSONObject optJSONObject2 = jSONObject.optJSONObject("entryInfo");
                     if (optJSONObject2 == null) {
-                        String optString2 = jSONObject.optString("entryInfo");
-                        if (!an.a(optString2)) {
-                            DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) f.a(DevelopMangerPlugin.class)).a("KEY_HOST_ENCRYPT_DISABLE");
-                            if (a2 == null || !((Boolean) a2.getValue()).booleanValue()) {
-                                String replaceAll = d.b(optString2).replaceAll("\\\\", "");
+                        String optString3 = jSONObject.optString("entryInfo");
+                        if (!at.a(optString3)) {
+                            DevelopMangerPlugin.DevelopValue a = ((DevelopMangerPlugin) f.a(DevelopMangerPlugin.class)).a("KEY_HOST_ENCRYPT_DISABLE");
+                            if (a == null || !((Boolean) a.getValue()).booleanValue()) {
+                                String replaceAll = d.b(optString3).replaceAll("\\\\", "");
                                 optJSONObject2 = new JSONObject(replaceAll.substring(1, replaceAll.length() - 1));
                             } else {
-                                optJSONObject2 = new JSONObject(optString2);
+                                optJSONObject2 = new JSONObject(optString3);
                             }
                         }
                     }
@@ -205,16 +206,17 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                         a aVar = new a();
                         this.entryInfo = aVar;
                         aVar.parseJson(optJSONObject2);
-                        this.entryInfo.k = this.adTemplateList;
+                        this.entryInfo.f57819k = this.adTemplateList;
                     }
                 } catch (Exception e3) {
                     com.kwad.sdk.core.d.a.a(e3);
                 }
-                if (com.kwad.sdk.core.d.a.f65259a) {
+                if (com.kwad.sdk.core.d.a.a) {
                     com.kwad.sdk.core.d.a.a(TAG, toJson().toString());
                 }
             } catch (Exception e4) {
                 com.kwad.sdk.core.d.a.a(e4);
+                com.kwad.sdk.core.d.a.a("json bug", e4.toString());
             }
         }
     }
@@ -225,10 +227,10 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             JSONObject json = super.toJson();
-            q.a(json, "pcursor", this.pcursor);
-            q.a(json, "pageInfo", this.pageInfo);
-            q.a(json, "impAdInfo", this.adTemplateList);
-            q.a(json, "entryInfo", this.entryInfo);
+            t.a(json, "pcursor", this.pcursor);
+            t.a(json, "pageInfo", this.pageInfo);
+            t.a(json, "impAdInfo", this.adTemplateList);
+            t.a(json, "entryInfo", this.entryInfo);
             return json;
         }
         return (JSONObject) invokeV.objValue;

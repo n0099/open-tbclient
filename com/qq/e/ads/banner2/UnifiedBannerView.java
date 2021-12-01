@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,9 +23,7 @@ import java.util.Map;
 public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplianceInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final UnifiedBannerAD f68739a;
+    public final UnifiedBannerAD a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UnifiedBannerView(Activity activity, String str, UnifiedBannerADListener unifiedBannerADListener) {
@@ -67,7 +64,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
                 return;
             }
         }
-        this.f68739a = new UnifiedBannerAD(activity, this, str, unifiedBannerADListener);
+        this.a = new UnifiedBannerAD(activity, this, str, unifiedBannerADListener);
         a();
     }
 
@@ -92,7 +89,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
         if (TextUtils.isEmpty(str2)) {
             GDTLogger.e(UnifiedBannerView.class.getSimpleName() + "构造函数中 token 参数不可为空");
         }
-        this.f68739a = new UnifiedBannerAD(activity, this, str, str2, unifiedBannerADListener);
+        this.a = new UnifiedBannerAD(activity, this, str, str2, unifiedBannerADListener);
         a();
     }
 
@@ -143,7 +140,7 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
         }
     }
@@ -151,51 +148,51 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f68739a.destroy();
+            this.a.destroy();
         }
     }
 
     public String getAdNetWorkName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68739a.getAdNetWorkName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getAdNetWorkName() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public String getApkInfoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68739a.getApkInfoUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getApkInfoUrl() : (String) invokeV.objValue;
     }
 
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68739a.getECPM() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getECPM() : invokeV.intValue;
     }
 
     public String getECPMLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f68739a.getECPMLevel() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.getECPMLevel() : (String) invokeV.objValue;
     }
 
     public Map getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f68739a.getExt() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getExt() : (Map) invokeV.objValue;
     }
 
     public Map<String, Object> getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68739a.getExtraInfo() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getExtraInfo() : (Map) invokeV.objValue;
     }
 
     public void loadAD() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f68739a.loadAD();
+            this.a.loadAD();
         }
     }
 
@@ -204,35 +201,35 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onWindowFocusChanged(z);
-            this.f68739a.onWindowFocusChanged(z);
+            this.a.onWindowFocusChanged(z);
         }
     }
 
     public void sendLossNotification(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, str) == null) {
-            this.f68739a.sendLossNotification(i2, i3, str);
+            this.a.sendLossNotification(i2, i3, str);
         }
     }
 
     public void sendWinNotification(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f68739a.sendWinNotification(i2);
+            this.a.sendWinNotification(i2);
         }
     }
 
     public void setBidECPM(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f68739a.setBidECPM(i2);
+            this.a.setBidECPM(i2);
         }
     }
 
     public void setDownConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, downAPPConfirmPolicy) == null) {
-            this.f68739a.a(downAPPConfirmPolicy);
+            this.a.a(downAPPConfirmPolicy);
         }
     }
 
@@ -240,21 +237,21 @@ public class UnifiedBannerView extends FrameLayout implements ApkDownloadComplia
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, downloadConfirmListener) == null) {
-            this.f68739a.setDownloadConfirmListener(downloadConfirmListener);
+            this.a.setDownloadConfirmListener(downloadConfirmListener);
         }
     }
 
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, loadAdParams) == null) {
-            this.f68739a.setLoadAdParams(loadAdParams);
+            this.a.setLoadAdParams(loadAdParams);
         }
     }
 
     public void setRefresh(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f68739a.c(i2);
+            this.a.c(i2);
         }
     }
 }

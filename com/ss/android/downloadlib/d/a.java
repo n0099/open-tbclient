@@ -4,8 +4,6 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,11 +40,9 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C2012a {
+    public static class C2103a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static a f69685a;
+        public static a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -62,7 +58,7 @@ public class a {
                     return;
                 }
             }
-            f69685a = new a(null);
+            a = new a(null);
         }
     }
 
@@ -73,13 +69,13 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2012a.f69685a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2103a.a : (a) invokeV.objValue;
     }
 
-    public void b(long j, int i2) {
+    public void b(long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            a(j, i2, (DownloadInfo) null);
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+            a(j2, i2, (DownloadInfo) null);
         }
     }
 
@@ -97,17 +93,17 @@ public class a {
         }
     }
 
-    public void a(long j, int i2) {
+    public void a(long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            e e2 = f.a().e(j);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+            e e2 = f.a().e(j2);
             if (e2.x()) {
                 com.ss.android.downloadlib.e.c.a().a("sendClickEvent ModelBox notValid");
-            } else if (e2.f69435c.isEnableClickEvent()) {
+            } else if (e2.f61224c.isEnableClickEvent()) {
                 int i3 = 1;
-                DownloadEventConfig downloadEventConfig = e2.f69435c;
+                DownloadEventConfig downloadEventConfig = e2.f61224c;
                 String clickItemTag = i2 == 1 ? downloadEventConfig.getClickItemTag() : downloadEventConfig.getClickButtonTag();
-                String a2 = l.a(e2.f69435c.getClickLabel(), PrefetchEvent.STATE_CLICK);
+                String a = l.a(e2.f61224c.getClickLabel(), "click");
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("download_click_type", Integer.valueOf(i2));
@@ -119,11 +115,11 @@ public class a {
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
-                a(clickItemTag, a2, jSONObject, e2);
-                if (!PrefetchEvent.STATE_CLICK.equals(a2) || e2.f69434b == null) {
+                a(clickItemTag, a, jSONObject, e2);
+                if (!"click".equals(a) || e2.f61223b == null) {
                     return;
                 }
-                c.a().a(j, e2.f69434b.getLogExtra());
+                c.a().a(j2, e2.f61223b.getLogExtra());
             }
         }
     }
@@ -133,10 +129,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048592, this, downloadInfo, baseException) == null) || downloadInfo == null) {
             return;
         }
-        com.ss.android.downloadad.api.a.b a2 = f.a().a(downloadInfo);
-        if (a2 == null) {
+        com.ss.android.downloadad.api.a.b a = f.a().a(downloadInfo);
+        if (a == null) {
             com.ss.android.downloadlib.e.c.a().a("sendDownloadFailedEvent nativeModel null");
-        } else if (a2.f69301c.get()) {
+        } else if (a.f61120c.get()) {
         } else {
             JSONObject jSONObject = new JSONObject();
             try {
@@ -145,33 +141,33 @@ public class a {
                 if (baseException != null) {
                     jSONObject.putOpt("fail_status", Integer.valueOf(baseException.getErrorCode()));
                     jSONObject.putOpt("fail_msg", baseException.getErrorMessage());
-                    a2.d(baseException.getErrorCode());
-                    a2.a(baseException.getErrorMessage());
+                    a.d(baseException.getErrorCode());
+                    a.a(baseException.getErrorMessage());
                 }
-                a2.y();
-                jSONObject.put("download_failed_times", a2.x());
+                a.y();
+                jSONObject.put("download_failed_times", a.x());
                 if (downloadInfo.getTotalBytes() > 0) {
                     jSONObject.put("download_percent", downloadInfo.getCurBytes() / downloadInfo.getTotalBytes());
                 }
                 int i2 = 1;
-                jSONObject.put("has_send_download_failed_finally", a2.f69302d.get() ? 1 : 2);
-                com.ss.android.downloadlib.g.f.a(a2, jSONObject);
-                if (!a2.V()) {
+                jSONObject.put("has_send_download_failed_finally", a.f61121d.get() ? 1 : 2);
+                com.ss.android.downloadlib.g.f.a(a, jSONObject);
+                if (!a.V()) {
                     i2 = 2;
                 }
                 jSONObject.put("is_update_download", i2);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            a(a2.j(), "download_failed", jSONObject, a2);
-            i.a().a(a2);
+            a(a.j(), "download_failed", jSONObject, a);
+            i.a().a(a);
         }
     }
 
-    public void a(long j, int i2, DownloadInfo downloadInfo) {
+    public void a(long j2, int i2, DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), downloadInfo}) == null) {
-            e e2 = f.a().e(j);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), downloadInfo}) == null) {
+            e e2 = f.a().e(j2);
             if (e2.x()) {
                 com.ss.android.downloadlib.e.c.a().a("sendEvent ModelBox notValid");
                 return;
@@ -180,15 +176,15 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             l.a(jSONObject, "download_scene", Integer.valueOf(e2.t()));
             if (i2 == 1) {
-                str = l.a(e2.f69435c.getStorageDenyLabel(), "storage_deny");
+                str = l.a(e2.f61224c.getStorageDenyLabel(), "storage_deny");
             } else if (i2 == 2) {
-                str = l.a(e2.f69435c.getClickStartLabel(), "click_start");
+                str = l.a(e2.f61224c.getClickStartLabel(), "click_start");
                 com.ss.android.downloadlib.g.f.a(downloadInfo, jSONObject);
             } else if (i2 == 3) {
-                str = l.a(e2.f69435c.getClickPauseLabel(), "click_pause");
+                str = l.a(e2.f61224c.getClickPauseLabel(), "click_pause");
                 com.ss.android.downloadlib.g.f.b(downloadInfo, jSONObject);
             } else if (i2 == 4) {
-                str = l.a(e2.f69435c.getClickContinueLabel(), "click_continue");
+                str = l.a(e2.f61224c.getClickContinueLabel(), "click_continue");
                 com.ss.android.downloadlib.g.f.c(downloadInfo, jSONObject);
             } else if (i2 == 5) {
                 if (downloadInfo != null) {
@@ -198,7 +194,7 @@ public class a {
                     } catch (Throwable unused) {
                     }
                 }
-                str = l.a(e2.f69435c.getClickInstallLabel(), "click_install");
+                str = l.a(e2.f61224c.getClickInstallLabel(), "click_install");
             }
             a(null, str, jSONObject, 0L, 1, e2);
         }
@@ -225,15 +221,15 @@ public class a {
         }
     }
 
-    public void a(long j, boolean z, int i2) {
+    public void a(long j2, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            e e2 = f.a().e(j);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            e e2 = f.a().e(j2);
             if (e2.x()) {
                 com.ss.android.downloadlib.e.c.a().a("sendQuickAppEvent ModelBox notValid");
-            } else if (e2.f69434b.getQuickAppModel() == null) {
+            } else if (e2.f61223b.getQuickAppModel() == null) {
             } else {
-                DownloadModel downloadModel = e2.f69434b;
+                DownloadModel downloadModel = e2.f61223b;
                 if (downloadModel instanceof AdDownloadModel) {
                     ((AdDownloadModel) downloadModel).setFunnelType(3);
                 }
@@ -248,10 +244,10 @@ public class a {
         }
     }
 
-    public void a(long j, BaseException baseException) {
+    public void a(long j2, BaseException baseException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, baseException) == null) {
-            e e2 = f.a().e(j);
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, baseException) == null) {
+            e e2 = f.a().e(j2);
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("download_time", 0);
@@ -267,17 +263,17 @@ public class a {
     }
 
     public void a(DownloadInfo downloadInfo) {
-        com.ss.android.downloadad.api.a.b a2;
+        com.ss.android.downloadad.api.a.b a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) || (a2 = f.a().a(downloadInfo)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadInfo) == null) || (a = f.a().a(downloadInfo)) == null) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject();
             com.ss.android.downloadlib.g.f.c(downloadInfo, jSONObject);
-            a2.a(System.currentTimeMillis());
-            a(a2.j(), "download_resume", jSONObject, a2);
-            i.a().a(a2);
+            a.a(System.currentTimeMillis());
+            a(a.j(), "download_resume", jSONObject, a);
+            i.a().a(a);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -291,39 +287,39 @@ public class a {
     }
 
     public void a(DownloadInfo downloadInfo, BaseException baseException) {
-        com.ss.android.downloadad.api.a.b a2;
+        com.ss.android.downloadad.api.a.b a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, downloadInfo, baseException) == null) || downloadInfo == null || (a2 = f.a().a(downloadInfo)) == null || a2.f69301c.get()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, downloadInfo, baseException) == null) || downloadInfo == null || (a = f.a().a(downloadInfo)) == null || a.f61120c.get()) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         try {
             com.ss.android.downloadlib.a.a(jSONObject, downloadInfo);
-            jSONObject.putOpt("fail_status", Integer.valueOf(a2.E()));
-            jSONObject.putOpt("fail_msg", a2.F());
-            jSONObject.put("download_failed_times", a2.x());
+            jSONObject.putOpt("fail_status", Integer.valueOf(a.E()));
+            jSONObject.putOpt("fail_msg", a.F());
+            jSONObject.put("download_failed_times", a.x());
             if (downloadInfo.getTotalBytes() > 0) {
                 jSONObject.put("download_percent", downloadInfo.getCurBytes() / downloadInfo.getTotalBytes());
             }
             jSONObject.put("download_status", downloadInfo.getRealStatus());
             long currentTimeMillis = System.currentTimeMillis();
-            if (a2.H() > 0) {
-                jSONObject.put("time_from_start_download", currentTimeMillis - a2.H());
+            if (a.H() > 0) {
+                jSONObject.put("time_from_start_download", currentTimeMillis - a.H());
             }
-            if (a2.B() > 0) {
-                jSONObject.put("time_from_download_resume", currentTimeMillis - a2.B());
+            if (a.B() > 0) {
+                jSONObject.put("time_from_download_resume", currentTimeMillis - a.B());
             }
             int i2 = 1;
-            jSONObject.put("is_update_download", a2.V() ? 1 : 2);
+            jSONObject.put("is_update_download", a.V() ? 1 : 2);
             jSONObject.put("can_show_notification", d.a() ? 1 : 2);
-            if (!a2.f69302d.get()) {
+            if (!a.f61121d.get()) {
                 i2 = 2;
             }
             jSONObject.put("has_send_download_failed_finally", i2);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        a(a2.j(), "download_cancel", jSONObject, a2);
+        a(a.j(), "download_cancel", jSONObject, a);
     }
 
     public void a(String str, com.ss.android.downloadad.api.a.a aVar) {
@@ -333,15 +329,15 @@ public class a {
         }
     }
 
-    public void a(String str, JSONObject jSONObject, long j) {
+    public void a(String str, JSONObject jSONObject, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, jSONObject, Long.valueOf(j)}) == null) {
-            com.ss.android.downloadad.api.a.a d2 = f.a().d(j);
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, jSONObject, Long.valueOf(j2)}) == null) {
+            com.ss.android.downloadad.api.a.a d2 = f.a().d(j2);
             if (d2 != null) {
                 a(str, jSONObject, d2);
                 return;
             }
-            e e2 = f.a().e(j);
+            e e2 = f.a().e(j2);
             if (e2.x()) {
                 com.ss.android.downloadlib.e.c.a().a("sendUnityEvent ModelBox notValid");
             } else {
@@ -366,14 +362,14 @@ public class a {
         }
     }
 
-    public void a(String str, long j) {
+    public void a(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
-            com.ss.android.downloadad.api.a.b d2 = f.a().d(j);
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j2) == null) {
+            com.ss.android.downloadad.api.a.b d2 = f.a().d(j2);
             if (d2 != null) {
                 b(str, d2);
             } else {
-                b(str, f.a().e(j));
+                b(str, f.a().e(j2));
             }
         }
     }
@@ -392,9 +388,9 @@ public class a {
         }
     }
 
-    private void a(String str, String str2, JSONObject jSONObject, long j, int i2, com.ss.android.downloadad.api.a.a aVar) {
+    private void a(String str, String str2, JSONObject jSONObject, long j2, int i2, com.ss.android.downloadad.api.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{str, str2, jSONObject, Long.valueOf(j), Integer.valueOf(i2), aVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{str, str2, jSONObject, Long.valueOf(j2), Integer.valueOf(i2), aVar}) == null) {
             if (aVar == null) {
                 com.ss.android.downloadlib.e.c.a().a("onEvent data null");
             } else if ((aVar instanceof e) && ((e) aVar).x()) {
@@ -402,14 +398,14 @@ public class a {
             } else {
                 try {
                     c.a c2 = new c.a().a(l.a(str, aVar.j(), "embeded_ad")).b(str2).b(aVar.c()).a(aVar.b()).c(aVar.d());
-                    if (j <= 0) {
-                        j = aVar.l();
+                    if (j2 <= 0) {
+                        j2 = aVar.l();
                     }
-                    c.a a2 = c2.b(j).d(aVar.i()).a(aVar.n()).a(l.a(a(aVar), jSONObject)).b(aVar.k()).a(aVar.o());
+                    c.a a = c2.b(j2).d(aVar.i()).a(aVar.n()).a(l.a(a(aVar), jSONObject)).b(aVar.k()).a(aVar.o());
                     if (i2 <= 0) {
                         i2 = 2;
                     }
-                    a(a2.a(i2).a(aVar.m()).a());
+                    a(a.a(i2).a(aVar.m()).a());
                 } catch (Exception e2) {
                     com.ss.android.downloadlib.e.c.a().a(e2, "onEvent");
                 }

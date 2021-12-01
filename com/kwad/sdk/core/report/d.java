@@ -3,7 +3,6 @@ package com.kwad.sdk.core.report;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.core.response.model.AdStyleInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,9 +21,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f65920a;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,17 +50,17 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
             ReportAction reportAction = new ReportAction(10104L);
-            reportAction.aF = i2;
+            reportAction.aI = i2;
             f.a(reportAction);
         }
     }
 
-    public static void a(long j, long j2) {
+    public static void a(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            ReportAction reportAction = new ReportAction(j);
-            if (j2 > 0) {
-                reportAction.aL = j2;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            ReportAction reportAction = new ReportAction(j2);
+            if (j3 > 0) {
+                reportAction.aO = j3;
             }
             f.a(reportAction);
         }
@@ -72,61 +68,49 @@ public class d {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || f65920a) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || a) {
             return;
         }
-        f65920a = true;
+        a = true;
         ReportAction reportAction = new ReportAction(8L);
-        reportAction.bp = com.kwad.sdk.collector.f.a(context);
+        reportAction.bs = com.kwad.sdk.collector.f.a(context);
         f.a(reportAction);
     }
 
     public static void a(KsScene ksScene, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{ksScene, Boolean.valueOf(z), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{ksScene, Boolean.valueOf(z), str}) == null) {
             ReportAction reportAction = new ReportAction(10216L);
-            reportAction.aT = z;
-            reportAction.aU = str;
+            reportAction.aW = z;
+            reportAction.aX = str;
             if (ksScene instanceof SceneImpl) {
-                reportAction.f65871b = (SceneImpl) ksScene;
+                reportAction.f57636b = (SceneImpl) ksScene;
             }
-            f.a(reportAction);
-        }
-    }
-
-    public static void a(com.kwad.sdk.c.b.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bVar) == null) {
-            ReportAction reportAction = new ReportAction(10215L);
-            reportAction.bi = bVar.f65028a;
-            reportAction.bm = bVar.f65029b;
-            reportAction.bj = bVar.f65030c;
-            reportAction.bk = bVar.f65031d;
             f.a(reportAction);
         }
     }
 
     public static void a(@NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, adTemplate) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, adTemplate) == null) {
             f.a(new ReportAction(LightappBusinessClient.SVC_ID_H5_CASHBACK, adTemplate));
         }
     }
 
     public static void a(AdTemplate adTemplate, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, adTemplate, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65543, null, adTemplate, i2) == null) {
             ReportAction reportAction = new ReportAction(10108L, adTemplate);
-            reportAction.aG = i2;
+            reportAction.aJ = i2;
             f.a(reportAction);
         }
     }
 
     public static void a(@NonNull AdTemplate adTemplate, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65545, null, adTemplate, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65544, null, adTemplate, i2, i3) == null) {
             ReportAction reportAction = new ReportAction(12006L, adTemplate);
-            reportAction.ax = i2;
+            reportAction.aA = i2;
             reportAction.J = i3;
             f.a(reportAction);
         }
@@ -134,40 +118,40 @@ public class d {
 
     public static void a(AdTemplate adTemplate, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65546, null, adTemplate, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65545, null, adTemplate, i2, str) == null) {
             ReportAction reportAction = new ReportAction(10109L, adTemplate);
-            reportAction.aG = i2;
-            reportAction.aH = str;
+            reportAction.aJ = i2;
+            reportAction.aK = str;
             f.a(reportAction);
         }
     }
 
-    public static void a(@NonNull AdTemplate adTemplate, long j) {
+    public static void a(@NonNull AdTemplate adTemplate, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65547, null, adTemplate, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65546, null, adTemplate, j2) == null) {
             ReportAction reportAction = new ReportAction(10202L, adTemplate);
-            reportAction.aR = j;
+            reportAction.aU = j2;
             f.a(reportAction);
         }
     }
 
-    public static void a(@NonNull AdTemplate adTemplate, long j, int i2) {
+    public static void a(@NonNull AdTemplate adTemplate, long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{adTemplate, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{adTemplate, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             ReportAction reportAction = new ReportAction(104L, adTemplate);
-            reportAction.aZ = com.kwad.sdk.utils.j.d(adTemplate);
-            reportAction.ba = j;
-            reportAction.bb = i2;
+            reportAction.bc = com.kwad.sdk.utils.m.d(adTemplate);
+            reportAction.bd = j2;
+            reportAction.be = i2;
             f.a(reportAction);
         }
     }
 
-    public static void a(@NonNull AdTemplate adTemplate, long j, long j2, int i2) {
+    public static void a(@NonNull AdTemplate adTemplate, long j2, long j3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{adTemplate, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{adTemplate, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
             ReportAction reportAction = new ReportAction(10203L, adTemplate);
-            reportAction.u = j;
-            reportAction.y = j2;
+            reportAction.u = j2;
+            reportAction.y = j3;
             reportAction.C = i2;
             f.a(reportAction);
         }
@@ -175,63 +159,73 @@ public class d {
 
     public static void a(@NonNull AdTemplate adTemplate, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, adTemplate, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65549, null, adTemplate, str, str2) == null) {
             ReportAction reportAction = new ReportAction(LightappBusinessClient.SVC_ID_H5_HOMEPAGE, adTemplate);
-            reportAction.az = str;
-            reportAction.aA = str2;
-            f.a(reportAction);
-        }
-    }
-
-    public static void a(@NonNull AdTemplate adTemplate, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65551, null, adTemplate, str, str2, str3, str4) == null) {
-            ReportAction reportAction = new ReportAction(LightappBusinessClient.SVC_ID_H5_CHARGE, adTemplate);
-            reportAction.br = str;
-            reportAction.bs = str2;
-            reportAction.bt = str3;
-            reportAction.bu = str4;
-            AdStyleInfo adStyleInfo = com.kwad.sdk.core.response.b.c.i(adTemplate).adStyleInfo2;
-            if (adStyleInfo != null) {
-                reportAction.bv = adStyleInfo.toJson().toString();
-            }
+            reportAction.aC = str;
+            reportAction.aD = str2;
             f.a(reportAction);
         }
     }
 
     public static void a(@NonNull AdTemplate adTemplate, List<String> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65552, null, adTemplate, list) == null) || adTemplate.mTrackUrlReported || list == null || list.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeLL(65550, null, adTemplate, list) == null) || adTemplate.mTrackUrlReported || list == null || list.isEmpty()) {
             return;
         }
         adTemplate.mTrackUrlReported = true;
         ReportAction reportAction = new ReportAction(10217L, adTemplate);
-        reportAction.bl = q.a(list);
+        reportAction.bo = t.a(list);
         f.a(reportAction);
     }
 
-    public static void a(SceneImpl sceneImpl, com.kwad.sdk.core.network.b.a aVar) {
+    public static void a(com.kwad.sdk.h.a.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, sceneImpl, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(65551, null, bVar) == null) {
+            ReportAction reportAction = new ReportAction(10215L);
+            reportAction.bl = bVar.a;
+            reportAction.bp = bVar.f58609b;
+            reportAction.bm = bVar.f58610c;
+            reportAction.bn = bVar.f58611d;
+            f.a(reportAction);
+        }
+    }
+
+    public static void a(SceneImpl sceneImpl, com.kwad.sdk.core.network.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65552, null, sceneImpl, aVar) == null) {
             ReportAction reportAction = new ReportAction(10214L);
-            reportAction.f65871b = sceneImpl;
-            reportAction.bc = aVar.f65702g;
-            reportAction.bd = aVar.f65696a;
-            reportAction.be = aVar.f65698c;
-            reportAction.bf = aVar.f65699d;
-            reportAction.bg = aVar.f65700e;
-            reportAction.bh = aVar.f65701f;
+            reportAction.f57636b = sceneImpl;
+            reportAction.bf = aVar.f57498g;
+            reportAction.bg = aVar.a;
+            reportAction.bh = aVar.f57494c;
+            reportAction.bi = aVar.f57495d;
+            reportAction.bj = aVar.f57496e;
+            reportAction.bk = aVar.f57497f;
             f.a(reportAction);
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65554, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {
             ReportAction reportAction = new ReportAction((long) LightappBusinessClient.SVC_ID_H5_SECURITCENTER);
-            reportAction.az = str;
-            reportAction.aA = str2;
+            reportAction.aC = str;
+            reportAction.aD = str2;
             f.a(reportAction);
+        }
+    }
+
+    public static void a(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65554, null, str, str2, z) == null) && com.kwad.sdk.core.config.b.aq()) {
+            ReportAction reportAction = new ReportAction(12200L);
+            reportAction.bL = str;
+            reportAction.bM = str2;
+            if (z) {
+                f.b(reportAction);
+            } else {
+                f.a(reportAction);
+            }
         }
     }
 
@@ -239,7 +233,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, jSONArray) == null) {
             ReportAction reportAction = new ReportAction(10200L);
-            reportAction.aK = jSONArray;
+            reportAction.aN = jSONArray;
             f.a(reportAction);
         }
     }
@@ -248,8 +242,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65556, null, jSONObject, i2) == null) {
             ReportAction reportAction = new ReportAction(10201L);
-            q.a(jSONObject, "appChangeType", i2);
-            reportAction.aJ = jSONObject;
+            t.a(jSONObject, "appChangeType", i2);
+            reportAction.aM = jSONObject;
             f.a(reportAction);
         }
     }
@@ -258,13 +252,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(65557, null, z, list) == null) {
             ReportAction reportAction = new ReportAction(10204L);
-            reportAction.aT = z;
+            reportAction.aW = z;
             if (list != null && list.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
                 for (Integer num : list) {
                     jSONArray.put(num);
                 }
-                reportAction.aS = jSONArray;
+                reportAction.aV = jSONArray;
             }
             f.a(reportAction);
         }
@@ -281,7 +275,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65559, null, i2) == null) {
             ReportAction reportAction = new ReportAction(10107L);
-            reportAction.aG = i2;
+            reportAction.aJ = i2;
             f.a(reportAction);
         }
     }
@@ -290,7 +284,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, null, context) == null) {
             ReportAction reportAction = new ReportAction(11L);
-            JSONArray[] a2 = InstalledAppInfoManager.a(context, com.kwad.sdk.core.config.c.i());
+            JSONArray[] a2 = InstalledAppInfoManager.a(context, com.kwad.sdk.core.config.b.f());
             reportAction.X = a2[0];
             reportAction.Y = a2[1];
             f.a(reportAction);
@@ -309,12 +303,12 @@ public class d {
         if (interceptable == null || interceptable.invokeLII(65562, null, adTemplate, i2, i3) == null) {
             ReportAction reportAction = new ReportAction(LightappBusinessClient.SVC_ID_H5_BALANCE, adTemplate);
             reportAction.c();
-            reportAction.az = com.kwad.sdk.core.response.b.c.b(adTemplate) ? com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.i(adTemplate)) : com.kwad.sdk.core.response.b.c.l(adTemplate);
+            reportAction.aC = com.kwad.sdk.core.response.a.d.c(adTemplate) ? com.kwad.sdk.core.response.a.a.a(com.kwad.sdk.core.response.a.d.j(adTemplate)) : com.kwad.sdk.core.response.a.d.m(adTemplate);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("what", i2);
                 jSONObject.put("extra", i3);
-                reportAction.aA = jSONObject.toString();
+                reportAction.aD = jSONObject.toString();
             } catch (JSONException e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }
@@ -326,17 +320,17 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65563, null, adTemplate, i2, str) == null) {
             ReportAction reportAction = new ReportAction(107L, adTemplate);
-            reportAction.aB = i2;
-            reportAction.aA = str;
+            reportAction.aE = i2;
+            reportAction.aD = str;
             f.a(reportAction);
         }
     }
 
-    public static void b(AdTemplate adTemplate, long j) {
+    public static void b(AdTemplate adTemplate, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65564, null, adTemplate, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65564, null, adTemplate, j2) == null) {
             ReportAction reportAction = new ReportAction(10206L, adTemplate);
-            reportAction.bn = j;
+            reportAction.bq = j2;
             f.a(reportAction);
         }
     }
@@ -345,8 +339,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65565, null, adTemplate, str, str2) == null) {
             ReportAction reportAction = new ReportAction(LightappBusinessClient.SVC_ID_H5_TRANSERECORD, adTemplate);
-            reportAction.az = str;
-            reportAction.aA = str2;
+            reportAction.aC = str;
+            reportAction.aD = str2;
             f.a(reportAction);
         }
     }
@@ -355,7 +349,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65566, null, i2) == null) {
             ReportAction reportAction = new ReportAction(10212L);
-            reportAction.aW = i2;
+            reportAction.aZ = i2;
             f.a(reportAction);
         }
     }
@@ -367,11 +361,11 @@ public class d {
         }
     }
 
-    public static void c(AdTemplate adTemplate, long j) {
+    public static void c(AdTemplate adTemplate, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65568, null, adTemplate, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65568, null, adTemplate, j2) == null) {
             ReportAction reportAction = new ReportAction(10207L, adTemplate);
-            reportAction.bo = j;
+            reportAction.br = j2;
             f.a(reportAction);
         }
     }
@@ -380,9 +374,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65569, null, adTemplate, str, str2) == null) {
             ReportAction reportAction = new ReportAction(LightappBusinessClient.SVC_ID_H5_MYBANKCARD, adTemplate);
-            reportAction.az = com.kwad.sdk.core.response.b.c.b(adTemplate) ? com.kwad.sdk.core.response.b.a.a(com.kwad.sdk.core.response.b.c.i(adTemplate)) : com.kwad.sdk.core.response.b.c.l(adTemplate);
-            reportAction.az = str;
-            reportAction.aA = str2;
+            reportAction.aC = com.kwad.sdk.core.response.a.d.c(adTemplate) ? com.kwad.sdk.core.response.a.a.a(com.kwad.sdk.core.response.a.d.j(adTemplate)) : com.kwad.sdk.core.response.a.d.m(adTemplate);
+            reportAction.aC = str;
+            reportAction.aD = str2;
             f.a(reportAction);
         }
     }

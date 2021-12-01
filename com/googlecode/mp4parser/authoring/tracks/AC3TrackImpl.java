@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.authoring.tracks;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -399,7 +398,7 @@ public class AC3TrackImpl extends AbstractTrack {
     private List<Sample> readSamples() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(5);
             ArrayList arrayList = new ArrayList();
             while (-1 != this.dataSource.read(allocate)) {

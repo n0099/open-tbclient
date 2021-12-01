@@ -2,7 +2,6 @@ package io.reactivex.internal.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EmptyComponent implements FlowableSubscriber<Object>, Observer<Object>, MaybeObserver<Object>, SingleObserver<Object>, CompletableObserver, Subscription, Disposable {
     public static final /* synthetic */ EmptyComponent[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -85,7 +84,7 @@ public final class EmptyComponent implements FlowableSubscriber<Object>, Observe
     public static EmptyComponent[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (EmptyComponent[]) $VALUES.clone() : (EmptyComponent[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (EmptyComponent[]) $VALUES.clone() : (EmptyComponent[]) invokeV.objValue;
     }
 
     @Override // org.reactivestreams.Subscription
@@ -150,9 +149,9 @@ public final class EmptyComponent implements FlowableSubscriber<Object>, Observe
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
         }
     }
 

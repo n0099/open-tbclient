@@ -26,7 +26,7 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class ErrorContentResponse implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NEED_UPDATE = "1";
@@ -51,7 +51,7 @@ public class ErrorContentResponse implements Serializable {
     public String use_vcode_to_pay;
     public Verify verify;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class CardInfoCheck implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class Guidance implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class LivingParam implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class MktSolution implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -174,7 +174,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class Operations implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BIND_OTHER_CARDS = "bind_other_cards";
@@ -225,9 +225,7 @@ public class ErrorContentResponse implements Serializable {
                     return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f60552a;
+                        public final /* synthetic */ Operations a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -244,7 +242,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f60552a = this;
+                            this.a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -252,7 +250,7 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f60552a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.a.type);
                             }
                         }
                     };
@@ -261,9 +259,7 @@ public class ErrorContentResponse implements Serializable {
                     return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f60553a;
+                        public final /* synthetic */ Operations a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -280,7 +276,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f60553a = this;
+                            this.a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -288,7 +284,7 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f60553a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.a.type);
                                 try {
                                     String str = operations.mobile;
                                     context.startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str)));
@@ -303,9 +299,7 @@ public class ErrorContentResponse implements Serializable {
                     return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f60554a;
+                        public final /* synthetic */ Operations a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -322,7 +316,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f60554a = this;
+                            this.a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -330,7 +324,7 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f60554a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.a.type);
                                 PayCallBackManager.callBackClientPaying(context);
                             }
                         }
@@ -340,9 +334,7 @@ public class ErrorContentResponse implements Serializable {
                     return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.4
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f60555a;
+                        public final /* synthetic */ Operations a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -359,7 +351,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f60555a = this;
+                            this.a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -367,22 +359,20 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f60555a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.a.type);
                                 if (context == null || operations == null || TextUtils.isEmpty(operations.jump_uri)) {
                                     return;
                                 }
-                                BaiduWalletDelegate.getInstance().openH5Module(context, this.f60555a.jump_uri, false);
-                                if ("1".equals(this.f60555a.need_close)) {
+                                BaiduWalletDelegate.getInstance().openH5Module(context, this.a.jump_uri, false);
+                                if ("1".equals(this.a.need_close)) {
                                     StatisticManager.onEvent("payTimeoutGuideToOrderDetail", PayDataCache.getInstance().getInsideTransOrder());
                                     new Handler().postDelayed(new Runnable(this, context) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.4.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-
-                                        /* renamed from: a  reason: collision with root package name */
-                                        public final /* synthetic */ Context f60556a;
+                                        public final /* synthetic */ Context a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass4 f60557b;
+                                        public final /* synthetic */ AnonymousClass4 f53434b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -399,15 +389,15 @@ public class ErrorContentResponse implements Serializable {
                                                     return;
                                                 }
                                             }
-                                            this.f60557b = this;
-                                            this.f60556a = context;
+                                            this.f53434b = this;
+                                            this.a = context;
                                         }
 
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             Interceptable interceptable3 = $ic;
                                             if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                PayCallBackManager.callBackClientPaying(this.f60556a);
+                                                PayCallBackManager.callBackClientPaying(this.a);
                                             }
                                         }
                                     }, 20L);
@@ -420,9 +410,7 @@ public class ErrorContentResponse implements Serializable {
                     return new o<Operations, Context>(this) { // from class: com.baidu.wallet.paysdk.datamodel.ErrorContentResponse.Operations.5
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Operations f60558a;
+                        public final /* synthetic */ Operations a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -439,7 +427,7 @@ public class ErrorContentResponse implements Serializable {
                                     return;
                                 }
                             }
-                            this.f60558a = this;
+                            this.a = this;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
@@ -447,7 +435,7 @@ public class ErrorContentResponse implements Serializable {
                         public void a(Operations operations, Context context) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeLL(1048576, this, operations, context) == null) {
-                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.f60558a.type);
+                                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_GUIDANCE_CICK, null, this.a.type);
                                 if (context instanceof PwdPayActivity) {
                                     ((PwdPayActivity) context).forgetPassword();
                                 } else if (context instanceof PwdCheckActivity) {
@@ -482,7 +470,7 @@ public class ErrorContentResponse implements Serializable {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class Verify implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String VERIFY_CARD_NO = "card_no";

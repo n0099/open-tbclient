@@ -2,7 +2,6 @@ package com.kwai.filedownloader.download;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwai.filedownloader.b.a;
-import com.kwai.filedownloader.f.c;
+import com.kwai.filedownloader.a.a;
+import com.kwai.filedownloader.e.c;
+import com.kwai.filedownloader.kwai.c;
 import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.Iterator;
@@ -19,31 +19,27 @@ import java.util.Iterator;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public com.kwai.filedownloader.services.c f67819a;
+    public com.kwai.filedownloader.services.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a f67820b;
+    public c.a f59940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b f67821c;
+    public c.b f59941c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.e f67822d;
+    public c.e f59942d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile com.kwai.filedownloader.b.a f67823e;
+    public volatile com.kwai.filedownloader.a.a f59943e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.d f67824f;
+    public c.d f59944f;
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final b f67825a;
+        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,7 +55,7 @@ public class b {
                     return;
                 }
             }
-            f67825a = new b();
+            a = new b();
         }
     }
 
@@ -80,7 +76,7 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f67825a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (b) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0055, code lost:
@@ -99,23 +95,23 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(a.InterfaceC1979a interfaceC1979a) {
-        long j;
+    public static void a(a.InterfaceC2070a interfaceC2070a) {
         long j2;
+        long j3;
         String d2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, interfaceC1979a) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, interfaceC2070a) == null) {
             String str = "refreshed data count: %d , delete data count: %d, reset id count: %d. consume %d";
-            Iterator<com.kwai.filedownloader.d.c> it = interfaceC1979a.iterator();
+            Iterator<com.kwai.filedownloader.c.c> it = interfaceC2070a.iterator();
             c.d b2 = a().b();
             long currentTimeMillis = System.currentTimeMillis();
-            long j3 = 0;
             long j4 = 0;
             long j5 = 0;
+            long j6 = 0;
             while (it.hasNext()) {
                 try {
-                    com.kwai.filedownloader.d.c next = it.next();
+                    com.kwai.filedownloader.c.c next = it.next();
                     String str2 = str;
                     if (next.f() != 3) {
                         try {
@@ -125,24 +121,24 @@ public class b {
                                     }
                                     d2 = next.d();
                                     if (d2 != null) {
-                                        j = currentTimeMillis;
-                                        j2 = j3;
+                                        j2 = currentTimeMillis;
+                                        j3 = j4;
                                         z = true;
                                     } else {
                                         File file = new File(d2);
                                         if (next.f() == -2) {
-                                            j = currentTimeMillis;
+                                            j2 = currentTimeMillis;
                                             try {
-                                                if (com.kwai.filedownloader.f.f.a(next.a(), next, next.c(), null)) {
+                                                if (com.kwai.filedownloader.e.f.a(next.a(), next, next.c(), null)) {
                                                     File file2 = new File(next.e());
                                                     if (!file2.exists() && file.exists()) {
                                                         boolean renameTo = file.renameTo(file2);
-                                                        if (com.kwai.filedownloader.f.d.f67886a) {
-                                                            j2 = j3;
-                                                            com.kwai.filedownloader.f.d.c(com.kwai.filedownloader.b.a.class, "resume from the old no-temp-file architecture [%B], [%s]->[%s]", Boolean.valueOf(renameTo), file.getPath(), file2.getPath());
+                                                        if (com.kwai.filedownloader.e.d.a) {
+                                                            j3 = j4;
+                                                            com.kwai.filedownloader.e.d.c(com.kwai.filedownloader.a.a.class, "resume from the old no-temp-file architecture [%B], [%s]->[%s]", Boolean.valueOf(renameTo), file.getPath(), file2.getPath());
                                                             if (next.f() != 1) {
                                                             }
-                                                            if (com.kwai.filedownloader.f.f.a(next.a(), next) && !file.exists()) {
+                                                            if (com.kwai.filedownloader.e.f.a(next.a(), next) && !file.exists()) {
                                                                 z = false;
                                                             }
                                                             z = true;
@@ -151,22 +147,22 @@ public class b {
                                                 }
                                             } catch (Throwable th) {
                                                 th = th;
-                                                j2 = j3;
+                                                j3 = j4;
                                                 str = str2;
-                                                com.kwai.filedownloader.f.f.b(com.kwai.filedownloader.f.c.a());
-                                                interfaceC1979a.a();
-                                                if (com.kwai.filedownloader.f.d.f67886a) {
-                                                    com.kwai.filedownloader.f.d.c(com.kwai.filedownloader.b.a.class, str, Long.valueOf(j2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(System.currentTimeMillis() - j));
+                                                com.kwai.filedownloader.e.f.b(com.kwai.filedownloader.e.c.a());
+                                                interfaceC2070a.a();
+                                                if (com.kwai.filedownloader.e.d.a) {
+                                                    com.kwai.filedownloader.e.d.c(com.kwai.filedownloader.a.a.class, str, Long.valueOf(j3), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(System.currentTimeMillis() - j2));
                                                 }
                                                 throw th;
                                             }
                                         } else {
-                                            j = currentTimeMillis;
+                                            j2 = currentTimeMillis;
                                         }
-                                        j2 = j3;
+                                        j3 = j4;
                                         if (next.f() != 1) {
                                         }
-                                        if (com.kwai.filedownloader.f.f.a(next.a(), next)) {
+                                        if (com.kwai.filedownloader.e.f.a(next.a(), next)) {
                                             z = false;
                                         }
                                         z = true;
@@ -175,43 +171,43 @@ public class b {
                                         int a2 = next.a();
                                         int a3 = b2.a(a2, next.b(), next.c(), next.l());
                                         if (a3 != a2) {
-                                            if (com.kwai.filedownloader.f.d.f67886a) {
-                                                com.kwai.filedownloader.f.d.c(com.kwai.filedownloader.b.a.class, "the id is changed on restoring from db: old[%d] -> new[%d]", Integer.valueOf(a2), Integer.valueOf(a3));
+                                            if (com.kwai.filedownloader.e.d.a) {
+                                                com.kwai.filedownloader.e.d.c(com.kwai.filedownloader.a.a.class, "the id is changed on restoring from db: old[%d] -> new[%d]", Integer.valueOf(a2), Integer.valueOf(a3));
                                             }
                                             next.a(a3);
-                                            interfaceC1979a.a(a2, next);
-                                            j5++;
+                                            interfaceC2070a.a(a2, next);
+                                            j6++;
                                         }
-                                        interfaceC1979a.b(next);
-                                        j3 = j2 + 1;
+                                        interfaceC2070a.b(next);
+                                        j4 = j3 + 1;
                                     } else {
                                         try {
                                             it.remove();
-                                            interfaceC1979a.a(next);
-                                            j4++;
-                                            j3 = j2;
+                                            interfaceC2070a.a(next);
+                                            j5++;
+                                            j4 = j3;
                                         } catch (Throwable th2) {
                                             th = th2;
                                             str = str2;
-                                            com.kwai.filedownloader.f.f.b(com.kwai.filedownloader.f.c.a());
-                                            interfaceC1979a.a();
-                                            if (com.kwai.filedownloader.f.d.f67886a) {
+                                            com.kwai.filedownloader.e.f.b(com.kwai.filedownloader.e.c.a());
+                                            interfaceC2070a.a();
+                                            if (com.kwai.filedownloader.e.d.a) {
                                             }
                                             throw th;
                                         }
                                     }
                                     str = str2;
-                                    currentTimeMillis = j;
+                                    currentTimeMillis = j2;
                                 }
                             }
                         } catch (Throwable th3) {
                             th = th3;
-                            j = currentTimeMillis;
-                            j2 = j3;
+                            j2 = currentTimeMillis;
+                            j3 = j4;
                             str = str2;
-                            com.kwai.filedownloader.f.f.b(com.kwai.filedownloader.f.c.a());
-                            interfaceC1979a.a();
-                            if (com.kwai.filedownloader.f.d.f67886a) {
+                            com.kwai.filedownloader.e.f.b(com.kwai.filedownloader.e.c.a());
+                            interfaceC2070a.a();
+                            if (com.kwai.filedownloader.e.d.a) {
                             }
                             throw th;
                         }
@@ -223,20 +219,20 @@ public class b {
                     if (z) {
                     }
                     str = str2;
-                    currentTimeMillis = j;
+                    currentTimeMillis = j2;
                 } catch (Throwable th4) {
                     th = th4;
-                    j = currentTimeMillis;
-                    j2 = j3;
+                    j2 = currentTimeMillis;
+                    j3 = j4;
                 }
             }
             String str3 = str;
-            long j6 = currentTimeMillis;
-            long j7 = j3;
-            com.kwai.filedownloader.f.f.b(com.kwai.filedownloader.f.c.a());
-            interfaceC1979a.a();
-            if (com.kwai.filedownloader.f.d.f67886a) {
-                com.kwai.filedownloader.f.d.c(com.kwai.filedownloader.b.a.class, str3, Long.valueOf(j7), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(System.currentTimeMillis() - j6));
+            long j7 = currentTimeMillis;
+            long j8 = j4;
+            com.kwai.filedownloader.e.f.b(com.kwai.filedownloader.e.c.a());
+            interfaceC2070a.a();
+            if (com.kwai.filedownloader.e.d.a) {
+                com.kwai.filedownloader.e.d.c(com.kwai.filedownloader.a.a.class, str3, Long.valueOf(j8), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(System.currentTimeMillis() - j7));
             }
         }
     }
@@ -245,16 +241,16 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            c.a aVar = this.f67820b;
+            c.a aVar = this.f59940b;
             if (aVar != null) {
                 return aVar;
             }
             synchronized (this) {
-                if (this.f67820b == null) {
-                    this.f67820b = i().e();
+                if (this.f59940b == null) {
+                    this.f59940b = i().e();
                 }
             }
-            return this.f67820b;
+            return this.f59940b;
         }
         return (c.a) invokeV.objValue;
     }
@@ -263,16 +259,16 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            c.b bVar = this.f67821c;
+            c.b bVar = this.f59941c;
             if (bVar != null) {
                 return bVar;
             }
             synchronized (this) {
-                if (this.f67821c == null) {
-                    this.f67821c = i().d();
+                if (this.f59941c == null) {
+                    this.f59941c = i().d();
                 }
             }
-            return this.f67821c;
+            return this.f59941c;
         }
         return (c.b) invokeV.objValue;
     }
@@ -280,17 +276,17 @@ public class b {
     private c.e h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            c.e eVar = this.f67822d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            c.e eVar = this.f59942d;
             if (eVar != null) {
                 return eVar;
             }
             synchronized (this) {
-                if (this.f67822d == null) {
-                    this.f67822d = i().c();
+                if (this.f59942d == null) {
+                    this.f59942d = i().c();
                 }
             }
-            return this.f67822d;
+            return this.f59942d;
         }
         return (c.e) invokeV.objValue;
     }
@@ -298,48 +294,57 @@ public class b {
     private com.kwai.filedownloader.services.c i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            com.kwai.filedownloader.services.c cVar = this.f67819a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+            com.kwai.filedownloader.services.c cVar = this.a;
             if (cVar != null) {
                 return cVar;
             }
             synchronized (this) {
-                if (this.f67819a == null) {
-                    this.f67819a = new com.kwai.filedownloader.services.c();
+                if (this.a == null) {
+                    this.a = new com.kwai.filedownloader.services.c();
                 }
             }
-            return this.f67819a;
+            return this.a;
         }
         return (com.kwai.filedownloader.services.c) invokeV.objValue;
     }
 
-    public int a(int i2, String str, String str2, long j) {
+    public int a(int i2, String str, String str2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j)})) == null) ? f().a(i2, str, str2, j) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j2)})) == null) ? f().a(i2, str, str2, j2) : invokeCommon.intValue;
     }
 
-    public com.kwai.filedownloader.a.b a(String str) {
+    public com.kwai.filedownloader.d.a a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? g().a(str) : (com.kwai.filedownloader.a.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) ? h().a(file) : (com.kwai.filedownloader.d.a) invokeL.objValue;
     }
 
-    public com.kwai.filedownloader.e.a a(File file) {
+    public com.kwai.filedownloader.kwai.b a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) ? h().a(file) : (com.kwai.filedownloader.e.a) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                return g().a(str);
+            } catch (Throwable unused) {
+                c.b bVar = new c.b();
+                this.f59941c = bVar;
+                return bVar.a(str);
+            }
+        }
+        return (com.kwai.filedownloader.kwai.b) invokeL.objValue;
     }
 
     public void a(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             synchronized (this) {
-                this.f67819a = new com.kwai.filedownloader.services.c(aVar);
-                this.f67821c = null;
-                this.f67822d = null;
-                this.f67823e = null;
-                this.f67824f = null;
+                this.a = new com.kwai.filedownloader.services.c(aVar);
+                this.f59941c = null;
+                this.f59942d = null;
+                this.f59943e = null;
+                this.f59944f = null;
             }
         }
     }
@@ -348,16 +353,16 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.d dVar = this.f67824f;
+            c.d dVar = this.f59944f;
             if (dVar != null) {
                 return dVar;
             }
             synchronized (this) {
-                if (this.f67824f == null) {
-                    this.f67824f = i().f();
+                if (this.f59944f == null) {
+                    this.f59944f = i().f();
                 }
             }
-            return this.f67824f;
+            return this.f59944f;
         }
         return (c.d) invokeV.objValue;
     }
@@ -366,25 +371,25 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             synchronized (this) {
-                this.f67819a = new com.kwai.filedownloader.services.c(aVar);
+                this.a = new com.kwai.filedownloader.services.c(aVar);
             }
         }
     }
 
-    public synchronized com.kwai.filedownloader.b.a c() {
+    public synchronized com.kwai.filedownloader.a.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                if (this.f67823e != null) {
-                    return this.f67823e;
+                if (this.f59943e != null) {
+                    return this.f59943e;
                 }
-                this.f67823e = i().b();
-                a(this.f67823e.b());
-                return this.f67823e;
+                this.f59943e = i().b();
+                a(this.f59943e.b());
+                return this.f59943e;
             }
         }
-        return (com.kwai.filedownloader.b.a) invokeV.objValue;
+        return (com.kwai.filedownloader.a.a) invokeV.objValue;
     }
 
     public int d() {

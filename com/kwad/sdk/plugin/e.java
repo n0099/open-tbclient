@@ -18,6 +18,9 @@ public class e {
             d dVar2 = (d) com.kwad.sdk.a.class.newInstance();
             f.a(dVar2.a(), dVar2);
             dVar2.a(context, sdkConfig);
+            d dVar3 = (d) com.kwad.tachikoma.c.class.newInstance();
+            f.a(dVar3.a(), dVar3);
+            dVar3.a(context, sdkConfig);
         }
     }
 }

@@ -12,23 +12,19 @@ import java.util.Iterator;
 public abstract class a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ArrayList<C1961a> f66388a;
+    public ArrayList<C2037a> a;
 
     /* renamed from: com.kwad.sdk.crash.report.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C1961a {
+    public static class C2037a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public ExceptionMessage f66389a;
+        public ExceptionMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f66390b;
+        public int f58182b;
 
-        public C1961a(ExceptionMessage exceptionMessage, int i2) {
+        public C2037a(ExceptionMessage exceptionMessage, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,8 +39,8 @@ public abstract class a implements c {
                     return;
                 }
             }
-            this.f66389a = exceptionMessage;
-            this.f66390b = i2;
+            this.a = exceptionMessage;
+            this.f58182b = i2;
         }
     }
 
@@ -61,19 +57,19 @@ public abstract class a implements c {
                 return;
             }
         }
-        this.f66388a = new ArrayList<>();
+        this.a = new ArrayList<>();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.f66388a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.a.isEmpty()) {
             return;
         }
         try {
-            Iterator<C1961a> it = this.f66388a.iterator();
+            Iterator<C2037a> it = this.a.iterator();
             while (it.hasNext()) {
-                C1961a next = it.next();
-                b(next.f66389a, next.f66390b);
+                C2037a next = it.next();
+                b(next.a, next.f58182b);
                 it.remove();
             }
         } catch (Throwable th) {
@@ -99,7 +95,7 @@ public abstract class a implements c {
                 b(exceptionMessage, i2);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
-                this.f66388a.add(new C1961a(exceptionMessage, i2));
+                this.a.add(new C2037a(exceptionMessage, i2));
             }
         }
     }

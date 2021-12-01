@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.task.ProgressInfo;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
@@ -22,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LaunchedTaskSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -111,7 +110,7 @@ public class LaunchedTaskSpeedStats {
     private JSONObject getNodePart() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("duration", this.mEndTimeStamp - this.mStartTimeStamp);
@@ -131,7 +130,7 @@ public class LaunchedTaskSpeedStats {
         InterceptResult invokeL;
         SpeedStatisticsNode speedStatisticsNode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, ruleNode)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, ruleNode)) == null) {
             if (TextUtils.isEmpty(ruleNode.getName()) || (speedStatisticsNode = this.nodesMap.get(ruleNode.getName())) == null) {
                 return null;
             }

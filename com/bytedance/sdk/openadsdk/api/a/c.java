@@ -1,7 +1,6 @@
 package com.bytedance.sdk.openadsdk.api.a;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,24 +22,22 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.openadsdk.api.a.c$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final c f62489a;
+        public static final c a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +53,7 @@ public class c {
                     return;
                 }
             }
-            f62489a = new c(null);
+            a = new c(null);
         }
     }
 
@@ -67,13 +64,13 @@ public class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62489a : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (c) invokeV.objValue;
     }
 
     private X509TrustManager b() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             try {
                 TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
                 trustManagerFactory.init((KeyStore) null);
@@ -139,7 +136,7 @@ public class c {
                 httpsURLConnection = (HttpsURLConnection) url.openConnection();
                 try {
                     httpsURLConnection.setConnectTimeout(5000);
-                    httpsURLConnection.setHostnameVerifier(com.bytedance.sdk.openadsdk.api.a.a.f62480a);
+                    httpsURLConnection.setHostnameVerifier(com.bytedance.sdk.openadsdk.api.a.a.a);
                     if (z && bArr != null && bArr.length != 0) {
                         httpsURLConnection.setDoOutput(true);
                         httpsURLConnection.setFixedLengthStreamingMode(bArr.length);
@@ -191,7 +188,7 @@ public class c {
     public static byte[] a(InputStream inputStream, int i2) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, inputStream, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65541, null, inputStream, i2)) != null) {
             return (byte[]) invokeLI.objValue;
         }
         if (inputStream == null) {

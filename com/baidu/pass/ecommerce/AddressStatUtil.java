@@ -2,7 +2,6 @@ package com.baidu.pass.ecommerce;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.ecommerce.EcommerceRouter;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AddressStatUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AddressStatUtil";
@@ -61,12 +60,12 @@ public class AddressStatUtil {
         }
     }
 
-    public static void statAddressOption(String str, long j) {
+    public static void statAddressOption(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j2) == null) {
             HashMap<String, String> commonParamsMap = getCommonParamsMap();
-            commonParamsMap.put("time", "" + j);
-            Log.d(TAG, "statAddressOption key=" + str + " time=" + j);
+            commonParamsMap.put("time", "" + j2);
+            Log.d(TAG, "statAddressOption key=" + str + " time=" + j2);
             StatService.onEvent(str, commonParamsMap);
         }
     }
@@ -82,7 +81,7 @@ public class AddressStatUtil {
 
     public static void statAddressOption(String str, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, hashMap) == null) {
             HashMap<String, String> commonParamsMap = getCommonParamsMap();
             commonParamsMap.putAll(hashMap);
             Log.d(TAG, "statAddressOption key=" + str);

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FirstScreenImageInfomation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,10 +117,10 @@ public class FirstScreenImageInfomation {
         }
     }
 
-    public void setMaxTimeStamp(long j) {
+    public void setMaxTimeStamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.nMaxTimeStamp = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.nMaxTimeStamp = j2;
         }
     }
 
@@ -152,10 +152,10 @@ public class FirstScreenImageInfomation {
         }
     }
 
-    public void setTimeStampForMaxImage(long j) {
+    public void setTimeStampForMaxImage(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.nTimeStampForMaxImage = j;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.nTimeStampForMaxImage = j2;
         }
     }
 

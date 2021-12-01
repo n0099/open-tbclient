@@ -10,7 +10,6 @@ import android.provider.MediaStore;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.shell.listener.IScreenShotListener;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ScreenShotManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] KEYWORDS;
@@ -34,7 +33,7 @@ public class ScreenShotManager {
     public MediaContentObserver mInternalObserver;
     public IScreenShotListener mScreenShotListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class MediaContentObserver extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,13 +149,13 @@ public class ScreenShotManager {
         }
     }
 
-    private void handleMediaRowData(String str, long j) {
+    private void handleMediaRowData(String str, long j2) {
         IScreenShotListener iScreenShotListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, this, str, j) == null) {
-            long j2 = 0;
-            while (!isScreenShot(str) && j2 <= 500) {
-                j2 += 100;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, this, str, j2) == null) {
+            long j3 = 0;
+            while (!isScreenShot(str) && j3 <= 500) {
+                j3 += 100;
                 try {
                     Thread.sleep(100L);
                 } catch (InterruptedException e2) {
@@ -173,7 +172,7 @@ public class ScreenShotManager {
     private boolean isScreenShot(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (str == null) {
                 return false;
             }

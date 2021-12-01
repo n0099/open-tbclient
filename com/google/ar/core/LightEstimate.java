@@ -9,19 +9,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class LightEstimate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final Session f63999a;
+    public final Session a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f64000b;
+    public long f55943b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,27 +114,27 @@ public class LightEstimate {
                 return;
             }
         }
-        this.f64000b = 0L;
-        this.f63999a = session;
-        this.f64000b = nativeCreateLightEstimate(session.f64002a);
+        this.f55943b = 0L;
+        this.a = session;
+        this.f55943b = nativeCreateLightEstimate(session.a);
     }
 
-    public static native long nativeCreateLightEstimate(long j);
+    public static native long nativeCreateLightEstimate(long j2);
 
-    public static native void nativeDestroyLightEstimate(long j);
+    public static native void nativeDestroyLightEstimate(long j2);
 
-    private native void nativeGetColorCorrection(long j, long j2, float[] fArr, int i2);
+    private native void nativeGetColorCorrection(long j2, long j3, float[] fArr, int i2);
 
-    private native float nativeGetPixelIntensity(long j, long j2);
+    private native float nativeGetPixelIntensity(long j2, long j3);
 
-    private native int nativeGetState(long j, long j2);
+    private native int nativeGetState(long j2, long j3);
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f64000b;
-            if (j != 0) {
-                nativeDestroyLightEstimate(j);
+            long j2 = this.f55943b;
+            if (j2 != 0) {
+                nativeDestroyLightEstimate(j2);
             }
             super.finalize();
         }
@@ -155,7 +153,7 @@ public class LightEstimate {
                 return;
             }
         }
-        this.f64000b = 0L;
-        this.f64000b = 0L;
+        this.f55943b = 0L;
+        this.f55943b = 0L;
     }
 }

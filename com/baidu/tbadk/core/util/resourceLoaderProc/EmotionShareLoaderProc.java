@@ -1,10 +1,10 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.a.d;
-import b.a.e.f.l.b;
-import b.a.e.f.l.e;
-import b.a.e.m.d.a;
+import c.a.d.f.a.d;
+import c.a.d.f.l.b;
+import c.a.d.f.l.e;
+import c.a.d.m.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EmotionShareLoaderProc implements e<EmotionShare> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MemeLoaderProc2 impl;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class EmotionShare {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +49,8 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class ForceDeleteFileOperate extends DiskFileOperate implements b.a.e.f.a.a {
+    /* loaded from: classes9.dex */
+    public static class ForceDeleteFileOperate extends DiskFileOperate implements c.a.d.f.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,7 +75,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
             }
         }
 
-        @Override // b.a.e.f.a.a
+        @Override // c.a.d.f.a.a
         public boolean compare(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public EmotionShare m26decodeToResource(byte[] bArr, Object... objArr) {
+    public EmotionShare m48decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
@@ -142,14 +142,14 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         return (EmotionShare) invokeLL.objValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.impl.getAsyncTaskParallel() : (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public EmotionShare getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         return (EmotionShare) invokeCommon.objValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         }
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) {
@@ -194,7 +194,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public EmotionShare getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -215,7 +215,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public EmotionShare getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

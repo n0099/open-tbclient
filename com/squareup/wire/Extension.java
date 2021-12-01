@@ -2,7 +2,6 @@ package com.squareup.wire;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,13 +67,13 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
     public static <T extends ExtendableMessage<?>, E extends Enum & ProtoEnum> Builder<T, E> enumExtending(Class<E> cls, Class<T> cls2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cls, cls2)) == null) ? new Builder<>(cls2, null, cls, Message.Datatype.ENUM, null) : (Builder) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, cls2)) == null) ? new Builder<>(cls2, null, cls, Message.Datatype.ENUM, null) : (Builder) invokeLL.objValue;
     }
 
     public static <T extends ExtendableMessage<?>> Builder<T, Integer> fixed32Extending(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.FIXED32, null) : (Builder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) ? new Builder<>(cls, Message.Datatype.FIXED32, null) : (Builder) invokeL.objValue;
     }
 
     public static <T extends ExtendableMessage<?>> Builder<T, Long> fixed64Extending(Class<T> cls) {

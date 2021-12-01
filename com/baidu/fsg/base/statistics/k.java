@@ -10,7 +10,6 @@ import com.baidu.fsg.base.restnet.beans.business.core.utils.NetUtils;
 import com.baidu.fsg.base.utils.BussinessUtils;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.PhoneUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,45 +20,43 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38351a = "k";
+    public static final String a = "k";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38352b = "cu";
+    public static final String f34310b = "cu";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38353c = "cu2";
+    public static final String f34311c = "cu2";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38354d = "ua";
+    public static final String f34312d = "ua";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38355e = "op";
+    public static final String f34313e = "op";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38356f = "bs";
+    public static final String f34314f = "bs";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38357g = "bk";
+    public static final String f34315g = "bk";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38358h = "lc";
+    public static final String f34316h = "lc";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38359i = "sd";
+    public static final String f34317i = "sd";
     public transient /* synthetic */ FieldHolder $fh;
-    public Pattern j;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public Pattern f34318j;
+
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static k f38360a;
+        public static k a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -75,7 +72,7 @@ public class k {
                     return;
                 }
             }
-            f38360a = new k(null);
+            a = new k(null);
         }
 
         public a() {
@@ -121,7 +118,7 @@ public class k {
                 return;
             }
         }
-        this.j = Pattern.compile("\\s*|\t|\r|\n");
+        this.f34318j = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public /* synthetic */ k(j jVar) {
@@ -131,7 +128,7 @@ public class k {
     public static k c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f38360a : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (k) invokeV.objValue;
     }
 
     private String c(Context context) {
@@ -146,17 +143,17 @@ public class k {
     private String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) ? RimArmor.getInstance().getpwProxy() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) ? RimArmor.getInstance().getpwProxy() : (String) invokeL.objValue;
     }
 
     private String e(Context context) {
         String str;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, context)) == null) {
             try {
                 try {
-                    return this.j.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                    return this.f34318j.matcher(PhoneUtils.getCUID(context)).replaceAll("");
                 } catch (Exception unused) {
                     return str;
                 }
@@ -174,7 +171,7 @@ public class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
             try {
                 try {
-                    return this.j.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                    return this.f34318j.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
                 } catch (Exception unused) {
                     return str;
                 }
@@ -218,13 +215,13 @@ public class k {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("ua", h(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f38352b, e(RimStatisticsUtil.getAppContext()));
-                jSONObject.put(f38353c, f(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f34310b, e(RimStatisticsUtil.getAppContext()));
+                jSONObject.put(f34311c, f(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("op", g(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("bs", c(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f38357g, d(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f34315g, d(RimStatisticsUtil.getAppContext()));
                 jSONObject.putOpt("sd", b(RimStatisticsUtil.getAppContext()));
-                jSONObject.putOpt(f38358h, a(RimStatisticsUtil.getAppContext()));
+                jSONObject.putOpt(f34316h, a(RimStatisticsUtil.getAppContext()));
             } catch (JSONException unused) {
             }
             return jSONObject.toString();
@@ -252,7 +249,7 @@ public class k {
             try {
                 return new JSONObject().toString();
             } catch (Throwable th) {
-                LogUtil.d(f38351a, th.toString());
+                LogUtil.d(a, th.toString());
                 return null;
             }
         }

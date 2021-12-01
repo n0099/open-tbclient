@@ -8,12 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CertChecker {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final CertChecker f62060a;
+    public static final CertChecker a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +27,7 @@ public class CertChecker {
                 return;
             }
         }
-        f62060a = new CertChecker();
+        a = new CertChecker();
         System.loadLibrary("msaoaidauth");
     }
 
@@ -50,7 +48,7 @@ public class CertChecker {
     public static CertChecker a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f62060a : (CertChecker) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (CertChecker) invokeV.objValue;
     }
 
     public native boolean verifyCert(Context context, String str);

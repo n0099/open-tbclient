@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class SecurePay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INPUT_ID_CVV = 2;
@@ -24,12 +24,10 @@ public final class SecurePay {
     public static final int SIG_RSA_SHA256 = 11;
     public static final int SIG_RSA_SHA384 = 12;
     public static final int SIG_RSA_SHA512 = 13;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static SecurePay f62970a = null;
+    public static SecurePay a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f62971b = true;
+    public static boolean f55051b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +46,7 @@ public final class SecurePay {
         try {
             System.loadLibrary("dxm_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f62971b = false;
+            f55051b = false;
             String str = "load library failed, " + e2.getMessage();
         }
     }
@@ -73,15 +71,15 @@ public final class SecurePay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (SecurePay.class) {
-                if (f62970a == null) {
+                if (a == null) {
                     SecurePay securePay2 = new SecurePay();
-                    f62970a = securePay2;
+                    a = securePay2;
                     try {
                         securePay2.init();
                     } catch (Throwable unused) {
                     }
                 }
-                securePay = f62970a;
+                securePay = a;
             }
             return securePay;
         }
@@ -153,7 +151,7 @@ public final class SecurePay {
         return (String) invokeL.objValue;
     }
 
-    public native String getA(long j);
+    public native String getA(long j2);
 
     public native String getB(int i2);
 
@@ -225,7 +223,7 @@ public final class SecurePay {
     public boolean prepareCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f62971b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f55051b : invokeV.booleanValue;
     }
 
     public native String rsaDecrypt(String str);

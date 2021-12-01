@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.transcoder;
 
 import com.facebook.imageformat.ImageFormat;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface ImageTranscoderFactory {
     @Nullable
     ImageTranscoder createImageTranscoder(ImageFormat imageFormat, boolean z);

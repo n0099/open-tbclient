@@ -12,12 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class e<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f65076a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f65077b;
+    public boolean f57095b;
 
     public e(boolean z) {
         Interceptable interceptable = $ic;
@@ -34,8 +32,8 @@ public abstract class e<T> {
                 return;
             }
         }
-        this.f65077b = false;
-        this.f65076a = z;
+        this.f57095b = false;
+        this.a = z;
     }
 
     @Nullable
@@ -43,7 +41,7 @@ public abstract class e<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f65076a && !this.f65077b) {
+            if (this.a && !this.f57095b) {
                 try {
                     return b(context);
                 } catch (Throwable th) {
@@ -59,7 +57,7 @@ public abstract class e<T> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f65076a = z;
+            this.a = z;
         }
     }
 

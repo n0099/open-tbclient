@@ -16,8 +16,6 @@ import androidx.core.content.res.FontResourcesParserCompat;
 import androidx.core.provider.FontsContractCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -151,7 +149,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     private boolean isFontFamilyPrivateAPIAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             Method method = this.mAddFontFromAssetManager;
             return this.mAddFontFromAssetManager != null;
         }
@@ -162,7 +160,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
     private Object newFamily() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             try {
                 return this.mFontFamilyCtor.newInstance(new Object[0]);
             } catch (IllegalAccessException | InstantiationException | InvocationTargetException unused) {
@@ -229,7 +227,7 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             if (!isFontFamilyPrivateAPIAvailable()) {
                 FontsContractCompat.FontInfo findBestInfo = findBestInfo(fontInfoArr, i2);
                 try {
-                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), r.f41000a, cancellationSignal);
+                    ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo.getUri(), "r", cancellationSignal);
                     if (openFileDescriptor == null) {
                         if (openFileDescriptor != null) {
                             openFileDescriptor.close();

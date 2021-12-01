@@ -8,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.f.p.l;
-import b.a.q0.s.g0.b;
-import b.a.r0.b0.f0.c;
+import c.a.d.f.p.l;
+import c.a.q0.s.g0.b;
+import c.a.r0.g0.f0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PbGoodsData;
@@ -23,19 +23,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SingleLinkCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f46236e;
+    public TbImageView f41266e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f46237f;
+    public TextView f41267f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f46238g;
+    public TextView f41268g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SingleLinkCardView(Context context) {
@@ -63,21 +63,21 @@ public class SingleLinkCardView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (cVar instanceof PbLinkData) {
                 PbLinkData pbLinkData = (PbLinkData) cVar;
-                this.f46236e.startLoad(pbLinkData.picUrl, 10, false);
+                this.f41266e.startLoad(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbLinkData.linkFrom)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkFrom);
-                    int g2 = l.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-                    int g3 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                    int f2 = l.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+                    int f3 = l.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
                     int i2 = R.color.CAM_X0305;
-                    int g4 = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-                    int g5 = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-                    int g6 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-                    int g7 = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    b bVar = new b(g2, -1, i2, g4, i2, g5, l.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    bVar.b(g3);
-                    bVar.h(g6);
-                    bVar.i(g7);
+                    int f4 = l.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+                    int f5 = l.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+                    int f6 = l.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+                    int f7 = l.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+                    b bVar = new b(f2, -1, i2, f4, i2, f5, l.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    bVar.b(f3);
+                    bVar.h(f6);
+                    bVar.i(f7);
                     spannableStringBuilder.setSpan(bVar, 0, pbLinkData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl)) {
@@ -85,38 +85,38 @@ public class SingleLinkCardView extends RelativeLayout {
                 } else {
                     spannableStringBuilder.append((CharSequence) pbLinkData.title);
                 }
-                this.f46237f.setText(spannableStringBuilder);
+                this.f41267f.setText(spannableStringBuilder);
                 if (pbLinkData.urlType == 2) {
                     if (TextUtils.isEmpty(pbLinkData.extTxt)) {
-                        this.f46238g.setVisibility(8);
+                        this.f41268g.setVisibility(8);
                     } else {
-                        this.f46237f.setMaxLines(1);
-                        this.f46238g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbLinkData.extTxt));
-                        this.f46238g.setVisibility(0);
+                        this.f41267f.setMaxLines(1);
+                        this.f41268g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbLinkData.extTxt));
+                        this.f41268g.setVisibility(0);
                     }
                 } else {
-                    this.f46238g.setVisibility(8);
+                    this.f41268g.setVisibility(8);
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
-                    this.f46237f.setMaxLines(1);
+                    this.f41267f.setMaxLines(1);
                 }
             } else if (cVar instanceof PbGoodsData) {
                 PbGoodsData pbGoodsData = (PbGoodsData) cVar;
-                this.f46236e.startLoad(pbGoodsData.picUrl, 10, false);
+                this.f41266e.startLoad(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkFrom);
-                    int g8 = l.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-                    int g9 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                    int f8 = l.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+                    int f9 = l.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
                     int i3 = R.color.CAM_X0305;
-                    int g10 = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-                    int g11 = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-                    int g12 = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-                    int g13 = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    b bVar2 = new b(g8, -1, i3, g10, i3, g11, l.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    bVar2.b(g9);
-                    bVar2.h(g12);
-                    bVar2.i(g13);
+                    int f10 = l.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
+                    int f11 = l.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+                    int f12 = l.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
+                    int f13 = l.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+                    b bVar2 = new b(f8, -1, i3, f10, i3, f11, l.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    bVar2.b(f9);
+                    bVar2.h(f12);
+                    bVar2.i(f13);
                     spannableStringBuilder2.setSpan(bVar2, 0, pbGoodsData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl)) {
@@ -124,16 +124,16 @@ public class SingleLinkCardView extends RelativeLayout {
                 } else {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.title);
                 }
-                this.f46237f.setText(spannableStringBuilder2);
+                this.f41267f.setText(spannableStringBuilder2);
                 if (TextUtils.isEmpty(pbGoodsData.price)) {
-                    this.f46238g.setVisibility(8);
+                    this.f41268g.setVisibility(8);
                 } else {
-                    this.f46237f.setMaxLines(1);
-                    this.f46238g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbGoodsData.price));
-                    this.f46238g.setVisibility(0);
+                    this.f41267f.setMaxLines(1);
+                    this.f41268g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbGoodsData.price));
+                    this.f41268g.setVisibility(0);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl) && TextUtils.isEmpty(pbGoodsData.price)) {
-                    this.f46237f.setMaxLines(1);
+                    this.f41267f.setMaxLines(1);
                 }
             }
         }
@@ -143,8 +143,8 @@ public class SingleLinkCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
-            SkinManager.setViewTextColor(this.f46237f, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f46238g, R.color.CAM_X0305);
+            SkinManager.setViewTextColor(this.f41267f, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f41268g, R.color.CAM_X0305);
         }
     }
 
@@ -198,19 +198,19 @@ public class SingleLinkCardView extends RelativeLayout {
         }
         LayoutInflater.from(context).inflate(R.layout.single_link_card_layout, this);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_single_link_icon);
-        this.f46236e = tbImageView;
+        this.f41266e = tbImageView;
         tbImageView.setBorderSurroundContent(true);
-        this.f46236e.setDrawCorner(true);
-        this.f46236e.setConrers(15);
-        this.f46236e.setGifIconSupport(false);
-        this.f46236e.setLongIconSupport(false);
-        this.f46236e.setDrawBorder(true);
-        this.f46236e.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
-        this.f46236e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.f46236e.setRadius(l.g(context, R.dimen.tbds10));
-        this.f46236e.setPlaceHolder(2);
-        this.f46237f = (TextView) findViewById(R.id.tv_single_link_text);
-        this.f46238g = (TextView) findViewById(R.id.goods_price);
+        this.f41266e.setDrawCorner(true);
+        this.f41266e.setConrers(15);
+        this.f41266e.setGifIconSupport(false);
+        this.f41266e.setLongIconSupport(false);
+        this.f41266e.setDrawBorder(true);
+        this.f41266e.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
+        this.f41266e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.f41266e.setRadius(l.f(context, R.dimen.tbds10));
+        this.f41266e.setPlaceHolder(2);
+        this.f41267f = (TextView) findViewById(R.id.tv_single_link_text);
+        this.f41268g = (TextView) findViewById(R.id.goods_price);
         onChangeSkinType();
     }
 }

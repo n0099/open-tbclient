@@ -1,5 +1,5 @@
 package com.baidu.wallet.home.ui.widget;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface b {
     String getAndroidPrefix();
 

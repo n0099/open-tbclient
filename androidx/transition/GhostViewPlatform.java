@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,7 +109,7 @@ public class GhostViewPlatform implements GhostView {
 
     public static void removeGhost(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, view) == null) {
             fetchRemoveGhostMethod();
             Method method = sRemoveGhostMethod;
             if (method != null) {

@@ -5,7 +5,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.ApollonConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,24 +14,22 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38378a = "CheckUtils";
+    public static final String a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38379b = 3;
+    public static final int f34328b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38380c = 12;
+    public static final int f34329c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f38381d = 4;
+    public static final int f34330d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f38382e;
+    public static long f34331e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -274,15 +271,15 @@ public final class CheckUtils {
     public static boolean isFastDoubleClick() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - f38382e;
-            LogUtil.logd("timeD=" + j);
-            if (0 >= j || j >= 500) {
-                f38382e = currentTimeMillis;
+            long j2 = currentTimeMillis - f34331e;
+            LogUtil.logd("timeD=" + j2);
+            if (0 >= j2 || j2 >= 500) {
+                f34331e = currentTimeMillis;
                 return false;
             }
-            LogUtil.logd("点的太快了 timeD=" + j);
+            LogUtil.logd("点的太快了 timeD=" + j2);
             return true;
         }
         return invokeV.booleanValue;
@@ -291,7 +288,7 @@ public final class CheckUtils {
     public static boolean isIDcardAvailable(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$").matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? Pattern.compile("^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}[\\dxX]$|^[1-9]\\d{5}\\d{2}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}$").matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static boolean isMobileAvailable(String str) {

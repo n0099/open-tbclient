@@ -2,7 +2,6 @@ package org.apache.commons.codec.digest4util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +49,7 @@ public final class HmacUtils {
     public static Mac getHmacMd5(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) ? getInitializedMac(HmacAlgorithms.HMAC_MD5, bArr) : (Mac) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) ? getInitializedMac(HmacAlgorithms.HMAC_MD5, bArr) : (Mac) invokeL.objValue;
     }
 
     @Deprecated
@@ -530,14 +529,14 @@ public final class HmacUtils {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {hmacAlgorithms, bArr};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (byte[]) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }

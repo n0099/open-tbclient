@@ -9,7 +9,7 @@ import com.baidu.sofire.utility.u;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,22 +22,22 @@ public final class a {
         }
         String str = "";
         try {
-            com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-            if (!TextUtils.isEmpty(a2.f44018c.getString("rpiiem", ""))) {
-                a2.f44019d.putString("rpiiem", "");
-                a2.f44019d.commit();
+            com.baidu.sofire.h.a a = com.baidu.sofire.h.a.a(context);
+            if (!TextUtils.isEmpty(a.f39121c.getString("rpiiem", ""))) {
+                a.f39122d.putString("rpiiem", "");
+                a.f39122d.commit();
             }
-            String n = a2.n();
+            String n = a.n();
             try {
                 if (TextUtils.isEmpty(n)) {
                     n = u.h(context);
                     if (!TextUtils.isEmpty(n)) {
                         if (TextUtils.isEmpty(n)) {
-                            a2.f44019d.putString("rpiiemn", "");
-                            a2.f44019d.commit();
+                            a.f39122d.putString("rpiiemn", "");
+                            a.f39122d.commit();
                         } else {
-                            a2.f44019d.putString("rpiiemn", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), n.getBytes("UTF-8"), true), 10), "UTF-8"));
-                            a2.f44019d.commit();
+                            a.f39122d.putString("rpiiemn", new String(Base64.encode(h.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), n.getBytes("UTF-8"), true), 10), "UTF-8"));
+                            a.f39122d.commit();
                         }
                     }
                 }
@@ -57,13 +57,13 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String str = "";
             try {
-                com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                str = a2.f44018c.getString("rpandid", "");
+                com.baidu.sofire.h.a a = com.baidu.sofire.h.a.a(context);
+                str = a.f39121c.getString("rpandid", "");
                 if (TextUtils.isEmpty(str)) {
                     str = u.i(context);
                     if (!TextUtils.isEmpty(str)) {
-                        a2.f44019d.putString("rpandid", str);
-                        a2.f44019d.commit();
+                        a.f39122d.putString("rpandid", str);
+                        a.f39122d.commit();
                     }
                 }
             } catch (Throwable unused) {

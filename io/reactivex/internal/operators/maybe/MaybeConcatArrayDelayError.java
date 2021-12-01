@@ -20,13 +20,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MaybeConcatArrayDelayError<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MaybeSource<? extends T>[] sources;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ConcatMaybeObserver<T> extends AtomicInteger implements MaybeObserver<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3520831347801429610L;
@@ -82,9 +82,9 @@ public final class MaybeConcatArrayDelayError<T> extends Flowable<T> {
                     if (obj != null) {
                         boolean z = true;
                         if (obj != NotificationLite.COMPLETE) {
-                            long j = this.produced;
-                            if (j != this.requested.get()) {
-                                this.produced = j + 1;
+                            long j2 = this.produced;
+                            if (j2 != this.requested.get()) {
+                                this.produced = j2 + 1;
                                 atomicReference.lazySet(null);
                                 subscriber.onNext(obj);
                             } else {
@@ -157,10 +157,10 @@ public final class MaybeConcatArrayDelayError<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }

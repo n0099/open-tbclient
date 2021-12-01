@@ -3,15 +3,15 @@ package com.baidu.tieba.flutter.plugin.globalStateSync;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import b.a.e.f.p.k;
-import b.a.q0.b.d;
-import b.a.q0.b.e;
-import b.a.q0.b.f.z;
-import b.a.q0.c1.r0;
-import b.a.q0.f1.b.c;
-import b.a.q0.s.e0.b;
-import b.a.q0.t.b.a;
-import b.a.r0.t0.a.b.g;
+import c.a.d.f.p.k;
+import c.a.q0.b.d;
+import c.a.q0.b.e;
+import c.a.q0.b.f.a0;
+import c.a.q0.d1.r0;
+import c.a.q0.g1.b.c;
+import c.a.q0.s.e0.b;
+import c.a.q0.t.b.a;
+import c.a.r0.z0.a.b.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto.HostGlobalStateSync {
     public static /* synthetic */ Interceptable $ic;
     public static boolean updatingLoginUserInfoByFlutter;
@@ -54,7 +54,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     public CustomMessageListener skinTypeChangeListener;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class GlobalStateSubType {
         public static final /* synthetic */ GlobalStateSubType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -128,7 +128,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class GlobalStateType {
         public static final /* synthetic */ GlobalStateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -445,11 +445,11 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e a2 = d.a(z.f12707c);
-            if (a2 == null || k.isEmpty(a2.f12628a)) {
+            e a = d.a(a0.f11723c);
+            if (a == null || k.isEmpty(a.a)) {
                 return "";
             }
-            String str = a2.f12628a;
+            String str = a.a;
             char c2 = 65535;
             int hashCode = str.hashCode();
             if (hashCode != 1688589) {
@@ -571,12 +571,12 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            String a2 = a.b().a();
+            String a = a.b().a();
             hashMap.put("keepAliveWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveWifi()));
             hashMap.put("keepAliveNoWifi", Integer.valueOf(TbadkCoreApplication.getInst().getKeepaliveNonWifi()));
             hashMap.put("puEnvValue", TbSingleton.getInstance().getPubEnvValue());
             hashMap.put("isVisitPreviewServer", Boolean.valueOf(TbSingleton.getInstance().isVisitPreviewServer()));
-            hashMap.put("sCookie", a2);
+            hashMap.put("sCookie", a);
             return hashMap;
         }
         return (HashMap) invokeV.objValue;
@@ -625,8 +625,8 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
             hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
             hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.j().k("key_video_works_progress_bar_waiting_time", 0)));
-            hashMap2.put("experimentPersonalVideoTabID", d.L() ? "12_10_zhuye_feed_b" : "");
-            hashMap2.put("experimentNickNameID", d.H() ? "12_11_nick_name_a" : "");
+            hashMap2.put("experimentPersonalVideoTabID", d.O() ? "12_10_zhuye_feed_b" : "");
+            hashMap2.put("experimentNickNameID", d.K() ? "12_11_nick_name_a" : "");
             hashMap.put("syncData", hashMap2);
             if (TbSingleton.getInstance().getTiebaPlusConfigData() != null) {
                 hashMap3.put("heatingSwitchOpen", TbSingleton.getInstance().getTiebaPlusConfigData().f() ? "1" : "0");
@@ -681,12 +681,12 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v5, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    private boolean writeSyncData(HashMap<String, Object> hashMap, long j) {
+    private boolean writeSyncData(HashMap<String, Object> hashMap, long j2) {
         InterceptResult invokeLJ;
         boolean equals;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65556, this, hashMap, j)) == null) {
-            if (j == GlobalStateSubType.kGlobalStateSubTypeSwitches.ordinal() && hashMap != null && hashMap.size() > 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65556, this, hashMap, j2)) == null) {
+            if (j2 == GlobalStateSubType.kGlobalStateSubTypeSwitches.ordinal() && hashMap != null && hashMap.size() > 0) {
                 for (Map.Entry<String, Object> entry : hashMap.entrySet()) {
                     if (entry.getValue() instanceof String) {
                         equals = "false".equals((String) entry.getValue());

@@ -10,10 +10,10 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.a2.k;
-import b.a.r0.a4.i.d.c;
-import b.a.r0.a4.l.f;
-import b.a.r0.a4.l.g;
+import c.a.r0.g2.k;
+import c.a.r0.h4.i.d.c;
+import c.a.r0.h4.l.f;
+import c.a.r0.h4.l.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -28,36 +28,38 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.encoder.TextureMovieEncoder;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callback, f, Camera.PreviewCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f55759e;
+    public g f49847e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SurfaceHolder f55760f;
+    public SurfaceHolder f49848f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MediaRecorder f55761g;
+    public MediaRecorder f49849g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f55762h;
+    public boolean f49850h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f55763i;
-    public boolean j;
-    public f.a k;
-    public b.a.r0.a2.g l;
+    public boolean f49851i;
 
-    /* loaded from: classes9.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f49852j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public f.a f49853k;
+    public c.a.r0.g2.g l;
+
+    /* loaded from: classes11.dex */
     public class a implements MediaRecorder.OnErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoPreviewView f55764a;
+        public final /* synthetic */ VideoPreviewView a;
 
         public a(VideoPreviewView videoPreviewView) {
             Interceptable interceptable = $ic;
@@ -74,7 +76,7 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
                     return;
                 }
             }
-            this.f55764a = videoPreviewView;
+            this.a = videoPreviewView;
         }
 
         @Override // android.media.MediaRecorder.OnErrorListener
@@ -90,30 +92,28 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
                         e3.printStackTrace();
                     }
                 }
-                if (this.f55764a.l != null) {
-                    b.a.r0.a2.g gVar = this.f55764a.l;
+                if (this.a.l != null) {
+                    c.a.r0.g2.g gVar = this.a.l;
                     gVar.b(28, "what-->" + i2 + "  extra-->" + i3);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b extends BdAsyncTask<Void, Void, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ byte[] f55765a;
+        public final /* synthetic */ byte[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f55766b;
+        public final /* synthetic */ int f49854b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f55767c;
+        public final /* synthetic */ int f49855c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ VideoPreviewView f55768d;
+        public final /* synthetic */ VideoPreviewView f49856d;
 
         public b(VideoPreviewView videoPreviewView, byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -130,10 +130,10 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
                     return;
                 }
             }
-            this.f55768d = videoPreviewView;
-            this.f55765a = bArr;
-            this.f55766b = i2;
-            this.f55767c = i3;
+            this.f49856d = videoPreviewView;
+            this.a = bArr;
+            this.f49854b = i2;
+            this.f49855c = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -145,15 +145,15 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 Bitmap bitmap = null;
                 try {
-                    bitmap = c.b(this.f55765a, this.f55766b, this.f55767c);
-                    if (this.f55766b > this.f55767c) {
+                    bitmap = c.b(this.a, this.f49854b, this.f49855c);
+                    if (this.f49854b > this.f49855c) {
                         Bitmap h2 = c.h(bitmap, 90.0f);
                         if (bitmap != null && !bitmap.isRecycled() && h2 != null) {
                             bitmap.recycle();
                             bitmap = h2;
                         }
                     }
-                    return FileHelper.saveFileAsPic(b.a.r0.a4.c.f15924i, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
+                    return FileHelper.saveFileAsPic(c.a.r0.h4.c.f17915i, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
                 } finally {
                     if (bitmap != null && !bitmap.isRecycled()) {
                         bitmap.recycle();
@@ -167,10 +167,10 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f55768d.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f49856d.f49853k == null) {
                 return;
             }
-            this.f55768d.k.a(!TextUtils.isEmpty(str), str);
+            this.f49856d.f49853k.a(!TextUtils.isEmpty(str), str);
         }
     }
 
@@ -197,7 +197,7 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
         if (kVar != null) {
             this.l = kVar.get();
         }
-        this.f55759e = gVar;
+        this.f49847e = gVar;
         getHolder().addCallback(this);
     }
 
@@ -211,7 +211,7 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Handler n = this.f55759e.n();
+            Handler n = this.f49847e.n();
             n.sendMessage(n.obtainMessage(1));
         }
     }
@@ -219,18 +219,18 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, Camera camera) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bArr, camera) == null) && this.j) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bArr, camera) == null) && this.f49852j) {
             if (bArr != null) {
                 Camera.Size previewSize = camera.getParameters().getPreviewSize();
                 c(bArr, previewSize.width, previewSize.height);
             }
-            this.j = false;
+            this.f49852j = false;
         }
     }
 
     public void onResume() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f55763i) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f49851i) {
             d();
         }
     }
@@ -239,118 +239,118 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) ? this.f55759e.r(motionEvent, getParent()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) ? this.f49847e.r(motionEvent, getParent()) : invokeL.booleanValue;
     }
 
-    @Override // b.a.r0.a4.l.f
+    @Override // c.a.r0.h4.l.f
     public void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onEncoderStatusUpdateListener) == null) {
         }
     }
 
-    @Override // b.a.r0.a4.l.f
+    @Override // c.a.r0.h4.l.f
     public void setPreviewSize(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
         }
     }
 
-    @Override // b.a.r0.a4.l.f
+    @Override // c.a.r0.h4.l.f
     public void startPreview(Camera camera) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, camera) == null) || this.f55762h || camera == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, camera) == null) || this.f49850h || camera == null) {
             return;
         }
-        this.f55762h = true;
+        this.f49850h = true;
         try {
-            camera.setPreviewDisplay(this.f55760f);
+            camera.setPreviewDisplay(this.f49848f);
             camera.setPreviewCallback(this);
         } catch (IOException e2) {
             e2.printStackTrace();
-            b.a.r0.a2.g gVar = this.l;
+            c.a.r0.g2.g gVar = this.l;
             if (gVar != null) {
-                gVar.b(27, b.a.r0.a2.a.a(e2));
+                gVar.b(27, c.a.r0.g2.a.a(e2));
             }
         }
         camera.startPreview();
     }
 
-    @Override // b.a.r0.a4.l.f
+    @Override // c.a.r0.h4.l.f
     public void startRecord(Camera camera) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, camera) == null) || camera == null) {
             return;
         }
         MediaRecorder mediaRecorder = new MediaRecorder();
-        this.f55761g = mediaRecorder;
+        this.f49849g = mediaRecorder;
         mediaRecorder.reset();
         try {
             camera.unlock();
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        this.f55761g.setCamera(camera);
-        this.f55761g.setOnErrorListener(new a(this));
-        SurfaceHolder surfaceHolder = this.f55760f;
+        this.f49849g.setCamera(camera);
+        this.f49849g.setOnErrorListener(new a(this));
+        SurfaceHolder surfaceHolder = this.f49848f;
         if (surfaceHolder != null) {
-            this.f55761g.setPreviewDisplay(surfaceHolder.getSurface());
+            this.f49849g.setPreviewDisplay(surfaceHolder.getSurface());
         }
-        this.f55761g.setVideoSource(1);
-        this.f55761g.setAudioSource(1);
-        this.f55761g.setOutputFormat(2);
-        this.f55761g.setVideoEncoder(2);
-        this.f55761g.setAudioEncoder(3);
-        this.f55761g.setAudioSamplingRate(MediaEncodeParams.AUDIO_SAMPLE_RATE);
-        this.f55761g.setAudioChannels(1);
-        this.f55761g.setVideoEncodingBitRate(2097152);
-        this.f55761g.setVideoFrameRate(20);
-        if (this.f55759e.k) {
-            this.f55761g.setOrientationHint(270);
+        this.f49849g.setVideoSource(1);
+        this.f49849g.setAudioSource(1);
+        this.f49849g.setOutputFormat(2);
+        this.f49849g.setVideoEncoder(2);
+        this.f49849g.setAudioEncoder(3);
+        this.f49849g.setAudioSamplingRate(MediaEncodeParams.AUDIO_SAMPLE_RATE);
+        this.f49849g.setAudioChannels(1);
+        this.f49849g.setVideoEncodingBitRate(2097152);
+        this.f49849g.setVideoFrameRate(20);
+        if (this.f49847e.f18120k) {
+            this.f49849g.setOrientationHint(270);
         } else {
-            this.f55761g.setOrientationHint(90);
+            this.f49849g.setOrientationHint(90);
         }
-        this.f55761g.setVideoSize(1280, 720);
-        File file = new File(b.a.r0.a4.c.f15921f);
+        this.f49849g.setVideoSize(1280, 720);
+        File file = new File(c.a.r0.h4.c.f17912f);
         if (!FileHelper.CheckTempDir(file.getAbsolutePath())) {
             file.mkdirs();
         }
-        this.f55761g.setOutputFile(this.f55759e.o());
+        this.f49849g.setOutputFile(this.f49847e.o());
         try {
-            this.f55761g.prepare();
-            this.f55761g.start();
+            this.f49849g.prepare();
+            this.f49849g.start();
         } catch (Throwable th2) {
             th2.printStackTrace();
-            b.a.r0.a2.g gVar = this.l;
+            c.a.r0.g2.g gVar = this.l;
             if (gVar != null) {
-                gVar.b(28, b.a.r0.a2.a.a(th2));
+                gVar.b(28, c.a.r0.g2.a.a(th2));
             }
         }
     }
 
-    @Override // b.a.r0.a4.l.f
+    @Override // c.a.r0.h4.l.f
     public void stopPreview(Camera camera) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, camera) == null) && this.f55762h) {
-            this.f55762h = false;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, camera) == null) && this.f49850h) {
+            this.f49850h = false;
         }
     }
 
-    @Override // b.a.r0.a4.l.f
+    @Override // c.a.r0.h4.l.f
     public void stopRecord(Camera camera) {
         MediaRecorder mediaRecorder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, camera) == null) || (mediaRecorder = this.f55761g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, camera) == null) || (mediaRecorder = this.f49849g) == null) {
             return;
         }
         try {
             mediaRecorder.stop();
-            this.f55761g.release();
+            this.f49849g.release();
         } catch (Exception e2) {
             e2.printStackTrace();
-            b.a.r0.a2.g gVar = this.l;
+            c.a.r0.g2.g gVar = this.l;
             if (gVar != null) {
-                gVar.b(29, b.a.r0.a2.a.a(e2));
+                gVar.b(29, c.a.r0.g2.a.a(e2));
             }
         }
     }
@@ -366,9 +366,9 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, surfaceHolder) == null) {
-            this.f55760f = surfaceHolder;
+            this.f49848f = surfaceHolder;
             d();
-            this.f55763i = true;
+            this.f49851i = true;
         }
     }
 
@@ -379,12 +379,12 @@ public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    @Override // b.a.r0.a4.l.f
+    @Override // c.a.r0.h4.l.f
     public void takePicture(f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
-            this.k = aVar;
-            this.j = true;
+            this.f49853k = aVar;
+            this.f49852j = true;
         }
     }
 }

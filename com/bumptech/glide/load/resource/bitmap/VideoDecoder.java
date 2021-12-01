@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final MediaMetadataRetrieverFactory DEFAULT_FACTORY;
@@ -43,7 +42,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public final MediaMetadataRetrieverFactory factory;
     public final MediaMetadataRetrieverInitializer<T> initializer;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class AssetFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<AssetFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +72,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class MediaMetadataRetrieverFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,12 +99,12 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface MediaMetadataRetrieverInitializer<T> {
         void initialize(MediaMetadataRetriever mediaMetadataRetriever, T t);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class ParcelFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -247,27 +246,27 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     @Nullable
-    public static Bitmap decodeFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i2, int i3, int i4, DownsampleStrategy downsampleStrategy) {
+    public static Bitmap decodeFrame(MediaMetadataRetriever mediaMetadataRetriever, long j2, int i2, int i3, int i4, DownsampleStrategy downsampleStrategy) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{mediaMetadataRetriever, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), downsampleStrategy})) == null) {
-            Bitmap decodeScaledFrame = (Build.VERSION.SDK_INT < 27 || i3 == Integer.MIN_VALUE || i4 == Integer.MIN_VALUE || downsampleStrategy == DownsampleStrategy.NONE) ? null : decodeScaledFrame(mediaMetadataRetriever, j, i2, i3, i4, downsampleStrategy);
-            return decodeScaledFrame == null ? decodeOriginalFrame(mediaMetadataRetriever, j, i2) : decodeScaledFrame;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{mediaMetadataRetriever, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), downsampleStrategy})) == null) {
+            Bitmap decodeScaledFrame = (Build.VERSION.SDK_INT < 27 || i3 == Integer.MIN_VALUE || i4 == Integer.MIN_VALUE || downsampleStrategy == DownsampleStrategy.NONE) ? null : decodeScaledFrame(mediaMetadataRetriever, j2, i2, i3, i4, downsampleStrategy);
+            return decodeScaledFrame == null ? decodeOriginalFrame(mediaMetadataRetriever, j2, i2) : decodeScaledFrame;
         }
         return (Bitmap) invokeCommon.objValue;
     }
 
-    public static Bitmap decodeOriginalFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i2) {
+    public static Bitmap decodeOriginalFrame(MediaMetadataRetriever mediaMetadataRetriever, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{mediaMetadataRetriever, Long.valueOf(j), Integer.valueOf(i2)})) == null) ? mediaMetadataRetriever.getFrameAtTime(j, i2) : (Bitmap) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{mediaMetadataRetriever, Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? mediaMetadataRetriever.getFrameAtTime(j2, i2) : (Bitmap) invokeCommon.objValue;
     }
 
     @TargetApi(27)
-    public static Bitmap decodeScaledFrame(MediaMetadataRetriever mediaMetadataRetriever, long j, int i2, int i3, int i4, DownsampleStrategy downsampleStrategy) {
+    public static Bitmap decodeScaledFrame(MediaMetadataRetriever mediaMetadataRetriever, long j2, int i2, int i3, int i4, DownsampleStrategy downsampleStrategy) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{mediaMetadataRetriever, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), downsampleStrategy})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{mediaMetadataRetriever, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), downsampleStrategy})) == null) {
             try {
                 int parseInt = Integer.parseInt(mediaMetadataRetriever.extractMetadata(18));
                 int parseInt2 = Integer.parseInt(mediaMetadataRetriever.extractMetadata(19));
@@ -277,7 +276,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
                     parseInt = parseInt2;
                 }
                 float scaleFactor = downsampleStrategy.getScaleFactor(parseInt, parseInt2, i3, i4);
-                return mediaMetadataRetriever.getScaledFrameAtTime(j, i2, Math.round(parseInt * scaleFactor), Math.round(scaleFactor * parseInt2));
+                return mediaMetadataRetriever.getScaledFrameAtTime(j2, i2, Math.round(parseInt * scaleFactor), Math.round(scaleFactor * parseInt2));
             } catch (Throwable unused) {
                 Log.isLoggable(TAG, 3);
                 return null;

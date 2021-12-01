@@ -16,25 +16,23 @@ import com.vivo.push.util.y;
 import java.util.ArrayList;
 import java.util.List;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class d<T> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f71214a;
+    public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f71215b;
+    public static final byte[] f62484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f71216c;
+    public static final Object f62485c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<T> f71217d;
+    public List<T> f62486d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f71218e;
+    public Context f62487e;
 
     static {
         InterceptResult invokeClinit;
@@ -49,9 +47,9 @@ public abstract class d<T> {
                 return;
             }
         }
-        f71214a = new byte[]{34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 37, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 41, Base64.INTERNAL_PADDING, 32, 32, 32};
-        f71215b = new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, Base64.INTERNAL_PADDING, 34, PublicSuffixDatabase.EXCEPTION_MARKER};
-        f71216c = new Object();
+        a = new byte[]{34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 37, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 32, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, PublicSuffixDatabase.EXCEPTION_MARKER, 34, 41, Base64.INTERNAL_PADDING, 32, 32, 32};
+        f62484b = new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 32, 38, 37, 36, Base64.INTERNAL_PADDING, 34, PublicSuffixDatabase.EXCEPTION_MARKER};
+        f62485c = new Object();
     }
 
     public d(Context context) {
@@ -69,8 +67,8 @@ public abstract class d<T> {
                 return;
             }
         }
-        this.f71217d = new ArrayList();
-        this.f71218e = context.getApplicationContext();
+        this.f62486d = new ArrayList();
+        this.f62487e = context.getApplicationContext();
         c();
     }
 
@@ -83,10 +81,10 @@ public abstract class d<T> {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (f71216c) {
+            synchronized (f62485c) {
                 h.a(a());
-                this.f71217d.clear();
-                String a2 = y.b(this.f71218e).a(a(), null);
+                this.f62486d.clear();
+                String a2 = y.b(this.f62487e).a(a(), null);
                 if (TextUtils.isEmpty(a2)) {
                     p.d("CacheSettings", "ClientManager init " + a() + " strApps empty.");
                 } else if (a2.length() > 10000) {
@@ -97,7 +95,7 @@ public abstract class d<T> {
                         p.d("CacheSettings", "ClientManager init " + a() + " strApps : " + a2);
                         List<T> a3 = a(b(a2));
                         if (a3 != null) {
-                            this.f71217d.addAll(a3);
+                            this.f62486d.addAll(a3);
                         }
                     } catch (Exception e2) {
                         d();
@@ -111,9 +109,9 @@ public abstract class d<T> {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (f71216c) {
-                this.f71217d.clear();
-                y.b(this.f71218e).b(a(), "");
+            synchronized (f62485c) {
+                this.f62486d.clear();
+                y.b(this.f62487e).b(a(), "");
                 p.d("CacheSettings", "clear " + a() + " strApps");
             }
         }

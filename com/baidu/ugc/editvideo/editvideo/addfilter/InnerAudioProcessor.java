@@ -8,7 +8,7 @@ import android.media.MediaCrypto;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
-import b.a.x0.t.m;
+import c.a.x0.t.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class InnerAudioProcessor extends InnerMediaProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerAudioProcessor";
@@ -70,7 +70,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
         ByteBuffer[] byteBufferArr;
         int i7;
         boolean z;
-        long j;
+        long j2;
         MediaCodec mediaCodec5;
         MediaCodec mediaCodec6;
         int i8;
@@ -85,7 +85,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
             ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             MediaCodec.BufferInfo bufferInfo2 = new MediaCodec.BufferInfo();
-            long j2 = 1000;
+            long j3 = 1000;
             int i9 = 0;
             mediaExtractor.seekTo(this.mClipPoint * 1000, 0);
             boolean z3 = this.mClipPoint + this.mClipDuration != 0;
@@ -109,7 +109,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 } else {
                     int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], i9);
                     long sampleTime = mediaExtractor.getSampleTime();
-                    boolean z7 = z3 && sampleTime <= ((this.mClipPoint + this.mClipDuration) * j2) + 100000;
+                    boolean z7 = z3 && sampleTime <= ((this.mClipPoint + this.mClipDuration) * j3) + 100000;
                     if (readSampleData >= 0 && (!z3 || z7)) {
                         i2 = i10;
                         i3 = i12;
@@ -168,27 +168,27 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                             mediaCodec4 = mediaCodec7;
                             i7 = -2;
                             z = false;
-                            j = 1000;
+                            j2 = 1000;
                         } else {
                             ByteBuffer byteBuffer2 = byteBufferArr3[dequeueInputBuffer2];
                             int i13 = bufferInfo.size;
-                            long j3 = bufferInfo.presentationTimeUs;
-                            if (i13 < 0 || j3 < this.mClipPoint * 1000) {
+                            long j4 = bufferInfo.presentationTimeUs;
+                            if (i13 < 0 || j4 < this.mClipPoint * 1000) {
                                 mediaCodec5 = mediaCodec3;
                                 i7 = -2;
                                 z = false;
-                                j = 1000;
+                                j2 = 1000;
                             } else {
                                 ByteBuffer duplicate = byteBufferArr2[i2].duplicate();
                                 duplicate.position(bufferInfo.offset);
                                 duplicate.limit(bufferInfo.offset + i13);
                                 byteBuffer2.position(i6);
                                 byteBuffer2.put(duplicate);
-                                j = 1000;
+                                j2 = 1000;
                                 z = false;
                                 mediaCodec5 = mediaCodec3;
                                 i7 = -2;
-                                mediaCodec2.queueInputBuffer(dequeueInputBuffer2, 0, i13, j3 - (this.mClipPoint * 1000), bufferInfo.flags);
+                                mediaCodec2.queueInputBuffer(dequeueInputBuffer2, 0, i13, j4 - (this.mClipPoint * 1000), bufferInfo.flags);
                             }
                             mediaCodec4 = mediaCodec;
                             mediaCodec4.releaseOutputBuffer(i2, z);
@@ -248,7 +248,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                                     mediaFormat3 = mediaFormat2;
                                     i11 = i8;
                                     inputBuffers = byteBufferArr;
-                                    j2 = j;
+                                    j3 = j2;
                                     i9 = 0;
                                 }
                             } else {
@@ -263,7 +263,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                             mediaFormat3 = mediaFormat2;
                             i11 = i8;
                             inputBuffers = byteBufferArr;
-                            j2 = j;
+                            j3 = j2;
                             i9 = 0;
                         }
                     } else {
@@ -271,7 +271,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                         byteBufferArr = inputBuffers;
                         i7 = -2;
                         z = false;
-                        j = 1000;
+                        j2 = 1000;
                         mediaCodec5 = mediaCodec3;
                     }
                     i10 = i2;
@@ -287,7 +287,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                     mediaFormat3 = mediaFormat2;
                     i11 = i8;
                     inputBuffers = byteBufferArr;
-                    j2 = j;
+                    j3 = j2;
                     i9 = 0;
                 }
                 i6 = 0;
@@ -298,7 +298,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 byteBufferArr = inputBuffers;
                 i7 = -2;
                 z = false;
-                j = 1000;
+                j2 = 1000;
                 mediaCodec5 = mediaCodec3;
                 i10 = i2;
                 if (z4) {
@@ -313,7 +313,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 mediaFormat3 = mediaFormat2;
                 i11 = i8;
                 inputBuffers = byteBufferArr;
-                j2 = j;
+                j3 = j2;
                 i9 = 0;
             }
             if (isUnInterrupted()) {

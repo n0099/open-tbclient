@@ -3,7 +3,6 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +18,10 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class db {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile db f71702a;
+    public static volatile db a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -33,13 +30,11 @@ public class db {
     /* renamed from: a  reason: collision with other field name */
     public final ConcurrentLinkedQueue<b> f223a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ db f71703a;
+        public final /* synthetic */ db a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(db dbVar) {
@@ -59,28 +54,26 @@ public class db {
                     return;
                 }
             }
-            this.f71703a = dbVar;
+            this.a = dbVar;
         }
 
         @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f71703a.b();
+                this.a.b();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends al.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public long f71704a;
+        public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ db f71705b;
+        public final /* synthetic */ db f62775b;
 
         public b(db dbVar) {
             Interceptable interceptable = $ic;
@@ -97,8 +90,8 @@ public class db {
                     return;
                 }
             }
-            this.f71705b = dbVar;
-            this.f71704a = System.currentTimeMillis();
+            this.f62775b = dbVar;
+            this.a = System.currentTimeMillis();
         }
 
         @Override // com.xiaomi.push.al.b
@@ -122,17 +115,15 @@ public class db {
         public final boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - this.f71704a > 172800000 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - this.a > 172800000 : invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f71706a;
+        public int a;
 
         /* renamed from: a  reason: collision with other field name */
         public final /* synthetic */ db f224a;
@@ -147,7 +138,7 @@ public class db {
         public boolean f227a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71707b;
+        public String f62776b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f228b;
@@ -172,7 +163,7 @@ public class db {
             }
             this.f224a = dbVar;
             this.f226a = str;
-            this.f71707b = str2;
+            this.f62776b = str2;
             this.f225a = file;
             this.f228b = z;
         }
@@ -227,9 +218,9 @@ public class db {
                 try {
                     if (c()) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bi.m615a());
-                        hashMap.put("token", this.f71707b);
-                        hashMap.put("net", bg.m175a(this.f224a.f222a));
+                        hashMap.put("uid", com.xiaomi.push.service.bi.m664a());
+                        hashMap.put("token", this.f62776b);
+                        hashMap.put("net", bg.m224a(this.f224a.f222a));
                         bg.a(this.f226a, hashMap, this.f225a, "file");
                     }
                     this.f227a = true;
@@ -240,20 +231,20 @@ public class db {
 
         @Override // com.xiaomi.push.al.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo245c() {
+        public void mo294c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!this.f227a) {
-                    int i2 = this.f71706a + 1;
-                    this.f71706a = i2;
+                    int i2 = this.a + 1;
+                    this.a = i2;
                     if (i2 < 3) {
                         this.f224a.f223a.add(this);
                     }
                 }
-                if (this.f227a || this.f71706a >= 3) {
+                if (this.f227a || this.a >= 3) {
                     this.f225a.delete();
                 }
-                this.f224a.a((1 << this.f71706a) * 1000);
+                this.f224a.a((1 << this.a) * 1000);
             }
         }
     }
@@ -299,32 +290,32 @@ public class db {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f71702a == null) {
+            if (a == null) {
                 synchronized (db.class) {
-                    if (f71702a == null) {
-                        f71702a = new db(context);
+                    if (a == null) {
+                        a = new db(context);
                     }
                 }
             }
-            f71702a.f222a = context;
-            return f71702a;
+            a.f222a = context;
+            return a;
         }
         return (db) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j) {
+    public void a(long j2) {
         b peek;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) && (peek = this.f223a.peek()) != null && peek.a()) {
-            b(j);
+        if ((interceptable == null || interceptable.invokeJ(65541, this, j2) == null) && (peek = this.f223a.peek()) != null && peek.a()) {
+            b(j2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || aa.b() || aa.m141a()) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || aa.b() || aa.m190a()) {
             return;
         }
         try {
@@ -338,12 +329,12 @@ public class db {
         }
     }
 
-    private void b(long j) {
+    private void b(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || this.f223a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeJ(65545, this, j2) == null) || this.f223a.isEmpty()) {
             return;
         }
-        go.a(new dd(this), j);
+        go.a(new dd(this), j2);
     }
 
     private void c() {

@@ -89,10 +89,10 @@ public class DeepLink {
         }
     }
 
-    public void setId(long j) {
+    public void setId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.id = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.id = j2;
         }
     }
 

@@ -1,207 +1,287 @@
 package com.kwad.sdk.utils;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Field;
-import java.util.Observable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class t extends Observable {
+public class t {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile t f67633a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f67634b;
-
-    public t() {
+    public static <T> List<T> a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (TextUtils.isEmpty(str)) {
+                return arrayList;
             }
-        }
-    }
-
-    public static t a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f67633a == null) {
-                synchronized (t.class) {
-                    if (f67633a == null) {
-                        f67633a = new t();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    Object obj = jSONArray.get(i2);
+                    if (obj != null) {
+                        arrayList.add(obj);
                     }
                 }
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
-            return f67633a;
+            return arrayList;
         }
-        return (t) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public void a(Context context) {
-        Context applicationContext;
-        Object obj;
+    public static <T extends com.kwad.sdk.core.b> List<T> a(String str, @NonNull com.kwad.sdk.core.c<T> cVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (applicationContext = context.getApplicationContext()) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cVar)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (TextUtils.isEmpty(str)) {
+                return arrayList;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    T a = cVar.a();
+                    a.parseJson(jSONObject);
+                    arrayList.add(a);
+                }
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static JSONArray a(@NonNull List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (String str : list) {
+                jSONArray.put(str);
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public static JSONObject a(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (map != null && !map.isEmpty()) {
+                try {
+                    for (Map.Entry<String, String> entry : map.entrySet()) {
+                        jSONObject.put(entry.getKey(), entry.getValue());
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static void a(JSONArray jSONArray, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, jSONObject) == null) {
+            jSONArray.put(jSONObject);
+        }
+    }
+
+    public static void a(JSONObject jSONObject, String str, double d2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{jSONObject, str, Double.valueOf(d2)}) == null) {
+            try {
+                jSONObject.put(str, d2);
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    public static void a(JSONObject jSONObject, String str, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, str, Float.valueOf(f2)}) == null) {
+            try {
+                jSONObject.put(str, f2);
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    public static void a(JSONObject jSONObject, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, null, jSONObject, str, i2) == null) {
+            try {
+                jSONObject.put(str, i2);
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    public static void a(JSONObject jSONObject, String str, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{jSONObject, str, Long.valueOf(j2)}) == null) {
+            try {
+                jSONObject.put(str, j2);
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    public static void a(JSONObject jSONObject, String str, com.kwad.sdk.core.b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65545, null, jSONObject, str, bVar) == null) || bVar == null) {
             return;
         }
-        Application application = null;
-        com.kwad.sdk.core.d.a.a("LifecycleHolder", "init appContext: " + applicationContext);
-        if (!(applicationContext instanceof Application)) {
-            Field[] declaredFields = applicationContext.getClass().getDeclaredFields();
-            int length = declaredFields.length;
-            int i2 = 0;
-            while (true) {
-                if (i2 >= length) {
+        try {
+            jSONObject.put(str, bVar.toJson());
+        } catch (JSONException unused) {
+        }
+    }
+
+    public static void a(JSONObject jSONObject, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, jSONObject, str, str2) == null) {
+            try {
+                jSONObject.put(str, str2);
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    public static void a(JSONObject jSONObject, String str, List<?> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65547, null, jSONObject, str, list) == null) || list == null) {
+            return;
+        }
+        JSONArray jSONArray = new JSONArray();
+        boolean z = false;
+        for (Object obj : list) {
+            if (obj instanceof com.kwad.sdk.core.b) {
+                a(jSONArray, ((com.kwad.sdk.core.b) obj).toJson());
+            } else if ((obj instanceof String) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof JSONObject) || (obj instanceof JSONArray) || (obj instanceof Double) || (obj instanceof Boolean)) {
+                jSONArray.put(obj);
+            } else {
+                if (!(obj instanceof Float)) {
                     break;
                 }
-                Field field = declaredFields[i2];
-                field.setAccessible(true);
                 try {
-                    obj = field.get(applicationContext);
-                } catch (Throwable th) {
-                    com.kwad.sdk.core.d.a.b(th);
-                }
-                if (obj instanceof Application) {
-                    application = (Application) obj;
-                    break;
-                } else {
-                    continue;
-                    i2++;
+                    jSONArray.put(((Float) obj).floatValue());
+                } catch (JSONException unused) {
                 }
             }
-        } else {
-            application = (Application) applicationContext;
+            z = true;
         }
-        com.kwad.sdk.core.d.a.a("LifecycleHolder", "init application: " + application);
-        if (application != null) {
-            application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks(this) { // from class: com.kwad.sdk.utils.t.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ t f67635a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f67635a = this;
-                }
-
-                @Override // android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, bundle) == null) {
-                    }
-                }
-
-                @Override // android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityDestroyed(@NonNull Activity activity) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                    }
-                }
-
-                @Override // android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityPaused(@NonNull Activity activity) {
-                    Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.f67635a.f67634b == null || this.f67635a.f67634b.get() == null || !((Activity) this.f67635a.f67634b.get()).equals(activity)) {
-                        return;
-                    }
-                    this.f67635a.f67634b = null;
-                }
-
-                @Override // android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityResumed(@NonNull Activity activity) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
-                        if (!this.f67635a.b()) {
-                            this.f67635a.d();
-                        }
-                        this.f67635a.f67634b = new WeakReference(activity);
-                    }
-                }
-
-                @Override // android.app.Application.ActivityLifecycleCallbacks
-                public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048580, this, activity, bundle) == null) {
-                    }
-                }
-
-                @Override // android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityStarted(@NonNull Activity activity) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                    }
-                }
-
-                @Override // android.app.Application.ActivityLifecycleCallbacks
-                public void onActivityStopped(@NonNull Activity activity) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
-                    }
-                }
-            });
+        if (z) {
+            a(jSONObject, str, jSONArray);
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void a(JSONObject jSONObject, String str, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c() != null : invokeV.booleanValue;
-    }
-
-    @Nullable
-    public Activity c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            WeakReference<Activity> weakReference = this.f67634b;
-            if (weakReference == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeLLL(65548, null, jSONObject, str, jSONArray) == null) && jSONArray != null && jSONArray.length() != 0 && jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.put(str, jSONArray);
+            } catch (JSONException unused) {
             }
-            return weakReference.get();
         }
-        return (Activity) invokeV.objValue;
     }
 
-    public void d() {
+    public static void a(JSONObject jSONObject, String str, JSONObject jSONObject2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            com.kwad.sdk.core.d.a.a("LifecycleHolder", "onAppBackToForeground");
-            setChanged();
-            notifyObservers("ACTION_APP_BACK_TO_FOREGROUND");
+        if ((interceptable == null || interceptable.invokeLLL(65549, null, jSONObject, str, jSONObject2) == null) && jSONObject2 != null && jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.put(str, jSONObject2);
+            } catch (JSONException unused) {
+            }
         }
+    }
+
+    public static void a(JSONObject jSONObject, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65550, null, jSONObject, str, z) == null) && jSONObject != null && !TextUtils.isEmpty(str)) {
+            try {
+                jSONObject.put(str, z);
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65551, null, jSONObject, jSONObject2) == null) || jSONObject == null || jSONObject2 == null) {
+            return;
+        }
+        Iterator<String> keys = jSONObject2.keys();
+        while (keys.hasNext()) {
+            String obj = keys.next().toString();
+            Object opt = jSONObject2.opt(obj);
+            if (opt != null) {
+                try {
+                    jSONObject.put(obj, opt);
+                } catch (JSONException unused) {
+                }
+            }
+        }
+    }
+
+    public static Map<String, String> b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    String optString = jSONObject.optString(next, "");
+                    if (TextUtils.isEmpty(optString) || TextUtils.equals(StringUtil.NULL_STRING, optString)) {
+                        optString = "";
+                    }
+                    hashMap.put(next, optString);
+                }
+            } catch (JSONException unused) {
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static <T> JSONArray b(@NonNull List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, list)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (Object obj : list) {
+                if (!(obj instanceof JSONObject)) {
+                    if (!(obj instanceof com.kwad.sdk.core.b)) {
+                        throw new IllegalArgumentException("<T> now suppprt type: " + obj.getClass().getName());
+                    }
+                    obj = ((com.kwad.sdk.core.b) obj).toJson();
+                }
+                jSONArray.put(obj);
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
     }
 }

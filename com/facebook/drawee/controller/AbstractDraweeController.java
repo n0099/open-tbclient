@@ -4,7 +4,6 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +29,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class AbstractDraweeController<T, INFO> implements DraweeController, DeferredReleaser.Releasable, GestureDetector.ClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -67,7 +66,7 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
     public SettableDraweeHierarchy mSettableDraweeHierarchy;
     public final Executor mUiThreadImmediateExecutor;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class InternalForwardingListener<INFO> extends ForwardingControllerListener<INFO> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +144,7 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
 
     private synchronized void init(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, obj) == null) {
             synchronized (this) {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("AbstractDraweeController#init");
@@ -192,7 +191,7 @@ public abstract class AbstractDraweeController<T, INFO> implements DraweeControl
     private boolean isExpectedDataSource(String str, DataSource<T> dataSource) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, dataSource)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, dataSource)) == null) {
             if (dataSource == null && this.mDataSource == null) {
                 return true;
             }

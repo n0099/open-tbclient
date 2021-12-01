@@ -17,7 +17,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import org.webrtc.HardwareVideoEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Mp4ComposerEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PROGRESS_INTERVAL_STEPS = 10;
@@ -28,7 +28,7 @@ public class Mp4ComposerEngine {
     public long mDurationUs;
     public ProgressCallback mProgressCallback;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ProgressCallback {
         void onProgress(float f2);
     }
@@ -54,11 +54,11 @@ public class Mp4ComposerEngine {
             if (this.mDurationUs <= 0 && (progressCallback = this.mProgressCallback) != null) {
                 progressCallback.onProgress(-1.0f);
             }
-            long j = 0;
+            long j2 = 0;
             while (!videoTrackTranscoder.isFinished()) {
                 boolean stepPipeline = videoTrackTranscoder.stepPipeline();
-                j++;
-                if (this.mDurationUs > 0 && j % 10 == 0) {
+                j2++;
+                if (this.mDurationUs > 0 && j2 % 10 == 0) {
                     float min = videoTrackTranscoder.isFinished() ? 1.0f : Math.min(1.0f, ((float) videoTrackTranscoder.getWrittenPresentationTimeUs()) / ((float) this.mDurationUs));
                     ProgressCallback progressCallback2 = this.mProgressCallback;
                     if (progressCallback2 != null) {

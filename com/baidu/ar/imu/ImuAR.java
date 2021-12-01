@@ -15,7 +15,6 @@ import com.baidu.ar.arrender.m;
 import com.baidu.ar.bean.ARConfig;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ImuAR extends com.baidu.ar.c implements g {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ImuAR";
@@ -172,7 +171,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
 
     private void a(Matrixf4x4 matrixf4x4, Vector3f vector3f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, matrixf4x4, vector3f) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, matrixf4x4, vector3f) == null) {
             this.rZ = false;
             if (this.rW != 1) {
                 float[] fArr = new float[16];
@@ -326,25 +325,25 @@ public class ImuAR extends com.baidu.ar.c implements g {
             l r = r();
             if (this.rV && !this.rX) {
                 this.rX = true;
-                b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, (HashMap<String, Object>) null);
+                b(7001, (HashMap<String, Object>) null);
                 if (r != null) {
                     this.rY = r.isDriverdByARPVersion();
                 }
             }
             if (r != null) {
                 Matrixf4x4 initialTransform = r.getInitialTransform();
-                Vector3f a2 = a(initialTransform);
-                Matrixf4x4 a3 = a(a(a2), initialTransform, a2);
+                Vector3f a = a(initialTransform);
+                Matrixf4x4 a2 = a(a(a), initialTransform, a);
                 if (this.sa) {
-                    b(a3);
+                    b(a2);
                 }
                 i iVar = this.rO;
                 if (iVar != null && iVar.eW() == b.rD && this.rY) {
-                    a3 = c(a3);
+                    a2 = c(a2);
                 }
                 m mVar = new m();
                 mVar.r("ability_imu");
-                mVar.setMatrix(a3.getMatrix());
+                mVar.setMatrix(a2.getMatrix());
                 r.setOffScreenGuideWork(true);
                 r.a(mVar);
             }

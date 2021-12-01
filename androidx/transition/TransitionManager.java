@@ -9,7 +9,6 @@ import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -227,7 +226,7 @@ public class TransitionManager {
 
     public static void endTransitions(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, viewGroup) == null) {
             sPendingTransitions.remove(viewGroup);
             ArrayList<Transition> arrayList = getRunningTransitions().get(viewGroup);
             if (arrayList == null || arrayList.isEmpty()) {
@@ -244,7 +243,7 @@ public class TransitionManager {
         InterceptResult invokeV;
         ArrayMap<ViewGroup, ArrayList<Transition>> arrayMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             WeakReference<ArrayMap<ViewGroup, ArrayList<Transition>>> weakReference = sRunningTransitions.get();
             if (weakReference == null || (arrayMap = weakReference.get()) == null) {
                 ArrayMap<ViewGroup, ArrayList<Transition>> arrayMap2 = new ArrayMap<>();

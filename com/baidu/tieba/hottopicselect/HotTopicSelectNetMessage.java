@@ -1,9 +1,7 @@
 package com.baidu.tieba.hottopicselect;
 
-import GetSugTopic.DataReq;
-import GetSugTopic.GetSugTopicReqIdl;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.c1.z;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,13 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
-/* loaded from: classes9.dex */
+import tbclient.GetSugTopic.DataReq;
+import tbclient.GetSugTopic.GetSugTopicReqIdl;
+/* loaded from: classes10.dex */
 public class HotTopicSelectNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f51054common;
+    public CommonReq f45779common;
     public long fid;
     public String firstDir;
     public boolean isVideoTopic;
@@ -54,7 +54,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1003common = getCommon();
+            builder.f64633common = getCommon();
             builder.fid = Long.valueOf(this.fid);
             String str = this.prefix;
             if (str != null) {
@@ -82,7 +82,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51054common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45779common : (CommonReq) invokeV.objValue;
     }
 
     public long getFid() {
@@ -118,14 +118,14 @@ public class HotTopicSelectNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, commonReq) == null) {
-            this.f51054common = commonReq;
+            this.f45779common = commonReq;
         }
     }
 
-    public void setFid(long j) {
+    public void setFid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.fid = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.fid = j2;
         }
     }
 

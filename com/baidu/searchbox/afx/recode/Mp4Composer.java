@@ -5,7 +5,6 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaMetadataRetriever;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.afx.recode.Mp4ComposerEngine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,14 +18,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Mp4Composer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Mp4Composer";
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService mExecutorService;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Listener {
         void onCompleted();
 
@@ -65,7 +64,7 @@ public class Mp4Composer {
     public Mp4Info getMp4Info(AssetFileDescriptor assetFileDescriptor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, assetFileDescriptor)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, assetFileDescriptor)) == null) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             if (assetFileDescriptor.getDeclaredLength() < 0) {
                 mediaMetadataRetriever.setDataSource(assetFileDescriptor.getFileDescriptor());
@@ -139,7 +138,7 @@ public class Mp4Composer {
     private Mp4Info getMp4Info(MediaMetadataRetriever mediaMetadataRetriever) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, mediaMetadataRetriever)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, mediaMetadataRetriever)) == null) {
             try {
                 mediaMetadataRetriever.extractMetadata(12);
                 Mp4Info mp4Info = new Mp4Info(Integer.valueOf(mediaMetadataRetriever.extractMetadata(18)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(19)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(24)).intValue(), Integer.valueOf(mediaMetadataRetriever.extractMetadata(20)).intValue(), 1000 * Long.valueOf(mediaMetadataRetriever.extractMetadata(9)).longValue());

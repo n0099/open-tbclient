@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StatusBarUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_BAR_DEFAULT_HEIGHT = 25;
@@ -26,19 +25,19 @@ public class StatusBarUtils {
     public static float sBarAlpha = 0.3f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f63083e;
+        public final /* synthetic */ View f55147e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f63084f;
+        public final /* synthetic */ ViewGroup.LayoutParams f55148f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f63085g;
+        public final /* synthetic */ Context f55149g;
 
         public a(View view, ViewGroup.LayoutParams layoutParams, Context context) {
             Interceptable interceptable = $ic;
@@ -55,9 +54,9 @@ public class StatusBarUtils {
                     return;
                 }
             }
-            this.f63083e = view;
-            this.f63084f = layoutParams;
-            this.f63085g = context;
+            this.f55147e = view;
+            this.f55148f = layoutParams;
+            this.f55149g = context;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -66,11 +65,11 @@ public class StatusBarUtils {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 19) {
                 return;
             }
-            this.f63083e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            this.f63084f.height = this.f63083e.getHeight() + StatusBarUtils.getStatusBarHeight(this.f63085g);
-            View view = this.f63083e;
-            view.setPadding(view.getPaddingLeft(), this.f63083e.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f63085g), this.f63083e.getPaddingRight(), this.f63083e.getPaddingBottom());
-            this.f63083e.setLayoutParams(this.f63084f);
+            this.f55147e.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            this.f55148f.height = this.f55147e.getHeight() + StatusBarUtils.getStatusBarHeight(this.f55149g);
+            View view = this.f55147e;
+            view.setPadding(view.getPaddingLeft(), this.f55147e.getPaddingTop() + StatusBarUtils.getStatusBarHeight(this.f55149g), this.f55147e.getPaddingRight(), this.f55147e.getPaddingBottom());
+            this.f55147e.setLayoutParams(this.f55148f);
         }
     }
 
@@ -133,7 +132,7 @@ public class StatusBarUtils {
     public static int getStatusBarHeight(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (mStatusBarHeight == 0) {
                 mStatusBarHeight = getInternalDimensionSize(context);
             }
@@ -144,7 +143,7 @@ public class StatusBarUtils {
 
     public static void setMIUIStatusBarDarkFont(Window window, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, window, z) == null) || window == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(65542, null, window, z) == null) || window == null) {
             return;
         }
         Class<?> cls = window.getClass();

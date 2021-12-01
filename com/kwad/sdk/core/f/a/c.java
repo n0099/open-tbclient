@@ -1,125 +1,76 @@
 package com.kwad.sdk.core.f.a;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.f.b.c;
-import java.util.concurrent.LinkedBlockingQueue;
+import com.zui.deviceidservice.IDeviceidInterface;
 /* loaded from: classes2.dex */
-public class c {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface c extends IInterface {
 
-    /* renamed from: a  reason: collision with root package name */
-    public Context f65460a;
+    /* loaded from: classes2.dex */
+    public static final class a implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public IBinder a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f65461b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f65462c;
-
-    public c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f65461b = new LinkedBlockingQueue<>(1);
-        this.f65462c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.c.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f65463a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
+        public a(IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iBinder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                this.f65463a = this;
             }
+            this.a = iBinder;
+        }
 
-            @Override // android.content.ServiceConnection
-            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
+        @Override // com.kwad.sdk.core.f.a.c
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
                     try {
-                        com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "onServiceConnected");
-                        this.f65463a.f65461b.put(iBinder);
+                        obtain.writeInterfaceToken(IDeviceidInterface.Stub.DESCRIPTOR);
+                        this.a.transact(1, obtain, obtain2, 0);
+                        obtain2.readException();
+                        return obtain2.readString();
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
+                        obtain2.recycle();
+                        obtain.recycle();
+                        return null;
                     }
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
             }
-
-            @Override // android.content.ServiceConnection
-            public void onServiceDisconnected(ComponentName componentName) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                }
-            }
-        };
-        this.f65460a = context;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Context context;
-        ServiceConnection serviceConnection;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = "";
-            try {
-                Intent intent = new Intent();
-                intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-                if (this.f65460a.bindService(intent, this.f65462c, 1)) {
-                    try {
-                        str = new c.a(this.f65461b.take()).a();
-                        com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "getOAID oaid:" + str);
-                        context = this.f65460a;
-                        serviceConnection = this.f65462c;
-                    } catch (Exception e2) {
-                        com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f65460a;
-                        serviceConnection = this.f65462c;
-                    }
-                    context.unbindService(serviceConnection);
-                }
-            } catch (Exception e3) {
-                com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "getOAID Lenovo service not found");
-                com.kwad.sdk.core.d.a.a(e3);
-            }
-            return str;
+            return (String) invokeV.objValue;
         }
-        return (String) invokeV.objValue;
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (IBinder) invokeV.objValue;
+        }
     }
+
+    String a();
 }

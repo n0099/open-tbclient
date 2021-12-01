@@ -1,126 +1,174 @@
 package com.kwad.sdk.utils;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.os.Build;
-import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.Window;
-import androidx.annotation.Nullable;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kwad.sdk.api.core.ResContext;
-import java.util.HashSet;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class ab {
     public static /* synthetic */ Interceptable $ic;
+    public static Method a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Method f59591b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Field f59592c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f59593d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, boolean z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(408734049, "Lcom/kwad/sdk/utils/ab;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(408734049, "Lcom/kwad/sdk/utils/ab;");
+                return;
+            }
+        }
+        try {
+            a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+        } catch (NoSuchMethodException e2) {
+            e2.printStackTrace();
+        }
+        try {
+            f59591b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+        } catch (NoSuchMethodException e3) {
+            e3.printStackTrace();
+        }
+        try {
+            f59592c = WindowManager.LayoutParams.class.getField("statusBarColor");
+        } catch (NoSuchFieldException e4) {
+            e4.printStackTrace();
+        }
+        try {
+            f59593d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+        } catch (IllegalAccessException e5) {
+            e5.printStackTrace();
+        } catch (NoSuchFieldException e6) {
+            e6.printStackTrace();
+        }
+    }
+
+    public static void a(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, context, z) == null) {
-            try {
-                Activity f2 = f(context);
-                if (f2 == null) {
+        if (interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) {
+            a(activity, z, true);
+        }
+    }
+
+    public static void a(Activity activity, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            Method method = f59591b;
+            if (method == null) {
+                if (z2) {
+                    a(activity.getWindow(), z);
                     return;
                 }
-                if (z) {
-                    if (Build.VERSION.SDK_INT < 19) {
-                        f2.getWindow().getDecorView().setSystemUiVisibility(8);
-                    } else {
-                        f2.getWindow().getDecorView().setSystemUiVisibility(1792);
-                    }
-                } else if (Build.VERSION.SDK_INT < 19) {
-                    f2.getWindow().getDecorView().setSystemUiVisibility(0);
-                } else {
-                    f2.getWindow().getDecorView().setSystemUiVisibility(3846);
-                }
-            } catch (Exception e2) {
+                return;
+            }
+            try {
+                method.invoke(activity, Boolean.valueOf(z));
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
             }
         }
     }
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    public static void a(View view, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Activity f2 = f(context);
-            if (f2 != null) {
-                Window window = f2.getWindow();
-                r0 = (window.getAttributes().flags & 1024) == 1024;
-                window.setFlags(1024, 1024);
+        if (interceptable == null || interceptable.invokeLZ(65539, null, view, z) == null) {
+            int systemUiVisibility = view.getSystemUiVisibility();
+            int i2 = z ? f59593d | systemUiVisibility : (~f59593d) & systemUiVisibility;
+            if (i2 != systemUiVisibility) {
+                view.setSystemUiVisibility(i2);
             }
-            return r0;
         }
-        return invokeL.booleanValue;
     }
 
-    public static void b(Context context) {
-        Activity f2;
+    public static void a(Window window, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (f2 = f(context)) == null) {
-            return;
-        }
-        f2.getWindow().clearFlags(1024);
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void c(Context context) {
-        Activity f2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || (f2 = f(context)) == null) {
-            return;
-        }
-        f2.setRequestedOrientation(0);
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void d(Context context) {
-        Activity f2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || (f2 = f(context)) == null) {
-            return;
-        }
-        f2.setRequestedOrientation(1);
-    }
-
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (!(context instanceof Activity)) {
-                return context.getResources().getConfiguration().orientation != 2;
-            }
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            return displayMetrics.heightPixels > displayMetrics.widthPixels;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Nullable
-    public static Activity f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            HashSet hashSet = new HashSet();
-            do {
-                hashSet.add(context);
-                if (!(context instanceof ContextWrapper)) {
-                    break;
-                } else if (context instanceof Activity) {
-                    return (Activity) context;
-                } else {
-                    context = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : ((ContextWrapper) context).getBaseContext();
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, window, i2) == null) {
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            Field field = f59592c;
+            if (field != null) {
+                try {
+                    if (field.getInt(attributes) != i2) {
+                        f59592c.set(attributes, Integer.valueOf(i2));
+                        window.setAttributes(attributes);
+                    }
+                } catch (IllegalAccessException e2) {
+                    e2.printStackTrace();
                 }
-            } while (!hashSet.contains(context));
-            return null;
+            }
         }
-        return (Activity) invokeL.objValue;
+    }
+
+    public static void a(Window window, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65541, null, window, z) == null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                a(window.getAttributes(), "MEIZU_FLAG_DARK_STATUS_BAR_ICON", z);
+                return;
+            }
+            View decorView = window.getDecorView();
+            if (decorView != null) {
+                a(decorView, z);
+                a(window, 0);
+            }
+        }
+    }
+
+    public static boolean a(WindowManager.LayoutParams layoutParams, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, layoutParams, str, z)) == null) {
+            try {
+                Field declaredField = layoutParams.getClass().getDeclaredField(str);
+                declaredField.setAccessible(true);
+                int i2 = declaredField.getInt(layoutParams);
+                Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
+                declaredField2.setAccessible(true);
+                int i3 = declaredField2.getInt(layoutParams);
+                int i4 = z ? i2 | i3 : (~i2) & i3;
+                if (i3 != i4) {
+                    declaredField2.setInt(layoutParams, i4);
+                    return true;
+                }
+                return false;
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+                return false;
+            } catch (IllegalArgumentException e3) {
+                e3.printStackTrace();
+                return false;
+            } catch (NoSuchFieldException e4) {
+                e4.printStackTrace();
+                return false;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

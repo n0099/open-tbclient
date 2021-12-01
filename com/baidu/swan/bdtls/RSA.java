@@ -2,7 +2,6 @@ package com.baidu.swan.bdtls;
 
 import android.text.TextUtils;
 import androidx.annotation.Keep;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.StandardCharsets;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RSA {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +43,7 @@ public class RSA {
     public static String privateKeyDecrypt(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             if (bArr == null || bArr.length < 1) {
                 return "null content";
             }
@@ -57,7 +56,7 @@ public class RSA {
     public static byte[] privateKeyEncrypt(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

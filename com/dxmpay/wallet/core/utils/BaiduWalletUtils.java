@@ -6,7 +6,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,25 +14,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.core.BaseActivity;
 import com.dxmpay.wallet.core.beans.BeanConstants;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class BaiduWalletUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_BAIDUAPP_PLUGIN = false;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f63479a;
+    public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f63480b;
+    public static int f55510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f63481c;
+    public static int f55511c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f63482d;
+    public static int f55512d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface IRequestPermissionCallBack {
         void isAllAgree(Boolean bool);
 
@@ -61,14 +58,14 @@ public final class BaiduWalletUtils {
         if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || context == null) {
             return;
         }
-        if (f63481c == 0 || f63482d == 0) {
-            f63481c = ResUtils.anim(context, "dxm_wallet_base_slide_from_left");
-            f63482d = ResUtils.anim(context, "dxm_wallet_base_slide_to_right");
+        if (f55511c == 0 || f55512d == 0) {
+            f55511c = ResUtils.anim(context, "dxm_wallet_base_slide_from_left");
+            f55512d = ResUtils.anim(context, "dxm_wallet_base_slide_to_right");
         }
         if ((context instanceof Activity) && BeanConstants.needActAnimation) {
-            ((Activity) context).overridePendingTransition(f63481c, f63482d);
+            ((Activity) context).overridePendingTransition(f55511c, f55512d);
         }
-        String str = "BaiduWalletUtils-finishActivityAnim-context:" + context + ", mCloseEnter:" + f63481c + ", mCloseExit:" + f63482d;
+        String str = "BaiduWalletUtils-finishActivityAnim-context:" + context + ", mCloseEnter:" + f55511c + ", mCloseExit:" + f55512d;
     }
 
     public static String getBaiduappVersionCode(Context context) {
@@ -118,14 +115,14 @@ public final class BaiduWalletUtils {
 
     public static void invokeHostLightapp(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
         }
     }
 
     public static boolean isActivity(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? (context instanceof Activity) || (context instanceof BaseActivity) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? (context instanceof Activity) || (context instanceof BaseActivity) : invokeL.booleanValue;
     }
 
     public static boolean isNightMode() {
@@ -165,12 +162,12 @@ public final class BaiduWalletUtils {
         if (!(interceptable == null || interceptable.invokeL(65547, null, context) == null) || context == null) {
             return;
         }
-        if (f63479a == 0 || f63480b == 0) {
-            f63479a = ResUtils.anim(context, "dxm_wallet_base_slide_from_right");
-            f63480b = ResUtils.anim(context, "dxm_wallet_base_slide_to_left");
+        if (a == 0 || f55510b == 0) {
+            a = ResUtils.anim(context, "dxm_wallet_base_slide_from_right");
+            f55510b = ResUtils.anim(context, "dxm_wallet_base_slide_to_left");
         }
         if ((context instanceof Activity) && BeanConstants.needActAnimation) {
-            ((Activity) context).overridePendingTransition(f63479a, f63480b);
+            ((Activity) context).overridePendingTransition(a, f55510b);
         }
     }
 }

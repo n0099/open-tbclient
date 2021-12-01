@@ -2,7 +2,6 @@ package com.baidu.searchbox.player.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class BdVideoLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_DEBUG = true;
@@ -24,7 +23,7 @@ public final class BdVideoLog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.player.utils.BdVideoLog$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$player$utils$BdVideoLog$LogLevel;
         public static /* synthetic */ Interceptable $ic;
@@ -69,7 +68,7 @@ public final class BdVideoLog {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class LogLevel {
         public static final /* synthetic */ LogLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -164,7 +163,7 @@ public final class BdVideoLog {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && BDPlayerConfig.isDebug()) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && BDPlayerConfig.isDebug()) {
             doLog(LogLevel.ERROR, str, str2, null);
         }
     }
@@ -250,7 +249,7 @@ public final class BdVideoLog {
 
     public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
             doLog(LogLevel.ERROR, LOG_TAG, str, null);
         }
     }

@@ -1,8 +1,8 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
-import b.a.c0.a.f;
-import b.a.c0.a.g;
+import c.a.d0.a.f;
+import c.a.d0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ForgetPwdActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,9 +101,7 @@ public class ForgetPwdActivity extends BaseActivity {
             this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback(this) { // from class: com.baidu.sapi2.activity.ForgetPwdActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ForgetPwdActivity f43339a;
+                public final /* synthetic */ ForgetPwdActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -120,23 +118,21 @@ public class ForgetPwdActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43339a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43339a.a();
+                        this.a.a();
                     }
                 }
             });
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.ForgetPwdActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ForgetPwdActivity f43340a;
+                public final /* synthetic */ ForgetPwdActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -153,23 +149,21 @@ public class ForgetPwdActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43340a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43340a.finish();
+                        this.a.finish();
                     }
                 }
             });
             this.sapiWebView.setChangePwdCallback(new SapiWebView.ChangePwdCallback(this) { // from class: com.baidu.sapi2.activity.ForgetPwdActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ForgetPwdActivity f43341a;
+                public final /* synthetic */ ForgetPwdActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -186,14 +180,14 @@ public class ForgetPwdActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43341a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43341a.finish();
+                        this.a.finish();
                     }
                 }
             });

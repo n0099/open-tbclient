@@ -1,11 +1,10 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.c.a1;
-import b.h.d.c.o1;
+import c.i.d.a.n;
+import c.i.d.c.a1;
+import c.i.d.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableRangeMap<Comparable<?>, Object> EMPTY;
@@ -30,7 +29,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     public final transient ImmutableList<Range<K>> ranges;
     public final transient ImmutableList<V> values;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class SerializedForm<K extends Comparable<?>, V> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -83,13 +82,11 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class a<K extends Comparable<?>, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final List<Map.Entry<Range<K>, V>> f64269a;
+        public final List<Map.Entry<Range<K>, V>> a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -104,26 +101,26 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
                     return;
                 }
             }
-            this.f64269a = Lists.i();
+            this.a = Lists.i();
         }
 
         public ImmutableRangeMap<K, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Collections.sort(this.f64269a, Range.rangeLexOrdering().onKeys());
-                ImmutableList.a aVar = new ImmutableList.a(this.f64269a.size());
-                ImmutableList.a aVar2 = new ImmutableList.a(this.f64269a.size());
-                for (int i2 = 0; i2 < this.f64269a.size(); i2++) {
-                    Range<K> key = this.f64269a.get(i2).getKey();
+                Collections.sort(this.a, Range.rangeLexOrdering().onKeys());
+                ImmutableList.a aVar = new ImmutableList.a(this.a.size());
+                ImmutableList.a aVar2 = new ImmutableList.a(this.a.size());
+                for (int i2 = 0; i2 < this.a.size(); i2++) {
+                    Range<K> key = this.a.get(i2).getKey();
                     if (i2 > 0) {
-                        Range<K> key2 = this.f64269a.get(i2 - 1).getKey();
+                        Range<K> key2 = this.a.get(i2 - 1).getKey();
                         if (key.isConnected(key2) && !key.intersection(key2).isEmpty()) {
                             throw new IllegalArgumentException("Overlapping ranges: range " + key2 + " overlaps with entry " + key);
                         }
                     }
                     aVar.h(key);
-                    aVar2.h(this.f64269a.get(i2).getValue());
+                    aVar2.h(this.a.get(i2).getValue());
                 }
                 return new ImmutableRangeMap<>(aVar.j(), aVar2.j());
             }
@@ -137,7 +134,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
                 n.p(range);
                 n.p(v);
                 n.k(!range.isEmpty(), "Range must not be empty, but was %s", range);
-                this.f64269a.add(Maps.l(range, v));
+                this.a.add(Maps.l(range, v));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -207,7 +204,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     public static <K extends Comparable<?>, V> ImmutableRangeMap<K, V> of() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ImmutableRangeMap<K, V>) EMPTY : (ImmutableRangeMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ImmutableRangeMap<K, V>) EMPTY : (ImmutableRangeMap) invokeV.objValue;
     }
 
     @Deprecated
@@ -230,12 +227,12 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
         return invokeL.booleanValue;
     }
 
-    public V get(K k) {
+    public V get(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) {
-            int a2 = SortedLists.a(this.ranges, Range.lowerBoundFn(), Cut.belowValue(k), SortedLists.KeyPresentBehavior.ANY_PRESENT, SortedLists.KeyAbsentBehavior.NEXT_LOWER);
-            if (a2 != -1 && this.ranges.get(a2).contains(k)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k2)) == null) {
+            int a2 = SortedLists.a(this.ranges, Range.lowerBoundFn(), Cut.belowValue(k2), SortedLists.KeyPresentBehavior.ANY_PRESENT, SortedLists.KeyAbsentBehavior.NEXT_LOWER);
+            if (a2 != -1 && this.ranges.get(a2).contains(k2)) {
                 return this.values.get(a2);
             }
             return null;
@@ -243,16 +240,16 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
         return (V) invokeL.objValue;
     }
 
-    public Map.Entry<Range<K>, V> getEntry(K k) {
+    public Map.Entry<Range<K>, V> getEntry(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k)) == null) {
-            int a2 = SortedLists.a(this.ranges, Range.lowerBoundFn(), Cut.belowValue(k), SortedLists.KeyPresentBehavior.ANY_PRESENT, SortedLists.KeyAbsentBehavior.NEXT_LOWER);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, k2)) == null) {
+            int a2 = SortedLists.a(this.ranges, Range.lowerBoundFn(), Cut.belowValue(k2), SortedLists.KeyPresentBehavior.ANY_PRESENT, SortedLists.KeyAbsentBehavior.NEXT_LOWER);
             if (a2 == -1) {
                 return null;
             }
             Range<K> range = this.ranges.get(a2);
-            if (range.contains(k)) {
+            if (range.contains(k2)) {
                 return Maps.l(range, this.values.get(a2));
             }
             return null;
@@ -326,12 +323,12 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     public static <K extends Comparable<?>, V> ImmutableRangeMap<K, V> of(Range<K> range, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, range, v)) == null) ? new ImmutableRangeMap<>(ImmutableList.of(range), ImmutableList.of(v)) : (ImmutableRangeMap) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, range, v)) == null) ? new ImmutableRangeMap<>(ImmutableList.of(range), ImmutableList.of(v)) : (ImmutableRangeMap) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: asDescendingMapOfRanges */
-    public ImmutableMap<Range<K>, V> m53asDescendingMapOfRanges() {
+    public ImmutableMap<Range<K>, V> m101asDescendingMapOfRanges() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -344,7 +341,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.a1
+    @Override // c.i.d.c.a1
     public ImmutableMap<Range<K>, V> asMapOfRanges() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -465,10 +462,10 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
 
                 @Override // com.google.common.collect.ImmutableRangeMap
                 public /* bridge */ /* synthetic */ Map asDescendingMapOfRanges() {
-                    return super.m53asDescendingMapOfRanges();
+                    return super.m101asDescendingMapOfRanges();
                 }
 
-                @Override // com.google.common.collect.ImmutableRangeMap, b.h.d.c.a1
+                @Override // com.google.common.collect.ImmutableRangeMap, c.i.d.c.a1
                 public /* bridge */ /* synthetic */ Map asMapOfRanges() {
                     return super.asMapOfRanges();
                 }

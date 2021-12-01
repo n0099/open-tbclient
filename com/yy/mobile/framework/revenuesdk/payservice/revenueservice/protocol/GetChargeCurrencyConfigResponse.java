@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import com.alipay.sdk.sys.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +25,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -228,7 +227,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     ProductInfo productInfo = new ProductInfo();
-                    productInfo.cid = optJSONObject.optInt(IAdRequestParam.CELL_ID);
+                    productInfo.cid = optJSONObject.optInt("cid");
                     productInfo.offersTips = optJSONObject.optString("offersTips");
                     productInfo.name = optJSONObject.optString("name");
                     productInfo.level = optJSONObject.optInt("level");
@@ -284,7 +283,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                     if (this.cmd == optInt) {
                         this.result = jSONObject.optInt("result");
                         this.uid = jSONObject.optLong("uid");
-                        this.seq = jSONObject.optString(IAdRequestParam.SEQ);
+                        this.seq = jSONObject.optString("seq");
                         this.expend = jSONObject.optString("expand");
                         this.currencyType = jSONObject.optInt("currencyType");
                         this.currencyName = jSONObject.optString("currencyName");

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PersonaltalkSettingViewBlackManView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f51617e;
+    public TextView f46235e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonaltalkSettingViewBlackManView(Context context, AttributeSet attributeSet) {
@@ -45,7 +45,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.p2ptalk_setting_black_man_view, this);
             setOrientation(1);
-            this.f51617e = (TextView) findViewById(R.id.black_man_text);
+            this.f46235e = (TextView) findViewById(R.id.black_man_text);
         }
     }
 
@@ -60,7 +60,7 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
             } else {
                 string = getResources().getString(R.string.she);
             }
-            this.f51617e.setText(getResources().getString(R.string.in_black_desc_1, string));
+            this.f46235e.setText(getResources().getString(R.string.in_black_desc_1, string));
         }
     }
 

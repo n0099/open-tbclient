@@ -3,7 +3,6 @@ package com.baidu.browser.sailor;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.INoProGuard;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.dumper.ZeusLogRecorder;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BdSailorWebSettings implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean lastNightModeEnabled;
@@ -26,7 +25,7 @@ public class BdSailorWebSettings implements INoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
     public WebSettings mWebSettings;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ENABLE_LOG_RECORD = "enable_log_record";
@@ -404,7 +403,7 @@ public class BdSailorWebSettings implements INoProGuard {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:29:0x0071, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:29:0x006f, code lost:
             if (com.baidu.browser.sailor.BdSailorWebSettings.lastNightModeEnabled == r5) goto L32;
          */
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
@@ -591,13 +590,13 @@ public class BdSailorWebSettings implements INoProGuard {
 
     public static void clearNetworkFlowExt() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
         }
     }
 
     public static synchronized void clearSavingBytesExt() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             synchronized (BdSailorWebSettings.class) {
             }
         }
@@ -1371,11 +1370,11 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
-    public synchronized void setAppCacheMaxSize(long j) {
+    public synchronized void setAppCacheMaxSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
             synchronized (this) {
-                this.mWebSettings.setAppCacheMaxSize(j);
+                this.mWebSettings.setAppCacheMaxSize(j2);
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.baidu.pass.biometrics.face.liveness.enums;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class HeadPose {
     public static /* synthetic */ Interceptable $ic;
     public static final HeadPose DOWN;
@@ -19,9 +18,7 @@ public final class HeadPose {
     public static final HeadPose TURN_LEFT;
     public static final HeadPose TURN_RIGHT;
     public static final HeadPose UP;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ HeadPose[] f42726a;
+    public static final /* synthetic */ HeadPose[] a;
     public transient /* synthetic */ FieldHolder $fh;
     public int index;
     public int value;
@@ -46,7 +43,7 @@ public final class HeadPose {
         TURN_RIGHT = new HeadPose("TURN_RIGHT", 4, 4, 16);
         HeadPose headPose = new HeadPose("MOUTH_OPEN", 5, 5, 32);
         MOUTH_OPEN = headPose;
-        f42726a = new HeadPose[]{EYES_BLINK, DOWN, UP, TURN_LEFT, TURN_RIGHT, headPose};
+        a = new HeadPose[]{EYES_BLINK, DOWN, UP, TURN_LEFT, TURN_RIGHT, headPose};
     }
 
     public HeadPose(String str, int i2, int i3, int i4) {
@@ -110,6 +107,6 @@ public final class HeadPose {
     public static HeadPose[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (HeadPose[]) f42726a.clone() : (HeadPose[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (HeadPose[]) a.clone() : (HeadPose[]) invokeV.objValue;
     }
 }

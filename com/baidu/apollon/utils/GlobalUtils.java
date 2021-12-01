@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,15 +21,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class GlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f37130a = null;
+    public static LayoutInflater a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f37131b = null;
+    public static WeakReference<Toast> f33248b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +99,7 @@ public final class GlobalUtils {
     public static boolean showInputMethod(Context context, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, view)) == null) {
             if (context == null || view == null) {
                 return false;
             }
@@ -110,12 +107,10 @@ public final class GlobalUtils {
             view.postDelayed(new Runnable(context, view) { // from class: com.baidu.apollon.utils.GlobalUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f37132a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f37133b;
+                public final /* synthetic */ View f33249b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,15 +127,15 @@ public final class GlobalUtils {
                             return;
                         }
                     }
-                    this.f37132a = context;
-                    this.f37133b = view;
+                    this.a = context;
+                    this.f33249b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.f37132a.getSystemService("input_method")).showSoftInput(this.f37133b, 0);
+                        ((InputMethodManager) this.a.getSystemService("input_method")).showSoftInput(this.f33249b, 0);
                     }
                 }
             }, 100L);
@@ -151,7 +146,7 @@ public final class GlobalUtils {
 
     public static void toast(Context context, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, charSequence) == null) {
             toast(context, charSequence, 0);
         }
     }
@@ -175,14 +170,14 @@ public final class GlobalUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f37131b;
+            WeakReference<Toast> weakReference = f33248b;
             if (weakReference != null && weakReference.get() != null) {
-                f37131b.get().cancel();
+                f33248b.get().cancel();
             }
-            if (f37130a == null) {
-                f37130a = LayoutInflater.from(applicationContext);
+            if (a == null) {
+                a = LayoutInflater.from(applicationContext);
             }
-            View inflate = f37130a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
+            View inflate = a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
             if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
                 return;
             }
@@ -196,7 +191,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f37131b = new WeakReference<>(toast);
+            f33248b = new WeakReference<>(toast);
             toast.show();
         }
     }

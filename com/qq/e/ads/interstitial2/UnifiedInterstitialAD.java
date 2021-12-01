@@ -25,15 +25,19 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicInteger f68789g;
+    public AtomicInteger f60720g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicInteger f68790h;
+    public AtomicInteger f60721h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile UnifiedInterstitialMediaListener f68791i;
-    public volatile VideoOption j;
-    public volatile int k;
+    public volatile UnifiedInterstitialMediaListener f60722i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public volatile VideoOption f60723j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public volatile int f60724k;
     public volatile int l;
     public volatile LoadAdParams m;
     public UnifiedInterstitialADListener n;
@@ -76,8 +80,8 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
                 return;
             }
         }
-        this.f68789g = new AtomicInteger(0);
-        this.f68790h = new AtomicInteger(0);
+        this.f60720g = new AtomicInteger(0);
+        this.f60721h = new AtomicInteger(0);
         this.n = unifiedInterstitialADListener;
         a(activity, str);
     }
@@ -97,8 +101,8 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
                 return;
             }
         }
-        this.f68789g = new AtomicInteger(0);
-        this.f68790h = new AtomicInteger(0);
+        this.f60720g = new AtomicInteger(0);
+        this.f60721h = new AtomicInteger(0);
         this.n = unifiedInterstitialADListener;
         a(activity, str, str2);
     }
@@ -174,7 +178,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void close() {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (t = this.f68719a) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (t = this.a) == 0) {
             return;
         }
         ((UIADI) t).close();
@@ -183,17 +187,17 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setVideoOption(this.j);
-            setMediaListener(this.f68791i);
-            setMinVideoDuration(this.k);
+            setVideoOption(this.f60723j);
+            setMediaListener(this.f60722i);
+            setMinVideoDuration(this.f60724k);
             setMaxVideoDuration(this.l);
             setRewardListener(this.o);
             setLoadAdParams(this.m);
             setServerSideVerificationOptions(this.p);
-            while (this.f68789g.getAndDecrement() > 0) {
+            while (this.f60720g.getAndDecrement() > 0) {
                 loadAD();
             }
-            while (this.f68790h.getAndDecrement() > 0) {
+            while (this.f60721h.getAndDecrement() > 0) {
                 loadFullScreenAD();
             }
         }
@@ -202,7 +206,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).destory();
             } else {
@@ -215,7 +219,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 return ((UIADI) t).getAdNetWorkName();
             }
@@ -229,7 +233,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 return ((UIADI) t).getAdPatternType();
             }
@@ -243,7 +247,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 UIADI uiadi = (UIADI) t;
                 return UIADI.ext;
@@ -258,7 +262,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 return ((UIADI) t).getVideoDuration();
             }
@@ -272,7 +276,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 return ((UIADI) t).isValid();
             }
@@ -286,10 +290,10 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && a()) {
             if (!b()) {
-                this.f68789g.incrementAndGet();
+                this.f60720g.incrementAndGet();
                 return;
             }
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).loadAd();
             } else {
@@ -302,10 +306,10 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && a()) {
             if (!b()) {
-                this.f68790h.incrementAndGet();
+                this.f60721h.incrementAndGet();
                 return;
             }
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).loadFullScreenAD();
             } else {
@@ -318,7 +322,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, loadAdParams) == null) {
             this.m = loadAdParams;
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setLoadAdParams(this.m);
             }
@@ -329,10 +333,10 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             this.l = i2;
-            if (this.l > 0 && this.k > this.l) {
+            if (this.l > 0 && this.f60724k > this.l) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setMaxVideoDuration(i2);
             }
@@ -342,8 +346,8 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, unifiedInterstitialMediaListener) == null) {
-            this.f68791i = unifiedInterstitialMediaListener;
-            T t = this.f68719a;
+            this.f60722i = unifiedInterstitialMediaListener;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setMediaListener(unifiedInterstitialMediaListener);
             }
@@ -353,11 +357,11 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void setMinVideoDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.k = i2;
-            if (this.l > 0 && this.k > this.l) {
+            this.f60724k = i2;
+            if (this.l > 0 && this.f60724k > this.l) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setMinVideoDuration(i2);
             }
@@ -368,7 +372,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, aDRewardListener) == null) {
             this.o = aDRewardListener;
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setRewardListener(aDRewardListener);
             }
@@ -379,7 +383,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, serverSideVerificationOptions) == null) {
             this.p = serverSideVerificationOptions;
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setServerSideVerificationOptions(serverSideVerificationOptions);
             }
@@ -389,8 +393,8 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void setVideoOption(VideoOption videoOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, videoOption) == null) {
-            this.j = videoOption;
-            T t = this.f68719a;
+            this.f60723j = videoOption;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setVideoOption(videoOption);
             }
@@ -407,7 +411,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).show();
             } else {
@@ -419,7 +423,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void show(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, activity) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).show(activity);
             } else {
@@ -431,7 +435,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void showAsPopupWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).showAsPopupWindow();
             } else {
@@ -443,7 +447,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void showAsPopupWindow(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, activity) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).showAsPopupWindow(activity);
             } else {
@@ -455,7 +459,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void showFullScreenAD(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, activity) == null) {
-            T t = this.f68719a;
+            T t = this.a;
             if (t != 0) {
                 ((UIADI) t).showFullScreenAD(activity);
             } else {

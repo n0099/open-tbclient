@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -381,7 +380,7 @@ public final class MultiDex {
 
     public static void clearOldDexDir(Context context) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
             File file = new File(context.getFilesDir(), "secondary-dexes");
             if (file.isDirectory()) {
                 r0 = "Clearing old secondary dex dir (" + file.getPath() + ").";
@@ -409,7 +408,7 @@ public final class MultiDex {
 
     public static void doInstallation(Context context, File file, File file2, String str, String str2, boolean z) throws IOException, IllegalArgumentException, IllegalAccessException, NoSuchFieldException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException, InstantiationException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, file, file2, str, str2, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, file, file2, str, str2, Boolean.valueOf(z)}) == null) {
             synchronized (installedApk) {
                 if (installedApk.contains(file)) {
                     return;

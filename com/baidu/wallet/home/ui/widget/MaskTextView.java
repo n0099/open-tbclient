@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MaskTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class MaskTextView extends TextView {
             return;
         }
         this.mOriginalText = str;
-        int a2 = a(str);
+        int a = a(str);
         String b2 = b(str);
         if (b2.contains(PayTypeItemView.PayTypeItemViewData.MASK_FLAG)) {
             if (TextUtils.isEmpty(b2)) {
@@ -128,9 +128,9 @@ public class MaskTextView extends TextView {
             int length = (lastIndexOf - (b2.length() - c(b2).length())) + 1;
             if (indexOf != -1 && lastIndexOf != -1 && indexOf != lastIndexOf) {
                 String c2 = c(b2);
-                if (a2 != -1 && indexOf <= length && length <= c2.length()) {
+                if (a != -1 && indexOf <= length && length <= c2.length()) {
                     SpannableString spannableString = new SpannableString(c2);
-                    spannableString.setSpan(new ForegroundColorSpan(a2), indexOf, length, 33);
+                    spannableString.setSpan(new ForegroundColorSpan(a), indexOf, length, 33);
                     super.setText(spannableString);
                     return;
                 }
@@ -140,8 +140,8 @@ public class MaskTextView extends TextView {
             super.setText(c(b2));
             return;
         }
-        if (a2 != -1) {
-            setTextColor(a2);
+        if (a != -1) {
+            setTextColor(a);
         }
         super.setText(b2);
     }

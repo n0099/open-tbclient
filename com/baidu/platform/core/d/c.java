@@ -10,7 +10,6 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.DrivingRouteResult;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,11 +50,11 @@ public class c extends k {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null) {
-                        RouteNode a2 = a(optJSONObject);
+                        RouteNode a = a(optJSONObject);
                         if (i2 == length - 1) {
-                            return a2;
+                            return a;
                         }
-                        list.add(a2);
+                        list.add(a);
                     }
                 }
             }
@@ -166,14 +165,14 @@ public class c extends k {
                             drivingStep.setEntranceInstructions(optString2);
                             drivingStep.setExitInstructions(optJSONObject.optString("end_instructions"));
                             drivingStep.setNumTurns(optJSONObject.optInt("turn"));
-                            List<LatLng> a2 = a(optJSONObject.optJSONArray("spath"));
-                            drivingStep.setPathList(a2);
-                            if (a2 != null) {
+                            List<LatLng> a = a(optJSONObject.optJSONArray("spath"));
+                            drivingStep.setPathList(a);
+                            if (a != null) {
                                 RouteNode routeNode = new RouteNode();
-                                routeNode.setLocation(a2.get(0));
+                                routeNode.setLocation(a.get(0));
                                 drivingStep.setEntrance(routeNode);
                                 RouteNode routeNode2 = new RouteNode();
-                                routeNode2.setLocation(a2.get(a2.size() - 1));
+                                routeNode2.setLocation(a.get(a.size() - 1));
                                 drivingStep.setExit(routeNode2);
                             }
                             i2 = i4;
@@ -202,7 +201,7 @@ public class c extends k {
     private List<TaxiInfo> b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (str != null && str.length() > 0) {
                 ArrayList arrayList = new ArrayList();
                 try {
@@ -236,7 +235,7 @@ public class c extends k {
         InterceptResult invokeLL;
         int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, jSONArray, list)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, jSONArray, list)) == null) {
             if (jSONArray == null || (length = jSONArray.length()) <= 0 || list == null) {
                 return null;
             }
@@ -292,10 +291,10 @@ public class c extends k {
                 if (optJSONObject3 == null || optJSONObject4 == null) {
                     return false;
                 }
-                RouteNode a2 = a(optJSONObject3.optJSONObject("start"));
+                RouteNode a = a(optJSONObject3.optJSONObject("start"));
                 ArrayList arrayList = new ArrayList();
-                RouteNode a3 = a(optJSONObject3.optJSONArray("end"), arrayList);
-                List<DrivingRouteLine.DrivingStep> a4 = a(optJSONObject4.optJSONArray("steps"), optJSONObject4.optJSONArray("stepts"));
+                RouteNode a2 = a(optJSONObject3.optJSONArray("end"), arrayList);
+                List<DrivingRouteLine.DrivingStep> a3 = a(optJSONObject4.optJSONArray("steps"), optJSONObject4.optJSONArray("stepts"));
                 ArrayList arrayList2 = new ArrayList();
                 JSONArray optJSONArray = optJSONObject4.optJSONArray("routes");
                 if (optJSONArray == null) {
@@ -327,7 +326,7 @@ public class c extends k {
                             if (optJSONObject6 != null) {
                                 i5 += optJSONObject6.optInt("distance");
                                 i3 += optJSONObject6.optInt("duration");
-                                List<DrivingRouteLine.DrivingStep> b2 = b(optJSONObject6.optJSONArray("stepis"), a4);
+                                List<DrivingRouteLine.DrivingStep> b2 = b(optJSONObject6.optJSONArray("stepis"), a3);
                                 if (b2 != null) {
                                     arrayList3.addAll(b2);
                                 }
@@ -336,8 +335,8 @@ public class c extends k {
                             length = i6;
                             optJSONArray2 = jSONArray2;
                         }
-                        drivingRouteLine.setStarting(a2);
-                        drivingRouteLine.setTerminal(a3);
+                        drivingRouteLine.setStarting(a);
+                        drivingRouteLine.setTerminal(a2);
                         if (arrayList.size() == 0) {
                             drivingRouteLine.setWayPoints(null);
                         } else {

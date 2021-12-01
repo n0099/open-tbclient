@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,12 +35,12 @@ public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsDuration(String str, long j) {
+    public void addStatsDuration(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-            super.addStatsDuration(str, j);
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
+            super.addStatsDuration(str, j2);
             synchronized (this.mLaunchTaskDuration) {
-                this.mLaunchTaskDuration.put(str, Long.valueOf(j));
+                this.mLaunchTaskDuration.put(str, Long.valueOf(j2));
             }
         }
     }
@@ -53,12 +53,12 @@ public final class AsyncTaskSpeedStats extends AbstractSpeedStats {
             super.packData(jSONObject);
             HashMap hashMap = new HashMap();
             synchronized (this.mLaunchTaskDuration) {
-                long j = 0;
+                long j2 = 0;
                 for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
                     hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
-                    j += entry.getValue().longValue();
+                    j2 += entry.getValue().longValue();
                 }
-                JSONObject jsonData = SpeedStatsUtils.getJsonData(j, hashMap);
+                JSONObject jsonData = SpeedStatsUtils.getJsonData(j2, hashMap);
                 if (jsonData != null) {
                     try {
                         jSONObject.put(SpeedStatsMainTable.ASYNC_TASK, jsonData);

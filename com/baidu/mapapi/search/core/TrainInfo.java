@@ -10,17 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TrainInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TrainInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public double f40508a;
+    public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40509b;
+    public String f36088b;
 
     static {
         InterceptResult invokeClinit;
@@ -70,21 +68,21 @@ public class TrainInfo extends TransitBaseInfo {
                 return;
             }
         }
-        this.f40508a = parcel.readDouble();
-        this.f40509b = parcel.readString();
+        this.a = parcel.readDouble();
+        this.f36088b = parcel.readString();
     }
 
     public void a(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f40508a = d2;
+            this.a = d2;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40509b = str;
+            this.f36088b = str;
         }
     }
 
@@ -103,8 +101,8 @@ public class TrainInfo extends TransitBaseInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
-            parcel.writeDouble(this.f40508a);
-            parcel.writeString(this.f40509b);
+            parcel.writeDouble(this.a);
+            parcel.writeString(this.f36088b);
         }
     }
 }

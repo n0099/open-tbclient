@@ -10,12 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class c implements com.sdk.base.framework.b.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ String f69199a;
+    public /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f69200b;
+    public /* synthetic */ a f61038b;
 
     public c(a aVar, String str) {
         Interceptable interceptable = $ic;
@@ -32,15 +30,15 @@ public final class c implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f69200b = aVar;
-        this.f69199a = str;
+        this.f61038b = aVar;
+        this.a = str;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            this.f69200b.a(i2, i3, str);
+            this.f61038b.a(i2, i3, str);
         }
     }
 
@@ -50,18 +48,18 @@ public final class c implements com.sdk.base.framework.b.a<T> {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
-            if (i2 == 0 && com.sdk.base.framework.a.a.c.a(this.f69199a).booleanValue()) {
-                context = this.f69200b.f69193d;
-                String a2 = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
-                if (a2 == null) {
-                    this.f69200b.a(1, "SDK解密异常", 302001, a2, str2);
+            if (i2 == 0 && com.sdk.base.framework.a.a.c.a(this.a).booleanValue()) {
+                context = this.f61038b.f61033d;
+                String a = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
+                if (a == null) {
+                    this.f61038b.a(1, "SDK解密异常", 302001, a, str2);
                     return;
                 }
-                str3 = a2;
+                str3 = a;
             } else {
                 str3 = t;
             }
-            this.f69200b.a(i2, str, i3, str3, str2);
+            this.f61038b.a(i2, str, i3, str3, str2);
         }
     }
 }

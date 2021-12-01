@@ -10,7 +10,7 @@ import com.baidu.wallet.router.RouterCallback;
 import com.baidu.wallet.router.RouterRequest;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,7 @@ public class i {
                     LocalRouter.getInstance(null).route(null, new RouterRequest().provider("hce").action("getsmscontroller"), new RouterCallback(iSmsControllerArr) { // from class: com.baidu.wallet.paysdk.sms.controller.i.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ ISmsController[] f60875a;
+                        public final /* synthetic */ ISmsController[] a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -53,7 +51,7 @@ public class i {
                                     return;
                                 }
                             }
-                            this.f60875a = iSmsControllerArr;
+                            this.a = iSmsControllerArr;
                         }
 
                         @Override // com.baidu.wallet.router.RouterCallback
@@ -65,7 +63,7 @@ public class i {
                                     if (obj == null || !(obj instanceof ISmsController)) {
                                         return;
                                     }
-                                    this.f60875a[0] = (ISmsController) obj;
+                                    this.a[0] = (ISmsController) obj;
                                 } else if (i3 == 5) {
                                     HashMap hashMap2 = new HashMap();
                                     hashMap2.put("provider", "hce");

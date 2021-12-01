@@ -1,7 +1,6 @@
 package com.baidu.location.e;
 
 import android.text.TextUtils;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,19 +13,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f40038a;
+    public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f40039b;
+    public final /* synthetic */ boolean f35708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f40040c;
+    public final /* synthetic */ e f35709c;
 
     public g(e eVar, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -43,17 +40,17 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f40040c = eVar;
-        this.f40038a = str;
-        this.f40039b = z;
+        this.f35709c = eVar;
+        this.a = str;
+        this.f35708b = z;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:111:0x01bf A[LOOP:0: B:5:0x001e->B:111:0x01bf, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x01c7  */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x01dc A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:144:0x01cc A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:152:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:173:0x01e3 A[EDGE_INSN: B:173:0x01e3->B:129:0x01e3 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:111:0x01be A[LOOP:0: B:5:0x001e->B:111:0x01be, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x01c6  */
+    /* JADX WARN: Removed duplicated region for block: B:142:0x01db A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:148:0x01cb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:154:0x01d3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:173:0x01e2 A[EDGE_INSN: B:173:0x01e2->B:129:0x01e2 ?: BREAK  , SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -66,17 +63,17 @@ public class g implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40040c.f40035h = k.e();
-            this.f40040c.b();
-            this.f40040c.a();
-            int i2 = this.f40040c.f40036i;
+            this.f35709c.f35704h = k.e();
+            this.f35709c.b();
+            this.f35709c.a();
+            int i2 = this.f35709c.f35705i;
             OutputStream outputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    URL url = new URL(this.f40040c.f40035h);
+                    URL url = new URL(this.f35709c.f35704h);
                     StringBuffer stringBuffer = new StringBuffer();
-                    for (Map.Entry<String, Object> entry : this.f40040c.k.entrySet()) {
+                    for (Map.Entry<String, Object> entry : this.f35709c.f35707k.entrySet()) {
                         stringBuffer.append(entry.getKey());
                         stringBuffer.append("=");
                         stringBuffer.append(entry.getValue());
@@ -91,16 +88,16 @@ public class g implements Runnable {
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f39996b);
-                        httpURLConnection2.setReadTimeout(a.f39996b);
+                        httpURLConnection2.setConnectTimeout(a.f35667b);
+                        httpURLConnection2.setReadTimeout(a.f35667b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
-                        httpURLConnection2.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+                        httpURLConnection2.setRequestProperty("Accept-Encoding", "gzip");
                         if (k.ax != null) {
                             httpURLConnection2.setRequestProperty("bd-loc-android", k.ax);
                         }
-                        if (!TextUtils.isEmpty(this.f40038a)) {
-                            httpURLConnection2.setRequestProperty("Host", this.f40038a);
+                        if (!TextUtils.isEmpty(this.a)) {
+                            httpURLConnection2.setRequestProperty("Host", this.a);
                         }
                         OutputStream outputStream4 = httpURLConnection2.getOutputStream();
                         try {
@@ -110,7 +107,7 @@ public class g implements Runnable {
                                 inputStream = httpURLConnection2.getInputStream();
                                 try {
                                     String contentEncoding = httpURLConnection2.getContentEncoding();
-                                    if (contentEncoding != null && contentEncoding.contains(AsyncHttpClient.ENCODING_GZIP)) {
+                                    if (contentEncoding != null && contentEncoding.contains("gzip")) {
                                         inputStream = new GZIPInputStream(new BufferedInputStream(inputStream));
                                     }
                                     byteArrayOutputStream = new ByteArrayOutputStream();
@@ -131,17 +128,17 @@ public class g implements Runnable {
                                         }
                                         byteArrayOutputStream.write(bArr, 0, read);
                                     }
-                                    this.f40040c.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    if (this.f40039b) {
-                                        this.f40040c.m = byteArrayOutputStream.toByteArray();
+                                    this.f35709c.f35706j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    if (this.f35708b) {
+                                        this.f35709c.m = byteArrayOutputStream.toByteArray();
                                     }
-                                    this.f40040c.a(true);
+                                    this.f35709c.a(true);
                                     z = true;
                                 } catch (Error unused3) {
                                     outputStream2 = outputStream4;
                                     httpURLConnection = httpURLConnection2;
                                     try {
-                                        String str = a.f39995a;
+                                        String str = a.a;
                                         if (httpURLConnection != null) {
                                             httpURLConnection.disconnect();
                                         }
@@ -149,21 +146,21 @@ public class g implements Runnable {
                                             try {
                                                 outputStream2.close();
                                             } catch (Exception unused4) {
-                                                String str2 = a.f39995a;
+                                                String str2 = a.a;
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception unused5) {
-                                                String str3 = a.f39995a;
+                                                String str3 = a.a;
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception unused6) {
-                                                String str4 = a.f39995a;
+                                                String str4 = a.a;
                                             }
                                         }
                                         z = false;
@@ -179,21 +176,21 @@ public class g implements Runnable {
                                             try {
                                                 outputStream3.close();
                                             } catch (Exception unused7) {
-                                                String str5 = a.f39995a;
+                                                String str5 = a.a;
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
                                             } catch (Exception unused8) {
-                                                String str6 = a.f39995a;
+                                                String str6 = a.a;
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception unused9) {
-                                                String str7 = a.f39995a;
+                                                String str7 = a.a;
                                             }
                                         }
                                         throw th;
@@ -201,7 +198,7 @@ public class g implements Runnable {
                                 } catch (Exception unused10) {
                                     outputStream = outputStream4;
                                     httpURLConnection = httpURLConnection2;
-                                    String str8 = a.f39995a;
+                                    String str8 = a.a;
                                     if (httpURLConnection != null) {
                                         httpURLConnection.disconnect();
                                     }
@@ -209,14 +206,14 @@ public class g implements Runnable {
                                         try {
                                             outputStream.close();
                                         } catch (Exception unused11) {
-                                            String str9 = a.f39995a;
+                                            String str9 = a.a;
                                         }
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (Exception unused12) {
-                                            String str10 = a.f39995a;
+                                            String str10 = a.a;
                                         }
                                     }
                                     if (byteArrayOutputStream != null) {
@@ -251,21 +248,21 @@ public class g implements Runnable {
                                 try {
                                     outputStream4.close();
                                 } catch (Exception unused13) {
-                                    String str11 = a.f39995a;
+                                    String str11 = a.a;
                                 }
                             }
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
                                 } catch (Exception unused14) {
-                                    String str12 = a.f39995a;
+                                    String str12 = a.a;
                                 }
                             }
                             if (byteArrayOutputStream != null) {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception unused15) {
-                                    String str13 = a.f39995a;
+                                    String str13 = a.a;
                                 }
                             }
                             httpURLConnection = httpURLConnection2;
@@ -318,8 +315,8 @@ public class g implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f40040c;
-            eVar.j = null;
+            e eVar = this.f35709c;
+            eVar.f35706j = null;
             eVar.a(false);
         }
     }

@@ -21,8 +21,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.core.assist.ContentLengthInputStream;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
-import com.kwad.sdk.core.network.k;
-import com.kwad.sdk.core.network.l;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -182,8 +180,6 @@ public class BaseImageDownloader implements ImageDownloader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(Uri.encode(str, ALLOWED_URI_CHARS)).openConnection();
-            l.a(httpURLConnection);
-            httpURLConnection.setRequestProperty("User-Agent", k.a());
             httpURLConnection.setConnectTimeout(this.connectTimeout);
             httpURLConnection.setReadTimeout(this.readTimeout);
             return httpURLConnection;

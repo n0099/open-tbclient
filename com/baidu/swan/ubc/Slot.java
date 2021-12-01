@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Slot implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<Slot> CREATOR;
@@ -26,7 +26,7 @@ public class Slot implements Parcelable {
     public JSONObject mOption;
     public long mStart;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<Slot> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,12 +80,12 @@ public class Slot implements Parcelable {
         CREATOR = new a();
     }
 
-    public Slot(String str, long j, JSONObject jSONObject) {
+    public Slot(String str, long j2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), jSONObject};
+            Object[] objArr = {str, Long.valueOf(j2), jSONObject};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -97,7 +97,7 @@ public class Slot implements Parcelable {
         }
         this.mStart = 0L;
         this.mEnd = 0L;
-        this.mStart = j;
+        this.mStart = j2;
         this.mCategory = str;
         this.mOption = jSONObject;
     }
@@ -174,15 +174,15 @@ public class Slot implements Parcelable {
         }
     }
 
-    public void setEnd(long j) {
+    public void setEnd(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j) == null) || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) || j2 <= 0) {
             return;
         }
-        long j2 = this.mStart;
-        if (j > j2) {
-            this.mEnd = j;
-            this.mDuration += ((float) (j - j2)) / 1000.0f;
+        long j3 = this.mStart;
+        if (j2 > j3) {
+            this.mEnd = j2;
+            this.mDuration += ((float) (j2 - j3)) / 1000.0f;
         }
     }
 
@@ -193,10 +193,10 @@ public class Slot implements Parcelable {
         }
     }
 
-    public void setStart(long j) {
+    public void setStart(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.mStart = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.mStart = j2;
             this.mEnd = 0L;
         }
     }

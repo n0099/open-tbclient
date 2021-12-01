@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BuyTBeanActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GIFT_TBEAN = "gift_tbean";
@@ -77,11 +77,11 @@ public class BuyTBeanActivityConfig extends IntentConfig {
         }
     }
 
-    public BuyTBeanActivityConfig setTBeanLeftToBuyGift(long j) {
+    public BuyTBeanActivityConfig setTBeanLeftToBuyGift(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            getIntent().putExtra(TBEAN_LEFT_TO_BUY_ALA_GIFT, j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+            getIntent().putExtra(TBEAN_LEFT_TO_BUY_ALA_GIFT, j2);
             return this;
         }
         return (BuyTBeanActivityConfig) invokeJ.objValue;

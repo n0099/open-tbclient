@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class F implements FI {
     public static /* synthetic */ Interceptable $ic;
     public static F instance;
@@ -70,9 +70,9 @@ public class F implements FI {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] a2 = h.a(bArr2, bArr);
-                        if (a2 != null && a2.length != 0) {
-                            return a2;
+                        byte[] a = h.a(bArr2, bArr);
+                        if (a != null && a.length != 0) {
+                            return a;
                         }
                         return new byte[0];
                     }
@@ -94,9 +94,9 @@ public class F implements FI {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] a2 = h.a(bArr2, bArr, true);
-                        if (a2 != null && a2.length != 0) {
-                            return a2;
+                        byte[] a = h.a(bArr2, bArr, true);
+                        if (a != null && a.length != 0) {
+                            return a;
                         }
                         return new byte[0];
                     }
@@ -135,26 +135,26 @@ public class F implements FI {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, callback, clsArr, objArr}) == null) {
             try {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    f a2 = f.a();
-                    if (a2 == null) {
+                    f a = f.a();
+                    if (a == null) {
                         if (callback != null) {
                             callback.onEnd(new Object[0]);
                             return;
                         }
                         return;
                     }
-                    ApkInfo d2 = a2.d(str2);
-                    if (a2.d(str) == null || d2 == null) {
+                    ApkInfo d2 = a.d(str2);
+                    if (a.d(str) == null || d2 == null) {
                         if (callback != null) {
                             callback.onEnd(new Object[0]);
                             return;
                         }
                         return;
                     }
-                    Class<?> a3 = ((e) d2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                    Object a4 = c.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, null), str3, clsArr, objArr);
+                    Class<?> a2 = ((e) d2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
+                    Object a3 = c.a(a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, null), str3, clsArr, objArr);
                     if (callback != null) {
-                        callback.onEnd(a4);
+                        callback.onEnd(a3);
                     }
                 }
             } catch (Throwable unused) {
@@ -169,11 +169,11 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, clsArr, objArr})) == null) {
             try {
-                com.baidu.sofire.core.c a2 = com.baidu.sofire.core.c.a();
-                if (a2 == null) {
+                com.baidu.sofire.core.c a = com.baidu.sofire.core.c.a();
+                if (a == null) {
                     return new Pair<>(4, null);
                 }
-                return a2.a(i2, str, clsArr, objArr);
+                return a.a(i2, str, clsArr, objArr);
             } catch (Throwable unused) {
                 c.a();
                 return new Pair<>(3, null);
@@ -216,7 +216,7 @@ public class F implements FI {
             if (context == null) {
                 return null;
             }
-            return a.a(context).f44016a;
+            return a.a(context).a;
         }
         return (SharedPreferences) invokeL.objValue;
     }
@@ -229,7 +229,7 @@ public class F implements FI {
             if (context == null) {
                 return null;
             }
-            return a.a(context).f44018c;
+            return a.a(context).f39121c;
         }
         return (SharedPreferences) invokeL.objValue;
     }
@@ -240,7 +240,7 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f43836d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38996d;
                 if (aVar != null) {
                     return aVar.b();
                 }
@@ -260,8 +260,8 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             try {
-                f a2 = f.a();
-                return (a2 == null || (d2 = a2.d(str)) == null) ? "" : d2.libPath;
+                f a = f.a();
+                return (a == null || (d2 = a.d(str)) == null) ? "" : d2.libPath;
             } catch (Throwable unused) {
                 c.a();
                 return "";
@@ -290,7 +290,7 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             try {
-                ApkInfo apkInfo = f.a().f43974a.get(str);
+                ApkInfo apkInfo = f.a().a.get(str);
                 if (apkInfo == null) {
                     return null;
                 }
@@ -305,14 +305,14 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public void r(String str, IntentFilter intentFilter, String str2, String str3) {
-        f a2;
+        f a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, intentFilter, str2, str3) == null) {
             try {
-                if (TextUtils.isEmpty(str) || intentFilter == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (a2 = f.a()) == null) {
+                if (TextUtils.isEmpty(str) || intentFilter == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (a = f.a()) == null) {
                     return;
                 }
-                a2.a(new g(str, intentFilter, str2, str3));
+                a.a(new g(str, intentFilter, str2, str3));
             } catch (Throwable unused) {
                 c.a();
             }
@@ -385,12 +385,12 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f43836d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38996d;
                 if (aVar != null) {
                     int i3 = z ? 1 : 0;
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("s", Integer.valueOf(i3));
-                    SQLiteDatabase sQLiteDatabase = aVar.f43839c;
+                    SQLiteDatabase sQLiteDatabase = aVar.f38998c;
                     sQLiteDatabase.update("pgn", contentValues, "k=" + i2 + " and n=1", null);
                 }
             } catch (Throwable unused) {
@@ -404,12 +404,12 @@ public class F implements FI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048595, this, str, z) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f43836d;
+                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f38996d;
                 if (aVar != null) {
                     int i2 = z ? 1 : 0;
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("s", Integer.valueOf(i2));
-                    aVar.f43839c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                    aVar.f38998c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
                 }
             } catch (Throwable unused) {
                 c.a();
@@ -431,14 +431,14 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public void ur(String str, IntentFilter intentFilter, String str2, String str3) {
-        f a2;
+        f a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048597, this, str, intentFilter, str2, str3) == null) {
             try {
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (a2 = f.a()) == null) {
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (a = f.a()) == null) {
                     return;
                 }
-                a2.b(new g(str, intentFilter, str2, str3));
+                a.b(new g(str, intentFilter, str2, str3));
             } catch (Throwable unused) {
                 c.a();
             }

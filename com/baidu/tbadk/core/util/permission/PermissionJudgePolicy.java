@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.f;
-import b.a.e.a.j;
-import b.a.q0.s.s.a;
+import c.a.d.a.f;
+import c.a.d.a.j;
+import c.a.q0.s.s.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.ApiUtil;
@@ -27,12 +27,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
+import com.kuaishou.weapon.un.s;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PermissionJudgePolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EMPTY_REQUEST_CODE = -1;
@@ -51,7 +52,7 @@ public class PermissionJudgePolicy {
     public ArrayList<String> requestPermissionList;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class EXTRA_DIALOG_REFUSE_POLICY {
         public static final /* synthetic */ EXTRA_DIALOG_REFUSE_POLICY[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -110,22 +111,22 @@ public class PermissionJudgePolicy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IExtraDialogCloseCallback {
         void onClose();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ISystemPermissionDialogShowCallBack {
         void onShow();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnPermissionsGrantedListener {
         void onPermissionsGranted();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface PermissionDialogClickListener {
         void onDialogCaneled(String str);
 
@@ -145,7 +146,7 @@ public class PermissionJudgePolicy {
                 return;
             }
         }
-        NEED_EXTRA_DIALOG_PERMISSIONS = new ArrayList<>(Arrays.asList(PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE, "android.permission.ACCESS_COARSE_LOCATION"));
+        NEED_EXTRA_DIALOG_PERMISSIONS = new ArrayList<>(Arrays.asList(PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE, s.f56843h));
     }
 
     public PermissionJudgePolicy() {
@@ -313,14 +314,14 @@ public class PermissionJudgePolicy {
             if ("android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
                 return R.string.request_permission_default_text;
             }
-            if (!"android.permission.ACCESS_FINE_LOCATION".equals(str) && !"android.permission.ACCESS_COARSE_LOCATION".equals(str)) {
+            if (!s.f56842g.equals(str) && !s.f56843h.equals(str)) {
                 if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(str)) {
                     return R.string.request_permission_camera;
                 }
                 if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(str)) {
                     return R.string.request_permission_microphone;
                 }
-                if ("android.permission.READ_PHONE_STATE".equals(str)) {
+                if (s.f56838c.equals(str)) {
                     return R.string.request_permission_contacts;
                 }
                 if ("android.permission.SEND_SMS".equals(str)) {
@@ -394,10 +395,18 @@ public class PermissionJudgePolicy {
         this.requestPermissionList.add(str);
     }
 
+    public void appendRequestPermissionWithoutGrantedCheck(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.requestPermissionList.add(str);
+    }
+
     public boolean checkPermissionForbidden(Activity activity, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, str)) == null) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, str)) {
                 return true;
             }
@@ -432,7 +441,7 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // b.a.q0.s.s.a.e
+                @Override // c.a.q0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -472,7 +481,7 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // b.a.q0.s.s.a.e
+                @Override // c.a.q0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -492,7 +501,7 @@ public class PermissionJudgePolicy {
     public boolean checkPermissionGranted(Activity activity, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, activity, str)) == null) {
             if (activity == null) {
                 return false;
             }
@@ -504,7 +513,7 @@ public class PermissionJudgePolicy {
     public void clearRequestPermissionList() {
         ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.requestPermissionList) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (arrayList = this.requestPermissionList) == null) {
             return;
         }
         arrayList.clear();
@@ -513,7 +522,7 @@ public class PermissionJudgePolicy {
     public void onPermissionsGranted() {
         OnPermissionsGrantedListener onPermissionsGrantedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (onPermissionsGrantedListener = this.mOnPermissionsGrantedListener) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (onPermissionsGrantedListener = this.mOnPermissionsGrantedListener) == null) {
             return;
         }
         onPermissionsGrantedListener.onPermissionsGranted();
@@ -521,14 +530,14 @@ public class PermissionJudgePolicy {
 
     public void setDialogClickListener(PermissionDialogClickListener permissionDialogClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, permissionDialogClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, permissionDialogClickListener) == null) {
             this.mDialogClickListener = permissionDialogClickListener;
         }
     }
 
     public void setOnPermissionsGrantedListener(OnPermissionsGrantedListener onPermissionsGrantedListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onPermissionsGrantedListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, onPermissionsGrantedListener) == null) {
             this.mOnPermissionsGrantedListener = onPermissionsGrantedListener;
         }
     }
@@ -536,19 +545,19 @@ public class PermissionJudgePolicy {
     public boolean startRequestPermission(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) ? startRequestPermission(activity, -1) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) ? startRequestPermission(activity, -1) : invokeL.booleanValue;
     }
 
     public boolean startRequestPermission(Activity activity, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, i2)) == null) ? startRequestPermission(activity, i2, EXTRA_DIALOG_REFUSE_POLICY.Reject_all, null) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, activity, i2)) == null) ? startRequestPermission(activity, i2, EXTRA_DIALOG_REFUSE_POLICY.Reject_all, null) : invokeLI.booleanValue;
     }
 
     public boolean startRequestPermission(Activity activity, int i2, EXTRA_DIALOG_REFUSE_POLICY extra_dialog_refuse_policy, IExtraDialogCloseCallback iExtraDialogCloseCallback, ISystemPermissionDialogShowCallBack iSystemPermissionDialogShowCallBack) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{activity, Integer.valueOf(i2), extra_dialog_refuse_policy, iExtraDialogCloseCallback, iSystemPermissionDialogShowCallBack})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{activity, Integer.valueOf(i2), extra_dialog_refuse_policy, iExtraDialogCloseCallback, iSystemPermissionDialogShowCallBack})) == null) {
             this.mISystemPermissionDialogShowCallBack = iSystemPermissionDialogShowCallBack;
             return startRequestPermission(activity, i2, extra_dialog_refuse_policy, iExtraDialogCloseCallback);
         }
@@ -570,7 +579,7 @@ public class PermissionJudgePolicy {
     public boolean startRequestPermission(Activity activity, int i2, EXTRA_DIALOG_REFUSE_POLICY extra_dialog_refuse_policy, IExtraDialogCloseCallback iExtraDialogCloseCallback) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048585, this, activity, i2, extra_dialog_refuse_policy, iExtraDialogCloseCallback)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048586, this, activity, i2, extra_dialog_refuse_policy, iExtraDialogCloseCallback)) == null) {
             this.mRequestCode = i2;
             this.mExtraDialogRefusePolicy = extra_dialog_refuse_policy;
             this.mIExtraDialogCloseCallback = iExtraDialogCloseCallback;

@@ -17,15 +17,13 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f62329a;
+    public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f62330b;
+    public static List<String> f54601b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +39,7 @@ public final class c {
                 return;
             }
         }
-        f62330b = new CopyOnWriteArrayList();
+        f54601b = new CopyOnWriteArrayList();
     }
 
     public static String a() {
@@ -99,14 +97,14 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (!TextUtils.isEmpty(f62329a)) {
-                return f62329a;
+            if (!TextUtils.isEmpty(a)) {
+                return a;
             }
             try {
                 int myPid = Process.myPid();
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
                     if (runningAppProcessInfo.pid == myPid) {
-                        f62329a = runningAppProcessInfo.processName;
+                        a = runningAppProcessInfo.processName;
                         return runningAppProcessInfo.processName;
                     }
                 }
@@ -114,7 +112,7 @@ public final class c {
                 e2.printStackTrace();
             }
             String a2 = a();
-            f62329a = a2;
+            a = a2;
             return a2;
         }
         return (String) invokeL.objValue;

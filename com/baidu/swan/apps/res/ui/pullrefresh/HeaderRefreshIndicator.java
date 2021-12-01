@@ -3,17 +3,17 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.animation.TranslateAnimation;
-import b.a.p0.a.c;
-import b.a.p0.a.c1.a;
-import b.a.p0.a.e;
-import b.a.p0.a.z2.n0;
+import c.a.p0.a.c;
+import c.a.p0.a.c1.a;
+import c.a.p0.a.e;
+import c.a.p0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,13 +87,13 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     }
 
     public void resetTheme() {
-        boolean a2;
+        boolean a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.r == (a2 = a.M().a())) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.r == (a = a.M().a())) {
             return;
         }
         initResources();
-        this.r = a2;
+        this.r = a;
     }
 
     public void startAnim() {

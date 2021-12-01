@@ -12,12 +12,10 @@ import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static a f70704a;
+    public static a a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f70705d;
+    public static final Object f62122d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +31,7 @@ public class b {
                 return;
             }
         }
-        f70705d = new Object();
+        f62122d = new Object();
     }
 
     public static long a(a aVar) {
@@ -42,7 +40,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
             if (aVar != null) {
                 String format = String.format("%s%s%s%s%s", aVar.f(), aVar.getDeviceId(), Long.valueOf(aVar.a()), aVar.getImsi(), aVar.e());
-                if (g.m63a(format)) {
+                if (g.m112a(format)) {
                     return 0L;
                 }
                 Adler32 adler32 = new Adler32();
@@ -60,13 +58,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (b.class) {
-                a aVar = f70704a;
+                a aVar = a;
                 if (aVar != null) {
                     return aVar;
                 }
                 if (context != null) {
                     a a2 = a(context);
-                    f70704a = a2;
+                    a = a2;
                     return a2;
                 }
                 return null;
@@ -80,9 +78,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (context != null) {
-                synchronized (f70705d) {
+                synchronized (f62122d) {
                     String value = c.a(context).getValue();
-                    if (g.m63a(value)) {
+                    if (g.m112a(value)) {
                         return null;
                     }
                     if (value.endsWith(StringUtils.LF)) {

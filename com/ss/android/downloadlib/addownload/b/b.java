@@ -12,33 +12,31 @@ import java.util.List;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f69406a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f69407b;
+    public long f61200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f69408c;
+    public String f61201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f69409d;
+    public String f61202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f69410e;
+    public String f61203e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f69411f;
+    public String f61204f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f69412g;
+    public String f61205g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<Pair<String, String>> f69413h;
+    public final List<Pair<String, String>> f61206h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f69414i;
+    public String f61207i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -53,18 +51,18 @@ public class b {
                 return;
             }
         }
-        this.f69413h = new ArrayList();
+        this.f61206h = new ArrayList();
     }
 
-    public static long a(long j, long j2) {
+    public static long a(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j > 0 ? j : j2 : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 > 0 ? j2 : j3 : invokeCommon.longValue;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.f69406a, this.f69407b) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.a, this.f61200b) : invokeV.longValue;
     }
 }

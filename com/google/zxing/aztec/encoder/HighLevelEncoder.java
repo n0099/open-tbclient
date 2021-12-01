@@ -1,7 +1,6 @@
 package com.google.zxing.aztec.encoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] CHAR_MAP;
@@ -181,7 +180,7 @@ public final class HighLevelEncoder {
     private Collection<State> updateStateListForChar(Iterable<State> iterable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, iterable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, iterable, i2)) == null) {
             LinkedList linkedList = new LinkedList();
             for (State state : iterable) {
                 updateStateForChar(state, i2, linkedList);
@@ -194,7 +193,7 @@ public final class HighLevelEncoder {
     public static Collection<State> updateStateListForPair(Iterable<State> iterable, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, iterable, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, iterable, i2, i3)) == null) {
             LinkedList linkedList = new LinkedList();
             for (State state : iterable) {
                 updateStateForPair(state, i2, i3, linkedList);

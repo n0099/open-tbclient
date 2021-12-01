@@ -19,7 +19,7 @@ import com.facebook.common.internal.Supplier;
 import com.facebook.common.internal.Suppliers;
 import java.io.File;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DiskCacheConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,13 +37,13 @@ public class DiskCacheConfig {
     public final int mVersion;
 
     /* renamed from: com.facebook.cache.disk.DiskCacheConfig$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,31 +189,31 @@ public class DiskCacheConfig {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setMaxCacheSize(long j) {
+        public Builder setMaxCacheSize(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-                this.mMaxCacheSize = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
+                this.mMaxCacheSize = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setMaxCacheSizeOnLowDiskSpace(long j) {
+        public Builder setMaxCacheSizeOnLowDiskSpace(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-                this.mMaxCacheSizeOnLowDiskSpace = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
+                this.mMaxCacheSizeOnLowDiskSpace = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setMaxCacheSizeOnVeryLowDiskSpace(long j) {
+        public Builder setMaxCacheSizeOnVeryLowDiskSpace(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-                this.mMaxCacheSizeOnVeryLowDiskSpace = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
+                this.mMaxCacheSizeOnVeryLowDiskSpace = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;

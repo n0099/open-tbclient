@@ -13,24 +13,20 @@ import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.pojo.IdSupplierImpl;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class n implements IIdProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f62102b;
+    public static final char[] f54428b;
     public transient /* synthetic */ FieldHolder $fh;
+    public IIdentifierListener a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public IIdentifierListener f62103a;
-
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f62104a;
+        public final /* synthetic */ n a;
 
         public a(n nVar) {
             Interceptable interceptable = $ic;
@@ -47,25 +43,23 @@ public abstract class n implements IIdProvider {
                     return;
                 }
             }
-            this.f62104a = nVar;
+            this.a = nVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f62104a.doStart();
+                this.a.doStart();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ n f62105a;
+        public final /* synthetic */ n a;
 
         public b(n nVar) {
             Interceptable interceptable = $ic;
@@ -82,14 +76,14 @@ public abstract class n implements IIdProvider {
                     return;
                 }
             }
-            this.f62105a = nVar;
+            this.a = nVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f62105a.doStart();
+                this.a.doStart();
             }
         }
     }
@@ -107,7 +101,7 @@ public abstract class n implements IIdProvider {
                 return;
             }
         }
-        f62102b = new char[]{'0', SignatureImpl.SEP};
+        f54428b = new char[]{'0', SignatureImpl.SEP};
     }
 
     public n() {
@@ -136,7 +130,7 @@ public abstract class n implements IIdProvider {
         String str6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (this.f62103a == null) {
+            if (this.a == null) {
                 e0.d("BaseProvider", "onSupport: callback Listener is null");
                 return;
             }
@@ -149,9 +143,9 @@ public abstract class n implements IIdProvider {
                 str5 = str4;
                 str6 = str5;
             }
-            boolean z3 = (z && (str4 == null || str4.isEmpty() || f0.a(str4, f62102b))) ? true : z2;
+            boolean z3 = (z && (str4 == null || str4.isEmpty() || f0.a(str4, f54428b))) ? true : z2;
             e0.c("BaseProvider", "mcallback onSupport");
-            this.f62103a.onSupport(new IdSupplierImpl(str4, str5, str6, z, z3));
+            this.a.onSupport(new IdSupplierImpl(str4, str5, str6, z, z3));
         }
     }
 
@@ -159,7 +153,7 @@ public abstract class n implements IIdProvider {
     public void doStartInThreadPool(IIdentifierListener iIdentifierListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iIdentifierListener) == null) {
-            this.f62103a = iIdentifierListener;
+            this.a = iIdentifierListener;
             g0.a(new a(this));
         }
     }
@@ -168,9 +162,9 @@ public abstract class n implements IIdProvider {
     public void doStartSync(IIdentifierListener iIdentifierListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iIdentifierListener) == null) {
-            this.f62103a = iIdentifierListener;
+            this.a = iIdentifierListener;
             g0.a(new b(this));
-            if (this.f62103a == null) {
+            if (this.a == null) {
                 e0.d("BaseProvider", "doStart: callback Listener is null");
             }
         }

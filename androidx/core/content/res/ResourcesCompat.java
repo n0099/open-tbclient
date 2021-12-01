@@ -25,7 +25,6 @@ import androidx.core.graphics.TypefaceCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -352,7 +351,7 @@ public final class ResourcesCompat {
     public static float getFloat(@NonNull Resources resources, @DimenRes int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, resources, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, resources, i2)) == null) {
             TypedValue typedValue = new TypedValue();
             resources.getValue(i2, typedValue, true);
             if (typedValue.type == 4) {
@@ -367,7 +366,7 @@ public final class ResourcesCompat {
     public static Typeface getFont(@NonNull Context context, @FontRes int i2) throws Resources.NotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) {
             if (context.isRestricted()) {
                 return null;
             }

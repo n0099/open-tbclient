@@ -32,7 +32,7 @@ public class KsNotificationCompat {
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final NotificationCompat.Builder mBuilder;
+        public NotificationCompat.Builder mBuilder;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         @KsAdSdkApi
@@ -72,7 +72,11 @@ public class KsNotificationCompat {
                     return;
                 }
             }
-            this.mBuilder = new NotificationCompat.Builder(context, str);
+            try {
+                this.mBuilder = new NotificationCompat.Builder(context, str);
+            } catch (Throwable unused) {
+                this.mBuilder = new NotificationCompat.Builder(context);
+            }
         }
 
         @KsAdSdkApi
@@ -629,11 +633,11 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setTimeoutAfter(long j) {
+        public Builder setTimeoutAfter(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048623, this, j)) == null) {
-                this.mBuilder.setTimeoutAfter(j);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048623, this, j2)) == null) {
+                this.mBuilder.setTimeoutAfter(j2);
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -677,11 +681,11 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setWhen(long j) {
+        public Builder setWhen(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048627, this, j)) == null) {
-                this.mBuilder.setWhen(j);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048627, this, j2)) == null) {
+                this.mBuilder.setWhen(j2);
                 return this;
             }
             return (Builder) invokeJ.objValue;

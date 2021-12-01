@@ -10,7 +10,6 @@ import com.baidu.idl.authority.IDLAuthorityException;
 import com.baidu.idl.license.License;
 import com.baidu.idl.statistics.Statistics;
 import com.baidu.idl.util.UIThread;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BankCardProcessing {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BankCardProcessing";
@@ -274,7 +273,7 @@ public class BankCardProcessing {
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             synchronized (BankCardProcessing.class) {
                 if (!UIThread.isUITread()) {
                     tokenString = str;

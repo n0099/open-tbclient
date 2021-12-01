@@ -18,28 +18,26 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DbAdapter {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f72548d;
+    public static final String f63381d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f72549e;
+    public static final String f63382e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final Context f72550a;
+    public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f72551b;
+    public final String f63383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f72552c;
+    public a f63384c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Table {
         public static final /* synthetic */ Table[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -105,13 +103,13 @@ public class DbAdapter {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final File f72553e;
+        public final File f63385e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context, String str) {
@@ -132,20 +130,20 @@ public class DbAdapter {
                     return;
                 }
             }
-            this.f72553e = context.getDatabasePath(str);
+            this.f63385e = context.getDatabasePath(str);
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f72553e.exists() || Math.max(this.f72553e.getUsableSpace(), 33554432L) >= this.f72553e.length() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !this.f63385e.exists() || Math.max(this.f63385e.getUsableSpace(), 33554432L) >= this.f63385e.length() : invokeV.booleanValue;
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 close();
-                this.f72553e.delete();
+                this.f63385e.delete();
             }
         }
 
@@ -154,8 +152,8 @@ public class DbAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
                 DxmSdkSensorsDataAPI.r.booleanValue();
-                sQLiteDatabase.execSQL(DbAdapter.f72548d);
-                sQLiteDatabase.execSQL(DbAdapter.f72549e);
+                sQLiteDatabase.execSQL(DbAdapter.f63381d);
+                sQLiteDatabase.execSQL(DbAdapter.f63382e);
             }
         }
 
@@ -165,8 +163,8 @@ public class DbAdapter {
             if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i2, i3) == null) {
                 DxmSdkSensorsDataAPI.r.booleanValue();
                 sQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Table.EVENTS.getName());
-                sQLiteDatabase.execSQL(DbAdapter.f72548d);
-                sQLiteDatabase.execSQL(DbAdapter.f72549e);
+                sQLiteDatabase.execSQL(DbAdapter.f63381d);
+                sQLiteDatabase.execSQL(DbAdapter.f63382e);
             }
         }
     }
@@ -184,14 +182,14 @@ public class DbAdapter {
                 return;
             }
         }
-        f72548d = "CREATE TABLE " + Table.EVENTS.getName() + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, data STRING NOT NULL, created_at INTEGER NOT NULL);";
+        f63381d = "CREATE TABLE " + Table.EVENTS.getName() + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, data STRING NOT NULL, created_at INTEGER NOT NULL);";
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE INDEX IF NOT EXISTS time_idx ON ");
         sb.append(Table.EVENTS.getName());
         sb.append(" (");
         sb.append("created_at");
         sb.append(");");
-        f72549e = sb.toString();
+        f63382e = sb.toString();
     }
 
     public DbAdapter(Context context, String str) {
@@ -209,9 +207,9 @@ public class DbAdapter {
                 return;
             }
         }
-        this.f72552c = null;
-        this.f72550a = context;
-        this.f72551b = str;
+        this.f63384c = null;
+        this.a = context;
+        this.f63383b = str;
         f();
     }
 
@@ -235,10 +233,10 @@ public class DbAdapter {
         String[] e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, table)) == null) {
-            if (this.f72552c.a() || ((e2 = e(Table.EVENTS, 100)) != null && d(e2[0], Table.EVENTS) > 0)) {
+            if (this.f63384c.a() || ((e2 = e(Table.EVENTS, 100)) != null && d(e2[0], Table.EVENTS) > 0)) {
                 String name = table.getName();
                 int i2 = -1;
-                synchronized (this.f72552c) {
+                synchronized (this.f63384c) {
                     Cursor cursor2 = 0;
                     cursor2 = 0;
                     Cursor cursor3 = null;
@@ -246,7 +244,7 @@ public class DbAdapter {
                     try {
                         try {
                             try {
-                                SQLiteDatabase writableDatabase = this.f72552c.getWritableDatabase();
+                                SQLiteDatabase writableDatabase = this.f63384c.getWritableDatabase();
                                 ContentValues contentValues = new ContentValues();
                                 contentValues.put("data", jSONObject.toString());
                                 contentValues.put("created_at", Long.valueOf(System.currentTimeMillis()));
@@ -258,7 +256,7 @@ public class DbAdapter {
                                     if (cursor != null) {
                                         cursor.close();
                                     }
-                                    aVar = this.f72552c;
+                                    aVar = this.f63384c;
                                 } catch (SQLiteException unused) {
                                     String str = "Could not add data to table " + name + ". Re-initializing database.";
                                     if (cursor != null) {
@@ -270,7 +268,7 @@ public class DbAdapter {
                                     if (cursor3 != null) {
                                         cursor3.close();
                                     }
-                                    aVar = this.f72552c;
+                                    aVar = this.f63384c;
                                     cursor2 = cursor3;
                                     aVar.close();
                                     return i2;
@@ -285,7 +283,7 @@ public class DbAdapter {
                                     if (cursor4 != null) {
                                         cursor4.close();
                                     }
-                                    aVar = this.f72552c;
+                                    aVar = this.f63384c;
                                     cursor2 = cursor4;
                                     aVar.close();
                                     return i2;
@@ -295,7 +293,7 @@ public class DbAdapter {
                                 if (cursor2 != 0) {
                                     cursor2.close();
                                 }
-                                this.f72552c.close();
+                                this.f63384c.close();
                                 throw th;
                             }
                         } catch (Throwable th2) {
@@ -303,7 +301,7 @@ public class DbAdapter {
                             cursor2 = jSONObject;
                             if (cursor2 != 0) {
                             }
-                            this.f72552c.close();
+                            this.f63384c.close();
                             throw th;
                         }
                     } catch (SQLiteException unused3) {
@@ -327,11 +325,11 @@ public class DbAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, table)) == null) {
             String name = table.getName();
-            synchronized (this.f72552c) {
+            synchronized (this.f63384c) {
                 Cursor cursor = null;
                 try {
                     try {
-                        SQLiteDatabase writableDatabase = this.f72552c.getWritableDatabase();
+                        SQLiteDatabase writableDatabase = this.f63384c.getWritableDatabase();
                         writableDatabase.delete(name, "_id <= " + str, null);
                         cursor = writableDatabase.rawQuery("SELECT COUNT(*) FROM " + name, null);
                         cursor.moveToFirst();
@@ -339,14 +337,14 @@ public class DbAdapter {
                         if (cursor != null) {
                             cursor.close();
                         }
-                        this.f72552c.close();
+                        this.f63384c.close();
                     } catch (IllegalStateException unused) {
                         String str2 = "Could not clean sent records from " + name + ". Re-initializing database.";
                         f();
                         if (cursor != null) {
                             cursor.close();
                         }
-                        aVar = this.f72552c;
+                        aVar = this.f63384c;
                         aVar.close();
                         i2 = -1;
                         return i2;
@@ -357,7 +355,7 @@ public class DbAdapter {
                     if (cursor != null) {
                         cursor.close();
                     }
-                    aVar = this.f72552c;
+                    aVar = this.f63384c;
                     aVar.close();
                     i2 = -1;
                     return i2;
@@ -383,7 +381,7 @@ public class DbAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, table, i2)) == null) {
             String name = table.getName();
-            synchronized (this.f72552c) {
+            synchronized (this.f63384c) {
                 Cursor cursor2 = null;
                 try {
                 } catch (Throwable th) {
@@ -391,7 +389,7 @@ public class DbAdapter {
                     cursor2 = i2;
                 }
                 try {
-                    cursor = this.f72552c.getReadableDatabase().rawQuery("SELECT * FROM " + name + " ORDER BY created_at ASC LIMIT " + String.valueOf(i2), null);
+                    cursor = this.f63384c.getReadableDatabase().rawQuery("SELECT * FROM " + name + " ORDER BY created_at ASC LIMIT " + String.valueOf(i2), null);
                     try {
                         JSONArray jSONArray = new JSONArray();
                         str2 = null;
@@ -408,13 +406,13 @@ public class DbAdapter {
                         if (cursor != null) {
                             cursor.close();
                         }
-                        this.f72552c.close();
+                        this.f63384c.close();
                     } catch (SQLiteException unused2) {
                         String str3 = "Could not pull records for SensorsData out of database " + name + ". Waiting to send.";
                         if (cursor != null) {
                             cursor.close();
                         }
-                        aVar = this.f72552c;
+                        aVar = this.f63384c;
                         aVar.close();
                         str = null;
                         str2 = null;
@@ -426,7 +424,7 @@ public class DbAdapter {
                         if (cursor != null) {
                             cursor.close();
                         }
-                        aVar = this.f72552c;
+                        aVar = this.f63384c;
                         aVar.close();
                         str = null;
                         str2 = null;
@@ -443,7 +441,7 @@ public class DbAdapter {
                     if (cursor2 != null) {
                         cursor2.close();
                     }
-                    this.f72552c.close();
+                    this.f63384c.close();
                     throw th;
                 }
             }
@@ -458,11 +456,11 @@ public class DbAdapter {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a aVar = this.f72552c;
+            a aVar = this.f63384c;
             if (aVar != null) {
                 aVar.c();
             }
-            this.f72552c = new a(this.f72550a, this.f72551b);
+            this.f63384c = new a(this.a, this.f63383b);
         }
     }
 }

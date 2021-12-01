@@ -3,7 +3,7 @@ package com.baidu.tieba.videoplay.fragment;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
-import b.a.q0.a.d;
+import c.a.q0.a.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -14,19 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VideoChannelFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener D;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelFragment f55999a;
+        public final /* synthetic */ VideoChannelFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(VideoChannelFragment videoChannelFragment, int i2) {
@@ -46,26 +44,24 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f55999a = videoChannelFragment;
+            this.a = videoChannelFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.f55999a.isResumed()) {
-                this.f55999a.startBrowseTimeMission();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.isResumed()) {
+                this.a.startBrowseTimeMission();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelFragment f56000a;
+        public final /* synthetic */ VideoChannelFragment a;
 
         public b(VideoChannelFragment videoChannelFragment) {
             Interceptable interceptable = $ic;
@@ -82,25 +78,23 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f56000a = videoChannelFragment;
+            this.a = videoChannelFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f56000a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelFragment f56001a;
+        public final /* synthetic */ VideoChannelFragment a;
 
         public c(VideoChannelFragment videoChannelFragment) {
             Interceptable interceptable = $ic;
@@ -117,14 +111,14 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f56001a = videoChannelFragment;
+            this.a = videoChannelFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f56001a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }
@@ -192,8 +186,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            if (d.y().A(b.a.q0.a.c.c0)) {
-                d.y().F();
+            if (d.y().A(c.a.q0.a.c.c0)) {
+                d.y().G();
             }
         }
     }
@@ -205,8 +199,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (d.y().A(b.a.q0.a.c.c0)) {
-                d.y().F();
+            } else if (d.y().A(c.a.q0.a.c.c0)) {
+                d.y().G();
             }
         }
     }
@@ -223,7 +217,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            d.y().O(b.a.q0.a.c.c0);
+            d.y().P(c.a.q0.a.c.c0);
         }
     }
 }

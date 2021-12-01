@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.model.AssetUriLoader;
 import java.io.IOException;
 import java.lang.ref.SoftReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARPFilter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ARPFilter";
@@ -81,23 +81,23 @@ public class ARPFilter {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? nativeAdjustFilterWithCasePathParam(str) : (String) invokeL.objValue;
     }
 
-    public void adjustFilterWithFloatArrayParam(String str, String str2, float[] fArr, long j) {
+    public void adjustFilterWithFloatArrayParam(String str, String str2, float[] fArr, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, fArr, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, fArr, Long.valueOf(j2)}) == null) {
             nativeAdjustFilterWithFloatArrayParam(str, str2, fArr);
         }
     }
 
-    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j) {
+    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j2)}) == null) {
             nativeAdjustFilterWithFloatParam(str, str2, f2);
         }
     }
 
-    public void adjustFilterWithIntParam(String str, String str2, int i2, long j) {
+    public void adjustFilterWithIntParam(String str, String str2, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             nativeAdjustFilterWithIntParam(str, str2, i2);
         }
     }
@@ -108,10 +108,10 @@ public class ARPFilter {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? nativeAdjustFilterWithJsonPathParam(str) : (String) invokeL.objValue;
     }
 
-    public void adjustFilterWithStringParam(String str, String str2, String str3, long j) {
+    public void adjustFilterWithStringParam(String str, String str2, String str3, long j2) {
         SoftReference<Context> softReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Long.valueOf(j2)}) == null) {
             if (!str3.contains(AssetUriLoader.ASSET_PATH_SEGMENT) || (softReference = this.softContext) == null || softReference.get() == null || this.softContext.get().getAssets() == null) {
                 nativeAdjustFilterWithStringParam(str, str2, str3);
                 return;

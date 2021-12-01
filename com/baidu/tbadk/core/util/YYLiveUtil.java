@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLEncoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class YYLiveUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SOURCE_BAIDU_LIVE_CARD_ = "baidu_live_zhibo_block_";
@@ -130,7 +129,7 @@ public class YYLiveUtil {
     public static boolean isLiveRoom(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -142,7 +141,7 @@ public class YYLiveUtil {
     public static boolean isYYLiveLink(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? !TextUtils.isEmpty(str) && str.contains("bdtiebalive://video/yylive") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? !TextUtils.isEmpty(str) && str.contains("bdtiebalive://video/yylive") : invokeL.booleanValue;
     }
 
     public static void jumpToYYLiveRoom(TbPageContext tbPageContext, YyExtData yyExtData, String str) {

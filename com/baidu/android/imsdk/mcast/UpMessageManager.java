@@ -18,7 +18,7 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UpMessageManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UpMessageManager";
@@ -31,7 +31,7 @@ public class UpMessageManager {
     public boolean onDispath;
     public boolean onTaskRunning;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class EventHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class UpMessageManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

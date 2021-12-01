@@ -10,19 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Dot extends Overlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public LatLng f40152a;
+    public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40153b;
+    public int f35793b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40154c;
+    public int f35794c;
 
     public Dot() {
         Interceptable interceptable = $ic;
@@ -37,7 +35,7 @@ public final class Dot extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f40965g;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f36451g;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -46,11 +44,11 @@ public final class Dot extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             super.a(bundle);
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f40152a);
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.a);
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            bundle.putInt("radius", this.f40154c);
-            Overlay.a(this.f40153b, bundle);
+            bundle.putInt("radius", this.f35794c);
+            Overlay.a(this.f35793b, bundle);
             return bundle;
         }
         return (Bundle) invokeL.objValue;
@@ -59,19 +57,19 @@ public final class Dot extends Overlay {
     public LatLng getCenter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40152a : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (LatLng) invokeV.objValue;
     }
 
     public int getColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40153b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35793b : invokeV.intValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40154c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35794c : invokeV.intValue;
     }
 
     public void setCenter(LatLng latLng) {
@@ -80,7 +78,7 @@ public final class Dot extends Overlay {
             if (latLng == null) {
                 throw new IllegalArgumentException("BDMapSDKException: dot center can not be null");
             }
-            this.f40152a = latLng;
+            this.a = latLng;
             this.listener.b(this);
         }
     }
@@ -88,7 +86,7 @@ public final class Dot extends Overlay {
     public void setColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f40153b = i2;
+            this.f35793b = i2;
             this.listener.b(this);
         }
     }
@@ -98,7 +96,7 @@ public final class Dot extends Overlay {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f40154c = i2;
+        this.f35794c = i2;
         this.listener.b(this);
     }
 }

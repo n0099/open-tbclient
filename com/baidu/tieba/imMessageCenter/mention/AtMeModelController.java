@@ -2,11 +2,11 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.f;
-import b.a.e.a.j;
-import b.a.r0.m1.b.b;
-import b.a.r0.m1.b.c;
-import b.a.r0.m1.b.g;
+import c.a.d.a.f;
+import c.a.d.a.j;
+import c.a.r0.s1.b.b;
+import c.a.r0.s1.b.c;
+import c.a.r0.s1.b.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,36 +33,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AtMeModelController extends BdBaseModel<AtMessageActivity> implements CacheModel.c<c>, NetModel.k<b, c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtMessageActivity f51694e;
+    public AtMessageActivity f46301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f51695f;
+    public b f46302f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtMeNetModel f51696g;
+    public AtMeNetModel f46303g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtMeCacheModel f51697h;
+    public AtMeCacheModel f46304h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b.a.q0.k0.d.a f51698i;
-    public FeedData j;
-    public g k;
+    public c.a.q0.l0.d.a f46305i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public FeedData f46306j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public g f46307k;
     public final CustomMessageListener l;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtMeModelController f51699a;
+        public final /* synthetic */ AtMeModelController a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AtMeModelController atMeModelController, int i2) {
@@ -82,7 +84,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                     return;
                 }
             }
-            this.f51699a = atMeModelController;
+            this.a = atMeModelController;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +92,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                this.f51699a.f51694e.dismissPullRefresh();
+                this.a.f46301e.dismissPullRefresh();
             }
         }
     }
@@ -114,20 +116,20 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
             }
         }
         this.l = new a(this, 2000994);
-        this.f51694e = atMessageActivity;
+        this.f46301e = atMessageActivity;
     }
 
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.f51696g.Q() && this.f51698i.a() && x()) {
-                this.f51698i.f(true);
-                this.f51698i.h(true);
-                this.f51695f.c(this.j);
-                this.f51696g.setNeedCache(false);
-                this.f51696g.loadData();
-                this.f51694e.onViewStateChanged(this.f51698i);
+            if (!this.f46303g.Q() && this.f46305i.a() && x()) {
+                this.f46305i.f(true);
+                this.f46305i.h(true);
+                this.f46302f.c(this.f46306j);
+                this.f46303g.setNeedCache(false);
+                this.f46303g.loadData();
+                this.f46301e.onViewStateChanged(this.f46305i);
                 return true;
             }
             return false;
@@ -139,36 +141,36 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, cVar)) == null) {
-            this.f51694e.hideNetRefreshView();
+            this.f46301e.hideNetRefreshView();
             if (bVar.a() != 4) {
-                this.k.a().clear();
+                this.f46307k.a().clear();
             }
-            this.k.c(cVar);
+            this.f46307k.c(cVar);
             if (cVar != null && cVar.a() != null && cVar.a().size() > 0) {
-                this.j = cVar.a().get(cVar.a().size() - 1);
-                if (this.k.b() != null) {
-                    this.f51698i.e(this.k.b().b() == 1);
+                this.f46306j = cVar.a().get(cVar.a().size() - 1);
+                if (this.f46307k.b() != null) {
+                    this.f46305i.e(this.f46307k.b().b() == 1);
                 } else {
-                    this.f51698i.e(true);
+                    this.f46305i.e(true);
                 }
                 if (bVar != null) {
                     bVar.d();
                 }
-                this.f51698i.h(true);
+                this.f46305i.h(true);
             } else {
-                this.j = null;
-                this.f51698i.e(false);
-                this.f51698i.h(false);
+                this.f46306j = null;
+                this.f46305i.e(false);
+                this.f46305i.h(false);
             }
-            this.f51698i.f(false);
-            this.f51698i.g(false);
-            b.a.q0.t.d.b.g0().k();
+            this.f46305i.f(false);
+            this.f46305i.g(false);
+            c.a.q0.t.d.b.g0().k();
             if (!TbadkCoreApplication.isLogin()) {
-                this.k.a().clear();
+                this.f46307k.a().clear();
             } else {
-                this.f51694e.onViewStateChanged(this.f51698i);
+                this.f46301e.onViewStateChanged(this.f46305i);
             }
-            this.f51694e.onViewDataChanged(this.k);
+            this.f46301e.onViewDataChanged(this.f46307k);
             return false;
         }
         return invokeLL.booleanValue;
@@ -178,13 +180,13 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f51696g.Q() || !x()) {
+            if (this.f46303g.Q() || !x()) {
                 return false;
             }
-            this.j = null;
-            this.f51695f.b();
-            this.f51696g.setNeedCache(true);
-            this.f51696g.loadData();
+            this.f46306j = null;
+            this.f46302f.b();
+            this.f46303g.setNeedCache(true);
+            this.f46303g.loadData();
             return true;
         }
         return invokeV.booleanValue;
@@ -205,7 +207,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
-            this.f51694e.dismissPullRefresh();
+            this.f46301e.dismissPullRefresh();
             if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
                 cVar = mvcSocketResponsedMessage.getData();
                 r0 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
@@ -213,7 +215,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                     r0 = mvcNetMessage.getRequestData();
                 }
             } else {
-                b.a.q0.t.d.b.g0().Z(0);
+                c.a.q0.t.d.b.g0().Z(0);
                 cVar = null;
             }
             if (r0 == null || cVar == null || !B(r0, cVar)) {
@@ -224,7 +226,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                 ErrorData errorData = new ErrorData();
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
-                this.f51694e.onServerError(errorData);
+                this.f46301e.onServerError(errorData);
             }
         }
     }
@@ -244,12 +246,12 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, readCacheRespMsg, readCacheMessage) == null) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-                B(this.f51695f, readCacheRespMsg.getData().get(0));
+                B(this.f46302f, readCacheRespMsg.getData().get(0));
             }
-            this.j = null;
-            this.f51695f.b();
-            this.f51696g.setNeedCache(true);
-            this.f51696g.loadData();
+            this.f46306j = null;
+            this.f46302f.b();
+            this.f46303g.setNeedCache(true);
+            this.f46303g.loadData();
         }
     }
 
@@ -265,7 +267,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
-            this.f51694e.dismissPullRefresh();
+            this.f46301e.dismissPullRefresh();
             if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
                 cVar = mvcHttpResponsedMessage.getData();
                 r0 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
@@ -273,7 +275,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                     r0 = mvcNetMessage.getRequestData();
                 }
             } else {
-                b.a.q0.t.d.b.g0().Z(0);
+                c.a.q0.t.d.b.g0().Z(0);
                 cVar = null;
             }
             if (r0 == null || cVar == null || !B(r0, cVar)) {
@@ -284,7 +286,7 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
                 ErrorData errorData = new ErrorData();
                 errorData.setError_code(this.mErrorCode);
                 errorData.setError_msg(this.mErrorString);
-                this.f51694e.onServerError(errorData);
+                this.f46301e.onServerError(errorData);
             }
         }
     }
@@ -297,12 +299,12 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
             if (TbadkCoreApplication.isLogin()) {
                 return true;
             }
-            g gVar = this.k;
-            if (gVar != null && (arrayList = gVar.f22222e) != null) {
+            g gVar = this.f46307k;
+            if (gVar != null && (arrayList = gVar.f23386e) != null) {
                 arrayList.clear();
             }
-            this.f51694e.dismissPullRefresh();
-            this.f51694e.onViewDataChanged(this.k);
+            this.f46301e.dismissPullRefresh();
+            this.f46301e.onViewDataChanged(this.f46307k);
             return false;
         }
         return invokeV.booleanValue;
@@ -313,11 +315,11 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (x()) {
-                AtMessageActivity atMessageActivity = this.f51694e;
+                AtMessageActivity atMessageActivity = this.f46301e;
                 if (atMessageActivity != null) {
                     atMessageActivity.showPullRefresh();
                 }
-                this.f51697h.M(this.f51695f);
+                this.f46304h.M(this.f46302f);
                 return true;
             }
             return true;
@@ -328,24 +330,24 @@ public class AtMeModelController extends BdBaseModel<AtMessageActivity> implemen
     public void z(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
-            this.f51695f = new b();
-            AtMeNetModel atMeNetModel = new AtMeNetModel((TbPageContext) j.a(this.f51694e.getPageContext().getPageActivity()), this.f51695f);
-            this.f51696g = atMeNetModel;
+            this.f46302f = new b();
+            AtMeNetModel atMeNetModel = new AtMeNetModel((TbPageContext) j.a(this.f46301e.getPageContext().getPageActivity()), this.f46302f);
+            this.f46303g = atMeNetModel;
             atMeNetModel.Y(this);
-            AtMessageActivity atMessageActivity = this.f51694e;
+            AtMessageActivity atMessageActivity = this.f46301e;
             if (atMessageActivity != null) {
-                this.f51696g.setUniqueId(atMessageActivity.getUniqueId());
+                this.f46303g.setUniqueId(atMessageActivity.getUniqueId());
             }
-            this.f51696g.registerListener(this.l);
-            AtMeCacheModel atMeCacheModel = new AtMeCacheModel((TbPageContext) j.a(this.f51694e.getPageContext().getPageActivity()));
-            this.f51697h = atMeCacheModel;
+            this.f46303g.registerListener(this.l);
+            AtMeCacheModel atMeCacheModel = new AtMeCacheModel((TbPageContext) j.a(this.f46301e.getPageContext().getPageActivity()));
+            this.f46304h = atMeCacheModel;
             atMeCacheModel.O(this);
-            AtMessageActivity atMessageActivity2 = this.f51694e;
+            AtMessageActivity atMessageActivity2 = this.f46301e;
             if (atMessageActivity2 != null) {
-                this.f51697h.setUniqueId(atMessageActivity2.getUniqueId());
+                this.f46304h.setUniqueId(atMessageActivity2.getUniqueId());
             }
-            this.k = new g();
-            this.f51698i = new b.a.q0.k0.d.a();
+            this.f46307k = new g();
+            this.f46305i = new c.a.q0.l0.d.a();
         }
     }
 }

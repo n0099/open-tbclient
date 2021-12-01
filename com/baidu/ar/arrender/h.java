@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +44,13 @@ public class h {
             if (this.hR == 0) {
                 this.hR = currentTimeMillis;
             }
-            long j = currentTimeMillis % 1000;
+            long j2 = currentTimeMillis % 1000;
             if (currentTimeMillis / 1000 != this.hR / 1000) {
                 this.hR = currentTimeMillis;
                 this.hQ = 0;
             }
             int i2 = this.hQ;
-            if (this.hP * i2 < j) {
+            if (this.hP * i2 < j2) {
                 this.hQ = i2 + 1;
                 return true;
             }

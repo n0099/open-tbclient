@@ -13,16 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.dislike.TTDislikeListView;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class TTDislikeDialogAbstract extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public View f62475a;
+    public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTDislikeController f62476b;
+    public TTDislikeController f54697b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeDialogAbstract(Context context) {
@@ -46,16 +44,16 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62476b == null || this.f62475a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f54697b == null || this.a == null) {
             return;
         }
         int[] tTDislikeListViewIds = getTTDislikeListViewIds();
         if (tTDislikeListViewIds != null && tTDislikeListViewIds.length > 0) {
             for (int i2 : tTDislikeListViewIds) {
-                View findViewById = this.f62475a.findViewById(i2);
+                View findViewById = this.a.findViewById(i2);
                 if (findViewById != null) {
                     if (findViewById instanceof TTDislikeListView) {
-                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f62476b);
+                        ((TTDislikeListView) findViewById).setDislikeInfo(this.f54697b);
                     } else {
                         throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                     }
@@ -71,7 +69,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void b() {
         TTDislikeController tTDislikeController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tTDislikeController = this.f62476b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tTDislikeController = this.f54697b) == null) {
             return;
         }
         tTDislikeController.onDislikeEvent(getContext(), true);
@@ -89,10 +87,10 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             View inflate = LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) null);
-            this.f62475a = inflate;
+            this.a = inflate;
             if (inflate != null) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                View view = this.f62475a;
+                View view = this.a;
                 if (layoutParams == null) {
                     layoutParams = new ViewGroup.LayoutParams(-1, -1);
                 }
@@ -107,7 +105,7 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void setDislikeModel(TTDislikeController tTDislikeController) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tTDislikeController) == null) {
-            this.f62476b = tTDislikeController;
+            this.f54697b = tTDislikeController;
             a();
         }
     }
@@ -124,11 +122,11 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void startPersonalizePromptActivity() {
         TTDislikeController tTDislikeController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tTDislikeController = this.f62476b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (tTDislikeController = this.f54697b) == null) {
             return;
         }
         tTDislikeController.openWebPage(getContext(), true);
-        this.f62476b.onDislikeEvent(getContext(), false);
+        this.f54697b.onDislikeEvent(getContext(), false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -14,20 +14,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RouteStep implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RouteStep> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f40499a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40500b;
+    public int f36081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40501c;
+    public String f36082c;
     public List<LatLng> mWayPoints;
 
     static {
@@ -75,9 +73,9 @@ public class RouteStep implements Parcelable {
                 return;
             }
         }
-        this.f40499a = parcel.readInt();
-        this.f40500b = parcel.readInt();
-        this.f40501c = parcel.readString();
+        this.a = parcel.readInt();
+        this.f36081b = parcel.readInt();
+        this.f36082c = parcel.readString();
         ArrayList arrayList = new ArrayList();
         this.mWayPoints = arrayList;
         parcel.readList(arrayList, LatLng.class.getClassLoader());
@@ -99,19 +97,19 @@ public class RouteStep implements Parcelable {
     public int getDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40499a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40500b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36081b : invokeV.intValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40501c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36082c : (String) invokeV.objValue;
     }
 
     public List<LatLng> getWayPoints() {
@@ -123,21 +121,21 @@ public class RouteStep implements Parcelable {
     public void setDistance(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f40499a = i2;
+            this.a = i2;
         }
     }
 
     public void setDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f40500b = i2;
+            this.f36081b = i2;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f40501c = str;
+            this.f36082c = str;
         }
     }
 
@@ -152,9 +150,9 @@ public class RouteStep implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
-            parcel.writeInt(this.f40499a);
-            parcel.writeInt(this.f40500b);
-            parcel.writeString(this.f40501c);
+            parcel.writeInt(this.a);
+            parcel.writeInt(this.f36081b);
+            parcel.writeString(this.f36082c);
             parcel.writeList(this.mWayPoints);
         }
     }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,10 +43,10 @@ public abstract class jl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m533a(byte[] bArr, int i2, int i3);
+    public abstract void m582a(byte[] bArr, int i2, int i3);
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m534a() {
+    public byte[] m583a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -70,11 +70,11 @@ public abstract class jl {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
             int i4 = 0;
             while (i4 < i3) {
-                int a2 = a(bArr, i2 + i4, i3 - i4);
-                if (a2 <= 0) {
+                int a = a(bArr, i2 + i4, i3 - i4);
+                if (a <= 0) {
                     throw new jm("Cannot read. Remote side has closed. Tried to read " + i3 + " bytes, but only got " + i4 + " bytes.");
                 }
-                i4 += a2;
+                i4 += a;
             }
             return i4;
         }

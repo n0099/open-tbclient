@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DelegateOnCancleListener implements DialogInterface.OnCancelListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Dialog f63422e;
+    public Dialog f55470e;
     public DialogInterface.OnCancelListener mOnCancleListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnAttachStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,13 +55,13 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DelegateOnCancleListener f63423e;
+        public final /* synthetic */ DelegateOnCancleListener f55471e;
 
         public b(DelegateOnCancleListener delegateOnCancleListener) {
             Interceptable interceptable = $ic;
@@ -78,15 +78,15 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
                     return;
                 }
             }
-            this.f63423e = delegateOnCancleListener;
+            this.f55471e = delegateOnCancleListener;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f63423e.f63422e = null;
-                this.f63423e.mOnCancleListener = null;
+                this.f55471e.f55470e = null;
+                this.f55471e.mOnCancleListener = null;
             }
         }
     }
@@ -107,11 +107,11 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
             }
         }
         this.mOnCancleListener = onCancelListener;
-        this.f63422e = dialog;
+        this.f55470e = dialog;
         if (Build.VERSION.SDK_INT >= 12) {
             dialog.getWindow().getDecorView().addOnAttachStateChangeListener(new a(this));
         }
-        this.f63422e.setOnDismissListener(new b(this));
+        this.f55470e.setOnDismissListener(new b(this));
     }
 
     @Override // android.content.DialogInterface.OnCancelListener

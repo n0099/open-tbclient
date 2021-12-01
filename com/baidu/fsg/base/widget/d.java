@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements View.OnFocusChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardEditText f38556a;
+    public final /* synthetic */ SafeKeyBoardEditText a;
 
     public d(SafeKeyBoardEditText safeKeyBoardEditText) {
         Interceptable interceptable = $ic;
@@ -32,7 +30,7 @@ public class d implements View.OnFocusChangeListener {
                 return;
             }
         }
-        this.f38556a = safeKeyBoardEditText;
+        this.a = safeKeyBoardEditText;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -52,40 +50,40 @@ public class d implements View.OnFocusChangeListener {
         SafeScrollView safeScrollView6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-            SafeKeyBoardEditText safeKeyBoardEditText = this.f38556a;
+            SafeKeyBoardEditText safeKeyBoardEditText = this.a;
             if (z) {
                 z2 = safeKeyBoardEditText.o;
                 if (z2) {
-                    context = this.f38556a.f38520e;
-                    RimGlobalUtils.hideInputMethod(context, this.f38556a);
-                    safeScrollView = this.f38556a.f38522g;
+                    context = this.a.f34446e;
+                    RimGlobalUtils.hideInputMethod(context, this.a);
+                    safeScrollView = this.a.f34448g;
                     if (safeScrollView != null) {
-                        safeScrollView2 = this.f38556a.f38522g;
+                        safeScrollView2 = this.a.f34448g;
                         if (safeScrollView2.hasWindowFocus()) {
-                            safeScrollView3 = this.f38556a.f38522g;
+                            safeScrollView3 = this.a.f34448g;
                             if (!safeScrollView3.isPopupWindowShowing()) {
-                                safeScrollView4 = this.f38556a.f38522g;
-                                viewGroup = this.f38556a.f38521f;
-                                SafeKeyBoardEditText safeKeyBoardEditText2 = this.f38556a;
-                                view2 = safeKeyBoardEditText2.f38523h;
+                                safeScrollView4 = this.a.f34448g;
+                                viewGroup = this.a.f34447f;
+                                SafeKeyBoardEditText safeKeyBoardEditText2 = this.a;
+                                view2 = safeKeyBoardEditText2.f34449h;
                                 safeScrollView4.showKeyBoard(viewGroup, safeKeyBoardEditText2, view2);
                             }
                         }
                     }
                 }
             } else if (!safeKeyBoardEditText.isAlwaysShow) {
-                safeScrollView5 = safeKeyBoardEditText.f38522g;
+                safeScrollView5 = safeKeyBoardEditText.f34448g;
                 if (safeScrollView5 != null) {
-                    safeScrollView6 = this.f38556a.f38522g;
-                    safeScrollView6.dismissKeyBoard(this.f38556a);
+                    safeScrollView6 = this.a.f34448g;
+                    safeScrollView6.dismissKeyBoard(this.a);
                 } else {
-                    context2 = this.f38556a.f38520e;
-                    RimGlobalUtils.hideInputMethod(context2, this.f38556a);
+                    context2 = this.a.f34446e;
+                    RimGlobalUtils.hideInputMethod(context2, this.a);
                 }
             }
-            onMyFocusChangeListener = this.f38556a.q;
+            onMyFocusChangeListener = this.a.q;
             if (onMyFocusChangeListener != null) {
-                onMyFocusChangeListener2 = this.f38556a.q;
+                onMyFocusChangeListener2 = this.a.q;
                 onMyFocusChangeListener2.onMyFocusChange(view, z);
             }
         }

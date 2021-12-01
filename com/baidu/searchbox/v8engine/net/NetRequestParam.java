@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NetRequestParam implements IHeaderMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte DATA_TYPE_JSON = 1;
@@ -46,13 +46,13 @@ public class NetRequestParam implements IHeaderMap {
     public String mUrl;
 
     /* renamed from: com.baidu.searchbox.v8engine.net.NetRequestParam$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,19 +153,19 @@ public class NetRequestParam implements IHeaderMap {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class HeaderMap implements IHeaderMap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Map<String, String> mMap;
         public long mNativePtr;
 
-        public HeaderMap(long j) {
+        public HeaderMap(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j)};
+                Object[] objArr = {Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -177,27 +177,27 @@ public class NetRequestParam implements IHeaderMap {
             }
             this.mNativePtr = 0L;
             this.mMap = new HashMap();
-            this.mNativePtr = j;
+            this.mNativePtr = j2;
         }
 
-        private native void nativeAddHeader(long j, String str, String str2);
+        private native void nativeAddHeader(long j2, String str, String str2);
 
-        private native String nativeGetHeaderValue(long j, String str);
+        private native String nativeGetHeaderValue(long j2, String str);
 
-        private native String[] nativeGetTransformedHeaderMap(long j);
+        private native String[] nativeGetTransformedHeaderMap(long j2);
 
-        private native boolean nativeHasHeader(long j, String str);
+        private native boolean nativeHasHeader(long j2, String str);
 
-        private native void nativeRemoveHeader(long j, String str);
+        private native void nativeRemoveHeader(long j2, String str);
 
         @Override // com.baidu.searchbox.v8engine.net.IHeaderMap
         public void addHeader(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
                 this.mMap.put(str, str2);
-                long j = this.mNativePtr;
-                if (j != 0) {
-                    nativeAddHeader(j, str, str2);
+                long j2 = this.mNativePtr;
+                if (j2 != 0) {
+                    nativeAddHeader(j2, str, str2);
                 }
             }
         }
@@ -211,9 +211,9 @@ public class NetRequestParam implements IHeaderMap {
                 if (str2 != null) {
                     return str2;
                 }
-                long j = this.mNativePtr;
-                if (j != 0) {
-                    return nativeGetHeaderValue(j, str);
+                long j2 = this.mNativePtr;
+                if (j2 != 0) {
+                    return nativeGetHeaderValue(j2, str);
                 }
                 return null;
             }
@@ -235,9 +235,9 @@ public class NetRequestParam implements IHeaderMap {
                 if (this.mMap.get(str) != null) {
                     return true;
                 }
-                long j = this.mNativePtr;
-                if (j != 0) {
-                    return nativeHasHeader(j, str);
+                long j2 = this.mNativePtr;
+                if (j2 != 0) {
+                    return nativeHasHeader(j2, str);
                 }
                 return false;
             }
@@ -249,16 +249,16 @@ public class NetRequestParam implements IHeaderMap {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 this.mMap.remove(str);
-                long j = this.mNativePtr;
-                if (j != 0) {
-                    nativeRemoveHeader(j, str);
+                long j2 = this.mNativePtr;
+                if (j2 != 0) {
+                    nativeRemoveHeader(j2, str);
                 }
             }
         }
     }
 
-    public /* synthetic */ NetRequestParam(long j, AnonymousClass1 anonymousClass1) {
-        this(j);
+    public /* synthetic */ NetRequestParam(long j2, AnonymousClass1 anonymousClass1) {
+        this(j2);
     }
 
     public static String buildUrlWithJsonStringQuery(String str, String str2) {
@@ -316,17 +316,17 @@ public class NetRequestParam implements IHeaderMap {
         return (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) ? this.mDirty : invokeV.booleanValue;
     }
 
-    private native Object nativeGetData(long j);
+    private native Object nativeGetData(long j2);
 
-    private native void nativeSetData(long j, String str);
+    private native void nativeSetData(long j2, String str);
 
-    private native void nativeSetDataType(long j, byte b2);
+    private native void nativeSetDataType(long j2, byte b2);
 
-    private native void nativeSetMethod(long j, byte b2);
+    private native void nativeSetMethod(long j2, byte b2);
 
-    private native void nativeSetResponseType(long j, byte b2);
+    private native void nativeSetResponseType(long j2, byte b2);
 
-    private native void nativeSetUrl(long j, String str);
+    private native void nativeSetUrl(long j2, String str);
 
     private void setDirty(boolean z) {
         Interceptable interceptable = $ic;
@@ -377,9 +377,9 @@ public class NetRequestParam implements IHeaderMap {
             if (obj != null) {
                 return obj;
             }
-            long j = this.mNativePtr;
-            if (j != 0) {
-                this.mData = nativeGetData(j);
+            long j2 = this.mNativePtr;
+            if (j2 != 0) {
+                this.mData = nativeGetData(j2);
             }
             return this.mData;
         }
@@ -458,9 +458,9 @@ public class NetRequestParam implements IHeaderMap {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             this.mDirty = true;
             this.mData = str;
-            long j = this.mNativePtr;
-            if (j != 0) {
-                nativeSetData(j, str);
+            long j2 = this.mNativePtr;
+            if (j2 != 0) {
+                nativeSetData(j2, str);
             }
             return this;
         }
@@ -473,9 +473,9 @@ public class NetRequestParam implements IHeaderMap {
         if (interceptable == null || (invokeB = interceptable.invokeB(1048589, this, b2)) == null) {
             this.mDirty = true;
             this.mDataType = b2;
-            long j = this.mNativePtr;
-            if (j != 0) {
-                nativeSetDataType(j, b2);
+            long j2 = this.mNativePtr;
+            if (j2 != 0) {
+                nativeSetDataType(j2, b2);
             }
             return this;
         }
@@ -495,9 +495,9 @@ public class NetRequestParam implements IHeaderMap {
         if (interceptable == null || (invokeB = interceptable.invokeB(1048591, this, b2)) == null) {
             this.mDirty = true;
             this.mMethod = b2;
-            long j = this.mNativePtr;
-            if (j != 0) {
-                nativeSetMethod(j, b2);
+            long j2 = this.mNativePtr;
+            if (j2 != 0) {
+                nativeSetMethod(j2, b2);
             }
             return this;
         }
@@ -517,9 +517,9 @@ public class NetRequestParam implements IHeaderMap {
         if (interceptable == null || (invokeB = interceptable.invokeB(1048593, this, b2)) == null) {
             this.mDirty = true;
             this.mResponseType = b2;
-            long j = this.mNativePtr;
-            if (j != 0) {
-                nativeSetResponseType(j, b2);
+            long j2 = this.mNativePtr;
+            if (j2 != 0) {
+                nativeSetResponseType(j2, b2);
             }
             return this;
         }
@@ -532,21 +532,21 @@ public class NetRequestParam implements IHeaderMap {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
             this.mDirty = true;
             this.mUrl = str;
-            long j = this.mNativePtr;
-            if (j != 0) {
-                nativeSetUrl(j, str);
+            long j2 = this.mNativePtr;
+            if (j2 != 0) {
+                nativeSetUrl(j2, str);
             }
             return this;
         }
         return (NetRequestParam) invokeL.objValue;
     }
 
-    public NetRequestParam(long j) {
+    public NetRequestParam(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -556,8 +556,8 @@ public class NetRequestParam implements IHeaderMap {
                 return;
             }
         }
-        this.mNativePtr = j;
-        this.mHeaderMap = new HeaderMap(j);
+        this.mNativePtr = j2;
+        this.mHeaderMap = new HeaderMap(j2);
     }
 
     public static String encodeQuery(String[] strArr) {
@@ -567,13 +567,13 @@ public class NetRequestParam implements IHeaderMap {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public NetRequestParam(long j, JsObject jsObject) {
-        this(j);
+    public NetRequestParam(long j2, JsObject jsObject) {
+        this(j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), jsObject};
+            Object[] objArr = {Long.valueOf(j2), jsObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

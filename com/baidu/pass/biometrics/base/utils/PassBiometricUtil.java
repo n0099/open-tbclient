@@ -10,7 +10,6 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.common.SecurityUtil;
@@ -20,42 +19,44 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PassBiometricUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_TYPE_ARM64_V8A = "arm64-v8a";
     public static final String CPU_TYPE_ARMEABI = "armeabi";
     public static final String CPU_TYPE_ARMEABI_V7A = "armeabi-v7a";
     public static final String CPU_TYPE_X86 = "x86";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f42596a = "PassBiometricUtil";
+    public static final String a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f42597b = 480;
+    public static final int f38137b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f42598c = 480;
+    public static final int f38138c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f42599d = 192;
+    public static final int f38139d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f42600e = 480;
+    public static final int f38140e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f42601f = 620;
+    public static final int f38141f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f42602g = 250;
+    public static final int f38142g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f42603h = 250;
+    public static final int f38143h = 250;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f42604i = 728;
-    public static final int j = 194;
-    public static final int k = 750;
+    public static final int f38144i = 728;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final int f38145j = 194;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final int f38146k = 750;
     public static final int l = 1335;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -147,7 +148,7 @@ public class PassBiometricUtil {
     public static Rect getFaceInsideRoundRect(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
             if (iArr != null && iArr.length == 2) {
                 int i2 = ((iArr[0] * 480) / 750) / 2;
                 int i3 = ((iArr[1] * 620) / 1335) / 2;
@@ -165,7 +166,7 @@ public class PassBiometricUtil {
     public static String getOSModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "-1" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "-1" : (String) invokeV.objValue;
     }
 
     public static String getOSVersion() {
@@ -196,7 +197,7 @@ public class PassBiometricUtil {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
-            return "pass_bio-p-android-p-" + str + "-p-" + getVersionCode(context) + "-p-" + PassBiometricDefaultFactory.VERSION_NAME + "-p-" + getOSModel() + "-p-" + getOSVersion();
+            return "pass_bio-p-android-p-" + str + "-p-" + getVersionCode(context) + "-p-" + getVersionName(context) + "-p-" + PassBiometricDefaultFactory.VERSION_NAME + "-p-" + getOSModel() + "-p-" + getOSVersion();
         }
         return (String) invokeLL.objValue;
     }
@@ -224,10 +225,23 @@ public class PassBiometricUtil {
         return invokeL.intValue;
     }
 
+    public static String getVersionName(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception unused) {
+                return "0";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static boolean isFaceInsideRound(int[] iArr, int[] iArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, iArr, iArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, iArr, iArr2)) == null) {
             if (iArr2 == null || iArr2.length != 2) {
                 return false;
             }
@@ -241,7 +255,7 @@ public class PassBiometricUtil {
     public static boolean isTooFarFromCamera(int[] iArr, int[] iArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, iArr, iArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, iArr, iArr2)) == null) {
             if (iArr2 != null && iArr2.length == 2) {
                 Rect a2 = a(iArr);
                 if (a2.right - a2.left < (iArr2[0] * 192) / 750) {
@@ -256,7 +270,7 @@ public class PassBiometricUtil {
     public static boolean isTooNearFromCamera(int[] iArr, int[] iArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, iArr, iArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, iArr, iArr2)) == null) {
             if (iArr2 != null && iArr2.length == 2) {
                 Rect a2 = a(iArr);
                 if (a2.right - a2.left > (iArr2[0] * 480) / 750) {

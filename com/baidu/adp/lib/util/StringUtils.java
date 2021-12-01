@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class StringUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PASSWORD_PREFIX = "((?=.*\\d)(?=.*[a-zA-Z]).{6,20})";
@@ -79,7 +78,7 @@ public class StringUtils {
     public static long getyyyyMMddHHTimeForNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             Calendar calendar = Calendar.getInstance();
             return (calendar.get(1) * 1000000) + 0 + ((calendar.get(2) + 1) * 10000) + (calendar.get(5) * 100) + calendar.get(11);
         }
@@ -89,7 +88,7 @@ public class StringUtils {
     public static Date handleDate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? handleDate(str, "yyyy-MM-dd HH:mm") : (Date) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? handleDate(str, "yyyy-MM-dd HH:mm") : (Date) invokeL.objValue;
     }
 
     public static boolean isChinese(char c2) {

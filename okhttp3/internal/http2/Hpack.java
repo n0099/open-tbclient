@@ -3,8 +3,6 @@ package okhttp3.internal.http2;
 import android.net.http.Headers;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.components.countly.XAdRemoteSDKCountly;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -107,7 +105,7 @@ public final class Hpack {
         private int evictToRecoverBytes(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
                 int i3 = 0;
                 if (i2 > 0) {
                     int length = this.dynamicTable.length;
@@ -135,7 +133,7 @@ public final class Hpack {
         private ByteString getName(int i2) throws IOException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
                 if (isStaticHeader(i2)) {
                     return Hpack.STATIC_HEADER_TABLE[i2].name;
                 }
@@ -450,7 +448,7 @@ public final class Hpack {
 
         private void insertIntoDynamicTable(Header header) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, header) == null) {
+            if (interceptable == null || interceptable.invokeL(65541, this, header) == null) {
                 int i2 = header.hpackSize;
                 int i3 = this.maxDynamicTableByteCount;
                 if (i2 > i3) {
@@ -639,7 +637,7 @@ public final class Hpack {
                 return;
             }
         }
-        STATIC_HEADER_TABLE = new Header[]{new Header(Header.TARGET_AUTHORITY, ""), new Header(Header.TARGET_METHOD, "GET"), new Header(Header.TARGET_METHOD, "POST"), new Header(Header.TARGET_PATH, "/"), new Header(Header.TARGET_PATH, "/index.html"), new Header(Header.TARGET_SCHEME, "http"), new Header(Header.TARGET_SCHEME, "https"), new Header(Header.RESPONSE_STATUS, BasicPushStatus.SUCCESS_CODE), new Header(Header.RESPONSE_STATUS, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE204), new Header(Header.RESPONSE_STATUS, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE206), new Header(Header.RESPONSE_STATUS, "304"), new Header(Header.RESPONSE_STATUS, FontParser.sFontWeightDefault), new Header(Header.RESPONSE_STATUS, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH), new Header(Header.RESPONSE_STATUS, "500"), new Header("accept-charset", ""), new Header("accept-encoding", "gzip, deflate"), new Header("accept-language", ""), new Header(Headers.ACCEPT_RANGES, ""), new Header(BOSTokenRequest.ACCEPT, ""), new Header("access-control-allow-origin", ""), new Header("age", ""), new Header("allow", ""), new Header("authorization", ""), new Header(Headers.CACHE_CONTROL, ""), new Header(Headers.CONTENT_DISPOSITION, ""), new Header(Headers.CONTENT_ENCODING, ""), new Header("content-language", ""), new Header(Headers.CONTENT_LEN, ""), new Header("content-location", ""), new Header("content-range", ""), new Header("content-type", ""), new Header("cookie", ""), new Header("date", ""), new Header("etag", ""), new Header("expect", ""), new Header("expires", ""), new Header("from", ""), new Header("host", ""), new Header("if-match", ""), new Header("if-modified-since", ""), new Header("if-none-match", ""), new Header("if-range", ""), new Header("if-unmodified-since", ""), new Header(Headers.LAST_MODIFIED, ""), new Header("link", ""), new Header("location", ""), new Header("max-forwards", ""), new Header(Headers.PROXY_AUTHENTICATE, ""), new Header("proxy-authorization", ""), new Header("range", ""), new Header("referer", ""), new Header("refresh", ""), new Header("retry-after", ""), new Header("server", ""), new Header(Headers.SET_COOKIE, ""), new Header("strict-transport-security", ""), new Header(Headers.TRANSFER_ENCODING, ""), new Header("user-agent", ""), new Header("vary", ""), new Header("via", ""), new Header(Headers.WWW_AUTHENTICATE, "")};
+        STATIC_HEADER_TABLE = new Header[]{new Header(Header.TARGET_AUTHORITY, ""), new Header(Header.TARGET_METHOD, "GET"), new Header(Header.TARGET_METHOD, "POST"), new Header(Header.TARGET_PATH, "/"), new Header(Header.TARGET_PATH, "/index.html"), new Header(Header.TARGET_SCHEME, "http"), new Header(Header.TARGET_SCHEME, "https"), new Header(Header.RESPONSE_STATUS, BasicPushStatus.SUCCESS_CODE), new Header(Header.RESPONSE_STATUS, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE204), new Header(Header.RESPONSE_STATUS, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE206), new Header(Header.RESPONSE_STATUS, "304"), new Header(Header.RESPONSE_STATUS, FontParser.sFontWeightDefault), new Header(Header.RESPONSE_STATUS, "404"), new Header(Header.RESPONSE_STATUS, "500"), new Header("accept-charset", ""), new Header("accept-encoding", "gzip, deflate"), new Header("accept-language", ""), new Header(Headers.ACCEPT_RANGES, ""), new Header(BOSTokenRequest.ACCEPT, ""), new Header("access-control-allow-origin", ""), new Header("age", ""), new Header("allow", ""), new Header("authorization", ""), new Header(Headers.CACHE_CONTROL, ""), new Header(Headers.CONTENT_DISPOSITION, ""), new Header(Headers.CONTENT_ENCODING, ""), new Header("content-language", ""), new Header(Headers.CONTENT_LEN, ""), new Header("content-location", ""), new Header("content-range", ""), new Header("content-type", ""), new Header("cookie", ""), new Header("date", ""), new Header("etag", ""), new Header("expect", ""), new Header("expires", ""), new Header("from", ""), new Header("host", ""), new Header("if-match", ""), new Header("if-modified-since", ""), new Header("if-none-match", ""), new Header("if-range", ""), new Header("if-unmodified-since", ""), new Header(Headers.LAST_MODIFIED, ""), new Header("link", ""), new Header("location", ""), new Header("max-forwards", ""), new Header(Headers.PROXY_AUTHENTICATE, ""), new Header("proxy-authorization", ""), new Header("range", ""), new Header("referer", ""), new Header("refresh", ""), new Header("retry-after", ""), new Header("server", ""), new Header(Headers.SET_COOKIE, ""), new Header("strict-transport-security", ""), new Header(Headers.TRANSFER_ENCODING, ""), new Header("user-agent", ""), new Header("vary", ""), new Header("via", ""), new Header(Headers.WWW_AUTHENTICATE, "")};
         NAME_TO_FIRST_INDEX = nameToFirstIndex();
     }
 

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MyLocationConfiguration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,15 +19,13 @@ public class MyLocationConfiguration {
     public final LocationMode locationMode;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class LocationMode {
         public static /* synthetic */ Interceptable $ic;
         public static final LocationMode COMPASS;
         public static final LocationMode FOLLOWING;
         public static final LocationMode NORMAL;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ LocationMode[] f40285a;
+        public static final /* synthetic */ LocationMode[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +45,7 @@ public class MyLocationConfiguration {
             FOLLOWING = new LocationMode("FOLLOWING", 1);
             LocationMode locationMode = new LocationMode("COMPASS", 2);
             COMPASS = locationMode;
-            f40285a = new LocationMode[]{NORMAL, FOLLOWING, locationMode};
+            a = new LocationMode[]{NORMAL, FOLLOWING, locationMode};
         }
 
         public LocationMode(String str, int i2) {
@@ -78,7 +76,7 @@ public class MyLocationConfiguration {
         public static LocationMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LocationMode[]) f40285a.clone() : (LocationMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LocationMode[]) a.clone() : (LocationMode[]) invokeV.objValue;
         }
     }
 

@@ -2,7 +2,6 @@ package org.apache.commons.lang3.builder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +65,7 @@ public class ToStringBuilder implements Builder<String> {
     public static String reflectionToString(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? ReflectionToStringBuilder.toString(obj) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? ReflectionToStringBuilder.toString(obj) : (String) invokeL.objValue;
     }
 
     public static void setDefaultStyle(ToStringStyle toStringStyle) {
@@ -180,7 +179,7 @@ public class ToStringBuilder implements Builder<String> {
     public static String reflectionToString(Object obj, ToStringStyle toStringStyle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, obj, toStringStyle)) == null) ? ReflectionToStringBuilder.toString(obj, toStringStyle) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, toStringStyle)) == null) ? ReflectionToStringBuilder.toString(obj, toStringStyle) : (String) invokeLL.objValue;
     }
 
     public ToStringBuilder append(boolean[] zArr) {
@@ -336,11 +335,11 @@ public class ToStringBuilder implements Builder<String> {
         return (ToStringBuilder) invokeL.objValue;
     }
 
-    public ToStringBuilder append(long j) {
+    public ToStringBuilder append(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            this.style.append(this.buffer, (String) null, j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            this.style.append(this.buffer, (String) null, j2);
             return this;
         }
         return (ToStringBuilder) invokeJ.objValue;
@@ -576,11 +575,11 @@ public class ToStringBuilder implements Builder<String> {
         return (ToStringBuilder) invokeLLZ.objValue;
     }
 
-    public ToStringBuilder append(String str, long j) {
+    public ToStringBuilder append(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j)) == null) {
-            this.style.append(this.buffer, str, j);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j2)) == null) {
+            this.style.append(this.buffer, str, j2);
             return this;
         }
         return (ToStringBuilder) invokeLJ.objValue;

@@ -1,7 +1,7 @@
 package com.baidu.wallet.api;
 
 import android.util.Pair;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ISecurityListener {
     Pair<Integer, Object> onCheck();
 }

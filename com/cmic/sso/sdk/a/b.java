@@ -12,7 +12,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,23 +22,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.d.c;
 import com.cmic.sso.sdk.d.g;
 import com.cmic.sso.sdk.d.n;
+import com.kuaishou.weapon.un.s;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static b f62725a;
+    public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f62726b;
+    public static long f54867b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public C1891b f62727c;
+    public C1963b f54868c;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,40 +64,40 @@ public class b {
     }
 
     /* renamed from: com.cmic.sso.sdk.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C1891b {
+    /* loaded from: classes12.dex */
+    public static class C1963b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f62728a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f62729b;
+        public String f54869b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f62730c;
+        public String f54870c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f62731d;
+        public String f54871d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f62732e;
+        public int f54872e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f62733f;
+        public int f54873f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f62734g;
+        public String f54874g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f62735h;
+        public String f54875h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f62736i;
-        public int j;
+        public int f54876i;
 
-        public C1891b() {
+        /* renamed from: j  reason: collision with root package name */
+        public int f54877j;
+
+        public C1963b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,43 +110,43 @@ public class b {
                     return;
                 }
             }
-            this.f62728a = "";
-            this.f62729b = "";
-            this.f62730c = "";
-            this.f62731d = "";
-            this.f62732e = -1;
-            this.f62733f = -1;
-            this.f62734g = "";
-            this.f62735h = "";
-            this.f62736i = -1;
-            this.j = -1;
+            this.a = "";
+            this.f54869b = "";
+            this.f54870c = "";
+            this.f54871d = "";
+            this.f54872e = -1;
+            this.f54873f = -1;
+            this.f54874g = "";
+            this.f54875h = "";
+            this.f54876i = -1;
+            this.f54877j = -1;
         }
 
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f54877j : invokeV.intValue;
         }
 
         public int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f62732e : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f54872e : invokeV.intValue;
         }
 
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f62733f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f54873f : invokeV.intValue;
         }
 
         public int h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                if (TextUtils.isEmpty(this.f62731d) || TextUtils.isEmpty(this.f62730c)) {
-                    if (TextUtils.isEmpty(this.f62734g) || TextUtils.isEmpty(this.f62735h)) {
-                        return (TextUtils.isEmpty(this.f62730c) && TextUtils.isEmpty(this.f62731d) && TextUtils.isEmpty(this.f62734g) && TextUtils.isEmpty(this.f62735h)) ? 0 : 1;
+                if (TextUtils.isEmpty(this.f54871d) || TextUtils.isEmpty(this.f54870c)) {
+                    if (TextUtils.isEmpty(this.f54874g) || TextUtils.isEmpty(this.f54875h)) {
+                        return (TextUtils.isEmpty(this.f54870c) && TextUtils.isEmpty(this.f54871d) && TextUtils.isEmpty(this.f54874g) && TextUtils.isEmpty(this.f54875h)) ? 0 : 1;
                     }
                     return 2;
                 }
@@ -161,10 +159,10 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-                if (this.f62732e == i2) {
-                    return this.f62730c;
+                if (this.f54872e == i2) {
+                    return this.f54870c;
                 }
-                return this.f62733f == i2 ? this.f62731d : "";
+                return this.f54873f == i2 ? this.f54871d : "";
             }
             return (String) invokeI.objValue;
         }
@@ -173,10 +171,10 @@ public class b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-                if (this.f62732e == i2) {
-                    return this.f62734g;
+                if (this.f54872e == i2) {
+                    return this.f54874g;
                 }
-                return this.f62733f == i2 ? this.f62735h : "";
+                return this.f54873f == i2 ? this.f54875h : "";
             }
             return (String) invokeI.objValue;
         }
@@ -184,13 +182,13 @@ public class b {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62730c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54870c : (String) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62731d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f54871d : (String) invokeV.objValue;
         }
 
         public void c(String str) {
@@ -198,13 +196,13 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || str == null) {
                 return;
             }
-            this.f62734g = str;
+            this.f54874g = str;
         }
 
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-                this.f62735h = str;
+                this.f54875h = str;
             }
         }
 
@@ -213,7 +211,7 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
                 return;
             }
-            this.f62730c = str;
+            this.f54870c = str;
         }
 
         public void b(String str) {
@@ -221,29 +219,29 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || str == null) {
                 return;
             }
-            this.f62731d = str;
+            this.f54871d = str;
         }
 
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f62735h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54875h : (String) invokeV.objValue;
         }
 
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f62736i : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f54876i : invokeV.intValue;
         }
 
         public String a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (this.f62732e == i2) {
-                    return this.f62728a;
+                if (this.f54872e == i2) {
+                    return this.a;
                 }
-                return this.f62733f == i2 ? this.f62729b : "";
+                return this.f54873f == i2 ? this.f54869b : "";
             }
             return (String) invokeI.objValue;
         }
@@ -251,21 +249,21 @@ public class b {
         public void b(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                this.f62736i = i2;
+                this.f54876i = i2;
             }
         }
 
         public void c(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.f62732e = i2;
+                this.f54872e = i2;
             }
         }
 
         public void d(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                this.f62733f = i2;
+                this.f54873f = i2;
             }
         }
     }
@@ -298,17 +296,17 @@ public class b {
                 return;
             }
         }
-        this.f62727c = null;
+        this.f54868c = null;
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f62725a == null) {
-                f62725a = new b();
+            if (a == null) {
+                a = new b();
             }
-            return f62725a;
+            return a;
         }
         return (b) invokeV.objValue;
     }
@@ -330,55 +328,55 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, context) == null) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone");
-            this.f62727c.c(0);
-            this.f62727c.d(1);
-            this.f62727c.b(-1);
+            this.f54868c.c(0);
+            this.f54868c.d(1);
+            this.f54868c.b(-1);
             try {
                 try {
                     try {
-                        this.f62727c.a(a(telephonyManager, "getSubscriberId", 0));
-                        this.f62727c.b(a(telephonyManager, "getSubscriberId", 1));
+                        this.f54868c.a(a(telephonyManager, "getSubscriberId", 0));
+                        this.f54868c.b(a(telephonyManager, "getSubscriberId", 1));
                     } catch (a unused) {
-                        this.f62727c.a(a(telephonyManager, "getSubscriberIdGemini", 0));
-                        this.f62727c.b(a(telephonyManager, "getSubscriberIdGemini", 1));
+                        this.f54868c.a(a(telephonyManager, "getSubscriberIdGemini", 0));
+                        this.f54868c.b(a(telephonyManager, "getSubscriberIdGemini", 1));
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             } catch (a unused2) {
-                this.f62727c.a(telephonyManager.getSubscriberId());
+                this.f54868c.a(telephonyManager.getSubscriberId());
             }
             try {
                 try {
-                    this.f62727c.c(a(telephonyManager, "getSimOperator", 0));
-                    this.f62727c.d(a(telephonyManager, "getSimOperator", 1));
+                    this.f54868c.c(a(telephonyManager, "getSimOperator", 0));
+                    this.f54868c.d(a(telephonyManager, "getSimOperator", 1));
                 } catch (a unused3) {
-                    this.f62727c.c(telephonyManager.getSimOperator());
+                    this.f54868c.c(telephonyManager.getSimOperator());
                 }
             } catch (a unused4) {
-                this.f62727c.c(a(telephonyManager, "getSimOperatorGemini", 0));
-                this.f62727c.d(a(telephonyManager, "getSimOperatorGemini", 1));
+                this.f54868c.c(a(telephonyManager, "getSimOperatorGemini", 0));
+                this.f54868c.d(a(telephonyManager, "getSimOperatorGemini", 1));
             }
-            if (TextUtils.isEmpty(this.f62727c.a()) && !TextUtils.isEmpty(this.f62727c.b())) {
-                C1891b c1891b = this.f62727c;
-                c1891b.a(c1891b.b());
-                this.f62727c.b("");
-                C1891b c1891b2 = this.f62727c;
-                c1891b2.c(c1891b2.g());
-                this.f62727c.d(-1);
-                C1891b c1891b3 = this.f62727c;
-                c1891b3.c(c1891b3.c());
-                this.f62727c.d("");
-                C1891b c1891b4 = this.f62727c;
-                c1891b4.b(c1891b4.f());
-            } else if (!TextUtils.isEmpty(this.f62727c.a()) && TextUtils.isEmpty(this.f62727c.b())) {
-                this.f62727c.d(-1);
-                C1891b c1891b5 = this.f62727c;
-                c1891b5.b(c1891b5.f());
-            } else if (TextUtils.isEmpty(this.f62727c.a()) && TextUtils.isEmpty(this.f62727c.b())) {
-                this.f62727c.c(-1);
-                this.f62727c.d(-1);
-                this.f62727c.b(-1);
+            if (TextUtils.isEmpty(this.f54868c.a()) && !TextUtils.isEmpty(this.f54868c.b())) {
+                C1963b c1963b = this.f54868c;
+                c1963b.a(c1963b.b());
+                this.f54868c.b("");
+                C1963b c1963b2 = this.f54868c;
+                c1963b2.c(c1963b2.g());
+                this.f54868c.d(-1);
+                C1963b c1963b3 = this.f54868c;
+                c1963b3.c(c1963b3.c());
+                this.f54868c.d("");
+                C1963b c1963b4 = this.f54868c;
+                c1963b4.b(c1963b4.f());
+            } else if (!TextUtils.isEmpty(this.f54868c.a()) && TextUtils.isEmpty(this.f54868c.b())) {
+                this.f54868c.d(-1);
+                C1963b c1963b5 = this.f54868c;
+                c1963b5.b(c1963b5.f());
+            } else if (TextUtils.isEmpty(this.f54868c.a()) && TextUtils.isEmpty(this.f54868c.b())) {
+                this.f54868c.c(-1);
+                this.f54868c.d(-1);
+                this.f54868c.b(-1);
             }
         }
     }
@@ -403,7 +401,7 @@ public class b {
         TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, context)) == null) {
-            if (!g.a(context, "android.permission.READ_PHONE_STATE") || (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) == null) {
+            if (!g.a(context, s.f56838c) || (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) == null) {
                 return -1;
             }
             if (n.d()) {
@@ -411,9 +409,9 @@ public class b {
                     Method method = telephonyManager.getClass().getMethod("getDataNetworkType", Integer.TYPE);
                     StringBuilder sb = new StringBuilder();
                     sb.append("data dataNetworkType defaultDataSubId = ");
-                    sb.append(this.f62727c.j);
+                    sb.append(this.f54868c.f54877j);
                     c.b("UMCTelephonyManagement", sb.toString());
-                    int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.f62727c.j))).intValue();
+                    int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.f54868c.f54877j))).intValue();
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("data dataNetworkType ---------");
                     sb2.append(intValue);
@@ -437,21 +435,21 @@ public class b {
         return invokeL.intValue;
     }
 
-    public C1891b b() {
+    public C1963b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            C1891b c1891b = this.f62727c;
-            return c1891b == null ? new C1891b() : c1891b;
+            C1963b c1963b = this.f54868c;
+            return c1963b == null ? new C1963b() : c1963b;
         }
-        return (C1891b) invokeV.objValue;
+        return (C1963b) invokeV.objValue;
     }
 
     private void b(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65547, this, context, z) == null) {
             if (Build.VERSION.SDK_INT < 22) {
-                this.f62727c.f62736i = -1;
+                this.f54868c.f54876i = -1;
                 return;
             }
             SubscriptionManager from = SubscriptionManager.from(context.getApplicationContext());
@@ -460,15 +458,15 @@ public class b {
                     try {
                         SubscriptionInfo a2 = a(from, "getDefaultDataSubscriptionInfo", (Object[]) null);
                         if (a2 != null) {
-                            this.f62727c.f62736i = a2.getSimSlotIndex();
-                            this.f62727c.j = a2.getSubscriptionId();
+                            this.f54868c.f54876i = a2.getSimSlotIndex();
+                            this.f54868c.f54877j = a2.getSubscriptionId();
                             StringBuilder sb = new StringBuilder();
                             sb.append("getDefaultDataSubscriptionInfo适配成功: dataSlotId即sim_id = ");
-                            sb.append(this.f62727c.f62736i);
+                            sb.append(this.f54868c.f54876i);
                             c.b("UMCTelephonyManagement", sb.toString());
                             StringBuilder sb2 = new StringBuilder();
                             sb2.append("getDefaultDataSubscriptionInfo适配成功: dataSubId = ");
-                            sb2.append(this.f62727c.j);
+                            sb2.append(this.f54868c.f54877j);
                             c.b("UMCTelephonyManagement", sb2.toString());
                             return;
                         }
@@ -477,11 +475,11 @@ public class b {
                     }
                 }
                 try {
-                    if (this.f62727c.f62736i == -1 && Build.VERSION.SDK_INT >= 24) {
-                        this.f62727c.j = SubscriptionManager.getDefaultDataSubscriptionId();
+                    if (this.f54868c.f54876i == -1 && Build.VERSION.SDK_INT >= 24) {
+                        this.f54868c.f54877j = SubscriptionManager.getDefaultDataSubscriptionId();
                         StringBuilder sb3 = new StringBuilder();
                         sb3.append("android 7.0及以上手机getDefaultDataSubscriptionId适配成功: dataSubId = ");
-                        sb3.append(this.f62727c.j);
+                        sb3.append(this.f54868c.f54877j);
                         c.b("UMCTelephonyManagement", sb3.toString());
                         return;
                     }
@@ -491,10 +489,10 @@ public class b {
                 try {
                     Method method = from.getClass().getMethod("getDefaultDataSubId", new Class[0]);
                     if (method != null) {
-                        this.f62727c.j = ((Integer) method.invoke(from, new Object[0])).intValue();
+                        this.f54868c.f54877j = ((Integer) method.invoke(from, new Object[0])).intValue();
                         StringBuilder sb4 = new StringBuilder();
                         sb4.append("android 7.0以下手机getDefaultDataSubId适配成功: dataSubId = ");
-                        sb4.append(this.f62727c.j);
+                        sb4.append(this.f54868c.f54877j);
                         c.b("UMCTelephonyManagement", sb4.toString());
                         return;
                     }
@@ -504,10 +502,10 @@ public class b {
                 try {
                     Method method2 = from.getClass().getMethod("getDefaultDataSubscriptionId", new Class[0]);
                     if (method2 != null) {
-                        this.f62727c.j = ((Integer) method2.invoke(from, new Object[0])).intValue();
+                        this.f54868c.f54877j = ((Integer) method2.invoke(from, new Object[0])).intValue();
                         StringBuilder sb5 = new StringBuilder();
                         sb5.append("反射getDefaultDataSubscriptionId适配成功: dataSubId = ");
-                        sb5.append(this.f62727c.j);
+                        sb5.append(this.f54868c.f54877j);
                         c.b("UMCTelephonyManagement", sb5.toString());
                     }
                 } catch (Exception unused4) {
@@ -519,20 +517,20 @@ public class b {
 
     public void a(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z) == null) || System.currentTimeMillis() - f62726b < 5000) {
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z) == null) || System.currentTimeMillis() - f54867b < 5000) {
             return;
         }
-        this.f62727c = new C1891b();
+        this.f54868c = new C1963b();
         if (n.a(context)) {
             b(context, z);
             if (n.e() && n.d()) {
                 c.b("UMCTelephonyManagement", "华为手机兼容性处理");
-                if (this.f62727c.j == 0 || this.f62727c.j == 1) {
-                    if (this.f62727c.f62736i == -1) {
-                        C1891b c1891b = this.f62727c;
-                        c1891b.f62736i = c1891b.j;
+                if (this.f54868c.f54877j == 0 || this.f54868c.f54877j == 1) {
+                    if (this.f54868c.f54876i == -1) {
+                        C1963b c1963b = this.f54868c;
+                        c1963b.f54876i = c1963b.f54877j;
                     }
-                    this.f62727c.j = -1;
+                    this.f54868c.f54877j = -1;
                 }
             }
             if (z) {
@@ -549,7 +547,7 @@ public class b {
             if (Build.VERSION.SDK_INT >= 21) {
                 b(context);
             }
-            f62726b = System.currentTimeMillis();
+            f54867b = System.currentTimeMillis();
         }
     }
 
@@ -605,61 +603,61 @@ public class b {
                         String string2 = cursor.getString(cursor.getColumnIndex("mcc"));
                         String string3 = cursor.getString(cursor.getColumnIndex("mnc"));
                         String string4 = cursor.getString(cursor.getColumnIndex("carrier_name"));
-                        if (this.f62727c.f62736i == -1 && this.f62727c.j != -1 && this.f62727c.j == i3) {
-                            this.f62727c.f62736i = i2;
+                        if (this.f54868c.f54876i == -1 && this.f54868c.f54877j != -1 && this.f54868c.f54877j == i3) {
+                            this.f54868c.f54876i = i2;
                             StringBuilder sb = new StringBuilder();
                             sb.append("通过读取sim db获取数据流量卡的卡槽值：");
                             sb.append(i2);
                             c.b("UMCTelephonyManagement", sb.toString());
                         }
-                        if (this.f62727c.f62736i == i2 && !n.e()) {
-                            this.f62727c.j = i3;
+                        if (this.f54868c.f54876i == i2 && !n.e()) {
+                            this.f54868c.f54877j = i3;
                         }
                         if (i2 == 0) {
-                            this.f62727c.f62728a = string;
-                            if (this.f62727c.f62732e == -1) {
-                                this.f62727c.f62732e = i2;
+                            this.f54868c.a = string;
+                            if (this.f54868c.f54872e == -1) {
+                                this.f54868c.f54872e = i2;
                             }
-                            if (TextUtils.isEmpty(this.f62727c.f62734g) && !TextUtils.isEmpty(string4)) {
+                            if (TextUtils.isEmpty(this.f54868c.f54874g) && !TextUtils.isEmpty(string4)) {
                                 String a2 = a(string4);
                                 if (!TextUtils.isEmpty(a2)) {
-                                    this.f62727c.f62734g = a2;
+                                    this.f54868c.f54874g = a2;
                                 }
                             }
-                            if (TextUtils.isEmpty(this.f62727c.f62734g)) {
+                            if (TextUtils.isEmpty(this.f54868c.f54874g)) {
                                 String b2 = b(string);
                                 if (!TextUtils.isEmpty(b2)) {
-                                    this.f62727c.f62734g = b2;
+                                    this.f54868c.f54874g = b2;
                                 }
                             }
-                            if (TextUtils.isEmpty(this.f62727c.f62734g) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
+                            if (TextUtils.isEmpty(this.f54868c.f54874g) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
                                 if (string3.length() == 1) {
                                     string3 = "0" + string3;
                                 }
-                                this.f62727c.f62734g = string2 + string3;
+                                this.f54868c.f54874g = string2 + string3;
                             }
                         } else if (i2 == 1) {
-                            this.f62727c.f62729b = string;
-                            if (this.f62727c.f62733f == -1) {
-                                this.f62727c.f62733f = i2;
+                            this.f54868c.f54869b = string;
+                            if (this.f54868c.f54873f == -1) {
+                                this.f54868c.f54873f = i2;
                             }
-                            if (TextUtils.isEmpty(this.f62727c.f62735h) && !TextUtils.isEmpty(string4)) {
+                            if (TextUtils.isEmpty(this.f54868c.f54875h) && !TextUtils.isEmpty(string4)) {
                                 String a3 = a(string4);
                                 if (!TextUtils.isEmpty(a3)) {
-                                    this.f62727c.f62735h = a3;
+                                    this.f54868c.f54875h = a3;
                                 }
                             }
-                            if (TextUtils.isEmpty(this.f62727c.f62735h)) {
+                            if (TextUtils.isEmpty(this.f54868c.f54875h)) {
                                 String b3 = b(string);
                                 if (!TextUtils.isEmpty(b3)) {
-                                    this.f62727c.f62735h = b3;
+                                    this.f54868c.f54875h = b3;
                                 }
                             }
-                            if (TextUtils.isEmpty(this.f62727c.f62735h) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
+                            if (TextUtils.isEmpty(this.f54868c.f54875h) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
                                 if (string3.length() == 1) {
                                     string3 = "0" + string3;
                                 }
-                                this.f62727c.f62735h = string2 + string3;
+                                this.f54868c.f54875h = string2 + string3;
                             }
                         }
                         StringBuilder sb2 = new StringBuilder();
@@ -713,38 +711,38 @@ public class b {
             } else {
                 a2 = a(list, 0);
             }
-            this.f62727c.f62728a = a2.getIccId();
-            this.f62727c.c(a2.getSimSlotIndex());
-            C1891b c1891b = this.f62727c;
-            c1891b.f62734g = b(c1891b.f62728a);
-            c.b("UMCTelephonyManagement", "readSim1Info1 iccid1 = " + this.f62727c.f62728a);
-            if (this.f62727c.f62736i == -1 && this.f62727c.j == a2.getSubscriptionId()) {
-                this.f62727c.f62736i = a2.getSimSlotIndex();
-                c.b("UMCTelephonyManagement", "readSim1Info1 dataSlotId = " + this.f62727c.f62736i);
+            this.f54868c.a = a2.getIccId();
+            this.f54868c.c(a2.getSimSlotIndex());
+            C1963b c1963b = this.f54868c;
+            c1963b.f54874g = b(c1963b.a);
+            c.b("UMCTelephonyManagement", "readSim1Info1 iccid1 = " + this.f54868c.a);
+            if (this.f54868c.f54876i == -1 && this.f54868c.f54877j == a2.getSubscriptionId()) {
+                this.f54868c.f54876i = a2.getSimSlotIndex();
+                c.b("UMCTelephonyManagement", "readSim1Info1 dataSlotId = " + this.f54868c.f54876i);
             }
             if (n.d()) {
                 int simSlotIndex = com.cmic.sso.sdk.a.a.a() == 0 ? a2.getSimSlotIndex() : a2.getSubscriptionId();
                 try {
                     try {
                         try {
-                            this.f62727c.a(a(telephonyManager, "getSubscriberId", a2.getSubscriptionId()));
+                            this.f54868c.a(a(telephonyManager, "getSubscriberId", a2.getSubscriptionId()));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
                     } catch (a unused) {
-                        this.f62727c.a(a(telephonyManager, "getSubscriberIdGemini", simSlotIndex));
+                        this.f54868c.a(a(telephonyManager, "getSubscriberIdGemini", simSlotIndex));
                     }
                 } catch (a unused2) {
-                    this.f62727c.a(telephonyManager.getSubscriberId());
+                    this.f54868c.a(telephonyManager.getSubscriberId());
                 }
                 try {
                     try {
-                        this.f62727c.c(a(telephonyManager, "getSimOperator", a2.getSubscriptionId()));
+                        this.f54868c.c(a(telephonyManager, "getSimOperator", a2.getSubscriptionId()));
                     } catch (a unused3) {
-                        this.f62727c.c(telephonyManager.getSimOperator());
+                        this.f54868c.c(telephonyManager.getSimOperator());
                     }
                 } catch (a unused4) {
-                    this.f62727c.c(a(telephonyManager, "getSimOperatorGemini", simSlotIndex));
+                    this.f54868c.c(a(telephonyManager, "getSimOperatorGemini", simSlotIndex));
                 }
             }
         }
@@ -769,7 +767,7 @@ public class b {
     private String a(TelephonyManager telephonyManager, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, this, telephonyManager, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, this, telephonyManager, str, i2)) == null) {
             Object a2 = a(telephonyManager, str, new Object[]{Integer.valueOf(i2)}, new Class[]{Integer.TYPE});
             if (a2 != null) {
                 return a2.toString();
@@ -789,7 +787,7 @@ public class b {
     private Object a(Object obj, String str, Object[] objArr, Class[] clsArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, this, obj, str, objArr, clsArr)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, this, obj, str, objArr, clsArr)) == null) {
             try {
                 Class<?> cls = Class.forName(obj.getClass().getName());
                 if (objArr != null && clsArr != null) {
@@ -958,31 +956,31 @@ public class b {
         if (interceptable == null || interceptable.invokeLL(65548, this, list, telephonyManager) == null) {
             if ((list != null ? list.size() : 0) > 1) {
                 SubscriptionInfo a2 = a(list, 1);
-                this.f62727c.d(a2.getSimSlotIndex());
-                this.f62727c.f62729b = a2.getIccId();
-                C1891b c1891b = this.f62727c;
-                c1891b.f62735h = b(c1891b.f62729b);
-                c.b("UMCTelephonyManagement", "readSim1Info2 iccid2 = " + this.f62727c.f62729b);
-                if (this.f62727c.f62736i == -1 && this.f62727c.j == a2.getSubscriptionId()) {
-                    this.f62727c.f62736i = a2.getSimSlotIndex();
-                    c.b("UMCTelephonyManagement", "readSim1Info2 dataSlotId = " + this.f62727c.f62736i);
+                this.f54868c.d(a2.getSimSlotIndex());
+                this.f54868c.f54869b = a2.getIccId();
+                C1963b c1963b = this.f54868c;
+                c1963b.f54875h = b(c1963b.f54869b);
+                c.b("UMCTelephonyManagement", "readSim1Info2 iccid2 = " + this.f54868c.f54869b);
+                if (this.f54868c.f54876i == -1 && this.f54868c.f54877j == a2.getSubscriptionId()) {
+                    this.f54868c.f54876i = a2.getSimSlotIndex();
+                    c.b("UMCTelephonyManagement", "readSim1Info2 dataSlotId = " + this.f54868c.f54876i);
                 }
                 if (n.d()) {
                     int subscriptionId = com.cmic.sso.sdk.a.a.a() != 0 ? a2.getSubscriptionId() : 1;
                     try {
                         try {
-                            this.f62727c.b(a(telephonyManager, "getSubscriberId", a2.getSubscriptionId()));
+                            this.f54868c.b(a(telephonyManager, "getSubscriberId", a2.getSubscriptionId()));
                         } catch (a unused) {
-                            this.f62727c.b(a(telephonyManager, "getSubscriberIdGemini", subscriptionId));
+                            this.f54868c.b(a(telephonyManager, "getSubscriberIdGemini", subscriptionId));
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                     try {
                         try {
-                            this.f62727c.d(a(telephonyManager, "getSimOperator", a2.getSubscriptionId()));
+                            this.f54868c.d(a(telephonyManager, "getSimOperator", a2.getSubscriptionId()));
                         } catch (a unused2) {
-                            this.f62727c.d(a(telephonyManager, "getSimOperatorGemini", subscriptionId));
+                            this.f54868c.d(a(telephonyManager, "getSimOperatorGemini", subscriptionId));
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();

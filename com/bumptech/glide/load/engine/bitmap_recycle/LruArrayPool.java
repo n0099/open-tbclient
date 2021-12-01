@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class LruArrayPool implements ArrayPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 4194304;
@@ -32,7 +31,7 @@ public final class LruArrayPool implements ArrayPool {
     public final int maxSize;
     public final Map<Class<?>, NavigableMap<Integer, Integer>> sortedSizes;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +107,7 @@ public final class LruArrayPool implements ArrayPool {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,13 +213,13 @@ public final class LruArrayPool implements ArrayPool {
     private <T> ArrayAdapterInterface<T> getAdapterFromObject(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, t)) == null) ? getAdapterFromType(t.getClass()) : (ArrayAdapterInterface) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, t)) == null) ? getAdapterFromType(t.getClass()) : (ArrayAdapterInterface) invokeL.objValue;
     }
 
     private <T> ArrayAdapterInterface<T> getAdapterFromType(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, cls)) == null) {
             IntegerArrayAdapter integerArrayAdapter = (ArrayAdapterInterface<T>) this.adapters.get(cls);
             if (integerArrayAdapter == null) {
                 if (cls.equals(int[].class)) {

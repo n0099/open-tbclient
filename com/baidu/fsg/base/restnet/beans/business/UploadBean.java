@@ -19,7 +19,6 @@ import com.baidu.fsg.base.utils.FileCopyUtils;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.Md5Utils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,7 +37,7 @@ import java.util.List;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class UploadBean extends NetworkBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMET_BEAN = 1;
@@ -52,7 +51,7 @@ public abstract class UploadBean extends NetworkBean {
     public String mTskKey;
     public Class<?> rspClass;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class UploadFileModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +169,7 @@ public abstract class UploadBean extends NetworkBean {
         InterceptResult invokeV;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             RestMultipartEntity restMultipartEntity = new RestMultipartEntity();
             List<RestNameValuePair> requestParams = getRequestParams();
             if (requestParams != null) {

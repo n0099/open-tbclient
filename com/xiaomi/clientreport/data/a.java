@@ -6,12 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.xiaomi.push.bq;
 import com.xiaomi.push.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +38,7 @@ public class a {
             }
         }
         this.os = bq.a();
-        this.miuiVersion = l.m535a();
+        this.miuiVersion = l.m584a();
     }
 
     public String getPackageName() {
@@ -69,7 +70,7 @@ public class a {
                 jSONObject.put("production", this.production);
                 jSONObject.put("reportType", this.reportType);
                 jSONObject.put("clientInterfaceId", this.clientInterfaceId);
-                jSONObject.put("os", this.os);
+                jSONObject.put(UrlOcrConfig.IdCardKey.OS, this.os);
                 jSONObject.put("miuiVersion", this.miuiVersion);
                 jSONObject.put("pkgName", this.pkgName);
                 jSONObject.put(CommandMessage.SDK_VERSION, this.sdkVersion);

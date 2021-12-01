@@ -1,15 +1,17 @@
 package com.qq.e.comm.net;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.mobstat.dxmpay.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.plugin.PM;
 import com.qq.e.comm.managers.status.APPStatus;
@@ -61,7 +63,7 @@ public class a {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x005e  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0087 A[LOOP:0: B:18:0x0081->B:20:0x0087, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0075 A[LOOP:0: B:18:0x006f->B:20:0x0075, LOOP_END] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -85,8 +87,6 @@ public class a {
                     if (!StringUtil.isEmpty(str)) {
                         jSONObject.putOpt("cell_native", str);
                     }
-                    jSONObject.putOpt(SuggestAddrField.KEY_LAT, deviceStatus.getLat());
-                    jSONObject.putOpt(SuggestAddrField.KEY_LNG, deviceStatus.getLng());
                     for (Map.Entry<String, String> entry : deviceStatus.getLacAndCeilId().entrySet()) {
                         jSONObject.putOpt(entry.getKey(), entry.getValue());
                     }
@@ -94,8 +94,6 @@ public class a {
                 str = null;
                 if (!StringUtil.isEmpty(str)) {
                 }
-                jSONObject.putOpt(SuggestAddrField.KEY_LAT, deviceStatus.getLat());
-                jSONObject.putOpt(SuggestAddrField.KEY_LNG, deviceStatus.getLng());
                 while (r4.hasNext()) {
                 }
             }
@@ -117,9 +115,20 @@ public class a {
                 jSONObject.putOpt("h", Integer.valueOf(deviceStatus.getDeviceHeight()));
                 jSONObject.putOpt("dd", Integer.valueOf(deviceStatus.getDeviceDensity()));
                 jSONObject.putOpt("apil", Integer.valueOf(deviceStatus.getVersion()));
-                jSONObject.putOpt("os", "android");
+                jSONObject.putOpt(UrlOcrConfig.IdCardKey.OS, "android");
                 jSONObject.putOpt("op", deviceStatus.getOperator());
                 jSONObject.putOpt("mf", Build.MANUFACTURER);
+                SharedPreferences sharedPreferences = GDTADManager.getInstance().getAppContext().getSharedPreferences("com.qq.e.sdkconfig", 0);
+                if (sharedPreferences != null) {
+                    String string = sharedPreferences.getString("ltd", null);
+                    String string2 = sharedPreferences.getString("lod", null);
+                    if (!TextUtils.isEmpty(string)) {
+                        jSONObject.putOpt("td", string);
+                    }
+                    if (!TextUtils.isEmpty(string2)) {
+                        jSONObject.putOpt(Config.OAID, string2);
+                    }
+                }
             }
             return jSONObject;
         }

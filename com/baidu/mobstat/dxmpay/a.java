@@ -10,19 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Thread;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final a f42373a;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f42374b;
+    public Thread.UncaughtExceptionHandler f37433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f42375c;
+    public Context f37434c;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +35,7 @@ public class a implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        f42373a = new a();
+        a = new a();
     }
 
     public a() {
@@ -57,27 +55,27 @@ public class a implements Thread.UncaughtExceptionHandler {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f42373a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (a) invokeV.objValue;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thread, th) == null) {
-            ExceptionAnalysis.getInstance().saveCrashInfo(this.f42375c, th, true);
-            if (this.f42374b.equals(this)) {
+            ExceptionAnalysis.getInstance().saveCrashInfo(this.f37434c, th, true);
+            if (this.f37433b.equals(this)) {
                 return;
             }
-            this.f42374b.uncaughtException(thread, th);
+            this.f37433b.uncaughtException(thread, th);
         }
     }
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f42375c = context;
-            if (this.f42374b == null) {
-                this.f42374b = Thread.getDefaultUncaughtExceptionHandler();
+            this.f37434c = context;
+            if (this.f37433b == null) {
+                this.f37433b = Thread.getDefaultUncaughtExceptionHandler();
                 Thread.setDefaultUncaughtExceptionHandler(this);
             }
         }

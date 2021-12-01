@@ -9,12 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static m f37994a;
+    public static m a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,10 +50,10 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (m.class) {
-                if (f37994a == null) {
-                    f37994a = new m();
+                if (a == null) {
+                    a = new m();
                 }
-                mVar = f37994a;
+                mVar = a;
             }
             return mVar;
         }

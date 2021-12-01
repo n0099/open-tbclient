@@ -2,7 +2,6 @@ package org.apache.commons.lang3.time;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -928,7 +927,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
 
     public static void appendFullDigits(Appendable appendable, int i2, int i3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, appendable, i2, i3) != null) {
+        if (interceptable != null && interceptable.invokeLII(65541, null, appendable, i2, i3) != null) {
             return;
         }
         if (i2 < 10000) {
@@ -1439,7 +1438,7 @@ public class FastDatePrinter implements DatePrinter, Serializable {
     private <B extends Appendable> B applyRules(Calendar calendar, B b2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, calendar, b2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, calendar, b2)) == null) {
             try {
                 for (Rule rule : this.mRules) {
                     rule.appendTo(b2, calendar);
@@ -1578,12 +1577,12 @@ public class FastDatePrinter implements DatePrinter, Serializable {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public String format(long j) {
+    public String format(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
             Calendar newCalendar = newCalendar();
-            newCalendar.setTimeInMillis(j);
+            newCalendar.setTimeInMillis(j2);
             return applyRulesToString(newCalendar);
         }
         return (String) invokeJ.objValue;
@@ -1609,12 +1608,12 @@ public class FastDatePrinter implements DatePrinter, Serializable {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public StringBuffer format(long j, StringBuffer stringBuffer) {
+    public StringBuffer format(long j2, StringBuffer stringBuffer) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, stringBuffer)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j2, stringBuffer)) == null) {
             Calendar newCalendar = newCalendar();
-            newCalendar.setTimeInMillis(j);
+            newCalendar.setTimeInMillis(j2);
             return (StringBuffer) applyRules(newCalendar, (Calendar) stringBuffer);
         }
         return (StringBuffer) invokeJL.objValue;
@@ -1640,12 +1639,12 @@ public class FastDatePrinter implements DatePrinter, Serializable {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public <B extends Appendable> B format(long j, B b2) {
+    public <B extends Appendable> B format(long j2, B b2) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, b2)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, b2)) == null) {
             Calendar newCalendar = newCalendar();
-            newCalendar.setTimeInMillis(j);
+            newCalendar.setTimeInMillis(j2);
             return (B) applyRules(newCalendar, (Calendar) b2);
         }
         return (B) invokeJL.objValue;

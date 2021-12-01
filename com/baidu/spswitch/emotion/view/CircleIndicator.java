@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.spswitch.utils.UIUtils;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CircleIndicator extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CIRCLE_INTER_WIDTH = 10;
@@ -76,7 +75,7 @@ public class CircleIndicator extends View {
 
     private void drawIndicators() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             int count = this.mViewPager.getAdapter().getCount();
             this.mTabCount = count;
             if (count <= 0) {
@@ -92,7 +91,7 @@ public class CircleIndicator extends View {
 
     private void drawRoundRect(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, canvas) == null) {
             this.mTabPaint.setColor(this.mRectColor);
             int i2 = (this.mInitTranslationX + this.mTranslationX) - (this.mInterWidth / 2);
             canvas.drawRoundRect(new RectF(i2, 0, this.mRectWidth + i2, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);

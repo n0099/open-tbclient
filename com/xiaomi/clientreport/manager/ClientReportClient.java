@@ -3,7 +3,6 @@ package com.xiaomi.clientreport.manager;
 import android.content.Context;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +12,7 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClientReportClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +50,9 @@ public class ClientReportClient {
         if (interceptable == null || interceptable.invokeLLLL(65539, null, context, config, iEventProcessor, iPerfProcessor) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("init in process " + com.xiaomi.push.g.a(context) + " pid :" + Process.myPid() + " threadId: " + Thread.currentThread().getId());
             a.a(context).a(config, iEventProcessor, iPerfProcessor);
-            if (com.xiaomi.push.g.m342a(context)) {
+            if (com.xiaomi.push.g.m391a(context)) {
                 com.xiaomi.channel.commonutils.logger.b.c("init in process\u3000start scheduleJob");
-                a.a(context).m79a();
+                a.a(context).m128a();
             }
         }
     }
@@ -68,7 +67,7 @@ public class ClientReportClient {
 
     public static void reportPerf(Context context, PerfClientReport perfClientReport) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, perfClientReport) == null) || perfClientReport == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, perfClientReport) == null) || perfClientReport == null) {
             return;
         }
         a.a(context).a(perfClientReport);
@@ -76,7 +75,7 @@ public class ClientReportClient {
 
     public static void updateConfig(Context context, Config config) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, config) == null) || config == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, context, config) == null) || config == null) {
             return;
         }
         a.a(context).a(config.isEventUploadSwitchOpen(), config.isPerfUploadSwitchOpen(), config.getEventUploadFrequency(), config.getPerfUploadFrequency());

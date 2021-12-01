@@ -9,7 +9,7 @@ public interface TimeSource {
 
     long nanoTime();
 
-    void parkNanos(Object obj, long j);
+    void parkNanos(Object obj, long j2);
 
     void registerTimeLoopThread();
 

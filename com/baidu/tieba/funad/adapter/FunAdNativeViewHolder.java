@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.m3.j0.o;
-import b.a.r0.y0.a;
-import b.a.r0.z0.b;
+import c.a.r0.e1.a;
+import c.a.r0.f1.b;
+import c.a.r0.t3.j0.o;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,43 +26,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.ChannelNativeAds;
 import com.fun.ad.sdk.FunNativeAd;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final BdUniqueId f50109a;
+    public final BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Activity f50110b;
+    public final Activity f44921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final FunAbsAdView f50111c;
+    public final FunAbsAdView f44922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50112d;
+    public String f44923d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f50113e;
+    public String f44924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f50114f;
+    public String f44925f;
     public o funAdData;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements a.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ o f50115a;
+        public final /* synthetic */ o a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f50116b;
+        public final /* synthetic */ int f44926b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FunAdNativeViewHolder f50117c;
+        public final /* synthetic */ FunAdNativeViewHolder f44927c;
 
         public a(FunAdNativeViewHolder funAdNativeViewHolder, o oVar, int i2) {
             Interceptable interceptable = $ic;
@@ -79,56 +75,56 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f50117c = funAdNativeViewHolder;
-            this.f50115a = oVar;
-            this.f50116b = i2;
+            this.f44927c = funAdNativeViewHolder;
+            this.a = oVar;
+            this.f44926b = i2;
         }
 
-        @Override // b.a.r0.y0.a.i
+        @Override // c.a.r0.e1.a.i
         public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param(TiebaStatic.Params.RESOURCE_ID, this.f50117c.getStatisticResourceId()).param("obj_type", this.f50117c.getObjType()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
-                b.a(param, this.f50115a);
-                b.D(0, FunAdRecordHttpMessage.CLICK_AD_RECORD, this.f50117c.getObjType(), this.f50115a);
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param(TiebaStatic.Params.RESOURCE_ID, this.f44927c.getStatisticResourceId()).param("obj_type", this.f44927c.getObjType()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
+                b.a(param, this.a);
+                b.D(0, FunAdRecordHttpMessage.CLICK_AD_RECORD, this.f44927c.getObjType(), this.a);
                 TiebaStatic.log(param);
             }
         }
 
-        @Override // b.a.r0.y0.a.i
+        @Override // c.a.r0.e1.a.i
         public void onAdClose(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             }
         }
 
-        @Override // b.a.r0.y0.a.i
+        @Override // c.a.r0.e1.a.i
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param(TiebaStatic.Params.RESOURCE_ID, this.f50117c.getStatisticResourceId()).param("obj_type", this.f50117c.getObjType()).param("obj_locate", 1);
-                b.a(param, this.f50115a);
-                b.D(1, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.f50117c.getObjType(), this.f50115a);
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param(TiebaStatic.Params.RESOURCE_ID, this.f44927c.getStatisticResourceId()).param("obj_type", this.f44927c.getObjType()).param("obj_locate", 1);
+                b.a(param, this.a);
+                b.D(1, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.f44927c.getObjType(), this.a);
                 TiebaStatic.log(param);
             }
         }
 
-        @Override // b.a.r0.y0.a.i
+        @Override // c.a.r0.e1.a.i
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW);
-                statisticItem.param("obj_source", 6).param(TiebaStatic.Params.RESOURCE_ID, this.f50117c.getStatisticResourceId()).param("obj_type", this.f50117c.getObjType()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
-                if ("a006".equals(this.f50117c.getObjType())) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.f50116b);
+                statisticItem.param("obj_source", 6).param(TiebaStatic.Params.RESOURCE_ID, this.f44927c.getStatisticResourceId()).param("obj_type", this.f44927c.getObjType()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
+                if ("a006".equals(this.f44927c.getObjType())) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.f44926b);
                 }
-                b.a(statisticItem, this.f50115a);
-                b.D(0, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.f50117c.getObjType(), this.f50115a);
+                b.a(statisticItem, this.a);
+                b.D(0, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.f44927c.getObjType(), this.a);
                 TiebaStatic.log(statisticItem);
             }
         }
 
-        @Override // b.a.r0.y0.a.i
+        @Override // c.a.r0.e1.a.i
         public void onRewardedVideo(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -154,9 +150,9 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f50109a = bdUniqueId;
-        this.f50111c = funAbsAdView;
-        this.f50110b = activity;
+        this.a = bdUniqueId;
+        this.f44922c = funAbsAdView;
+        this.f44921b = activity;
     }
 
     public final boolean a(FunNativeAd funNativeAd) {
@@ -175,48 +171,48 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
     public FunAbsAdView getFunAdNativeView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50111c : (FunAbsAdView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44922c : (FunAbsAdView) invokeV.objValue;
     }
 
     public String getObjType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "personalize".equals(this.f50114f) ? "a002" : this.f50109a == AdvertAppInfo.D4 ? "a006" : "a005" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "personalize".equals(this.f44925f) ? "a002" : this.a == AdvertAppInfo.I4 ? "a006" : "a005" : (String) invokeV.objValue;
     }
 
     public String getStatisticResourceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "pb".equals(this.f50114f) ? this.f50109a == AdvertAppInfo.E4 ? "2" : "1" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "pb".equals(this.f44925f) ? this.a == AdvertAppInfo.J4 ? "2" : "1" : "" : (String) invokeV.objValue;
     }
 
     public void setFeedBackListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || this.f50111c.getFeedBackView() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || this.f44922c.getFeedBackView() == null) {
             return;
         }
-        this.f50111c.getFeedBackView().setOnClickListener(onClickListener);
-        this.f50111c.setFeedBackListener(onClickListener);
+        this.f44922c.getFeedBackView().setOnClickListener(onClickListener);
+        this.f44922c.setFeedBackListener(onClickListener);
     }
 
     public void setPage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f50114f = str;
+            this.f44925f = str;
         }
     }
 
     public void setSceneKey(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f50113e = str;
+            this.f44924e = str;
         }
     }
 
     public void setSid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f50112d = str;
+            this.f44923d = str;
         }
     }
 
@@ -226,9 +222,9 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             this.funAdData = oVar;
             Object d2 = oVar.d();
             if (d2 == null) {
-                d2 = b.a.r0.y0.a.i().j(this.f50110b, this.f50112d);
+                d2 = c.a.r0.e1.a.i().j(this.f44921b, this.f44923d);
                 oVar.l(d2);
-                if (!TextUtils.isEmpty(this.f50113e) && d2 != null) {
+                if (!TextUtils.isEmpty(this.f44924e) && d2 != null) {
                     FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
                     StringBuilder sb = new StringBuilder();
                     FunNativeAd funNativeAd = (FunNativeAd) d2;
@@ -239,12 +235,12 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
                     sb.append(funNativeAd.getDescription());
                     funAdHistoryData.setFunAdKey(sb.toString());
                     funAdHistoryData.setShowTime(System.currentTimeMillis() / 1000);
-                    b.a.r0.y0.e.a.f().a(this.f50113e, funAdHistoryData);
+                    c.a.r0.e1.e.a.f().a(this.f44924e, funAdHistoryData);
                 }
             }
             Object obj = d2;
             if (obj == null) {
-                this.f50111c.hideOrShowView(8);
+                this.f44922c.hideOrShowView(8);
                 if ("a006".equals(getObjType())) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", getObjType()).param("obj_locate", 1).param(TiebaStatic.Params.OBJ_PARAM3, i2));
                     return;
@@ -254,12 +250,12 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             if ("a006".equals(getObjType())) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", getObjType()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM3, i2));
             }
-            this.f50111c.hideOrShowView(0);
-            this.f50111c.inflateFunAd(oVar, this.f50110b);
-            this.f50111c.hideShowByType(this.f50109a);
+            this.f44922c.hideOrShowView(0);
+            this.f44922c.inflateFunAd(oVar, this.f44921b);
+            this.f44922c.hideShowByType(this.a);
             FunNativeAd funNativeAd2 = (FunNativeAd) obj;
-            FrameLayout gdtAdContainer = this.f50111c.getGdtAdContainer(funNativeAd2);
-            b.a.r0.y0.a.i().x(this.f50110b, obj, new a(this, oVar, i2), gdtAdContainer, this.f50111c.getClickViews(), this.f50111c.getCreativeViews(), this.f50111c.getLogItem());
+            FrameLayout gdtAdContainer = this.f44922c.getGdtAdContainer(funNativeAd2);
+            c.a.r0.e1.a.i().x(this.f44921b, obj, new a(this, oVar, i2), gdtAdContainer, this.f44922c.getClickViews(), this.f44922c.getCreativeViews(), this.f44922c.getLogItem());
             if (!a(funNativeAd2) || gdtAdContainer == null || gdtAdContainer.getChildCount() <= 1) {
                 return;
             }

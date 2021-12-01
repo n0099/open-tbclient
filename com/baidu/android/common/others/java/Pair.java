@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Pair<F, S> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,10 +33,10 @@ public class Pair<F, S> {
         this.mSecond = s;
     }
 
-    public static <A, B> Pair<A, B> create(A a2, B b2) {
+    public static <A, B> Pair<A, B> create(A a, B b2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a2, b2)) == null) ? new Pair<>(a2, b2) : (Pair) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a, b2)) == null) ? new Pair<>(a, b2) : (Pair) invokeLL.objValue;
     }
 
     public boolean equals(Object obj) {

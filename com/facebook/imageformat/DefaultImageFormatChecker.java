@@ -2,7 +2,6 @@ package com.facebook.imageformat;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.webp.WebpSupportStatus;
 import com.facebook.imageformat.ImageFormat;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] BMP_HEADER;
@@ -138,7 +137,7 @@ public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
         InterceptResult invokeLI;
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bArr, i2)) == null) {
             if (i2 >= HEIF_HEADER_LENGTH && bArr[3] >= 8) {
                 for (String str : HEIF_HEADER_SUFFIXES) {
                     if (ImageFormatCheckerUtils.indexOfPattern(bArr, bArr.length, ImageFormatCheckerUtils.asciiBytes("ftyp" + str), HEIF_HEADER_LENGTH) > -1) {
@@ -155,7 +154,7 @@ public class DefaultImageFormatChecker implements ImageFormat.FormatChecker {
     public static boolean isIcoHeader(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i2)) == null) {
             byte[] bArr2 = ICO_HEADER;
             if (i2 < bArr2.length) {
                 return false;

@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,20 +94,20 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
             this.mDeltaY = 0;
         }
 
-        private float getValueAt(long j) {
+        private float getValueAt(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j)) == null) {
-                if (j < this.mStartTime) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, this, j2)) == null) {
+                if (j2 < this.mStartTime) {
                     return 0.0f;
                 }
-                long j2 = this.mStopTime;
-                if (j2 >= 0 && j >= j2) {
-                    long j3 = j - j2;
+                long j3 = this.mStopTime;
+                if (j3 >= 0 && j2 >= j3) {
+                    long j4 = j2 - j3;
                     float f2 = this.mStopValue;
-                    return (1.0f - f2) + (f2 * AutoScrollHelper.constrain(((float) j3) / this.mEffectiveRampDown, 0.0f, 1.0f));
+                    return (1.0f - f2) + (f2 * AutoScrollHelper.constrain(((float) j4) / this.mEffectiveRampDown, 0.0f, 1.0f));
                 }
-                return AutoScrollHelper.constrain(((float) (j - this.mStartTime)) / this.mRampUpDuration, 0.0f, 1.0f) * 0.5f;
+                return AutoScrollHelper.constrain(((float) (j2 - this.mStartTime)) / this.mRampUpDuration, 0.0f, 1.0f) * 0.5f;
             }
             return invokeJ.floatValue;
         }
@@ -360,7 +359,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
     private float constrainEdgeValue(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             if (f3 == 0.0f) {
                 return 0.0f;
             }
@@ -386,7 +385,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
         InterceptResult invokeCommon;
         float interpolation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
             float constrain = constrain(f2 * f3, 0.0f, f4);
             float constrainEdgeValue = constrainEdgeValue(f3 - f5, constrain) - constrainEdgeValue(f5, constrain);
             if (constrainEdgeValue < 0.0f) {

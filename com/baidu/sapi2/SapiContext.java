@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.common.SharedPreferencesUtil;
 import com.baidu.sapi2.SapiOptions;
@@ -13,6 +12,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
+import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
@@ -35,7 +35,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SapiContext implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHINA_TELECOM_EXPIRED_TIME = "china_telecom_expired_time";
@@ -101,7 +101,7 @@ public final class SapiContext implements NoProguard {
             }
         }
         this.context = context;
-        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f42767c, 0);
+        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f38272c, 0);
     }
 
     private String getCancelNuomiAddrCountKey() {
@@ -153,7 +153,7 @@ public final class SapiContext implements NoProguard {
     private void setLoginAccounts(List<SapiAccount> list) {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, list) == null) || (jSONArray = SapiAccount.toJSONArray(list)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, list) == null) || (jSONArray = SapiAccount.toJSONArray(list)) == null) {
             return;
         }
         put(KEY_ENCRYPTED_LOGIN_ACCOUNTS, SapiDataEncryptor.encryptAccountInfo(jSONArray.toString(), getAccountEncryptKey()));
@@ -407,7 +407,7 @@ public final class SapiContext implements NoProguard {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             List<String> loginCookieDiKeys = getSapiOptions().getLoginCookieDiKeys();
             if (loginCookieDiKeys.size() == 1 && loginCookieDiKeys.get(0).equals(AppIconSetting.DEFAULT_LARGE_ICON)) {
-                return SapiDeviceInfo.getDeviceInfo("/static/appsapi/conf/android-conf.txt");
+                return SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
             }
             return SapiDeviceInfo.getDiCookieInfo(loginCookieDiKeys);
         }
@@ -418,9 +418,9 @@ public final class SapiContext implements NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            long j = getLong(KEY_DEVICE_INFO_READ_TIMES, 0L) + 1;
-            put(KEY_DEVICE_INFO_READ_TIMES, j);
-            return j;
+            long j2 = getLong(KEY_DEVICE_INFO_READ_TIMES, 0L) + 1;
+            put(KEY_DEVICE_INFO_READ_TIMES, j2);
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -493,10 +493,10 @@ public final class SapiContext implements NoProguard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? getSapiOptions().loginStatExtraLimitLen : invokeV.intValue;
     }
 
-    public long getLong(String str, long j) {
+    public long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048605, this, str, j)) == null) ? this.storage.getLong(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048605, this, str, j2)) == null) ? this.storage.getLong(str, j2) : invokeLJ.longValue;
     }
 
     public boolean getModifiedDirExecPer() {
@@ -1001,10 +1001,10 @@ public final class SapiContext implements NoProguard {
         }
     }
 
-    public void put(String str, long j) {
+    public void put(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048631, this, str, j) == null) {
-            this.storage.edit().putLong(str, j).apply();
+        if (interceptable == null || interceptable.invokeLJ(1048631, this, str, j2) == null) {
+            this.storage.edit().putLong(str, j2).apply();
         }
     }
 

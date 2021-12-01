@@ -20,11 +20,11 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.SkuDetailInfo;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IPayMethod {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -149,11 +149,11 @@ public interface IPayMethod {
 
     boolean querySkuDetails(Activity activity, List<String> list, String str, IResult<List<SkuDetailInfo>> iResult);
 
-    void requestPay(Activity activity, long j, ProductInfo productInfo, String str, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+    void requestPay(Activity activity, long j2, ProductInfo productInfo, String str, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 
-    void requestPay(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+    void requestPay(Activity activity, long j2, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 
-    void requestSubscription(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+    void requestSubscription(Activity activity, long j2, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 
-    void updateSubscription(Activity activity, long j, String str, String str2, int i2, String str3, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+    void updateSubscription(Activity activity, long j2, String str, String str2, int i2, String str3, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 }

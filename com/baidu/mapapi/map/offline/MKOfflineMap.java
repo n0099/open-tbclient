@@ -17,23 +17,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MKOfflineMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_DOWNLOAD_UPDATE = 0;
     public static final int TYPE_NETWORK_ERROR = 2;
     public static final int TYPE_NEW_OFFLINE = 6;
     public static final int TYPE_VER_UPDATE = 4;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f40423a = "MKOfflineMap";
+    public static final String a = "MKOfflineMap";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public r f40424b;
+    public r f36033b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MKOfflineMapListener f40425c;
+    public MKOfflineMapListener f36034c;
 
     static {
         InterceptResult invokeClinit;
@@ -67,9 +65,9 @@ public class MKOfflineMap {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40424b.d(0);
-            this.f40424b.b((v) null);
-            this.f40424b.b();
+            this.f36033b.d(0);
+            this.f36033b.b((v) null);
+            this.f36033b.b();
             i.b();
         }
     }
@@ -78,7 +76,7 @@ public class MKOfflineMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<u> e2 = this.f40424b.e();
+            ArrayList<u> e2 = this.f36033b.e();
             if (e2 == null) {
                 return null;
             }
@@ -96,7 +94,7 @@ public class MKOfflineMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<q> c2 = this.f40424b.c();
+            ArrayList<q> c2 = this.f36033b.c();
             if (c2 == null) {
                 return null;
             }
@@ -114,7 +112,7 @@ public class MKOfflineMap {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<q> d2 = this.f40424b.d();
+            ArrayList<q> d2 = this.f36033b.d();
             if (d2 == null) {
                 return null;
             }
@@ -132,7 +130,7 @@ public class MKOfflineMap {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            u g2 = this.f40424b.g(i2);
+            u g2 = this.f36033b.g(i2);
             if (g2 == null) {
                 return null;
             }
@@ -154,7 +152,7 @@ public class MKOfflineMap {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            ArrayList<u> e2 = this.f40424b.e();
+            ArrayList<u> e2 = this.f36033b.e();
             int i3 = 0;
             if (e2 != null) {
                 i3 = e2.size();
@@ -162,8 +160,8 @@ public class MKOfflineMap {
             } else {
                 i2 = 0;
             }
-            this.f40424b.a(z, true);
-            ArrayList<u> e3 = this.f40424b.e();
+            this.f36033b.a(z, true);
+            ArrayList<u> e3 = this.f36033b.e();
             if (e3 != null) {
                 i2 = e3.size();
             }
@@ -178,12 +176,12 @@ public class MKOfflineMap {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, mKOfflineMapListener)) == null) {
             i.a();
             r a2 = r.a();
-            this.f40424b = a2;
+            this.f36033b = a2;
             if (a2 == null) {
                 return false;
             }
             a2.a(new a(this));
-            this.f40425c = mKOfflineMapListener;
+            this.f36034c = mKOfflineMapListener;
             return true;
         }
         return invokeL.booleanValue;
@@ -192,20 +190,20 @@ public class MKOfflineMap {
     public boolean pause(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f40424b.c(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f36033b.c(i2) : invokeI.booleanValue;
     }
 
     public boolean remove(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f40424b.e(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f36033b.e(i2) : invokeI.booleanValue;
     }
 
     public ArrayList<MKOLSearchRecord> searchCity(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            ArrayList<q> a2 = this.f40424b.a(str);
+            ArrayList<q> a2 = this.f36033b.a(str);
             if (a2 == null) {
                 return null;
             }
@@ -224,23 +222,23 @@ public class MKOfflineMap {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            r rVar = this.f40424b;
+            r rVar = this.f36033b;
             if (rVar == null) {
                 return false;
             }
             if (rVar.e() != null) {
-                Iterator<u> it = this.f40424b.e().iterator();
+                Iterator<u> it = this.f36033b.e().iterator();
                 while (it.hasNext()) {
-                    t tVar = it.next().f41015a;
-                    if (tVar.f41006a == i2) {
-                        if (tVar.j || (i3 = tVar.l) == 2 || i3 == 3 || i3 == 6) {
-                            return this.f40424b.b(i2);
+                    t tVar = it.next().a;
+                    if (tVar.a == i2) {
+                        if (tVar.f36496j || (i3 = tVar.l) == 2 || i3 == 3 || i3 == 6) {
+                            return this.f36033b.b(i2);
                         }
                         return false;
                     }
                 }
             }
-            return this.f40424b.a(i2);
+            return this.f36033b.a(i2);
         }
         return invokeI.booleanValue;
     }
@@ -249,17 +247,17 @@ public class MKOfflineMap {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            r rVar = this.f40424b;
+            r rVar = this.f36033b;
             if (rVar != null && rVar.e() != null) {
-                Iterator<u> it = this.f40424b.e().iterator();
+                Iterator<u> it = this.f36033b.e().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    t tVar = it.next().f41015a;
-                    if (tVar.f41006a == i2) {
-                        if (tVar.j) {
-                            return this.f40424b.f(i2);
+                    t tVar = it.next().a;
+                    if (tVar.a == i2) {
+                        if (tVar.f36496j) {
+                            return this.f36033b.f(i2);
                         }
                     }
                 }

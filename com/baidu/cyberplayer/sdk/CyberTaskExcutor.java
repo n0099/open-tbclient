@@ -12,42 +12,38 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CyberTaskExcutor {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static CyberTaskExcutor f37802a;
+    public static CyberTaskExcutor a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f37803b;
+    public final int f33883b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f37804c;
+    public final int f33884c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f37805d;
+    public final int f33885d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ExecutorService f37806e;
+    public ExecutorService f33886e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ExecutorService f37807f;
+    public ExecutorService f33887f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f37808a;
+        public final AtomicInteger a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f37809b;
+        public final String f33888b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f37810c;
+        public int f33889c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -64,10 +60,10 @@ public final class CyberTaskExcutor {
                     return;
                 }
             }
-            this.f37808a = new AtomicInteger(1);
-            this.f37810c = 5;
-            this.f37809b = str + "-";
-            this.f37810c = i2;
+            this.a = new AtomicInteger(1);
+            this.f33889c = 5;
+            this.f33888b = str + "-";
+            this.f33889c = i2;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -75,11 +71,11 @@ public final class CyberTaskExcutor {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f37809b + this.f37808a.getAndIncrement());
+                Thread thread = new Thread(runnable, this.f33888b + this.a.getAndIncrement());
                 if (thread.isDaemon()) {
                     thread.setDaemon(true);
                 }
-                thread.setPriority(this.f37810c);
+                thread.setPriority(this.f33889c);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -99,12 +95,12 @@ public final class CyberTaskExcutor {
                 return;
             }
         }
-        this.f37803b = 2;
-        this.f37804c = 7;
-        this.f37805d = 120;
-        this.f37806e = new ThreadPoolExecutor(2, 7, 120L, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new a("cyber-thread", 5));
-        this.f37807f = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
-        ExecutorService executorService = this.f37806e;
+        this.f33883b = 2;
+        this.f33884c = 7;
+        this.f33885d = 120;
+        this.f33886e = new ThreadPoolExecutor(2, 7, 120L, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new a("cyber-thread", 5));
+        this.f33887f = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
+        ExecutorService executorService = this.f33886e;
         if (executorService == null || !(executorService instanceof ThreadPoolExecutor)) {
             return;
         }
@@ -118,10 +114,10 @@ public final class CyberTaskExcutor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (CyberTaskExcutor.class) {
-                if (f37802a == null) {
-                    f37802a = new CyberTaskExcutor();
+                if (a == null) {
+                    a = new CyberTaskExcutor();
                 }
-                cyberTaskExcutor = f37802a;
+                cyberTaskExcutor = a;
             }
             return cyberTaskExcutor;
         }
@@ -132,7 +128,7 @@ public final class CyberTaskExcutor {
     public void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f37806e.execute(runnable);
+            this.f33886e.execute(runnable);
         }
     }
 
@@ -140,7 +136,7 @@ public final class CyberTaskExcutor {
     public void executeSingleThread(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            this.f37807f.execute(runnable);
+            this.f33887f.execute(runnable);
         }
     }
 }

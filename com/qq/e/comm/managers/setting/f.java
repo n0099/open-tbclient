@@ -6,7 +6,6 @@ import android.util.Base64;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +32,10 @@ public class f {
     public static class b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final String f68947a;
+        public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f68948b;
+        public final T f60854b;
 
         public b(String str, T t) {
             Interceptable interceptable = $ic;
@@ -55,8 +52,8 @@ public class f {
                     return;
                 }
             }
-            this.f68947a = str;
-            this.f68948b = t;
+            this.a = str;
+            this.f60854b = t;
         }
 
         public /* synthetic */ b(String str, Object obj, a aVar) {
@@ -66,13 +63,13 @@ public class f {
         public T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68948b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60854b : (T) invokeV.objValue;
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68947a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
         }
     }
 
@@ -145,7 +142,7 @@ public class f {
     public static boolean b(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) ? a(context, "placementCloudSetting", str, str2) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) ? a(context, "placementCloudSetting", str, str2) : invokeLLL.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0087 A[Catch: Exception -> 0x008a, TRY_LEAVE, TryCatch #4 {Exception -> 0x008a, blocks: (B:31:0x0082, B:33:0x0087), top: B:47:0x0082 }] */
@@ -158,7 +155,7 @@ public class f {
         FileWriter fileWriter;
         FileWriter fileWriter2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, str, str2, str3)) == null) {
             File dir = context.getDir(SystemUtil.buildNewPathByProcessName("e_qq_com_setting"), 0);
             if (!dir.exists()) {
                 dir.mkdirs();

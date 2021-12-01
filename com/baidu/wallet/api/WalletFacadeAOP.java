@@ -1,7 +1,6 @@
 package com.baidu.wallet.api;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,25 +20,21 @@ import java.util.Arrays;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.jvm.internal.ShortCompanionObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WalletFacadeAOP implements NoProguard, InvocationHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WalletFacadeAOP";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f58166b;
+    public static final List<String> f51866b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final IWalletFacade f58167a;
+    public final IWalletFacade a;
 
     /* renamed from: com.baidu.wallet.api.WalletFacadeAOP$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f58168a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,24 +51,24 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 }
             }
             int[] iArr = new int[EntranceService.values().length];
-            f58168a = iArr;
+            a = iArr;
             try {
                 iArr[EntranceService.PAY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f58168a[EntranceService.CREDIT.ordinal()] = 2;
+                a[EntranceService.CREDIT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f58168a[EntranceService.SHARE.ordinal()] = 3;
+                a[EntranceService.SHARE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class EntranceService {
         public static final /* synthetic */ EntranceService[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -150,7 +145,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 return;
             }
         }
-        f58166b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
+        f51866b = new ArrayList(Arrays.asList("doPay", "doBind", "doRNAuth", "doCheckPwd", "doBindCardIndependent", "checkPwd", StatServiceEvent.GET_WALLET_OUTER_INTERFACE, "accessWalletEntry", "preOrderPay", "getPayMethod", "changePayMethod", "gotoWalletService"));
     }
 
     public WalletFacadeAOP(IWalletFacade iWalletFacade) {
@@ -168,7 +163,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                 return;
             }
         }
-        this.f58167a = iWalletFacade;
+        this.a = iWalletFacade;
     }
 
     private boolean a() {
@@ -180,8 +175,8 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
     private EntranceService b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
-            List<String> list = f58166b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            List<String> list = f51866b;
             if (list != null && list.contains(str)) {
                 if ("gotoWalletService".equals(str)) {
                     return EntranceService.SHARE;
@@ -195,7 +190,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
         }
     }
 
@@ -209,7 +204,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
             }
             EntranceService b2 = b(str);
             LogUtil.d(TAG, "AOP method = " + str);
-            int i2 = AnonymousClass1.f58168a[b2.ordinal()];
+            int i2 = AnonymousClass1.a[b2.ordinal()];
             if (i2 == 1) {
                 com.dxmpay.wallet.api.WalletLoginHelper.getInstance().clearOpenBduss();
             } else if (i2 != 2) {
@@ -236,7 +231,7 @@ public class WalletFacadeAOP implements NoProguard, InvocationHandler {
                     th.printStackTrace();
                 }
             }
-            Object invoke = method.invoke(this.f58167a, objArr);
+            Object invoke = method.invoke(this.a, objArr);
             if (method != null && a(method.getName())) {
                 try {
                     b();

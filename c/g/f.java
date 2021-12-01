@@ -1,0 +1,21 @@
+package c.g;
+
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+/* loaded from: classes7.dex */
+public interface f {
+    void a();
+
+    void a(int i2, String str);
+
+    void a(RippedAd rippedAd);
+
+    void b();
+
+    void b(int i2, String str);
+
+    void c();
+
+    void d();
+
+    void e();
+}

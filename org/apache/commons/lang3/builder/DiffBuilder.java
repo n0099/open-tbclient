@@ -811,13 +811,13 @@ public class DiffBuilder implements Builder<DiffResult> {
         return (DiffBuilder) invokeLLL.objValue;
     }
 
-    public DiffBuilder append(String str, long j, long j2) {
+    public DiffBuilder append(String str, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             if (str != null) {
-                if (!this.objectsTriviallyEqual && j != j2) {
-                    this.diffs.add(new Diff<Long>(this, str, j, j2) { // from class: org.apache.commons.lang3.builder.DiffBuilder.13
+                if (!this.objectsTriviallyEqual && j2 != j3) {
+                    this.diffs.add(new Diff<Long>(this, str, j2, j3) { // from class: org.apache.commons.lang3.builder.DiffBuilder.13
                         public static /* synthetic */ Interceptable $ic = null;
                         public static final long serialVersionUID = 1;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -832,7 +832,7 @@ public class DiffBuilder implements Builder<DiffResult> {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, str, Long.valueOf(j), Long.valueOf(j2)};
+                                Object[] objArr = {this, str, Long.valueOf(j2), Long.valueOf(j3)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i2 = newInitContext.flag;
                                 if ((i2 & 1) != 0) {
@@ -844,8 +844,8 @@ public class DiffBuilder implements Builder<DiffResult> {
                                 }
                             }
                             this.this$0 = this;
-                            this.val$lhs = j;
-                            this.val$rhs = j2;
+                            this.val$lhs = j2;
+                            this.val$rhs = j3;
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */

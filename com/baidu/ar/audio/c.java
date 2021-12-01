@@ -3,7 +3,6 @@ package com.baidu.ar.audio;
 import android.media.AudioRecord;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "c";
@@ -62,9 +61,9 @@ public class c {
         this.iO = false;
     }
 
-    private void a(long j, int i2) {
+    private void a(long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             ByteBuffer byteBuffer = this.iK.get(this.iL);
             if (i2 == -3) {
                 com.baidu.ar.h.b.b(TAG, "Audio read error");
@@ -77,7 +76,7 @@ public class c {
                     byteBuffer.position(0);
                     byteBuffer.put(this.iJ, 0, i2);
                     byteBuffer.flip();
-                    this.iM.onAudioFrameAvailable(byteBuffer, i2, j);
+                    this.iM.onAudioFrameAvailable(byteBuffer, i2, j2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return;
@@ -92,7 +91,7 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0046  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0044  */
     /* JADX WARN: Removed duplicated region for block: B:23:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -172,10 +171,10 @@ public class c {
         }
     }
 
-    private void h(long j) {
+    private void h(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) {
-            if (j >= 20) {
+        if (interceptable == null || interceptable.invokeJ(65541, this, j2) == null) {
+            if (j2 >= 20) {
                 r(false);
             } else if (d.b(this.iJ) == 0.0d) {
                 return;
@@ -189,7 +188,7 @@ public class c {
     private void r(boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, this, z) == null) || (aVar = this.iM) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65542, this, z) == null) || (aVar = this.iM) == null) {
             return;
         }
         aVar.onAudioStart(z);

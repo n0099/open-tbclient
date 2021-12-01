@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.util.PatternsCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -149,7 +148,7 @@ public final class LinkifyCompat {
     public static boolean addLinks(@NonNull Spannable spannable, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, spannable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, spannable, i2)) == null) {
             if (shouldAddLinksFallbackToFramework()) {
                 return Linkify.addLinks(spannable, i2);
             }
@@ -383,7 +382,7 @@ public final class LinkifyCompat {
     @SuppressLint({"NewApi"})
     public static void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable String[] strArr, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{textView, pattern, str, strArr, matchFilter, transformFilter}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{textView, pattern, str, strArr, matchFilter, transformFilter}) == null) {
             if (shouldAddLinksFallbackToFramework()) {
                 Linkify.addLinks(textView, pattern, str, strArr, matchFilter, transformFilter);
                 return;

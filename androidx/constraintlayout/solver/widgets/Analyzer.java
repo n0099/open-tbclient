@@ -3,7 +3,6 @@ package androidx.constraintlayout.solver.widgets;
 import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -219,7 +218,7 @@ public class Analyzer {
         InterceptResult invokeLI;
         ConstraintAnchor constraintAnchor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, constraintWidget, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, constraintWidget, i2)) == null) {
             int i3 = i2 * 2;
             ConstraintAnchor[] constraintAnchorArr = constraintWidget.mListAnchors;
             ConstraintAnchor constraintAnchor2 = constraintAnchorArr[i3];
@@ -240,7 +239,7 @@ public class Analyzer {
 
     public static void invalidate(ConstraintWidgetContainer constraintWidgetContainer, ConstraintWidget constraintWidget, ConstraintWidgetGroup constraintWidgetGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, constraintWidgetContainer, constraintWidget, constraintWidgetGroup) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, constraintWidgetContainer, constraintWidget, constraintWidgetGroup) == null) {
             constraintWidgetGroup.mSkipSolver = false;
             constraintWidgetContainer.mSkipSolver = false;
             constraintWidget.mOptimizerMeasurable = false;

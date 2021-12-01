@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -31,7 +30,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class HttpUrlHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
@@ -57,7 +56,7 @@ public final class HttpUrlHelper {
     public final String username;
 
     /* renamed from: com.baidu.down.utils.HttpUrlHelper$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$down$utils$HttpUrlHelper$Builder$ParseResult;
         public static /* synthetic */ Interceptable $ic;
@@ -122,10 +121,10 @@ public final class HttpUrlHelper {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(7:5|(1:42)(2:9|(2:22|(1:38))(6:12|13|14|15|16|17))|31|14|15|16|17) */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0058, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0057, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0059, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0058, code lost:
         r0.printStackTrace();
      */
     /*
@@ -134,7 +133,7 @@ public final class HttpUrlHelper {
     public static String canonicalize(String str, int i2, int i3, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
             StringBuilder sb = new StringBuilder();
             int i4 = i2;
             while (i4 < i3) {
@@ -242,7 +241,7 @@ public final class HttpUrlHelper {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f34958h);
+                    sb.append(a.f31351h);
                     sb.append(str2);
                 }
             }
@@ -655,7 +654,7 @@ public final class HttpUrlHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.username : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -669,7 +668,7 @@ public final class HttpUrlHelper {
         public String scheme;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static final class ParseResult {
             public static final /* synthetic */ ParseResult[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -915,7 +914,7 @@ public final class HttpUrlHelper {
         public static String inet6AddressToAscii(byte[] bArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
                 int i2 = 0;
                 int i3 = -1;
                 int i4 = 0;
@@ -956,7 +955,7 @@ public final class HttpUrlHelper {
         private boolean isDot(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) ? str.equals(".") || str.equalsIgnoreCase("%2e") : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? str.equals(".") || str.equalsIgnoreCase("%2e") : invokeL.booleanValue;
         }
 
         private boolean isDotDot(String str) {

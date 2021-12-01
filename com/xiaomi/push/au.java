@@ -6,12 +6,10 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class au {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f71599a;
+    public static volatile boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,14 +29,14 @@ public class au {
 
     public static void a(Class<?> cls, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || f71599a) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, cls, context) == null) || a) {
             return;
         }
         try {
-            f71599a = true;
+            a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m73a("mdid:load lib error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m122a("mdid:load lib error " + th);
         }
     }
 
@@ -54,7 +52,7 @@ public class au {
                 }
                 return false;
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("mdid:check error " + th);
+                com.xiaomi.channel.commonutils.logger.b.m122a("mdid:check error " + th);
                 return false;
             }
         }

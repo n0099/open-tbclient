@@ -22,8 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.MiPushClient;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TraceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TO_BACKGROUND = "To background";
@@ -135,7 +136,7 @@ public class TraceManager {
             if (traceActivityCallbacks2 != null) {
                 traceActivityCallbacks2.registerTraceFragment(activity);
             }
-            saveTraceInfo(activity, null, null, "register");
+            saveTraceInfo(activity, null, null, MiPushClient.COMMAND_REGISTER);
             return;
         }
         this.mIsRegistered = true;

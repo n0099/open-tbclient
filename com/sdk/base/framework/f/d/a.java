@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,12 +27,10 @@ import java.util.Enumeration;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69150a = "com.sdk.base.framework.f.d.a";
+    public static final String a = "com.sdk.base.framework.f.d.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f69151b;
+    public static final Boolean f61008b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +46,7 @@ public class a {
                 return;
             }
         }
-        f69151b = Boolean.valueOf(f.f69125b);
+        f61008b = Boolean.valueOf(f.f60988b);
     }
 
     public a() {
@@ -133,7 +130,7 @@ public class a {
     public static boolean a(HttpURLConnection httpURLConnection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, httpURLConnection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, httpURLConnection)) == null) {
             if (httpURLConnection == null) {
                 return false;
             }
@@ -159,7 +156,7 @@ public class a {
         int length;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
                 try {
                     defaultUserAgent = WebSettings.getDefaultUserAgent(context);
@@ -201,7 +198,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(f69150a, th.getMessage(), f69151b);
+                    c.b(a, th.getMessage(), f61008b);
                 }
             }
             return null;

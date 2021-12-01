@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RetrieveTaskManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_FETCH_LOG_NOTICE = "fetch_log_notice";

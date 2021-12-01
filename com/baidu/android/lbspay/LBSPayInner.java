@@ -43,7 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LBSPayInner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_CODE_CANCEL = 2;
@@ -57,17 +57,15 @@ public class LBSPayInner {
     public LBSPayBack mLbsPayBack;
     public String mOrderNo;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface AliPayCallback {
         void onResult(String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static LBSPayInner f35674a;
+        public static LBSPayInner a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -83,7 +81,7 @@ public class LBSPayInner {
                     return;
                 }
             }
-            f35674a = new LBSPayInner();
+            a = new LBSPayInner();
         }
     }
 
@@ -136,7 +134,7 @@ public class LBSPayInner {
     public static LBSPayInner getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? a.f35674a : (LBSPayInner) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? a.a : (LBSPayInner) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -204,18 +202,16 @@ public class LBSPayInner {
             Runnable runnable = new Runnable(this, activity, str, z) { // from class: com.baidu.android.lbspay.LBSPayInner.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f35670a;
+                public final /* synthetic */ Activity a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f35671b;
+                public final /* synthetic */ String f32087b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f35672c;
+                public final /* synthetic */ boolean f32088c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSPayInner f35673d;
+                public final /* synthetic */ LBSPayInner f32089d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -232,22 +228,22 @@ public class LBSPayInner {
                             return;
                         }
                     }
-                    this.f35673d = this;
-                    this.f35670a = activity;
-                    this.f35671b = str;
-                    this.f35672c = z;
+                    this.f32089d = this;
+                    this.a = activity;
+                    this.f32087b = str;
+                    this.f32088c = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        JSONObject jSONObject = new JSONObject(new PayTask(this.f35670a).payV2(this.f35671b, this.f35672c));
+                        JSONObject jSONObject = new JSONObject(new PayTask(this.a).payV2(this.f32087b, this.f32088c));
                         Message message = new Message();
                         message.what = 101;
                         message.obj = jSONObject.toString();
                         StatisticManager.onEventWithValue(PayStatServiceEvent.LBS_ALIPAY_RESULT, jSONObject.toString());
-                        this.f35673d.mHandler.sendMessage(message);
+                        this.f32089d.mHandler.sendMessage(message);
                     }
                 }
             };
@@ -288,24 +284,22 @@ public class LBSPayInner {
                 WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(activity, new ILoginBackListener(this, activity, getPayOrderListener, lBSPayBack, map, str) { // from class: com.baidu.android.lbspay.LBSPayInner.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Activity f35653a;
+                    public final /* synthetic */ Activity a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ GetPayOrderListener f35654b;
+                    public final /* synthetic */ GetPayOrderListener f32073b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ LBSPayBack f35655c;
+                    public final /* synthetic */ LBSPayBack f32074c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ Map f35656d;
+                    public final /* synthetic */ Map f32075d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f35657e;
+                    public final /* synthetic */ String f32076e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ LBSPayInner f35658f;
+                    public final /* synthetic */ LBSPayInner f32077f;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -322,19 +316,19 @@ public class LBSPayInner {
                                 return;
                             }
                         }
-                        this.f35658f = this;
-                        this.f35653a = activity;
-                        this.f35654b = getPayOrderListener;
-                        this.f35655c = lBSPayBack;
-                        this.f35656d = map;
-                        this.f35657e = str;
+                        this.f32077f = this;
+                        this.a = activity;
+                        this.f32073b = getPayOrderListener;
+                        this.f32074c = lBSPayBack;
+                        this.f32075d = map;
+                        this.f32076e = str;
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
                     public void onFail(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                            this.f35658f.directCallThirdPay(this.f35653a, this.f35654b, this.f35655c, this.f35656d, this.f35657e);
+                            this.f32077f.directCallThirdPay(this.a, this.f32073b, this.f32074c, this.f32075d, this.f32076e);
                         }
                     }
 
@@ -342,7 +336,7 @@ public class LBSPayInner {
                     public void onSuccess(int i2, String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                            this.f35658f.directCallThirdPay(this.f35653a, this.f35654b, this.f35655c, this.f35656d, this.f35657e);
+                            this.f32077f.directCallThirdPay(this.a, this.f32073b, this.f32074c, this.f32075d, this.f32076e);
                         }
                     }
                 }));
@@ -359,18 +353,16 @@ public class LBSPayInner {
         WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(activity, new ILoginBackListener(this, activity, lBSPayBack, map) { // from class: com.baidu.android.lbspay.LBSPayInner.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Activity f35666a;
+            public final /* synthetic */ Activity a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ LBSPayBack f35667b;
+            public final /* synthetic */ LBSPayBack f32084b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Map f35668c;
+            public final /* synthetic */ Map f32085c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ LBSPayInner f35669d;
+            public final /* synthetic */ LBSPayInner f32086d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -387,17 +379,17 @@ public class LBSPayInner {
                         return;
                     }
                 }
-                this.f35669d = this;
-                this.f35666a = activity;
-                this.f35667b = lBSPayBack;
-                this.f35668c = map;
+                this.f32086d = this;
+                this.a = activity;
+                this.f32084b = lBSPayBack;
+                this.f32085c = map;
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                    this.f35669d.polymerAuthorizeSign(this.f35666a, this.f35667b, this.f35668c);
+                    this.f32086d.polymerAuthorizeSign(this.a, this.f32084b, this.f32085c);
                 }
             }
 
@@ -405,7 +397,7 @@ public class LBSPayInner {
             public void onSuccess(int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                    this.f35669d.polymerAuthorizeSign(this.f35666a, this.f35667b, this.f35668c);
+                    this.f32086d.polymerAuthorizeSign(this.a, this.f32084b, this.f32085c);
                 }
             }
         }));
@@ -486,9 +478,7 @@ public class LBSPayInner {
         this.mHandler = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.android.lbspay.LBSPayInner.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LBSPayInner f35647a;
+            public final /* synthetic */ LBSPayInner a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -508,7 +498,7 @@ public class LBSPayInner {
                         return;
                     }
                 }
-                this.f35647a = this;
+                this.a = this;
             }
 
             @Override // android.os.Handler
@@ -519,8 +509,8 @@ public class LBSPayInner {
                     if (message.what == 101) {
                         Object obj = message.obj;
                         String str = (obj == null || !(obj instanceof String)) ? "" : (String) obj;
-                        if (this.f35647a.mAliPayCallback != null) {
-                            this.f35647a.mAliPayCallback.onResult(str);
+                        if (this.a.mAliPayCallback != null) {
+                            this.a.mAliPayCallback.onResult(str);
                         }
                     }
                 }
@@ -545,21 +535,19 @@ public class LBSPayInner {
         WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(context, new ILoginBackListener(this, context, lBSPayBack, map, map2) { // from class: com.baidu.android.lbspay.LBSPayInner.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f35648a;
+            public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ LBSPayBack f35649b;
+            public final /* synthetic */ LBSPayBack f32069b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ Map f35650c;
+            public final /* synthetic */ Map f32070c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ Map f35651d;
+            public final /* synthetic */ Map f32071d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ LBSPayInner f35652e;
+            public final /* synthetic */ LBSPayInner f32072e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -576,18 +564,18 @@ public class LBSPayInner {
                         return;
                     }
                 }
-                this.f35652e = this;
-                this.f35648a = context;
-                this.f35649b = lBSPayBack;
-                this.f35650c = map;
-                this.f35651d = map2;
+                this.f32072e = this;
+                this.a = context;
+                this.f32069b = lBSPayBack;
+                this.f32070c = map;
+                this.f32071d = map2;
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
             public void onFail(int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                    this.f35652e.polymerPay(this.f35648a, this.f35649b, this.f35650c, this.f35651d);
+                    this.f32072e.polymerPay(this.a, this.f32069b, this.f32070c, this.f32071d);
                 }
             }
 
@@ -595,7 +583,7 @@ public class LBSPayInner {
             public void onSuccess(int i2, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                    this.f35652e.polymerPay(this.f35648a, this.f35649b, this.f35650c, this.f35651d);
+                    this.f32072e.polymerPay(this.a, this.f32069b, this.f32070c, this.f32071d);
                 }
             }
         }));
@@ -612,27 +600,25 @@ public class LBSPayInner {
             WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(activity, new ILoginBackListener(this, activity, activity2, getPayOrderListener, lBSPayBack, map, str) { // from class: com.baidu.android.lbspay.LBSPayInner.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f35659a;
+                public final /* synthetic */ Activity a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Activity f35660b;
+                public final /* synthetic */ Activity f32078b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ GetPayOrderListener f35661c;
+                public final /* synthetic */ GetPayOrderListener f32079c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSPayBack f35662d;
+                public final /* synthetic */ LBSPayBack f32080d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map f35663e;
+                public final /* synthetic */ Map f32081e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ String f35664f;
+                public final /* synthetic */ String f32082f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ LBSPayInner f35665g;
+                public final /* synthetic */ LBSPayInner f32083g;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -649,20 +635,20 @@ public class LBSPayInner {
                             return;
                         }
                     }
-                    this.f35665g = this;
-                    this.f35659a = activity;
-                    this.f35660b = activity2;
-                    this.f35661c = getPayOrderListener;
-                    this.f35662d = lBSPayBack;
-                    this.f35663e = map;
-                    this.f35664f = str;
+                    this.f32083g = this;
+                    this.a = activity;
+                    this.f32078b = activity2;
+                    this.f32079c = getPayOrderListener;
+                    this.f32080d = lBSPayBack;
+                    this.f32081e = map;
+                    this.f32082f = str;
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
                 public void onFail(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.f35665g.directCallThirdPay(this.f35659a, this.f35660b, this.f35661c, this.f35662d, this.f35663e, this.f35664f);
+                        this.f32083g.directCallThirdPay(this.a, this.f32078b, this.f32079c, this.f32080d, this.f32081e, this.f32082f);
                     }
                 }
 
@@ -670,7 +656,7 @@ public class LBSPayInner {
                 public void onSuccess(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                        this.f35665g.directCallThirdPay(this.f35659a, this.f35660b, this.f35661c, this.f35662d, this.f35663e, this.f35664f);
+                        this.f32083g.directCallThirdPay(this.a, this.f32078b, this.f32079c, this.f32080d, this.f32081e, this.f32082f);
                     }
                 }
             }));

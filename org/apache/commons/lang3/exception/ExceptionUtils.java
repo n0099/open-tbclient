@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.exception;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,13 +91,13 @@ public class ExceptionUtils {
     public static String[] getDefaultCauseMethodNames() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (String[]) ArrayUtils.clone(CAUSE_METHOD_NAMES) : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (String[]) ArrayUtils.clone(CAUSE_METHOD_NAMES) : (String[]) invokeV.objValue;
     }
 
     public static String getMessage(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
             if (th == null) {
                 return "";
             }

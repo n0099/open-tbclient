@@ -1,7 +1,6 @@
 package com.google.gson.internal;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Primitives {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, Class<?>> PRIMITIVE_TO_WRAPPER_TYPE;
@@ -87,7 +86,7 @@ public final class Primitives {
     public static <T> Class<T> unwrap(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) {
             Class<T> cls2 = (Class<T>) WRAPPER_TO_PRIMITIVE_TYPE.get(C$Gson$Preconditions.checkNotNull(cls));
             return cls2 == null ? cls : cls2;
         }
@@ -97,7 +96,7 @@ public final class Primitives {
     public static <T> Class<T> wrap(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
             Class<T> cls2 = (Class<T>) PRIMITIVE_TO_WRAPPER_TYPE.get(C$Gson$Preconditions.checkNotNull(cls));
             return cls2 == null ? cls : cls2;
         }

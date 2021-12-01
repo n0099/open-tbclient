@@ -2,14 +2,14 @@ package com.baidu.ugc.editvideo.data;
 
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.t;
+import c.a.x0.t.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MediaInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int minimumDuration = 3000;
@@ -141,13 +141,13 @@ public class MediaInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j = this.inStepVideoDuration / 1000;
-            long j2 = this.duration / 1000;
+            long j2 = this.inStepVideoDuration / 1000;
+            long j3 = this.duration / 1000;
             boolean isMore3s = isMore3s();
-            if (j > 0) {
-                isMore3s = j2 >= j && isMore3s();
+            if (j2 > 0) {
+                isMore3s = j3 >= j2 && isMore3s();
             }
-            if (t.f30805a) {
+            if (t.a) {
                 return isMore3s;
             }
             return this.duration <= 15000;
@@ -155,10 +155,10 @@ public class MediaInfo {
         return invokeV.booleanValue;
     }
 
-    public void setDuration(long j) {
+    public void setDuration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.duration = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.duration = j2;
         }
     }
 
@@ -176,17 +176,17 @@ public class MediaInfo {
         }
     }
 
-    public void setInStepVideoDuration(long j) {
+    public void setInStepVideoDuration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.inStepVideoDuration = j;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.inStepVideoDuration = j2;
         }
     }
 
-    public void setLastModified(long j) {
+    public void setLastModified(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            this.lastModified = j;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
+            this.lastModified = j2;
         }
     }
 

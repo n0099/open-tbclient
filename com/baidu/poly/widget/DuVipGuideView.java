@@ -11,39 +11,39 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e0.g;
-import b.a.e0.h;
-import b.a.e0.m.b;
+import c.a.f0.g;
+import c.a.f0.h;
+import c.a.f0.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DuVipGuideView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f42976e;
+    public ImageView f38424e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f42977f;
+    public TextView f38425f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f42978g;
+    public TextView f38426g;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f42979e;
+        public final /* synthetic */ String f38427e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DuVipGuideView f42980f;
+        public final /* synthetic */ DuVipGuideView f38428f;
 
         public a(DuVipGuideView duVipGuideView, String str) {
             Interceptable interceptable = $ic;
@@ -60,15 +60,15 @@ public class DuVipGuideView extends RelativeLayout {
                     return;
                 }
             }
-            this.f42980f = duVipGuideView;
-            this.f42979e = str;
+            this.f38428f = duVipGuideView;
+            this.f38427e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42980f.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(this.f42979e)));
+                this.f38428f.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(this.f38427e)));
             }
         }
     }
@@ -98,9 +98,9 @@ public class DuVipGuideView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(h.view_du_vip_guide, (ViewGroup) this, true);
-            this.f42976e = (ImageView) findViewById(g.iv_guide_icon);
-            this.f42977f = (TextView) findViewById(g.tv_guide_msg);
-            this.f42978g = (TextView) findViewById(g.tv_guide_btn);
+            this.f38424e = (ImageView) findViewById(g.iv_guide_icon);
+            this.f38425f = (TextView) findViewById(g.tv_guide_msg);
+            this.f38426g = (TextView) findViewById(g.tv_guide_btn);
         }
     }
 
@@ -109,14 +109,14 @@ public class DuVipGuideView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        b.b().a(this.f42976e, jSONObject.optString("icon_url"));
-        this.f42977f.setText(jSONObject.optString("display_msg"));
+        b.b().a(this.f38424e, jSONObject.optString("icon_url"));
+        this.f38425f.setText(jSONObject.optString("display_msg"));
         String optString = jSONObject.optString("redirect_display_msg");
         if (TextUtils.isEmpty(optString)) {
-            this.f42978g.setVisibility(8);
+            this.f38426g.setVisibility(8);
         } else {
-            this.f42978g.setVisibility(0);
-            this.f42978g.setText(optString);
+            this.f38426g.setVisibility(0);
+            this.f38426g.setText(optString);
         }
         String optString2 = jSONObject.optString("redirect_url");
         if (TextUtils.isEmpty(optString2)) {

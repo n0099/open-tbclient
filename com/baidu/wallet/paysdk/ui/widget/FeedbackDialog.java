@@ -27,7 +27,7 @@ import com.dxmpay.wallet.base.widget.SimpleRatingBar;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FeedbackDialog extends Dialog implements View.OnClickListener, SimpleRatingBar.OnSimpleRatingBarChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ICON_HEIGHT_DP = 12;
@@ -54,16 +54,14 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public ArrayList<TagButton> mTags;
     public TextView mTitle;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public FeedbackInfo f61370a;
+        public FeedbackInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f61371b;
+        public b f53928b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -80,23 +78,21 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a();
 
         void a(c cVar);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f61372a;
+        public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f61373b;
+        public String[] f53929b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -161,8 +157,8 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public void initDialog(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.mFeedbackInfo = aVar.f61370a;
-            this.mListener = aVar.f61371b;
+            this.mFeedbackInfo = aVar.a;
+            this.mListener = aVar.f53928b;
             this.mCloseButton.setOnClickListener(this);
             this.mSubmit.setOnClickListener(this);
             FeedbackInfo feedbackInfo = this.mFeedbackInfo;
@@ -239,7 +235,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
                 StatisticManager.onEventWithValue("payFeedbackSubmitClick", this.isEntryClicked);
                 if (this.mListener != null) {
                     c cVar = new c();
-                    cVar.f61372a = this.mRatingBar.getRating();
+                    cVar.a = this.mRatingBar.getRating();
                     ArrayList arrayList = new ArrayList();
                     Iterator<TagButton> it = this.mTags.iterator();
                     while (it.hasNext()) {
@@ -249,7 +245,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
                         }
                     }
                     String[] strArr = new String[arrayList.size()];
-                    cVar.f61373b = strArr;
+                    cVar.f53929b = strArr;
                     arrayList.toArray(strArr);
                     this.mListener.a(cVar);
                 }
@@ -297,7 +293,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         this.mLastRating = i2;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class TagButton extends Button implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -27,7 +27,6 @@ import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
 import androidx.legacy.app.ActionBarDrawerToggle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,7 +114,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     private void updateHomeAccessibility() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (this.mDisplayOpts & 4) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (this.mDisplayOpts & 4) == 0) {
             return;
         }
         if (TextUtils.isEmpty(this.mHomeDescription)) {
@@ -127,7 +126,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     private void updateNavigationIcon() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             if ((this.mDisplayOpts & 4) != 0) {
                 Toolbar toolbar = this.mToolbar;
                 Drawable drawable = this.mNavIcon;
@@ -678,11 +677,11 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j) {
+    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            return ViewCompat.animate(this.mToolbar).alpha(i2 == 0 ? 1.0f : 0.0f).setDuration(j).setListener(new ViewPropertyAnimatorListenerAdapter(this, i2) { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.2
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+            return ViewCompat.animate(this.mToolbar).alpha(i2 == 0 ? 1.0f : 0.0f).setDuration(j2).setListener(new ViewPropertyAnimatorListenerAdapter(this, i2) { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public boolean mCanceled;

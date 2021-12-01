@@ -1,7 +1,7 @@
 package com.baidu.searchbox.anr.impl;
 
 import android.content.Context;
-import b.g.a.a;
+import c.h.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -23,7 +23,7 @@ import com.github.anrwatchdog.ANRError;
 import java.io.File;
 @Singleton
 @Service
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ANRMonitor implements IANRMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_WATCHDOG_ANR_TIMEOUT = 5000;
@@ -34,13 +34,13 @@ public class ANRMonitor implements IANRMonitor {
     public boolean mMonitorStarted;
 
     /* renamed from: com.baidu.searchbox.anr.impl.ANRMonitor$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ANRListenerImpl implements a.f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_ALL_STACK_TRACES_NAME = "all_stack_traces.txt";
@@ -63,7 +63,7 @@ public class ANRMonitor implements IANRMonitor {
             }
         }
 
-        @Override // b.g.a.a.f
+        @Override // c.h.a.a.f
         public void onAppNotResponding(ANRError aNRError) {
             Context appContext;
             String str;

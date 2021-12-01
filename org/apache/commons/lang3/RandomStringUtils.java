@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -147,7 +146,7 @@ public class RandomStringUtils {
         InterceptResult invokeCommon;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), cArr, random})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), cArr, random})) != null) {
             return (String) invokeCommon.objValue;
         }
         if (i2 == 0) {
@@ -211,7 +210,7 @@ public class RandomStringUtils {
     public static String random(int i2, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, str)) == null) {
             if (str == null) {
                 return random(i2, 0, 0, false, false, null, RANDOM);
             }

@@ -2,7 +2,6 @@ package com.baidu.ar.arplay.core.engine;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARPScriptEnvironment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AR_KEY = "ar_key";
@@ -90,7 +89,7 @@ public class ARPScriptEnvironment {
 
     public static void setSharedEnvironment(Map map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, map) == null) || map == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, map) == null) || map == null) {
             return;
         }
         nativeSetSharedEnvironment(map);
@@ -203,7 +202,7 @@ public class ARPScriptEnvironment {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             nativeGetSharedEnvironment();
             String str = "getSharedEnvironmentValue(KEY_AR_KEY) :" + getSharedEnvironmentValue("ar_key");
-            getSharedEnvironmentValue(com.baidu.fsg.base.a.f38142g);
+            getSharedEnvironmentValue(com.baidu.fsg.base.a.f34139g);
         }
     }
 }

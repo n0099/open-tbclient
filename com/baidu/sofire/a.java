@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,8 +33,8 @@ public final class a {
                         com.baidu.sofire.utility.c.a(context.getApplicationContext(), "1014115", (Map<String, Object>) hashMap, false);
                         break;
                     }
-                    f a2 = f.a();
-                    if (a2 != null && a2.d("com.baidu.sofire.x24") != null) {
+                    f a = f.a();
+                    if (a != null && a.d("com.baidu.sofire.x24") != null) {
                         break;
                     }
                 }

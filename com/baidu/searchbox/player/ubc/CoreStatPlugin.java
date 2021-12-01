@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.plugin.AbsPlugin;
@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CoreStatPlugin extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TYPE = "type";
@@ -97,7 +97,7 @@ public class CoreStatPlugin extends AbsPlugin {
 
     private void onCarlton(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, bDVideoPlayerUbcContent, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, this, bDVideoPlayerUbcContent, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         BdVideoLog.d("【Statistics】 onCarlton upload begin");
@@ -117,11 +117,11 @@ public class CoreStatPlugin extends AbsPlugin {
 
     private void onError(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(AdIconUtil.BAIDU_LOGO_ID, this, bDVideoPlayerUbcContent, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65542, this, bDVideoPlayerUbcContent, i2, str) == null) {
             BdVideoLog.d("【Statistics】 onError upload begin");
             try {
                 JSONObject extStatisticsLogClone = bDVideoPlayerUbcContent.getExtStatisticsLogClone();
-                extStatisticsLogClone.putOpt("errorNo", Integer.valueOf(i2));
+                extStatisticsLogClone.putOpt(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, Integer.valueOf(i2));
                 extStatisticsLogClone.putOpt("sub_errorNo", Integer.valueOf(i2));
                 extStatisticsLogClone.putOpt("errorInfo", str);
                 this.mUBCService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, (JSONObject) null));

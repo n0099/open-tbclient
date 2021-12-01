@@ -19,13 +19,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.internal.IContacts;
-import com.baidu.wallet.base.iddetect.IdCardActivity;
 import com.baidu.wallet.core.utils.contacts.ContractInfo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ContactsImpl implements IContacts {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -411,7 +410,7 @@ public class ContactsImpl implements IContacts {
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     String string = cursor.getString(cursor.getColumnIndex("name"));
-                    String string2 = cursor.getString(cursor.getColumnIndex(IdCardActivity.KEY_NUMBER));
+                    String string2 = cursor.getString(cursor.getColumnIndex("number"));
                     if (!TextUtils.isEmpty(string2)) {
                         String formatPhoneNumber = StringUtils.formatPhoneNumber(string2.replaceAll(" ", ""));
                         if (!TextUtils.isEmpty(formatPhoneNumber)) {

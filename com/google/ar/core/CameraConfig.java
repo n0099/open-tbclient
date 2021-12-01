@@ -9,16 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class CameraConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f63991a;
+    public long a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class FacingDirection {
         public static final /* synthetic */ FacingDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,26 +109,26 @@ public class CameraConfig {
                 return;
             }
         }
-        this.f63991a = 0L;
+        this.a = 0L;
     }
 
-    public static native void nativeDestroyCameraConfig(long j);
+    public static native void nativeDestroyCameraConfig(long j2);
 
-    private native String nativeGetCameraId(long j, long j2);
+    private native String nativeGetCameraId(long j2, long j3);
 
-    private native int nativeGetFacingDirection(long j, long j2);
+    private native int nativeGetFacingDirection(long j2, long j3);
 
-    private native void nativeGetImageDimensions(long j, long j2, int[] iArr);
+    private native void nativeGetImageDimensions(long j2, long j3, int[] iArr);
 
-    private native void nativeGetTextureDimensions(long j, long j2, int[] iArr);
+    private native void nativeGetTextureDimensions(long j2, long j3, int[] iArr);
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f63991a;
-            if (j != 0) {
-                nativeDestroyCameraConfig(j);
-                this.f63991a = 0L;
+            long j2 = this.a;
+            if (j2 != 0) {
+                nativeDestroyCameraConfig(j2);
+                this.a = 0L;
             }
             super.finalize();
         }

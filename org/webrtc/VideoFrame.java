@@ -142,12 +142,12 @@ public class VideoFrame implements RefCounted {
     }
 
     @CalledByNative
-    public VideoFrame(Buffer buffer, int i2, long j) {
+    public VideoFrame(Buffer buffer, int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {buffer, Integer.valueOf(i2), Long.valueOf(j)};
+            Object[] objArr = {buffer, Integer.valueOf(i2), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -161,7 +161,7 @@ public class VideoFrame implements RefCounted {
             if (i2 % 90 == 0) {
                 this.buffer = buffer;
                 this.rotation = i2;
-                this.timestampNs = j;
+                this.timestampNs = j2;
                 return;
             }
             throw new IllegalArgumentException("rotation must be a multiple of 90");

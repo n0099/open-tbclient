@@ -29,7 +29,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMPaGetInfoRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetInfoRequest";
@@ -53,12 +53,12 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
         }
     }
 
-    public IMPaGetInfoRequest(Context context, String str, long j, long j2) {
+    public IMPaGetInfoRequest(Context context, String str, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -69,9 +69,9 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j;
+        this.mAppid = j2;
         this.mKey = str;
-        this.mUk = j2;
+        this.mUk = j3;
     }
 
     private void localSyncSubscribedPaList(Context context, List<PaInfo> list) {

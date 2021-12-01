@@ -14,19 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class em extends ep {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f71802a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f71803b;
+    public Bitmap f62842b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bitmap f71804c;
+    public Bitmap f62843c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public em(Context context, String str) {
@@ -47,7 +45,7 @@ public class em extends ep {
                 return;
             }
         }
-        this.f71802a = 16777216;
+        this.a = 16777216;
     }
 
     @Override // com.xiaomi.push.ep
@@ -55,11 +53,11 @@ public class em extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            if (m298b() && bitmap != null) {
+            if (m347b() && bitmap != null) {
                 if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
-                    com.xiaomi.channel.commonutils.logger.b.m73a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
+                    com.xiaomi.channel.commonutils.logger.b.m122a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
                 } else {
-                    this.f71803b = bitmap;
+                    this.f62842b = bitmap;
                 }
             }
             return this;
@@ -71,11 +69,11 @@ public class em extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (m298b() && !TextUtils.isEmpty(str)) {
+            if (m347b() && !TextUtils.isEmpty(str)) {
                 try {
-                    this.f71802a = Color.parseColor(str);
+                    this.a = Color.parseColor(str);
                 } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m73a("parse banner notification image text color error");
+                    com.xiaomi.channel.commonutils.logger.b.m122a("parse banner notification image text color error");
                 }
             }
             return this;
@@ -101,41 +99,41 @@ public class em extends ep {
 
     @Override // com.xiaomi.push.en
     public void a() {
-        RemoteViews a2;
+        RemoteViews a;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!m298b() || this.f71803b == null) {
-                m297b();
+            if (!m347b() || this.f62842b == null) {
+                m346b();
                 return;
             }
             super.a();
             Resources resources = a().getResources();
             String packageName = a().getPackageName();
-            int a3 = a(resources, "bg", "id", packageName);
+            int a2 = a(resources, "bg", "id", packageName);
             if (l.a(a()) >= 10) {
-                a2 = a();
-                bitmap = a(this.f71803b, 30.0f);
+                a = a();
+                bitmap = a(this.f62842b, 30.0f);
             } else {
-                a2 = a();
-                bitmap = this.f71803b;
+                a = a();
+                bitmap = this.f62842b;
             }
-            a2.setImageViewBitmap(a3, bitmap);
-            int a4 = a(resources, "icon", "id", packageName);
-            if (this.f71804c != null) {
-                a().setImageViewBitmap(a4, this.f71804c);
+            a.setImageViewBitmap(a2, bitmap);
+            int a3 = a(resources, "icon", "id", packageName);
+            if (this.f62843c != null) {
+                a().setImageViewBitmap(a3, this.f62843c);
             } else {
-                a(a4);
+                a(a3);
             }
-            int a5 = a(resources, "title", "id", packageName);
-            a().setTextViewText(a5, ((ep) this).f332a);
+            int a4 = a(resources, "title", "id", packageName);
+            a().setTextViewText(a4, ((ep) this).f332a);
             Map<String, String> map = ((ep) this).f334a;
-            if (map != null && this.f71802a == 16777216) {
+            if (map != null && this.a == 16777216) {
                 a(map.get("notification_image_text_color"));
             }
-            RemoteViews a6 = a();
-            int i2 = this.f71802a;
-            a6.setTextColor(a5, (i2 == 16777216 || !m296a(i2)) ? -1 : -16777216);
+            RemoteViews a5 = a();
+            int i2 = this.a;
+            a5.setTextColor(a4, (i2 == 16777216 || !m345a(i2)) ? -1 : -16777216);
             setCustomContentView(a());
             Bundle bundle = new Bundle();
             bundle.putBoolean("miui.customHeight", true);
@@ -148,7 +146,7 @@ public class em extends ep {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (l.m539a(a())) {
+            if (l.m588a(a())) {
                 Resources resources = a().getResources();
                 String packageName = a().getPackageName();
                 return (a(a().getResources(), "bg", "id", a().getPackageName()) == 0 || a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || l.a(a()) < 9) ? false : true;
@@ -162,8 +160,8 @@ public class em extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bitmap)) == null) {
-            if (m298b() && bitmap != null) {
-                this.f71804c = bitmap;
+            if (m347b() && bitmap != null) {
+                this.f62843c = bitmap;
             }
             return this;
         }

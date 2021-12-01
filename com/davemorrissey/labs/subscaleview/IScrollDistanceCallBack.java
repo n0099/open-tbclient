@@ -2,7 +2,7 @@ package com.davemorrissey.labs.subscaleview;
 
 import android.graphics.PointF;
 import android.view.MotionEvent;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface IScrollDistanceCallBack {
     void onMove(float f2);
 

@@ -13,31 +13,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Object f36532a;
+    public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36533b;
+    public long f32786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f36534c;
+    public a f32787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f36535d;
+    public Context f32788d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Intent f36536e;
+    public Intent f32789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36537f;
+    public String f32790f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Intent f36538g;
+    public Intent f32791g;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +50,7 @@ public class c {
                 return;
             }
         }
-        f36532a = new Object();
+        a = new Object();
     }
 
     public c(Context context, Intent intent, String str) {
@@ -70,28 +68,28 @@ public class c {
                 return;
             }
         }
-        this.f36533b = System.currentTimeMillis();
-        this.f36535d = context;
-        this.f36536e = intent;
-        this.f36537f = str;
+        this.f32786b = System.currentTimeMillis();
+        this.f32788d = context;
+        this.f32789e = intent;
+        this.f32790f = str;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36533b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32786b : invokeV.longValue;
     }
 
     public void a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
-            a aVar = this.f36534c;
+            a aVar = this.f32787c;
             if (aVar != null) {
                 aVar.a(0, intent);
             }
-            this.f36538g = intent;
-            synchronized (f36532a) {
-                f36532a.notifyAll();
+            this.f32791g = intent;
+            synchronized (a) {
+                a.notifyAll();
             }
         }
     }
@@ -100,22 +98,20 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f36536e.putExtra("bd.cross.request.ID", this.f36533b);
-            this.f36536e.putExtra("bd.cross.request.NEED_CALLBACK", true);
-            this.f36536e.putExtra("bd.cross.request.SOURCE_PACKAGE", this.f36535d.getPackageName());
-            this.f36536e.putExtra("bd.cross.request.SENDING", true);
+            this.f32789e.putExtra("bd.cross.request.ID", this.f32786b);
+            this.f32789e.putExtra("bd.cross.request.NEED_CALLBACK", true);
+            this.f32789e.putExtra("bd.cross.request.SOURCE_PACKAGE", this.f32788d.getPackageName());
+            this.f32789e.putExtra("bd.cross.request.SENDING", true);
             b.a(this);
             try {
-                m.a(this.f36535d, this.f36536e, this.f36537f);
+                m.a(this.f32788d, this.f32789e, this.f32790f);
             } catch (Exception unused) {
             }
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-            com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "timeOutRunnable-" + this.f36533b, (short) 50) { // from class: com.baidu.android.pushservice.j.c.1
+            com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "timeOutRunnable-" + this.f32786b, (short) 50) { // from class: com.baidu.android.pushservice.j.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f36539a;
+                public final /* synthetic */ c a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -136,7 +132,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f36539a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.android.pushservice.h.c
@@ -145,29 +141,29 @@ public class c {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             Thread.sleep(1000L);
-                            synchronized (c.f36532a) {
-                                c.f36532a.notifyAll();
+                            synchronized (c.a) {
+                                c.a.notifyAll();
                             }
                         } catch (InterruptedException e2) {
-                            new b.c(this.f36539a.f36535d).a(Log.getStackTraceString(e2)).a();
+                            new b.c(this.a.f32788d).a(Log.getStackTraceString(e2)).a();
                         }
                     }
                 }
             });
-            if (this.f36534c == null) {
-                synchronized (f36532a) {
+            if (this.f32787c == null) {
+                synchronized (a) {
                     try {
-                        f36532a.wait();
+                        a.wait();
                     } catch (Exception e2) {
-                        new b.c(this.f36535d).a(Log.getStackTraceString(e2)).a();
+                        new b.c(this.f32788d).a(Log.getStackTraceString(e2)).a();
                     }
                 }
                 c();
-                Intent intent = this.f36538g;
+                Intent intent = this.f32791g;
                 if (intent != null) {
                     gVar.a(intent.getIntExtra("bd.cross.request.RESULT_CODE", 10));
-                    if (this.f36538g.hasExtra("bd.cross.request.RESULT_DATA")) {
-                        String stringExtra = this.f36538g.getStringExtra("bd.cross.request.RESULT_DATA");
+                    if (this.f32791g.hasExtra("bd.cross.request.RESULT_DATA")) {
+                        String stringExtra = this.f32791g.getStringExtra("bd.cross.request.RESULT_DATA");
                         if (!TextUtils.isEmpty(stringExtra)) {
                             gVar.a(stringExtra.getBytes());
                         }
@@ -185,9 +181,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                this.f36534c = null;
-                this.f36535d = null;
-                b.a(this.f36533b);
+                this.f32787c = null;
+                this.f32788d = null;
+                b.a(this.f32786b);
             }
         }
     }

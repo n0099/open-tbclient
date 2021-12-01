@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +18,10 @@ import java.nio.charset.Charset;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69146a = "com.sdk.base.framework.f.b.a";
+    public static final String a = "com.sdk.base.framework.f.b.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f69147b;
+    public static final Boolean f61006b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +37,7 @@ public class a {
                 return;
             }
         }
-        f69147b = Boolean.valueOf(f.f69125b);
+        f61006b = Boolean.valueOf(f.f60988b);
     }
 
     public a() {
@@ -66,7 +63,7 @@ public class a {
                 str2 = context.getSharedPreferences("ZzxCache", 0).getString(str, "");
                 return new String(c.a(str2), Charset.defaultCharset());
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f69146a, e2.getMessage(), f69147b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
                 return str2;
             }
         }
@@ -81,7 +78,7 @@ public class a {
                 edit.putLong(str, l.longValue());
                 edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f69146a, e2.getMessage(), f69147b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
             }
         }
     }
@@ -95,7 +92,7 @@ public class a {
                 edit.putString(str, c.a(str2.getBytes(Charset.defaultCharset())));
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f69146a, e2.getMessage(), f69147b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
                 return false;
             }
         }
@@ -105,11 +102,11 @@ public class a {
     public static String b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             try {
                 return context.getSharedPreferences("ZzxCache", 0).getString(str, "");
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f69146a, e2.getMessage(), f69147b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
                 return "";
             }
         }
@@ -119,13 +116,13 @@ public class a {
     public static boolean b(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, str2)) == null) {
             try {
                 SharedPreferences.Editor edit = context.getSharedPreferences("ZzxCache", 0).edit();
                 edit.putString(str, str2);
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f69146a, e2.getMessage(), f69147b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
                 return false;
             }
         }
@@ -136,13 +133,13 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            long j = 0;
+            long j2 = 0;
             try {
-                j = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
+                j2 = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f69146a, e2.getMessage(), f69147b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f61006b);
             }
-            return Long.valueOf(j);
+            return Long.valueOf(j2);
         }
         return (Long) invokeLL.objValue;
     }

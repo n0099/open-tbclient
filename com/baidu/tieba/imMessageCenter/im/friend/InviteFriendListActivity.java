@@ -8,8 +8,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.m1.a.c.c;
-import b.a.r0.m1.a.c.e;
+import c.a.r0.s1.a.c.c;
+import c.a.r0.s1.a.c.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -17,7 +17,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
@@ -35,29 +34,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InviteFriendListActivity extends BaseActivity<InviteFriendListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_INVITED_COUNT = 100;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b.a.q0.t.f.a> friendList;
+    public List<c.a.q0.t.f.a> friendList;
     public CustomMessageListener friendListResponsedMessageListener;
     public boolean isFromInviteChat;
     public boolean isFromSearch;
     public boolean isLoaded;
     public final AtomicBoolean isLoading;
-    public final b.a.e.c.g.c mListener;
+    public final c.a.d.c.g.c mListener;
     public e mModel;
-    public b.a.r0.m1.a.c.d mView;
-    public LinkedList<b.a.q0.t.f.a> searchedList;
+    public c.a.r0.s1.a.c.d mView;
+    public LinkedList<c.a.q0.t.f.a> searchedList;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f51627a;
+        public final /* synthetic */ InviteFriendListActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(InviteFriendListActivity inviteFriendListActivity, int i2) {
@@ -77,7 +74,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f51627a = inviteFriendListActivity;
+            this.a = inviteFriendListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -85,18 +82,16 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof PersonalChatDisplayResponse)) {
-                this.f51627a.finish();
+                this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f51628a;
+        public final /* synthetic */ InviteFriendListActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(InviteFriendListActivity inviteFriendListActivity, int i2) {
@@ -116,7 +111,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f51628a = inviteFriendListActivity;
+            this.a = inviteFriendListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -124,31 +119,31 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof GetContactListResponsedMessage)) {
-                this.f51628a.isLoaded = true;
-                this.f51628a.isLoading.set(false);
-                InviteFriendListActivity inviteFriendListActivity = this.f51628a;
+                this.a.isLoaded = true;
+                this.a.isLoading.set(false);
+                InviteFriendListActivity inviteFriendListActivity = this.a;
                 inviteFriendListActivity.hideLoadingView(inviteFriendListActivity.mView.u());
-                List<b.a.q0.t.f.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
+                List<c.a.q0.t.f.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
                 if (contacts == null) {
                     contacts = new LinkedList<>();
                 }
-                InviteFriendListActivity inviteFriendListActivity2 = this.f51628a;
+                InviteFriendListActivity inviteFriendListActivity2 = this.a;
                 inviteFriendListActivity2.friendList = contacts;
                 if (inviteFriendListActivity2.mView == null) {
                     return;
                 }
-                this.f51628a.refreshWithCurrentData();
+                this.a.refreshWithCurrentData();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f51629e;
+        public final /* synthetic */ InviteFriendListActivity f46246e;
 
         public c(InviteFriendListActivity inviteFriendListActivity) {
             Interceptable interceptable = $ic;
@@ -165,34 +160,32 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f51629e = inviteFriendListActivity;
+            this.f46246e = inviteFriendListActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f51629e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.f46246e.mModel == null) {
                 return;
             }
-            this.f51629e.mModel.cancelLoadData();
+            this.f46246e.mModel.cancelLoadData();
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class d extends b.a.e.c.g.c {
+    /* loaded from: classes10.dex */
+    public class d extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ InviteFriendListActivity a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InviteFriendListActivity f51630a;
-
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f51631e;
+            public final /* synthetic */ d f46247e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -209,16 +202,16 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                         return;
                     }
                 }
-                this.f51631e = dVar;
+                this.f46247e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f51631e.f51630a.isFinishing()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46247e.a.isFinishing()) {
                     return;
                 }
-                this.f51631e.f51630a.finish();
+                this.f46247e.a.finish();
             }
         }
 
@@ -240,7 +233,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                     return;
                 }
             }
-            this.f51630a = inviteFriendListActivity;
+            this.a = inviteFriendListActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -248,14 +241,14 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f51630a.closeLoadingDialog();
+                this.a.closeLoadingDialog();
                 if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205002 && (socketResponsedMessage instanceof ResponseCommitInviteMessage)) {
                     ResponseCommitInviteMessage responseCommitInviteMessage = (ResponseCommitInviteMessage) socketResponsedMessage;
                     if (responseCommitInviteMessage.getError() != 0) {
-                        this.f51630a.showToast(StringUtils.isNull(responseCommitInviteMessage.getErrorString()) ? this.f51630a.getResources().getString(R.string.neterror) : responseCommitInviteMessage.getErrorString());
+                        this.a.showToast(StringUtils.isNull(responseCommitInviteMessage.getErrorString()) ? this.a.getResources().getString(R.string.neterror) : responseCommitInviteMessage.getErrorString());
                         return;
                     }
-                    InviteFriendListActivity inviteFriendListActivity = this.f51630a;
+                    InviteFriendListActivity inviteFriendListActivity = this.a;
                     inviteFriendListActivity.showToast(inviteFriendListActivity.getPageContext().getString(R.string.send_success), false);
                     new Handler().postDelayed(new a(this), 400L);
                 }
@@ -286,17 +279,17 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     private void initModel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.mModel = new e(this);
         }
     }
 
     private void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            b.a.r0.m1.a.c.d dVar = new b.a.r0.m1.a.c.d(this, this.isFromInviteChat);
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            c.a.r0.s1.a.c.d dVar = new c.a.r0.s1.a.c.d(this, this.isFromInviteChat);
             this.mView = dVar;
-            dVar.N(100);
+            dVar.G(100);
         }
     }
 
@@ -324,7 +317,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        b.a.r0.m1.a.c.d dVar;
+        c.a.r0.s1.a.c.d dVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (dVar = this.mView) == null) {
             return;
@@ -368,28 +361,28 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
             this.mModel.cancelLoadData();
-            b.a.r0.m1.a.c.d dVar = this.mView;
+            c.a.r0.s1.a.c.d dVar = this.mView;
             if (dVar != null) {
-                dVar.D();
+                dVar.C();
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
         Object tag;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.onItemClick(adapterView, view, i2, j);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            super.onItemClick(adapterView, view, i2, j2);
             if (this.isFromInviteChat) {
-                b.a.q0.t.f.a aVar = null;
+                c.a.q0.t.f.a aVar = null;
                 if (this.isFromSearch) {
-                    LinkedList<b.a.q0.t.f.a> linkedList = this.searchedList;
+                    LinkedList<c.a.q0.t.f.a> linkedList = this.searchedList;
                     if (linkedList != null && i2 < linkedList.size()) {
                         aVar = this.searchedList.get(i2);
                     }
                 } else {
-                    List<b.a.q0.t.f.a> list = this.friendList;
+                    List<c.a.q0.t.f.a> list = this.friendList;
                     if (list != null && i2 < list.size()) {
                         aVar = this.friendList.get(i2);
                     }
@@ -400,7 +393,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getPageContext().getPageActivity(), aVar.e(), aVar.f(), aVar.g(), aVar.h(), 0)));
             } else if (view == null || (tag = view.getTag()) == null || !(tag instanceof c.a)) {
             } else {
-                TbCheckBox tbCheckBox = ((c.a) tag).f22112d;
+                TbCheckBox tbCheckBox = ((c.a) tag).f23291d;
                 tbCheckBox.setChecked(!tbCheckBox.isChecked());
             }
         }
@@ -479,18 +472,18 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
         if (trim.length() == 0) {
             this.isFromSearch = false;
-            this.mView.K(this.friendList, false);
+            this.mView.D(this.friendList, false);
             return;
         }
         this.searchedList.clear();
-        for (b.a.q0.t.f.a aVar : this.friendList) {
+        for (c.a.q0.t.f.a aVar : this.friendList) {
             String c2 = aVar.c();
             if (c2 != null && c2.contains(trim)) {
                 this.searchedList.add(aVar);
             }
         }
         this.isFromSearch = true;
-        this.mView.K(this.searchedList, true);
+        this.mView.D(this.searchedList, true);
     }
 
     public void showLoadingDialog() {

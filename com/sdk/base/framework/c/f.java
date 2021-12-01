@@ -11,21 +11,19 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f69124a = "aes_key";
+    public static String a = "aes_key";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f69125b;
+    public static boolean f60988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f69126c;
+    public static boolean f60989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f69127d;
+    public static boolean f60990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f69128e;
+    public static boolean f60991e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,10 +40,10 @@ public class f {
             }
         }
         new HashMap();
-        f69125b = false;
-        f69126c = true;
-        f69127d = false;
-        f69128e = false;
+        f60988b = false;
+        f60989c = true;
+        f60990d = false;
+        f60991e = false;
     }
 
     public f() {

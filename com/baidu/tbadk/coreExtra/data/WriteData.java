@@ -2,8 +2,8 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.k;
-import b.a.r0.m3.s0.c;
+import c.a.d.f.p.k;
+import c.a.r0.t3.s0.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
@@ -36,7 +36,7 @@ import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WriteData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALL_FROM_ONE = "1";
@@ -343,8 +343,8 @@ public class WriteData extends OrmObject implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, itemData)) == null) {
             if (canAddItem() && itemData != null) {
-                long j = itemData.itemId;
-                if (j > 0 && ListUtils.getPosition(this.itemDataIds, Long.valueOf(j)) < 0) {
+                long j2 = itemData.itemId;
+                if (j2 > 0 && ListUtils.getPosition(this.itemDataIds, Long.valueOf(j2)) < 0) {
                     this.itemDatas.add(itemData);
                     this.itemDataIds.add(Long.valueOf(itemData.itemId));
                     return true;
@@ -1213,10 +1213,10 @@ public class WriteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setBarrageTime(long j) {
+    public void setBarrageTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048702, this, j) == null) {
-            this.mBarrageTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048702, this, j2) == null) {
+            this.mBarrageTime = j2;
         }
     }
 

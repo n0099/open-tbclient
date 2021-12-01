@@ -12,7 +12,6 @@ import com.baidu.ar.arrender.l;
 import com.baidu.ar.c;
 import com.baidu.ar.d.b;
 import com.baidu.ar.d.e;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PoseAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MDL_MAGIC_FILTER_CUTOFFSLOPE = "cutoffSlope";
@@ -97,7 +96,7 @@ public class PoseAR extends c {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (this.mInputWidth == 0 || (i2 = this.mInputHeight) == 0) {
                 return 56.144978f;
             }
@@ -112,7 +111,7 @@ public class PoseAR extends c {
 
     private void fq() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             String str = Build.HARDWARE;
             if (!TextUtils.isEmpty(str) && str.matches("qcom")) {
                 try {

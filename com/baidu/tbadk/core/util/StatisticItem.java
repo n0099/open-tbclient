@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.k;
+import c.a.d.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StatisticItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -214,27 +214,27 @@ public class StatisticItem {
         return (StatisticItem) invokeLI.objValue;
     }
 
-    public StatisticItem param(String str, long j) {
+    public StatisticItem param(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j2)) == null) {
             this.params.add(str);
-            this.params.add(Long.valueOf(j));
+            this.params.add(Long.valueOf(j2));
             return this;
         }
         return (StatisticItem) invokeLJ.objValue;
     }
 
-    public StatisticItem addParam(String str, long j) {
+    public StatisticItem addParam(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
             int index = getIndex(str);
             if (index > 0) {
-                this.params.set(index, Long.valueOf(j));
+                this.params.set(index, Long.valueOf(j2));
                 return this;
             }
-            return param(str, j);
+            return param(str, j2);
         }
         return (StatisticItem) invokeLJ.objValue;
     }

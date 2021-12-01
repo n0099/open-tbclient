@@ -14,15 +14,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Executor f62332a;
+    public static Executor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ScheduledExecutorService f62333b;
+    public static ScheduledExecutorService f54602b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,8 +36,8 @@ public final class e {
                 return;
             }
         }
-        f62332a = Executors.newCachedThreadPool();
-        f62333b = Executors.newSingleThreadScheduledExecutor();
+        a = Executors.newCachedThreadPool();
+        f54602b = Executors.newSingleThreadScheduledExecutor();
     }
 
     public static ExecutorService a(int i2) {
@@ -48,9 +46,7 @@ public final class e {
         return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? Executors.newFixedThreadPool(i2, new ThreadFactory() { // from class: com.bytedance.pangle.helper.e.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public AtomicInteger f62334a;
+            public AtomicInteger a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +61,7 @@ public final class e {
                         return;
                     }
                 }
-                this.f62334a = new AtomicInteger(1);
+                this.a = new AtomicInteger(1);
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -73,7 +69,7 @@ public final class e {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    return new Thread(runnable, ZeusConstants.BASE_LIB_NAME + "-Install-" + this.f62334a.getAndIncrement());
+                    return new Thread(runnable, ZeusConstants.BASE_LIB_NAME + "-Install-" + this.a.getAndIncrement());
                 }
                 return (Thread) invokeL.objValue;
             }

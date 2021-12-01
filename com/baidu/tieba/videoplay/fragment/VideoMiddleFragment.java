@@ -14,18 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VideoMiddleFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddleFragment f56002a;
+        public final /* synthetic */ VideoMiddleFragment a;
 
         public a(VideoMiddleFragment videoMiddleFragment) {
             Interceptable interceptable = $ic;
@@ -42,25 +40,23 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f56002a = videoMiddleFragment;
+            this.a = videoMiddleFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f56002a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddleFragment f56003a;
+        public final /* synthetic */ VideoMiddleFragment a;
 
         public b(VideoMiddleFragment videoMiddleFragment) {
             Interceptable interceptable = $ic;
@@ -77,14 +73,14 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                     return;
                 }
             }
-            this.f56003a = videoMiddleFragment;
+            this.a = videoMiddleFragment;
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.k
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.f56003a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
             }
         }
     }

@@ -17,15 +17,13 @@ import java.util.Map;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f70569a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, c> f70570b;
+    public final Map<String, c> f62016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, d> f70571c;
+    public final Map<String, d> f62017c;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.a.a$1  reason: invalid class name */
     /* loaded from: classes2.dex */
@@ -36,11 +34,9 @@ public class a {
 
     /* renamed from: com.ss.android.socialbase.downloader.network.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C2047a {
+    public static final class C2138a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f70572a;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +52,7 @@ public class a {
                     return;
                 }
             }
-            f70572a = new a(null);
+            a = new a(null);
         }
     }
 
@@ -67,8 +63,8 @@ public class a {
     public void a(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
-            synchronized (this.f70570b) {
-                this.f70570b.put(str, cVar);
+            synchronized (this.f62016b) {
+                this.f62016b.put(str, cVar);
             }
         }
     }
@@ -78,8 +74,8 @@ public class a {
         d remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, list)) == null) {
-            synchronized (this.f70571c) {
-                remove = this.f70571c.remove(str);
+            synchronized (this.f62017c) {
+                remove = this.f62017c.remove(str);
             }
             if (remove != null) {
                 if (f.a(remove.f(), list)) {
@@ -117,15 +113,15 @@ public class a {
                 return;
             }
         }
-        this.f70570b = new HashMap();
-        this.f70571c = new LinkedHashMap(3);
-        this.f70569a = 3;
+        this.f62016b = new HashMap();
+        this.f62017c = new LinkedHashMap(3);
+        this.a = 3;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f70569a = i2;
+            this.a = i2;
         }
     }
 
@@ -134,8 +130,8 @@ public class a {
         c remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
-            synchronized (this.f70570b) {
-                remove = this.f70570b.remove(str);
+            synchronized (this.f62016b) {
+                remove = this.f62016b.remove(str);
             }
             if (remove != null) {
                 if (f.a(remove.h(), list)) {
@@ -164,7 +160,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            c cVar = this.f70570b.get(str);
+            c cVar = this.f62016b.get(str);
             if (cVar != null) {
                 if (cVar.g()) {
                     return true;
@@ -179,6 +175,6 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2047a.f70572a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2138a.a : (a) invokeV.objValue;
     }
 }

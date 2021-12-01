@@ -1,7 +1,6 @@
 package com.baidu.wallet.base.iddetect.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +13,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.net.ServerSocket;
 import java.net.Socket;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IOUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,14 +34,14 @@ public class IOUtils {
 
     public static void closeQuietly(Reader reader) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, reader) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, reader) == null) {
             closeQuietly((Closeable) reader);
         }
     }
 
     public static void closeQuietly(Writer writer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, writer) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, writer) == null) {
             closeQuietly((Closeable) writer);
         }
     }

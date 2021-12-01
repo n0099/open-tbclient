@@ -1,7 +1,6 @@
 package org.apache.http.conn.params;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,14 +80,14 @@ public class ConnRouteParams implements ConnRoutePNames {
 
     public static void setDefaultProxy(HttpParams httpParams, HttpHost httpHost) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, httpParams, httpHost) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, httpParams, httpHost) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
     public static void setForcedRoute(HttpParams httpParams, HttpRoute httpRoute) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, httpParams, httpRoute) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, httpParams, httpRoute) == null) {
             throw new RuntimeException("Stub!");
         }
     }

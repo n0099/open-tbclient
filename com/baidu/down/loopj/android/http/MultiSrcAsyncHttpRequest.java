@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -56,9 +56,9 @@ public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
         this.mRequestLastNotifyTimes = 0L;
         this.mRequestUrl = str;
         this.mIsTestSpeedRequest = ((BinaryHttpResponseHandler) asyncHttpResponseHandler).getTestSpeedStage() == 1;
-        long j = multiSrcRequestParams.mSegBeginPos;
-        this.mCurFilePos = j;
-        this.mSegBeginPos = j;
+        long j2 = multiSrcRequestParams.mSegBeginPos;
+        this.mCurFilePos = j2;
+        this.mSegBeginPos = j2;
         this.mSegEndPos = multiSrcRequestParams.mSegEndPos;
     }
 
@@ -104,17 +104,17 @@ public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
         }
     }
 
-    public void setSegBeginPos(long j) {
+    public void setSegBeginPos(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.mSegBeginPos = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.mSegBeginPos = j2;
         }
     }
 
-    public void setSegEndPos(long j) {
+    public void setSegEndPos(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.mSegEndPos = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.mSegEndPos = j2;
         }
     }
 
@@ -132,14 +132,14 @@ public class MultiSrcAsyncHttpRequest extends AsyncHttpRequest {
         }
     }
 
-    public void updateAverageSpeed(MultiSrcBinaryReqTask multiSrcBinaryReqTask, long j, int i2) {
+    public void updateAverageSpeed(MultiSrcBinaryReqTask multiSrcBinaryReqTask, long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{multiSrcBinaryReqTask, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{multiSrcBinaryReqTask, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            this.mCurFilePos = j;
-            long j2 = this.mRequestBytes + i2;
-            this.mRequestBytes = j2;
-            this.mAverageSpeed = (j2 * 1000) / (elapsedRealtime - this.mRequestStartTime);
+            this.mCurFilePos = j2;
+            long j3 = this.mRequestBytes + i2;
+            this.mRequestBytes = j3;
+            this.mAverageSpeed = (j3 * 1000) / (elapsedRealtime - this.mRequestStartTime);
             if (elapsedRealtime - this.mRequestLastNotifyTimes > 100) {
                 this.mRequestLastNotifyTimes = SystemClock.elapsedRealtime();
                 MultiSrcTaskMsg multiSrcTaskMsg = new MultiSrcTaskMsg();

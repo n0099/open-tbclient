@@ -16,23 +16,23 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
     @Override // com.meizu.cloud.pushsdk.notification.a
     public void a(Notification notification, MessageV3 messageV3) {
         if (MinSdkChecker.isSupportNotificationBuild()) {
-            RemoteViews remoteViews = new RemoteViews(this.f68552a.getPackageName(), com.meizu.cloud.pushsdk.notification.c.c.a(this.f68552a));
-            remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.c.c.d(this.f68552a), messageV3.getTitle());
-            remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.c.c.e(this.f68552a), messageV3.getContent());
-            remoteViews.setLong(com.meizu.cloud.pushsdk.notification.c.c.f(this.f68552a), "setTime", System.currentTimeMillis());
+            RemoteViews remoteViews = new RemoteViews(this.a.getPackageName(), com.meizu.cloud.pushsdk.notification.c.c.a(this.a));
+            remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.c.c.d(this.a), messageV3.getTitle());
+            remoteViews.setTextViewText(com.meizu.cloud.pushsdk.notification.c.c.e(this.a), messageV3.getContent());
+            remoteViews.setLong(com.meizu.cloud.pushsdk.notification.c.c.f(this.a), "setTime", System.currentTimeMillis());
             a(remoteViews, messageV3);
-            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.g(this.f68552a), 8);
-            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.h(this.f68552a), 8);
+            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.g(this.a), 8);
+            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.h(this.a), 8);
             notification.contentView = remoteViews;
         }
     }
 
     public void a(RemoteViews remoteViews, MessageV3 messageV3) {
-        Bitmap a2;
-        if (messageV3.getmAppIconSetting() == null || a() || messageV3.getmAppIconSetting().isDefaultLargeIcon() || (a2 = a(messageV3.getmAppIconSetting().getLargeIconUrl())) == null) {
-            remoteViews.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.k(this.f68552a), a(this.f68552a, messageV3.getUploadDataPackageName()));
+        Bitmap a;
+        if (messageV3.getmAppIconSetting() == null || a() || messageV3.getmAppIconSetting().isDefaultLargeIcon() || (a = a(messageV3.getmAppIconSetting().getLargeIconUrl())) == null) {
+            remoteViews.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.k(this.a), a(this.a, messageV3.getUploadDataPackageName()));
         } else {
-            remoteViews.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.k(this.f68552a), a2);
+            remoteViews.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.k(this.a), a);
         }
     }
 }

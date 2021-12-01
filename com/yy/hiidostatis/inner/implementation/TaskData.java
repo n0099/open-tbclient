@@ -12,7 +12,7 @@ import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.message.utils.NoNull;
 import java.io.Serializable;
 import java.util.UUID;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TaskData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MAGIC_MD5 = "hd!@#$%";
@@ -169,10 +169,10 @@ public class TaskData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getDataId().hashCode() : invokeV.intValue;
     }
 
-    public void setAid(long j) {
+    public void setAid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.aid = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.aid = j2;
         }
     }
 
@@ -204,10 +204,10 @@ public class TaskData implements Serializable {
         }
     }
 
-    public void setOrder(long j) {
+    public void setOrder(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.order = j;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            this.order = j2;
         }
     }
 
@@ -225,10 +225,10 @@ public class TaskData implements Serializable {
         }
     }
 
-    public void setTime(long j) {
+    public void setTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            this.time = j;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
+            this.time = j2;
         }
     }
 

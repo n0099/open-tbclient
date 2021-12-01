@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class c implements c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,19 +44,19 @@ public abstract class c implements c.a {
     public boolean T;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.ar.mdl.b f37283e;
+    public com.baidu.ar.mdl.b f33379e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.ar.lua.b f37284f;
+    public com.baidu.ar.lua.b f33380f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.ar.arrender.c f37285g;
+    public com.baidu.ar.arrender.c f33381g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f37286h;
+    public g f33382h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.baidu.ar.imu.c f37287i;
+    public com.baidu.ar.imu.c f33383i;
     public Context mContext;
     public Handler mHandler;
     public int mInputHeight;
@@ -65,7 +65,7 @@ public abstract class c implements c.a {
     public int mOutputHeight;
     public int mOutputWidth;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         boolean a(String str, com.baidu.ar.d.e eVar);
 
@@ -96,18 +96,18 @@ public abstract class c implements c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            com.baidu.ar.arrender.c cVar = this.f37285g;
+            com.baidu.ar.arrender.c cVar = this.f33381g;
             if (cVar == null || cVar.bt() == null) {
                 return false;
             }
-            return this.f37285g.bt().isSyncInputContent();
+            return this.f33381g.bt().isSyncInputContent();
         }
         return invokeV.booleanValue;
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
         }
     }
 
@@ -129,8 +129,8 @@ public abstract class c implements c.a {
     public void a(g gVar, com.baidu.ar.arrender.c cVar, com.baidu.ar.filter.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, gVar, cVar, aVar) == null) {
-            this.f37286h = gVar;
-            this.f37285g = cVar;
+            this.f33382h = gVar;
+            this.f33381g = cVar;
             this.B = aVar;
             this.mInputWidth = cVar.bt().getInputWidth();
             this.mInputHeight = cVar.bt().getInputHeight();
@@ -189,11 +189,11 @@ public abstract class c implements c.a {
                 com.baidu.ar.h.b.b("AbstractAR", "removeDetector error!!! detector is null!!!");
                 return;
             }
-            if ((kVar instanceof j) && (cVar = this.f37285g) != null) {
+            if ((kVar instanceof j) && (cVar = this.f33381g) != null) {
                 j jVar = (j) kVar;
                 cVar.destroyPixelReader(jVar.di(), jVar);
             }
-            g gVar = this.f37286h;
+            g gVar = this.f33382h;
             if (gVar != null) {
                 gVar.a(kVar);
             }
@@ -218,7 +218,7 @@ public abstract class c implements c.a {
                 com.baidu.ar.h.b.b("AbstractAR", "addDetector error!!! detector is null!!!");
                 return;
             }
-            if ((kVar instanceof j) && this.f37285g != null) {
+            if ((kVar instanceof j) && this.f33381g != null) {
                 this.O.add(kVar);
                 j jVar = (j) kVar;
                 jVar.a(this.mHandler);
@@ -228,11 +228,11 @@ public abstract class c implements c.a {
                     if (!this.mIsFrontCamera) {
                         pixelRotation = PixelRotation.RotateRight;
                         di.setPixelRotate(pixelRotation);
-                        this.f37285g.createPixelReader(di, jVar);
+                        this.f33381g.createPixelReader(di, jVar);
                     }
                     pixelRotation = PixelRotation.RotateRightFlipHorizontal;
                     di.setPixelRotate(pixelRotation);
-                    this.f37285g.createPixelReader(di, jVar);
+                    this.f33381g.createPixelReader(di, jVar);
                 } else {
                     if (!this.T) {
                         int i2 = this.S;
@@ -245,10 +245,10 @@ public abstract class c implements c.a {
                         }
                         di.setPixelRotate(pixelRotation);
                     }
-                    this.f37285g.createPixelReader(di, jVar);
+                    this.f33381g.createPixelReader(di, jVar);
                 }
             }
-            g gVar = this.f37286h;
+            g gVar = this.f33382h;
             if (gVar != null) {
                 gVar.a(kVar, eVar);
             }
@@ -258,14 +258,14 @@ public abstract class c implements c.a {
     public void a(com.baidu.ar.imu.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.f37287i = cVar;
+            this.f33383i = cVar;
         }
     }
 
     public final void a(com.baidu.ar.imu.g gVar) {
         com.baidu.ar.imu.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, gVar) == null) || (cVar = this.f37287i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, gVar) == null) || (cVar = this.f33383i) == null) {
             return;
         }
         cVar.stop(gVar);
@@ -274,23 +274,23 @@ public abstract class c implements c.a {
     public final void a(LuaMsgListener luaMsgListener) {
         com.baidu.ar.lua.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, luaMsgListener) == null) || (bVar = this.f37284f) == null || bVar.fk() == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, luaMsgListener) == null) || (bVar = this.f33380f) == null || bVar.fk() == null) {
             return;
         }
-        this.f37284f.fk().addLuaMsgListener(luaMsgListener);
+        this.f33380f.fk().addLuaMsgListener(luaMsgListener);
     }
 
     public void a(com.baidu.ar.lua.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.f37284f = bVar;
+            this.f33380f = bVar;
         }
     }
 
     public final void a(com.baidu.ar.lua.c cVar) {
         com.baidu.ar.lua.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) || (bVar = this.f37284f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) || (bVar = this.f33380f) == null) {
             return;
         }
         bVar.c(cVar);
@@ -308,12 +308,12 @@ public abstract class c implements c.a {
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.mIsFrontCamera = z;
             for (k kVar : this.O) {
-                if ((kVar instanceof j) && this.f37285g != null) {
+                if ((kVar instanceof j) && this.f33381g != null) {
                     PixelReadParams di = ((j) kVar).di();
                     if (this.T && di.getIsPortrait()) {
                         PixelRotation pixelRotation = z ? PixelRotation.RotateRightFlipHorizontal : PixelRotation.RotateRight;
                         di.setPixelRotate(pixelRotation);
-                        this.f37285g.updatePixelReader(di, pixelRotation);
+                        this.f33381g.updatePixelReader(di, pixelRotation);
                     }
                 }
             }
@@ -324,7 +324,7 @@ public abstract class c implements c.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, iVar, gVar)) == null) {
-            com.baidu.ar.imu.c cVar = this.f37287i;
+            com.baidu.ar.imu.c cVar = this.f33383i;
             if (cVar != null) {
                 return cVar.start(iVar, gVar);
             }
@@ -387,7 +387,7 @@ public abstract class c implements c.a {
                 if (kVar != null && (kVar instanceof j)) {
                     ((j) kVar).b(this.P);
                 }
-                g gVar = this.f37286h;
+                g gVar = this.f33382h;
                 if (gVar != null) {
                     gVar.a((j) kVar);
                 }
@@ -398,7 +398,7 @@ public abstract class c implements c.a {
     public final void b(int i2, HashMap<String, Object> hashMap) {
         com.baidu.ar.lua.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i2, hashMap) == null) || (bVar = this.f37284f) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048593, this, i2, hashMap) == null) || (bVar = this.f33380f) == null) {
             return;
         }
         bVar.b(i2, hashMap);
@@ -407,16 +407,16 @@ public abstract class c implements c.a {
     public final void b(LuaMsgListener luaMsgListener) {
         com.baidu.ar.lua.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, luaMsgListener) == null) || (bVar = this.f37284f) == null || bVar.fk() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, luaMsgListener) == null) || (bVar = this.f33380f) == null || bVar.fk() == null) {
             return;
         }
-        this.f37284f.fk().removeLuaMsgListener(luaMsgListener);
+        this.f33380f.fk().removeLuaMsgListener(luaMsgListener);
     }
 
     public final void b(com.baidu.ar.lua.c cVar) {
         com.baidu.ar.lua.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, cVar) == null) || (bVar = this.f37284f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, cVar) == null) || (bVar = this.f33380f) == null) {
             return;
         }
         bVar.d(cVar);
@@ -463,7 +463,7 @@ public abstract class c implements c.a {
                     if (kVar != null && (kVar instanceof j)) {
                         ((j) kVar).b(this.P);
                     }
-                    g gVar = this.f37286h;
+                    g gVar = this.f33382h;
                     if (gVar != null) {
                         gVar.a((j) kVar);
                     }
@@ -487,7 +487,7 @@ public abstract class c implements c.a {
     public final void d(HashMap<String, Object> hashMap) {
         com.baidu.ar.lua.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, hashMap) == null) || (bVar = this.f37284f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, hashMap) == null) || (bVar = this.f33380f) == null) {
             return;
         }
         bVar.b(1902, hashMap);
@@ -509,7 +509,7 @@ public abstract class c implements c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            com.baidu.ar.mdl.b bVar = this.f37283e;
+            com.baidu.ar.mdl.b bVar = this.f33379e;
             if (bVar == null) {
                 com.baidu.ar.h.b.b("AbstractAR", "mMdlConfigParams is null.");
                 return new SparseArray<>();
@@ -562,11 +562,11 @@ public abstract class c implements c.a {
     public void onInputSizeChange(int i2, int i3) {
         com.baidu.ar.arrender.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048609, this, i2, i3) == null) || (cVar = this.f37285g) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048609, this, i2, i3) == null) || (cVar = this.f33381g) == null) {
             return;
         }
         this.mInputWidth = cVar.bt().getInputWidth();
-        this.mInputHeight = this.f37285g.bt().getInputHeight();
+        this.mInputHeight = this.f33381g.bt().getInputHeight();
     }
 
     public boolean p() {
@@ -602,7 +602,7 @@ public abstract class c implements c.a {
     public final l r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f37285g : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.f33381g : (l) invokeV.objValue;
     }
 
     public void release() {
@@ -624,11 +624,11 @@ public abstract class c implements c.a {
             }
             this.O.clear();
             this.O = null;
-            this.f37286h = null;
-            this.f37287i = null;
-            this.f37285g = null;
+            this.f33382h = null;
+            this.f33383i = null;
+            this.f33381g = null;
             this.B = null;
-            this.f37284f = null;
+            this.f33380f = null;
             this.M = null;
             this.mHandler = null;
             this.mContext = null;
@@ -657,7 +657,7 @@ public abstract class c implements c.a {
     public void setMdlConfigParams(com.baidu.ar.mdl.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, bVar) == null) {
-            this.f37283e = bVar;
+            this.f33379e = bVar;
         }
     }
 
@@ -685,8 +685,8 @@ public abstract class c implements c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            com.baidu.ar.arrender.c cVar = this.f37285g;
-            return (cVar == null || cVar.bt() == null || this.f37285g.bt().getInputTexture() == null) ? false : true;
+            com.baidu.ar.arrender.c cVar = this.f33381g;
+            return (cVar == null || cVar.bt() == null || this.f33381g.bt().getInputTexture() == null) ? false : true;
         }
         return invokeV.booleanValue;
     }

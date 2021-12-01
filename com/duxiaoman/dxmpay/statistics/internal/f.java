@@ -2,7 +2,7 @@ package com.duxiaoman.dxmpay.statistics.internal;
 
 import android.os.Build;
 import android.text.TextUtils;
-import b.c.a.a.a.h;
+import c.d.a.a.a.h;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.duxiaoman.dxmpay.statistics.StatApi;
-import com.fun.ad.sdk.BuildConfig;
+import com.kwad.v8.debug.mirror.ObjectMirror;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,12 +23,10 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f62928a;
+    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +42,7 @@ public class f {
                 return;
             }
         }
-        f62928a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
+        a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,7 +74,7 @@ public class f {
             String trim = str == null ? RomUtils.UNKNOWN : str.trim();
             try {
                 if (!TextUtils.isEmpty(trim)) {
-                    for (String str2 : f62928a) {
+                    for (String str2 : a) {
                         if (str2.equalsIgnoreCase(trim)) {
                             return str2;
                         }
@@ -129,7 +127,7 @@ public class f {
                 jSONObject3.put("$model", replace);
                 jSONObject3.put("$app_version", str8);
                 jSONObject3.put(Constants.EXTRA_KEY_APP_VERSION_CODE, str9);
-                jSONObject.put(BuildConfig.FLAVOR, jSONObject3);
+                jSONObject.put("pub", jSONObject3);
                 if (jSONArray != null && jSONArray.length() > 0) {
                     int i2 = 0;
                     while (i2 < jSONArray.length()) {
@@ -140,7 +138,7 @@ public class f {
                         if (jSONObject5.has(str10)) {
                             jSONObject4.put("time", ((Long) jSONObject5.remove(str10)).longValue());
                         }
-                        String str11 = (String) jSONObject5.remove(com.baidu.fsg.base.statistics.h.f38333a);
+                        String str11 = (String) jSONObject5.remove(com.baidu.fsg.base.statistics.h.a);
                         JSONObject jSONObject6 = new JSONObject();
                         jSONObject6.put("event_key", str11);
                         Iterator<String> keys2 = jSONObject5.keys();
@@ -155,7 +153,7 @@ public class f {
                                 }
                                 c2 = 65535;
                             } else if (hashCode == 3234) {
-                                if (next2.equals(com.baidu.fsg.base.statistics.h.f38336d)) {
+                                if (next2.equals(com.baidu.fsg.base.statistics.h.f34294d)) {
                                     c2 = 0;
                                 }
                                 c2 = 65535;
@@ -165,20 +163,20 @@ public class f {
                                 }
                                 c2 = 65535;
                             } else if (hashCode != 3455) {
-                                if (hashCode == 3527 && next2.equals(com.baidu.fsg.base.statistics.h.f38338f)) {
+                                if (hashCode == 3527 && next2.equals(com.baidu.fsg.base.statistics.h.f34296f)) {
                                     c2 = 1;
                                 }
                                 c2 = 65535;
                             } else {
-                                if (next2.equals(com.baidu.fsg.base.statistics.h.f38337e)) {
+                                if (next2.equals(com.baidu.fsg.base.statistics.h.f34295e)) {
                                     c2 = 2;
                                 }
                                 c2 = 65535;
                             }
                             if (c2 == 0) {
-                                jSONObject6.put("event_tag", jSONObject5.optString(com.baidu.fsg.base.statistics.h.f38336d));
+                                jSONObject6.put("event_tag", jSONObject5.optString(com.baidu.fsg.base.statistics.h.f34294d));
                             } else if (c2 == 1) {
-                                jSONObject6.put("event_number", jSONObject5.optInt(com.baidu.fsg.base.statistics.h.f38338f));
+                                jSONObject6.put("event_number", jSONObject5.optInt(com.baidu.fsg.base.statistics.h.f34296f));
                             } else if (c2 != 2) {
                                 if (c2 == 3) {
                                     jSONObject6.put("abtype", jSONObject5.optString("at"));
@@ -199,7 +197,7 @@ public class f {
                                 }
                                 str10 = str12;
                                 jSONArray = jSONArray3;
-                            } else if (jSONObject5.optString(com.baidu.fsg.base.statistics.h.f38337e).equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
+                            } else if (jSONObject5.optString(com.baidu.fsg.base.statistics.h.f34295e).equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
                                 jSONObject6.put("$wifi", true);
                             } else {
                                 jSONObject6.put("$wifi", false);
@@ -209,7 +207,7 @@ public class f {
                         }
                         String str13 = str10;
                         JSONArray jSONArray5 = jSONArray;
-                        jSONObject4.put("properties", jSONObject6);
+                        jSONObject4.put(ObjectMirror.PROPERTIES, jSONObject6);
                         jSONArray2.put(jSONObject4);
                         i2++;
                         str10 = str13;

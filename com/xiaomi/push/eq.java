@@ -8,12 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class eq {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Vector<Pair<String, Long>> f71811a;
+    public static Vector<Pair<String, Long>> a;
 
     /* renamed from: a  reason: collision with other field name */
     public static ConcurrentHashMap<String, Long> f337a;
@@ -32,7 +30,7 @@ public class eq {
                 return;
             }
         }
-        f71811a = new Vector<>();
+        a = new Vector<>();
         f337a = new ConcurrentHashMap<>();
     }
 
@@ -41,17 +39,17 @@ public class eq {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             StringBuilder sb = new StringBuilder();
-            synchronized (f71811a) {
-                for (int i2 = 0; i2 < f71811a.size(); i2++) {
-                    Pair<String, Long> elementAt = f71811a.elementAt(i2);
+            synchronized (a) {
+                for (int i2 = 0; i2 < a.size(); i2++) {
+                    Pair<String, Long> elementAt = a.elementAt(i2);
                     sb.append((String) elementAt.first);
                     sb.append(":");
                     sb.append(elementAt.second);
-                    if (i2 < f71811a.size() - 1) {
+                    if (i2 < a.size() - 1) {
                         sb.append(";");
                     }
                 }
-                f71811a.clear();
+                a.clear();
             }
             return sb.toString();
         }

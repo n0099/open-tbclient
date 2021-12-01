@@ -8,7 +8,6 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 @RequiresApi(api = 16)
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MediaCodecHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMEOUT_USEC = 10000;
@@ -93,13 +92,13 @@ public class MediaCodecHelper {
     public static String getMimeTypeFor(MediaFormat mediaFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, mediaFormat)) == null) ? mediaFormat.getString("mime") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaFormat)) == null) ? mediaFormat.getString("mime") : (String) invokeL.objValue;
     }
 
     public static boolean isAudioFormat(MediaFormat mediaFormat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, mediaFormat)) == null) ? getMimeTypeFor(mediaFormat).startsWith("audio/") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaFormat)) == null) ? getMimeTypeFor(mediaFormat).startsWith("audio/") : invokeL.booleanValue;
     }
 
     public static boolean isVideoFormat(MediaFormat mediaFormat) {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,20 +21,20 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RealTimeEventHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements IBeanResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.e.b.g.c.a f63609e;
+        public final /* synthetic */ c.f.b.g.c.a f55606e;
 
-        public a(b.e.b.g.c.a aVar) {
+        public a(c.f.b.g.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,14 +49,14 @@ public class RealTimeEventHelper {
                     return;
                 }
             }
-            this.f63609e = aVar;
+            this.f55606e = aVar;
         }
 
         @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-                this.f63609e.destroyBean();
+                this.f55606e.destroyBean();
             }
         }
 
@@ -64,12 +64,12 @@ public class RealTimeEventHelper {
         public void onBeanExecSuccess(int i2, Object obj, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-                this.f63609e.destroyBean();
+                this.f55606e.destroyBean();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public class RealTimeEventHelper {
     public static void eventStatBean(Context context, String str, String str2, Map<String, String> map, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, map, str3, str4}) == null) {
-            b.e.b.g.c.a aVar = new b.e.b.g.c.a(context, a(getEventValues(context, str, str2, map, str3, str4)));
+            c.f.b.g.c.a aVar = new c.f.b.g.c.a(context, a(getEventValues(context, str, str2, map, str3, str4)));
             aVar.setResponseCallback(new a(aVar));
             aVar.execBean();
         }
@@ -166,7 +166,7 @@ public class RealTimeEventHelper {
                     if (!TextUtils.isEmpty(strArr[i2])) {
                         arrayList.add(strArr[i2]);
                     } else {
-                        arrayList.add("empty");
+                        arrayList.add(SchemeCollecter.CLASSIFY_EMPTY);
                     }
                 }
             } catch (Exception unused) {
@@ -179,7 +179,7 @@ public class RealTimeEventHelper {
     public static String getEventValues(Context context, String str, String str2, Map<String, String> map, String str3, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, str, str2, map, str3, str4})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, map, str3, str4})) == null) {
             StringBuilder sb = new StringBuilder();
             if (TextUtils.isEmpty(str2) && map == null) {
                 return sb.toString();
@@ -236,7 +236,7 @@ public class RealTimeEventHelper {
     public static String getSinalParam(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }

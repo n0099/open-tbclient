@@ -10,17 +10,17 @@ public abstract class JobNode<J extends Job> extends CompletionHandlerBase imple
     @JvmField
     public final J job;
 
-    public JobNode(J j) {
-        this.job = j;
+    public JobNode(J j2) {
+        this.job = j2;
     }
 
     @Override // kotlinx.coroutines.DisposableHandle
     public void dispose() {
-        J j = this.job;
-        if (j == null) {
+        J j2 = this.job;
+        if (j2 == null) {
             throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.JobSupport");
         }
-        ((JobSupport) j).removeNode$kotlinx_coroutines_core(this);
+        ((JobSupport) j2).removeNode$kotlinx_coroutines_core(this);
     }
 
     @Override // kotlinx.coroutines.Incomplete

@@ -2,7 +2,6 @@ package org.apache.http.message;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,7 +82,7 @@ public class BasicLineFormatter implements LineFormatter {
     public static final String formatStatusLine(StatusLine statusLine, LineFormatter lineFormatter) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, statusLine, lineFormatter)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, statusLine, lineFormatter)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeLL.objValue;

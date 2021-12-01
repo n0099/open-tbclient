@@ -16,9 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Map<Class, d> f66764a;
+    public static final Map<Class, d> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +32,7 @@ public final class f {
                 return;
             }
         }
-        f66764a = new ConcurrentHashMap();
+        a = new ConcurrentHashMap();
     }
 
     @Nullable
@@ -42,7 +40,7 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            T t = (T) f66764a.get(cls);
+            T t = (T) a.get(cls);
             if (t != null) {
                 return t;
             }
@@ -76,7 +74,7 @@ public final class f {
                             return invokeLLL.objValue;
                         }
                     });
-                    f66764a.put(cls, t2);
+                    a.put(cls, t2);
                     return t2;
                 }
                 return null;
@@ -91,7 +89,7 @@ public final class f {
     public static void a(Class cls, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, cls, dVar) == null) {
-            f66764a.put(cls, dVar);
+            a.put(cls, dVar);
         }
     }
 }

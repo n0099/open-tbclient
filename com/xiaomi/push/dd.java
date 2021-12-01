@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
 import com.xiaomi.push.db;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dd extends al.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public al.b f71710a;
+    public al.b a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ db f235a;
@@ -42,9 +40,9 @@ public class dd extends al.b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (db.b) this.f235a.f223a.peek()) != null && bVar.a()) {
             if (this.f235a.f223a.remove(bVar)) {
-                this.f71710a = bVar;
+                this.a = bVar;
             }
-            al.b bVar2 = this.f71710a;
+            al.b bVar2 = this.a;
             if (bVar2 != null) {
                 bVar2.b();
             }
@@ -53,12 +51,12 @@ public class dd extends al.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo245c() {
+    public void mo294c() {
         al.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f71710a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.a) == null) {
             return;
         }
-        bVar.mo245c();
+        bVar.mo294c();
     }
 }

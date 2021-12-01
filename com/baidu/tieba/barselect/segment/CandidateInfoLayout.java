@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.f.m.b;
-import b.a.e.f.p.l;
-import b.a.r0.y.b.d;
-import b.a.r0.y.b.f;
+import c.a.d.f.m.b;
+import c.a.d.f.p.l;
+import c.a.r0.c0.b.d;
+import c.a.r0.c0.b.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,36 +27,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CandidateInfoLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f48201e;
+    public Context f43149e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BazhuHeadView f48202f;
+    public BazhuHeadView f43150f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f48203g;
+    public LinearLayout f43151g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48204h;
+    public TextView f43152h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f48205i;
-    public ImageView j;
-    public TextView k;
+    public TextView f43153i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ImageView f43154j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public TextView f43155k;
     public View.OnClickListener l;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CandidateInfoLayout f48206e;
+        public final /* synthetic */ CandidateInfoLayout f43156e;
 
         public a(CandidateInfoLayout candidateInfoLayout) {
             Interceptable interceptable = $ic;
@@ -73,22 +77,22 @@ public class CandidateInfoLayout extends CardBasicLayout {
                     return;
                 }
             }
-            this.f48206e = candidateInfoLayout;
+            this.f43156e = candidateInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (dVar = this.f48206e.mElectionData) == null || dVar.l() == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (dVar = this.f43156e.mElectionData) == null || dVar.l() == 0) {
                 return;
             }
             long g2 = b.g(TbadkCoreApplication.getCurrentAccount(), 0L);
-            long l = this.f48206e.mElectionData.l();
-            if (!(this.f48206e.getContext() instanceof Activity) || this.f48206e.mElectionData.f() == 2) {
+            long l = this.f43156e.mElectionData.l();
+            if (!(this.f43156e.getContext() instanceof Activity) || this.f43156e.mElectionData.f() == 2) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f48206e.getContext()).createNormalConfig(l, l == g2, false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.f43156e.getContext()).createNormalConfig(l, l == g2, false)));
         }
     }
 
@@ -117,27 +121,27 @@ public class CandidateInfoLayout extends CardBasicLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
-            this.f48202f = bazhuHeadView;
+            this.f43150f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
-                this.f48202f.getHeadView().setIsRound(true);
+                this.f43150f.getHeadView().setIsRound(true);
             }
-            this.f48203g = (LinearLayout) findViewById(R.id.user_name_and_active_status);
-            this.f48204h = (TextView) findViewById(R.id.user_name);
-            this.f48205i = (TextView) findViewById(R.id.vote_id);
-            this.k = (TextView) findViewById(R.id.agree_post_reply_num);
-            this.j = (ImageView) findViewById(R.id.grade);
+            this.f43151g = (LinearLayout) findViewById(R.id.user_name_and_active_status);
+            this.f43152h = (TextView) findViewById(R.id.user_name);
+            this.f43153i = (TextView) findViewById(R.id.vote_id);
+            this.f43155k = (TextView) findViewById(R.id.agree_post_reply_num);
+            this.f43154j = (ImageView) findViewById(R.id.grade);
         }
     }
 
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48201e = getContext();
+            this.f43149e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(0);
             setGravity(80);
-            setMinimumHeight(l.g(getContext(), R.dimen.tbds90));
+            setMinimumHeight(l.f(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             LayoutInflater.from(getContext()).inflate(R.layout.candidate_info_layout, (ViewGroup) this, true);
             a();
@@ -147,9 +151,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f48204h, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f48205i, R.color.CAM_X0109, 1, i2);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.f43152h, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f43153i, R.color.CAM_X0109, 1, i2);
+            SkinManager.setViewTextColor(this.f43155k, R.color.CAM_X0109, 1, i2);
             d dVar = this.mElectionData;
             if (dVar != null) {
                 setGrade(dVar.d());
@@ -165,44 +169,44 @@ public class CandidateInfoLayout extends CardBasicLayout {
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) {
             super.setData(i2, fVar);
             if (this.mData != null && this.mElectionData != null && (i3 = this.status) >= 0) {
-                if (i3 == b.a.r0.y.e.a.f28725c) {
-                    int g2 = l.g(this.f48201e, R.dimen.tbds191);
-                    int g3 = l.g(this.f48201e, R.dimen.tbds157);
-                    int g4 = l.g(this.f48201e, R.dimen.tbds6);
-                    int g5 = l.g(this.f48201e, R.dimen.tbds24);
-                    int g6 = l.g(this.f48201e, R.dimen.tbds30);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g3, g2);
-                    layoutParams.setMargins(layoutParams.leftMargin - g4, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-                    this.f48202f.setLayoutParams(layoutParams);
-                    this.f48202f.resizeView(true);
-                    this.f48202f.setBawuLogoView(R.drawable.pic_election_bazhu);
-                    this.f48202f.setPendantView(R.drawable.icon_crown);
-                    this.f48204h.setTextSize(0, l.g(this.f48201e, R.dimen.tbfontsize46));
+                if (i3 == c.a.r0.c0.e.a.f15017c) {
+                    int f2 = l.f(this.f43149e, R.dimen.tbds191);
+                    int f3 = l.f(this.f43149e, R.dimen.tbds157);
+                    int f4 = l.f(this.f43149e, R.dimen.tbds6);
+                    int f5 = l.f(this.f43149e, R.dimen.tbds24);
+                    int f6 = l.f(this.f43149e, R.dimen.tbds30);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(f3, f2);
+                    layoutParams.setMargins(layoutParams.leftMargin - f4, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
+                    this.f43150f.setLayoutParams(layoutParams);
+                    this.f43150f.resizeView(true);
+                    this.f43150f.setBawuLogoView(R.drawable.pic_election_bazhu);
+                    this.f43150f.setPendantView(R.drawable.icon_crown);
+                    this.f43152h.setTextSize(0, l.f(this.f43149e, R.dimen.tbfontsize46));
                     setGravity(16);
                     LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams2.setMargins(g6, g5, layoutParams2.rightMargin, g4);
-                    this.f48202f.setLayoutParams(layoutParams);
-                    this.f48203g.setLayoutParams(layoutParams2);
+                    layoutParams2.setMargins(f6, f5, layoutParams2.rightMargin, f4);
+                    this.f43150f.setLayoutParams(layoutParams);
+                    this.f43151g.setLayoutParams(layoutParams2);
                 } else {
-                    this.f48202f.resizeView(false);
+                    this.f43150f.resizeView(false);
                 }
-                this.f48202f.startLoadOnlyHeadUrl(this.mElectionData.g());
-                this.f48202f.setOnClickListener(this.l);
-                this.f48204h.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mElectionData.e(), 14, "..."));
+                this.f43150f.startLoadOnlyHeadUrl(this.mElectionData.g());
+                this.f43150f.setOnClickListener(this.l);
+                this.f43152h.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.mElectionData.e(), 14, "..."));
                 setGrade(this.mElectionData.d());
                 if (this.mElectionData.f() == 2) {
-                    this.f48205i.setVisibility(8);
+                    this.f43153i.setVisibility(8);
                 } else {
-                    this.f48205i.setVisibility(0);
+                    this.f43153i.setVisibility(0);
                     if (this.mElectionData.c() < 1000) {
                         String str2 = "0000" + this.mElectionData.c();
                         str = str2.substring(str2.length() - 4, str2.length());
                     } else {
                         str = "" + this.mElectionData.c();
                     }
-                    this.f48205i.setText("NO." + str);
+                    this.f43153i.setText("NO." + str);
                 }
-                this.k.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(this.mElectionData.a()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.j()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.h())));
+                this.f43155k.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), StringHelper.numFormatOverWanWithNegative(this.mElectionData.a()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.j()), StringHelper.numFormatOverWanWithNegative(this.mElectionData.h())));
                 return;
             }
             setVisibility(8);
@@ -212,7 +216,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public void setGrade(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            SkinManager.setImageResource(this.j, BitmapHelper.getGradeResourceIdInEnterForum(i2));
+            SkinManager.setImageResource(this.f43154j, BitmapHelper.getGradeResourceIdInEnterForum(i2));
         }
     }
 

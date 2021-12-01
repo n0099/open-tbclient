@@ -93,10 +93,10 @@ public class ForwardingTimeout extends Timeout {
     }
 
     @Override // okio.Timeout
-    public Timeout timeout(long j, TimeUnit timeUnit) {
+    public Timeout timeout(long j2, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, timeUnit)) == null) ? this.delegate.timeout(j, timeUnit) : (Timeout) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2, timeUnit)) == null) ? this.delegate.timeout(j2, timeUnit) : (Timeout) invokeJL.objValue;
     }
 
     @Override // okio.Timeout
@@ -107,9 +107,9 @@ public class ForwardingTimeout extends Timeout {
     }
 
     @Override // okio.Timeout
-    public Timeout deadlineNanoTime(long j) {
+    public Timeout deadlineNanoTime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.delegate.deadlineNanoTime(j) : (Timeout) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.delegate.deadlineNanoTime(j2) : (Timeout) invokeJ.objValue;
     }
 }

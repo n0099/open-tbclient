@@ -1,13 +1,12 @@
 package com.xiaomi.push;
 
-import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class fn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,10 +55,7 @@ public class fn {
                 if (message.indexOf("No route to host") != -1) {
                     return 104;
                 }
-                if (message.endsWith("EINVAL (Invalid argument)")) {
-                    return 106;
-                }
-                return Opcodes.IFNONNULL;
+                return message.endsWith("EINVAL (Invalid argument)") ? 106 : 199;
             }
         }
         return invokeL.intValue;

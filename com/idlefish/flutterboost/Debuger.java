@@ -1,7 +1,6 @@
 package com.idlefish.flutterboost;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +69,7 @@ public class Debuger {
     public static boolean isDebug() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             try {
                 return FlutterBoost.instance().platform().isDebug();
             } catch (Throwable unused) {
@@ -82,7 +81,7 @@ public class Debuger {
 
     public static void log(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
             DEBUG.print(str);
         }
     }

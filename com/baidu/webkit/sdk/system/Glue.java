@@ -7,7 +7,6 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,14 +20,14 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Glue {
     public static /* synthetic */ Interceptable $ic;
     public static Field ImmutableField;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.webkit.sdk.system.Glue$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm;
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$PluginState;
@@ -162,7 +161,7 @@ public final class Glue {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ResultReceiverWrapper implements JsResult.ResultReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,7 +308,7 @@ public final class Glue {
     public static WebSettings.PluginState cast(WebSettings.PluginState pluginState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, pluginState)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pluginState)) == null) {
             int i2 = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState[pluginState.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
@@ -328,7 +327,7 @@ public final class Glue {
     public static WebSettings.RenderPriority cast(WebSettings.RenderPriority renderPriority) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, renderPriority)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, renderPriority)) == null) {
             int i2 = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority[renderPriority.ordinal()];
             if (i2 == 1 || i2 == 2 || i2 == 3) {
                 return WebSettings.RenderPriority.NORMAL;

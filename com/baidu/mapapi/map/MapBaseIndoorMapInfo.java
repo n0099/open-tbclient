@@ -9,25 +9,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class MapBaseIndoorMapInfo {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f40210d = "MapBaseIndoorMapInfo";
+    public static final String f35847d = "MapBaseIndoorMapInfo";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f40211a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40212b;
+    public String f35848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f40213c;
+    public ArrayList<String> f35849c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SwitchFloorError {
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchFloorError FLOOR_INFO_ERROR;
@@ -35,9 +33,7 @@ public final class MapBaseIndoorMapInfo {
         public static final SwitchFloorError FOCUSED_ID_ERROR;
         public static final SwitchFloorError SWITCH_ERROR;
         public static final SwitchFloorError SWITCH_OK;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ SwitchFloorError[] f40214a;
+        public static final /* synthetic */ SwitchFloorError[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,7 +55,7 @@ public final class MapBaseIndoorMapInfo {
             FOCUSED_ID_ERROR = new SwitchFloorError("FOCUSED_ID_ERROR", 3);
             SwitchFloorError switchFloorError = new SwitchFloorError("SWITCH_ERROR", 4);
             SWITCH_ERROR = switchFloorError;
-            f40214a = new SwitchFloorError[]{SWITCH_OK, FLOOR_INFO_ERROR, FLOOR_OVERLFLOW, FOCUSED_ID_ERROR, switchFloorError};
+            a = new SwitchFloorError[]{SWITCH_OK, FLOOR_INFO_ERROR, FLOOR_OVERLFLOW, FOCUSED_ID_ERROR, switchFloorError};
         }
 
         public SwitchFloorError(String str, int i2) {
@@ -90,7 +86,7 @@ public final class MapBaseIndoorMapInfo {
         public static SwitchFloorError[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SwitchFloorError[]) f40214a.clone() : (SwitchFloorError[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SwitchFloorError[]) a.clone() : (SwitchFloorError[]) invokeV.objValue;
         }
     }
 
@@ -138,9 +134,9 @@ public final class MapBaseIndoorMapInfo {
                 return;
             }
         }
-        this.f40211a = mapBaseIndoorMapInfo.f40211a;
-        this.f40212b = mapBaseIndoorMapInfo.f40212b;
-        this.f40213c = mapBaseIndoorMapInfo.f40213c;
+        this.a = mapBaseIndoorMapInfo.a;
+        this.f35848b = mapBaseIndoorMapInfo.f35848b;
+        this.f35849c = mapBaseIndoorMapInfo.f35849c;
     }
 
     public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
@@ -158,26 +154,26 @@ public final class MapBaseIndoorMapInfo {
                 return;
             }
         }
-        this.f40211a = str;
-        this.f40212b = str2;
-        this.f40213c = arrayList;
+        this.a = str;
+        this.f35848b = str2;
+        this.f35849c = arrayList;
     }
 
     public String getCurFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40212b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35848b : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getFloors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40213c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35849c : (ArrayList) invokeV.objValue;
     }
 
     public String getID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40211a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

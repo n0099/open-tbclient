@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARPEngine3D extends AbstractARPEngine3D {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -146,10 +146,10 @@ public class ARPEngine3D extends AbstractARPEngine3D {
         }
         vector3f3.normalize();
         vector3f3.multiplyByScalar(-1.0f);
-        Quaternion a2 = ARPNumber.a(vector3f2, vector3f3);
-        a2.multiplyByQuat(quaternion);
+        Quaternion a = ARPNumber.a(vector3f2, vector3f3);
+        a.multiplyByQuat(quaternion);
         Vector4f vector4f = new Vector4f();
-        a2.toAxisAngle(vector4f);
+        a.toAxisAngle(vector4f);
         vector4f.setW((float) Math.toRadians(vector4f.w()));
         rootNode.setRotation(vector4f);
     }

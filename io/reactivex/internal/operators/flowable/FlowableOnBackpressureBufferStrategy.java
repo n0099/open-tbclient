@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
     public final BackpressureOverflowStrategy strategy;
 
     /* renamed from: io.reactivex.internal.operators.flowable.FlowableOnBackpressureBufferStrategy$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$BackpressureOverflowStrategy;
         public static /* synthetic */ Interceptable $ic;
@@ -64,7 +64,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class OnBackpressureBufferStrategySubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3240706908776709697L;
@@ -80,12 +80,12 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
         public Subscription s;
         public final BackpressureOverflowStrategy strategy;
 
-        public OnBackpressureBufferStrategySubscriber(Subscriber<? super T> subscriber, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy, long j) {
+        public OnBackpressureBufferStrategySubscriber(Subscriber<? super T> subscriber, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, action, backpressureOverflowStrategy, Long.valueOf(j)};
+                Object[] objArr = {subscriber, action, backpressureOverflowStrategy, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -98,7 +98,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
             this.actual = subscriber;
             this.onOverflow = action;
             this.strategy = backpressureOverflowStrategy;
-            this.bufferSize = j;
+            this.bufferSize = j2;
             this.requested = new AtomicLong();
             this.deque = new ArrayDeque();
         }
@@ -134,10 +134,10 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
                 Subscriber<? super T> subscriber = this.actual;
                 int i3 = 1;
                 do {
-                    long j = this.requested.get();
-                    long j2 = 0;
+                    long j2 = this.requested.get();
+                    long j3 = 0;
                     while (true) {
-                        i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         } else if (this.cancelled) {
@@ -164,7 +164,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
                                 break;
                             }
                             subscriber.onNext(poll);
-                            j2++;
+                            j3++;
                         }
                     }
                     if (i2 == 0) {
@@ -188,8 +188,8 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
                             }
                         }
                     }
-                    if (j2 != 0) {
-                        BackpressureHelper.produced(this.requested, j2);
+                    if (j3 != 0) {
+                        BackpressureHelper.produced(this.requested, j3);
                     }
                     i3 = addAndGet(-i3);
                 } while (i3 != 0);
@@ -278,23 +278,23 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureBufferStrategy(Flowable<T> flowable, long j, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy) {
+    public FlowableOnBackpressureBufferStrategy(Flowable<T> flowable, long j2, Action action, BackpressureOverflowStrategy backpressureOverflowStrategy) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j), action, backpressureOverflowStrategy};
+            Object[] objArr = {flowable, Long.valueOf(j2), action, backpressureOverflowStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -305,7 +305,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends AbstractFlowa
                 return;
             }
         }
-        this.bufferSize = j;
+        this.bufferSize = j2;
         this.onOverflow = action;
         this.strategy = backpressureOverflowStrategy;
     }

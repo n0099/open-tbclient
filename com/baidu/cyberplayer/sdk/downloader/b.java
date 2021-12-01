@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.o;
-import com.baidu.mobads.container.components.downloader.OAdRemoteApkDownloader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,20 +20,20 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void a(String str, long j);
+        void a(String str, long j2);
 
-        void a(String str, long j, long j2);
+        void a(String str, long j2, long j3);
 
-        void a(String str, long j, String str2);
+        void a(String str, long j2, String str2);
 
-        void b(String str, long j);
+        void b(String str, long j2);
     }
 
     public static long a(String str, OutputStream outputStream, a aVar) throws Exception {
@@ -92,12 +91,12 @@ public class b {
                             i4 = i2;
                             i3 = 0;
                         }
-                        CyberLog.d(OAdRemoteApkDownloader.TAG, "download finished. use time=" + (System.currentTimeMillis() - currentTimeMillis));
+                        CyberLog.d("Downloader", "download finished. use time=" + (System.currentTimeMillis() - currentTimeMillis));
                         if (inputStream2 != null) {
                             try {
                                 inputStream2.close();
                             } catch (Exception e2) {
-                                CyberLog.d(OAdRemoteApkDownloader.TAG, "disconnect Exception:" + e2.toString());
+                                CyberLog.d("Downloader", "disconnect Exception:" + e2.toString());
                             }
                         }
                         if (httpURLConnection != null) {
@@ -111,7 +110,7 @@ public class b {
                             try {
                                 inputStream.close();
                             } catch (Exception e3) {
-                                CyberLog.d(OAdRemoteApkDownloader.TAG, "disconnect Exception:" + e3.toString());
+                                CyberLog.d("Downloader", "disconnect Exception:" + e3.toString());
                                 throw th;
                             }
                         }
@@ -147,15 +146,13 @@ public class b {
                 CyberTaskExcutor.getInstance().execute(new Runnable(str4, str, aVar) { // from class: com.baidu.cyberplayer.sdk.downloader.b.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ String f37903a;
+                    public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f37904b;
+                    public final /* synthetic */ String f33964b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f37905c;
+                    public final /* synthetic */ a f33965c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -172,16 +169,16 @@ public class b {
                                 return;
                             }
                         }
-                        this.f37903a = str4;
-                        this.f37904b = str;
-                        this.f37905c = aVar;
+                        this.a = str4;
+                        this.f33964b = str;
+                        this.f33965c = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.b(this.f37903a, this.f37904b, this.f37905c);
+                            b.b(this.a, this.f33964b, this.f33965c);
                         }
                     }
                 });
@@ -191,9 +188,9 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0029 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x000e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0035 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0028 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x000d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0034 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v10, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
     /* JADX WARN: Type inference failed for: r1v11 */
@@ -234,7 +231,7 @@ public class b {
                     interceptable.close();
                     interceptable = interceptable;
                 } catch (Exception unused) {
-                    CyberLog.w(OAdRemoteApkDownloader.TAG, "download failed. IOException");
+                    CyberLog.w("Downloader", "download failed. IOException");
                     if (interceptable != 0) {
                         interceptable.close();
                         interceptable = interceptable;

@@ -10,12 +10,11 @@ import android.content.pm.ServiceInfo;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +70,7 @@ public class g {
                 }
                 return false;
             } catch (PackageManager.NameNotFoundException e2) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("checkService " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m122a("checkService " + e2);
                 return false;
             }
         }
@@ -92,7 +91,7 @@ public class g {
                 }
                 return false;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("checkService action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
+                com.xiaomi.channel.commonutils.logger.b.m122a("checkService action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
                 return false;
             }
         }
@@ -108,7 +107,7 @@ public class g {
             try {
                 packageManager = context.getPackageManager();
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("checkProvider " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m122a("checkProvider " + e2);
             }
             if (Build.VERSION.SDK_INT >= 19) {
                 List<ProviderInfo> queryContentProviders = packageManager.queryContentProviders(null, 0, 8);
@@ -129,14 +128,14 @@ public class g {
     public static boolean b(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) {
             try {
                 PackageManager packageManager = context.getPackageManager();
                 Intent intent = new Intent(str2);
                 intent.setPackage(str);
                 return packageManager.resolveActivity(intent, 65536) != null;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("checkActivity action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
+                com.xiaomi.channel.commonutils.logger.b.m122a("checkActivity action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
                 return false;
             }
         }

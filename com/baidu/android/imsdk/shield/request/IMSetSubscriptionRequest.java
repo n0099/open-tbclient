@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetSubscriptionRequest";
@@ -24,13 +24,13 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public int mCategory;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IMSetSubscriptionRequest(Context context, int i2, long j, List<Long> list, List<String> list2, String str, String str2) {
-        super(context, j, list, list2, str2, str);
+    public IMSetSubscriptionRequest(Context context, int i2, long j2, List<Long> list, List<String> list2, String str, String str2) {
+        super(context, j2, list, list2, str2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j), list, list2, str, str2};
+            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), list, list2, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {

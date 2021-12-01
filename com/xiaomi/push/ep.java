@@ -18,7 +18,6 @@ import android.text.TextUtils;
 import android.widget.RemoteViews;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,13 +25,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ep extends en {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f71809a;
+    public int a;
 
     /* renamed from: a  reason: collision with other field name */
     public Bitmap f330a;
@@ -53,7 +50,7 @@ public abstract class ep extends en {
     public boolean f335a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CharSequence f71810b;
+    public CharSequence f62846b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f336b;
@@ -77,8 +74,8 @@ public abstract class ep extends en {
             }
         }
         this.f333a = str;
-        this.f71809a = i2;
-        m293c();
+        this.a = i2;
+        m342c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,13 +97,13 @@ public abstract class ep extends en {
             }
         }
         this.f333a = str;
-        m293c();
+        m342c();
     }
 
     private Bitmap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? com.xiaomi.push.service.ac.a(g.m340a(a(), this.f333a)) : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? com.xiaomi.push.service.ac.a(g.m389a(a(), this.f333a)) : (Bitmap) invokeV.objValue;
     }
 
     private String c() {
@@ -121,24 +118,24 @@ public abstract class ep extends en {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private void m293c() {
+    private void m342c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            int a2 = a(a().getResources(), c(), "layout", a().getPackageName());
-            if (a2 == 0) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("create RemoteViews failed, no such layout resource was found");
+            int a = a(a().getResources(), c(), "layout", a().getPackageName());
+            if (a == 0) {
+                com.xiaomi.channel.commonutils.logger.b.m122a("create RemoteViews failed, no such layout resource was found");
                 return;
             }
-            this.f331a = new RemoteViews(a().getPackageName(), a2);
+            this.f331a = new RemoteViews(a().getPackageName(), a);
             this.f335a = a();
         }
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    private boolean m294c() {
+    private boolean m343c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             Map<String, String> map = this.f334a;
             return map != null && Boolean.parseBoolean(map.get("custom_builder_set_title"));
         }
@@ -147,15 +144,15 @@ public abstract class ep extends en {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || Build.VERSION.SDK_INT < 11) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || Build.VERSION.SDK_INT < 11) {
             return;
         }
         super.setContentTitle(this.f332a);
-        super.setContentText(this.f71810b);
+        super.setContentText(this.f62846b);
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    private boolean m295d() {
+    private boolean m344d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? (TextUtils.isEmpty(b()) || TextUtils.isEmpty(this.f333a)) ? false : true : invokeV.booleanValue;
@@ -164,17 +161,17 @@ public abstract class ep extends en {
     private boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? m295d() && f() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) ? m344d() && f() : invokeV.booleanValue;
     }
 
     private boolean f() {
         InterceptResult invokeV;
-        List<StatusBarNotification> m600b;
+        List<StatusBarNotification> m649b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 20 && (m600b = com.xiaomi.push.service.ao.a(a(), this.f333a).m600b()) != null && !m600b.isEmpty()) {
-                for (StatusBarNotification statusBarNotification : m600b) {
-                    if (statusBarNotification.getId() == this.f71809a) {
+            if (Build.VERSION.SDK_INT >= 20 && (m649b = com.xiaomi.push.service.ao.a(a(), this.f333a).m649b()) != null && !m649b.isEmpty()) {
+                for (StatusBarNotification statusBarNotification : m649b) {
+                    if (statusBarNotification.getId() == this.a) {
                         Notification notification = statusBarNotification.getNotification();
                         if (notification == null) {
                             return false;
@@ -283,16 +280,16 @@ public abstract class ep extends en {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.m292a();
+            super.m341a();
             Bundle bundle = new Bundle();
-            if (m295d()) {
+            if (m344d()) {
                 bundle.putBoolean("mipush.customCopyLayout", this.f336b);
             } else {
                 bundle.putBoolean("mipush.customCopyLayout", false);
             }
             bundle.putBoolean("miui.customHeight", false);
             addExtras(bundle);
-            if (m294c() || !com.xiaomi.push.service.ap.m601a(a().getContentResolver())) {
+            if (m343c() || !com.xiaomi.push.service.ap.m650a(a().getContentResolver())) {
                 d();
             }
         }
@@ -301,9 +298,9 @@ public abstract class ep extends en {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            Bitmap a2 = a();
-            if (a2 != null) {
-                a().setImageViewBitmap(i2, a2);
+            Bitmap a = a();
+            if (a != null) {
+                a().setImageViewBitmap(i2, a);
                 return;
             }
             int b2 = g.b(a(), this.f333a);
@@ -317,7 +314,7 @@ public abstract class ep extends en {
     public abstract boolean a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public final boolean m296a(int i2) {
+    public final boolean m345a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? ((((double) Color.red(i2)) * 0.299d) + (((double) Color.green(i2)) * 0.587d)) + (((double) Color.blue(i2)) * 0.114d) < 192.0d : invokeI.booleanValue;
@@ -330,7 +327,7 @@ public abstract class ep extends en {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, charSequence)) == null) {
-            this.f71810b = charSequence;
+            this.f62846b = charSequence;
             return this;
         }
         return (ep) invokeL.objValue;
@@ -339,13 +336,13 @@ public abstract class ep extends en {
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public final void m297b() {
+    public final void m346b() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || Build.VERSION.SDK_INT < 11) {
             return;
         }
         super.setContentTitle(this.f332a);
-        super.setContentText(this.f71810b);
+        super.setContentText(this.f62846b);
         Bitmap bitmap = this.f330a;
         if (bitmap != null) {
             super.setLargeIcon(bitmap);
@@ -353,7 +350,7 @@ public abstract class ep extends en {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public final boolean m298b() {
+    public final boolean m347b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f335a : invokeV.booleanValue;

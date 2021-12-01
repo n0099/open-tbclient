@@ -2,7 +2,6 @@ package com.baidu.mobstat.dxmpay.util;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,12 +17,12 @@ import okio.Buffer;
 import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OkHttpRequestManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class GzipRequestInterceptor implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,12 +180,12 @@ public class OkHttpRequestManager {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
                 Request request = chain.request();
                 if (request.body() == null) {
-                    return chain.proceed(request.newBuilder().header("Content-Encoding", AsyncHttpClient.ENCODING_GZIP).build());
+                    return chain.proceed(request.newBuilder().header("Content-Encoding", "gzip").build());
                 }
                 if (request.header("Content-Encoding") != null) {
                     return chain.proceed(request);
                 }
-                return chain.proceed(request.newBuilder().header("Content-Encoding", AsyncHttpClient.ENCODING_GZIP).method(request.method(), forceContentLength(gzip(request.body(), request.url().toString()))).build());
+                return chain.proceed(request.newBuilder().header("Content-Encoding", "gzip").method(request.method(), forceContentLength(gzip(request.body(), request.url().toString()))).build());
             }
             return (Response) invokeL.objValue;
         }

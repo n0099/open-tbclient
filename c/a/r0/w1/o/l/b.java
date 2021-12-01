@@ -1,0 +1,87 @@
+package c.a.r0.w1.o.l;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class b implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f25110e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f25111f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f25112g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f25113h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public m f25114i;
+
+    public b(m mVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f25113h = false;
+        this.f25114i = mVar;
+    }
+
+    public void a(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            this.f25111f = i2;
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f25110e = z;
+        }
+    }
+
+    public void c(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.f25112g = i2;
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f25113h = z;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        m mVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (mVar = this.f25114i) == null) {
+            return;
+        }
+        if (!this.f25113h) {
+            mVar.j(this.f25111f, this.f25112g, this.f25110e, 2);
+        }
+        this.f25114i.j(this.f25111f, this.f25112g, this.f25110e, 1);
+    }
+}

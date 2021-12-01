@@ -2,7 +2,7 @@ package io.flutter.plugin.common;
 
 import androidx.annotation.Nullable;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface MessageCodec<T> {
     @Nullable
     T decodeMessage(@Nullable ByteBuffer byteBuffer);

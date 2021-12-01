@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e extends a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class e extends a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fArr)) == null) {
             String[] split = this.zb.he().split(",");
-            String a2 = this.yw.a(this.zb);
+            String a = this.yw.a(this.zb);
             int i4 = this.mPreviewWidth / 2;
             int i5 = this.mPreviewHeight / 2;
             try {
@@ -54,7 +54,7 @@ public class e extends a implements c {
                 i2 = i4;
                 i3 = i5;
             }
-            this.yw.a(a2, i2, i3, a.yY, this.zb.hf());
+            this.yw.a(a, i2, i3, a.yY, this.zb.hf());
             return true;
         }
         return invokeL.booleanValue;

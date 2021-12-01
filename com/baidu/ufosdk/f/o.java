@@ -10,15 +10,15 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public final class o {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bArr, i2)) == null) {
-            return (bArr[i2 + 3] << 24) | (bArr[i2 + 1] << 8) | bArr[i2 + 0] | (bArr[i2 + 2] << 16);
+            return (bArr[i2 + 3] << 24) | (bArr[i2 + 1] << 8) | bArr[i2 + 0] | (bArr[i2 + 2] << YogaNodeJNIBase.HAS_NEW_LAYOUT);
         }
         return invokeLI.intValue;
     }
@@ -40,13 +40,13 @@ public final class o {
             AssetManager assets = context.getAssets();
             InputStream open = assets.open("ufo_res/" + str);
             Bitmap decodeStream = BitmapFactory.decodeStream(open);
-            byte[] a2 = a(decodeStream);
-            if (NinePatch.isNinePatchChunk(a2)) {
+            byte[] a = a(decodeStream);
+            if (NinePatch.isNinePatchChunk(a)) {
                 Bitmap createBitmap = Bitmap.createBitmap(decodeStream, 1, 1, decodeStream.getWidth() - 2, decodeStream.getHeight() - 2);
                 decodeStream.recycle();
                 Field declaredField = createBitmap.getClass().getDeclaredField("mNinePatchChunk");
                 declaredField.setAccessible(true);
-                declaredField.set(createBitmap, a2);
+                declaredField.set(createBitmap, a);
                 bitmap = createBitmap;
             } else {
                 bitmap = decodeStream;
@@ -140,7 +140,7 @@ public final class o {
     public static byte[] a(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bitmap)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, bitmap)) != null) {
             return (byte[]) invokeL.objValue;
         }
         int width = bitmap.getWidth();

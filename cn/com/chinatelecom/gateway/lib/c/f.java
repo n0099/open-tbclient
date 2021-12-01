@@ -8,13 +8,12 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,8 +75,8 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            NetworkInfo a2 = a(context);
-            return a2 != null && a2.isAvailable();
+            NetworkInfo a = a(context);
+            return a != null && a.isAvailable();
         }
         return invokeL.booleanValue;
     }
@@ -86,8 +85,8 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            NetworkInfo a2 = a(context);
-            return a2 != null && a2.getType() == 0;
+            NetworkInfo a = a(context);
+            return a != null && a.getType() == 0;
         }
         return invokeL.booleanValue;
     }
@@ -115,7 +114,7 @@ public class f {
     public static String e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             int h2 = h(context);
             return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : "3G" : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
         }
@@ -125,7 +124,7 @@ public class f {
     public static String f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             String e2 = e(context);
             return (e2 != null && e2.equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING) && d(context)) ? "BOTH" : e2;
         }
@@ -165,9 +164,9 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             int i2 = 0;
             try {
-                NetworkInfo a2 = a(context);
-                if (a2 != null && a2.isAvailable() && a2.isConnected()) {
-                    int type = a2.getType();
+                NetworkInfo a = a(context);
+                if (a != null && a.isAvailable() && a.isConnected()) {
+                    int type = a.getType();
                     if (type == 1) {
                         i2 = -101;
                     } else if (type == 0) {
@@ -177,7 +176,7 @@ public class f {
                             e2.printStackTrace();
                         }
                         if (i2 == 0) {
-                            i2 = a2.getSubtype();
+                            i2 = a.getSubtype();
                         }
                     }
                 } else {

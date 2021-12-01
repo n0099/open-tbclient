@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,14 +18,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class LazyHeaders implements Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Map<String, String> combinedHeaders;
     public final Map<String, List<LazyHeaderFactory>> headers;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Map<String, List<LazyHeaderFactory>> DEFAULT_HEADERS;
@@ -116,7 +115,7 @@ public final class LazyHeaders implements Headers {
         public static String getSanitizedUserAgent() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
                 String property = System.getProperty("http.agent");
                 if (TextUtils.isEmpty(property)) {
                     return property;
@@ -196,7 +195,7 @@ public final class LazyHeaders implements Headers {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class StringHeaderFactory implements LazyHeaderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

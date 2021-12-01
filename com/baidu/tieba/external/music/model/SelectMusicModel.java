@@ -1,9 +1,9 @@
 package com.baidu.tieba.external.music.model;
 
 import android.text.TextUtils;
-import b.a.e.a.f;
-import b.a.e.f.p.j;
-import b.a.r0.q0.c.b;
+import c.a.d.a.f;
+import c.a.d.f.p.j;
+import c.a.r0.w0.c.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -27,21 +27,21 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f48649e;
+    public b f43654e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f48650f;
+    public TbPageContext f43655f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f48651g;
+    public final HttpMessageListener f43656g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,13 +95,11 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SelectMusicModel f48652a;
+        public final /* synthetic */ SelectMusicModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SelectMusicModel selectMusicModel, int i2) {
@@ -121,7 +119,7 @@ public class SelectMusicModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48652a = selectMusicModel;
+            this.a = selectMusicModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -133,7 +131,7 @@ public class SelectMusicModel extends BdBaseModel {
                 if (videoSugMusicResponseMessage.musicDatas == null) {
                     return;
                 }
-                this.f48652a.f48649e.setMusicData(videoSugMusicResponseMessage.musicDatas);
+                this.a.f43654e.setMusicData(videoSugMusicResponseMessage.musicDatas);
             }
         }
     }
@@ -156,13 +154,13 @@ public class SelectMusicModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48651g = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
-        this.f48650f = tbPageContext;
-        this.f48649e = bVar;
+        this.f43656g = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
+        this.f43655f = tbPageContext;
+        this.f43654e = bVar;
         y();
-        this.f48651g.setTag(getUniqueId());
-        this.f48651g.setSelfListener(true);
-        registerListener(this.f48651g);
+        this.f43656g.setTag(getUniqueId());
+        this.f43656g.setSelfListener(true);
+        registerListener(this.f43656g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -190,7 +188,7 @@ public class SelectMusicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!j.z()) {
-                this.f48650f.showToast(R.string.no_network);
+                this.f43655f.showToast(R.string.no_network);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

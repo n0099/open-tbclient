@@ -4,7 +4,6 @@ import android.content.Context;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.pref.HdStatisConfig;
 import org.json.JSONObject;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DataTrack {
     public static final /* synthetic */ DataTrack[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -42,9 +41,9 @@ public final class DataTrack {
     public volatile long mUid;
     public long reportTime;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IDataTrackListener {
-        JSONObject getConfig(String str, long j, String str2);
+        JSONObject getConfig(String str, long j2, String str2);
     }
 
     static {
@@ -93,14 +92,14 @@ public final class DataTrack {
     private boolean isReport() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? this.mIsEnable && this.mIsTrack : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.mIsEnable && this.mIsTrack : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void reportFail(String str, String str2, String str3, String str4, Integer num, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, str2, str3, str4, num, str5, str6, str7}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{str, str2, str3, str4, num, str5, str6, str7}) == null) {
             synchronized (this) {
                 try {
                 } finally {

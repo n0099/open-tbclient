@@ -1,5 +1,5 @@
 package com.baidu.rtc.record;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface RecorderCallback {
     void onRecordCompleted(boolean z, String str);
 

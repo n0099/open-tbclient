@@ -22,14 +22,14 @@ import io.reactivex.internal.util.BackpressureHelper;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends Iterable<? extends R>> mapper;
     public final MaybeSource<T> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FlatMapIterableObserver<T, R> extends BasicIntQueueSubscription<R> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8938804753851907758L;
@@ -38,7 +38,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73422d;
+        public Disposable f63983d;
         public volatile Iterator<? extends R> it;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public boolean outputFused;
@@ -69,8 +69,8 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.cancelled = true;
-                this.f73422d.dispose();
-                this.f73422d = DisposableHelper.DISPOSED;
+                this.f63983d.dispose();
+                this.f63983d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -97,13 +97,13 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
             int i2 = 1;
             while (true) {
                 if (it != null) {
-                    long j = this.requested.get();
-                    if (j == Long.MAX_VALUE) {
+                    long j2 = this.requested.get();
+                    if (j2 == Long.MAX_VALUE) {
                         fastPath(subscriber, it);
                         return;
                     }
-                    long j2 = 0;
-                    while (j2 != j) {
+                    long j3 = 0;
+                    while (j3 != j2) {
                         if (this.cancelled) {
                             return;
                         }
@@ -112,7 +112,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
                             if (this.cancelled) {
                                 return;
                             }
-                            j2++;
+                            j3++;
                             try {
                                 if (!it.hasNext()) {
                                     subscriber.onComplete();
@@ -129,8 +129,8 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
                             return;
                         }
                     }
-                    if (j2 != 0) {
-                        BackpressureHelper.produced(this.requested, j2);
+                    if (j3 != 0) {
+                        BackpressureHelper.produced(this.requested, j3);
                     }
                 }
                 i2 = addAndGet(-i2);
@@ -191,7 +191,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-                this.f73422d = DisposableHelper.DISPOSED;
+                this.f63983d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -199,8 +199,8 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f73422d, disposable)) {
-                this.f73422d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f63983d, disposable)) {
+                this.f63983d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -244,10 +244,10 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }

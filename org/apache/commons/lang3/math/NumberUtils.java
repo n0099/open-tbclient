@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.math;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -102,11 +101,11 @@ public class NumberUtils {
         return invokeII.intValue;
     }
 
-    public static int compare(long j, long j2) {
+    public static int compare(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
             if (i2 == 0) {
                 return 0;
             }
@@ -118,7 +117,7 @@ public class NumberUtils {
     public static int compare(short s, short s2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Short.valueOf(s), Short.valueOf(s2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Short.valueOf(s), Short.valueOf(s2)})) == null) {
             if (s == s2) {
                 return 0;
             }
@@ -130,7 +129,7 @@ public class NumberUtils {
     public static BigDecimal createBigDecimal(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (str == null) {
                 return null;
             }
@@ -667,14 +666,14 @@ public class NumberUtils {
         return invokeIII.intValue;
     }
 
-    public static long max(long j, long j2, long j3) {
+    public static long max(long j2, long j3, long j4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65564, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (j2 > j) {
-                j = j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65564, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+            if (j3 > j2) {
+                j2 = j3;
             }
-            return j3 > j ? j3 : j;
+            return j4 > j2 ? j4 : j2;
         }
         return invokeCommon.longValue;
     }
@@ -684,13 +683,13 @@ public class NumberUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, jArr)) == null) {
             validateArray(jArr);
-            long j = jArr[0];
+            long j2 = jArr[0];
             for (int i2 = 1; i2 < jArr.length; i2++) {
-                if (jArr[i2] > j) {
-                    j = jArr[i2];
+                if (jArr[i2] > j2) {
+                    j2 = jArr[i2];
                 }
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -731,14 +730,14 @@ public class NumberUtils {
         return invokeIII.intValue;
     }
 
-    public static long min(long j, long j2, long j3) {
+    public static long min(long j2, long j3, long j4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65576, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            if (j2 < j) {
-                j = j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65576, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+            if (j3 < j2) {
+                j2 = j3;
             }
-            return j3 < j ? j3 : j;
+            return j4 < j2 ? j4 : j2;
         }
         return invokeCommon.longValue;
     }
@@ -748,13 +747,13 @@ public class NumberUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, jArr)) == null) {
             validateArray(jArr);
-            long j = jArr[0];
+            long j2 = jArr[0];
             for (int i2 = 1; i2 < jArr.length; i2++) {
-                if (jArr[i2] < j) {
-                    j = jArr[i2];
+                if (jArr[i2] < j2) {
+                    j2 = jArr[i2];
                 }
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -915,17 +914,17 @@ public class NumberUtils {
         return invokeLI.intValue;
     }
 
-    public static long toLong(String str, long j) {
+    public static long toLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65589, null, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65589, null, str, j2)) == null) {
             if (str == null) {
-                return j;
+                return j2;
             }
             try {
                 return Long.parseLong(str);
             } catch (NumberFormatException unused) {
-                return j;
+                return j2;
             }
         }
         return invokeLJ.longValue;

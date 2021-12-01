@@ -53,11 +53,11 @@ public final class CallServerInterceptor implements Interceptor {
         }
 
         @Override // okio.ForwardingSink, okio.Sink
-        public void write(Buffer buffer, long j) throws IOException {
+        public void write(Buffer buffer, long j2) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, buffer, j) == null) {
-                super.write(buffer, j);
-                this.successfulCount += j;
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, buffer, j2) == null) {
+                super.write(buffer, j2);
+                this.successfulCount += j2;
             }
         }
     }

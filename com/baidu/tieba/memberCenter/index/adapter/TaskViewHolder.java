@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import b.a.r0.y1.c.i;
-import b.a.r0.y1.c.k.q;
+import c.a.r0.e2.c.i;
+import c.a.r0.e2.c.k.q;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -10,16 +10,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TaskViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public i f52436a;
+    public i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f52437b;
+    public View.OnClickListener f46961b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TaskViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -39,24 +37,24 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f52437b = onClickListener;
-        this.f52436a = new i(view, baseFragmentActivity, onClickListener);
+        this.f46961b = onClickListener;
+        this.a = new i(view, baseFragmentActivity, onClickListener);
     }
 
     public void fillView(q qVar) {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) || qVar == null || (iVar = this.f52436a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) || qVar == null || (iVar = this.a) == null) {
             return;
         }
         iVar.a(qVar);
-        this.f52436a.c();
+        this.a.c();
     }
 
     public void setCommenClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f52437b = onClickListener;
+            this.f46961b = onClickListener;
         }
     }
 }

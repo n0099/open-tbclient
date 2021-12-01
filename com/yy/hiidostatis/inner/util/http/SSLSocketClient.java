@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.browser.sailor.BdSailorConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import okhttp3.CertificatePinner;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SSLSocketClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALT_DNS_NAME = 2;
@@ -121,7 +120,7 @@ public class SSLSocketClient {
         Integer num;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, x509Certificate, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, x509Certificate, i2)) == null) {
             ArrayList arrayList = new ArrayList();
             try {
                 Collection<List<?>> subjectAlternativeNames = x509Certificate.getSubjectAlternativeNames();
@@ -144,7 +143,7 @@ public class SSLSocketClient {
     public static boolean verifyAsIpAddress(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? VERIFY_AS_IP_ADDRESS.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? VERIFY_AS_IP_ADDRESS.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static boolean verifyHostname(String str, String str2) {

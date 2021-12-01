@@ -3,6 +3,7 @@ package com.kwad.sdk.core.report;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +18,7 @@ import com.kwad.sdk.core.scene.EntryPackage;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.live.mode.LiveInfo;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import java.util.UUID;
 import org.json.JSONArray;
@@ -53,32 +54,32 @@ public class ReportAction extends c {
     public JSONArray X;
     public JSONArray Y;
     public String Z;
-    public String aA;
+    public int aA;
     public int aB;
-    public long aC;
-    public LiveLogInfo aD;
-    public String aE;
-    public int aF;
-    public int aG;
+    public String aC;
+    public String aD;
+    public int aE;
+    public long aF;
+    public LiveLogInfo aG;
     public String aH;
-    public String aI;
-    public JSONObject aJ;
-    public JSONArray aK;
-    public long aL;
-    public int aM;
-    public int aN;
-    public int aO;
+    public int aI;
+    public int aJ;
+    public String aK;
+    public String aL;
+    public JSONObject aM;
+    public JSONArray aN;
+    public long aO;
     public int aP;
     public int aQ;
-    public long aR;
-    public JSONArray aS;
-    public boolean aT;
-    public String aU;
-    public int aV;
-    public int aW;
-    public int aX;
-    public String aY;
-    public long aZ;
+    public int aR;
+    public int aS;
+    public int aT;
+    public long aU;
+    public JSONArray aV;
+    public boolean aW;
+    public String aX;
+    public int aY;
+    public int aZ;
     public String aa;
     public String ab;
     public String ac;
@@ -101,63 +102,80 @@ public class ReportAction extends c {
     public int at;
     public int au;
     public int av;
-    public JSONArray aw;
+    public int aw;
     public int ax;
     public int ay;
-    public String az;
+    public JSONArray az;
 
     /* renamed from: b  reason: collision with root package name */
-    public transient SceneImpl f65871b;
-    public long ba;
-    public int bb;
-    public String bc;
+    public transient SceneImpl f57636b;
+    public String bA;
+    public int bB;
+    public int bC;
+    public long bD;
+    public int bE;
+    public String bF;
+    public int bG;
+    public double bH;
+    public String bI;
+    public int bJ;
+    public int bK;
+    public String bL;
+    public String bM;
+    public int ba;
+    public String bb;
+    public long bc;
     public long bd;
-    public long be;
-    public long bf;
+    public int be;
+    public String bf;
     public long bg;
-    public String bh;
-    public String bi;
+    public long bh;
+    public long bi;
     public long bj;
-    public long bk;
-    public JSONArray bl;
+    public String bk;
+    public String bl;
     public long bm;
     public long bn;
-    public long bo;
-    public JSONArray bp;
-    public int bq;
-    public String br;
-    public String bs;
-    public String bt;
+    public JSONArray bo;
+    public long bp;
+    public long bq;
+    public long br;
+    public JSONArray bs;
+    public int bt;
     public String bu;
     public String bv;
-    public int bw;
-    public double bx;
+    public String bw;
+    public String bx;
     public String by;
-    public int bz;
+    public String bz;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public transient AdTemplate f65872c;
+    public transient AdTemplate f57637c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f65873d;
+    public long f57638d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f65874e;
+    public String f57639e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f65875f;
+    public long f57640f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f65876g;
+    public int f57641g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f65877h;
+    public long f57642h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f65878i;
-    public long j;
-    public JSONObject k;
+    public long f57643i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public long f57644j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public JSONObject f57645k;
     public JSONObject l;
     public long m;
     public int n;
@@ -175,11 +193,10 @@ public class ReportAction extends c {
     public long z;
 
     /* loaded from: classes2.dex */
-    public static class LiveLogInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+    public static class LiveLogInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4898843925487388950L;
         public transient /* synthetic */ FieldHolder $fh;
-        public String expTag;
         public String liveStreamId;
 
         public LiveLogInfo() {
@@ -198,15 +215,13 @@ public class ReportAction extends c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class a extends com.kwad.sdk.core.response.a.a {
+    public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f65879a;
+        public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f65880b;
+        public int f57646b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -227,8 +242,8 @@ public class ReportAction extends c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 a aVar = new a();
-                aVar.f65879a = b.f65881a;
-                aVar.f65880b = b.f65882b;
+                aVar.a = b.a;
+                aVar.f57646b = b.f57647b;
                 return aVar;
             }
             return (a) invokeV.objValue;
@@ -238,21 +253,19 @@ public class ReportAction extends c {
     /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static int f65881a;
+        public static int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f65882b;
+        public static int f57647b;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public ReportAction(long j) {
+    public ReportAction(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -262,7 +275,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f65876g = -1;
+        this.f57641g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -274,23 +287,24 @@ public class ReportAction extends c {
         this.W = 0;
         this.aq = -1L;
         this.ar = -1L;
-        this.as = -1;
-        this.aD = new LiveLogInfo();
-        this.aP = -1;
-        this.aQ = -1;
-        this.aR = 0L;
-        this.aV = 0;
-        this.aW = -1;
-        this.aX = 0;
-        this.f65878i = j;
+        this.av = -1;
+        this.aG = new LiveLogInfo();
+        this.aS = -1;
+        this.aT = -1;
+        this.aU = 0L;
+        this.aY = 0;
+        this.aZ = -1;
+        this.ba = 0;
+        this.bK = 0;
+        this.f57643i = j2;
     }
 
-    public ReportAction(long j, @NonNull AdTemplate adTemplate) {
+    public ReportAction(long j2, @NonNull AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), adTemplate};
+            Object[] objArr = {Long.valueOf(j2), adTemplate};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -300,7 +314,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f65876g = -1;
+        this.f57641g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -312,16 +326,17 @@ public class ReportAction extends c {
         this.W = 0;
         this.aq = -1L;
         this.ar = -1L;
-        this.as = -1;
-        this.aD = new LiveLogInfo();
-        this.aP = -1;
-        this.aQ = -1;
-        this.aR = 0L;
-        this.aV = 0;
-        this.aW = -1;
-        this.aX = 0;
-        this.f65878i = j;
-        this.f65872c = adTemplate;
+        this.av = -1;
+        this.aG = new LiveLogInfo();
+        this.aS = -1;
+        this.aT = -1;
+        this.aU = 0L;
+        this.aY = 0;
+        this.aZ = -1;
+        this.ba = 0;
+        this.bK = 0;
+        this.f57643i = j2;
+        this.f57637c = adTemplate;
     }
 
     public ReportAction(String str) {
@@ -339,7 +354,7 @@ public class ReportAction extends c {
                 return;
             }
         }
-        this.f65876g = -1;
+        this.f57641g = -1;
         this.n = 0;
         this.o = 0;
         this.B = -1L;
@@ -351,14 +366,15 @@ public class ReportAction extends c {
         this.W = 0;
         this.aq = -1L;
         this.ar = -1L;
-        this.as = -1;
-        this.aD = new LiveLogInfo();
-        this.aP = -1;
-        this.aQ = -1;
-        this.aR = 0L;
-        this.aV = 0;
-        this.aW = -1;
-        this.aX = 0;
+        this.av = -1;
+        this.aG = new LiveLogInfo();
+        this.aS = -1;
+        this.aT = -1;
+        this.aU = 0L;
+        this.aY = 0;
+        this.aZ = -1;
+        this.ba = 0;
+        this.bK = 0;
         try {
             parseJson(new JSONObject(str));
         } catch (JSONException e2) {
@@ -366,138 +382,190 @@ public class ReportAction extends c {
         }
     }
 
+    public ReportAction(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f57641g = -1;
+        this.n = 0;
+        this.o = 0;
+        this.B = -1L;
+        this.G = 0;
+        this.H = 0;
+        this.I = -1;
+        this.J = 0;
+        this.V = -1;
+        this.W = 0;
+        this.aq = -1L;
+        this.ar = -1L;
+        this.av = -1;
+        this.aG = new LiveLogInfo();
+        this.aS = -1;
+        this.aT = -1;
+        this.aU = 0L;
+        this.aY = 0;
+        this.aZ = -1;
+        this.ba = 0;
+        this.bK = 0;
+        parseJson(jSONObject);
+    }
+
+    public static ReportAction a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return jSONObject.optBoolean("ecIdentityFlag", false) ? new m(jSONObject) : new ReportAction(jSONObject);
+            } catch (JSONException e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                return new ReportAction("");
+            }
+        }
+        return (ReportAction) invokeL.objValue;
+    }
+
     /* JADX DEBUG: Multi-variable search result rejected for r0v69, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:20:0x0064  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x018c  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x019e  */
-    /* JADX WARN: Removed duplicated region for block: B:73:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0190  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x01a2  */
+    /* JADX WARN: Removed duplicated region for block: B:74:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(@Nullable AdTemplate adTemplate) {
         SceneImpl sceneImpl;
-        long b2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65539, this, adTemplate) != null) {
+        if (interceptable != null && interceptable.invokeL(65541, this, adTemplate) != null) {
             return;
         }
         this.ak = 3;
         com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.b.class);
         if (bVar != null) {
-            this.aV = bVar.e();
+            this.aY = bVar.d();
         }
-        this.f65918a = UUID.randomUUID().toString();
-        this.f65873d = System.currentTimeMillis();
-        this.f65874e = l.b();
+        this.a = UUID.randomUUID().toString();
+        this.f57638d = System.currentTimeMillis();
+        this.f57639e = n.b();
         try {
-            this.f65875f = l.c();
+            this.f57640f = n.c();
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        this.f65877h = l.e();
-        SceneImpl sceneImpl2 = this.f65871b;
+        this.f57642h = n.e();
+        SceneImpl sceneImpl2 = this.f57636b;
         if (sceneImpl2 == null) {
             if (adTemplate != null && (sceneImpl2 = adTemplate.mAdScene) != null) {
-                this.f65871b = sceneImpl2;
+                this.f57636b = sceneImpl2;
             }
             if (adTemplate != null) {
                 this.q = adTemplate.getShowPosition() + 1;
                 this.r = adTemplate.getServerPosition() + 1;
-                this.j = com.kwad.sdk.core.response.b.c.f(adTemplate);
-                String g2 = com.kwad.sdk.core.response.b.c.g(adTemplate);
-                if (!TextUtils.isEmpty(g2)) {
+                this.f57644j = com.kwad.sdk.core.response.a.d.g(adTemplate);
+                String h2 = com.kwad.sdk.core.response.a.d.h(adTemplate);
+                if (!TextUtils.isEmpty(h2)) {
                     try {
-                        this.k = new JSONObject(g2);
+                        this.f57645k = new JSONObject(h2);
                     } catch (Exception e3) {
                         com.kwad.sdk.core.d.a.b(e3);
                     }
                 }
-                String h2 = com.kwad.sdk.core.response.b.c.h(adTemplate);
-                if (!TextUtils.isEmpty(h2)) {
+                String i2 = com.kwad.sdk.core.response.a.d.i(adTemplate);
+                if (!TextUtils.isEmpty(i2)) {
                     try {
-                        this.l = new JSONObject(h2);
+                        this.l = new JSONObject(i2);
                     } catch (Exception e4) {
                         com.kwad.sdk.core.d.a.b(e4);
                     }
                 }
-                this.m = com.kwad.sdk.core.response.b.c.d(adTemplate);
-                this.n = com.kwad.sdk.core.response.b.c.e(adTemplate);
-                int i2 = adTemplate.realShowType;
-                this.o = i2;
-                if (i2 == 1) {
-                    this.p = com.kwad.sdk.core.response.b.e.d(adTemplate.photoInfo);
-                    this.s = com.kwad.sdk.core.response.b.e.c(adTemplate.photoInfo).longValue();
-                    this.N = com.kwad.sdk.core.response.b.e.g(adTemplate.photoInfo);
-                    this.ah = com.kwad.sdk.core.response.b.e.f(adTemplate.photoInfo);
-                    this.al = com.kwad.sdk.core.response.b.e.j(adTemplate.photoInfo);
-                    this.am = com.kwad.sdk.core.response.b.e.i(adTemplate.photoInfo);
-                    this.an = com.kwad.sdk.core.response.b.e.k(adTemplate.photoInfo);
-                    this.ap = com.kwad.sdk.core.response.b.e.l(adTemplate.photoInfo);
-                    this.ao = com.kwad.sdk.core.response.b.e.m(adTemplate.photoInfo);
+                this.m = com.kwad.sdk.core.response.a.d.e(adTemplate);
+                this.n = com.kwad.sdk.core.response.a.d.f(adTemplate);
+                this.o = adTemplate.realShowType;
+                this.p = com.kwad.sdk.core.response.a.d.p(adTemplate);
+                int i3 = this.o;
+                if (i3 == 1) {
+                    this.s = com.kwad.sdk.core.response.a.f.c(adTemplate.photoInfo).longValue();
+                    this.N = com.kwad.sdk.core.response.a.f.h(adTemplate.photoInfo);
+                    this.ah = com.kwad.sdk.core.response.a.f.g(adTemplate.photoInfo);
+                    this.al = com.kwad.sdk.core.response.a.f.k(adTemplate.photoInfo);
+                    this.am = com.kwad.sdk.core.response.a.f.j(adTemplate.photoInfo);
+                    this.an = com.kwad.sdk.core.response.a.f.l(adTemplate.photoInfo);
+                    this.ap = com.kwad.sdk.core.response.a.f.m(adTemplate.photoInfo);
+                    this.ao = com.kwad.sdk.core.response.a.f.n(adTemplate.photoInfo);
                     PreloadData preloadData = adTemplate.mPreloadData;
-                    this.av = preloadData != null ? preloadData.isPreload : 0;
-                } else {
-                    if (i2 == 2) {
-                        AdInfo i3 = com.kwad.sdk.core.response.b.c.i(adTemplate);
-                        this.p = com.kwad.sdk.core.response.b.a.i(i3);
-                        this.aC = i3.adBaseInfo.creativeId;
-                        this.s = com.kwad.sdk.core.response.b.a.b(i3) * 1000;
-                        b2 = i3.advertiserInfo.userId;
-                    } else if (i2 == 4) {
-                        LiveInfo q = com.kwad.sdk.core.response.b.c.q(adTemplate);
-                        this.aD.liveStreamId = com.kwad.sdk.live.mode.a.a(q);
-                        this.aD.expTag = com.kwad.sdk.live.mode.a.c(q);
-                        b2 = com.kwad.sdk.live.mode.a.b(q);
-                    } else if (i2 == 5) {
-                        this.bz = com.kwad.sdk.core.response.b.d.c(com.kwad.sdk.core.response.b.c.k(this.f65872c));
+                    this.ay = preloadData != null ? preloadData.isPreload : 0;
+                    this.bK = com.kwad.sdk.core.response.a.f.a(adTemplate) ? 1 : 0;
+                } else if (i3 == 2) {
+                    AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
+                    this.aF = j2.adBaseInfo.creativeId;
+                    this.s = com.kwad.sdk.core.response.a.a.b(j2) * 1000;
+                    this.N = j2.advertiserInfo.userId;
+                } else if (i3 == 4) {
+                    LiveInfo r = com.kwad.sdk.core.response.a.d.r(adTemplate);
+                    this.aG.liveStreamId = com.kwad.sdk.live.mode.a.a(r);
+                    this.N = com.kwad.sdk.live.mode.a.b(r);
+                    if (com.kwad.sdk.b.f57045d.booleanValue()) {
+                        this.bK = 1;
                     }
-                    this.N = b2;
+                } else if (i3 == 5) {
+                    this.bJ = com.kwad.sdk.core.response.a.e.c(com.kwad.sdk.core.response.a.d.l(this.f57637c));
                 }
                 this.aj = adTemplate.mMediaPlayerType;
-                this.au = adTemplate.mIsLeftSlipStatus;
-                this.ay = adTemplate.mPhotoResponseType;
+                this.ax = adTemplate.mIsLeftSlipStatus;
+                this.aB = adTemplate.mPhotoResponseType;
                 PageInfo pageInfo = adTemplate.mPageInfo;
                 if (pageInfo != null) {
-                    this.aM = pageInfo.pageType;
+                    this.aP = pageInfo.pageType;
                 }
-                this.F = com.kwad.sdk.core.response.b.c.p(adTemplate);
+                this.F = com.kwad.sdk.core.response.a.d.q(adTemplate);
             }
             this.ai = a.a();
-            if (this.f65871b == null && adTemplate != null) {
-                this.f65871b = adTemplate.mAdScene;
+            if (this.f57636b == null && adTemplate != null) {
+                this.f57636b = adTemplate.mAdScene;
             }
-            sceneImpl = this.f65871b;
+            sceneImpl = this.f57636b;
             if (sceneImpl != null) {
                 this.m = sceneImpl.getPosId();
-                this.L = this.f65871b.getUrlPackage();
+                this.L = this.f57636b.getUrlPackage();
             }
             if (this.L == null) {
-                EntryPackage b3 = com.kwad.sdk.core.scene.a.a().b(this.L.identity);
-                this.K = b3.entryPageSource;
-                this.ab = b3.entryId;
+                EntryPackage b2 = com.kwad.sdk.core.scene.a.a().b(this.L.identity);
+                this.K = b2.entryPageSource;
+                this.ab = b2.entryId;
                 this.M = com.kwad.sdk.core.scene.a.a().a(this.L.identity);
                 return;
             }
             return;
         }
         this.m = sceneImpl2.getPosId();
-        this.L = this.f65871b.getUrlPackage();
-        this.f65876g = this.f65871b.getAdStyle();
+        this.L = this.f57636b.getUrlPackage();
+        this.f57641g = this.f57636b.getAdStyle();
         if (adTemplate != null) {
         }
         this.ai = a.a();
-        if (this.f65871b == null) {
-            this.f65871b = adTemplate.mAdScene;
+        if (this.f57636b == null) {
+            this.f57636b = adTemplate.mAdScene;
         }
-        sceneImpl = this.f65871b;
+        sceneImpl = this.f57636b;
         if (sceneImpl != null) {
         }
         if (this.L == null) {
         }
     }
 
-    @Override // com.kwad.sdk.core.report.c, com.kwad.sdk.core.response.a.a
+    @Override // com.kwad.sdk.core.report.c, com.kwad.sdk.core.response.kwai.a
     public void afterParseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -506,75 +574,86 @@ public class ReportAction extends c {
                 return;
             }
             this.ak = 3;
-            this.f65876g = jSONObject.optInt("adStyle", -1);
+            this.f57641g = jSONObject.optInt("adStyle", -1);
+            this.as = jSONObject.optInt("adHorizontalFeedType");
+            this.at = jSONObject.optInt("videoPlayMode");
+            this.au = jSONObject.optInt("autoReplayTimes");
             this.V = jSONObject.optInt("reportType");
             this.I = jSONObject.optInt("playerControlledType", -1);
-            this.aG = jSONObject.optInt("num");
-            this.aF = jSONObject.optInt("state");
+            this.aJ = jSONObject.optInt("num");
+            this.aI = jSONObject.optInt("state");
             this.aq = jSONObject.optLong("relatedFromPhotoId", -1L);
             this.ar = jSONObject.optLong("relatedContentSourceType", -1L);
-            this.as = jSONObject.optInt("hotCompType", -1);
-            this.aR = jSONObject.optLong("timeSpend");
-            this.bn = jSONObject.optLong("loadingDuration");
-            this.bo = jSONObject.optLong("loadingDurationLimt");
-            this.aW = jSONObject.optInt("playerTypeInfo", -1);
+            this.av = jSONObject.optInt("hotCompType", -1);
+            this.aU = jSONObject.optLong("timeSpend");
+            this.bq = jSONObject.optLong("loadingDuration");
+            this.br = jSONObject.optLong("loadingDurationLimt");
+            this.aZ = jSONObject.optInt("playerTypeInfo", -1);
             if (jSONObject.has("actionId")) {
-                this.f65918a = jSONObject.optString("actionId");
+                this.a = jSONObject.optString("actionId");
             }
+            this.bK = jSONObject.optInt("adBizType");
         }
     }
 
-    @Override // com.kwad.sdk.core.report.c, com.kwad.sdk.core.response.a.a
+    @Override // com.kwad.sdk.core.report.c, com.kwad.sdk.core.response.kwai.a
     public void afterToJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             super.afterToJson(jSONObject);
-            q.a(jSONObject, "actionId", this.f65918a);
-            int i2 = this.f65876g;
+            t.a(jSONObject, "actionId", this.a);
+            int i2 = this.f57641g;
             if (i2 > 0) {
-                q.a(jSONObject, "adStyle", i2);
+                t.a(jSONObject, "adStyle", i2);
             }
             int i3 = this.V;
             if (i3 != -1) {
-                q.a(jSONObject, "reportType", i3);
+                t.a(jSONObject, "reportType", i3);
             }
             int i4 = this.I;
             if (i4 != -1) {
-                q.a(jSONObject, "playerControlledType", i4);
+                t.a(jSONObject, "playerControlledType", i4);
             }
-            int i5 = this.aG;
+            int i5 = this.aJ;
             if (i5 > 0) {
-                q.a(jSONObject, "num", i5);
+                t.a(jSONObject, "num", i5);
             }
-            int i6 = this.aF;
+            int i6 = this.aI;
             if (i6 != 0) {
-                q.a(jSONObject, "state", i6);
+                t.a(jSONObject, "state", i6);
             }
-            long j = this.aq;
-            if (j != -1) {
-                q.a(jSONObject, "relatedFromPhotoId", j);
-            }
-            long j2 = this.ar;
+            long j2 = this.aq;
             if (j2 != -1) {
-                q.a(jSONObject, "relatedContentSourceType", j2);
+                t.a(jSONObject, "relatedFromPhotoId", j2);
             }
-            int i7 = this.as;
+            long j3 = this.ar;
+            if (j3 != -1) {
+                t.a(jSONObject, "relatedContentSourceType", j3);
+            }
+            int i7 = this.av;
             if (i7 != -1) {
-                q.a(jSONObject, "hotCompType", i7);
+                t.a(jSONObject, "hotCompType", i7);
             }
-            long j3 = this.aR;
-            if (j3 > 0) {
-                q.a(jSONObject, "timeSpend", j3);
-            }
-            long j4 = this.bn;
+            long j4 = this.aU;
             if (j4 > 0) {
-                q.a(jSONObject, "loadingDuration", j4);
+                t.a(jSONObject, "timeSpend", j4);
             }
-            long j5 = this.bo;
+            long j5 = this.bq;
             if (j5 > 0) {
-                q.a(jSONObject, "loadingDurationLimt", j5);
+                t.a(jSONObject, "loadingDuration", j5);
             }
-            q.a(jSONObject, "playerTypeInfo", this.aW);
+            long j6 = this.br;
+            if (j6 > 0) {
+                t.a(jSONObject, "loadingDurationLimt", j6);
+            }
+            t.a(jSONObject, "adHorizontalFeedType", this.as);
+            t.a(jSONObject, "videoPlayMode", this.at);
+            t.a(jSONObject, "autoReplayTimes", this.au);
+            t.a(jSONObject, "playerTypeInfo", this.aZ);
+            int i8 = this.bK;
+            if (i8 > 0) {
+                t.a(jSONObject, "adBizType", i8);
+            }
         }
     }
 
@@ -582,7 +661,7 @@ public class ReportAction extends c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            a(this.f65872c);
+            a(this.f57637c);
             return this;
         }
         return (ReportAction) invokeV.objValue;
@@ -592,9 +671,9 @@ public class ReportAction extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             com.kwad.sdk.core.h.b a2 = com.kwad.sdk.core.h.b.a();
-            this.aO = a2.b() ? 1 : 0;
-            this.aP = a2.c();
-            this.aQ = a2.d();
+            this.aR = a2.b() ? 1 : 0;
+            this.aS = a2.c();
+            this.aT = a2.d();
         }
     }
 }

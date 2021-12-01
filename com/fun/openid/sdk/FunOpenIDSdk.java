@@ -2,13 +2,12 @@ package com.fun.openid.sdk;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class FunOpenIDSdk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_VERSION = "1.3.5";
@@ -57,14 +56,14 @@ public class FunOpenIDSdk {
 
     public static synchronized void getOaid(Context context, OnGetOaidListener onGetOaidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, onGetOaidListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, onGetOaidListener) == null) {
             synchronized (FunOpenIDSdk.class) {
                 if (context == null) {
                     isLogEnabled();
                 } else if (onGetOaidListener == null) {
                     isLogEnabled();
                 } else {
-                    j.f63802a.execute(new e(context, onGetOaidListener));
+                    j.a.execute(new e(context, onGetOaidListener));
                 }
             }
         }
@@ -73,7 +72,7 @@ public class FunOpenIDSdk {
     public static String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? "1.3.5" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? "1.3.5" : (String) invokeV.objValue;
     }
 
     public static String getVivoAppId() {

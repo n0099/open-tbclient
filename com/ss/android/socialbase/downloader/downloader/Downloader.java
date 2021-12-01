@@ -2,7 +2,6 @@ package com.ss.android.socialbase.downloader.downloader;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,7 +81,7 @@ public class Downloader extends b {
 
     public static synchronized void initOrCover(DownloaderBuilder downloaderBuilder, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, downloaderBuilder, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65541, null, downloaderBuilder, z) == null) {
             synchronized (Downloader.class) {
                 if (downloaderBuilder == null) {
                     return;
@@ -360,8 +359,8 @@ public class Downloader extends b {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.b
-    public /* bridge */ /* synthetic */ void setThrottleNetSpeed(int i2, long j) {
-        super.setThrottleNetSpeed(i2, j);
+    public /* bridge */ /* synthetic */ void setThrottleNetSpeed(int i2, long j2) {
+        super.setThrottleNetSpeed(i2, j2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.b

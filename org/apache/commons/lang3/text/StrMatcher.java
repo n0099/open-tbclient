@@ -2,7 +2,6 @@ package org.apache.commons.lang3.text;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -270,13 +269,13 @@ public abstract class StrMatcher {
     public static StrMatcher commaMatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? COMMA_MATCHER : (StrMatcher) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? COMMA_MATCHER : (StrMatcher) invokeV.objValue;
     }
 
     public static StrMatcher doubleQuoteMatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? DOUBLE_QUOTE_MATCHER : (StrMatcher) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? DOUBLE_QUOTE_MATCHER : (StrMatcher) invokeV.objValue;
     }
 
     public static StrMatcher noneMatcher() {

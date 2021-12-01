@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payservice;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.payservice.H5PayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.PayMethodProxyFactory;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PayMethodFactory {
     public static final /* synthetic */ PayMethodFactory[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +28,7 @@ public final class PayMethodFactory {
     public IPayMethod method;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.payservice.PayMethodFactory$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType;
         public static /* synthetic */ Interceptable $ic;
@@ -156,13 +155,13 @@ public final class PayMethodFactory {
     public static PayMethodFactory valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? (PayMethodFactory) Enum.valueOf(PayMethodFactory.class, str) : (PayMethodFactory) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (PayMethodFactory) Enum.valueOf(PayMethodFactory.class, str) : (PayMethodFactory) invokeL.objValue;
     }
 
     public static PayMethodFactory[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (PayMethodFactory[]) $VALUES.clone() : (PayMethodFactory[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (PayMethodFactory[]) $VALUES.clone() : (PayMethodFactory[]) invokeV.objValue;
     }
 
     public static IPayMethod valueOf(PayType payType) {

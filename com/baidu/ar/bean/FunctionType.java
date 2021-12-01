@@ -2,7 +2,7 @@ package com.baidu.ar.bean;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
-import com.baidu.mobads.container.adrequest.AdParamInfo;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class FunctionType {
     public static final /* synthetic */ FunctionType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -34,8 +34,8 @@ public final class FunctionType {
                 return;
             }
         }
-        NONE = new FunctionType("NONE", 0, "none");
-        VIDEO = new FunctionType(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_VIDEO, 1, "video");
+        NONE = new FunctionType(PolyActivity.NONE_PANEL_TYPE, 0, "none");
+        VIDEO = new FunctionType("VIDEO", 1, "video");
         FunctionType functionType = new FunctionType("IMU", 2, ARPScriptEnvironment.KEY_DATA_PIP_IMU);
         IMU = functionType;
         $VALUES = new FunctionType[]{NONE, VIDEO, functionType};

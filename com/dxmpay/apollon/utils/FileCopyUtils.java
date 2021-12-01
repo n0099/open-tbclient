@@ -1,7 +1,6 @@
 package com.dxmpay.apollon.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class FileCopyUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +116,7 @@ public abstract class FileCopyUtils {
 
     public static void copy(byte[] bArr, File file) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, file) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, bArr, file) == null) {
             Assert.notNull(bArr, "No input byte array specified");
             Assert.notNull(file, "No output File specified");
             copy(new ByteArrayInputStream(bArr), new BufferedOutputStream(new FileOutputStream(file)));
@@ -191,7 +190,7 @@ public abstract class FileCopyUtils {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     public static void copy(byte[] bArr, OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, outputStream) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, bArr, outputStream) == null) {
             Assert.notNull(bArr, "No input byte array specified");
             Assert.notNull(outputStream, "No OutputStream specified");
             try {

@@ -2,9 +2,9 @@ package com.dxmpay.apollon.restnet.rest.httpurlconnection;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.e.a.g.c.a;
-import b.e.a.g.d.d;
-import b.e.a.g.d.e;
+import c.f.a.g.c.a;
+import c.f.a.g.d.d;
+import c.f.a.g.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,37 +19,35 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RestUrlConnectionRequest implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final RestHttpNetwork f63066a;
+    public final RestHttpNetwork a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f63067b;
+    public final a f55132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63068c;
+    public String f55133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpDefines$HttpMethod f63069d;
+    public HttpDefines$HttpMethod f55134d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63070e;
+    public String f55135e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63071f;
+    public String f55136f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<RestNameValuePair> f63072g;
+    public List<RestNameValuePair> f55137g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RestMultipartEntity f63073h;
+    public RestMultipartEntity f55138h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f63074i;
+    public int f55139i;
 
     public RestUrlConnectionRequest(RestHttpNetwork restHttpNetwork, String str, HttpDefines$HttpMethod httpDefines$HttpMethod, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2) {
         Interceptable interceptable = $ic;
@@ -66,75 +64,75 @@ public class RestUrlConnectionRequest implements d {
                 return;
             }
         }
-        this.f63067b = new a();
-        this.f63074i = -1;
-        this.f63066a = restHttpNetwork;
-        this.f63068c = str2;
-        this.f63069d = httpDefines$HttpMethod;
-        this.f63070e = str;
-        this.f63072g = list;
-        this.f63073h = restMultipartEntity;
+        this.f55132b = new a();
+        this.f55139i = -1;
+        this.a = restHttpNetwork;
+        this.f55133c = str2;
+        this.f55134d = httpDefines$HttpMethod;
+        this.f55135e = str;
+        this.f55137g = list;
+        this.f55138h = restMultipartEntity;
     }
 
-    @Override // b.e.a.g.d.d
+    @Override // c.f.a.g.d.d
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63067b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55132b : (a) invokeV.objValue;
     }
 
-    @Override // b.e.a.g.d.d
+    @Override // c.f.a.g.d.d
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63070e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55135e : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f63070e = str;
+            this.f55135e = str;
         }
     }
 
-    @Override // b.e.a.g.d.d
+    @Override // c.f.a.g.d.d
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63068c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f55133c : (String) invokeV.objValue;
     }
 
-    @Override // b.e.a.g.d.d
+    @Override // c.f.a.g.d.d
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f63066a.a();
+            this.a.a();
         }
     }
 
-    @Override // b.e.a.g.d.d
+    @Override // c.f.a.g.d.d
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f63071f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55136f : (String) invokeV.objValue;
     }
 
     public RestMultipartEntity g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f63073h : (RestMultipartEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f55138h : (RestMultipartEntity) invokeV.objValue;
     }
 
     public String getProcessedParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            List<RestNameValuePair> list = this.f63072g;
+            List<RestNameValuePair> list = this.f55137g;
             if (list == null || list.size() == 0) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (RestNameValuePair restNameValuePair : this.f63072g) {
+            for (RestNameValuePair restNameValuePair : this.f55137g) {
                 String name = restNameValuePair.getName();
                 String value = restNameValuePair.getValue();
                 if (!TextUtils.isEmpty(name)) {
@@ -142,9 +140,9 @@ public class RestUrlConnectionRequest implements d {
                         value = "";
                     }
                     try {
-                        sb.append(URLEncoder.encode(name, this.f63068c));
-                        sb.append(com.alipay.sdk.encrypt.a.f34958h);
-                        sb.append(URLEncoder.encode(value, this.f63068c));
+                        sb.append(URLEncoder.encode(name, this.f55133c));
+                        sb.append(com.alipay.sdk.encrypt.a.f31351h);
+                        sb.append(URLEncoder.encode(value, this.f55133c));
                         sb.append(Typography.amp);
                     } catch (UnsupportedEncodingException e2) {
                         e2.printStackTrace();
@@ -162,13 +160,13 @@ public class RestUrlConnectionRequest implements d {
     public HttpDefines$HttpMethod h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f63069d : (HttpDefines$HttpMethod) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f55134d : (HttpDefines$HttpMethod) invokeV.objValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f63074i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f55139i : invokeV.intValue;
     }
 
     public boolean j() {
@@ -183,15 +181,15 @@ public class RestUrlConnectionRequest implements d {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? h() == HttpDefines$HttpMethod.GET : invokeV.booleanValue;
     }
 
-    @Override // b.e.a.g.d.d
+    @Override // c.f.a.g.d.d
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f63074i = i2;
+            this.f55139i = i2;
         }
     }
 
-    @Override // b.e.a.g.d.d
+    @Override // c.f.a.g.d.d
     public e c() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -199,16 +197,16 @@ public class RestUrlConnectionRequest implements d {
             if (Thread.currentThread().isInterrupted()) {
                 return null;
             }
-            return this.f63066a.a(this);
+            return this.a.a(this);
         }
         return (e) invokeV.objValue;
     }
 
-    @Override // b.e.a.g.d.d
+    @Override // c.f.a.g.d.d
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f63071f = str;
+            this.f55136f = str;
         }
     }
 }

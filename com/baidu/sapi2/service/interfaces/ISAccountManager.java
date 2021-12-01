@@ -3,7 +3,8 @@ package com.baidu.sapi2.service.interfaces;
 import android.content.Context;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
-/* loaded from: classes7.dex */
+import com.baidu.sapi2.callback.UbcUploadImplCallback;
+/* loaded from: classes9.dex */
 public interface ISAccountManager {
     SapiConfiguration getConfignation();
 
@@ -12,6 +13,8 @@ public interface ISAccountManager {
     ISAccountService getIsAccountService();
 
     SapiAccount getSession();
+
+    UbcUploadImplCallback getUbcUploadImplCallback();
 
     String getVersionName();
 

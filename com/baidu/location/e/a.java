@@ -5,38 +5,40 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f39995a = "baidu_location_service";
+    public static String a = "baidu_location_service";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f39996b = 12000;
+    public static int f35667b = 12000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f39997c = 20000;
+    public static int f35668c = 20000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f39998d = 1;
+    public static int f35669d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f39999e = 2;
+    public static int f35670e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f40000f = 3;
+    public static int f35671f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f40001g = 4;
+    public static int f35672g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f40002h = 5;
+    public static int f35673h = 5;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f40003i = 5120;
-    public static int j = 0;
-    public static int k = 1;
+    public static int f35674i = 5120;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static int f35675j = 0;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static int f35676k = 1;
     public static int l = 2;
     public static int m = 4;
     public static int n = 8;

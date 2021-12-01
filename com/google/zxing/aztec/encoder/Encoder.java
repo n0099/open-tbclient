@@ -1,7 +1,6 @@
 package com.google.zxing.aztec.encoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonEncoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Encoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AZTEC_LAYERS = 0;
@@ -146,7 +145,7 @@ public final class Encoder {
     public static AztecCode encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) ? encode(bArr, 33, 0) : (AztecCode) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? encode(bArr, 33, 0) : (AztecCode) invokeL.objValue;
     }
 
     public static BitArray generateCheckWords(BitArray bitArray, int i2, int i3) {
@@ -259,7 +258,7 @@ public final class Encoder {
         int i6;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) {
             BitArray encode = new HighLevelEncoder(bArr).encode();
             int size = ((encode.getSize() * i2) / 100) + 11;
             int size2 = encode.getSize() + size;

@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,37 +40,33 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69823a = "b";
+    public static final String a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f69824b;
+    public static c f61471b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f69825c;
+    public static a f61472c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class a implements a.InterfaceC2021a {
+    public static class a implements a.InterfaceC2112a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final e f69826a;
+        public final e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f69827b;
+        public final int f61473b;
 
         /* renamed from: c  reason: collision with root package name */
-        public JSONObject f69828c;
+        public JSONObject f61474c;
 
-        public a(Context context, Intent intent, int i2, JSONObject jSONObject, InterfaceC2018b interfaceC2018b) {
+        public a(Context context, Intent intent, int i2, JSONObject jSONObject, InterfaceC2109b interfaceC2109b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, intent, Integer.valueOf(i2), jSONObject, interfaceC2018b};
+                Object[] objArr = {context, intent, Integer.valueOf(i2), jSONObject, interfaceC2109b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -81,47 +76,47 @@ public class b {
                     return;
                 }
             }
-            this.f69828c = jSONObject;
+            this.f61474c = jSONObject;
             int optInt = jSONObject.optInt("query_interval", 1000);
-            this.f69827b = optInt;
-            this.f69826a = new e(context, intent, i2, interfaceC2018b, optInt);
+            this.f61473b = optInt;
+            this.a = new e(context, intent, i2, interfaceC2109b, optInt);
         }
 
-        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
+        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.f69826a.f69842i) {
+                if (!this.a.f61485i) {
                     Message obtain = Message.obtain();
                     obtain.what = 2;
-                    this.f69826a.f69839f.sendMessage(obtain);
+                    this.a.f61482f.sendMessage(obtain);
                 }
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
-                a unused = b.f69825c = null;
+                a unused = b.f61472c = null;
             }
         }
 
-        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
+        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                int optInt = this.f69828c.optInt("time_out_second", 20);
+                int optInt = this.f61474c.optInt("time_out_second", 20);
                 Message obtain = Message.obtain();
                 obtain.what = 1;
-                this.f69826a.f69839f.sendMessage(obtain);
+                this.a.f61482f.sendMessage(obtain);
                 if (optInt <= 0 || optInt >= 60) {
                     return;
                 }
                 Message obtain2 = Message.obtain();
                 obtain2.what = 2;
-                this.f69826a.f69839f.sendMessageDelayed(obtain2, optInt * 1000);
+                this.a.f61482f.sendMessageDelayed(obtain2, optInt * 1000);
             }
         }
     }
 
     /* renamed from: com.ss.android.socialbase.appdownloader.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC2018b {
+    public interface InterfaceC2109b {
         boolean a(@NonNull Context context);
     }
 
@@ -134,25 +129,23 @@ public class b {
     public static class d implements Callable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final Context f69830a;
+        public final Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final InterfaceC2018b f69831b;
+        public final InterfaceC2109b f61475b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Handler f69832c;
+        public final Handler f61476c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f69833d;
+        public final long f61477d;
 
-        public d(Handler handler, Context context, InterfaceC2018b interfaceC2018b, long j) {
+        public d(Handler handler, Context context, InterfaceC2109b interfaceC2109b, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {handler, context, interfaceC2018b, Long.valueOf(j)};
+                Object[] objArr = {handler, context, interfaceC2109b, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -162,10 +155,10 @@ public class b {
                     return;
                 }
             }
-            this.f69830a = context;
-            this.f69831b = interfaceC2018b;
-            this.f69832c = handler;
-            this.f69833d = j;
+            this.a = context;
+            this.f61475b = interfaceC2109b;
+            this.f61476c = handler;
+            this.f61477d = j2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -175,16 +168,16 @@ public class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f69831b != null && this.f69833d > 0 && this.f69833d <= 10000) {
-                    Context context = this.f69830a;
-                    boolean a2 = context != null ? this.f69831b.a(context) : false;
+                if (this.f61475b != null && this.f61477d > 0 && this.f61477d <= 10000) {
+                    Context context = this.a;
+                    boolean a = context != null ? this.f61475b.a(context) : false;
                     Message obtain = Message.obtain();
-                    if (a2) {
+                    if (a) {
                         obtain.what = 2;
-                        this.f69832c.sendMessage(obtain);
+                        this.f61476c.sendMessage(obtain);
                     } else {
                         obtain.what = 1;
-                        this.f69832c.sendMessageDelayed(obtain, this.f69833d);
+                        this.f61476c.sendMessageDelayed(obtain, this.f61477d);
                     }
                     return Boolean.FALSE;
                 }
@@ -197,41 +190,39 @@ public class b {
     /* loaded from: classes2.dex */
     public static class e implements h.a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static int f69834a;
+        public static int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f69835b;
+        public static int f61478b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Context f69836c;
+        public final Context f61479c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Intent f69837d;
+        public final Intent f61480d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final InterfaceC2018b f69838e;
+        public final InterfaceC2109b f61481e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Handler f69839f;
+        public final Handler f61482f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f69840g;
+        public final long f61483g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Future<Boolean> f69841h;
+        public Future<Boolean> f61484h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f69842i;
+        public boolean f61485i;
 
-        public e(Context context, Intent intent, int i2, InterfaceC2018b interfaceC2018b, long j) {
+        public e(Context context, Intent intent, int i2, InterfaceC2109b interfaceC2109b, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, intent, Integer.valueOf(i2), interfaceC2018b, Long.valueOf(j)};
+                Object[] objArr = {context, intent, Integer.valueOf(i2), interfaceC2109b, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -241,13 +232,13 @@ public class b {
                     return;
                 }
             }
-            this.f69842i = false;
-            this.f69836c = context;
-            this.f69837d = intent;
-            f69835b = i2;
-            this.f69838e = interfaceC2018b;
-            this.f69839f = new com.ss.android.socialbase.downloader.h.h(Looper.getMainLooper(), this);
-            this.f69840g = j;
+            this.f61485i = false;
+            this.f61479c = context;
+            this.f61480d = intent;
+            f61478b = i2;
+            this.f61481e = interfaceC2109b;
+            this.f61482f = new com.ss.android.socialbase.downloader.h.h(Looper.getMainLooper(), this);
+            this.f61483g = j2;
         }
 
         @Override // com.ss.android.socialbase.downloader.h.h.a
@@ -258,33 +249,33 @@ public class b {
             }
             int i2 = message.what;
             if (i2 == 1) {
-                long j = this.f69840g;
-                if (j <= 0 || j > 10000) {
+                long j2 = this.f61483g;
+                if (j2 <= 0 || j2 > 10000) {
                     return;
                 }
-                f69834a = 1;
-                this.f69841h = com.ss.android.socialbase.downloader.downloader.c.l().submit(new d(this.f69839f, this.f69836c, this.f69838e, this.f69840g));
+                a = 1;
+                this.f61484h = com.ss.android.socialbase.downloader.downloader.c.l().submit(new d(this.f61482f, this.f61479c, this.f61481e, this.f61483g));
             } else if (i2 == 2) {
-                f69834a = 2;
-                this.f69839f.removeMessages(2);
-                this.f69839f.removeMessages(1);
-                Future<Boolean> future = this.f69841h;
+                a = 2;
+                this.f61482f.removeMessages(2);
+                this.f61482f.removeMessages(1);
+                Future<Boolean> future = this.f61484h;
                 if (future != null) {
                     future.cancel(true);
                 }
-                if (!this.f69842i && (Build.VERSION.SDK_INT < 29 || com.ss.android.socialbase.downloader.a.a.a().b())) {
-                    Intent intent = this.f69837d;
+                if (!this.f61485i && (Build.VERSION.SDK_INT < 29 || com.ss.android.socialbase.downloader.a.a.a().b())) {
+                    Intent intent = this.f61480d;
                     if (intent != null) {
-                        b.b(this.f69836c, intent);
+                        b.b(this.f61479c, intent);
                     } else {
-                        DownloadInfo downloadInfo = Downloader.getInstance(this.f69836c).getDownloadInfo(f69835b);
+                        DownloadInfo downloadInfo = Downloader.getInstance(this.f61479c).getDownloadInfo(f61478b);
                         if (downloadInfo != null && downloadInfo.isDownloadOverStatus()) {
-                            com.ss.android.socialbase.appdownloader.c.b(this.f69836c, f69835b, false);
+                            com.ss.android.socialbase.appdownloader.c.b(this.f61479c, f61478b, false);
                         }
                     }
-                    this.f69842i = true;
+                    this.f61485i = true;
                 }
-                b.b(f69835b, this.f69837d == null, b.a(this.f69836c));
+                b.b(f61478b, this.f61480d == null, b.a(this.f61479c));
             }
         }
     }
@@ -360,7 +351,7 @@ public class b {
                 if (TextUtils.isEmpty(savePath)) {
                     return false;
                 }
-                aVar.f69815d = SchedulerSupport.CUSTOM;
+                aVar.f61464d = SchedulerSupport.CUSTOM;
                 com.ss.android.socialbase.appdownloader.a.a a2 = com.ss.android.socialbase.appdownloader.a.d.a(context, SchedulerSupport.CUSTOM, jSONObject, downloadInfo);
                 if (a2 != null && a2.a()) {
                     Intent b2 = a2.b();
@@ -369,16 +360,16 @@ public class b {
                     }
                     if (a(new File(savePath), downloadInfo, jSONObject)) {
                         if (b(context, b2)) {
-                            aVar.f69813b = 0;
+                            aVar.f61462b = 0;
                             return true;
                         }
-                        aVar.f69813b = 1;
+                        aVar.f61462b = 1;
                     } else {
-                        aVar.f69813b = 6;
+                        aVar.f61462b = 6;
                     }
                     return false;
                 }
-                aVar.f69813b = 3;
+                aVar.f61462b = 3;
             }
             return false;
         }
@@ -455,7 +446,7 @@ public class b {
                 String optString = jSONObject.optString("type");
                 if (!TextUtils.isEmpty(optString)) {
                     com.ss.android.socialbase.downloader.g.a a4 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo);
-                    aVar.f69812a = optString;
+                    aVar.a = optString;
                     switch (optString.hashCode()) {
                         case -985763637:
                             if (optString.equals("plan_a")) {
@@ -521,14 +512,14 @@ public class b {
                         case 0:
                         case 1:
                             if (!downloadInfo.isSavePathRedirected()) {
-                                aVar.f69813b = downloadInfo.getAntiHijackErrorCode(-1);
+                                aVar.f61462b = downloadInfo.getAntiHijackErrorCode(-1);
                                 break;
                             }
                         case 2:
                             a2 = a(jSONObject, a4);
-                            if (a2.f69813b == 0) {
+                            if (a2.f61462b == 0) {
                                 if (optString.equals("plan_f") && TextUtils.isEmpty(downloadInfo.getDBJsonString("file_content_uri"))) {
-                                    aVar.f69813b = downloadInfo.getAntiHijackErrorCode(10);
+                                    aVar.f61462b = downloadInfo.getAntiHijackErrorCode(10);
                                     break;
                                 } else {
                                     a3 = a(context, downloadInfo, jSONObject, aVar);
@@ -540,9 +531,9 @@ public class b {
                             break;
                         case 3:
                             a2 = a(jSONObject, a4);
-                            if (a2.f69813b == 0) {
+                            if (a2.f61462b == 0) {
                                 if (!downloadInfo.isSavePathRedirected()) {
-                                    aVar.f69813b = downloadInfo.getAntiHijackErrorCode(-1);
+                                    aVar.f61462b = downloadInfo.getAntiHijackErrorCode(-1);
                                     break;
                                 } else {
                                     a3 = b(context, downloadInfo, jSONObject, aVar);
@@ -553,25 +544,25 @@ public class b {
                             aVar = a2;
                             break;
                         case 4:
-                            aVar.f69812a = "plan_d";
+                            aVar.a = "plan_d";
                             if (!com.ss.android.socialbase.appdownloader.f.d.c()) {
-                                aVar.f69813b = 2;
+                                aVar.f61462b = 2;
                                 break;
                             } else {
                                 try {
                                     com.ss.android.socialbase.appdownloader.c.a(context, intent);
-                                    aVar.f69813b = 0;
+                                    aVar.f61462b = 0;
                                     z2 = true;
                                     break;
                                 } catch (Throwable th) {
-                                    aVar.f69813b = 4;
-                                    aVar.f69814c = th.toString();
+                                    aVar.f61462b = 4;
+                                    aVar.f61463c = th.toString();
                                     break;
                                 }
                             }
                         case 5:
                             a2 = b(jSONObject, a4);
-                            if (a2.f69813b == 0) {
+                            if (a2.f61462b == 0) {
                                 a3 = a(context, downloadInfo, jSONObject, aVar, a4);
                                 z2 = a3;
                                 break;
@@ -581,25 +572,25 @@ public class b {
                         case 6:
                             String a5 = com.ss.android.socialbase.appdownloader.f.c.a(a4.c("bh"), a4.c("s"));
                             com.ss.android.socialbase.appdownloader.a a6 = a(jSONObject, a5, context, a4);
-                            if (a6.f69813b == 0) {
+                            if (a6.f61462b == 0) {
                                 String packageName = context.getPackageName();
                                 if (com.ss.android.socialbase.appdownloader.f.a.a(com.ss.android.socialbase.downloader.g.a.b(), context, a5)) {
                                     try {
                                         com.ss.android.socialbase.appdownloader.c.a(context, intent);
-                                        aVar.f69813b = 0;
+                                        aVar.f61462b = 0;
                                         z2 = true;
                                         break;
                                     } catch (Throwable th2) {
                                         try {
-                                            aVar.f69813b = 1;
-                                            aVar.f69814c = th2.toString();
+                                            aVar.f61462b = 1;
+                                            aVar.f61463c = th2.toString();
                                             break;
                                         } finally {
                                             com.ss.android.socialbase.appdownloader.f.a.a(com.ss.android.socialbase.downloader.g.a.b(), context, packageName);
                                         }
                                     }
                                 } else {
-                                    aVar.f69813b = 11;
+                                    aVar.f61462b = 11;
                                     break;
                                 }
                             } else {
@@ -621,9 +612,9 @@ public class b {
                     if (z2) {
                         downloadInfo.getTempCacheData().put("ah_attempt", aVar.a());
                     }
-                    if (f69824b != null) {
+                    if (f61471b != null) {
                         downloadInfo.getTempCacheData().put("intent", intent);
-                        f69824b.a(downloadInfo, aVar);
+                        f61471b.a(downloadInfo, aVar);
                     }
                 }
             }
@@ -640,10 +631,10 @@ public class b {
             if (jSONObject == null) {
                 return aVar2;
             }
-            aVar2.f69812a = jSONObject.optString("type");
-            aVar2.f69816e = "vbi";
+            aVar2.a = jSONObject.optString("type");
+            aVar2.f61465e = "vbi";
             if (com.ss.android.socialbase.appdownloader.a.d.a(com.ss.android.socialbase.downloader.downloader.c.N(), "vbi", jSONObject, aVar)) {
-                aVar2.f69813b = 0;
+                aVar2.f61462b = 0;
             } else {
                 a(aVar2, 3);
             }
@@ -700,7 +691,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65557, null, context, downloadInfo, jSONObject, aVar, aVar2)) == null) {
             String optString = jSONObject.optString("type");
-            aVar.f69812a = optString;
+            aVar.a = optString;
             Intent b2 = com.ss.android.socialbase.appdownloader.a.d.a(context, "vbi", jSONObject, downloadInfo).b();
             StringBuilder sb = new StringBuilder();
             try {
@@ -713,9 +704,9 @@ public class b {
                 z = false;
             }
             if (!z) {
-                aVar.f69814c = sb.toString();
+                aVar.f61463c = sb.toString();
             } else {
-                aVar.f69813b = 0;
+                aVar.f61462b = 0;
             }
             return true;
         }
@@ -729,7 +720,7 @@ public class b {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65556, null, context, downloadInfo, jSONObject, aVar)) == null) {
             if (context != null && jSONObject != null) {
                 String optString = jSONObject.optString("device_plans");
-                aVar.f69816e = optString;
+                aVar.f61465e = optString;
                 if (!TextUtils.isEmpty(optString)) {
                     String[] split = optString.split(",");
                     String savePath = downloadInfo.getSavePath();
@@ -778,10 +769,10 @@ public class b {
                         i2++;
                     }
                     if (!z) {
-                        aVar.f69814c = sb.toString();
+                        aVar.f61463c = sb.toString();
                     } else {
-                        aVar.f69815d = str;
-                        aVar.f69813b = 0;
+                        aVar.f61464d = str;
+                        aVar.f61462b = 0;
                     }
                     return z;
                 }
@@ -807,11 +798,11 @@ public class b {
                             if (com.ss.android.socialbase.appdownloader.f.a.a(optJSONObject)) {
                                 String optString = optJSONObject.optString("type");
                                 if (!"plan_a".equals(optString) && !"plan_b".equals(optString) && !"plan_e".equals(optString) && !"plan_f".equals(optString)) {
-                                    if ("plan_d".equalsIgnoreCase(optString) || "plan_h".equalsIgnoreCase(optString) || ("plan_g".equalsIgnoreCase(optString) && (i2 = b(optJSONObject, aVar).f69813b) == 0)) {
+                                    if ("plan_d".equalsIgnoreCase(optString) || "plan_h".equalsIgnoreCase(optString) || ("plan_g".equalsIgnoreCase(optString) && (i2 = b(optJSONObject, aVar).f61462b) == 0)) {
                                         return 0;
                                     }
                                 } else {
-                                    i2 = a(optJSONObject, aVar).f69813b;
+                                    i2 = a(optJSONObject, aVar).f61462b;
                                     if (i2 == 0) {
                                         return 0;
                                     }
@@ -838,21 +829,21 @@ public class b {
                 return aVar2;
             }
             String optString = jSONObject.optString("type");
-            aVar2.f69812a = optString;
+            aVar2.a = optString;
             if ("plan_b".equals(optString)) {
-                aVar2.f69816e = SchedulerSupport.CUSTOM;
+                aVar2.f61465e = SchedulerSupport.CUSTOM;
                 if (com.ss.android.socialbase.appdownloader.a.d.a(com.ss.android.socialbase.downloader.downloader.c.N(), SchedulerSupport.CUSTOM, jSONObject, aVar)) {
-                    aVar2.f69813b = 0;
+                    aVar2.f61462b = 0;
                     return aVar2;
                 }
                 a(aVar2, 3);
             } else {
                 String optString2 = jSONObject.optString("device_plans");
-                aVar2.f69816e = optString2;
+                aVar2.f61465e = optString2;
                 if (!TextUtils.isEmpty(optString2)) {
                     for (String str : optString2.split(",")) {
                         if (com.ss.android.socialbase.appdownloader.a.d.a(com.ss.android.socialbase.downloader.downloader.c.N(), str, jSONObject, aVar)) {
-                            aVar2.f69813b = 0;
+                            aVar2.f61462b = 0;
                             return aVar2;
                         }
                         a(aVar2, 3);
@@ -870,16 +861,16 @@ public class b {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, str, context, aVar)) == null) {
             com.ss.android.socialbase.appdownloader.a aVar2 = new com.ss.android.socialbase.appdownloader.a();
             if (jSONObject != null && com.ss.android.socialbase.appdownloader.f.d.b()) {
-                aVar2.f69812a = jSONObject.optString("type");
+                aVar2.a = jSONObject.optString("type");
                 if (aVar.a(NotificationStyle.BANNER_IMAGE_URL, 0) == 1) {
-                    aVar2.f69813b = 0;
+                    aVar2.f61462b = 0;
                     return aVar2;
                 } else if (a(context)) {
-                    aVar2.f69813b = 2;
+                    aVar2.f61462b = 2;
                 } else if (com.ss.android.socialbase.appdownloader.f.a.a(str) != null) {
-                    aVar2.f69813b = 0;
+                    aVar2.f61462b = 0;
                 } else {
-                    aVar2.f69813b = 9;
+                    aVar2.f61462b = 9;
                 }
             }
             return aVar2;
@@ -890,11 +881,11 @@ public class b {
     public static void a(com.ss.android.socialbase.appdownloader.a aVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65546, null, aVar, i2) == null) {
-            int i3 = aVar.f69813b;
+            int i3 = aVar.f61462b;
             if (i3 != -1) {
-                aVar.f69813b = (i3 * 10) + i2;
+                aVar.f61462b = (i3 * 10) + i2;
             } else {
-                aVar.f69813b = i2;
+                aVar.f61462b = i2;
             }
         }
     }
@@ -954,8 +945,8 @@ public class b {
                             return true;
                         } catch (Throwable th) {
                             if (aVar != null) {
-                                aVar.f69813b = 1;
-                                aVar.f69814c = "tryShowUnknownSourceDialog" + a(th);
+                                aVar.f61462b = 1;
+                                aVar.f61463c = "tryShowUnknownSourceDialog" + a(th);
                             }
                             return false;
                         }
@@ -979,7 +970,7 @@ public class b {
                 if (com.ss.android.socialbase.appdownloader.f.d.b() && Build.VERSION.SDK_INT < 26 && !d(context)) {
                     com.ss.android.socialbase.appdownloader.a.f fVar = new com.ss.android.socialbase.appdownloader.a.f(context);
                     if (fVar.a()) {
-                        a(context, intent, i2, jSONObject, new InterfaceC2018b() { // from class: com.ss.android.socialbase.appdownloader.b.1
+                        a(context, intent, i2, jSONObject, new InterfaceC2109b() { // from class: com.ss.android.socialbase.appdownloader.b.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -997,7 +988,7 @@ public class b {
                                 }
                             }
 
-                            @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC2018b
+                            @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC2109b
                             public boolean a(@NonNull Context context2) {
                                 InterceptResult invokeL;
                                 Interceptable interceptable2 = $ic;
@@ -1009,7 +1000,7 @@ public class b {
                 } else if (Build.VERSION.SDK_INT >= 26 && context.getApplicationInfo().targetSdkVersion >= 26 && !e(context)) {
                     com.ss.android.socialbase.appdownloader.a.b bVar = new com.ss.android.socialbase.appdownloader.a.b(context);
                     if (bVar.a()) {
-                        a(context, intent, i2, jSONObject, new InterfaceC2018b() { // from class: com.ss.android.socialbase.appdownloader.b.2
+                        a(context, intent, i2, jSONObject, new InterfaceC2109b() { // from class: com.ss.android.socialbase.appdownloader.b.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1027,7 +1018,7 @@ public class b {
                                 }
                             }
 
-                            @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC2018b
+                            @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC2109b
                             public boolean a(@NonNull Context context2) {
                                 InterceptResult invokeL;
                                 Interceptable interceptable2 = $ic;
@@ -1065,7 +1056,7 @@ public class b {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? e.f69834a == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? e.a == 1 : invokeV.booleanValue;
     }
 
     public static void a(int i2, JSONObject jSONObject) {
@@ -1086,15 +1077,15 @@ public class b {
         }
     }
 
-    public static void a(Context context, Intent intent, int i2, JSONObject jSONObject, InterfaceC2018b interfaceC2018b) {
+    public static void a(Context context, Intent intent, int i2, JSONObject jSONObject, InterfaceC2109b interfaceC2109b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, intent, Integer.valueOf(i2), jSONObject, interfaceC2018b}) == null) {
-            if (f69825c != null) {
-                com.ss.android.socialbase.downloader.a.a.a().b(f69825c);
-                f69825c = null;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, intent, Integer.valueOf(i2), jSONObject, interfaceC2109b}) == null) {
+            if (f61472c != null) {
+                com.ss.android.socialbase.downloader.a.a.a().b(f61472c);
+                f61472c = null;
             }
-            f69825c = new a(context, intent, i2, jSONObject, interfaceC2018b);
-            com.ss.android.socialbase.downloader.a.a.a().a(f69825c);
+            f61472c = new a(context, intent, i2, jSONObject, interfaceC2109b);
+            com.ss.android.socialbase.downloader.a.a.a().a(f61472c);
         }
     }
 
@@ -1124,7 +1115,7 @@ public class b {
     public static String a(Throwable th) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
             String th2 = th.toString();
             return th2.length() > 800 ? th2.substring(0, 500) : th2;
         }
@@ -1134,7 +1125,7 @@ public class b {
     public static void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, cVar) == null) {
-            f69824b = cVar;
+            f61471b = cVar;
         }
     }
 }

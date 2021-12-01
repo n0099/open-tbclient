@@ -1,8 +1,8 @@
 package com.baidu.tbadk;
 
 import android.os.Build;
-import b.a.e.e.a;
-import b.a.e.f.p.j;
+import c.a.d.e.a;
+import c.a.d.f.p.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.conn.params.ConnRoutePNames;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SocketStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Tag = "tag";
@@ -94,7 +94,7 @@ public class SocketStatic {
                             Interceptable interceptable3 = $ic;
                             if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && j.z()) {
                                 if (BdSocketLinkService.isClose()) {
-                                    b.a.q0.f0.a.b(0, 0, 0, 1, 6);
+                                    c.a.q0.f0.a.b(0, 0, 0, 1, 6);
                                     BdSocketLinkService.setAvailable(true);
                                     BdSocketLinkService.startService(false, "net succ");
                                 }

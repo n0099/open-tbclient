@@ -12,19 +12,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LifeItemViewForType3 extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public NetImageView f59280a;
+    public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f59281b;
+    public MaskTextView f52608b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f59282c;
+    public NetImageView f52609c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LifeItemViewForType3(Context context) {
@@ -51,9 +49,9 @@ public class LifeItemViewForType3 extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_life_item_view_new"), this);
-            this.f59280a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
-            this.f59281b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
-            this.f59282c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+            this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
+            this.f52608b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
+            this.f52609c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
         }
     }
 
@@ -72,12 +70,12 @@ public class LifeItemViewForType3 extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getData() == null) {
             return;
         }
-        this.f59281b.setMaskText(getData().name);
-        NetImageView netImageView = this.f59280a;
+        this.f52608b.setMaskText(getData().name);
+        NetImageView netImageView = this.a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         if (hasCornor()) {
-            this.f59282c.setVisibility(0);
-            NetImageView netImageView2 = this.f59282c;
+            this.f52609c.setVisibility(0);
+            NetImageView netImageView2 = this.f52609c;
             netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().corner_addr);
         }
     }

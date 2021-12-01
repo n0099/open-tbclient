@@ -20,13 +20,13 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ObservableMergeWithSingle<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<? extends T> other;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class MergeWithObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int OTHER_STATE_CONSUMED_OR_EMPTY = 2;
@@ -43,7 +43,7 @@ public final class ObservableMergeWithSingle<T> extends AbstractObservableWithUp
         public volatile SimplePlainQueue<T> queue;
         public T singleItem;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class OtherObserver<T> extends AtomicReference<Disposable> implements SingleObserver<T> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -2935427570954647017L;

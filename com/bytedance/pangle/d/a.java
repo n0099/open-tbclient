@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,12 +49,10 @@ public final class a {
     public static void a(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, inputStream) == null) {
-            e.f62332a.execute(new Runnable(inputStream) { // from class: com.bytedance.pangle.d.a.1
+            e.a.execute(new Runnable(inputStream) { // from class: com.bytedance.pangle.d.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ InputStream f62175a;
+                public final /* synthetic */ InputStream a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -71,7 +69,7 @@ public final class a {
                             return;
                         }
                     }
-                    this.f62175a = inputStream;
+                    this.a = inputStream;
                 }
 
                 @Override // java.lang.Runnable
@@ -80,7 +78,7 @@ public final class a {
                     if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
                         return;
                     }
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f62175a));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.a));
                     while (true) {
                         try {
                             String readLine = bufferedReader.readLine();

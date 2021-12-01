@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.f.p.k;
-import b.a.e.f.p.l;
-import b.a.r0.o0.k.c.b;
+import c.a.d.f.p.k;
+import c.a.d.f.p.l;
+import c.a.r0.u0.k.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,32 +25,36 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RecommendForumItemView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f48598e;
+    public View f43601e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f48599f;
+    public View f43602f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BarImageView f48600g;
+    public BarImageView f43603g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48601h;
+    public TextView f43604h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f48602i;
-    public TextView j;
-    public TextView k;
+    public TextView f43605i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f43606j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public TextView f43607k;
     public TBSpecificationBtn l;
     public a m;
     public b n;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(b bVar);
 
@@ -85,8 +89,8 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13374");
-        statisticItem.param("obj_type", String.valueOf(bVar.f23235h));
-        statisticItem.param("fid", bVar.f23229b);
+        statisticItem.param("obj_type", String.valueOf(bVar.f24248h));
+        statisticItem.param("fid", bVar.f24242b);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         TiebaStatic.log(statisticItem);
     }
@@ -96,20 +100,20 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.recommend_forum_item_layout, this);
             View rootView = getRootView();
-            this.f48598e = rootView.findViewById(R.id.view_top);
-            this.f48599f = rootView.findViewById(R.id.view_bottom);
-            this.f48600g = (BarImageView) rootView.findViewById(R.id.forum_image);
-            this.f48601h = (TextView) rootView.findViewById(R.id.forum_name);
-            this.f48602i = (TextView) rootView.findViewById(R.id.forum_attention);
-            this.j = (TextView) rootView.findViewById(R.id.forum_thread);
-            this.k = (TextView) rootView.findViewById(R.id.forum_introduce);
+            this.f43601e = rootView.findViewById(R.id.view_top);
+            this.f43602f = rootView.findViewById(R.id.view_bottom);
+            this.f43603g = (BarImageView) rootView.findViewById(R.id.forum_image);
+            this.f43604h = (TextView) rootView.findViewById(R.id.forum_name);
+            this.f43605i = (TextView) rootView.findViewById(R.id.forum_attention);
+            this.f43606j = (TextView) rootView.findViewById(R.id.forum_thread);
+            this.f43607k = (TextView) rootView.findViewById(R.id.forum_introduce);
             this.l = (TBSpecificationBtn) rootView.findViewById(R.id.forum_like_button);
-            b.a.q0.s.g0.n.b bVar = new b.a.q0.s.g0.n.b();
+            c.a.q0.s.g0.n.b bVar = new c.a.q0.s.g0.n.b();
             bVar.r(R.color.CAM_X0302);
             this.l.setConfig(bVar);
             this.l.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
-            this.f48600g.setPlaceHolder(1);
-            this.f48600g.setOnClickListener(this);
+            this.f43603g.setPlaceHolder(1);
+            this.f43603g.setOnClickListener(this);
             this.l.setOnClickListener(this);
             rootView.setOnClickListener(this);
         }
@@ -121,39 +125,39 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
             return;
         }
         this.n = bVar;
-        this.f48600g.startLoad(bVar.f23228a, 15, false);
-        this.f48600g.setStrokeColorResId(R.color.CAM_X0201);
-        this.f48600g.setStrokeWith(3);
-        this.f48600g.setShowOval(true);
-        String str = bVar.f23230c;
+        this.f43603g.startLoad(bVar.a, 15, false);
+        this.f43603g.setStrokeColorResId(R.color.CAM_X0201);
+        this.f43603g.setStrokeWith(3);
+        this.f43603g.setShowOval(true);
+        String str = bVar.f24243c;
         if (k.isEmpty(str)) {
             str = "";
         }
-        this.f48601h.setText(str);
-        String numFormatOverWan = StringHelper.numFormatOverWan(bVar.f23232e);
-        TextView textView = this.f48602i;
+        this.f43604h.setText(str);
+        String numFormatOverWan = StringHelper.numFormatOverWan(bVar.f24245e);
+        TextView textView = this.f43605i;
         textView.setText("关注 " + numFormatOverWan);
-        String numFormatOverWan2 = StringHelper.numFormatOverWan((long) bVar.f23233f);
-        TextView textView2 = this.j;
+        String numFormatOverWan2 = StringHelper.numFormatOverWan((long) bVar.f24246f);
+        TextView textView2 = this.f43606j;
         textView2.setText("贴子 " + numFormatOverWan2);
-        if (!k.isEmpty(bVar.f23234g)) {
-            this.k.setText(bVar.f23234g);
+        if (!k.isEmpty(bVar.f24247g)) {
+            this.f43607k.setText(bVar.f24247g);
         } else {
-            this.k.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_forum_default_introduce));
+            this.f43607k.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_forum_default_introduce));
         }
-        updateLikeState(bVar.f23231d);
-        DrawableSelector.make().tlRadius(l.g(getContext(), R.dimen.tbds10)).trRadius(l.g(getContext(), R.dimen.tbds10)).defaultColor(R.color.CAM_X0901).into(this.f48598e);
-        TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.g(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(l.g(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(l.g(getContext(), R.dimen.tbds5)).into(this.f48599f);
+        updateLikeState(bVar.f24244d);
+        DrawableSelector.make().tlRadius(l.f(getContext(), R.dimen.tbds10)).trRadius(l.f(getContext(), R.dimen.tbds10)).defaultColor(R.color.CAM_X0901).into(this.f43601e);
+        TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(l.f(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(l.f(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(l.f(getContext(), R.dimen.tbds5)).into(this.f43602f);
         a(bVar);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setViewTextColor(this.f48601h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f48602i, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.k, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f43604h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f43605i, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f43606j, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f43607k, R.color.CAM_X0107);
         }
     }
 
@@ -163,7 +167,7 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             if (view == this.l) {
                 b bVar = this.n;
-                if (bVar.f23231d) {
+                if (bVar.f24244d) {
                     this.m.b(bVar);
                     return;
                 } else {
@@ -187,19 +191,19 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                b.a.q0.s.g0.n.b bVar = new b.a.q0.s.g0.n.b();
+                c.a.q0.s.g0.n.b bVar = new c.a.q0.s.g0.n.b();
                 bVar.s(R.color.CAM_X0109);
                 this.l.setConfig(bVar);
                 this.l.setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
                 this.l.setClickState(false);
             } else {
-                b.a.q0.s.g0.n.b bVar2 = new b.a.q0.s.g0.n.b();
+                c.a.q0.s.g0.n.b bVar2 = new c.a.q0.s.g0.n.b();
                 bVar2.r(R.color.CAM_X0302);
                 this.l.setConfig(bVar2);
                 this.l.setText(TbadkCoreApplication.getInst().getString(R.string.attention));
                 this.l.setClickState(true);
             }
-            this.n.f23231d = z;
+            this.n.f24244d = z;
         }
     }
 

@@ -26,7 +26,7 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ChannelBaiduPay extends AbstractChannelPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -151,9 +151,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                             BaiduPayDelegate.getInstance().doPrecashierPay(activity, str, new PayCallBack(this) { // from class: com.baidu.android.lbspay.channelpay.baidu.ChannelBaiduPay.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ ChannelBaiduPay f35721a;
+                                public final /* synthetic */ ChannelBaiduPay a;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -170,7 +168,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                                             return;
                                         }
                                     }
-                                    this.f35721a = this;
+                                    this.a = this;
                                 }
 
                                 @Override // com.baidu.android.pay.PayCallBack
@@ -187,7 +185,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                                 public void onPayResult(int i2, String str3) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                                        this.f35721a.handlepayResult(i2, str3);
+                                        this.a.handlepayResult(i2, str3);
                                     }
                                 }
                             }, hashMap, getPayContent.sdk_info, null);
@@ -197,9 +195,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                         BaiduPayDelegate.getInstance().doPay(activity, str, new PayCallBack(this) { // from class: com.baidu.android.lbspay.channelpay.baidu.ChannelBaiduPay.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ ChannelBaiduPay f35722a;
+                            public final /* synthetic */ ChannelBaiduPay a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -216,7 +212,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                                         return;
                                     }
                                 }
-                                this.f35722a = this;
+                                this.a = this;
                             }
 
                             @Override // com.baidu.android.pay.PayCallBack
@@ -233,7 +229,7 @@ public class ChannelBaiduPay extends AbstractChannelPay {
                             public void onPayResult(int i2, String str3) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                                    this.f35722a.handlepayResult(i2, str3);
+                                    this.a.handlepayResult(i2, str3);
                                 }
                             }
                         }, hashMap);

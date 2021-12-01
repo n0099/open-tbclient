@@ -18,6 +18,7 @@ import com.googlecode.mp4parser.authoring.SampleImpl;
 import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import com.googlecode.mp4parser.util.CastUtils;
+import com.kwad.yoga.YogaNodeJNIBase;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -31,12 +32,12 @@ public class SilenceTrackImpl implements Track {
     public List<Sample> samples;
     public Track source;
 
-    public SilenceTrackImpl(Track track, long j) {
+    public SilenceTrackImpl(Track track, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Long.valueOf(j)};
+            Object[] objArr = {track, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -49,16 +50,16 @@ public class SilenceTrackImpl implements Track {
         this.samples = new LinkedList();
         this.source = track;
         if (AudioSampleEntry.TYPE3.equals(track.getSampleDescriptionBox().getSampleEntry().getType())) {
-            int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j) / 1000) / 1024);
+            int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j2) / 1000) / 1024);
             long[] jArr = new long[l2i];
             this.decodingTimes = jArr;
-            Arrays.fill(jArr, ((getTrackMetaData().getTimescale() * j) / l2i) / 1000);
+            Arrays.fill(jArr, ((getTrackMetaData().getTimescale() * j2) / l2i) / 1000);
             while (true) {
                 int i4 = l2i - 1;
                 if (l2i <= 0) {
                     return;
                 }
-                this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 16, 4, 96, -116, 28}).rewind()));
+                this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, YogaNodeJNIBase.HAS_NEW_LAYOUT, 4, 96, -116, 28}).rewind()));
                 l2i = i4;
             }
         } else {
@@ -81,11 +82,11 @@ public class SilenceTrackImpl implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = 0;
-            for (long j2 : this.decodingTimes) {
-                j += j2;
+            long j2 = 0;
+            for (long j3 : this.decodingTimes) {
+                j2 += j3;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

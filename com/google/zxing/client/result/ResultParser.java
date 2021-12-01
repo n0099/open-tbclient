@@ -1,7 +1,6 @@
 package com.google.zxing.client.result;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class ResultParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern AMPERSAND;
@@ -98,14 +97,14 @@ public abstract class ResultParser {
     public static boolean isStringOfDigits(CharSequence charSequence, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, charSequence, i2)) == null) ? charSequence != null && i2 > 0 && i2 == charSequence.length() && DIGITS.matcher(charSequence).matches() : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, charSequence, i2)) == null) ? charSequence != null && i2 > 0 && i2 == charSequence.length() && DIGITS.matcher(charSequence).matches() : invokeLI.booleanValue;
     }
 
     public static boolean isSubstringOfDigits(CharSequence charSequence, int i2, int i3) {
         InterceptResult invokeLII;
         int i4;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, charSequence, i2, i3)) == null) ? charSequence != null && i3 > 0 && charSequence.length() >= (i4 = i3 + i2) && DIGITS.matcher(charSequence.subSequence(i2, i4)).matches() : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, charSequence, i2, i3)) == null) ? charSequence != null && i3 > 0 && charSequence.length() >= (i4 = i3 + i2) && DIGITS.matcher(charSequence.subSequence(i2, i4)).matches() : invokeLII.booleanValue;
     }
 
     public static String[] matchPrefixedField(String str, String str2, char c2, boolean z) {

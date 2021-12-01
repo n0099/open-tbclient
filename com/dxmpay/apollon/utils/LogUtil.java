@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,25 +17,23 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class LogUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f63124a;
+    public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f63125b;
+    public static final boolean f55182b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f63126c;
+    public static final boolean f55183c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f63127d;
+    public static final boolean f55184d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f63128e;
+    public static final boolean f55185e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,11 +51,11 @@ public final class LogUtil {
         }
         boolean z = ApollonConstants.DEBUG;
         DEBUG = z;
-        f63124a = z;
-        f63125b = z;
-        f63126c = z;
-        f63127d = z;
-        f63128e = z;
+        a = z;
+        f55182b = z;
+        f55183c = z;
+        f55184d = z;
+        f55185e = z;
     }
 
     public LogUtil() {
@@ -77,7 +74,7 @@ public final class LogUtil {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f63125b) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f55182b) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -85,7 +82,7 @@ public final class LogUtil {
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f63128e) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f55185e) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -93,7 +90,7 @@ public final class LogUtil {
 
     public static void errord(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && ApollonConstants.DEBUG) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && ApollonConstants.DEBUG) {
             String str2 = getTAG() + "---" + str;
         }
     }
@@ -119,7 +116,7 @@ public final class LogUtil {
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && f63126c) {
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && f55183c) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -142,7 +139,7 @@ public final class LogUtil {
     public static void saveLog(Context context, String str) {
         String absolutePath;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) && f63125b) {
+        if ((interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) && f55182b) {
             String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS    ", Locale.ENGLISH).format(new Date()) + str + org.apache.commons.lang3.StringUtils.LF;
             try {
                 File externalFilesDir = context.getExternalFilesDir(null);
@@ -188,7 +185,7 @@ public final class LogUtil {
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && f63124a) {
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && a) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -196,7 +193,7 @@ public final class LogUtil {
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && f63127d) {
+        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && f55184d) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -204,7 +201,7 @@ public final class LogUtil {
 
     public static void errord(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && ApollonConstants.DEBUG) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && ApollonConstants.DEBUG) {
             String str3 = getTAG() + "---" + str2;
         }
     }

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +50,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImagePipelineConfig {
     public static /* synthetic */ Interceptable $ic;
     public static DefaultImageRequestConfig sDefaultImageRequestConfig;
@@ -91,7 +90,7 @@ public class ImagePipelineConfig {
     public final boolean mResizeAndRotateEnabledForNetwork;
     public final DiskCacheConfig mSmallImageDiskCacheConfig;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -462,7 +461,7 @@ public class ImagePipelineConfig {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class DefaultImageRequestConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -863,7 +862,7 @@ public class ImagePipelineConfig {
     public static ImageTranscoderFactory getImageTranscoderFactory(Builder builder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, builder)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, builder)) == null) {
             if (builder.mImageTranscoderFactory == null || builder.mImageTranscoderType == null) {
                 if (builder.mImageTranscoderFactory != null) {
                     return builder.mImageTranscoderFactory;
@@ -878,7 +877,7 @@ public class ImagePipelineConfig {
     public static int getMemoryChunkType(Builder builder, ImagePipelineExperiments imagePipelineExperiments) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, builder, imagePipelineExperiments)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, builder, imagePipelineExperiments)) == null) {
             if (builder.mMemoryChunkType != null) {
                 return builder.mMemoryChunkType.intValue();
             }

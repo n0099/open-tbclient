@@ -2,7 +2,6 @@ package okhttp3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -274,13 +273,13 @@ public final class Cache implements Closeable, Flushable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Cache(File file, long j) {
-        this(file, j, FileSystem.SYSTEM);
+    public Cache(File file, long j2) {
+        this(file, j2, FileSystem.SYSTEM);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Long.valueOf(j)};
+            Object[] objArr = {file, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -658,12 +657,12 @@ public final class Cache implements Closeable, Flushable {
         return invokeV.intValue;
     }
 
-    public Cache(File file, long j, FileSystem fileSystem) {
+    public Cache(File file, long j2, FileSystem fileSystem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Long.valueOf(j), fileSystem};
+            Object[] objArr = {file, Long.valueOf(j2), fileSystem};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -742,7 +741,7 @@ public final class Cache implements Closeable, Flushable {
                 }
             }
         };
-        this.cache = DiskLruCache.create(fileSystem, file, VERSION, 2, j);
+        this.cache = DiskLruCache.create(fileSystem, file, VERSION, 2, j2);
     }
 
     /* loaded from: classes3.dex */
@@ -878,7 +877,7 @@ public final class Cache implements Closeable, Flushable {
 
         private void writeCertList(BufferedSink bufferedSink, List<Certificate> list) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, bufferedSink, list) == null) {
+            if (interceptable == null || interceptable.invokeLL(65541, this, bufferedSink, list) == null) {
                 try {
                     bufferedSink.writeDecimalLong(list.size()).writeByte(10);
                     int size = list.size();

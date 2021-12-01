@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetSocketAddress;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class cq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f71688a;
+    public int a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f201a;
@@ -34,7 +32,7 @@ public final class cq {
             }
         }
         this.f201a = str;
-        this.f71688a = i2;
+        this.a = i2;
     }
 
     public static cq a(String str, int i2) {
@@ -59,12 +57,12 @@ public final class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m229a(String str, int i2) {
+    public static InetSocketAddress m278a(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
-            cq a2 = a(str, i2);
-            return new InetSocketAddress(a2.m230a(), a2.a());
+            cq a = a(str, i2);
+            return new InetSocketAddress(a.m279a(), a.a());
         }
         return (InetSocketAddress) invokeLI.objValue;
     }
@@ -72,11 +70,11 @@ public final class cq {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71688a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m230a() {
+    public String m279a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f201a : (String) invokeV.objValue;
@@ -86,8 +84,8 @@ public final class cq {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f71688a > 0) {
-                return this.f201a + ":" + this.f71688a;
+            if (this.a > 0) {
+                return this.f201a + ":" + this.a;
             }
             return this.f201a;
         }

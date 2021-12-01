@@ -2,7 +2,6 @@ package com.google.gson.internal;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements Serializable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +36,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     public Node<K, V>[] table;
     public int threshold;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class AvlBuilder<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +144,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class AvlIterator<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +204,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public final class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -306,7 +305,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public final class KeySet extends AbstractSet<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -398,7 +397,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public abstract class LinkedTreeMapIterator<T> implements Iterator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -542,12 +541,12 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     private boolean equal(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
     }
 
     private void rebalance(Node<K, V> node, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, this, node, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65542, this, node, z) == null) {
             while (node != null) {
                 Node<K, V> node2 = node.left;
                 Node<K, V> node3 = node.right;
@@ -719,26 +718,26 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     /* JADX DEBUG: Type inference failed for r7v2. Raw type applied. Possible types: K, ? super K */
-    public Node<K, V> find(K k, boolean z) {
+    public Node<K, V> find(K k2, boolean z) {
         InterceptResult invokeLZ;
         Node<K, V> node;
         int i2;
         Node<K, V> node2;
         int compare;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, k, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, k2, z)) == null) {
             Comparator<? super K> comparator = this.comparator;
             Node<K, V>[] nodeArr = this.table;
-            int secondaryHash = secondaryHash(k.hashCode());
+            int secondaryHash = secondaryHash(k2.hashCode());
             int length = (nodeArr.length - 1) & secondaryHash;
             Node<K, V> node3 = nodeArr[length];
             if (node3 != null) {
-                Comparable comparable = comparator == NATURAL_ORDER ? (Comparable) k : null;
+                Comparable comparable = comparator == NATURAL_ORDER ? (Comparable) k2 : null;
                 while (true) {
                     if (comparable != null) {
                         compare = comparable.compareTo(node3.key);
                     } else {
-                        compare = comparator.compare(k, (K) node3.key);
+                        compare = comparator.compare(k2, (K) node3.key);
                     }
                     if (compare == 0) {
                         return node3;
@@ -758,13 +757,13 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
             if (z) {
                 Node<K, V> node5 = this.header;
                 if (node == null) {
-                    if (comparator == NATURAL_ORDER && !(k instanceof Comparable)) {
-                        throw new ClassCastException(k.getClass().getName() + " is not Comparable");
+                    if (comparator == NATURAL_ORDER && !(k2 instanceof Comparable)) {
+                        throw new ClassCastException(k2.getClass().getName() + " is not Comparable");
                     }
-                    node2 = new Node<>(node, k, secondaryHash, node5, node5.prev);
+                    node2 = new Node<>(node, k2, secondaryHash, node5, node5.prev);
                     nodeArr[length] = node2;
                 } else {
-                    node2 = new Node<>(node, k, secondaryHash, node5, node5.prev);
+                    node2 = new Node<>(node, k2, secondaryHash, node5, node5.prev);
                     if (i2 < 0) {
                         node.left = node2;
                     } else {
@@ -847,12 +846,12 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public V put(K k, V v) {
+    public V put(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k, v)) == null) {
-            if (k != null) {
-                Node<K, V> find = find(k, true);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k2, v)) == null) {
+            if (k2 != null) {
+                Node<K, V> find = find(k2, true);
                 V v2 = find.value;
                 find.value = v;
                 return v2;
@@ -1020,7 +1019,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return (Node[]) invokeL.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class Node<K, V> implements Map.Entry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1060,12 +1059,12 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    K k = this.key;
-                    if (k == null) {
+                    K k2 = this.key;
+                    if (k2 == null) {
                         if (entry.getKey() != null) {
                             return false;
                         }
-                    } else if (!k.equals(entry.getKey())) {
+                    } else if (!k2.equals(entry.getKey())) {
                         return false;
                     }
                     V v = this.value;
@@ -1115,8 +1114,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                K k = this.key;
-                int hashCode = k == null ? 0 : k.hashCode();
+                K k2 = this.key;
+                int hashCode = k2 == null ? 0 : k2.hashCode();
                 V v = this.value;
                 return hashCode ^ (v != null ? v.hashCode() : 0);
             }
@@ -1157,12 +1156,12 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
             return (String) invokeV.objValue;
         }
 
-        public Node(Node<K, V> node, K k, int i2, Node<K, V> node2, Node<K, V> node3) {
+        public Node(Node<K, V> node, K k2, int i2, Node<K, V> node2, Node<K, V> node3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {node, k, Integer.valueOf(i2), node2, node3};
+                Object[] objArr = {node, k2, Integer.valueOf(i2), node2, node3};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -1173,7 +1172,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
                 }
             }
             this.parent = node;
-            this.key = k;
+            this.key = k2;
             this.hash = i2;
             this.height = 1;
             this.next = node2;

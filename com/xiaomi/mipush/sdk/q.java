@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ea;
 import com.xiaomi.push.hk;
 import com.xiaomi.push.service.aq;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class q extends aq.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f71557a;
+    public final /* synthetic */ Context a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(int i2, String str, Context context) {
@@ -35,14 +33,14 @@ public final class q extends aq.a {
                 return;
             }
         }
-        this.f71557a = context;
+        this.a = context;
     }
 
     @Override // com.xiaomi.push.service.aq.a
     public void onCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ea.a(this.f71557a).a(com.xiaomi.push.service.aq.a(this.f71557a).a(hk.aF.a(), 0));
+            ea.a(this.a).a(com.xiaomi.push.service.aq.a(this.a).a(hk.aF.a(), 0));
         }
     }
 }

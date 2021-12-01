@@ -3,10 +3,10 @@ package com.baidu.card.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import b.a.e.f.p.l;
-import b.a.q0.s.g0.n.b;
-import b.a.q0.s.g0.t.c;
-import b.a.q0.s.q.d2;
+import c.a.d.f.p.l;
+import c.a.q0.s.g0.n.b;
+import c.a.q0.s.g0.t.c;
+import c.a.q0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FollowUserDecorView extends FollowUserButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,8 +120,8 @@ public class FollowUserDecorView extends FollowUserButton {
             if (this.x) {
                 bVar.i(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 bVar.h(R.color.CAM_X0304);
-                bVar.g(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
-                bVar.f(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+                bVar.g(l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
+                bVar.f(l.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
             }
             bVar.r(R.color.CAM_X0304);
             setConfig(bVar);

@@ -10,13 +10,12 @@ import com.baidu.minivideo.plugin.capture.download.DownloadRequest;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadCallback;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
 import com.baidu.minivideo.plugin.capture.download.utils.CommonUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CaptureDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CANCEL = "com.baidu.ugc.download.ACTION_CANCEL";
@@ -32,7 +31,7 @@ public class CaptureDownloadService extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public DownloadManager mDownloadManager;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ProgressCallback extends DownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,15 +129,15 @@ public class CaptureDownloadService extends Service {
         }
 
         @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadCallback
-        public void onProgress(long j, long j2, int i2) {
+        public void onProgress(long j2, long j3, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
                 if (this.mLastTime == 0) {
                     this.mLastTime = System.currentTimeMillis();
                 }
                 this.mAppInfo.setStatus(3);
                 this.mAppInfo.setProgress(i2);
-                this.mAppInfo.setDownloadPerSize(CommonUtils.getDownloadPerSize(j, j2));
+                this.mAppInfo.setDownloadPerSize(CommonUtils.getDownloadPerSize(j2, j3));
                 if (checkSendBroadLimit(i2)) {
                     sendBroadCast(this.mAppInfo);
                 }
@@ -181,14 +180,14 @@ public class CaptureDownloadService extends Service {
 
     public static void destroy(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
             context.stopService(new Intent(context, CaptureDownloadService.class));
         }
     }
 
     private void download(int i2, RequestTask requestTask, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(AdIconUtil.BAIDU_LOGO_ID, this, i2, requestTask, str) == null) {
+        if (interceptable == null || interceptable.invokeILL(65542, this, i2, requestTask, str) == null) {
             this.mDownloadManager.download(new DownloadRequest.Builder().setUri(requestTask.getUrl()).build(), str, new ProgressCallback(i2, requestTask, getApplicationContext()));
         }
     }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class QQSSOLoginActivity extends QQOauthLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String r = "QQSSOLoginActivity";
@@ -35,12 +35,12 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (((BaseSSOLoginActivity) this).f43480f) {
+            if (((BaseSSOLoginActivity) this).f38704f) {
                 b(3001);
                 finish();
                 return;
             }
-            a(((BaseSSOLoginActivity) this).f43481g);
+            a(((BaseSSOLoginActivity) this).f38705g);
         }
     }
 
@@ -49,7 +49,7 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            if (((BaseSSOLoginActivity) this).f43480f && i2 == 11101 && i3 == 0) {
+            if (((BaseSSOLoginActivity) this).f38704f && i2 == 11101 && i3 == 0) {
                 b(3001);
                 finish();
             }
@@ -73,7 +73,7 @@ public class QQSSOLoginActivity extends QQOauthLoginActivity {
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
-            if (((BaseSSOLoginActivity) this).f43480f) {
+            if (((BaseSSOLoginActivity) this).f38704f) {
                 Intent intent = new Intent();
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, str);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str2);

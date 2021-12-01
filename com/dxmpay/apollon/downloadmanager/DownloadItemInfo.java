@@ -9,33 +9,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DownloadItemInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final long f63000a;
+    public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f63001b;
+    public long f55078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f63002c;
+    public long f55079c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f63003d;
+    public long f55080d;
     @SuppressLint({"InlinedApi"})
 
     /* renamed from: e  reason: collision with root package name */
-    public int f63004e;
+    public int f55081e;
 
-    public DownloadItemInfo(long j) {
+    public DownloadItemInfo(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,65 +43,65 @@ public class DownloadItemInfo {
                 return;
             }
         }
-        this.f63004e = 1;
-        this.f63000a = j;
+        this.f55081e = 1;
+        this.a = j2;
     }
 
     public long getCurrentBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63001b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55078b : invokeV.longValue;
     }
 
     public long getDownloadId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63000a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
     }
 
     public int getDownloadState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63004e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55081e : invokeV.intValue;
     }
 
     public long getSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63003d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55080d : invokeV.longValue;
     }
 
     public long getTotalBytes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63002c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f55079c : invokeV.longValue;
     }
 
-    public void setCurrentBytes(long j) {
+    public void setCurrentBytes(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.f63001b = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.f55078b = j2;
         }
     }
 
     public void setDownloadState(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f63004e = i2;
+            this.f55081e = i2;
         }
     }
 
-    public void setSpeed(long j) {
+    public void setSpeed(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.f63003d = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.f55080d = j2;
         }
     }
 
-    public void setTotalBytes(long j) {
+    public void setTotalBytes(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.f63002c = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.f55079c = j2;
         }
     }
 
@@ -112,11 +110,11 @@ public class DownloadItemInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("DownloadItem=(id: " + this.f63000a);
-            sb.append(", current bytes: " + this.f63001b);
-            sb.append(", total bytes: " + this.f63002c);
-            sb.append(", speed: " + this.f63003d);
-            sb.append(", state: " + this.f63004e);
+            sb.append("DownloadItem=(id: " + this.a);
+            sb.append(", current bytes: " + this.f55078b);
+            sb.append(", total bytes: " + this.f55079c);
+            sb.append(", speed: " + this.f55080d);
+            sb.append(", state: " + this.f55081e);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             return sb.toString();
         }

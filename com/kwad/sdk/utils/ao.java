@@ -1,110 +1,255 @@
 package com.kwad.sdk.utils;
 
+import android.location.Location;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Method;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.api.KsCustomController;
+import com.kwad.sdk.api.SdkConfig;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class ao {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Class f67548a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Object a(String str, Class<?>[] clsArr, Object[] objArr) {
-        InterceptResult invokeLLL;
+    public static boolean a() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, clsArr, objArr)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
-                if (f67548a == null) {
-                    f67548a = Class.forName("android.os.SystemProperties");
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) {
+                    return false;
                 }
-                Method declaredMethod = f67548a.getDeclaredMethod(str, clsArr);
-                declaredMethod.setAccessible(true);
-                return declaredMethod.invoke(null, objArr);
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.a.a(th);
+                return !ksCustomController.canReadLocation();
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static Location b() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) {
+                    return null;
+                }
+                return ksCustomController.getLocation();
+            } catch (Throwable unused) {
                 return null;
             }
         }
-        return invokeLLL.objValue;
+        return (Location) invokeV.objValue;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static boolean c() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Object a2 = a("get", new Class[]{String.class}, new Object[]{str});
-            return a2 instanceof String ? (String) a2 : b(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0005 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:9:0x0036 */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x003f, code lost:
-        if (r1 == null) goto L12;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0047 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v5 */
-    /* JADX WARN: Type inference failed for: r1v7, types: [java.io.BufferedReader] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b(String str) {
-        ?? r1;
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = (r1 = interceptable).invokeL(65538, null, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        BufferedReader bufferedReader2 = null;
-        r0 = null;
-        String str2 = null;
-        try {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
-                try {
-                    str2 = bufferedReader.readLine();
-                    r1 = bufferedReader;
-                } catch (IOException e2) {
-                    e = e2;
-                    com.kwad.sdk.core.d.a.a(e);
-                    r1 = bufferedReader;
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) {
+                    return false;
                 }
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader2 = r1;
-                if (bufferedReader2 != null) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (Throwable unused) {
-                    }
+                return !ksCustomController.canUsePhoneState();
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String d() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                return (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) ? "" : ksCustomController.getImei();
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String[] e() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig != null && (ksCustomController = sdkConfig.ksCustomController) != null) {
+                    return ksCustomController.getImeis();
                 }
-                throw th;
+            } catch (Throwable unused) {
             }
-        } catch (IOException e3) {
-            e = e3;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (bufferedReader2 != null) {
+            return new String[]{"", ""};
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public static String f() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                return (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) ? "" : ksCustomController.getAndroidId();
+            } catch (Throwable unused) {
+                return "";
             }
-            throw th;
         }
-        try {
-            r1.close();
-        } catch (Throwable unused2) {
-            return str2;
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) {
+                    return false;
+                }
+                return !ksCustomController.canUseMacAddress();
+            } catch (Throwable unused) {
+                return false;
+            }
         }
+        return invokeV.booleanValue;
+    }
+
+    public static String h() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                return (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) ? "" : ksCustomController.getMacAddress();
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean i() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) {
+                    return false;
+                }
+                return !ksCustomController.canUseOaid();
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String j() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                return (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) ? "" : ksCustomController.getOaid();
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean k() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) {
+                    return false;
+                }
+                return !ksCustomController.canUseNetworkState();
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) {
+                    return false;
+                }
+                return !ksCustomController.canUseStoragePermission();
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig == null || (ksCustomController = sdkConfig.ksCustomController) == null) {
+                    return false;
+                }
+                return !ksCustomController.canReadInstalledPackages();
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static List<String> n() {
+        KsCustomController ksCustomController;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            try {
+                SdkConfig sdkConfig = KsAdSDKImpl.get().getSdkConfig();
+                if (sdkConfig != null && (ksCustomController = sdkConfig.ksCustomController) != null) {
+                    return ksCustomController.getInstalledPackages();
+                }
+            } catch (Throwable unused) {
+            }
+            return new ArrayList();
+        }
+        return (List) invokeV.objValue;
     }
 }

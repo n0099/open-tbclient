@@ -7,7 +7,6 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -203,7 +202,7 @@ public class DiffUtil {
             int i6;
             int i7;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
                 if (z) {
                     i3--;
                     i6 = i2;
@@ -251,7 +250,7 @@ public class DiffUtil {
 
         private void findMatchingItems() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+            if (interceptable == null || interceptable.invokeV(65542, this) == null) {
                 int i2 = this.mOldListSize;
                 int i3 = this.mNewListSize;
                 for (int size = this.mSnakes.size() - 1; size >= 0; size--) {

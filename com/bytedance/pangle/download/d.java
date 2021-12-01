@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,49 +29,45 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile d f62220a;
+    public static volatile d a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OkHttpClient f62221b;
+    public final OkHttpClient f54527b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f62222a;
+        public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f62223b;
+        public static final a f54528b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f62224c;
+        public static final a f54529c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f62225d;
+        public static final a f54530d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f62226e;
+        public static final a f54531e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f62227f;
+        public static final a f54532f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f62228g;
+        public static final a f54533g;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ a[] f62229i;
+        public static final /* synthetic */ a[] f54534i;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f62230h;
+        public final int f54535h;
 
         static {
             InterceptResult invokeClinit;
@@ -86,15 +82,15 @@ public class d {
                     return;
                 }
             }
-            f62222a = new a(RomUtils.UNKNOWN, 0, -1);
-            f62223b = new a("NONE", 1, 0);
-            f62224c = new a("MOBILE", 2, 1);
-            f62225d = new a("MOBILE_2G", 3, 2);
-            f62226e = new a("MOBILE_3G", 4, 3);
-            f62227f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
+            a = new a(RomUtils.UNKNOWN, 0, -1);
+            f54528b = new a(PolyActivity.NONE_PANEL_TYPE, 1, 0);
+            f54529c = new a("MOBILE", 2, 1);
+            f54530d = new a("MOBILE_2G", 3, 2);
+            f54531e = new a("MOBILE_3G", 4, 3);
+            f54532f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
             a aVar = new a("MOBILE_4G", 6, 5);
-            f62228g = aVar;
-            f62229i = new a[]{f62222a, f62223b, f62224c, f62225d, f62226e, f62227f, aVar};
+            f54533g = aVar;
+            f54534i = new a[]{a, f54528b, f54529c, f54530d, f54531e, f54532f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -115,7 +111,7 @@ public class d {
                     return;
                 }
             }
-            this.f62230h = i3;
+            this.f54535h = i3;
         }
 
         public static a valueOf(String str) {
@@ -127,7 +123,7 @@ public class d {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f62229i.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f54534i.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -159,21 +155,21 @@ public class d {
                 return;
             }
         }
-        this.f62221b = new OkHttpClient.Builder().connectTimeout(5L, TimeUnit.SECONDS).readTimeout(5L, TimeUnit.SECONDS).writeTimeout(5L, TimeUnit.SECONDS).build();
+        this.f54527b = new OkHttpClient.Builder().connectTimeout(5L, TimeUnit.SECONDS).readTimeout(5L, TimeUnit.SECONDS).writeTimeout(5L, TimeUnit.SECONDS).build();
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f62220a == null) {
+            if (a == null) {
                 synchronized (d.class) {
-                    if (f62220a == null) {
-                        f62220a = new d();
+                    if (a == null) {
+                        a = new d();
                     }
                 }
             }
-            return f62220a;
+            return a;
         }
         return (d) invokeV.objValue;
     }
@@ -182,13 +178,13 @@ public class d {
     public static a b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return a.f62227f;
+                        return a.f54532f;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -201,21 +197,21 @@ public class d {
                             case 12:
                             case 14:
                             case 15:
-                                return a.f62226e;
+                                return a.f54531e;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return a.f62224c;
+                                return a.f54529c;
                             case 13:
-                                return a.f62228g;
+                                return a.f54533g;
                         }
                     }
-                    return a.f62224c;
+                    return a.f54529c;
                 }
-                return a.f62223b;
+                return a.f54528b;
             } catch (Throwable unused) {
-                return a.f62224c;
+                return a.f54529c;
             }
         }
         return (a) invokeL.objValue;
@@ -224,9 +220,9 @@ public class d {
     public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             a b2 = b(context);
-            return b2 == a.f62227f ? "wifi" : b2 == a.f62225d ? "2g" : b2 == a.f62226e ? "3g" : b2 == a.f62228g ? "4g" : b2 == a.f62224c ? "mobile" : "";
+            return b2 == a.f54532f ? "wifi" : b2 == a.f54530d ? "2g" : b2 == a.f54531e ? "3g" : b2 == a.f54533g ? "4g" : b2 == a.f54529c ? "mobile" : "";
         }
         return (String) invokeL.objValue;
     }
@@ -241,10 +237,10 @@ public class d {
             ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "executePost, body: ".concat(String.valueOf(str2)));
             RequestBody create = RequestBody.create(MediaType.parse(str3), str2);
             Request.Builder url = new Request.Builder().url(str);
-            com.bytedance.pangle.util.b.a(url, str2, com.bytedance.pangle.i.a().f62337b.getAppKey(), com.bytedance.pangle.i.a().f62337b.getAppSecretKey());
+            com.bytedance.pangle.util.b.a(url, str2, com.bytedance.pangle.i.a().f54604b.getAppKey(), com.bytedance.pangle.i.a().f54604b.getAppSecretKey());
             url.addHeader("Content-Type", str3);
             try {
-                execute = this.f62221b.newCall(url.post(create).build()).execute();
+                execute = this.f54527b.newCall(url.post(create).build()).execute();
             } catch (Throwable th) {
                 String concat = "Request plugin failed! ".concat(String.valueOf(th));
                 hVar = new com.bytedance.pangle.h(concat, th);
@@ -254,16 +250,16 @@ public class d {
             if (execute.isSuccessful() && execute.body() != null) {
                 String string = execute.body().string();
                 if (TextUtils.isEmpty(string)) {
-                    a(b.a.f62153c, str2, "", null);
+                    a(b.a.f54472c, str2, "", null);
                 } else {
-                    a(b.a.f62151a, str2, string, null);
+                    a(b.a.a, str2, string, null);
                 }
                 return string;
             }
             String format = String.format("Request plugin failed! code = %s, message = %s", Integer.valueOf(execute.code()), execute.message());
             hVar = new com.bytedance.pangle.h(format, execute.code());
             ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, format);
-            a(b.a.f62152b, str2, "", hVar);
+            a(b.a.f54471b, str2, "", hVar);
             return "";
         }
         return (String) invokeLLL.objValue;
@@ -298,11 +294,11 @@ public class d {
                 jSONObject2.putOpt("timestamp", com.bytedance.pangle.log.d.a(Long.valueOf(System.currentTimeMillis())));
                 jSONObject2.putOpt("request", com.bytedance.pangle.log.d.a(str));
                 jSONObject2.putOpt("response", com.bytedance.pangle.log.d.a(str2));
-                jSONObject.putOpt("error_code", com.bytedance.pangle.log.d.a(Integer.valueOf(hVar != null ? hVar.f62322a : -1)));
+                jSONObject.putOpt("error_code", com.bytedance.pangle.log.d.a(Integer.valueOf(hVar != null ? hVar.a : -1)));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            com.bytedance.pangle.b.b.a().a(com.bytedance.pangle.b.b.f62142b, jSONObject, null, jSONObject2);
+            com.bytedance.pangle.b.b.a().a(com.bytedance.pangle.b.b.f54462b, jSONObject, null, jSONObject2);
         }
     }
 }

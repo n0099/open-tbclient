@@ -13,31 +13,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static u f42425b;
+    public static u f37475b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f42426c;
+    public static final Pattern f37476c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final int f42427a;
+    public final int a;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<PermissionEnum> f42428d;
+    public List<PermissionEnum> f37477d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f42429e;
+    public String f37478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f42430f;
+    public String f37479f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<JSONObject> f42431g;
+    public List<JSONObject> f37480g;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +50,7 @@ public class u {
                 return;
             }
         }
-        f42426c = Pattern.compile("\\s*|\t|\r|\n");
+        f37476c = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public u() {
@@ -68,10 +66,10 @@ public class u {
                 return;
             }
         }
-        this.f42428d = new ArrayList();
-        this.f42429e = "android.permission.APP_LIST";
-        this.f42427a = 100;
-        this.f42431g = new ArrayList();
+        this.f37477d = new ArrayList();
+        this.f37478e = "android.permission.APP_LIST";
+        this.a = 100;
+        this.f37480g = new ArrayList();
     }
 
     public static synchronized u a() {
@@ -80,10 +78,10 @@ public class u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (u.class) {
-                if (f42425b == null) {
-                    f42425b = new u();
+                if (f37475b == null) {
+                    f37475b = new u();
                 }
-                uVar = f42425b;
+                uVar = f37475b;
             }
             return uVar;
         }
@@ -93,13 +91,13 @@ public class u {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f42430f) ? "" : this.f42430f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f37479f) ? "" : this.f37479f : (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f42430f = str;
+            this.f37479f = str;
         }
     }
 }

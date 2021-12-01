@@ -11,7 +11,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.internal.observers.DisposableLambdaObserver;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ObservableDoOnLifecycle<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

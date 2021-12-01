@@ -7,10 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.v8.debug.mirror.ObjectMirror;
 import java.util.LinkedHashMap;
 import java.util.Map;
-@JSONType(orders = {"type", "id", "bbox", "coordinates", "properties"}, typeName = "Feature")
-/* loaded from: classes6.dex */
+@JSONType(orders = {"type", "id", "bbox", "coordinates", ObjectMirror.PROPERTIES}, typeName = "Feature")
+/* loaded from: classes7.dex */
 public class Feature extends Geometry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -12,7 +12,6 @@ import android.support.v4.media.session.MediaSessionCompat;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -219,7 +218,7 @@ public class MediaBrowserServiceCompatApi21 {
 
     public static void setSessionToken(Object obj, Object obj2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, obj, obj2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, obj, obj2) == null) {
             ((MediaBrowserService) obj).setSessionToken((MediaSession.Token) obj2);
         }
     }

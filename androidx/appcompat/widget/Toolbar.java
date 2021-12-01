@@ -45,7 +45,6 @@ import androidx.core.view.MarginLayoutParamsCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -526,14 +525,14 @@ public class Toolbar extends ViewGroup {
 
     private void ensureContentInsets() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.mContentInsets == null) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.mContentInsets == null) {
             this.mContentInsets = new RtlSpacingHelper();
         }
     }
 
     private void ensureLogoView() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && this.mLogoView == null) {
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.mLogoView == null) {
             this.mLogoView = new AppCompatImageView(getContext());
         }
     }
@@ -2200,13 +2199,13 @@ public class Toolbar extends ViewGroup {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                interceptable.invokeUnInit(65542, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ActionBar.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                    interceptable.invokeInitBody(65542, newInitContext);
                     return;
                 }
             }
@@ -2221,13 +2220,13 @@ public class Toolbar extends ViewGroup {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {marginLayoutParams};
-                interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeUnInit(65541, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                    interceptable.invokeInitBody(65541, newInitContext);
                     return;
                 }
             }

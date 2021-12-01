@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SDKBaseActivity extends FragmentActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class BottomBarType {
         public static final /* synthetic */ BottomBarType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -40,7 +41,7 @@ public class SDKBaseActivity extends FragmentActivity implements NoProguard {
                     return;
                 }
             }
-            NONE = new BottomBarType("NONE", 0);
+            NONE = new BottomBarType(PolyActivity.NONE_PANEL_TYPE, 0);
             NA_BAR = new BottomBarType("NA_BAR", 1);
             BottomBarType bottomBarType = new BottomBarType("H5_BAR", 2);
             H5_BAR = bottomBarType;

@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f55266e;
+    public a f49401e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f55267f;
+    public int f49402f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f55268g;
+    public boolean f49403g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void update(boolean z, int i2);
     }
@@ -55,9 +55,9 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
             int size = View.MeasureSpec.getSize(i2);
-            int i3 = this.f55267f;
+            int i3 = this.f49402f;
             if (i3 == 0) {
-                this.f55267f = size;
+                this.f49402f = size;
             } else if (i3 == size) {
             } else {
                 int i4 = i3 - size;
@@ -65,12 +65,12 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
                     return;
                 }
                 if (i4 > 0) {
-                    this.f55268g = true;
+                    this.f49403g = true;
                 } else {
-                    this.f55268g = false;
+                    this.f49403g = false;
                 }
-                b(this.f55268g, Math.abs(i4));
-                this.f55267f = size;
+                b(this.f49403g, Math.abs(i4));
+                this.f49402f = size;
             }
         }
     }
@@ -78,7 +78,7 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public final void b(boolean z, int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (aVar = this.f55266e) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (aVar = this.f49401e) == null) {
             return;
         }
         aVar.update(z, i2);
@@ -87,7 +87,7 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public boolean isKeyBoardVisibile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55268g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49403g : invokeV.booleanValue;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -102,7 +102,7 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public void setKeyBoardListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f55266e = aVar;
+            this.f49401e = aVar;
         }
     }
 

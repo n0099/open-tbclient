@@ -4,33 +4,31 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public abstract class f implements l {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final l f68295a;
+    public final l a;
 
     public f(l lVar) {
         if (lVar == null) {
             throw new IllegalArgumentException("delegate == null");
         }
-        this.f68295a = lVar;
+        this.a = lVar;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l
-    public void a(b bVar, long j) throws IOException {
-        this.f68295a.a(bVar, j);
+    public void a(b bVar, long j2) throws IOException {
+        this.a.a(bVar, j2);
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
     public void close() throws IOException {
-        this.f68295a.close();
+        this.a.close();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Flushable
     public void flush() throws IOException {
-        this.f68295a.flush();
+        this.a.flush();
     }
 
     public String toString() {
-        return getClass().getSimpleName() + "(" + this.f68295a.toString() + SmallTailInfo.EMOTION_SUFFIX;
+        return getClass().getSimpleName() + "(" + this.a.toString() + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

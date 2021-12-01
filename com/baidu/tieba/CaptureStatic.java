@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import b.a.e.f.p.l;
-import b.a.e.k.d;
-import b.a.e.k.e;
-import b.a.r0.z3.f;
+import c.a.d.f.p.l;
+import c.a.d.k.d;
+import c.a.d.k.e;
+import c.a.r0.g4.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -17,6 +17,7 @@ import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.Anniversary18thActivityConfig;
 import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.atomData.TbCaptureActivityConfig;
 import com.baidu.tbadk.core.atomData.TbEditVideoActivityConfig;
@@ -24,6 +25,7 @@ import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.TbPreviewVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoCoverSelectActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.view.anniversary.Anniversary18thActivity;
 import com.baidu.tieba.view.capture.TbCaptureActivity;
 import com.baidu.tieba.view.clipcover.VideoCoverSelectActivity;
 import com.baidu.tieba.view.cloudmusic.CloudMusicActivity;
@@ -37,40 +39,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CaptureStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C1746a implements f {
+        /* loaded from: classes9.dex */
+        public class C1817a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f47415a;
+            public final /* synthetic */ CustomResponsedMessage a;
 
             /* renamed from: com.baidu.tieba.CaptureStatic$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes8.dex */
-            public class C1747a extends DefaultDownloadCallback {
+            /* loaded from: classes9.dex */
+            public class C1818a extends DefaultDownloadCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ C1817a a;
 
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ C1746a f47416a;
-
-                public C1747a(C1746a c1746a) {
+                public C1818a(C1817a c1817a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1746a};
+                        Object[] objArr = {c1817a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -80,7 +78,7 @@ public class CaptureStatic {
                             return;
                         }
                     }
-                    this.f47416a = c1746a;
+                    this.a = c1817a;
                 }
 
                 @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -109,12 +107,12 @@ public class CaptureStatic {
                         if (packageInfo == null || !"libcbffmpeg.so".equals(packageInfo.name)) {
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f47416a.f47415a.getData()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.a.a.getData()));
                     }
                 }
             }
 
-            public C1746a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C1817a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,27 +127,27 @@ public class CaptureStatic {
                         return;
                     }
                 }
-                this.f47415a = customResponsedMessage;
+                this.a = customResponsedMessage;
             }
 
-            @Override // b.a.r0.z3.f
+            @Override // c.a.r0.g4.f
             public void a() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f47415a.getData() instanceof IntentConfig)) {
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.getData() instanceof IntentConfig)) {
                     if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libcbffmpeg.so"))) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f47415a.getData()));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.a.getData()));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
                         return;
                     }
                     RequestParams requestParams = new RequestParams();
-                    requestParams.setRunType(e.f2362a);
+                    requestParams.setRunType(e.a);
                     requestParams.setRunNode("aps");
-                    requestParams.addChannel(new d("com.baidu.tieba.soloader.libcbffmpeg", new C1747a(this)));
+                    requestParams.addChannel(new d("com.baidu.tieba.soloader.libcbffmpeg", new C1818a(this)));
                     PmsManager.getInstance().execute(requestParams);
                 }
             }
 
-            @Override // b.a.r0.z3.f
+            @Override // c.a.r0.g4.f
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -183,7 +181,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                b.a.r0.z3.a.b(TbadkCoreApplication.getInst(), new C1746a(this, customResponsedMessage));
+                c.a.r0.g4.a.b(TbadkCoreApplication.getInst(), new C1817a(this, customResponsedMessage));
             }
         }
     }
@@ -207,6 +205,7 @@ public class CaptureStatic {
         TbadkCoreApplication.getInst().RegisterIntent(TbEditVideoActivityConfig.class, TbEditVideoActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(CloudMusicActivityConfig.class, CloudMusicActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(VideoCoverSelectActivityConfig.class, VideoCoverSelectActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(Anniversary18thActivityConfig.class, Anniversary18thActivity.class);
         MessageManager.getInstance().registerListener(2921582, new a(0));
     }
 

@@ -17,17 +17,15 @@ import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.widget.dialog.PromptDialog;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PassLoginDialogUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static PassLoginDialogUtil f60342a;
+        public static PassLoginDialogUtil a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -43,7 +41,7 @@ public class PassLoginDialogUtil implements NoProguard {
                     return;
                 }
             }
-            f60342a = new PassLoginDialogUtil();
+            a = new PassLoginDialogUtil();
         }
 
         public a() {
@@ -64,7 +62,7 @@ public class PassLoginDialogUtil implements NoProguard {
     public static PassLoginDialogUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60342a : (PassLoginDialogUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (PassLoginDialogUtil) invokeV.objValue;
     }
 
     public void showLoginTipDialog(Context context, ILoginBackListener iLoginBackListener, int i2, String str) {
@@ -76,21 +74,19 @@ public class PassLoginDialogUtil implements NoProguard {
                 promptDialog.setNegativeBtn(ResUtils.getString(context, "wallet_base_open_bduss_system_error_retry"), new View.OnClickListener(this, promptDialog, iLoginBackListener, i2, str) { // from class: com.baidu.wallet.passport.PassLoginDialogUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f60334a;
+                    public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ILoginBackListener f60335b;
+                    public final /* synthetic */ ILoginBackListener f53292b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ int f60336c;
+                    public final /* synthetic */ int f53293c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f60337d;
+                    public final /* synthetic */ String f53294d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ PassLoginDialogUtil f60338e;
+                    public final /* synthetic */ PassLoginDialogUtil f53295e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -107,11 +103,11 @@ public class PassLoginDialogUtil implements NoProguard {
                                 return;
                             }
                         }
-                        this.f60338e = this;
-                        this.f60334a = promptDialog;
-                        this.f60335b = iLoginBackListener;
-                        this.f60336c = i2;
-                        this.f60337d = str;
+                        this.f53295e = this;
+                        this.a = promptDialog;
+                        this.f53292b = iLoginBackListener;
+                        this.f53293c = i2;
+                        this.f53294d = str;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -119,30 +115,28 @@ public class PassLoginDialogUtil implements NoProguard {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             try {
-                                this.f60334a.dismiss();
+                                this.a.dismiss();
                             } catch (Exception e2) {
                                 LogUtil.e("PassLoginDialog", "dialog Exception", e2);
                             }
-                            ILoginBackListener iLoginBackListener2 = this.f60335b;
+                            ILoginBackListener iLoginBackListener2 = this.f53292b;
                             if (!(iLoginBackListener2 instanceof LoginBackListenerProxy) || ((LoginBackListenerProxy) iLoginBackListener2).getLoginBackListener() == null) {
                                 return;
                             }
-                            ((LoginBackListenerProxy) this.f60335b).getLoginBackListener().onFail(this.f60336c, this.f60337d);
+                            ((LoginBackListenerProxy) this.f53292b).getLoginBackListener().onFail(this.f53293c, this.f53294d);
                         }
                     }
                 });
                 promptDialog.setPositiveBtn(ResUtils.getString(context, "wallet_base_open_bduss_system_error_login"), new View.OnClickListener(this, promptDialog, iLoginBackListener) { // from class: com.baidu.wallet.passport.PassLoginDialogUtil.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f60339a;
+                    public final /* synthetic */ PromptDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ILoginBackListener f60340b;
+                    public final /* synthetic */ ILoginBackListener f53296b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ PassLoginDialogUtil f60341c;
+                    public final /* synthetic */ PassLoginDialogUtil f53297c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -159,9 +153,9 @@ public class PassLoginDialogUtil implements NoProguard {
                                 return;
                             }
                         }
-                        this.f60341c = this;
-                        this.f60339a = promptDialog;
-                        this.f60340b = iLoginBackListener;
+                        this.f53297c = this;
+                        this.a = promptDialog;
+                        this.f53296b = iLoginBackListener;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -169,11 +163,11 @@ public class PassLoginDialogUtil implements NoProguard {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             try {
-                                this.f60339a.dismiss();
+                                this.a.dismiss();
                             } catch (Exception e2) {
                                 LogUtil.e("PassLoginDialog", "dialog Exception", e2);
                             }
-                            WalletLoginHelper.getInstance().onlyLogin(this.f60340b);
+                            WalletLoginHelper.getInstance().onlyLogin(this.f53296b);
                         }
                     }
                 });

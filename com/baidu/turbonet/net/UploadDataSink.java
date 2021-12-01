@@ -1,5 +1,5 @@
 package com.baidu.turbonet.net;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public interface UploadDataSink {
     void a();
 

@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.c;
-import b.a.x0.t.g;
+import c.a.x0.t.c;
+import c.a.x0.t.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VLogAudioPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_ERROR = -1;
@@ -55,12 +55,12 @@ public class VLogAudioPlayer {
     public volatile int mTargetState;
     public Timer mUpdateProgressTimer;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnProgressListener {
-        void getCurrentDuration(long j);
+        void getCurrentDuration(long j2);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class ProgressTimerTask extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class VLogAudioPlayer {
             OnProgressListener onProgressListener;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long j = 0;
+                long j2 = 0;
                 if (this.this$0.mCurrentState == -1 || this.this$0.mCurrentState == 0 || this.this$0.mCurrentState == 1 || this.this$0.mCurrentState == 2 || this.this$0.mCurrentState == 3) {
                     if (this.this$0.mOnProgressListener == null) {
                         return;
@@ -106,15 +106,15 @@ public class VLogAudioPlayer {
                     }
                     if (this.this$0.mOnProgressListener != null) {
                         onProgressListener = this.this$0.mOnProgressListener;
-                        j = this.this$0.mMediaPlayer.getCurrentPosition();
-                        onProgressListener.getCurrentDuration(j);
+                        j2 = this.this$0.mMediaPlayer.getCurrentPosition();
+                        onProgressListener.getCurrentDuration(j2);
                     }
                     return;
                 } else if (this.this$0.mOnProgressListener == null) {
                     return;
                 }
                 onProgressListener = this.this$0.mOnProgressListener;
-                onProgressListener.getCurrentDuration(j);
+                onProgressListener.getCurrentDuration(j2);
             }
         }
     }
@@ -298,9 +298,9 @@ public class VLogAudioPlayer {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, iMediaPlayer) == null) {
                     this.this$0.mCurrentState = 3;
-                    long j = this.this$0.mSeekWhenPrepared;
-                    if (j != 0) {
-                        this.this$0.seekTo(j);
+                    long j2 = this.this$0.mSeekWhenPrepared;
+                    if (j2 != 0) {
+                        this.this$0.seekTo(j2);
                     }
                     this.this$0.notifyPrepared(iMediaPlayer);
                     if (this.this$0.mTargetState == 4) {
@@ -472,16 +472,16 @@ public class VLogAudioPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void seekToInternal(long j) {
+    public void seekToInternal(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65576, this, j) == null) {
-            this.mSeekWhenPrepared = j;
+        if (interceptable == null || interceptable.invokeJ(65576, this, j2) == null) {
+            this.mSeekWhenPrepared = j2;
             try {
                 QMExoWrapperMediaPlayer qMExoWrapperMediaPlayer = this.mMediaPlayer;
                 if (!isInPlaybackState() || qMExoWrapperMediaPlayer == null) {
-                    this.mSeekWhenPrepared = j;
+                    this.mSeekWhenPrepared = j2;
                 } else {
-                    qMExoWrapperMediaPlayer.seekTo(j);
+                    qMExoWrapperMediaPlayer.seekTo(j2);
                     this.mSeekWhenPrepared = 0L;
                 }
             } catch (Exception e2) {
@@ -634,14 +634,14 @@ public class VLogAudioPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateVolume(long j) {
+    public void updateVolume(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65582, this, j) == null) || j <= 0 || this.handledAudioList == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65582, this, j2) == null) || j2 <= 0 || this.handledAudioList == null) {
             return;
         }
         for (int i2 = 0; i2 < this.handledAudioList.size(); i2++) {
             AudioPlayData audioPlayData = this.handledAudioList.get(i2);
-            if (audioPlayData.relativeMaxDuration >= j) {
+            if (audioPlayData.relativeMaxDuration >= j2) {
                 float volume = this.mMediaPlayer.getVolume();
                 float f2 = audioPlayData.volume;
                 if (volume != f2) {
@@ -882,11 +882,11 @@ public class VLogAudioPlayer {
         }
     }
 
-    public void seekTo(long j) {
+    public void seekTo(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.mSeekWhenPrepared = j;
-            schedule(new Runnable(this, j) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.7
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.mSeekWhenPrepared = j2;
+            schedule(new Runnable(this, j2) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ VLogAudioPlayer this$0;
@@ -897,7 +897,7 @@ public class VLogAudioPlayer {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j)};
+                        Object[] objArr = {this, Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -908,7 +908,7 @@ public class VLogAudioPlayer {
                         }
                     }
                     this.this$0 = this;
-                    this.val$pos = j;
+                    this.val$pos = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -1008,7 +1008,7 @@ public class VLogAudioPlayer {
                     for (int i2 = 0; i2 < this.val$playDataList.size(); i2++) {
                         AudioPlayData audioPlayData = (AudioPlayData) this.val$playDataList.get(i2);
                         if (audioPlayData != null) {
-                            this.this$0.handledAudioList.add(audioPlayData.m44clone());
+                            this.this$0.handledAudioList.add(audioPlayData.m92clone());
                         }
                     }
                     VLogAudioPlayer vLogAudioPlayer = this.this$0;

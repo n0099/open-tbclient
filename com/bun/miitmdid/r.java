@@ -7,14 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.provider.nubia.NubiaIdentityImpl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class r extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f62113i;
-    public String j;
+    public Context f54438i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f54439j;
 
     public r(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +33,7 @@ public class r extends m {
                 return;
             }
         }
-        this.f62113i = context;
+        this.f54438i = context;
     }
 
     @Override // com.bun.miitmdid.m
@@ -40,14 +42,14 @@ public class r extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            Context a2 = a(this.f62113i);
-            this.f62113i = a2;
-            this.j = a2.getPackageName();
-            gVar.e(new h(NubiaIdentityImpl.class, null, "isSupported", new Class[]{Context.class}, new Object[]{this.f62113i}));
+            Context a = a(this.f54438i);
+            this.f54438i = a;
+            this.f54439j = a.getPackageName();
+            gVar.e(new h(NubiaIdentityImpl.class, null, "isSupported", new Class[]{Context.class}, new Object[]{this.f54438i}));
             gVar.d(null);
-            gVar.b(new h(NubiaIdentityImpl.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f62113i}));
-            gVar.c(new h(NubiaIdentityImpl.class, null, "getVAID", new Class[]{Context.class, String.class}, new Object[]{this.f62113i, this.j}));
-            gVar.a(new h(NubiaIdentityImpl.class, null, "getAAID", new Class[]{Context.class, String.class}, new Object[]{this.f62113i, this.j}));
+            gVar.b(new h(NubiaIdentityImpl.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f54438i}));
+            gVar.c(new h(NubiaIdentityImpl.class, null, "getVAID", new Class[]{Context.class, String.class}, new Object[]{this.f54438i, this.f54439j}));
+            gVar.a(new h(NubiaIdentityImpl.class, null, "getAAID", new Class[]{Context.class, String.class}, new Object[]{this.f54438i, this.f54439j}));
             return gVar;
         }
         return (g) invokeV.objValue;

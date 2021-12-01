@@ -1,7 +1,6 @@
 package com.kwai.filedownloader.message;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,53 +31,53 @@ public class f {
         }
     }
 
-    public static MessageSnapshot a(byte b2, com.kwai.filedownloader.d.c cVar, d.a aVar) {
+    public static MessageSnapshot a(byte b2, com.kwai.filedownloader.c.c cVar, d.a aVar) {
         InterceptResult invokeCommon;
-        MessageSnapshot c1986d;
+        MessageSnapshot c2077d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), cVar, aVar})) == null) {
-            int a2 = cVar.a();
+            int a = cVar.a();
             if (b2 != -4) {
                 if (b2 == -3) {
-                    return cVar.q() ? new d.b(a2, false, cVar.h()) : new h.b(a2, false, (int) cVar.h());
+                    return cVar.q() ? new d.b(a, false, cVar.h()) : new h.b(a, false, (int) cVar.h());
                 }
                 if (b2 == -1) {
-                    c1986d = cVar.q() ? new d.C1986d(a2, cVar.g(), aVar.b()) : new h.d(a2, (int) cVar.g(), aVar.b());
+                    c2077d = cVar.q() ? new d.C2077d(a, cVar.g(), aVar.b()) : new h.d(a, (int) cVar.g(), aVar.b());
                 } else if (b2 == 1) {
-                    return cVar.q() ? new d.f(a2, cVar.g(), cVar.h()) : new h.f(a2, (int) cVar.g(), (int) cVar.h());
+                    return cVar.q() ? new d.f(a, cVar.g(), cVar.h()) : new h.f(a, (int) cVar.g(), (int) cVar.h());
                 } else if (b2 == 2) {
                     String m = cVar.l() ? cVar.m() : null;
-                    return cVar.q() ? new d.c(a2, aVar.a(), cVar.h(), cVar.j(), m) : new h.c(a2, aVar.a(), (int) cVar.h(), cVar.j(), m);
+                    return cVar.q() ? new d.c(a, aVar.a(), cVar.h(), cVar.j(), m) : new h.c(a, aVar.a(), (int) cVar.h(), cVar.j(), m);
                 } else if (b2 == 3) {
-                    return cVar.q() ? new d.g(a2, cVar.g()) : new h.g(a2, (int) cVar.g());
+                    return cVar.q() ? new d.g(a, cVar.g()) : new h.g(a, (int) cVar.g());
                 } else if (b2 != 5) {
                     if (b2 != 6) {
-                        String a3 = com.kwai.filedownloader.f.f.a("it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b2));
-                        com.kwai.filedownloader.f.d.d(f.class, "it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b2));
-                        IllegalStateException illegalStateException = aVar.b() != null ? new IllegalStateException(a3, aVar.b()) : new IllegalStateException(a3);
-                        return cVar.q() ? new d.C1986d(a2, cVar.g(), illegalStateException) : new h.d(a2, (int) cVar.g(), illegalStateException);
+                        String a2 = com.kwai.filedownloader.e.f.a("it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b2));
+                        com.kwai.filedownloader.e.d.d(f.class, "it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b2));
+                        IllegalStateException illegalStateException = aVar.b() != null ? new IllegalStateException(a2, aVar.b()) : new IllegalStateException(a2);
+                        return cVar.q() ? new d.C2077d(a, cVar.g(), illegalStateException) : new h.d(a, (int) cVar.g(), illegalStateException);
                     }
-                    return new MessageSnapshot.b(a2);
+                    return new MessageSnapshot.b(a);
                 } else {
-                    c1986d = cVar.q() ? new d.h(a2, cVar.g(), aVar.b(), aVar.c()) : new h.C1987h(a2, (int) cVar.g(), aVar.b(), aVar.c());
+                    c2077d = cVar.q() ? new d.h(a, cVar.g(), aVar.b(), aVar.c()) : new h.C2078h(a, (int) cVar.g(), aVar.b(), aVar.c());
                 }
-                return c1986d;
+                return c2077d;
             }
-            throw new IllegalStateException(com.kwai.filedownloader.f.f.a("please use #catchWarn instead %d", Integer.valueOf(a2)));
+            throw new IllegalStateException(com.kwai.filedownloader.e.f.a("please use #catchWarn instead %d", Integer.valueOf(a)));
         }
         return (MessageSnapshot) invokeCommon.objValue;
     }
 
-    public static MessageSnapshot a(int i2, long j, long j2, boolean z) {
+    public static MessageSnapshot a(int i2, long j2, long j3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? j2 > 2147483647L ? z ? new d.i(i2, j, j2) : new d.j(i2, j, j2) : z ? new h.i(i2, (int) j, (int) j2) : new h.j(i2, (int) j, (int) j2) : (MessageSnapshot) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) ? j3 > 2147483647L ? z ? new d.i(i2, j2, j3) : new d.j(i2, j2, j3) : z ? new h.i(i2, (int) j2, (int) j3) : new h.j(i2, (int) j2, (int) j3) : (MessageSnapshot) invokeCommon.objValue;
     }
 
-    public static MessageSnapshot a(int i2, long j, Throwable th) {
+    public static MessageSnapshot a(int i2, long j2, Throwable th) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j), th})) == null) ? j > 2147483647L ? new d.C1986d(i2, j, th) : new h.d(i2, (int) j, th) : (MessageSnapshot) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), th})) == null) ? j2 > 2147483647L ? new d.C2077d(i2, j2, th) : new h.d(i2, (int) j2, th) : (MessageSnapshot) invokeCommon.objValue;
     }
 
     public static MessageSnapshot a(int i2, File file, boolean z) {
@@ -94,17 +93,17 @@ public class f {
     public static MessageSnapshot a(com.kwai.filedownloader.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, aVar)) == null) ? aVar.D() ? new d.e(aVar.h(), aVar.r(), aVar.t()) : new h.e(aVar.h(), aVar.q(), aVar.s()) : (MessageSnapshot) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, aVar)) == null) ? aVar.D() ? new d.e(aVar.h(), aVar.r(), aVar.t()) : new h.e(aVar.h(), aVar.q(), aVar.s()) : (MessageSnapshot) invokeL.objValue;
     }
 
     public static MessageSnapshot a(MessageSnapshot messageSnapshot) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, messageSnapshot)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, messageSnapshot)) == null) {
             if (messageSnapshot.b() == -3) {
-                return new a.C1985a(messageSnapshot);
+                return new a.C2076a(messageSnapshot);
             }
-            throw new IllegalStateException(com.kwai.filedownloader.f.f.a("take block completed snapshot, must has already be completed. %d %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b())));
+            throw new IllegalStateException(com.kwai.filedownloader.e.f.a("take block completed snapshot, must has already be completed. %d %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b())));
         }
         return (MessageSnapshot) invokeL.objValue;
     }

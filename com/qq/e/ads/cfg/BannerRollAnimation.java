@@ -15,11 +15,9 @@ public final class BannerRollAnimation {
     public static final BannerRollAnimation NoAnimation;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ BannerRollAnimation[] f68740b;
+    public static final /* synthetic */ BannerRollAnimation[] f60683b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final int f68741a;
+    public final int a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +35,7 @@ public final class BannerRollAnimation {
         Default = new BannerRollAnimation("Default", 0, 0);
         BannerRollAnimation bannerRollAnimation = new BannerRollAnimation("NoAnimation", 1, -1);
         NoAnimation = bannerRollAnimation;
-        f68740b = new BannerRollAnimation[]{Default, bannerRollAnimation};
+        f60683b = new BannerRollAnimation[]{Default, bannerRollAnimation};
     }
 
     public BannerRollAnimation(String str, int i2, int i3) {
@@ -58,7 +56,7 @@ public final class BannerRollAnimation {
                 return;
             }
         }
-        this.f68741a = i3;
+        this.a = i3;
     }
 
     public static BannerRollAnimation valueOf(String str) {
@@ -70,12 +68,12 @@ public final class BannerRollAnimation {
     public static BannerRollAnimation[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BannerRollAnimation[]) f68740b.clone() : (BannerRollAnimation[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BannerRollAnimation[]) f60683b.clone() : (BannerRollAnimation[]) invokeV.objValue;
     }
 
     public int value() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68741a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 }

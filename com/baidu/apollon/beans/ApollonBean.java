@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
@@ -135,15 +135,13 @@ public abstract class ApollonBean<T> {
             Runnable runnable = new Runnable(this, cls, cls2) { // from class: com.baidu.apollon.beans.ApollonBean.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Class f36723a;
+                public final /* synthetic */ Class a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Class f36724b;
+                public final /* synthetic */ Class f32925b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ApollonBean f36725c;
+                public final /* synthetic */ ApollonBean f32926c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -160,9 +158,9 @@ public abstract class ApollonBean<T> {
                             return;
                         }
                     }
-                    this.f36725c = this;
-                    this.f36723a = cls;
-                    this.f36724b = cls2;
+                    this.f32926c = this;
+                    this.a = cls;
+                    this.f32925b = cls2;
                 }
 
                 @Override // java.lang.Runnable
@@ -171,13 +169,13 @@ public abstract class ApollonBean<T> {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             try {
-                                this.f36725c.prepareRestTemplate();
-                                this.f36725c.executeAndHandleResponse(this.f36723a, this.f36724b);
+                                this.f32926c.prepareRestTemplate();
+                                this.f32926c.executeAndHandleResponse(this.a, this.f32925b);
                             } catch (Exception e2) {
-                                this.f36725c.handleCommonErrors(e2);
+                                this.f32926c.handleCommonErrors(e2);
                             }
                         } finally {
-                            this.f36725c.mRspCallback = null;
+                            this.f32926c.mRspCallback = null;
                         }
                     }
                 }

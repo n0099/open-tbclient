@@ -2,7 +2,6 @@ package org.apache.commons.lang3.time;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -248,10 +247,10 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public String format(long j) {
+    public String format(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) ? this.printer.format(j) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) ? this.printer.format(j2) : (String) invokeJ.objValue;
     }
 
     @Override // org.apache.commons.lang3.time.DateParser
@@ -264,7 +263,7 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
     public static FastDateFormat getDateInstance(int i2, TimeZone timeZone) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, timeZone)) == null) ? cache.getDateInstance(i2, timeZone, null) : (FastDateFormat) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, timeZone)) == null) ? cache.getDateInstance(i2, timeZone, null) : (FastDateFormat) invokeIL.objValue;
     }
 
     public static FastDateFormat getDateTimeInstance(int i2, int i3, TimeZone timeZone) {
@@ -302,7 +301,7 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
     public static FastDateFormat getDateInstance(int i2, TimeZone timeZone, Locale locale) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(AdIconUtil.BAIDU_LOGO_ID, null, i2, timeZone, locale)) == null) ? cache.getDateInstance(i2, timeZone, locale) : (FastDateFormat) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(65542, null, i2, timeZone, locale)) == null) ? cache.getDateInstance(i2, timeZone, locale) : (FastDateFormat) invokeILL.objValue;
     }
 
     public static FastDateFormat getDateTimeInstance(int i2, int i3, TimeZone timeZone, Locale locale) {
@@ -338,10 +337,10 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
 
     @Override // org.apache.commons.lang3.time.DatePrinter
     @Deprecated
-    public StringBuffer format(long j, StringBuffer stringBuffer) {
+    public StringBuffer format(long j2, StringBuffer stringBuffer) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, stringBuffer)) == null) ? this.printer.format(j, stringBuffer) : (StringBuffer) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2, stringBuffer)) == null) ? this.printer.format(j2, stringBuffer) : (StringBuffer) invokeJL.objValue;
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
@@ -361,10 +360,10 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter
-    public <B extends Appendable> B format(long j, B b2) {
+    public <B extends Appendable> B format(long j2, B b2) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, b2)) == null) ? (B) this.printer.format(j, (long) b2) : (B) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, b2)) == null) ? (B) this.printer.format(j2, (long) b2) : (B) invokeJL.objValue;
     }
 
     @Override // org.apache.commons.lang3.time.DatePrinter

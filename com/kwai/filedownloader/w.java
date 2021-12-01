@@ -1,49 +1,13 @@
 package com.kwai.filedownloader;
 
-import com.kwai.filedownloader.message.MessageSnapshot;
-import com.kwai.filedownloader.r;
+import java.util.List;
 /* loaded from: classes2.dex */
-public interface w extends r.a {
+public interface w {
+    void a();
 
-    /* loaded from: classes2.dex */
-    public interface a {
-        MessageSnapshot a(Throwable th);
+    void a(List<Integer> list);
 
-        boolean a(MessageSnapshot messageSnapshot);
+    boolean a(int i2);
 
-        boolean b(MessageSnapshot messageSnapshot);
-
-        boolean c(MessageSnapshot messageSnapshot);
-
-        s d();
-
-        boolean d(MessageSnapshot messageSnapshot);
-    }
-
-    /* loaded from: classes2.dex */
-    public interface b {
-        void p();
-    }
-
-    void e();
-
-    boolean f();
-
-    byte g();
-
-    long h();
-
-    void i();
-
-    long j();
-
-    long k();
-
-    Throwable l();
-
-    int m();
-
-    boolean n();
-
-    void o();
+    int b();
 }

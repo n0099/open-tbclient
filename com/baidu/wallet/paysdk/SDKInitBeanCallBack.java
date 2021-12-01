@@ -25,16 +25,14 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class SDKInitBeanCallBack implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f60389b;
+    public static int f53332b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f60390a;
+    public Context a;
 
     static {
         InterceptResult invokeClinit;
@@ -66,7 +64,7 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f60390a = context;
+        this.a = context;
     }
 
     public static Map<String, Set<String>> a(String str) throws JSONException {
@@ -127,30 +125,30 @@ public class SDKInitBeanCallBack implements IBeanResponseCallback {
             if (DebugConfig.getInstance().isOnline()) {
                 if (checkIsJson(sdkInitResponse.domainConfig)) {
                     DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.ONLINE, sdkInitResponse.domainConfig);
-                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f60390a), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
+                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.a), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                 }
                 if (checkIsJson(sdkInitResponse.appDomainConfig)) {
                     com.baidu.apollon.heartbeat.a.c().a(sdkInitResponse.appDomainConfig);
-                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f60390a), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, BeanConstants.DOMAIN_CONFIG_KEY_FOR_APP, sdkInitResponse.appDomainConfig);
+                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.a), BeanConstants.DOMAIN_CONFIG_NAME_ONLINE, BeanConstants.DOMAIN_CONFIG_KEY_FOR_APP, sdkInitResponse.appDomainConfig);
                 }
             } else {
                 if (checkIsJson(sdkInitResponse.domainConfig)) {
                     DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA, sdkInitResponse.domainConfig);
-                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f60390a), BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
+                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.a), BeanConstants.DOMAIN_CONFIG_NAME_QA, "wallet_sdk_domain_config_key", sdkInitResponse.domainConfig);
                 }
                 if (checkIsJson(sdkInitResponse.appDomainConfig)) {
                     com.baidu.apollon.heartbeat.a.c().a(sdkInitResponse.appDomainConfig);
-                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.f60390a), BeanConstants.DOMAIN_CONFIG_NAME_QA, BeanConstants.DOMAIN_CONFIG_KEY_FOR_APP, sdkInitResponse.appDomainConfig);
+                    SharedPreferencesUtils.setParam(DxmApplicationContextImpl.getApplicationContext(this.a), BeanConstants.DOMAIN_CONFIG_NAME_QA, BeanConstants.DOMAIN_CONFIG_KEY_FOR_APP, sdkInitResponse.appDomainConfig);
                 }
             }
             if (TextUtils.isEmpty(sdkInitResponse.publicKeyPins)) {
                 return;
             }
             try {
-                Map<String, Set<String>> a2 = a(sdkInitResponse.publicKeyPins);
+                Map<String, Set<String>> a = a(sdkInitResponse.publicKeyPins);
                 com.baidu.apollon.b.a.a().b();
-                for (String str2 : a2.keySet()) {
-                    com.baidu.apollon.b.a.a().a(str2, a2.get(str2));
+                for (String str2 : a.keySet()) {
+                    com.baidu.apollon.b.a.a().a(str2, a.get(str2));
                 }
             } catch (JSONException unused) {
             }

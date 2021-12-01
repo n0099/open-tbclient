@@ -3,7 +3,6 @@ package com.baidu.fsg.base.utils;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,12 +21,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Md5Utils {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static char[] f38415a;
+    public static char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +40,7 @@ public final class Md5Utils {
                 return;
             }
         }
-        f38415a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public Md5Utils() {
@@ -96,8 +93,8 @@ public final class Md5Utils {
                 if (i2 > 0 && ch != null) {
                     stringBuffer.append(ch.charValue());
                 }
-                stringBuffer.append(f38415a[i3]);
-                stringBuffer.append(f38415a[i4]);
+                stringBuffer.append(a[i3]);
+                stringBuffer.append(a[i4]);
             }
             return stringBuffer.toString();
         }
@@ -120,13 +117,13 @@ public final class Md5Utils {
     public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? b(str.getBytes()) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? b(str.getBytes()) : (byte[]) invokeL.objValue;
     }
 
     public static byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) ? a().digest(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) ? a().digest(bArr) : (byte[]) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:42:0x0031 A[EXC_TOP_SPLITTER, SYNTHETIC] */

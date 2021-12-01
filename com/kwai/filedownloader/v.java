@@ -1,13 +1,11 @@
 package com.kwai.filedownloader;
 
-import java.util.List;
+import com.kwai.filedownloader.a;
 /* loaded from: classes2.dex */
 public interface v {
-    void a();
+    boolean a(a.b bVar);
 
-    void a(List<Integer> list);
+    void b(a.b bVar);
 
-    boolean a(int i2);
-
-    int b();
+    boolean c(a.b bVar);
 }

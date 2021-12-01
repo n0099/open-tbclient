@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.math.BigDecimal;
 import java.math.MathContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class JSONReaderScanner extends JSONLexerBase {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadLocal<char[]> BUF_LOCAL;
@@ -417,14 +416,14 @@ public final class JSONReaderScanner extends JSONLexerBase {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {cArr, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((char[]) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -498,14 +497,14 @@ public final class JSONReaderScanner extends JSONLexerBase {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {cArr, Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+            interceptable.invokeUnInit(65542, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
                 int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Reader) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                interceptable.invokeInitBody(65542, newInitContext);
                 return;
             }
         }

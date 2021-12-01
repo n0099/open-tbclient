@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class o extends j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,21 +38,21 @@ public class o extends j {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            Cursor a2 = a("time", i2, i3);
-            ArrayList<i> a3 = a(a2);
-            if (a2 != null) {
-                a2.close();
+            Cursor a = a("time", i2, i3);
+            ArrayList<i> a2 = a(a);
+            if (a != null) {
+                a.close();
             }
-            return a3;
+            return a2;
         }
         return (ArrayList) invokeII.objValue;
     }
 
     @Override // com.baidu.mobstat.j
-    public boolean b(long j) {
+    public boolean b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? a(j) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? a(j2) : invokeJ.booleanValue;
     }
 
     @Override // com.baidu.mobstat.j

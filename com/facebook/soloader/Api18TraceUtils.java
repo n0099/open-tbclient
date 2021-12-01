@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @DoNotOptimize
 @TargetApi(18)
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Api18TraceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

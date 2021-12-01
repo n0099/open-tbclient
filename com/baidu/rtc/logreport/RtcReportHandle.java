@@ -33,7 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
 import org.webrtc.StatsReport;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RtcReportHandle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMUNICATION_REPORT_INTERVAL = 2000;
@@ -65,7 +65,7 @@ public class RtcReportHandle {
     public long mUserId;
     public Runnable reportDeviceInfoRun;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class AudioStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,19 +90,19 @@ public class RtcReportHandle {
         }
 
         @Override // com.baidu.rtc.logreport.SLIReportInterface
-        public void onStuckData(long j, long j2) {
+        public void onStuckData(long j2, long j3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && RtcReportHandle.mIsEnablePullQualityMonitor) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) && RtcReportHandle.mIsEnablePullQualityMonitor) {
                 for (Map.Entry entry : this.this$0.mHUDStatisticsMap.entrySet()) {
                     if (entry.getKey() != this.this$0.mPublisherHandle && entry.getValue() != null) {
-                        ((HUDStatistics) entry.getValue()).addAudioStuckData(j, j2);
+                        ((HUDStatistics) entry.getValue()).addAudioStuckData(j2, j3);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class VideoStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,13 +129,13 @@ public class RtcReportHandle {
         }
 
         @Override // com.baidu.rtc.logreport.SLIReportInterface
-        public void onStuckData(long j, long j2) {
+        public void onStuckData(long j2, long j3) {
             HUDStatistics hUDStatistics;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || !RtcReportHandle.mIsEnablePullQualityMonitor || this.handleId == null || (hUDStatistics = (HUDStatistics) this.this$0.mHUDStatisticsMap.get(this.handleId)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || !RtcReportHandle.mIsEnablePullQualityMonitor || this.handleId == null || (hUDStatistics = (HUDStatistics) this.this$0.mHUDStatisticsMap.get(this.handleId)) == null) {
                 return;
             }
-            hUDStatistics.addVideoStuckData(j, j2);
+            hUDStatistics.addVideoStuckData(j2, j3);
         }
     }
 
@@ -483,16 +483,16 @@ public class RtcReportHandle {
         errorInfoReport.reportErrorInfo(i2, str, CommonUtils.strToLong(this.mFeedId), CommonUtils.strToLong(this.mHandleId));
     }
 
-    public void reportSLIFfDelay(long j, long j2) {
+    public void reportSLIFfDelay(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 JSONObject jSONObject3 = new JSONObject();
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject2.put("feedId", j);
-                jSONObject4.put("duration", j2);
+                jSONObject2.put("feedId", j2);
+                jSONObject4.put("duration", j3);
                 jSONObject2.put("ffDelay", jSONObject4);
                 jSONObject3.put("sli", jSONObject2);
                 jSONObject.put("env", this.mQualityMonitorEnv);
@@ -508,10 +508,10 @@ public class RtcReportHandle {
         }
     }
 
-    public void setUserId(long j) {
+    public void setUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.mUserId = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.mUserId = j2;
         }
     }
 

@@ -16,7 +16,7 @@ import com.baidu.wallet.router.RouterRequest;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class i extends com.baidu.wallet.lightapp.ability.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,12 +51,10 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
         LocalRouter.getInstance(DxmApplicationContextImpl.getApplicationContext(activity)).route(activity, new RouterRequest().provider("dxmPay").action("enterGetPayMethod").data("options", str), new RouterCallback(this, iLightappInvokerCallback) { // from class: com.baidu.wallet.lightapp.ability.a.i.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ILightappInvokerCallback f59564a;
+            public final /* synthetic */ ILightappInvokerCallback a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ i f59565b;
+            public final /* synthetic */ i f52797b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -73,8 +71,8 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
                         return;
                     }
                 }
-                this.f59565b = this;
-                this.f59564a = iLightappInvokerCallback;
+                this.f52797b = this;
+                this.a = iLightappInvokerCallback;
             }
 
             @Override // com.baidu.wallet.router.RouterCallback
@@ -89,9 +87,9 @@ public class i extends com.baidu.wallet.lightapp.ability.b {
                 }
                 try {
                     if (((Integer) new JSONObject(str3).get("result")).intValue() == 0) {
-                        this.f59564a.onResult(0, str3);
+                        this.a.onResult(0, str3);
                     } else {
-                        this.f59564a.onResult(1, str3);
+                        this.a.onResult(1, str3);
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();

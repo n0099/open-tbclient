@@ -17,21 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EmotionDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f48934e;
+    public HttpMessageListener f43899e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionDetailModel f48935a;
+        public final /* synthetic */ EmotionDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EmotionDetailModel emotionDetailModel, int i2) {
@@ -51,15 +49,15 @@ public class EmotionDetailModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48935a = emotionDetailModel;
+            this.a = emotionDetailModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003361 && (httpResponsedMessage instanceof EmotionDetailResponseMessage) && this.f48935a.mLoadDataCallBack != null) {
-                this.f48935a.mLoadDataCallBack.c(((EmotionDetailResponseMessage) httpResponsedMessage).data);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003361 && (httpResponsedMessage instanceof EmotionDetailResponseMessage) && this.a.mLoadDataCallBack != null) {
+                this.a.mLoadDataCallBack.c(((EmotionDetailResponseMessage) httpResponsedMessage).data);
             }
         }
     }
@@ -77,14 +75,14 @@ public class EmotionDetailModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48934e = new a(this, CmdConfigHttp.CMD_EMOTION_DETAIL);
+        this.f43899e = new a(this, CmdConfigHttp.CMD_EMOTION_DETAIL);
         setUniqueId(BdUniqueId.gen());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_DETAIL, TbConfig.SERVER_ADDRESS + TbConfig.EMOTION_DETAIL);
         tbHttpMessageTask.setResponsedClass(EmotionDetailResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.f48934e.setTag(getUniqueId());
-        this.f48934e.setSelfListener(true);
-        registerListener(this.f48934e);
+        this.f43899e.setTag(getUniqueId());
+        this.f43899e.setSelfListener(true);
+        registerListener(this.f43899e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -93,7 +91,7 @@ public class EmotionDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_DETAIL);
-            MessageManager.getInstance().unRegisterListener(this.f48934e);
+            MessageManager.getInstance().unRegisterListener(this.f43899e);
             return true;
         }
         return invokeV.booleanValue;
@@ -109,12 +107,12 @@ public class EmotionDetailModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void y(long j, int i2) {
+    public void y(long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            if (j >= 0 || i2 >= 0) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+            if (j2 >= 0 || i2 >= 0) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_DETAIL);
-                httpMessage.addParam(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, j);
+                httpMessage.addParam(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, j2);
                 httpMessage.addParam("pck_id", i2);
                 sendMessage(httpMessage);
             }

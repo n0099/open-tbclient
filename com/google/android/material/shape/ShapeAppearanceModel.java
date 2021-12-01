@@ -13,7 +13,6 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ShapeAppearanceModel {
     public static /* synthetic */ Interceptable $ic;
     public static final CornerSize PILL;
@@ -41,13 +40,13 @@ public class ShapeAppearanceModel {
     public CornerSize topRightCornerSize;
 
     /* renamed from: com.google.android.material.shape.ShapeAppearanceModel$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -451,7 +450,7 @@ public class ShapeAppearanceModel {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface CornerSizeUnaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize);
@@ -688,14 +687,14 @@ public class ShapeAppearanceModel {
     public static Builder builder(Context context, @StyleRes int i2, @StyleRes int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, context, i2, i3)) == null) ? builder(context, i2, i3, 0) : (Builder) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, context, i2, i3)) == null) ? builder(context, i2, i3, 0) : (Builder) invokeLII.objValue;
     }
 
     @NonNull
     public static Builder builder(Context context, @StyleRes int i2, @StyleRes int i3, int i4) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIII = interceptable.invokeLIII(AdIconUtil.BAIDU_LOGO_ID, null, context, i2, i3, i4)) == null) ? builder(context, i2, i3, new AbsoluteCornerSize(i4)) : (Builder) invokeLIII.objValue;
+        return (interceptable == null || (invokeLIII = interceptable.invokeLIII(65542, null, context, i2, i3, i4)) == null) ? builder(context, i2, i3, new AbsoluteCornerSize(i4)) : (Builder) invokeLIII.objValue;
     }
 
     @NonNull

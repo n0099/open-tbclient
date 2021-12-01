@@ -1,7 +1,6 @@
 package com.android.internal.http.multipart;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class Part {
     public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
@@ -86,7 +85,7 @@ public abstract class Part {
 
     public static void sendParts(OutputStream outputStream, Part[] partArr) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, outputStream, partArr) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, outputStream, partArr) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -199,7 +198,7 @@ public abstract class Part {
 
     public static void sendParts(OutputStream outputStream, Part[] partArr, byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, outputStream, partArr, bArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, outputStream, partArr, bArr) == null) {
             throw new RuntimeException("Stub!");
         }
     }

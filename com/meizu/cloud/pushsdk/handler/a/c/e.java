@@ -30,7 +30,7 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     public void a(h hVar, com.meizu.cloud.pushsdk.notification.c cVar) {
         NotificationManager notificationManager = (NotificationManager) c().getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager != null) {
-            b.j.a.a.a.b("AbstractMessageHandler", "start cancel notification id " + hVar.b());
+            c.k.a.a.a.b("AbstractMessageHandler", "start cancel notification id " + hVar.b());
             notificationManager.cancel(hVar.b());
         }
     }
@@ -38,12 +38,12 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
         int i2;
-        b.j.a.a.a.d("AbstractMessageHandler", "start WithDrawMessageHandler match");
+        c.k.a.a.a.d("AbstractMessageHandler", "start WithDrawMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
-            com.meizu.cloud.pushsdk.handler.a.b.b a2 = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
-            if (a2.a() != null) {
-                i2 = a2.a().a();
+            com.meizu.cloud.pushsdk.handler.a.b.b a = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
+            if (a.a() != null) {
+                i2 = a.a().a();
                 return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && "4".equals(String.valueOf(i2));
             }
         }

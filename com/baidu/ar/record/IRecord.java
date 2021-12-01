@@ -1,7 +1,7 @@
 package com.baidu.ar.record;
 
 import com.baidu.ar.bean.Watermark;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IRecord {
     void pauseRecord();
 
@@ -9,7 +9,7 @@ public interface IRecord {
 
     void setRecordWatermark(Watermark watermark);
 
-    void startRecord(String str, long j, RecordCallback recordCallback);
+    void startRecord(String str, long j2, RecordCallback recordCallback);
 
     void stopRecord();
 }

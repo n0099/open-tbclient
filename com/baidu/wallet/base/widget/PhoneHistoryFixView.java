@@ -19,7 +19,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.ResUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,40 +29,40 @@ import com.baidu.wallet.core.utils.contacts.PhoneContactsMananger;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"NewApi"})
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PhoneHistoryFixView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public View f58533a;
+    public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f58534b;
+    public View f52137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f58535c;
+    public View f52138c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ListView f58536d;
+    public ListView f52139d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f58537e;
+    public LinearLayout f52140e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f58538f;
+    public TextView f52141f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f58539g;
+    public TextView f52142g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f58540h;
+    public a f52143h;
 
     /* renamed from: i  reason: collision with root package name */
-    public OnPhoneHistoryFixViewClickListener f58541i;
-    public boolean j;
+    public OnPhoneHistoryFixViewClickListener f52144i;
 
-    /* loaded from: classes10.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f52145j;
+
+    /* loaded from: classes11.dex */
     public interface OnPhoneHistoryFixViewClickListener {
         void onFixViewClickClearHistory();
 
@@ -72,22 +71,20 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
         void onFixViewDisplayHistoryViews(boolean z);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PhoneHistoryFixView f58543a;
+        public final /* synthetic */ PhoneHistoryFixView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f58544b;
+        public Context f52146b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final LayoutInflater f58545c;
+        public final LayoutInflater f52147c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<ContractInfo> f58546d;
+        public List<ContractInfo> f52148d;
 
         public a(PhoneHistoryFixView phoneHistoryFixView, Context context) {
             Interceptable interceptable = $ic;
@@ -104,10 +101,10 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
                     return;
                 }
             }
-            this.f58543a = phoneHistoryFixView;
-            this.f58546d = new ArrayList();
-            this.f58544b = context;
-            this.f58545c = LayoutInflater.from(context);
+            this.a = phoneHistoryFixView;
+            this.f52148d = new ArrayList();
+            this.f52146b = context;
+            this.f52147c = LayoutInflater.from(context);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,7 +125,7 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
                 if (list == null) {
                     list = new ArrayList<>();
                 }
-                this.f58546d = list;
+                this.f52148d = list;
             }
         }
 
@@ -136,7 +133,7 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58546d.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52148d.size() : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -155,27 +152,27 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
                     b bVar2 = new b();
-                    View inflate = this.f58545c.inflate(ResUtils.layout(this.f58544b, "wallet_base_fix_item"), (ViewGroup) null);
-                    bVar2.f58548b = (TextView) inflate.findViewById(ResUtils.id(this.f58544b, "wallet_phone_fix"));
-                    bVar2.f58549c = (TextView) inflate.findViewById(ResUtils.id(this.f58544b, "wallet_name_fix"));
+                    View inflate = this.f52147c.inflate(ResUtils.layout(this.f52146b, "wallet_base_fix_item"), (ViewGroup) null);
+                    bVar2.f52149b = (TextView) inflate.findViewById(ResUtils.id(this.f52146b, "wallet_phone_fix"));
+                    bVar2.f52150c = (TextView) inflate.findViewById(ResUtils.id(this.f52146b, "wallet_name_fix"));
                     inflate.setTag(bVar2);
                     bVar = bVar2;
                     view = inflate;
                 } else {
                     bVar = (b) view.getTag();
                 }
-                if (i2 < this.f58546d.size()) {
-                    if (!this.f58543a.j) {
-                        spannableString = new SpannableString(this.f58546d.get(i2).getMobile().replace(" ", ""));
+                if (i2 < this.f52148d.size()) {
+                    if (!this.a.f52145j) {
+                        spannableString = new SpannableString(this.f52148d.get(i2).getMobile().replace(" ", ""));
                     } else {
-                        spannableString = new SpannableString(this.f58546d.get(i2).getMobile());
+                        spannableString = new SpannableString(this.f52148d.get(i2).getMobile());
                     }
-                    int errordigit = this.f58546d.get(i2).getErrordigit();
+                    int errordigit = this.f52148d.get(i2).getErrordigit();
                     if (errordigit != -1 && errordigit < spannableString.length()) {
-                        spannableString.setSpan(new ForegroundColorSpan(ResUtils.getColor(this.f58544b, "bd_wallet_fp_fix_character")), errordigit, errordigit + 1, 34);
+                        spannableString.setSpan(new ForegroundColorSpan(ResUtils.getColor(this.f52146b, "bd_wallet_fp_fix_character")), errordigit, errordigit + 1, 34);
                     }
-                    bVar.f58548b.setText(spannableString);
-                    bVar.f58549c.setText(this.f58546d.get(i2).getName());
+                    bVar.f52149b.setText(spannableString);
+                    bVar.f52150c.setText(this.f52148d.get(i2).getName());
                 }
                 return view;
             }
@@ -183,19 +180,17 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PhoneHistoryFixView f58547a;
+        public final /* synthetic */ PhoneHistoryFixView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f58548b;
+        public TextView f52149b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f58549c;
+        public TextView f52150c;
 
         public b(PhoneHistoryFixView phoneHistoryFixView) {
             Interceptable interceptable = $ic;
@@ -212,7 +207,7 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
                     return;
                 }
             }
-            this.f58547a = phoneHistoryFixView;
+            this.a = phoneHistoryFixView;
         }
     }
 
@@ -234,19 +229,19 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
                 return;
             }
         }
-        this.j = false;
+        this.f52145j = false;
         a();
     }
 
     public void displayContactInfoData(List<ContractInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f58538f.setVisibility(8);
-            this.f58539g.setVisibility(8);
-            this.f58534b.setVisibility(8);
-            this.f58535c.setVisibility(8);
-            this.f58533a.setVisibility(8);
-            this.f58537e.setVisibility(0);
+            this.f52141f.setVisibility(8);
+            this.f52142g.setVisibility(8);
+            this.f52137b.setVisibility(8);
+            this.f52138c.setVisibility(8);
+            this.a.setVisibility(8);
+            this.f52140e.setVisibility(0);
             a(list);
         }
     }
@@ -261,24 +256,24 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     public ListView getmListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58536d : (ListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52139d : (ListView) invokeV.objValue;
     }
 
     public boolean isShow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58537e.isShown() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f52140e.isShown() : invokeV.booleanValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view == this.f58539g) {
-            if (this.f58538f.getVisibility() == 0) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view) == null) && view == this.f52142g) {
+            if (this.f52141f.getVisibility() == 0) {
                 setListViewState(false, false);
                 return;
             }
-            OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener = this.f58541i;
+            OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener = this.f52144i;
             if (onPhoneHistoryFixViewClickListener != null) {
                 onPhoneHistoryFixViewClickListener.onFixViewClickClearHistory();
             }
@@ -289,22 +284,22 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     public void setInputNumberHasSpace(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.j = z;
+            this.f52145j = z;
         }
     }
 
     public void setListViewState(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f58537e.setVisibility(z ? 0 : 8);
-            this.f58538f.setVisibility(z2 ? 8 : 0);
-            this.f58533a.setVisibility(z2 ? 8 : 0);
-            OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener = this.f58541i;
+            this.f52140e.setVisibility(z ? 0 : 8);
+            this.f52141f.setVisibility(z2 ? 8 : 0);
+            this.a.setVisibility(z2 ? 8 : 0);
+            OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener = this.f52144i;
             if (onPhoneHistoryFixViewClickListener != null) {
                 onPhoneHistoryFixViewClickListener.onFixViewDisplayHistoryViews(z);
             }
             if (z) {
-                this.f58539g.setText(z2 ? ResUtils.getString(getContext(), "wallet_fp_history_clear") : ResUtils.getString(getContext(), "wallet_fp_fix_sure"));
+                this.f52142g.setText(z2 ? ResUtils.getString(getContext(), "wallet_fp_history_clear") : ResUtils.getString(getContext(), "wallet_fp_fix_sure"));
             }
         }
     }
@@ -312,32 +307,30 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     public void setOnPhoneHistoryFixViewClickListener(OnPhoneHistoryFixViewClickListener onPhoneHistoryFixViewClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPhoneHistoryFixViewClickListener) == null) {
-            this.f58541i = onPhoneHistoryFixViewClickListener;
+            this.f52144i = onPhoneHistoryFixViewClickListener;
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_mobile_phone_history_fix"), this);
-            this.f58537e = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_layout"));
+            this.f52140e = (LinearLayout) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_layout"));
             TextView textView = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_select"));
-            this.f58539g = textView;
+            this.f52142g = textView;
             textView.setOnClickListener(this);
-            this.f58538f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_msg"));
-            this.f58533a = findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_line1"));
-            this.f58534b = findViewById(ResUtils.id(getContext(), "wallet_mobile_divide_line1"));
-            this.f58535c = findViewById(ResUtils.id(getContext(), "wallet_mobile_divide_line2"));
-            this.f58536d = (ListView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_list"));
+            this.f52141f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_msg"));
+            this.a = findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_line1"));
+            this.f52137b = findViewById(ResUtils.id(getContext(), "wallet_mobile_divide_line1"));
+            this.f52138c = findViewById(ResUtils.id(getContext(), "wallet_mobile_divide_line2"));
+            this.f52139d = (ListView) findViewById(ResUtils.id(getContext(), "wallet_mobile_fix_list"));
             a aVar = new a(this, getContext());
-            this.f58540h = aVar;
-            this.f58536d.setAdapter((ListAdapter) aVar);
-            this.f58536d.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.base.widget.PhoneHistoryFixView.1
+            this.f52143h = aVar;
+            this.f52139d.setAdapter((ListAdapter) aVar);
+            this.f52139d.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.base.widget.PhoneHistoryFixView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PhoneHistoryFixView f58542a;
+                public final /* synthetic */ PhoneHistoryFixView a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -354,20 +347,20 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
                             return;
                         }
                     }
-                    this.f58542a = this;
+                    this.a = this;
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
                     b bVar;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || view == null || (bVar = (b) view.getTag()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || view == null || (bVar = (b) view.getTag()) == null) {
                         return;
                     }
-                    PhoneHistoryFixView phoneHistoryFixView = this.f58542a;
-                    phoneHistoryFixView.setListViewState(false, phoneHistoryFixView.f58538f.getVisibility() != 0);
-                    if (this.f58542a.f58541i != null) {
-                        this.f58542a.f58541i.onFixViewClickListViewItemAndSetText(bVar.f58548b.getText().toString());
+                    PhoneHistoryFixView phoneHistoryFixView = this.a;
+                    phoneHistoryFixView.setListViewState(false, phoneHistoryFixView.f52141f.getVisibility() != 0);
+                    if (this.a.f52144i != null) {
+                        this.a.f52144i.onFixViewClickListViewItemAndSetText(bVar.f52149b.getText().toString());
                     }
                 }
             });
@@ -377,9 +370,9 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
     public void displayHistoryData(List<ContractInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f58539g.setVisibility(0);
-            this.f58534b.setVisibility(0);
-            this.f58535c.setVisibility(0);
+            this.f52142g.setVisibility(0);
+            this.f52137b.setVisibility(0);
+            this.f52138c.setVisibility(0);
             a(list);
         }
     }
@@ -403,7 +396,7 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
                 return;
             }
         }
-        this.j = false;
+        this.f52145j = false;
         a();
     }
 
@@ -426,17 +419,17 @@ public class PhoneHistoryFixView extends LinearLayout implements View.OnClickLis
                 return;
             }
         }
-        this.j = false;
+        this.f52145j = false;
         a();
     }
 
     private void a(List<ContractInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, list) == null) {
-            this.f58536d.setLayoutParams(new LinearLayout.LayoutParams(-1, list.size() > 2 ? DisplayUtils.dip2px(getContext(), 165.0f) : DisplayUtils.dip2px(getContext(), list.size() * 55)));
-            this.f58540h.a(list);
-            this.f58540h.notifyDataSetChanged();
-            this.f58536d.setSelection(0);
+        if (interceptable == null || interceptable.invokeL(65542, this, list) == null) {
+            this.f52139d.setLayoutParams(new LinearLayout.LayoutParams(-1, list.size() > 2 ? DisplayUtils.dip2px(getContext(), 165.0f) : DisplayUtils.dip2px(getContext(), list.size() * 55)));
+            this.f52143h.a(list);
+            this.f52143h.notifyDataSetChanged();
+            this.f52139d.setSelection(0);
         }
     }
 

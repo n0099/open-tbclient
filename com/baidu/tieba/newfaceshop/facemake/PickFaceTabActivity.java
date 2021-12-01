@@ -8,10 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-import b.a.e.f.p.l;
-import b.a.r0.f2.g.f;
+import c.a.d.f.p.l;
+import c.a.r0.l2.g.f;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.PickFaceTabActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -33,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALBUM_TYPE = 3;
@@ -52,13 +51,13 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
     public FragmentTabHost mTabHost;
     public FaceGroupMakeTitleBar mTitleBar;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickFaceTabActivity f52790e;
+        public final /* synthetic */ PickFaceTabActivity f47259e;
 
         public a(PickFaceTabActivity pickFaceTabActivity) {
             Interceptable interceptable = $ic;
@@ -75,7 +74,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
                     return;
                 }
             }
-            this.f52790e = pickFaceTabActivity;
+            this.f47259e = pickFaceTabActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -84,24 +83,24 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 Intent intent = new Intent();
                 ArrayList arrayList = new ArrayList();
-                if (this.f52790e.mSearchFragment != null && this.f52790e.mSearchFragment.getChoosedMap() != null) {
-                    for (Map.Entry<String, EmotionImageData> entry : this.f52790e.mSearchFragment.getChoosedMap().entrySet()) {
+                if (this.f47259e.mSearchFragment != null && this.f47259e.mSearchFragment.getChoosedMap() != null) {
+                    for (Map.Entry<String, EmotionImageData> entry : this.f47259e.mSearchFragment.getChoosedMap().entrySet()) {
                         FaceData faceData = new FaceData();
                         faceData.type = 2;
                         faceData.emotionImageData = entry.getValue();
                         arrayList.add(faceData);
                     }
                 }
-                if (this.f52790e.mAlbumFragment != null && this.f52790e.mAlbumFragment.getChoosedMap() != null) {
-                    for (Map.Entry<String, ImageFileInfo> entry2 : this.f52790e.mAlbumFragment.getChoosedMap().entrySet()) {
+                if (this.f47259e.mAlbumFragment != null && this.f47259e.mAlbumFragment.getChoosedMap() != null) {
+                    for (Map.Entry<String, ImageFileInfo> entry2 : this.f47259e.mAlbumFragment.getChoosedMap().entrySet()) {
                         FaceData faceData2 = new FaceData();
                         faceData2.type = 3;
                         faceData2.imageFileInfo = entry2.getValue();
                         arrayList.add(faceData2);
                     }
                 }
-                if (this.f52790e.mCollectFragment != null && this.f52790e.mCollectFragment.getChoosedMap() != null) {
-                    for (Map.Entry<String, EmotionImageData> entry3 : this.f52790e.mCollectFragment.getChoosedMap().entrySet()) {
+                if (this.f47259e.mCollectFragment != null && this.f47259e.mCollectFragment.getChoosedMap() != null) {
+                    for (Map.Entry<String, EmotionImageData> entry3 : this.f47259e.mCollectFragment.getChoosedMap().entrySet()) {
                         FaceData faceData3 = new FaceData();
                         faceData3.type = 1;
                         faceData3.emotionImageData = entry3.getValue();
@@ -109,19 +108,19 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
                     }
                 }
                 intent.putExtra(PickFaceTabActivityConfig.CHOOSED_LIST, arrayList);
-                this.f52790e.setResult(-1, intent);
-                this.f52790e.finish();
+                this.f47259e.setResult(-1, intent);
+                this.f47259e.finish();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PickFaceTabActivity f52791e;
+        public final /* synthetic */ PickFaceTabActivity f47260e;
 
         public b(PickFaceTabActivity pickFaceTabActivity) {
             Interceptable interceptable = $ic;
@@ -138,7 +137,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
                     return;
                 }
             }
-            this.f52791e = pickFaceTabActivity;
+            this.f47260e = pickFaceTabActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -159,7 +158,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f52791e.setTitleText(i2);
+                this.f47260e.setTitleText(i2);
             }
         }
     }
@@ -183,23 +182,23 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
 
     private void createAndAddTabSpec(Fragment fragment, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, this, fragment, i2, str) == null) || fragment == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65541, this, fragment, i2, str) == null) || fragment == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f46035c = fragment;
-        bVar.f46033a = i2;
+        bVar.f41050c = fragment;
+        bVar.a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f46034b = fragmentTabIndicator;
+        bVar.f41049b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 
     private void initFragment() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             FaceSearchFragment faceSearchFragment = new FaceSearchFragment();
             this.mSearchFragment = faceSearchFragment;
             faceSearchFragment.setEmotionChooseCallback(this);
@@ -228,7 +227,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
             createAndAddTabSpec(this.mCollectFragment, 2, this.mActivity.getText(R.string.my_mark).toString());
             this.mTabHost.initViewPager(1);
             this.mTabHost.setCurrentTab(0);
-            this.mTabHost.getFragmentTabWidget().getLayoutParams().height = l.g(getPageContext().getPageActivity(), R.dimen.ds110);
+            this.mTabHost.getFragmentTabWidget().getLayoutParams().height = l.f(getPageContext().getPageActivity(), R.dimen.ds110);
             this.mTabHost.getFragmentTabWidget().setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d_alpha90));
         }
     }
@@ -278,7 +277,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
     }
 
-    @Override // b.a.r0.f2.g.f
+    @Override // c.a.r0.l2.g.f
     public boolean canChooseMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -301,7 +300,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
     }
 
-    @Override // b.a.r0.f2.g.f
+    @Override // c.a.r0.l2.g.f
     public void onChoose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -329,7 +328,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
     }
 
-    @Override // b.a.r0.f2.g.f
+    @Override // c.a.r0.l2.g.f
     public void onUnChoose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

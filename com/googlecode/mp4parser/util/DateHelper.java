@@ -25,10 +25,10 @@ public class DateHelper {
         }
     }
 
-    public static Date convert(long j) {
+    public static Date convert(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new Date((j - 2082844800) * 1000) : (Date) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? new Date((j2 - 2082844800) * 1000) : (Date) invokeJ.objValue;
     }
 
     public static long convert(Date date) {

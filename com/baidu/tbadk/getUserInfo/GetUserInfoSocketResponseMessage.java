@@ -1,7 +1,7 @@
 package com.baidu.tbadk.getUserInfo;
 
-import b.a.q0.a0.a;
-import b.a.q0.a0.b;
+import c.a.q0.a0.a;
+import c.a.q0.a0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

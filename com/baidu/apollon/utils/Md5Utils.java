@@ -3,7 +3,6 @@ package com.baidu.apollon.utils;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,12 +16,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class Md5Utils {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static char[] f37148a;
+    public static char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +35,7 @@ public final class Md5Utils {
                 return;
             }
         }
-        f37148a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public Md5Utils() {
@@ -83,7 +80,7 @@ public final class Md5Utils {
     public static byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) ? a().digest(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) ? a().digest(bArr) : (byte[]) invokeL.objValue;
     }
 
     /* JADX WARN: Not initialized variable reg: 1, insn: 0x0051: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:36:0x0051 */
@@ -261,7 +258,7 @@ public final class Md5Utils {
     public static byte[] a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? b(str.getBytes()) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? b(str.getBytes()) : (byte[]) invokeL.objValue;
     }
 
     public static String a(byte[] bArr, Character ch) {
@@ -275,8 +272,8 @@ public final class Md5Utils {
                 if (i2 > 0 && ch != null) {
                     stringBuffer.append(ch.charValue());
                 }
-                stringBuffer.append(f37148a[i3]);
-                stringBuffer.append(f37148a[i4]);
+                stringBuffer.append(a[i3]);
+                stringBuffer.append(a[i4]);
             }
             return stringBuffer.toString();
         }

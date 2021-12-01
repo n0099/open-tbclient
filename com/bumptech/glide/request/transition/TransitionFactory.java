@@ -1,7 +1,7 @@
 package com.bumptech.glide.request.transition;
 
 import com.bumptech.glide.load.DataSource;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface TransitionFactory<R> {
     Transition<R> build(DataSource dataSource, boolean z);
 }

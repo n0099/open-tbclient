@@ -8,19 +8,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends HttpClient.ProtoResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f42881a;
+    public final /* synthetic */ d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f42882b;
+    public final /* synthetic */ Object f38348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f42883c;
+    public final /* synthetic */ a f38349c;
 
     public b(a aVar, d dVar, Object obj) {
         Interceptable interceptable = $ic;
@@ -37,16 +35,16 @@ public class b extends HttpClient.ProtoResultCallback {
                 return;
             }
         }
-        this.f42883c = aVar;
-        this.f42881a = dVar;
-        this.f42882b = obj;
+        this.f38349c = aVar;
+        this.a = dVar;
+        this.f38348b = obj;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            this.f42883c.a(httpStateError, this.f42881a, this.f42882b);
+            this.f38349c.a(httpStateError, this.a, this.f38348b);
         }
     }
 
@@ -55,13 +53,13 @@ public class b extends HttpClient.ProtoResultCallback {
         AsyncHttpClient asyncHttpClient;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String a2 = this.f42881a instanceof com.baidu.platform.core.b.e ? this.f42883c.a(str) : "";
-            String str2 = !TextUtils.isEmpty(a2) ? a2 : str;
-            this.f42883c.c(str2);
-            a aVar = this.f42883c;
-            d dVar = this.f42881a;
-            Object obj = this.f42882b;
-            asyncHttpClient = aVar.f42876b;
+            String a = this.a instanceof com.baidu.platform.core.b.e ? this.f38349c.a(str) : "";
+            String str2 = !TextUtils.isEmpty(a) ? a : str;
+            this.f38349c.c(str2);
+            a aVar = this.f38349c;
+            d dVar = this.a;
+            Object obj = this.f38348b;
+            asyncHttpClient = aVar.f38343b;
             aVar.a(str2, dVar, obj, asyncHttpClient, this);
         }
     }

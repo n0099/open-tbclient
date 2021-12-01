@@ -21,13 +21,11 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class QQEmotion extends BaseApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public IUiListener f70848a;
+    public IUiListener a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QQEmotion(QQToken qQToken) {
@@ -60,21 +58,21 @@ public class QQEmotion extends BaseApi {
                 SLog.i("QQEMOTION", "isLegality -->illegal, file count > 9, count = " + arrayList.size());
                 return false;
             }
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                String a2 = l.a(context, arrayList.get(i2));
-                long j2 = l.j(a2);
-                if (j2 > 1048576) {
-                    SLog.i("QQEMOTION", "isLegality -->illegal, fileSize: " + j2 + "， path =" + a2);
+                String a = l.a(context, arrayList.get(i2));
+                long j3 = l.j(a);
+                if (j3 > 1048576) {
+                    SLog.i("QQEMOTION", "isLegality -->illegal, fileSize: " + j3 + "， path =" + a);
                     return false;
                 }
-                j += j2;
+                j2 += j3;
             }
-            if (j > 3145728) {
-                SLog.i("QQEMOTION", "isLegality -->illegal, totalSize: " + j);
+            if (j2 > 3145728) {
+                SLog.i("QQEMOTION", "isLegality -->illegal, totalSize: " + j2);
                 return false;
             }
-            SLog.i("QQEMOTION", "isLegality -->legal, totalSize: " + j);
+            SLog.i("QQEMOTION", "isLegality -->legal, totalSize: " + j2);
             return true;
         }
         return invokeLL.booleanValue;
@@ -83,11 +81,11 @@ public class QQEmotion extends BaseApi {
     public void setEmotions(Activity activity, ArrayList<Uri> arrayList, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, arrayList, iUiListener) == null) {
-            IUiListener iUiListener2 = this.f70848a;
+            IUiListener iUiListener2 = this.a;
             if (iUiListener2 != null) {
                 iUiListener2.onCancel();
             }
-            this.f70848a = iUiListener;
+            this.a = iUiListener;
             if (!i.b(activity)) {
                 Toast.makeText(activity.getApplicationContext(), "当前手机未安装QQ，请安装最新版QQ后再试。", 1).show();
             } else if (i.c(activity, "8.0.0") < 0) {
@@ -95,16 +93,16 @@ public class QQEmotion extends BaseApi {
             } else if (!a(activity.getApplicationContext(), arrayList)) {
                 Toast.makeText(activity.getApplicationContext(), "图片不符合要求，不支持设置表情功能。", 1).show();
             } else {
-                String a2 = l.a(activity);
+                String a = l.a(activity);
                 StringBuffer stringBuffer = new StringBuffer("mqqapi://profile/sdk_face_collection?");
-                if (!TextUtils.isEmpty(a2)) {
-                    if (a2.length() > 20) {
-                        a2 = a2.substring(0, 20) + "...";
+                if (!TextUtils.isEmpty(a)) {
+                    if (a.length() > 20) {
+                        a = a.substring(0, 20) + "...";
                     }
-                    stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a2), 2));
+                    stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
                 }
-                String appId = this.f70839c.getAppId();
-                String openId = this.f70839c.getOpenId();
+                String appId = this.f62219c.getAppId();
+                String openId = this.f62219c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -112,9 +110,9 @@ public class QQEmotion extends BaseApi {
                     stringBuffer.append("&open_id=" + Base64.encodeToString(l.i(openId), 2));
                 }
                 stringBuffer.append("&sdk_version=" + Base64.encodeToString(l.i(Constants.SDK_VERSION), 2));
-                String a3 = a(arrayList);
-                if (!TextUtils.isEmpty(a3)) {
-                    stringBuffer.append("&set_uri_list=" + a3);
+                String a2 = a(arrayList);
+                if (!TextUtils.isEmpty(a2)) {
+                    stringBuffer.append("&set_uri_list=" + a2);
                 }
                 SLog.v("QQEMOTION", "-->set avatar, url: " + stringBuffer.toString());
                 Intent intent = new Intent("android.intent.action.VIEW");

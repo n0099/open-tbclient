@@ -85,7 +85,7 @@ public class ResDialogFragment extends DelegateDialogFragment {
         return super.getBase();
     }
 
-    @Override // androidx.fragment.app.Fragment
+    @Override // androidx.fragment.app.Fragment, c.b.b.l.a.a
     @Nullable
     public Context getContext() {
         InterceptResult invokeV;
@@ -265,7 +265,7 @@ public class ResDialogFragment extends DelegateDialogFragment {
         super.onPrepareOptionsMenu(menu);
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment
     public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i2, strArr, iArr);
     }

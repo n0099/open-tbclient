@@ -9,10 +9,13 @@ import android.view.ViewGroup;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import b.a.e.f.p.l;
-import b.a.r0.c4.f;
-import b.a.r0.c4.g;
-import b.a.r0.c4.i;
+import c.a.d.f.p.l;
+import c.a.q0.s.u.c;
+import c.a.r0.j4.d;
+import c.a.r0.j4.f;
+import c.a.r0.j4.g;
+import c.a.r0.j4.i;
+import c.a.r0.j4.p.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,8 +31,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.adapter.VideoAttentionPageRecomendListAdapter;
 import com.baidu.tieba.videoplay.data.VideoAttentionPersonListData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.videoplay.fragment.VideoAttentionListPageFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,166 +39,87 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import kotlin.Metadata;
-import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000|\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0007\u0018\u00002\u00020\u00012\u00020\u0002B\u0007¢\u0006\u0004\b=\u0010\u000bJ\u0011\u0010\u0004\u001a\u0004\u0018\u00010\u0003H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0007\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\n\u001a\u00020\tH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\r\u0010\r\u001a\u00020\f¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0011\u001a\u00020\t2\b\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0014\u001a\u00020\t2\u0006\u0010\u0013\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0014\u0010\u0015J-\u0010\u001b\u001a\u0004\u0018\u00010\u001a2\u0006\u0010\u0017\u001a\u00020\u00162\b\u0010\u0019\u001a\u0004\u0018\u00010\u00182\b\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016¢\u0006\u0004\b\u001b\u0010\u001cJ\u0015\u0010\u001e\u001a\u00020\t2\u0006\u0010\u001d\u001a\u00020\u0006¢\u0006\u0004\b\u001e\u0010\u0015J\u0017\u0010 \u001a\u00020\t2\u0006\u0010\u001f\u001a\u00020\u0006H\u0016¢\u0006\u0004\b \u0010\u0015R\u0016\u0010\"\u001a\u00020!8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\"\u0010#R\u001c\u0010&\u001a\b\u0012\u0004\u0012\u00020%0$8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b&\u0010'R\u0016\u0010)\u001a\u00020(8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\u001a8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b+\u0010,R\u0016\u0010-\u001a\u00020\u001a8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b-\u0010,R\u0016\u0010/\u001a\u00020.8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b/\u00100R\u0016\u00102\u001a\u0002018\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00104\u001a\u00020\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00106\u001a\u00020\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00105R\u0018\u00108\u001a\u0004\u0018\u0001078\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00109R\u0018\u0010:\u001a\u0004\u0018\u00010\u00038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b:\u0010;R\u0016\u0010<\u001a\u0002078\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b<\u00109¨\u0006>"}, d2 = {"Lcom/baidu/tieba/videoplay/fragment/VideoAttentionListPageFragment;", "Lb/a/r0/c4/r/a/a;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/video/VideoItemModel;", "getCurrentData", "()Lcom/baidu/tieba/video/VideoItemModel;", "", "getFragmentIndex", "()I", "", "initRecyclerView", "()V", "", "isOnViewTop", "()Z", "Landroid/os/Bundle;", "savedInstanceState", "onActivityCreated", "(Landroid/os/Bundle;)V", WriteMulitImageActivityConfig.SKIN_TYPE, "onChangeSkinType", "(I)V", "Landroid/view/LayoutInflater;", "inflater", "Landroid/view/ViewGroup;", "container", "Landroid/view/View;", "onCreateView", "(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;", "position", "scrollToPosition", "index", "setFragmentIndex", "Lcom/baidu/tieba/videoplay/adapter/VideoAttentionPageRecomendListAdapter;", "adapter", "Lcom/baidu/tieba/videoplay/adapter/VideoAttentionPageRecomendListAdapter;", "", "Lcom/baidu/tieba/videoplay/data/VideoAttentionPersonListData;", "datalist", "Ljava/util/List;", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "headText", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "headerView", "Landroid/view/View;", "lastView", "Lcom/baidu/adp/widget/ListView/BdRecyclerView;", "listView", "Lcom/baidu/adp/widget/ListView/BdRecyclerView;", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mBackHomeAnimListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mCurrentType", "I", "mFragmentIndex", "", "mFromPage", "Ljava/lang/String;", "mVideoItemModel", "Lcom/baidu/tieba/video/VideoItemModel;", "showWord", "<init>", "VideoPlay_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
-public final class VideoAttentionListPageFragment extends BaseFragment implements b.a.r0.c4.r.a.a {
+@Metadata(d1 = {"\u0000t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\n\u0010\u001a\u001a\u0004\u0018\u00010\u0018H\u0016J\b\u0010\u001b\u001a\u00020\u0013H\u0016J\b\u0010\u001c\u001a\u00020\u001dH\u0002J\u0006\u0010\u001e\u001a\u00020\u001fJ\u0012\u0010 \u001a\u00020\u001d2\b\u0010!\u001a\u0004\u0018\u00010\"H\u0016J\u0010\u0010#\u001a\u00020\u001d2\u0006\u0010$\u001a\u00020\u0013H\u0016J&\u0010%\u001a\u0004\u0018\u00010\f2\u0006\u0010&\u001a\u00020'2\b\u0010(\u001a\u0004\u0018\u00010)2\b\u0010!\u001a\u0004\u0018\u00010\"H\u0016J\u000e\u0010*\u001a\u00020\u001d2\u0006\u0010+\u001a\u00020\u0013J\u0010\u0010,\u001a\u00020\u001d2\u0006\u0010-\u001a\u00020\u0013H\u0016R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u0014\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\b0\u0007X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0016X\u0082.¢\u0006\u0002\n\u0000¨\u0006."}, d2 = {"Lcom/baidu/tieba/videoplay/fragment/VideoAttentionListPageFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/videoplay/verticalviewpager/transforms/IVideoFragment;", "()V", "adapter", "Lcom/baidu/tieba/videoplay/adapter/VideoAttentionPageRecomendListAdapter;", "datalist", "", "Lcom/baidu/tieba/videoplay/data/VideoAttentionPersonListData;", "headText", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "headerView", "Landroid/view/View;", "lastView", "listView", "Lcom/baidu/adp/widget/ListView/BdRecyclerView;", "mBackHomeAnimListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mCurrentType", "", "mFragmentIndex", "mFromPage", "", "mVideoItemModel", "Lcom/baidu/tieba/video/VideoItemModel;", "showWord", "getCurrentData", "getFragmentIndex", "initRecyclerView", "", "isOnViewTop", "", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "scrollToPosition", "position", "setFragmentIndex", "index", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes11.dex */
+public final class VideoAttentionListPageFragment extends BaseFragment implements c.a.r0.j4.s.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoAttentionPageRecomendListAdapter f55974e;
+    public VideoAttentionPageRecomendListAdapter f50061e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoItemModel f55975f;
+    public VideoItemModel f50062f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55976g;
+    public int f50063g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55977h;
+    public int f50064h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdRecyclerView f55978i;
-    public View j;
-    public View k;
+    public BdRecyclerView f50065i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public View f50066j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public View f50067k;
     public EMTextView l;
     public List<? extends VideoAttentionPersonListData> m;
     public String n;
     public final CustomMessageListener o;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionListPageFragment f55979a;
+        public final /* synthetic */ VideoAttentionListPageFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(VideoAttentionListPageFragment videoAttentionListPageFragment, int i2) {
-            super(i2);
+        public a(VideoAttentionListPageFragment videoAttentionListPageFragment) {
+            super(2921612);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {videoAttentionListPageFragment, Integer.valueOf(i2)};
+                Object[] objArr = {videoAttentionListPageFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f55979a = videoAttentionListPageFragment;
+            this.a = videoAttentionListPageFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2921612 && this.f55979a.isResumed() && this.f55979a.isVisible()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921611));
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
+                if (responsedMessage.getCmd() == 2921612 && this.a.isResumed() && this.a.isVisible()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921611));
+                }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static final class b implements View.OnTouchListener {
+    /* loaded from: classes11.dex */
+    public static final class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GestureDetectorCompat f55980e;
+        public final /* synthetic */ View f50068e;
 
-        public b(GestureDetectorCompat gestureDetectorCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gestureDetectorCompat};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f55980e = gestureDetectorCompat;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public final boolean onTouch(View view, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) ? this.f55980e.onTouchEvent(motionEvent) : invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class c implements View.OnLongClickListener {
-        public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final c f55981e;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1981276373, "Lcom/baidu/tieba/videoplay/fragment/VideoAttentionListPageFragment$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1981276373, "Lcom/baidu/tieba/videoplay/fragment/VideoAttentionListPageFragment$c;");
-                    return;
-                }
-            }
-            f55981e = new c();
-        }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public final boolean onLongClick(View view) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static final class d extends GestureDetector.SimpleOnGestureListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f55982e;
-
-        public d(View view) {
+        public b(View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -211,21 +134,21 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                     return;
                 }
             }
-            this.f55982e = view;
+            this.f50068e = view;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (motionEvent2.getX() - motionEvent.getX() > 50) {
-                    TbSingleton tbSingleton = TbSingleton.getInstance();
-                    Intrinsics.checkExpressionValueIsNotNull(tbSingleton, "TbSingleton.getInstance()");
-                    if (tbSingleton.isFromFeedVideoClick()) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{e1, e2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+                Intrinsics.checkNotNullParameter(e1, "e1");
+                Intrinsics.checkNotNullParameter(e2, "e2");
+                if (e2.getX() - e1.getX() > 50.0f) {
+                    if (TbSingleton.getInstance().isFromFeedVideoClick()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
                     }
-                    this.f55982e.cancelLongPress();
+                    this.f50068e.cancelLongPress();
                     return true;
                 }
                 return false;
@@ -247,62 +170,91 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                 return;
             }
         }
-        this.f55976g = -1;
-        this.o = new a(this, 2921612);
+        this.f50063g = -1;
+        this.o = new a(this);
     }
 
-    public final void g() {
+    public static final boolean j(GestureDetectorCompat detectorCompat, View view, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BdRecyclerView bdRecyclerView = this.f55978i;
-            if (bdRecyclerView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("listView");
-            }
-            bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
-            this.f55974e = new VideoAttentionPageRecomendListAdapter(getContext(), this.f55977h);
-            BdRecyclerView bdRecyclerView2 = this.f55978i;
-            if (bdRecyclerView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("listView");
-            }
-            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter = this.f55974e;
-            if (videoAttentionPageRecomendListAdapter == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("adapter");
-            }
-            bdRecyclerView2.setAdapter(videoAttentionPageRecomendListAdapter);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, detectorCompat, view, motionEvent)) == null) {
+            Intrinsics.checkNotNullParameter(detectorCompat, "$detectorCompat");
+            return detectorCompat.onTouchEvent(motionEvent);
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // b.a.r0.c4.r.a.a
+    public static final boolean k(View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // c.a.r0.j4.s.b.a
     public VideoItemModel getCurrentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55975f : (VideoItemModel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50062f : (VideoItemModel) invokeV.objValue;
     }
 
-    @Override // b.a.r0.c4.r.a.a
+    @Override // c.a.r0.j4.s.b.a
     public int getFragmentIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55976g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50063g : invokeV.intValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            BdRecyclerView bdRecyclerView = this.f50065i;
+            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter = null;
+            if (bdRecyclerView == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("listView");
+                bdRecyclerView = null;
+            }
+            bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
+            this.f50061e = new VideoAttentionPageRecomendListAdapter(getContext(), this.f50064h);
+            BdRecyclerView bdRecyclerView2 = this.f50065i;
+            if (bdRecyclerView2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("listView");
+                bdRecyclerView2 = null;
+            }
+            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter2 = this.f50061e;
+            if (videoAttentionPageRecomendListAdapter2 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("adapter");
+            } else {
+                videoAttentionPageRecomendListAdapter = videoAttentionPageRecomendListAdapter2;
+            }
+            bdRecyclerView2.setAdapter(videoAttentionPageRecomendListAdapter);
+        }
     }
 
     public final boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            BdRecyclerView bdRecyclerView = this.f55978i;
+            BdRecyclerView bdRecyclerView = this.f50065i;
+            BdRecyclerView bdRecyclerView2 = null;
             if (bdRecyclerView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("listView");
+                bdRecyclerView = null;
             }
             if (bdRecyclerView.getFirstVisiblePosition() == 0) {
-                View view = this.j;
+                View view = this.f50066j;
                 if (view == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("headerView");
+                    view = null;
                 }
                 int top = view.getTop();
-                BdRecyclerView bdRecyclerView2 = this.f55978i;
-                if (bdRecyclerView2 == null) {
+                BdRecyclerView bdRecyclerView3 = this.f50065i;
+                if (bdRecyclerView3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("listView");
+                } else {
+                    bdRecyclerView2 = bdRecyclerView3;
                 }
                 if (top == bdRecyclerView2.getPaddingTop()) {
                     return true;
@@ -313,59 +265,72 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.tieba.videoplay.adapter.VideoAttentionPageRecomendListAdapter */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v2, resolved type: com.baidu.tieba.videoplay.adapter.VideoAttentionPageRecomendListAdapter */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter = this.f55974e;
-            if (videoAttentionPageRecomendListAdapter == 0) {
+            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter = this.f50061e;
+            String str = null;
+            VideoAttentionPageRecomendListAdapter videoAttentionPageRecomendListAdapter2 = videoAttentionPageRecomendListAdapter;
+            if (videoAttentionPageRecomendListAdapter == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("adapter");
+                videoAttentionPageRecomendListAdapter2 = null;
             }
             List<? extends VideoAttentionPersonListData> list = this.m;
             if (list == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("datalist");
+                list = null;
             }
-            videoAttentionPageRecomendListAdapter.setData(list);
+            videoAttentionPageRecomendListAdapter2.setData(list);
             List<? extends VideoAttentionPersonListData> list2 = this.m;
             if (list2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("datalist");
+                list2 = null;
             }
             if (!list2.isEmpty()) {
-                BdRecyclerView bdRecyclerView = this.f55978i;
+                BdRecyclerView bdRecyclerView = this.f50065i;
                 if (bdRecyclerView == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("listView");
+                    bdRecyclerView = null;
                 }
-                View view = this.j;
+                View view = this.f50066j;
                 if (view == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("headerView");
+                    view = null;
                 }
                 bdRecyclerView.addHeaderView(view);
-                BdRecyclerView bdRecyclerView2 = this.f55978i;
+                BdRecyclerView bdRecyclerView2 = this.f50065i;
                 if (bdRecyclerView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("listView");
+                    bdRecyclerView2 = null;
                 }
-                View view2 = this.k;
+                View view2 = this.f50067k;
                 if (view2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("lastView");
+                    view2 = null;
                 }
                 bdRecyclerView2.addFooterView(view2);
-                String str = this.n;
-                if (str == null) {
+                String str2 = this.n;
+                if (str2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("showWord");
+                    str2 = null;
                 }
-                if (!StringUtils.isNull(str)) {
+                if (!StringUtils.isNull(str2)) {
                     EMTextView eMTextView = this.l;
                     if (eMTextView == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("headText");
+                        eMTextView = null;
                     }
-                    String str2 = this.n;
-                    if (str2 == null) {
+                    String str3 = this.n;
+                    if (str3 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("showWord");
+                    } else {
+                        str = str3;
                     }
-                    eMTextView.setText(str2);
+                    eMTextView.setText(str);
                 }
             }
             registerListener(this.o);
@@ -381,72 +346,88 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, inflater, viewGroup, bundle)) == null) {
+            Intrinsics.checkNotNullParameter(inflater, "inflater");
             Bundle arguments = getArguments();
+            BdRecyclerView bdRecyclerView = null;
             if (arguments != null) {
                 Object obj = arguments.get("from");
-                if (!(obj instanceof String)) {
-                    obj = null;
+                if (obj instanceof String) {
+                    String str = (String) obj;
                 }
-                String str = (String) obj;
                 Object obj2 = arguments.get("video_data");
-                this.f55975f = obj2 instanceof VideoItemModel ? obj2 : null;
+                this.f50062f = obj2 instanceof VideoItemModel ? (VideoItemModel) obj2 : null;
                 Object obj3 = arguments.get("video_attention_list");
                 if (obj3 != null) {
                     this.m = (List) obj3;
                     Object obj4 = arguments.get("video_attention_showword");
                     if (obj4 != null) {
                         this.n = (String) obj4;
-                        this.f55977h = arguments.getInt("current_type");
+                        this.f50064h = arguments.getInt("current_type");
                     } else {
-                        throw new TypeCastException("null cannot be cast to non-null type kotlin.String");
+                        throw new NullPointerException("null cannot be cast to non-null type kotlin.String");
                     }
                 } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.List<com.baidu.tieba.videoplay.data.VideoAttentionPersonListData>");
+                    throw new NullPointerException("null cannot be cast to non-null type kotlin.collections.List<com.baidu.tieba.videoplay.data.VideoAttentionPersonListData>");
                 }
             }
-            View inflate = layoutInflater.inflate(g.video_attention_list_view, viewGroup, false);
+            View inflate = inflater.inflate(g.video_attention_list_view, viewGroup, false);
             if (inflate != null) {
-                View inflate2 = layoutInflater.inflate(g.video_attention_list_head_view, viewGroup, false);
+                View inflate2 = inflater.inflate(g.video_attention_list_head_view, viewGroup, false);
                 if (inflate2 != null) {
-                    this.j = inflate2;
+                    this.f50066j = inflate2;
                     if (inflate2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("headerView");
+                        inflate2 = null;
                     }
-                    b.a.q0.s.u.c d2 = b.a.q0.s.u.c.d(inflate2);
+                    c d2 = c.d(inflate2);
                     d2.n(i.J_X05);
-                    d2.g(SkinManager.getColor(0, b.a.r0.c4.c.CAM_X0105));
-                    View inflate3 = layoutInflater.inflate(g.video_attention_list_last_view, viewGroup, false);
+                    d2.g(SkinManager.getColor(0, c.a.r0.j4.c.CAM_X0105));
+                    View inflate3 = inflater.inflate(g.video_attention_list_last_view, viewGroup, false);
                     if (inflate3 != null) {
-                        this.k = inflate3;
-                        View view = this.j;
+                        this.f50067k = inflate3;
+                        View view = this.f50066j;
                         if (view == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("headerView");
+                            view = null;
                         }
                         View findViewById = view.findViewById(f.video_concern_no_data_title);
-                        Intrinsics.checkExpressionValueIsNotNull(findViewById, "headerView.findViewById(…eo_concern_no_data_title)");
+                        Intrinsics.checkNotNullExpressionValue(findViewById, "headerView.findViewById(…eo_concern_no_data_title)");
                         this.l = (EMTextView) findViewById;
                         View findViewById2 = inflate.findViewById(f.viedo_attention_list);
-                        Intrinsics.checkExpressionValueIsNotNull(findViewById2, "rooView.findViewById(R.id.viedo_attention_list)");
-                        BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById2;
-                        this.f55978i = bdRecyclerView;
-                        if (bdRecyclerView == null) {
+                        Intrinsics.checkNotNullExpressionValue(findViewById2, "rooView.findViewById(R.id.viedo_attention_list)");
+                        BdRecyclerView bdRecyclerView2 = (BdRecyclerView) findViewById2;
+                        this.f50065i = bdRecyclerView2;
+                        if (bdRecyclerView2 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("listView");
+                        } else {
+                            bdRecyclerView = bdRecyclerView2;
                         }
-                        bdRecyclerView.setPadding(0, l.g(TbadkCoreApplication.getInst(), b.a.r0.c4.d.tbds250), 0, 0);
-                        g();
-                        inflate.setOnTouchListener(new b(new GestureDetectorCompat(getContext(), new d(inflate))));
-                        inflate.setOnLongClickListener(c.f55981e);
+                        bdRecyclerView.setPadding(0, l.f(TbadkCoreApplication.getInst(), d.tbds250), 0, 0);
+                        i();
+                        final GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(), new b(inflate));
+                        inflate.setOnTouchListener(new View.OnTouchListener() { // from class: c.a.r0.j4.p.b
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            @Override // android.view.View.OnTouchListener
+                            public final boolean onTouch(View view2, MotionEvent motionEvent) {
+                                InterceptResult invokeLL;
+                                Interceptable interceptable2 = $ic;
+                                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) ? VideoAttentionListPageFragment.j(GestureDetectorCompat.this, view2, motionEvent) : invokeLL.booleanValue;
+                            }
+                        });
+                        inflate.setOnLongClickListener(m.f18446e);
                         return inflate;
                     }
-                    throw new TypeCastException("null cannot be cast to non-null type android.view.View");
+                    throw new NullPointerException("null cannot be cast to non-null type android.view.View");
                 }
-                throw new TypeCastException("null cannot be cast to non-null type android.view.View");
+                throw new NullPointerException("null cannot be cast to non-null type android.view.View");
             }
-            throw new TypeCastException("null cannot be cast to non-null type android.view.View");
+            throw new NullPointerException("null cannot be cast to non-null type android.view.View");
         }
         return (View) invokeLLL.objValue;
     }
@@ -454,19 +435,20 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
     public final void scrollToPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            BdRecyclerView bdRecyclerView = this.f55978i;
+            BdRecyclerView bdRecyclerView = this.f50065i;
             if (bdRecyclerView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("listView");
+                bdRecyclerView = null;
             }
             bdRecyclerView.scrollToPosition(i2);
         }
     }
 
-    @Override // b.a.r0.c4.r.a.a
+    @Override // c.a.r0.j4.s.b.a
     public void setFragmentIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f55976g = i2;
+            this.f50063g = i2;
         }
     }
 }

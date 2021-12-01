@@ -18,7 +18,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class PluginService extends Service implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginService";
@@ -60,9 +60,7 @@ public abstract class PluginService extends Service implements a {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Proxy.newProxyInstance(getClassLoader(), new Class[]{Class.forName("android.app.IActivityManager")}, new InvocationHandler(this) { // from class: com.bytedance.pangle.service.PluginService.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PluginService f62389a;
+            public final /* synthetic */ PluginService a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -79,7 +77,7 @@ public abstract class PluginService extends Service implements a {
                         return;
                     }
                 }
-                this.f62389a = this;
+                this.a = this;
             }
 
             @Override // java.lang.reflect.InvocationHandler
@@ -110,7 +108,7 @@ public abstract class PluginService extends Service implements a {
                         return c2 != 2 ? null : 0;
                     }
                     com.bytedance.pangle.service.a.a b2 = com.bytedance.pangle.service.a.a.b();
-                    PluginService pluginService = this.f62389a;
+                    PluginService pluginService = this.a;
                     return Boolean.valueOf(b2.a(new ComponentName(pluginService, pluginService.getClass().getName())));
                 }
                 return invokeLLL.objValue;

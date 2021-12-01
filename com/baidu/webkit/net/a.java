@@ -14,32 +14,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f62035d = "a";
+    public static final String f54368d = "a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int[] f62036e;
+    public static final int[] f54369e;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f62037f;
+    public static a f54370f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f62038g;
+    public static boolean f54371g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<Vector<BdNetTask>> f62039a;
+    public List<Vector<BdNetTask>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector<BdNetEngine> f62040b;
+    public Vector<BdNetEngine> f54372b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f62041c;
+    public Context f54373c;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +52,7 @@ public final class a {
                 return;
             }
         }
-        f62036e = new int[]{0, 1, 2, 3};
+        f54369e = new int[]{0, 1, 2, 3};
     }
 
     public a() {
@@ -70,12 +68,12 @@ public final class a {
                 return;
             }
         }
-        int length = f62036e.length;
-        this.f62039a = new ArrayList(length);
+        int length = f54369e.length;
+        this.a = new ArrayList(length);
         for (int i4 = 0; i4 < length; i4++) {
-            this.f62039a.add(new Vector<>());
+            this.a.add(new Vector<>());
         }
-        this.f62040b = new Vector<>();
+        this.f54372b = new Vector<>();
     }
 
     public static a a() {
@@ -83,11 +81,11 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f62037f == null) {
-                    f62037f = new a();
+                if (f54370f == null) {
+                    f54370f = new a();
                 }
             }
-            return f62037f;
+            return f54370f;
         }
         return (a) invokeV.objValue;
     }
@@ -95,13 +93,13 @@ public final class a {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f62038g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f54371g : invokeV.booleanValue;
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f62037f = null;
+            f54370f = null;
         }
     }
 
@@ -112,18 +110,18 @@ public final class a {
                 if (bdNetTask == null) {
                     return;
                 }
-                if (this.f62039a == null) {
-                    this.f62039a = new ArrayList(f62036e.length);
+                if (this.a == null) {
+                    this.a = new ArrayList(f54369e.length);
                 }
-                if (this.f62039a.isEmpty()) {
-                    for (int i3 = 0; i3 < f62036e.length; i3++) {
-                        this.f62039a.add(new Vector<>());
+                if (this.a.isEmpty()) {
+                    for (int i3 = 0; i3 < f54369e.length; i3++) {
+                        this.a.add(new Vector<>());
                     }
                 }
-                int length = f62036e.length;
+                int length = f54369e.length;
                 for (int i4 = 0; i4 < length; i4++) {
-                    if (i2 == f62036e[i4]) {
-                        this.f62039a.get(i4).add(bdNetTask);
+                    if (i2 == f54369e[i4]) {
+                        this.a.get(i4).add(bdNetTask);
                         return;
                     }
                 }
@@ -136,9 +134,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                int size = this.f62039a.size();
+                int size = this.a.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    Vector<BdNetTask> vector = this.f62039a.get(i2);
+                    Vector<BdNetTask> vector = this.a.get(i2);
                     if (vector.size() > 0) {
                         return vector.remove(0);
                     }
@@ -154,9 +152,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                int size = this.f62040b.size();
+                int size = this.f54372b.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    BdNetEngine bdNetEngine = this.f62040b.get(i2);
+                    BdNetEngine bdNetEngine = this.f54372b.get(i2);
                     if (!bdNetEngine.isWorking() && bdNetEngine.isRecycle()) {
                         bdNetEngine.allocate();
                         return bdNetEngine;
@@ -165,7 +163,7 @@ public final class a {
                 if (size < 6) {
                     BdNetEngine bdNetEngine2 = new BdNetEngine();
                     bdNetEngine2.allocate();
-                    this.f62040b.add(bdNetEngine2);
+                    this.f54372b.add(bdNetEngine2);
                     return bdNetEngine2;
                 }
                 return null;

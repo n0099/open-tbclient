@@ -2,7 +2,6 @@ package com.squareup.wire;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +65,7 @@ public final class ByteString {
     public static ByteString read(InputStream inputStream, int i2) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, inputStream, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, inputStream, i2)) == null) {
             byte[] bArr = new byte[i2];
             int i3 = 0;
             while (i3 < i2) {

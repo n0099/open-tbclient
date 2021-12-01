@@ -1,9 +1,9 @@
 package com.baidu.tieba.imMessageCenter.im.stranger;
 
 import android.text.TextUtils;
-import b.a.e.a.f;
-import b.a.r0.l1.f.i.b;
-import b.a.r0.l1.t.e;
+import c.a.d.a.f;
+import c.a.r0.r1.f.i.b;
+import c.a.r0.r1.t.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.ListIterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StrangerListModel extends ImBaseMessageCenterModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,9 +110,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(7));
-        PersonalSettingItemData a2 = e.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-        if (a2 != null) {
-            buildNormalItem.setGroupSetting(a2);
+        PersonalSettingItemData a = e.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        if (a != null) {
+            buildNormalItem.setGroupSetting(a);
         }
         insertShowData(buildNormalItem, this.mList);
     }

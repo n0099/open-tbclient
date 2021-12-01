@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ViewCommonUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,9 +65,9 @@ public class ViewCommonUtil {
                 rect.top = 0;
             }
             int r = l.r(activity);
-            int e2 = MenuKeyUtils.hasSmartBar() ? l.e(activity, 48.0f) : 0;
+            int d2 = MenuKeyUtils.hasSmartBar() ? l.d(activity, 48.0f) : 0;
             int i2 = UtilHelper.canUseStyleImmersiveSticky() ? 0 : r;
-            rect.bottom -= e2;
+            rect.bottom -= d2;
             rect.top += i2;
             return rect;
         }

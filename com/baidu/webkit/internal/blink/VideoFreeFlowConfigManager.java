@@ -15,7 +15,7 @@ import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import java.util.ArrayList;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VideoFreeFlowConfigManager implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIRECT = "DIRECT";
@@ -35,25 +35,23 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     public byte[] mListLock;
     public ArrayList<a> mPacRulesList;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f61876a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61877b;
+        public String f54250b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f61878c;
+        public String f54251c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f61879d;
+        public int f54252d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f61880e;
+        public String f54253e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -70,11 +68,11 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                     return;
                 }
             }
-            this.f61876a = null;
-            this.f61877b = null;
-            this.f61878c = null;
-            this.f61879d = 2;
-            this.f61880e = null;
+            this.a = null;
+            this.f54250b = null;
+            this.f54251c = null;
+            this.f54252d = 2;
+            this.f54253e = null;
             if (TextUtils.isEmpty(str) || !str.contains("#")) {
                 return;
             }
@@ -83,25 +81,25 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
             for (int i4 = 0; i4 < length; i4++) {
                 if (!TextUtils.isEmpty(split[i4])) {
                     if (i4 == 0) {
-                        this.f61876a = split[i4];
+                        this.a = split[i4];
                     } else if (i4 == 1) {
-                        this.f61877b = split[i4];
+                        this.f54250b = split[i4];
                     } else if (i4 == 2) {
                         String str2 = split[i4];
-                        this.f61878c = str2;
+                        this.f54251c = str2;
                         if (!TextUtils.isEmpty(str2)) {
                             String trim = str2.trim();
-                            this.f61878c = trim;
+                            this.f54251c = trim;
                             if (trim.startsWith(VideoFreeFlowConfigManager.DIRECT)) {
-                                this.f61879d = 2;
-                            } else if (this.f61878c.startsWith(VideoFreeFlowConfigManager.PROXY)) {
-                                this.f61879d = 1;
-                                String str3 = this.f61878c;
+                                this.f54252d = 2;
+                            } else if (this.f54251c.startsWith(VideoFreeFlowConfigManager.PROXY)) {
+                                this.f54252d = 1;
+                                String str3 = this.f54251c;
                                 String trim2 = str3.substring(str3.indexOf(VideoFreeFlowConfigManager.PROXY) + 5).trim();
                                 if (!TextUtils.isEmpty(trim2)) {
                                     String[] split2 = trim2.split(";");
                                     if (split2.length > 0 && !TextUtils.isEmpty(split2[0])) {
-                                        this.f61880e = split2[0];
+                                        this.f54253e = split2[0];
                                     }
                                 }
                             }
@@ -175,7 +173,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:38:0x00a3, code lost:
-        if (r3.indexOf(r6.f61877b) != (-1)) goto L55;
+        if (r3.indexOf(r6.f54250b) != (-1)) goto L55;
      */
     /* JADX WARN: Removed duplicated region for block: B:52:0x00cf A[Catch: all -> 0x00e4, TryCatch #0 {, blocks: (B:12:0x0016, B:14:0x0028, B:16:0x0037, B:18:0x003f, B:20:0x0047, B:23:0x0051, B:52:0x00cf, B:54:0x00d3, B:55:0x00d5, B:57:0x00d7, B:59:0x00dc, B:61:0x00de, B:26:0x005e, B:28:0x0068, B:30:0x006e, B:32:0x007a, B:35:0x0092, B:37:0x009d, B:40:0x00a6, B:42:0x00b0, B:45:0x00b9, B:47:0x00c3, B:62:0x00e2), top: B:71:0x0016 }] */
     /* JADX WARN: Removed duplicated region for block: B:75:0x00de A[SYNTHETIC] */
@@ -193,23 +191,23 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                     String host = Uri.parse(str).getHost();
                     for (int i2 = 0; i2 < size; i2++) {
                         a aVar = this.mPacRulesList.get(i2);
-                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(aVar.f61876a) && !TextUtils.isEmpty(aVar.f61877b) && !TextUtils.isEmpty(aVar.f61878c)) {
-                            if (!aVar.f61877b.equals(ProxyConfig.MATCH_ALL_SCHEMES)) {
-                                if (aVar.f61876a.equals(HOST_MATCH)) {
-                                    if (!TextUtils.isEmpty(host) && host.length() >= aVar.f61877b.length() && host.substring(host.length() - aVar.f61877b.length()).equals(aVar.f61877b)) {
+                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f54250b) && !TextUtils.isEmpty(aVar.f54251c)) {
+                            if (!aVar.f54250b.equals(ProxyConfig.MATCH_ALL_SCHEMES)) {
+                                if (aVar.a.equals(HOST_MATCH)) {
+                                    if (!TextUtils.isEmpty(host) && host.length() >= aVar.f54250b.length() && host.substring(host.length() - aVar.f54250b.length()).equals(aVar.f54250b)) {
                                     }
-                                } else if (!aVar.f61876a.equals(HOST_STR)) {
-                                    if (aVar.f61876a.equals(HOST_STR_MATCH)) {
-                                        if (host.equals(aVar.f61877b)) {
+                                } else if (!aVar.a.equals(HOST_STR)) {
+                                    if (aVar.a.equals(HOST_STR_MATCH)) {
+                                        if (host.equals(aVar.f54250b)) {
                                         }
-                                    } else if (aVar.f61876a.equals(URL_MATCH) && str.indexOf(aVar.f61877b) != -1) {
+                                    } else if (aVar.a.equals(URL_MATCH) && str.indexOf(aVar.f54250b) != -1) {
                                     }
                                 }
                                 if (z) {
-                                    if (aVar.f61879d == 1) {
-                                        return aVar.f61880e;
+                                    if (aVar.f54252d == 1) {
+                                        return aVar.f54253e;
                                     }
-                                    if (aVar.f61879d == 2) {
+                                    if (aVar.f54252d == 2) {
                                         return null;
                                     }
                                 }

@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final LinkedList<d> f36785a;
+    public final LinkedList<d> a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -28,7 +26,7 @@ public final class e {
                 return;
             }
         }
-        this.f36785a = new LinkedList<>();
+        this.a = new LinkedList<>();
     }
 
     public synchronized void a(d dVar) {
@@ -36,7 +34,7 @@ public final class e {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             synchronized (this) {
                 if (dVar != null) {
-                    this.f36785a.offer(dVar);
+                    this.a.offer(dVar);
                     notifyAll();
                 } else {
                     throw new NullPointerException("null cannot be enqueued");
@@ -51,7 +49,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                poll = this.f36785a.poll();
+                poll = this.a.poll();
             }
             return poll;
         }
@@ -60,17 +58,17 @@ public final class e {
 
     public synchronized d a(int i2) throws InterruptedException {
         InterceptResult invokeI;
-        d a2;
+        d a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             synchronized (this) {
-                a2 = a();
-                if (a2 == null) {
+                a = a();
+                if (a == null) {
                     wait(i2);
-                    a2 = a();
+                    a = a();
                 }
             }
-            return a2;
+            return a;
         }
         return (d) invokeI.objValue;
     }

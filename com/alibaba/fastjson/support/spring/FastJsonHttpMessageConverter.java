@@ -7,7 +7,6 @@ import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +32,7 @@ import org.springframework.http.converter.GenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.util.StringUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<Object> implements GenericHttpMessageConverter<Object> {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType APPLICATION_JAVASCRIPT;
@@ -46,7 +45,7 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
     @Deprecated
     public SerializeFilter[] filters;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Spring4TypeResolvableHelper {
         public static /* synthetic */ Interceptable $ic;
         public static boolean hasClazzResolvableType;
@@ -126,13 +125,13 @@ public class FastJsonHttpMessageConverter extends AbstractHttpMessageConverter<O
         public static boolean isSupport() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? hasClazzResolvableType : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? hasClazzResolvableType : invokeV.booleanValue;
         }
 
         public static ResolvableType resolveVariable(TypeVariable<?> typeVariable, ResolvableType resolvableType) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, typeVariable, resolvableType)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, typeVariable, resolvableType)) == null) {
                 if (resolvableType.hasGenerics()) {
                     ResolvableType forType = ResolvableType.forType(typeVariable, resolvableType);
                     if (forType.resolve() != null) {

@@ -1,7 +1,6 @@
 package com.baidubce.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static String LOG_TAG = "BOS";
@@ -151,7 +150,7 @@ public class BLog {
 
     public static void debug(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
             boolean z = enableLog;
         }
     }
@@ -165,7 +164,7 @@ public class BLog {
 
     public static void debug(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) && enableLog) {
+        if ((interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) && enableLog) {
             String str3 = str + str2;
         }
     }

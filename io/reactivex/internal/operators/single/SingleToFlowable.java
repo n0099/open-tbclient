@@ -12,20 +12,20 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SingleToFlowable<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<? extends T> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SingleToFlowableObserver<T> extends DeferredScalarSubscription<T> implements SingleObserver<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 187782011903685568L;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73472d;
+        public Disposable f64034d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SingleToFlowableObserver(Subscriber<? super T> subscriber) {
@@ -52,7 +52,7 @@ public final class SingleToFlowable<T> extends Flowable<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel();
-                this.f73472d.dispose();
+                this.f64034d.dispose();
             }
         }
 
@@ -67,8 +67,8 @@ public final class SingleToFlowable<T> extends Flowable<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) && DisposableHelper.validate(this.f73472d, disposable)) {
-                this.f73472d = disposable;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) && DisposableHelper.validate(this.f64034d, disposable)) {
+                this.f64034d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

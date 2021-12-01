@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.voiceroom.data;
 
-import b.a.r0.x0.d3.e.c;
+import c.a.r0.d1.d3.g.c;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.VoiceRoom.VoiceRoomResIdl;
-/* loaded from: classes9.dex */
-public class VoiceRoomListSocketResponseMessage extends MvcSocketResponsedMessage<c, VoiceRoomResIdl> {
+import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
+/* loaded from: classes10.dex */
+public class VoiceRoomListSocketResponseMessage extends MvcSocketResponsedMessage<c, VoiceRoomListPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,9 +34,9 @@ public class VoiceRoomListSocketResponseMessage extends MvcSocketResponsedMessag
     }
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
-    public Class<VoiceRoomResIdl> getProtobufResponseIdlClass() {
+    public Class<VoiceRoomListPageResIdl> getProtobufResponseIdlClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? VoiceRoomResIdl.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? VoiceRoomListPageResIdl.class : (Class) invokeV.objValue;
     }
 }

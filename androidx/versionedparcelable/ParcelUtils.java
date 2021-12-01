@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,7 +98,7 @@ public class ParcelUtils {
 
     public static void putVersionedParcelable(@NonNull Bundle bundle, @NonNull String str, @Nullable VersionedParcelable versionedParcelable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, bundle, str, versionedParcelable) == null) || versionedParcelable == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, bundle, str, versionedParcelable) == null) || versionedParcelable == null) {
             return;
         }
         Bundle bundle2 = new Bundle();
@@ -109,7 +108,7 @@ public class ParcelUtils {
 
     public static void putVersionedParcelableList(@NonNull Bundle bundle, @NonNull String str, @NonNull List<? extends VersionedParcelable> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, bundle, str, list) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, bundle, str, list) == null) {
             Bundle bundle2 = new Bundle();
             ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
             for (VersionedParcelable versionedParcelable : list) {

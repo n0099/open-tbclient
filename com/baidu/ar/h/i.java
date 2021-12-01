@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
     public static String yb;
@@ -239,7 +238,7 @@ public final class i {
 
     public static void b(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, file) == null) {
             if (file.exists()) {
                 if (!file.isFile()) {
                     return;
@@ -253,7 +252,7 @@ public final class i {
     public static void c(File file) {
         File parentFile;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, file) == null) || file == null || (parentFile = file.getParentFile()) == null || parentFile.exists()) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, file) == null) || file == null || (parentFile = file.getParentFile()) == null || parentFile.exists()) {
             return;
         }
         parentFile.mkdirs();
@@ -298,14 +297,14 @@ public final class i {
                 try {
                     fileInputStream = new FileInputStream(file);
                     try {
-                        String a2 = k.a(fileInputStream);
+                        String a = k.a(fileInputStream);
                         k.closeQuietly(fileInputStream);
                         try {
                             fileInputStream.close();
                         } catch (IOException e2) {
                             e2.printStackTrace();
                         }
-                        return a2;
+                        return a;
                     } catch (IOException e3) {
                         e = e3;
                         e.printStackTrace();

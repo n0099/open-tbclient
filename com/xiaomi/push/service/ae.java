@@ -10,13 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ae extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f72320a;
+    public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ Notification f886a;
@@ -28,7 +26,7 @@ public final class ae extends ai.a {
     public final /* synthetic */ String f888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f72321b;
+    public final /* synthetic */ String f63236b;
 
     public ae(int i2, String str, Context context, String str2, Notification notification) {
         Interceptable interceptable = $ic;
@@ -45,21 +43,21 @@ public final class ae extends ai.a {
                 return;
             }
         }
-        this.f72320a = i2;
+        this.a = i2;
         this.f888a = str;
         this.f887a = context;
-        this.f72321b = str2;
+        this.f63236b = str2;
         this.f886a = notification;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo187a() {
+    public String mo236a() {
         InterceptResult invokeV;
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b2 = ac.b(this.f72320a, this.f888a);
+            b2 = ac.b(this.a, this.f888a);
             return b2;
         }
         return (String) invokeV.objValue;
@@ -70,7 +68,7 @@ public final class ae extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ac.b(this.f887a, this.f72321b, this.f72320a, this.f888a, this.f886a);
+            ac.b(this.f887a, this.f63236b, this.a, this.f888a, this.f886a);
         }
     }
 }

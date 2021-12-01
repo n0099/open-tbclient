@@ -11,27 +11,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class BeanManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, ArrayList<BaseBean<?>>> f58897a;
+    public final HashMap<String, ArrayList<BaseBean<?>>> a;
 
     /* renamed from: com.baidu.wallet.core.beans.BeanManager$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static BeanManager f58898a;
+        public static BeanManager a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,7 +43,7 @@ public final class BeanManager {
                     return;
                 }
             }
-            f58898a = new BeanManager(null);
+            a = new BeanManager(null);
         }
 
         public a() {
@@ -72,17 +68,17 @@ public final class BeanManager {
     public static BeanManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f58898a : (BeanManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (BeanManager) invokeV.objValue;
     }
 
     public synchronized void addBean(String str, BaseBean<?> baseBean) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, baseBean) == null) {
             synchronized (this) {
-                ArrayList<BaseBean<?>> arrayList = this.f58897a.get(str);
+                ArrayList<BaseBean<?>> arrayList = this.a.get(str);
                 if (arrayList == null) {
                     arrayList = new ArrayList<>();
-                    this.f58897a.put(str, arrayList);
+                    this.a.put(str, arrayList);
                 }
                 arrayList.add(baseBean);
             }
@@ -93,13 +89,13 @@ public final class BeanManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             synchronized (this) {
-                ArrayList<BaseBean<?>> arrayList = this.f58897a.get(str);
+                ArrayList<BaseBean<?>> arrayList = this.a.get(str);
                 if (arrayList != null) {
                     Iterator<BaseBean<?>> it = arrayList.iterator();
                     while (it.hasNext()) {
                         it.next().destroyBean();
                     }
-                    this.f58897a.remove(str);
+                    this.a.remove(str);
                 }
             }
         }
@@ -109,8 +105,8 @@ public final class BeanManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, baseBean) == null) {
             synchronized (this) {
-                for (String str : this.f58897a.keySet()) {
-                    ArrayList<BaseBean<?>> arrayList = this.f58897a.get(str);
+                for (String str : this.a.keySet()) {
+                    ArrayList<BaseBean<?>> arrayList = this.a.get(str);
                     if (arrayList != null && arrayList.size() > 0) {
                         Iterator<BaseBean<?>> it = arrayList.iterator();
                         while (true) {
@@ -143,6 +139,6 @@ public final class BeanManager {
                 return;
             }
         }
-        this.f58897a = new HashMap<>();
+        this.a = new HashMap<>();
     }
 }

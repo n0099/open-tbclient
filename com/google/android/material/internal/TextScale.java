@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class TextScale extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPNAME_SCALE = "android:textscale:scale";

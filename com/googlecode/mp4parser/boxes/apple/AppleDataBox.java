@@ -23,7 +23,6 @@ import com.tencent.connect.common.Constants;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Locale;
-import kotlin.UShort;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
@@ -288,12 +287,12 @@ public abstract class AppleDataBox extends AbstractBox {
             short s = byteBuffer.getShort();
             this.dataCountry = s;
             if (s < 0) {
-                this.dataCountry = s + UShort.MIN_VALUE;
+                this.dataCountry = s + 65536;
             }
             short s2 = byteBuffer.getShort();
             this.dataLanguage = s2;
             if (s2 < 0) {
-                this.dataLanguage = s2 + UShort.MIN_VALUE;
+                this.dataLanguage = s2 + 65536;
             }
             int i3 = i2 - 16;
             ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i3);

@@ -9,7 +9,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.bm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,30 +24,26 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static f f42437a;
+    public static f a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42438b;
+    public String f37484b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f42439a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42440b;
+        public String f37485b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42441c;
+        public String f37486c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -65,9 +60,9 @@ public class f {
                     return;
                 }
             }
-            this.f42439a = str == null ? "" : str;
-            this.f42440b = str2 == null ? "" : str2;
-            this.f42441c = str3 == null ? "" : str3;
+            this.a = str == null ? "" : str;
+            this.f37485b = str2 == null ? "" : str2;
+            this.f37486c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
@@ -76,9 +71,9 @@ public class f {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("n", this.f42439a);
-                    jSONObject.put("v", this.f42440b);
-                    jSONObject.put("w", this.f42441c);
+                    jSONObject.put("n", this.a);
+                    jSONObject.put("v", this.f37485b);
+                    jSONObject.put("w", this.f37486c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -91,7 +86,7 @@ public class f {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42439a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
         }
     }
 
@@ -108,7 +103,7 @@ public class f {
                 return;
             }
         }
-        f42437a = new f();
+        a = new f();
     }
 
     public f() {
@@ -124,13 +119,13 @@ public class f {
                 return;
             }
         }
-        this.f42438b = "";
+        this.f37484b = "";
     }
 
     private boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) ? i2 == 100 || i2 == 200 || i2 == 130 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) ? i2 == 100 || i2 == 200 || i2 == 130 : invokeI.booleanValue;
     }
 
     private ArrayList<a> b(Context context, int i2) {
@@ -201,13 +196,13 @@ public class f {
     private void a(Context context, boolean z, int i2) {
         ArrayList<a> a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (a2 = a(context, i2)) == null || a2.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (a2 = a(context, i2)) == null || a2.size() == 0) {
             return;
         }
         if (z) {
             String b2 = a2.get(0).b();
-            if (a(b2, this.f42438b)) {
-                this.f42438b = b2;
+            if (a(b2, this.f37484b)) {
+                this.f37484b = b2;
             }
         }
         a(context, a2, z);
@@ -228,7 +223,7 @@ public class f {
     private boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f42438b)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f37484b)) ? false : true : invokeLL.booleanValue;
     }
 
     private String a(Context context, String str) {
@@ -278,7 +273,7 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f42457c.a(System.currentTimeMillis(), str);
+            k.f37500c.a(System.currentTimeMillis(), str);
         }
     }
 

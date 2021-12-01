@@ -6,8 +6,8 @@ import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.h;
-import b.a.e.i.j.g.d;
+import c.a.d.a.h;
+import c.a.d.i.j.f.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PluginContextWrapper extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class PluginContextWrapper extends ContextWrapper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PluginSetting h2 = d.k().h(this.mPackageName);
+            PluginSetting h2 = c.j().h(this.mPackageName);
             if (h2 != null && h2.isThird) {
                 Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
                 if (plugin2 != null && plugin2.isLoaded()) {
@@ -107,7 +107,7 @@ public class PluginContextWrapper extends ContextWrapper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            PluginSetting h2 = d.k().h(this.mPackageName);
+            PluginSetting h2 = c.j().h(this.mPackageName);
             if (h2 != null && h2.isThird) {
                 Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
                 if (plugin2 != null && plugin2.isLoaded()) {

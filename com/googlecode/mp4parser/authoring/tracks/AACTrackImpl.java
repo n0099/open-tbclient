@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.authoring.tracks;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,6 +28,7 @@ import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitReaderBuffer;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.DecoderConfigDescriptor;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.SLConfigDescriptor;
+import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -176,7 +176,7 @@ public class AACTrackImpl extends AbstractTrack {
         samplingFrequencyIndexMap.put(24000, 6);
         samplingFrequencyIndexMap.put(22050, 7);
         samplingFrequencyIndexMap.put(16000, 8);
-        samplingFrequencyIndexMap.put(12000, 9);
+        samplingFrequencyIndexMap.put(Integer.valueOf((int) w0.X3), 9);
         samplingFrequencyIndexMap.put(11025, 10);
         samplingFrequencyIndexMap.put(8000, 11);
         samplingFrequencyIndexMap.put(0, 96000);
@@ -188,7 +188,7 @@ public class AACTrackImpl extends AbstractTrack {
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
         samplingFrequencyIndexMap.put(8, 16000);
-        samplingFrequencyIndexMap.put(9, 12000);
+        samplingFrequencyIndexMap.put(9, Integer.valueOf((int) w0.X3));
         samplingFrequencyIndexMap.put(10, 11025);
         samplingFrequencyIndexMap.put(11, 8000);
     }
@@ -224,14 +224,14 @@ public class AACTrackImpl extends AbstractTrack {
             double size = this.samples.size() / d2;
             LinkedList linkedList = new LinkedList();
             Iterator<Sample> it = this.samples.iterator();
-            long j = 0;
+            long j2 = 0;
             while (true) {
                 int i2 = 0;
                 if (!it.hasNext()) {
                     break;
                 }
                 int size2 = (int) it.next().getSize();
-                j += size2;
+                j2 += size2;
                 linkedList.add(Integer.valueOf(size2));
                 while (linkedList.size() > d2) {
                     linkedList.pop();
@@ -247,7 +247,7 @@ public class AACTrackImpl extends AbstractTrack {
                     }
                 }
             }
-            this.avgBitRate = (int) ((j * 8) / size);
+            this.avgBitRate = (int) ((j2 * 8) / size);
             this.bufferSizeDB = PureJavaCrc32C.T8_6_start;
             this.sampleDescriptionBox = new SampleDescriptionBox();
             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
@@ -340,7 +340,7 @@ public class AACTrackImpl extends AbstractTrack {
     private AdtsHeader readSamples(DataSource dataSource) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, dataSource)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, this, dataSource)) != null) {
             return (AdtsHeader) invokeL.objValue;
         }
         AdtsHeader adtsHeader = null;

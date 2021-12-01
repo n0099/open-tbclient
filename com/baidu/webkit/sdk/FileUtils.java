@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtils";
@@ -175,7 +174,7 @@ public class FileUtils {
         FileOutputStream fileOutputStream;
         File parentFile;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65541, null, str, str2)) != null) {
             return invokeLL.booleanValue;
         }
         byte[] bArr = new byte[4096];
@@ -260,7 +259,7 @@ public class FileUtils {
     public static boolean deleteDir(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, file, file2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, file, file2)) == null) {
             if (file == null) {
                 return false;
             }

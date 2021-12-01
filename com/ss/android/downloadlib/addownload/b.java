@@ -15,13 +15,11 @@ import java.io.File;
 /* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile b f69394a;
+    public static volatile b a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f69395b;
+    public Handler f61191b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,21 +34,21 @@ public class b {
                 return;
             }
         }
-        this.f69395b = null;
+        this.f61191b = null;
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f69394a == null) {
+            if (a == null) {
                 synchronized (b.class) {
-                    if (f69394a == null) {
-                        f69394a = new b();
+                    if (a == null) {
+                        a = new b();
                     }
                 }
             }
-            return f69394a;
+            return a;
         }
         return (b) invokeV.objValue;
     }
@@ -72,20 +70,18 @@ public class b {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (this.f69395b == null) {
-                this.f69395b = new Handler(Looper.getMainLooper());
+            if (this.f61191b == null) {
+                this.f61191b = new Handler(Looper.getMainLooper());
             }
             String url = downloadInfo.getUrl();
             Downloader.getInstance(context).clearDownloadData(downloadInfo.getId());
-            this.f69395b.post(new Runnable(this, url) { // from class: com.ss.android.downloadlib.addownload.b.1
+            this.f61191b.post(new Runnable(this, url) { // from class: com.ss.android.downloadlib.addownload.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f69396a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f69397b;
+                public final /* synthetic */ b f61192b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -102,8 +98,8 @@ public class b {
                             return;
                         }
                     }
-                    this.f69397b = this;
-                    this.f69396a = url;
+                    this.f61192b = this;
+                    this.a = url;
                 }
 
                 @Override // java.lang.Runnable
@@ -111,7 +107,7 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         j.c().a(3, j.getContext(), null, "下载失败，请重试！", null, 0);
-                        e a2 = com.ss.android.downloadlib.f.a().a(this.f69396a);
+                        e a2 = com.ss.android.downloadlib.f.a().a(this.a);
                         if (a2 != null) {
                             a2.g();
                         }

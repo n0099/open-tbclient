@@ -3,7 +3,6 @@ package com.yy.hiidostatis.track;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import com.yy.hiidostatis.defs.StatisAPI;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import java.util.Map;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HStaticApi {
     public static final /* synthetic */ HStaticApi[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -72,7 +71,7 @@ public final class HStaticApi {
     public static HStaticApi[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (HStaticApi[]) $VALUES.clone() : (HStaticApi[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (HStaticApi[]) $VALUES.clone() : (HStaticApi[]) invokeV.objValue;
     }
 
     public void init(Context context, StatisOption statisOption, String str) {

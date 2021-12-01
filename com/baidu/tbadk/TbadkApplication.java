@@ -5,24 +5,17 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Message;
-import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.m.c;
-import b.a.e.i.h.b;
-import b.a.e.i.j.g.d;
-import b.a.q0.q0.l;
+import c.a.d.f.m.c;
+import c.a.q0.r0.l;
+import c.a.q0.s.e0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
-import com.baidu.adp.plugin.util.Util;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearchlib.NASLib;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
@@ -35,7 +28,6 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;
-import com.baidu.tbadk.switchs.PluginClassChangeSwitch;
 import com.baidu.tieba.service.SignAlertReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -45,10 +37,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     public static /* synthetic */ Interceptable $ic = null;
     public static String mForumName = "armcv";
@@ -134,75 +123,15 @@ public class TbadkApplication extends TbadkCoreApplication {
         this.mPatchWhiteList = new String[]{"HUAWEI:H60-L01", "HUAWEI:H60-L02", "HUAWEI:H60-L03"};
     }
 
-    private boolean checkSyncPatchBlacklist() {
-        InterceptResult invokeV;
-        StringBuffer stringBuffer;
-        Map<String, PluginSetting> plugins;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            try {
-                plugins = d.k().l().getPlugins();
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-            }
-            if (d.k().l().hasPatch() && plugins != null && !plugins.isEmpty()) {
-                Iterator<PluginSetting> it = plugins.values().iterator();
-                PluginSetting pluginSetting = null;
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    PluginSetting next = it.next();
-                    if (next.isPatch && next.enable && !next.forbidden && TextUtils.isEmpty(next.replaceMethodClasses)) {
-                        pluginSetting = next;
-                        break;
-                    }
-                }
-                if (pluginSetting == null) {
-                    return false;
-                }
-                if (!TextUtils.isEmpty(pluginSetting.ext)) {
-                    String string = new JSONObject(pluginSetting.ext).getString("patch_blacklist_models");
-                    if (!TextUtils.isEmpty(string)) {
-                        this.mPatchWhiteList = string.split(",");
-                    }
-                }
-                String[] strArr = this.mPatchWhiteList;
-                if (strArr != null && strArr.length != 0) {
-                    String str = Build.MANUFACTURER;
-                    if (str == null) {
-                        stringBuffer = new StringBuffer("");
-                    } else {
-                        stringBuffer = new StringBuffer(str);
-                    }
-                    stringBuffer.append(':');
-                    String str2 = Build.MODEL;
-                    if (str2 != null) {
-                        stringBuffer.append(str2);
-                    }
-                    String stringBuffer2 = stringBuffer.toString();
-                    for (String str3 : this.mPatchWhiteList) {
-                        if (stringBuffer2.equals(str3)) {
-                            return false;
-                        }
-                    }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public static TbadkApplication getInst() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sApp : (TbadkApplication) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sApp : (TbadkApplication) invokeV.objValue;
     }
 
     private void prepareForDefaultAlertTime() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             Calendar calendar = Calendar.getInstance();
             setSignAlertTime(calendar.get(11), calendar.get(12));
         }
@@ -283,39 +212,12 @@ public class TbadkApplication extends TbadkCoreApplication {
             return;
         }
         super.handleInitMessage(message);
-        boolean z = true;
-        boolean z2 = !LaunchUpSpeedSwitch.getIsOn();
+        boolean z = !LaunchUpSpeedSwitch.getIsOn();
         switch (message.what) {
             case 6:
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2047);
-                Boolean bool = this.isCdnTachometerProcess;
-                if ((bool == null || !bool.booleanValue()) && !this.isPluginInstallProcess) {
-                    boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-                    boolean z3 = this.mIsToLogo && isXiaomiPushSdkShouldOpen;
-                    b.e("TbadkApplication_onCreate", z3 ? "plugin_load_delay" : "plugin_load_now");
-                    long currentTimeMillis = System.currentTimeMillis();
-                    b.e("TbadkApplication_onCreate", "load_all_plugins");
-                    String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
-                    if (!((isMainProcess(false) && PluginClassChangeSwitch.isOn()) ? false : false)) {
-                        isXiaomiPushSdkShouldOpen = z3;
-                    }
-                    boolean z4 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
-                    if (!this.isKeepLiveProcess) {
-                        if (!this.mPluginIsInited) {
-                            PluginPackageManager.O().i0(b.a.q0.r0.c.n(), new b.a.q0.r0.d(), z4, null);
-                        }
-                        PluginSettings l = d.k().l();
-                        if (l != null) {
-                            String containerVersion = l.getContainerVersion();
-                            if (!TextUtils.isEmpty(containerVersion) && Util.c(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                                l.b().D(z4);
-                                l.b().C(System.currentTimeMillis() - currentTimeMillis);
-                            }
-                        }
-                    }
-                }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY);
-                if (z2) {
+                if (z) {
                     this.mAppInitHandler.sendEmptyMessage(7);
                     return;
                 }
@@ -329,7 +231,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                     initSignedForum();
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_SEVEN_STAMP_KEY);
-                if (z2) {
+                if (z) {
                     this.mAppInitHandler.sendEmptyMessage(8);
                     return;
                 }
@@ -338,7 +240,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_EIGHT_START_STAMP_KEY);
                 MessageManager.getInstance().registerListener(this.mMemListener);
                 if (isMainProcess(true)) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
+                    long currentTimeMillis = System.currentTimeMillis();
                     NASLib.setCallBack(new NASLib.NASCallBack(this) { // from class: com.baidu.tbadk.TbadkApplication.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -363,18 +265,18 @@ public class TbadkApplication extends TbadkCoreApplication {
                         }
 
                         @Override // com.baidu.appsearchlib.NASLib.NASCallBack
-                        public void callback(String str2, String str3) {
+                        public void callback(String str, String str2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str2, str3) == null) {
+                            if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str, str2) == null) {
                                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).addParam("obj_param1", 1));
-                                UrlManager.getInstance().dealOneLink(null, new String[]{str3});
+                                UrlManager.getInstance().dealOneLink(null, new String[]{str2});
                             }
                         }
                     });
-                    l.b().q(System.currentTimeMillis() - currentTimeMillis2);
+                    l.b().q(System.currentTimeMillis() - currentTimeMillis);
                 }
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_MSG_EIGHT_STAMP_KEY);
-                if (z2) {
+                if (z) {
                     this.mAppInitHandler.sendEmptyMessage(9);
                     return;
                 }
@@ -427,38 +329,22 @@ public class TbadkApplication extends TbadkCoreApplication {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.TbadkCoreApplication
-    public void loadPatchs() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.isKeepLiveProcess) {
-            return;
-        }
-        super.loadPatchs();
-        int k = b.a.q0.s.e0.b.j().k("plugin_patch_hook_failed_count", 0);
-        PluginPackageManager.O().v0(k);
-        if (checkSyncPatchBlacklist() && b.a.e.i.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
-            long currentTimeMillis = System.currentTimeMillis();
-            PluginPackageManager.O().k0();
-            l.b().B(System.currentTimeMillis() - currentTimeMillis);
-        }
-    }
-
     public String loginShareRead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? loadString("account_share", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? loadString("account_share", null) : (String) invokeV.objValue;
     }
 
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            b.a.q0.s.e0.b.j().C("account_share");
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            b.j().C("account_share");
         }
     }
 
     public void loginShareSave(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             saveString("account_share", str);
         }
     }
@@ -466,7 +352,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     @Override // com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             sApp = this;
             super.onCreate();
         }
@@ -474,14 +360,14 @@ public class TbadkApplication extends TbadkCoreApplication {
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             mForumName = str;
         }
     }
 
     public void setSignAlertOn(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             TbadkSettings.getInst().saveBoolean("alert_sign_on", z);
             updateSignAlarm();
         }
@@ -489,7 +375,7 @@ public class TbadkApplication extends TbadkCoreApplication {
 
     public void setSignAlertTime(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048594, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
             TbadkSettings.getInst().saveInt("alert_sign_hours", i2);
             TbadkSettings.getInst().saveInt("alert_sign_mins", i3);
             updateSignAlarm();
@@ -498,14 +384,14 @@ public class TbadkApplication extends TbadkCoreApplication {
 
     public void settShopUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.tShopUrl = str;
         }
     }
 
     public void updateSignAlarm() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             AlarmManager alarmManager = (AlarmManager) getInst().getContext().getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent createIntentForSignAlarm = createIntentForSignAlarm();
             if (isSignAlertOn()) {

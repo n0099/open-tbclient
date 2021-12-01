@@ -15,7 +15,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class AbstractBoxParser implements BoxParser {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -89,8 +89,8 @@ public abstract class AbstractBoxParser implements BoxParser {
     @Override // com.coremedia.iso.BoxParser
     public Box parseBox(DataSource dataSource, Container container) throws IOException {
         InterceptResult invokeLL;
-        long j;
         long j2;
+        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource, container)) == null) {
             this.header.get().rewind().limit(8);
@@ -111,7 +111,7 @@ public abstract class AbstractBoxParser implements BoxParser {
                         this.header.get().limit(16);
                         dataSource.read(this.header.get());
                         this.header.get().position(8);
-                        j = IsoTypeReader.readUInt64(this.header.get()) - 16;
+                        j2 = IsoTypeReader.readUInt64(this.header.get()) - 16;
                     } else if (readUInt32 == 0) {
                         dataSource.size();
                         dataSource.position();
@@ -122,7 +122,7 @@ public abstract class AbstractBoxParser implements BoxParser {
                         sb.append("' as parent has length == 0. That's not supported");
                         throw new RuntimeException(sb.toString());
                     } else {
-                        j = readUInt32 - 8;
+                        j2 = readUInt32 - 8;
                     }
                     if ("uuid".equals(read4cc)) {
                         this.header.get().limit(this.header.get().limit() + 16);
@@ -131,15 +131,15 @@ public abstract class AbstractBoxParser implements BoxParser {
                         for (int position = this.header.get().position() - 16; position < this.header.get().position(); position++) {
                             bArr2[position - (this.header.get().position() - 16)] = this.header.get().get(position);
                         }
-                        j2 = j - 16;
+                        j3 = j2 - 16;
                         bArr = bArr2;
                     } else {
-                        j2 = j;
+                        j3 = j2;
                     }
                     Box createBox = createBox(read4cc, bArr, container instanceof Box ? ((Box) container).getType() : "");
                     createBox.setParent(container);
                     this.header.get().rewind();
-                    createBox.parse(dataSource, this.header.get(), j2, this);
+                    createBox.parse(dataSource, this.header.get(), j3, this);
                     return createBox;
                 }
             } while (i2 >= 0);

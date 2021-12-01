@@ -19,7 +19,6 @@ import com.alibaba.fastjson.util.IdentityHashMap;
 import com.alibaba.fastjson.util.ServiceLoader;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +69,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Pattern;
 import javax.xml.datatype.XMLGregorianCalendar;
 import org.w3c.dom.Node;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SerializeConfig {
     public static /* synthetic */ Interceptable $ic;
     public static boolean awtError;
@@ -134,7 +133,7 @@ public class SerializeConfig {
     private final JavaBeanSerializer createASMSerializer(SerializeBeanInfo serializeBeanInfo) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, serializeBeanInfo)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, this, serializeBeanInfo)) != null) {
             return (JavaBeanSerializer) invokeL.objValue;
         }
         JavaBeanSerializer createJavaBeanSerializer = this.asmFactory.createJavaBeanSerializer(serializeBeanInfo);
@@ -157,7 +156,7 @@ public class SerializeConfig {
         Method[] methods;
         Field[] fields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
             Method method = null;
             for (Method method2 : cls.getMethods()) {
                 if (method2.getReturnType() != Void.class && ((JSONField) method2.getAnnotation(JSONField.class)) != null) {
@@ -415,7 +414,7 @@ public class SerializeConfig {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:277:0x04c4  */
+    /* JADX WARN: Removed duplicated region for block: B:277:0x04c3  */
     /* JADX WARN: Removed duplicated region for block: B:334:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -840,28 +839,28 @@ public class SerializeConfig {
         initSerializers();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:123:0x0165, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:123:0x0164, code lost:
         r0 = createASMSerializer(r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:124:0x0169, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:124:0x0168, code lost:
         if (r0 == null) goto L69;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:125:0x016b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x016a, code lost:
         return r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:126:0x016c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x016b, code lost:
         r14 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x0183, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:128:0x0182, code lost:
         throw new com.alibaba.fastjson.JSONException("create asm serializer error, verson 1.2.75, class " + r0, r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:129:0x0184, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:129:0x0183, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:131:0x0190, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:131:0x018f, code lost:
         if (r0.getMessage().indexOf("Metaspace") != (-1)) goto L80;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:133:0x0193, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:133:0x0192, code lost:
         throw r0;
      */
     /*

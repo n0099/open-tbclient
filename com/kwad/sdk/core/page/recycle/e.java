@@ -10,17 +10,15 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f65824a;
+    public com.kwad.sdk.core.download.a.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f65825b;
+    public RecyclerView f57603b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f65826c;
+    public AdTemplate f57604c;
 
-    public e(AdTemplate adTemplate, com.kwad.sdk.core.download.b.b bVar, RecyclerView recyclerView) {
+    public e(AdTemplate adTemplate, com.kwad.sdk.core.download.a.b bVar, RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,8 +33,8 @@ public class e {
                 return;
             }
         }
-        this.f65826c = adTemplate;
-        this.f65824a = bVar;
-        this.f65825b = recyclerView;
+        this.f57604c = adTemplate;
+        this.a = bVar;
+        this.f57603b = recyclerView;
     }
 }

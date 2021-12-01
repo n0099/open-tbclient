@@ -17,9 +17,6 @@ import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.graphics.drawable.WrappedDrawable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.HorizontalTranslateLayout;
-import com.baidu.adp.widget.VerticalTranslateLayout;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,7 +139,7 @@ public class DrawableUtils {
         InterceptResult invokeL;
         Field[] fields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, drawable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, drawable)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
                 Insets opticalInsets = drawable.getOpticalInsets();
                 Rect rect = new Rect();
@@ -169,7 +166,7 @@ public class DrawableUtils {
                                     }
                                     break;
                                 case 115029:
-                                    if (name.equals(VerticalTranslateLayout.TOP)) {
+                                    if (name.equals("top")) {
                                         c2 = 1;
                                         break;
                                     }
@@ -181,7 +178,7 @@ public class DrawableUtils {
                                     }
                                     break;
                                 case 108511772:
-                                    if (name.equals(HorizontalTranslateLayout.RIGHT)) {
+                                    if (name.equals("right")) {
                                         c2 = 2;
                                         break;
                                     }
@@ -210,7 +207,7 @@ public class DrawableUtils {
     public static PorterDuff.Mode parseTintMode(int i2, PorterDuff.Mode mode) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, mode)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, mode)) == null) {
             if (i2 != 3) {
                 if (i2 != 5) {
                     if (i2 != 9) {

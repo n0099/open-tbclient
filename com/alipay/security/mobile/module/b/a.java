@@ -8,12 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static a f35137a;
+    public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +27,7 @@ public final class a {
                 return;
             }
         }
-        f35137a = new a();
+        a = new a();
     }
 
     public a() {
@@ -49,7 +47,7 @@ public final class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35137a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (a) invokeV.objValue;
     }
 
     public static String a(Context context) {
@@ -59,7 +57,7 @@ public final class a {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName;
             } catch (Exception unused) {
-                return "0.0.0";
+                return com.kuaishou.weapon.un.d.S;
             }
         }
         return (String) invokeL.objValue;

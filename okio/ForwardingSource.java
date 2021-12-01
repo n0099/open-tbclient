@@ -51,10 +51,10 @@ public abstract class ForwardingSource implements Source {
     }
 
     @Override // okio.Source
-    public long read(Buffer buffer, long j) throws IOException {
+    public long read(Buffer buffer, long j2) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, buffer, j)) == null) ? this.delegate.read(buffer, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, buffer, j2)) == null) ? this.delegate.read(buffer, j2) : invokeLJ.longValue;
     }
 
     @Override // okio.Source

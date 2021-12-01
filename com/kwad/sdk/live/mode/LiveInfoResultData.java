@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -68,8 +68,8 @@ public class LiveInfoResultData extends BaseResultData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject json = super.toJson();
-            q.a(json, "pcursor", this.pcursor);
-            q.a(json, "feeds", this.liveInfoList);
+            t.a(json, "pcursor", this.pcursor);
+            t.a(json, "feeds", this.liveInfoList);
             return json;
         }
         return (JSONObject) invokeV.objValue;

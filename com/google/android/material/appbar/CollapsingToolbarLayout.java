@@ -33,7 +33,6 @@ import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +48,7 @@ import com.google.android.material.internal.CollapsingTextHelper;
 import com.google.android.material.internal.DescendantOffsetUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class CollapsingToolbarLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
@@ -85,7 +84,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     public View toolbarDirectChild;
     public int toolbarId;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class OffsetUpdateListener implements AppBarLayout.OnOffsetChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -227,7 +226,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
 
     private void ensureToolbar() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.refreshToolbar) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.refreshToolbar) {
             Toolbar toolbar = null;
             this.toolbar = null;
             this.toolbarDirectChild = null;
@@ -264,7 +263,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     private View findDirectChild(@NonNull View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, view)) == null) {
             for (ViewParent parent = view.getParent(); parent != this && parent != null; parent = parent.getParent()) {
                 if (parent instanceof View) {
                     view = (View) parent;
@@ -386,11 +385,11 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j) {
+    public boolean drawChild(Canvas canvas, View view, long j2) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
             if (this.contentScrim == null || this.scrimAlpha <= 0 || !isToolbarChild(view)) {
                 z = false;
             } else {
@@ -398,7 +397,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
                 this.contentScrim.draw(canvas);
                 z = true;
             }
-            return super.drawChild(canvas, view, j) || z;
+            return super.drawChild(canvas, view, j2) || z;
         }
         return invokeCommon.booleanValue;
     }
@@ -843,10 +842,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
         ViewCompat.postInvalidateOnAnimation(this);
     }
 
-    public void setScrimAnimationDuration(@IntRange(from = 0) long j) {
+    public void setScrimAnimationDuration(@IntRange(from = 0) long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048630, this, j) == null) {
-            this.scrimAnimationDuration = j;
+        if (interceptable == null || interceptable.invokeJ(1048630, this, j2) == null) {
+            this.scrimAnimationDuration = j2;
         }
     }
 
@@ -1120,7 +1119,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (FrameLayout.LayoutParams) invokeL.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COLLAPSE_MODE_OFF = 0;
@@ -1283,13 +1282,13 @@ public class CollapsingToolbarLayout extends FrameLayout {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
-                interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeUnInit(65541, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     super((FrameLayout.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                    interceptable.invokeInitBody(65541, newInitContext);
                     return;
                 }
             }

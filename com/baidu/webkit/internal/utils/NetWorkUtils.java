@@ -5,7 +5,6 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class NetWorkUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CELL_2G = 2;
@@ -89,13 +88,13 @@ public final class NetWorkUtils implements INoProGuard {
     public static int getNetWorkType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? sConnectionType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sConnectionType : invokeV.intValue;
     }
 
     public static int getOperatorType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? sOperatorType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sOperatorType : invokeV.intValue;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(6:3|(1:5)(2:47|(1:49)(7:51|(2:53|(5:55|57|9|10|(2:12|13)(5:15|(2:19|(1:21)(4:22|23|24|(3:26|(2:31|(1:33)(2:34|(1:36)(1:37)))|38)))|(1:42)|43|44))(1:62))(2:63|(1:65)(2:66|(1:68)(1:69)))|59|57|9|10|(0)(0)))|8|9|10|(0)(0)) */

@@ -9,7 +9,6 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -41,7 +40,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Downsampler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Boolean> ALLOW_HARDWARE_CONFIG;
@@ -64,7 +63,7 @@ public final class Downsampler {
     public final HardwareConfigState hardwareConfigState;
     public final List<ImageHeaderParser> parsers;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface DecodeCallbacks {
         void onDecodeComplete(BitmapPool bitmapPool, Bitmap bitmap) throws IOException;
 
@@ -292,7 +291,7 @@ public final class Downsampler {
         int round2;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{inputStream, options, downsampleStrategy, decodeFormat, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), decodeCallbacks})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{inputStream, options, downsampleStrategy, decodeFormat, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), decodeCallbacks})) == null) {
             long logTime = LogTime.getLogTime();
             int[] dimensions = getDimensions(inputStream, options, decodeCallbacks, this.bitmapPool);
             int i5 = dimensions[0];
@@ -355,7 +354,7 @@ public final class Downsampler {
     public static Bitmap decodeStream(InputStream inputStream, BitmapFactory.Options options, DecodeCallbacks decodeCallbacks, BitmapPool bitmapPool) throws IOException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream, options, decodeCallbacks, bitmapPool)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, inputStream, options, decodeCallbacks, bitmapPool)) == null) {
             if (options.inJustDecodeBounds) {
                 inputStream.mark(10485760);
             } else {
@@ -478,10 +477,10 @@ public final class Downsampler {
         return invokeL.booleanValue;
     }
 
-    public static void logDecode(int i2, int i3, String str, BitmapFactory.Options options, Bitmap bitmap, int i4, int i5, long j) {
+    public static void logDecode(int i2, int i3, String str, BitmapFactory.Options options, Bitmap bitmap, int i4, int i5, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, options, bitmap, Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
-            String str2 = "Decoded " + getBitmapString(bitmap) + " from [" + i2 + "x" + i3 + "] " + str + " with inBitmap " + getInBitmapString(options) + " for [" + i4 + "x" + i5 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + LogTime.getElapsedMillis(j);
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, options, bitmap, Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
+            String str2 = "Decoded " + getBitmapString(bitmap) + " from [" + i2 + "x" + i3 + "] " + str + " with inBitmap " + getInBitmapString(options) + " for [" + i4 + "x" + i5 + "], sample size: " + options.inSampleSize + ", density: " + options.inDensity + ", target density: " + options.inTargetDensity + ", thread: " + Thread.currentThread().getName() + ", duration: " + LogTime.getElapsedMillis(j2);
         }
     }
 

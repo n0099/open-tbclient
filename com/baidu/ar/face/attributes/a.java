@@ -20,7 +20,7 @@ import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -124,15 +124,15 @@ public class a {
                         faceResultData.setGenders(fArr);
                         return;
                     }
-                    float[] a2 = a(mVar.eB(), faceBoxes.get(0), i2, i3);
-                    if (a2 == null || !this.nZ) {
+                    float[] a = a(mVar.eB(), faceBoxes.get(0), i2, i3);
+                    if (a == null || !this.nZ) {
                         return;
                     }
-                    this.nY.put(Integer.valueOf(i4), a2);
-                    faceResultData.setGenders(a2);
+                    this.nY.put(Integer.valueOf(i4), a);
+                    faceResultData.setGenders(a);
                     l lVar = this.oa;
                     if (lVar != null) {
-                        lVar.a("face_gender_predict", Float.valueOf(a2[0]));
+                        lVar.a("face_gender_predict", Float.valueOf(a[0]));
                         return;
                     }
                     return;

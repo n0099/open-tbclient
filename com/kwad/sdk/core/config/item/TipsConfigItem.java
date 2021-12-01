@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -122,8 +123,8 @@ public class TipsConfigItem extends b<TipConfigData> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, "tipShowSwitch", this.tipShowSwitch);
-                com.kwad.sdk.utils.q.a(jSONObject, "tipInfo", this.tipInfo);
+                t.a(jSONObject, "tipShowSwitch", this.tipShowSwitch);
+                t.a(jSONObject, "tipInfo", this.tipInfo);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -162,13 +163,13 @@ public class TipsConfigItem extends b<TipConfigData> {
     public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            TipConfigData a2 = a();
-            if (a2 == null) {
-                a2 = new TipConfigData();
+            TipConfigData a = a();
+            if (a == null) {
+                a = new TipConfigData();
             }
-            a2.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
-            a2.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
-            a((TipsConfigItem) a2);
+            a.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
+            a.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
+            a((TipsConfigItem) a);
         }
     }
 

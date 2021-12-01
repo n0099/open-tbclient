@@ -25,7 +25,7 @@ import com.baidu.wallet.core.utils.PassUtil;
 import com.baidu.wallet.personal.b.b;
 import com.baidu.wallet.personal.datamodel.CouponListResponse;
 import com.baidu.wallet.personal.ui.view.CouponTabHostView;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class MyCouponListActivity extends CouponBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_DATA = "extra_data";
@@ -120,7 +120,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            b.f61541a = null;
+            b.a = null;
             EventBus.getInstance().unregister(this);
         }
     }
@@ -168,12 +168,10 @@ public class MyCouponListActivity extends CouponBaseActivity {
                     this.bdActionBar.setRightNotifyZone1ClickListener(new View.OnClickListener(this, codeCoupon) { // from class: com.baidu.wallet.personal.ui.MyCouponListActivity.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ CouponListResponse.CodeCoupon f61588a;
+                        public final /* synthetic */ CouponListResponse.CodeCoupon a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponListActivity f61589b;
+                        public final /* synthetic */ MyCouponListActivity f54080b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -190,15 +188,15 @@ public class MyCouponListActivity extends CouponBaseActivity {
                                     return;
                                 }
                             }
-                            this.f61589b = this;
-                            this.f61588a = codeCoupon;
+                            this.f54080b = this;
+                            this.a = codeCoupon;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.f61589b.getActivity(), this.f61588a.url);
+                                BaiduWalletDelegate.getInstance().openH5Module(this.f54080b.getActivity(), this.a.url);
                             }
                         }
                     });

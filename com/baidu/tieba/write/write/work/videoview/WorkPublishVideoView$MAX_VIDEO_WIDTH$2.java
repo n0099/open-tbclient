@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.write.work.videoview;
 
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\b\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+@Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0010\b\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", ""}, k = 3, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes11.dex */
 public final class WorkPublishVideoView$MAX_VIDEO_WIDTH$2 extends Lambda implements Function0<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,20 +39,12 @@ public final class WorkPublishVideoView$MAX_VIDEO_WIDTH$2 extends Lambda impleme
         this.this$0 = workPublishVideoView;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // kotlin.jvm.functions.Function0
-    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public /* bridge */ /* synthetic */ Integer invoke2() {
-        return Integer.valueOf(invoke());
-    }
-
-    /* JADX DEBUG: Return type fixed from 'int' to match base method */
-    /* JADX WARN: Type inference failed for: r0v5, types: [int, java.lang.Integer] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [int, java.lang.Integer] */
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
     public final Integer invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? l.k(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Integer.valueOf(l.k(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2)) : (Integer) invokeV.objValue;
     }
 }

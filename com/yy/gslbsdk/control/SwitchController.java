@@ -3,7 +3,6 @@ package com.yy.gslbsdk.control;
 import android.preference.PreferenceManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwitchController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTPS_LEVEL_CLOSE_SWITCH = -1;
@@ -121,7 +120,7 @@ public class SwitchController {
     private boolean writeCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             int i2 = this.mSwitchHttp.get();
             if (i2 != 0 && i2 != 1 && i2 != -1) {
                 LogTools.printWarning(TAG, String.format(Locale.US, "SwitchController writeCache, switchHttp is illegal. switchCache: %d", Integer.valueOf(i2)));

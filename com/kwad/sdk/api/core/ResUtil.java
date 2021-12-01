@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,13 +55,13 @@ public class ResUtil {
     public static int getDrawableId(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) ? getIdentifier(context, str, "drawable") : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) ? getIdentifier(context, str, "drawable") : invokeLL.intValue;
     }
 
     public static int getId(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) ? getIdentifier(context, str, "id") : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? getIdentifier(context, str, "id") : invokeLL.intValue;
     }
 
     public static int getIdentifier(Context context, String str, String str2) {

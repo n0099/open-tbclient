@@ -3,7 +3,6 @@ package com.baidu.searchbox.launch;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +17,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ScheduleStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUSINESS_PRIVATE_STICKINESS = "{\"bdwindow\": {\"high_device_stickiness\": 0.0001,\"mid_device_stickiness\": 0.005,\"low_device_stickiness\": 0.01},\"swan\": {\"high_device_stickiness\": 0.0005,\"mid_device_stickiness\": 0.025,\"low_device_stickiness\": 0.05}}";
@@ -54,7 +53,7 @@ public class ScheduleStrategy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.launch.ScheduleStrategy$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$launch$ScheduleStrategy$DeviceType;
         public static /* synthetic */ Interceptable $ic;
@@ -91,7 +90,7 @@ public class ScheduleStrategy {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DeviceType {
         public static final /* synthetic */ DeviceType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -254,7 +253,7 @@ public class ScheduleStrategy {
         InterceptResult invokeL;
         Double d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (!isLoadPrivateStickiness) {
                 loadPrivateStickiness();
                 boolean z = DEBUG;
@@ -279,7 +278,7 @@ public class ScheduleStrategy {
 
     public static void loadPrivateStickiness() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             double deviceScore2 = getDeviceScore();
             deviceScore = deviceScore2;
             if (deviceScore2 > midHighThreshold) {

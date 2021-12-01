@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.savedstate.SavedStateRegistry;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -202,7 +201,7 @@ public final class SavedStateHandle {
 
     public static void validateValue(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj) == null) || obj == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, obj) == null) || obj == null) {
             return;
         }
         for (Class cls : ACCEPTABLE_CLASSES) {

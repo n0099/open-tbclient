@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -26,6 +25,7 @@ import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,6 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShareStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PORTRAIT;
@@ -64,12 +65,12 @@ public class ShareStorage {
     public String mAesKey;
     public boolean readSpFromChmodFile;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface CallBack {
         void call(StorageModel storageModel);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class StorageModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +245,7 @@ public class ShareStorage {
         public static JSONArray toJSONArray(List<StorageModel> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
                 if (list == null) {
                     return null;
                 }
@@ -440,7 +441,7 @@ public class ShareStorage {
                 sb.append("get share model from sd_card pkg=");
                 sb.append(str);
                 sb.append(" value is ");
-                sb.append(TextUtils.isEmpty(sd) ? "empty" : "not empty");
+                sb.append(TextUtils.isEmpty(sd) ? SchemeCollecter.CLASSIFY_EMPTY : "not empty");
                 objArr[0] = sb.toString();
                 Log.d(ShareUtils.TAG, objArr);
                 if (TextUtils.isEmpty(sd)) {
@@ -468,7 +469,7 @@ public class ShareStorage {
                 sb.append("get share model from share_preferences pkg=");
                 sb.append(str);
                 sb.append(" value is ");
-                sb.append(TextUtils.isEmpty(sp) ? "empty" : "not empty");
+                sb.append(TextUtils.isEmpty(sp) ? SchemeCollecter.CLASSIFY_EMPTY : "not empty");
                 objArr[0] = sb.toString();
                 Log.d(ShareUtils.TAG, objArr);
                 if (TextUtils.isEmpty(sp)) {
@@ -493,7 +494,7 @@ public class ShareStorage {
             } catch (Exception e2) {
                 Log.e(ShareUtils.TAG, e2.getMessage());
             }
-            if (!SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", this.context)) {
+            if (!SapiUtils.checkRequestPermission(s.f56844i, this.context)) {
                 Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
                 return null;
             }

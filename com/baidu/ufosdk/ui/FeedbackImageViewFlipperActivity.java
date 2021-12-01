@@ -17,16 +17,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ResumeCallBack;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class FeedbackImageViewFlipperActivity extends Activity implements GestureDetector.OnGestureListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public GestureDetector f57678a;
+    public GestureDetector a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewFlipper f57679b;
+    public ViewFlipper f51603b;
 
     public FeedbackImageViewFlipperActivity() {
         Interceptable interceptable = $ic;
@@ -59,19 +57,19 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
             linearLayout.setGravity(17);
             linearLayout.setBackgroundColor(-16777216);
             ViewFlipper viewFlipper = new ViewFlipper(this);
-            this.f57679b = viewFlipper;
+            this.f51603b = viewFlipper;
             linearLayout.addView(viewFlipper, layoutParams);
             setContentView(linearLayout);
-            this.f57678a = new GestureDetector(this);
+            this.a = new GestureDetector(this);
             ImageView imageView = new ImageView(this);
             imageView.setAdjustViewBounds(true);
             imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            imageView.setImageBitmap(FeedbackInputActivity.f57680a);
-            this.f57679b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
-            this.f57679b.setAutoStart(false);
-            this.f57679b.setFlipInterval(3000);
-            if (this.f57679b.isAutoStart() && !this.f57679b.isFlipping()) {
-                this.f57679b.startFlipping();
+            imageView.setImageBitmap(FeedbackInputActivity.a);
+            this.f51603b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
+            this.f51603b.setAutoStart(false);
+            this.f51603b.setFlipInterval(3000);
+            if (this.f51603b.isAutoStart() && !this.f51603b.isFlipping()) {
+                this.f51603b.startFlipping();
             }
             LogUtil.logActivity(this, "onCreate");
         }
@@ -82,7 +80,7 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            FeedbackInputActivity.f57680a = null;
+            FeedbackInputActivity.a = null;
         }
     }
 
@@ -167,9 +165,9 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
-            this.f57679b.stopFlipping();
-            this.f57679b.setAutoStart(false);
-            return this.f57678a.onTouchEvent(motionEvent);
+            this.f51603b.stopFlipping();
+            this.f51603b.setAutoStart(false);
+            return this.a.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }

@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,14 +58,14 @@ public final class TrafficStatsCompat {
     @Deprecated
     public static void setThreadStatsTag(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, null, i2) == null) {
             TrafficStats.setThreadStatsTag(i2);
         }
     }
 
     public static void tagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, datagramSocket) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, datagramSocket) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 TrafficStats.tagDatagramSocket(datagramSocket);
                 return;

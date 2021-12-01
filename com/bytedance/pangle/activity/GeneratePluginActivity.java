@@ -65,7 +65,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class GeneratePluginActivity extends Activity implements IPluginActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

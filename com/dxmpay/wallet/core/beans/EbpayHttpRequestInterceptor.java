@@ -2,9 +2,8 @@ package com.dxmpay.wallet.core.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
-import b.e.a.g.d.d;
+import c.f.a.g.d.d;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +16,7 @@ import com.dxmpay.wallet.base.datamodel.AccountManager;
 import com.dxmpay.wallet.paysdk.PayUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +42,7 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
             StringBuffer stringBuffer = new StringBuffer();
             String str = "intercept. X_BAIDU_IE = " + dVar.d();
             dVar.a().e("X_BAIDU_IE", dVar.d());
-            dVar.a().e("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+            dVar.a().e("Accept-Encoding", "gzip");
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("wims", "");

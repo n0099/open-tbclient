@@ -11,12 +11,10 @@ import java.security.MessageDigest;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char[] f71057a;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +30,7 @@ public class e {
                 return;
             }
         }
-        f71057a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(String str, String str2, byte[] bArr) {
@@ -80,7 +78,7 @@ public class e {
             for (int i2 = 0; i2 < bArr.length; i2++) {
                 byte b2 = bArr[i2];
                 int i3 = i2 * 2;
-                char[] cArr2 = f71057a;
+                char[] cArr2 = a;
                 cArr[i3 + 1] = cArr2[b2 & 15];
                 cArr[i3] = cArr2[((byte) (b2 >>> 4)) & 15];
             }

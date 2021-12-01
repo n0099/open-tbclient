@@ -2,7 +2,6 @@ package com.xiaomi.push.service;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +13,7 @@ import com.xiaomi.push.ic;
 import com.xiaomi.push.id;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +22,7 @@ public class ar {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, aqVar, hlVar)) == null) {
-            return aqVar.f903a.getInt(a(hlVar), as.f72337a[hlVar.ordinal()] != 1 ? 0 : 1);
+            return aqVar.f903a.getInt(a(hlVar), as.a[hlVar.ordinal()] != 1 ? 0 : 1);
         }
         return invokeLL.intValue;
     }
@@ -46,14 +45,14 @@ public class ar {
             }
             ArrayList arrayList = new ArrayList();
             for (hq hqVar : list) {
-                int a2 = hqVar.a();
-                hm a3 = hm.a(hqVar.b());
-                if (a3 != null) {
+                int a = hqVar.a();
+                hm a2 = hm.a(hqVar.b());
+                if (a2 != null) {
                     if (z && hqVar.f520a) {
-                        arrayList.add(new Pair(Integer.valueOf(a2), null));
+                        arrayList.add(new Pair(Integer.valueOf(a), null));
                     } else {
-                        int i2 = as.f72338b[a3.ordinal()];
-                        arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m396a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m395a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
+                        int i2 = as.f63239b[a2.ordinal()];
+                        arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a), hqVar.m445a()) : new Pair(Integer.valueOf(a), Long.valueOf(hqVar.m444a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hqVar.c())));
                     }
                 }
             }
@@ -79,10 +78,10 @@ public class ar {
 
     public static void a(aq aqVar, id idVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, aqVar, idVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, aqVar, idVar) == null) {
             for (ho hoVar : idVar.a()) {
-                if (hoVar.a() > a(aqVar, hoVar.m391a())) {
-                    a(aqVar, hoVar.m391a(), hoVar.a());
+                if (hoVar.a() > a(aqVar, hoVar.m440a())) {
+                    a(aqVar, hoVar.m440a(), hoVar.a());
                     aqVar.a(a(hoVar.f512a, false));
                 }
             }

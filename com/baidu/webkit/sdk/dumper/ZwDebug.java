@@ -3,7 +3,6 @@ package com.baidu.webkit.sdk.dumper;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ApisInteractWithMario;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ZwDebug {
     public static /* synthetic */ Interceptable $ic;
     public static boolean debugModel;
@@ -69,7 +68,7 @@ public class ZwDebug {
 
     public static void setCrashKeyValue(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
             ApisInteractWithMario.setCrashKeyValue(str, str2);
         }
     }

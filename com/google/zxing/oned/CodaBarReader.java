@@ -1,7 +1,6 @@
 package com.google.zxing.oned;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class CodaBarReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHABET;
@@ -123,7 +122,7 @@ public final class CodaBarReader extends OneDReader {
 
     private void setCounters(BitArray bitArray) throws NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bitArray) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, bitArray) == null) {
             int i2 = 0;
             this.counterLength = 0;
             int nextUnset = bitArray.getNextUnset(0);
@@ -150,7 +149,7 @@ public final class CodaBarReader extends OneDReader {
     private int toNarrowWidePattern(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65542, this, i2)) != null) {
             return invokeI.intValue;
         }
         int i3 = i2 + 7;

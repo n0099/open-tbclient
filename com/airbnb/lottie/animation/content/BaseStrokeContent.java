@@ -28,7 +28,7 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseStrokeContent implements BaseKeyframeAnimation.AnimationListener, KeyPathElementContent, DrawingContent {
     @Nullable
     public BaseKeyframeAnimation<ColorFilter, ColorFilter> colorFilterAnimation;
@@ -47,7 +47,7 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
     public final RectF rect = new RectF();
     public final List<PathGroup> pathGroups = new ArrayList();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class PathGroup {
         public final List<PathContent> paths;
         @Nullable

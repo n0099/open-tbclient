@@ -91,9 +91,9 @@ public final class WorkQueue {
                 }
             }
             long nanoTime = TasksKt.schedulerTimeSource.nanoTime() - task.submissionTime;
-            long j = TasksKt.WORK_STEALING_TIME_RESOLUTION_NS;
-            if (nanoTime < j) {
-                return j - nanoTime;
+            long j2 = TasksKt.WORK_STEALING_TIME_RESOLUTION_NS;
+            if (nanoTime < j2) {
+                return j2 - nanoTime;
             }
         } while (!lastScheduledTask$FU.compareAndSet(workQueue, task, null));
         add$default(this, task, false, 2, null);

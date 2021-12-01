@@ -14,24 +14,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import com.samsung.android.deviceidservice.IDeviceIdService;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class l implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f63803a;
+    public final LinkedBlockingQueue<IBinder> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ServiceConnection f63804b;
+    public ServiceConnection f55763b;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ l f63805a;
+        public final /* synthetic */ l a;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -48,7 +44,7 @@ public class l implements f {
                     return;
                 }
             }
-            this.f63805a = lVar;
+            this.a = lVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -56,7 +52,7 @@ public class l implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
-                    this.f63805a.f63803a.put(iBinder);
+                    this.a.a.put(iBinder);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -84,8 +80,8 @@ public class l implements f {
                 return;
             }
         }
-        this.f63803a = new LinkedBlockingQueue<>(1);
-        this.f63804b = new a(this);
+        this.a = new LinkedBlockingQueue<>(1);
+        this.f55763b = new a(this);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x0018  */
@@ -109,9 +105,9 @@ public class l implements f {
             }
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (context.bindService(intent, this.f63804b, 1)) {
+            if (context.bindService(intent, this.f55763b, 1)) {
                 try {
-                    IBinder take = this.f63803a.take();
+                    IBinder take = this.a.take();
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     obtain.writeInterfaceToken(IDeviceIdService.Stub.DESCRIPTOR);

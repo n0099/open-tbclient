@@ -10,12 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class hd {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile hd f71989a;
+    public static volatile hd a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -51,26 +49,26 @@ public class hd {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
                 return null;
             }
-            if (f71989a == null) {
+            if (a == null) {
                 synchronized (hd.class) {
-                    if (f71989a == null) {
-                        f71989a = new hd(context);
+                    if (a == null) {
+                        a = new hd(context);
                     }
                 }
             }
-            return f71989a;
+            return a;
         }
         return (hd) invokeL.objValue;
     }
 
-    private boolean a(String str, String str2, String str3, String str4, long j, String str5) {
+    private boolean a(String str, String str2, String str3, String str4, long j2, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2), str5})) == null) {
             hj hjVar = new hj();
             hjVar.d(str3);
             hjVar.c(str4);
-            hjVar.a(j);
+            hjVar.a(j2);
             hjVar.b(str5);
             hjVar.a(true);
             hjVar.a("push_sdk_channel");
@@ -98,7 +96,7 @@ public class hd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, he> m374a() {
+    public Map<String, he> m423a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f475a : (Map) invokeV.objValue;
@@ -112,7 +110,7 @@ public class hd {
             } else if (TextUtils.isEmpty(str)) {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
             } else {
-                m374a().put(str, heVar);
+                m423a().put(str, heVar);
             }
         }
     }
@@ -122,7 +120,7 @@ public class hd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, hjVar, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+                com.xiaomi.channel.commonutils.logger.b.m122a("pkgName is null or empty, upload ClientUploadDataItem failed.");
                 return false;
             } else if (com.xiaomi.push.service.bm.a(hjVar, false)) {
                 return false;
@@ -138,9 +136,9 @@ public class hd {
         return invokeLL.booleanValue;
     }
 
-    public boolean a(String str, String str2, long j, String str3) {
+    public boolean a(String str, String str2, long j2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), str3})) == null) ? a(this.f474a.getPackageName(), this.f474a.getPackageName(), str, str2, j, str3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j2), str3})) == null) ? a(this.f474a.getPackageName(), this.f474a.getPackageName(), str, str2, j2, str3) : invokeCommon.booleanValue;
     }
 }

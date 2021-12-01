@@ -6,13 +6,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ContextCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ContextCompat";
@@ -71,7 +70,7 @@ public class ContextCompat {
     public static final ColorStateList getColorStateList(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 return ContextCompatApi23.getColorStateList(context, i2);
             }
@@ -83,7 +82,7 @@ public class ContextCompat {
     public static final Drawable getDrawable(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return ContextCompatApi21.getDrawable(context, i2);
             }

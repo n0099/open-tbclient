@@ -10,16 +10,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ag extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Paint f41784a;
+    public Paint a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PaintFlagsDrawFilter f41785b;
+    public PaintFlagsDrawFilter f36963b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ag(Context context) {
@@ -39,18 +37,18 @@ public class ag extends TextView {
                 return;
             }
         }
-        this.f41784a = new Paint();
-        this.f41785b = new PaintFlagsDrawFilter(0, 3);
-        this.f41784a.setColor(-1);
-        this.f41784a.setAntiAlias(true);
+        this.a = new Paint();
+        this.f36963b = new PaintFlagsDrawFilter(0, 3);
+        this.a.setColor(-1);
+        this.a.setAntiAlias(true);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.setDrawFilter(this.f41785b);
-            canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f41784a);
+            canvas.setDrawFilter(this.f36963b);
+            canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.a);
             super.draw(canvas);
         }
     }
@@ -69,7 +67,7 @@ public class ag extends TextView {
     public void setBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f41784a.setColor(i2);
+            this.a.setColor(i2);
         }
     }
 }

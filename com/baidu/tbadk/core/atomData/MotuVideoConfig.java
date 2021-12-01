@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+import com.kuaishou.weapon.un.w0;
+/* loaded from: classes9.dex */
 public class MotuVideoConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_FINISH_VIDEO_ALL_ACTIVITY = "cn.jingling.motu.mv.finish_all";
@@ -61,7 +62,7 @@ public class MotuVideoConfig extends IntentConfig {
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra("video_title", str3);
         getIntent().putExtra(LOCAL_VIDEO_OPEN, z);
-        setRequestCode(13010);
+        setRequestCode(w0.A6);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

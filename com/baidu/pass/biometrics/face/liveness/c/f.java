@@ -1,7 +1,6 @@
 package com.baidu.pass.biometrics.face.liveness.c;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.face.liveness.enums.HeadPose;
 import com.baidu.pass.face.platform.LivenessTypeEnum;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,17 +14,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f42708a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,29 +39,29 @@ public class f {
                 }
             }
             int[] iArr = new int[HeadPose.values().length];
-            f42708a = iArr;
+            a = iArr;
             try {
                 iArr[HeadPose.UP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f42708a[HeadPose.DOWN.ordinal()] = 2;
+                a[HeadPose.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f42708a[HeadPose.MOUTH_OPEN.ordinal()] = 3;
+                a[HeadPose.MOUTH_OPEN.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f42708a[HeadPose.TURN_LEFT.ordinal()] = 4;
+                a[HeadPose.TURN_LEFT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f42708a[HeadPose.TURN_RIGHT.ordinal()] = 5;
+                a[HeadPose.TURN_RIGHT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f42708a[HeadPose.EYES_BLINK.ordinal()] = 6;
+                a[HeadPose.EYES_BLINK.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -171,7 +168,7 @@ public class f {
 
     public static void b(List<LivenessTypeEnum> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, list) == null) {
             while (list.size() < 3) {
                 LivenessTypeEnum a2 = a(HeadPose.getHeadPoseByIndex(Integer.valueOf(new Random().nextInt(6))));
                 if (!list.contains(a2)) {
@@ -183,14 +180,14 @@ public class f {
 
     public static void b(List<LivenessTypeEnum> list, List<HeadPose> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, list, list2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, list, list2) == null) {
             if (list == null) {
                 list = new ArrayList<>();
             } else {
                 list.clear();
             }
             for (HeadPose headPose : list2) {
-                int i2 = a.f42708a[headPose.ordinal()];
+                int i2 = a.a[headPose.ordinal()];
                 if (i2 == 1) {
                     list.add(LivenessTypeEnum.HeadUp);
                 } else if (i2 == 2) {
@@ -243,7 +240,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headPose)) == null) {
-            int i2 = a.f42708a[headPose.ordinal()];
+            int i2 = a.a[headPose.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

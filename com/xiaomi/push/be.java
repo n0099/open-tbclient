@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class be {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f71630a;
+    public int a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f154a;
@@ -47,6 +45,6 @@ public class be {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.f71630a), this.f155a.toString(), this.f154a) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.format("resCode = %1$d, headers = %2$s, response = %3$s", Integer.valueOf(this.a), this.f155a.toString(), this.f154a) : (String) invokeV.objValue;
     }
 }

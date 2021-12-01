@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_ATTACH = "appAttach";
@@ -253,38 +253,38 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2, long j) {
+    public void addStatsTimeStamp(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.addStatsTimeStamp(i2, j);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            super.addStatsTimeStamp(i2, j2);
             if (i2 != 2000) {
                 switch (i2) {
                     case 1002:
-                        this.mAttachBaseContextStartTimeStamp = j;
+                        this.mAttachBaseContextStartTimeStamp = j2;
                         return;
                     case 1003:
-                        this.mMultiDexinstallEndTimeStamp = j;
+                        this.mMultiDexinstallEndTimeStamp = j2;
                         return;
                     case 1004:
-                        this.mAiappsRuntimeEndTimeStamp = j;
+                        this.mAiappsRuntimeEndTimeStamp = j2;
                         return;
                     default:
                         switch (i2) {
                             case 1010:
-                                this.mAppAttachContextEndTimeStamp = j;
+                                this.mAppAttachContextEndTimeStamp = j2;
                                 return;
                             case 1011:
-                                this.mNpsInitEndTimeStamp = j;
+                                this.mNpsInitEndTimeStamp = j2;
                                 return;
                             case 1012:
-                                this.mTiTanInitEndTimeStamp = j;
+                                this.mTiTanInitEndTimeStamp = j2;
                                 return;
                             default:
                                 return;
                         }
                 }
             }
-            this.mAppCreateStartTime = j;
+            this.mAppCreateStartTime = j2;
         }
     }
 }

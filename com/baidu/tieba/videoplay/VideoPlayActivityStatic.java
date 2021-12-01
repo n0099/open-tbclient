@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay;
 
-import b.a.r0.m3.f0.a;
+import c.a.r0.t3.f0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbConfig;
@@ -24,7 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.VideoRedIcon.RedIcon;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class VideoPlayActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

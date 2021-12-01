@@ -15,13 +15,11 @@ import com.baidu.wallet.base.widget.GridLayout;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NHCreditPicItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public NetImageView f59432a;
+    public NetImageView a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditPicItem(Context context) {
@@ -57,10 +55,10 @@ public class NHCreditPicItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             NetImageView netImageView = new NetImageView(getContext());
-            this.f59432a = netImageView;
+            this.a = netImageView;
             netImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.f59432a.setImageResource(ResUtils.drawable(getContext(), "wallet_home_nh_shape_credit_background"));
-            addView(this.f59432a, new GridLayout.LayoutParams(-1, -1));
+            this.a.setImageResource(ResUtils.drawable(getContext(), "wallet_home_nh_shape_credit_background"));
+            addView(this.a, new GridLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -69,7 +67,7 @@ public class NHCreditPicItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f59432a, getData().logo);
+        setNetImageViewUrl(this.a, getData().logo);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

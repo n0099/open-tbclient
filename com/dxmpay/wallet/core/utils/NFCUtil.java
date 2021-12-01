@@ -14,25 +14,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.LocalRouter;
 @SuppressLint({"NewApi"})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class NFCUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IntentFilter[] mFilters;
     public String[][] mTechlist;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static NFCUtil f63503a;
+        public static NFCUtil a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +46,7 @@ public final class NFCUtil {
                     return;
                 }
             }
-            f63503a = new NFCUtil(null);
+            a = new NFCUtil(null);
         }
     }
 
@@ -59,7 +57,7 @@ public final class NFCUtil {
     public static NFCUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f63503a : (NFCUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (NFCUtil) invokeV.objValue;
     }
 
     public void disableForegroundDispatch(Activity activity, boolean z) {

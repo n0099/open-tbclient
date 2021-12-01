@@ -11,7 +11,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class BitmapUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MIN_SD_CARD_SPACE = 5242880;
@@ -121,7 +120,7 @@ public final class BitmapUtil {
 
     public static void fileScan(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
             context.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.parse(("file://" + str).replaceAll("%", "%25").replaceAll("#", "%23").replaceAll(" ", "%20"))));
         }
     }
@@ -130,7 +129,7 @@ public final class BitmapUtil {
         InterceptResult invokeL;
         ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bitmap)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, bitmap)) != null) {
             return (String) invokeL.objValue;
         }
         ByteArrayOutputStream byteArrayOutputStream2 = null;

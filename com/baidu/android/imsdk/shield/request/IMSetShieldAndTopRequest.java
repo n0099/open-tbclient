@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetShieldAndTopRequest";
@@ -32,12 +32,12 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public long timeStamp;
     public ChatSession user;
 
-    public IMSetShieldAndTopRequest(Context context, String str, long j, int i2, int i3, int i4) {
+    public IMSetShieldAndTopRequest(Context context, String str, long j2, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {context, str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -48,7 +48,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mContacter = j;
+        this.mContacter = j2;
         this.mSubBusiness = i2;
         this.mKey = str;
         this.mContacterType = getContacterType(i3);

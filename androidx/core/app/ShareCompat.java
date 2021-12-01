@@ -22,7 +22,6 @@ import androidx.core.content.IntentCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -743,7 +742,7 @@ public final class ShareCompat {
     public static String getCallingPackage(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
             Intent intent = activity.getIntent();
             String callingPackage = activity.getCallingPackage();
             return (callingPackage != null || intent == null) ? callingPackage : getCallingPackage(intent);
@@ -766,7 +765,7 @@ public final class ShareCompat {
     public static String getCallingPackage(@NonNull Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) {
             String stringExtra = intent.getStringExtra(EXTRA_CALLING_PACKAGE);
             return stringExtra == null ? intent.getStringExtra(EXTRA_CALLING_PACKAGE_INTEROP) : stringExtra;
         }

@@ -33,7 +33,7 @@ import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +74,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
             LocalRouter.getInstance(this.mActivity).route(this.mActivity, new RouterRequest().provider("scancode").action("getLimitPayBean"), new RouterCallback(this) { // from class: com.baidu.wallet.paysdk.presenter.PwdPayPresenterForScancode.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PwdPayPresenterForScancode f60780a;
+                public final /* synthetic */ PwdPayPresenterForScancode a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -93,7 +91,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                     }
-                    this.f60780a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -115,8 +113,8 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                         BaseBean baseBean = (BaseBean) obj;
-                        baseBean.setBeanParams(this.f60780a.mOrderInfo.sp_no, this.f60780a.mOrderInfo.order_no, this.f60780a.mOrderInfo.pay_code, "");
-                        baseBean.setResponseCallback(this.f60780a);
+                        baseBean.setBeanParams(this.a.mOrderInfo.sp_no, this.a.mOrderInfo.order_no, this.a.mOrderInfo.pay_code, "");
+                        baseBean.setResponseCallback(this.a);
                         baseBean.execBean();
                     }
                 }

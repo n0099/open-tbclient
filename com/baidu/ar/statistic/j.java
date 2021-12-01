@@ -30,7 +30,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class j implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,9 +111,9 @@ public class j implements e {
                             }
                         }
                     }
-                    JSONObject a2 = aVar.a(keySet);
-                    a(a2, aVar);
-                    jSONArray.put(a2);
+                    JSONObject a = aVar.a(keySet);
+                    a(a, aVar);
+                    jSONArray.put(a);
                 }
                 if (jSONObject != null) {
                     if (i2 != null) {

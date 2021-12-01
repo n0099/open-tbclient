@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,28 +21,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class GlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f63119a = null;
+    public static LayoutInflater a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f63120b = null;
+    public static WeakReference<Toast> f55179b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f63121e;
+        public final /* synthetic */ Context f55180e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f63122f;
+        public final /* synthetic */ View f55181f;
 
         public a(Context context, View view) {
             Interceptable interceptable = $ic;
@@ -60,15 +57,15 @@ public final class GlobalUtils {
                     return;
                 }
             }
-            this.f63121e = context;
-            this.f63122f = view;
+            this.f55180e = context;
+            this.f55181f = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((InputMethodManager) this.f63121e.getSystemService("input_method")).showSoftInput(this.f63122f, 0);
+                ((InputMethodManager) this.f55180e.getSystemService("input_method")).showSoftInput(this.f55181f, 0);
             }
         }
     }
@@ -141,7 +138,7 @@ public final class GlobalUtils {
     public static boolean showInputMethod(Context context, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, view)) == null) {
             if (context == null || view == null) {
                 return false;
             }
@@ -154,7 +151,7 @@ public final class GlobalUtils {
 
     public static void toast(Context context, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, charSequence) == null) {
             toast(context, charSequence, 0);
         }
     }
@@ -178,14 +175,14 @@ public final class GlobalUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f63120b;
+            WeakReference<Toast> weakReference = f55179b;
             if (weakReference != null && weakReference.get() != null) {
-                f63120b.get().cancel();
+                f55179b.get().cancel();
             }
-            if (f63119a == null) {
-                f63119a = LayoutInflater.from(applicationContext);
+            if (a == null) {
+                a = LayoutInflater.from(applicationContext);
             }
-            View inflate = f63119a.inflate(ResUtils.layout(applicationContext, "dxm_wallet_base_toast"), (ViewGroup) null);
+            View inflate = a.inflate(ResUtils.layout(applicationContext, "dxm_wallet_base_toast"), (ViewGroup) null);
             if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
                 return;
             }
@@ -199,7 +196,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f63120b = new WeakReference<>(toast);
+            f55179b = new WeakReference<>(toast);
             toast.show();
         }
     }

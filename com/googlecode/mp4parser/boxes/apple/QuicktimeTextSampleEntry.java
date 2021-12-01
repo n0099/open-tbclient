@@ -206,10 +206,10 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
-            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j2));
             dataSource.read(allocate);
             allocate.position(6);
             this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
@@ -266,10 +266,10 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setDefaultTextBox(long j) {
+    public void setDefaultTextBox(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
-            this.defaultTextBox = j;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
+            this.defaultTextBox = j2;
         }
     }
 
@@ -322,10 +322,10 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setReserved1(long j) {
+    public void setReserved1(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
-            this.reserved1 = j;
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
+            this.reserved1 = j2;
         }
     }
 

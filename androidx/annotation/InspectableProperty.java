@@ -1,5 +1,6 @@
 package androidx.annotation;
 
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +64,7 @@ public @interface InspectableProperty {
                     return;
                 }
             }
-            NONE = new ValueType("NONE", 0);
+            NONE = new ValueType(PolyActivity.NONE_PANEL_TYPE, 0);
             INFERRED = new ValueType("INFERRED", 1);
             INT_ENUM = new ValueType("INT_ENUM", 2);
             INT_FLAG = new ValueType("INT_FLAG", 3);

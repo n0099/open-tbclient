@@ -25,7 +25,6 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.fsg.base.armor.RimArmor;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -35,6 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -54,45 +54,47 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38417a = "PhoneUtils";
+    public static final String a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38418b = "_rim_pay.preferences";
+    public static final String f34355b = "_rim_pay.preferences";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38419c = "cuid_1";
+    public static final String f34356c = "cuid_1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38420d = "cuid_2";
+    public static final String f34357d = "cuid_2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38421e = "wime";
+    public static final String f34358e = "wime";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38422f = "identity_code";
+    public static final String f34359f = "identity_code";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38423g = "phone_number";
+    public static final String f34360g = "phone_number";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38424h = "card_no";
+    public static final String f34361h = "card_no";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38425i = "valid_date";
-    public static final String j = "cvv2";
-    public static final String k = "imei";
+    public static final String f34362i = "valid_date";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f34363j = "cvv2";
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final String f34364k = "imei";
     public static final String l = "nettype";
     public static final String m = "wloc";
     public static CPUInfo n;
     public static ArrayList<String> o;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -102,12 +104,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARMV6 = "armv6";
         public static final String PROCESSOR_ARMV7 = "armv7";
         public static final String PROCESSOR_ARM_PREFIX = "armv";
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final String f38426a = "processor";
+        public static final String a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f38427b = "features";
+        public static final String f34365b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -192,7 +192,7 @@ public final class PhoneUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, f38418b, "imei", "");
+            String str = (String) SharedPreferencesUtils.getParam(context, f34355b, "imei", "");
             if (!TextUtils.isEmpty(str)) {
                 if (ApollonConstants.DEBUG) {
                     String str2 = "从文件里面获取imei号=" + str;
@@ -222,7 +222,7 @@ public final class PhoneUtils {
             for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                 stringBuffer.append((char) (random.nextInt(10) | 48));
             }
-            SharedPreferencesUtils.setParam(context, f38418b, "imei", stringBuffer.toString());
+            SharedPreferencesUtils.setParam(context, f34355b, "imei", stringBuffer.toString());
             return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
@@ -230,7 +230,7 @@ public final class PhoneUtils {
 
     public static void checkPermission(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) || hasPermission(context, str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) || hasPermission(context, str)) {
             return;
         }
         sdkError("You need the " + str + " permission. Open AndroidManifest.xml and just before the final </manifest> tag add:  <uses-permission android:name=\"" + str + "\" />");
@@ -239,7 +239,7 @@ public final class PhoneUtils {
     public static String encrypt(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
             if (o.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
@@ -725,7 +725,7 @@ public final class PhoneUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             String str = "";
             try {
-                if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
+                if (hasPermission(context, s.f56839d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled()) {
                         int i2 = Integer.MAX_VALUE;

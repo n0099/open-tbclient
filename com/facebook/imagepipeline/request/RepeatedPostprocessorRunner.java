@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.request;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface RepeatedPostprocessorRunner {
     void update();
 }

@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
-import b.a.e.h.c;
-import b.a.q0.k0.f.b;
-import b.a.r0.s2.d;
-import b.a.r0.s2.e;
-import b.a.r0.s2.f;
+import c.a.d.h.c;
+import c.a.q0.l0.f.b;
+import c.a.r0.z2.d;
+import c.a.r0.z2.e;
+import c.a.r0.z2.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.pass.ecommerce.common.view.ToastUtil;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, b.a.q0.k0.d.b, b.a.q0.k0.f.a<Object, b.a.q0.k0.d.b>> mPluginCenterAdapter;
+    public b<Object, c.a.q0.l0.d.b, c.a.q0.l0.f.a<Object, c.a.q0.l0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
     @NonNull
@@ -42,16 +42,16 @@ public class NpsPluginCenterActivity extends BaseActivity {
     @NonNull
     public final List<String> whiteList;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f54248e;
+        public final /* synthetic */ BundleInfo f48475e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NpsPluginCenterActivity f54249f;
+        public final /* synthetic */ NpsPluginCenterActivity f48476f;
 
         public a(NpsPluginCenterActivity npsPluginCenterActivity, BundleInfo bundleInfo) {
             Interceptable interceptable = $ic;
@@ -68,15 +68,15 @@ public class NpsPluginCenterActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54249f = npsPluginCenterActivity;
-            this.f54248e = bundleInfo;
+            this.f48476f = npsPluginCenterActivity;
+            this.f48475e = bundleInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ToastUtil.show(this.f54248e.getPackageName());
+                ToastUtil.show(this.f48475e.getPackageName());
             }
         }
     }
@@ -150,7 +150,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.mRootView, b.a.r0.s2.a.CAM_X0204);
+            SkinManager.setBackgroundColor(this.mRootView, c.a.r0.z2.a.CAM_X0204);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
             getLayoutMode().j(findViewById(16908290));
             NoDataView noDataView = this.mNoDataView;

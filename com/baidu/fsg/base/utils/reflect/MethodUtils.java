@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.utils.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,12 +16,10 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MethodUtils {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Method> f38455a;
+    public static Map<String, Method> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +35,7 @@ public class MethodUtils {
                 return;
             }
         }
-        f38455a = new HashMap();
+        a = new HashMap();
     }
 
     public MethodUtils() {
@@ -115,7 +112,7 @@ public class MethodUtils {
     public static boolean a(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cls)) == null) {
             while (cls != null) {
                 if (!Modifier.isPublic(cls.getModifiers())) {
                     return false;
@@ -130,7 +127,7 @@ public class MethodUtils {
     public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, str, clsArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, cls, str, clsArr)) == null) {
             while (true) {
                 cls = cls.getSuperclass();
                 if (cls == null) {
@@ -176,8 +173,8 @@ public class MethodUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, cls, str, clsArr)) == null) {
             String c2 = c(cls, str, clsArr);
-            synchronized (f38455a) {
-                method = f38455a.get(c2);
+            synchronized (a) {
+                method = a.get(c2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -188,8 +185,8 @@ public class MethodUtils {
             try {
                 Method method2 = cls.getMethod(str, clsArr);
                 MemberUtils.a((AccessibleObject) method2);
-                synchronized (f38455a) {
-                    f38455a.put(c2, method2);
+                synchronized (a) {
+                    a.put(c2, method2);
                 }
                 return method2;
             } catch (NoSuchMethodException unused) {
@@ -202,8 +199,8 @@ public class MethodUtils {
                 if (method3 != null) {
                     MemberUtils.a((AccessibleObject) method3);
                 }
-                synchronized (f38455a) {
-                    f38455a.put(c2, method3);
+                synchronized (a) {
+                    a.put(c2, method3);
                     return method3;
                 }
             }
@@ -217,8 +214,8 @@ public class MethodUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, clsArr)) == null) {
             String c2 = c(cls, str, clsArr);
-            synchronized (f38455a) {
-                method = f38455a.get(c2);
+            synchronized (a) {
+                method = a.get(c2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -227,8 +224,8 @@ public class MethodUtils {
                 return method;
             }
             Method a2 = a(cls.getMethod(str, clsArr));
-            synchronized (f38455a) {
-                f38455a.put(c2, a2);
+            synchronized (a) {
+                a.put(c2, a2);
             }
             return a2;
         }

@@ -9,9 +9,7 @@ import java.util.concurrent.Callable;
 public abstract class h<Params, Result> implements Callable<Result> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Params[] f69041a;
+    public Params[] a;
 
     public h() {
         Interceptable interceptable = $ic;

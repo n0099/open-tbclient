@@ -18,11 +18,9 @@ public class DownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f70159b;
+    public static final String f61709b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public o f70160a;
+    public o a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +35,7 @@ public class DownloadService extends Service {
                 return;
             }
         }
-        f70159b = DownloadService.class.getSimpleName();
+        f61709b = DownloadService.class.getSimpleName();
     }
 
     public DownloadService() {
@@ -59,12 +57,12 @@ public class DownloadService extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            String str = f70159b;
+            String str = f61709b;
             StringBuilder sb = new StringBuilder();
             sb.append("onBind downloadServiceHandler != null:");
-            sb.append(this.f70160a != null);
+            sb.append(this.a != null);
             com.ss.android.socialbase.downloader.c.a.b(str, sb.toString());
-            o oVar = this.f70160a;
+            o oVar = this.a;
             if (oVar != null) {
                 return oVar.a(intent);
             }
@@ -80,7 +78,7 @@ public class DownloadService extends Service {
             super.onCreate();
             c.a(this);
             o y = c.y();
-            this.f70160a = y;
+            this.a = y;
             y.a(new WeakReference(this));
         }
     }
@@ -90,12 +88,12 @@ public class DownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f70159b, "Service onDestroy");
+                com.ss.android.socialbase.downloader.c.a.b(f61709b, "Service onDestroy");
             }
-            o oVar = this.f70160a;
+            o oVar = this.a;
             if (oVar != null) {
                 oVar.d();
-                this.f70160a = null;
+                this.a = null;
             }
             super.onDestroy();
         }
@@ -107,26 +105,24 @@ public class DownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
-                com.ss.android.socialbase.downloader.c.a.b(f70159b, "DownloadService onStartCommand");
+                com.ss.android.socialbase.downloader.c.a.b(f61709b, "DownloadService onStartCommand");
             }
-            this.f70160a.c();
+            this.a.c();
             ExecutorService l = c.l();
             if (l != null) {
                 l.execute(new Runnable(this, intent, i2, i3) { // from class: com.ss.android.socialbase.downloader.downloader.DownloadService.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Intent f70161a;
+                    public final /* synthetic */ Intent a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f70162b;
+                    public final /* synthetic */ int f61710b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ int f70163c;
+                    public final /* synthetic */ int f61711c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ DownloadService f70164d;
+                    public final /* synthetic */ DownloadService f61712d;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -143,20 +139,20 @@ public class DownloadService extends Service {
                                 return;
                             }
                         }
-                        this.f70164d = this;
-                        this.f70161a = intent;
-                        this.f70162b = i2;
-                        this.f70163c = i3;
+                        this.f61712d = this;
+                        this.a = intent;
+                        this.f61710b = i2;
+                        this.f61711c = i3;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         o oVar;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (oVar = this.f70164d.f70160a) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (oVar = this.f61712d.a) == null) {
                             return;
                         }
-                        oVar.a(this.f70161a, this.f70162b, this.f70163c);
+                        oVar.a(this.a, this.f61710b, this.f61711c);
                     }
                 });
             }

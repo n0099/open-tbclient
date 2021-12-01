@@ -18,7 +18,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThreadPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HIIDO_FIXED_THREAD_NAME = "hiido_fixed_thread";
@@ -310,14 +310,14 @@ public class ThreadPool {
         return (Future) invokeL.objValue;
     }
 
-    public void execute(Runnable runnable, long j) {
+    public void execute(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j2) == null) {
             try {
                 if (this.taskExecutor != null) {
-                    this.taskExecutor.execute(runnable, j);
+                    this.taskExecutor.execute(runnable, j2);
                 } else {
-                    this.scheduledExecutorService.schedule(runnable, j, TimeUnit.MILLISECONDS);
+                    this.scheduledExecutorService.schedule(runnable, j2, TimeUnit.MILLISECONDS);
                 }
             } catch (Throwable th) {
                 L.debug(this, th.getMessage(), new Object[0]);

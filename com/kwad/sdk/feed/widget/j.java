@@ -12,29 +12,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.av;
-import com.kwad.sdk.utils.aw;
+import com.kwad.sdk.utils.bb;
+import com.kwad.sdk.utils.bc;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes2.dex */
-public class j extends com.kwad.sdk.core.video.videoview.a implements aw.a {
+public class j extends com.kwad.sdk.core.video.videoview.a implements bc.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: b  reason: collision with root package name */
-    public View f66663b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final aw f66664c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f66665d;
-
     /* renamed from: e  reason: collision with root package name */
-    public boolean f66666e;
+    public View f58555e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f66667f;
+    public final bc f58556f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final AtomicBoolean f58557g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f58558h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f58559i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(Context context, AdTemplate adTemplate, @NonNull com.kwad.sdk.core.video.videoview.d dVar) {
@@ -55,114 +55,107 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements aw.a {
                 return;
             }
         }
-        this.f66664c = new aw(this);
-        this.f66665d = new AtomicBoolean(true);
-        this.f66667f = true;
-        this.f66663b = this;
+        this.f58556f = new bc(this);
+        this.f58557g = new AtomicBoolean(true);
+        this.f58559i = true;
+        this.f58555e = this;
     }
 
-    private void p() {
+    private void q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.f66665d.getAndSet(false)) {
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.f58557g.getAndSet(false)) {
             com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onViewAttached");
-            this.f66664c.sendEmptyMessage(1);
+            this.f58556f.sendEmptyMessage(1);
         }
     }
 
-    @Override // com.kwad.sdk.utils.aw.a
+    @Override // com.kwad.sdk.utils.bc.a
     public void a(Message message) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-            if (!av.a(this.f66663b, 30)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && !this.a && message.what == 1) {
+            if (!bb.a(this.f58555e, 30)) {
+                g();
+            } else if (!this.f58558h) {
                 f();
-            } else if (!this.f66666e) {
-                e();
             }
-            this.f66664c.sendEmptyMessageDelayed(1, 500L);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f66665d.getAndSet(true)) {
-            return;
-        }
-        com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onViewDetached");
-        this.f66664c.removeCallbacksAndMessages(null);
-        if (this.f66667f) {
-            g();
-        } else {
-            this.f66040a.c();
+            this.f58556f.sendEmptyMessageDelayed(1, 500L);
         }
     }
 
     public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f66040a.c();
-            this.f66666e = true;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f58557g.getAndSet(true)) {
+            return;
+        }
+        com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onViewDetached");
+        this.f58556f.removeCallbacksAndMessages(null);
+        if (this.f58559i) {
+            h();
+        } else {
+            this.f57888d.c();
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e();
-            this.f66666e = false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f57888d.c();
+            this.f58558h = true;
         }
     }
 
     public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f66666e = false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f();
+            this.f58558h = false;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
             com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onAttachedToWindow");
-            p();
+            q();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDetachedFromWindow();
             com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onDetachedFromWindow");
-            l();
+            m();
         }
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onFinishTemporaryDetach();
             com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onFinishTemporaryDetach");
-            p();
+            q();
         }
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStartTemporaryDetach();
             com.kwad.sdk.core.d.a.c("FeedVideoPlayerController", "onStartTemporaryDetach");
-            l();
+            m();
         }
     }
 
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onWindowFocusChanged(z);
         }
     }
@@ -170,15 +163,22 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements aw.a {
     @Override // android.view.View
     public void onWindowVisibilityChanged(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             super.onWindowVisibilityChanged(i2);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.f58558h = false;
         }
     }
 
     public void setAutoRelease(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f66667f = z;
+            this.f58559i = z;
         }
     }
 }

@@ -13,21 +13,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.dialog.WalletDialog;
 import com.baidu.wallet.base.widget.dialog.binding.MultiBtnDialogBinding;
 import com.baidu.wallet.base.widget.dialog.model.MultiBtnDialogModel;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MultiBtnDialogModel a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public MultiBtnDialogModel f58724a;
-
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class BaseHolder extends WalletDialog.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MultiBtnDialogAdapter f58725a;
+        public final /* synthetic */ MultiBtnDialogAdapter a;
         public final MultiBtnDialogBinding binding;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +44,7 @@ public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
                     return;
                 }
             }
-            this.f58725a = multiBtnDialogAdapter;
+            this.a = multiBtnDialogAdapter;
             this.binding = multiBtnDialogBinding;
         }
     }
@@ -68,7 +64,7 @@ public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
                 return;
             }
         }
-        this.f58724a = multiBtnDialogModel;
+        this.a = multiBtnDialogModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,7 +72,7 @@ public class MultiBtnDialogAdapter extends WalletDialog.Adapter<BaseHolder> {
     public void onBindViewHolder(BaseHolder baseHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseHolder) == null) {
-            baseHolder.binding.setViewModel(this.f58724a);
+            baseHolder.binding.setViewModel(this.a);
         }
     }
 

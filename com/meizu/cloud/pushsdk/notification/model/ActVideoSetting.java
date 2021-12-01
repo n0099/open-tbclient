@@ -44,7 +44,7 @@ public class ActVideoSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                b.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                c.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -69,7 +69,7 @@ public class ActVideoSetting implements Parcelable {
             return actVideoSetting;
         }
         str = "no such tag ActVideoSetting";
-        b.j.a.a.a.b(TAG, str);
+        c.k.a.a.a.b(TAG, str);
         return actVideoSetting;
     }
 

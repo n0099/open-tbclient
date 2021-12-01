@@ -4,13 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class s implements IPushActionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p f71268a;
+    public final /* synthetic */ p a;
 
     public s(p pVar) {
         Interceptable interceptable = $ic;
@@ -27,7 +25,7 @@ public final class s implements IPushActionListener {
                 return;
             }
         }
-        this.f71268a = pVar;
+        this.a = pVar;
     }
 
     @Override // com.vivo.push.IPushActionListener
@@ -37,15 +35,15 @@ public final class s implements IPushActionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (i2 == 0) {
-                this.f71268a.l = "";
-                aVar2 = this.f71268a.k;
+                this.a.l = "";
+                aVar2 = this.a.f62513k;
                 aVar2.a("APP_TOKEN", "");
-                this.f71268a.t();
-                this.f71268a.k.c("APP_TAGS");
+                this.a.t();
+                this.a.f62513k.c("APP_TAGS");
                 return;
             }
-            this.f71268a.l = null;
-            aVar = this.f71268a.k;
+            this.a.l = null;
+            aVar = this.a.f62513k;
             aVar.c("APP_TOKEN");
         }
     }

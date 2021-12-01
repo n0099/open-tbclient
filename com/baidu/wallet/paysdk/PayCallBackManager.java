@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pay.BindBack;
 import com.baidu.android.pay.PayCallBack;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,13 +30,13 @@ import com.dxmpay.wallet.utils.StatHelper;
 import com.google.protobuf.CodedInputStream;
 import com.tencent.connect.common.Constants;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class PayCallBackManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isClientDead;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class PayStateModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;
@@ -257,7 +256,7 @@ public final class PayCallBackManager implements NoProguard {
 
     public static void callBackClientClear(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
             PayStateModle payStateModle = new PayStateModle(1000, "");
             StatHelper.cacheCodeAndMsg(Constants.DEFAULT_UIN, payStateModle.toString());
             a(context, 1000, payStateModle.toString());
@@ -266,7 +265,7 @@ public final class PayCallBackManager implements NoProguard {
 
     public static void callBackClientPaying(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             PayStateModle payStateModle = new PayStateModle(1, "");
             StatHelper.cacheCodeAndMsg("1", "paying");
             a(context, 1, payStateModle.toString());

@@ -2,7 +2,6 @@ package com.facebook.imageformat;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ImageFormatChecker {
     public static /* synthetic */ Interceptable $ic;
     public static ImageFormatChecker sInstance;
@@ -83,7 +82,7 @@ public class ImageFormatChecker {
     public static int readHeaderFromStream(int i2, InputStream inputStream, byte[] bArr) throws IOException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(AdIconUtil.AD_TEXT_ID, null, i2, inputStream, bArr)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, null, i2, inputStream, bArr)) == null) {
             Preconditions.checkNotNull(inputStream);
             Preconditions.checkNotNull(bArr);
             Preconditions.checkArgument(bArr.length >= i2);
@@ -102,7 +101,7 @@ public class ImageFormatChecker {
 
     private void updateMaxHeaderLength() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             this.mMaxHeaderLength = this.mDefaultFormatChecker.getHeaderSize();
             List<ImageFormat.FormatChecker> list = this.mCustomImageFormatCheckers;
             if (list != null) {

@@ -13,7 +13,7 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DiskLruCacheWrapper implements DiskCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_VERSION = 1;
@@ -28,12 +28,12 @@ public class DiskLruCacheWrapper implements DiskCache {
     public final DiskCacheWriteLocker writeLocker;
 
     @Deprecated
-    public DiskLruCacheWrapper(File file, long j) {
+    public DiskLruCacheWrapper(File file, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Long.valueOf(j)};
+            Object[] objArr = {file, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,25 +45,25 @@ public class DiskLruCacheWrapper implements DiskCache {
         }
         this.writeLocker = new DiskCacheWriteLocker();
         this.directory = file;
-        this.maxSize = j;
+        this.maxSize = j2;
         this.safeKeyGenerator = new SafeKeyGenerator();
     }
 
-    public static DiskCache create(File file, long j) {
+    public static DiskCache create(File file, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, file, j)) == null) ? new DiskLruCacheWrapper(file, j) : (DiskCache) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, file, j2)) == null) ? new DiskLruCacheWrapper(file, j2) : (DiskCache) invokeLJ.objValue;
     }
 
     @Deprecated
-    public static synchronized DiskCache get(File file, long j) {
+    public static synchronized DiskCache get(File file, long j2) {
         InterceptResult invokeLJ;
         DiskLruCacheWrapper diskLruCacheWrapper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, file, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, file, j2)) == null) {
             synchronized (DiskLruCacheWrapper.class) {
                 if (wrapper == null) {
-                    wrapper = new DiskLruCacheWrapper(file, j);
+                    wrapper = new DiskLruCacheWrapper(file, j2);
                 }
                 diskLruCacheWrapper = wrapper;
             }

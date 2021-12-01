@@ -8,10 +8,10 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentManager;
-import b.a.e.f.m.b;
-import b.a.e.f.p.k;
-import b.a.q0.a.c;
-import b.a.q0.o0.d;
+import c.a.d.f.m.b;
+import c.a.d.f.p.k;
+import c.a.q0.a.c;
+import c.a.q0.p0.d;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -208,7 +208,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.a.e.a.b.g().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -219,7 +219,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             init();
             if (Build.VERSION.SDK_INT >= 28) {
                 if (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this)) {
-                    b.a.r0.y3.d.b(1, getWindow().getAttributes(), getWindow());
+                    c.a.r0.f4.d.b(1, getWindow().getAttributes(), getWindow());
                 }
             }
         }
@@ -255,7 +255,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            b.a.q0.a.d.y().F();
+            c.a.q0.a.d.y().G();
         }
     }
 
@@ -267,7 +267,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             if (k.isEmpty(this.mId)) {
                 return;
             }
-            b.a.q0.a.d.y().Q(c.a0, b.g(this.mId, 0L));
+            c.a.q0.a.d.y().R(c.a0, b.g(this.mId, 0L));
         }
     }
 

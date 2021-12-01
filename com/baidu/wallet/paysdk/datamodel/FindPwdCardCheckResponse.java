@@ -13,13 +13,13 @@ import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.apollon.beans.IBeanResponse;
 import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class FindPwdCardCheckResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Card[] bind_card_arr;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class Card implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

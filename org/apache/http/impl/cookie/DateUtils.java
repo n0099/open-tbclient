@@ -1,7 +1,6 @@
 package org.apache.http.impl.cookie;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,7 +81,7 @@ public final class DateUtils {
     public static Date parseDate(String str, String[] strArr) throws DateParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, strArr)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (Date) invokeLL.objValue;
@@ -91,7 +90,7 @@ public final class DateUtils {
     public static Date parseDate(String str, String[] strArr, Date date) throws DateParseException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, strArr, date)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, strArr, date)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (Date) invokeLLL.objValue;

@@ -10,7 +10,6 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";
@@ -176,14 +175,14 @@ public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHan
 
     private void canGoBack(MethodChannel.Result result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, result) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, result) == null) {
             result.success(Boolean.valueOf(this.webView.canGoBack()));
         }
     }
 
     private void canGoForward(MethodChannel.Result result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, result) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, result) == null) {
             result.success(Boolean.valueOf(this.webView.canGoForward()));
         }
     }

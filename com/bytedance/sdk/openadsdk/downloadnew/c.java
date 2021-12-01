@@ -1,7 +1,6 @@
 package com.bytedance.sdk.openadsdk.downloadnew;
 
 import android.text.TextUtils;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,27 +16,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public InputStream f62599a;
+        public InputStream a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f62600b;
+        public Map<String, String> f54771b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f62601c;
+        public int f54772c;
 
         /* renamed from: d  reason: collision with root package name */
-        public HttpURLConnection f62602d;
+        public HttpURLConnection f54773d;
 
         public a(InputStream inputStream, Map<String, String> map, int i2, HttpURLConnection httpURLConnection) {
             Interceptable interceptable = $ic;
@@ -54,10 +51,10 @@ public class c {
                     return;
                 }
             }
-            this.f62599a = inputStream;
-            this.f62600b = map;
-            this.f62601c = i2;
-            this.f62602d = httpURLConnection;
+            this.a = inputStream;
+            this.f54771b = map;
+            this.f54772c = i2;
+            this.f54773d = httpURLConnection;
         }
     }
 
@@ -125,7 +122,7 @@ public class c {
                 Map<String, String> a3 = a(a2);
                 InputStream inputStream = a2.getInputStream();
                 String contentEncoding = a2.getContentEncoding();
-                if (!TextUtils.isEmpty(contentEncoding) && contentEncoding.contains(AsyncHttpClient.ENCODING_GZIP)) {
+                if (!TextUtils.isEmpty(contentEncoding) && contentEncoding.contains("gzip")) {
                     inputStream = new GZIPInputStream(inputStream);
                 }
                 return new a(inputStream, a3, responseCode, a2);

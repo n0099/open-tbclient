@@ -107,12 +107,12 @@ public final class Http2Codec implements HttpCodec {
         }
 
         @Override // okio.ForwardingSource, okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
+        public long read(Buffer buffer, long j2) throws IOException {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
                 try {
-                    long read = delegate().read(buffer, j);
+                    long read = delegate().read(buffer, j2);
                     if (read > 0) {
                         this.bytesRead += read;
                     }
@@ -247,10 +247,10 @@ public final class Http2Codec implements HttpCodec {
     }
 
     @Override // okhttp3.internal.http.HttpCodec
-    public Sink createRequestBody(Request request, long j) {
+    public Sink createRequestBody(Request request, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, j)) == null) ? this.stream.getSink() : (Sink) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, j2)) == null) ? this.stream.getSink() : (Sink) invokeLJ.objValue;
     }
 
     @Override // okhttp3.internal.http.HttpCodec

@@ -7,7 +7,6 @@ import android.security.keystore.KeyGenParameterSpec;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +19,7 @@ import java.security.SecureRandom;
 import java.util.Calendar;
 import javax.crypto.Cipher;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +58,12 @@ public class b {
                         if (!a(context, false)) {
                             return null;
                         }
-                        byte[] a2 = a();
+                        byte[] a = a();
                         PublicKey publicKey = keyStore.getCertificate("CMCC_SDK").getPublicKey();
                         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                         cipher.init(1, publicKey);
-                        a(Base64.encodeToString(cipher.doFinal(a2), 0));
-                        bArr = a2;
+                        a(Base64.encodeToString(cipher.doFinal(a), 0));
+                        bArr = a;
                     } else {
                         String b2 = b();
                         if (!TextUtils.isEmpty(b2)) {
@@ -129,7 +128,7 @@ public class b {
         InterceptResult invokeLL;
         byte[] b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             if (TextUtils.isEmpty(str) || (b2 = b(context)) == null) {
                 return null;
             }
@@ -141,7 +140,7 @@ public class b {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? k.b("AES_KEY", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? k.b("AES_KEY", "") : (String) invokeV.objValue;
     }
 
     public static byte[] a() {

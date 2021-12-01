@@ -2,7 +2,6 @@ package com.baidu.webkit.internal;
 
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CfgFileUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ALT_SERVICE = "alt_service";
@@ -175,7 +174,7 @@ public class CfgFileUtils implements INoProGuard {
     public static String getFilePath(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             return WebViewFactory.getContext().getFilesDir().getAbsolutePath() + File.separator + str + ".cfg";
         }
         return (String) invokeL.objValue;
@@ -184,7 +183,7 @@ public class CfgFileUtils implements INoProGuard {
     public static boolean isExist(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             b.b();
             File file = new File(getFilePath(str));
             if (file.isFile() && file.exists()) {

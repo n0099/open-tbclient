@@ -7,28 +7,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Object f44088a;
+    public Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f44089b;
+    public Class<?> f39170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f44090c;
+    public Method f39171c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f44091d;
+    public Method f39172d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f44092e;
+    public Method f39173e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f44093f;
+    public String f39174f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,7 +46,7 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
-            Object obj = this.f44088a;
+            Object obj = this.a;
             if (obj == null || method == null) {
                 return null;
             }

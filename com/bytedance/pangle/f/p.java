@@ -9,16 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class p extends r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final byte[] f62316a;
+    public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62317b;
+    public int f54596b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(X509Certificate x509Certificate, byte[] bArr) {
@@ -38,8 +36,8 @@ public final class p extends r {
                 return;
             }
         }
-        this.f62317b = -1;
-        this.f62316a = bArr;
+        this.f54596b = -1;
+        this.a = bArr;
     }
 
     @Override // java.security.cert.Certificate
@@ -66,7 +64,7 @@ public final class p extends r {
     public final byte[] getEncoded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62316a : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (byte[]) invokeV.objValue;
     }
 
     @Override // java.security.cert.Certificate
@@ -74,14 +72,14 @@ public final class p extends r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f62317b == -1) {
+            if (this.f54596b == -1) {
                 try {
-                    this.f62317b = Arrays.hashCode(getEncoded());
+                    this.f54596b = Arrays.hashCode(getEncoded());
                 } catch (CertificateEncodingException unused) {
-                    this.f62317b = 0;
+                    this.f54596b = 0;
                 }
             }
-            return this.f62317b;
+            return this.f54596b;
         }
         return invokeV.intValue;
     }

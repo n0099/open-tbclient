@@ -5,8 +5,6 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,7 +43,7 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             String str = "";
             try {
-                string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                string = Settings.Secure.getString(context.getContentResolver(), "android_id");
             } catch (Throwable unused) {
             }
             try {
@@ -86,7 +84,7 @@ public class e {
         TelephonyManager telephonyManager;
         String subscriberId;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, context)) != null) {
             return (String) invokeL.objValue;
         }
         if (context != null) {
@@ -96,11 +94,11 @@ public class e {
             }
             if (telephonyManager != null) {
                 subscriberId = telephonyManager.getSubscriberId();
-                return !g.m63a(subscriberId) ? a() : subscriberId;
+                return !g.m112a(subscriberId) ? a() : subscriberId;
             }
         }
         subscriberId = null;
-        if (!g.m63a(subscriberId)) {
+        if (!g.m112a(subscriberId)) {
         }
     }
 
@@ -139,21 +137,21 @@ public class e {
             }
             if (telephonyManager != null) {
                 str = telephonyManager.getDeviceId();
-                if (g.m63a(str)) {
+                if (g.m112a(str)) {
                     str = b();
                 }
-                if (g.m63a(str)) {
+                if (g.m112a(str)) {
                     str = b(context);
                 }
-                return !g.m63a(str) ? a() : str;
+                return !g.m112a(str) ? a() : str;
             }
         }
         str = null;
-        if (g.m63a(str)) {
+        if (g.m112a(str)) {
         }
-        if (g.m63a(str)) {
+        if (g.m112a(str)) {
         }
-        if (!g.m63a(str)) {
+        if (!g.m112a(str)) {
         }
     }
 }

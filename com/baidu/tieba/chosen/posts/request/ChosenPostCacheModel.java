@@ -1,6 +1,6 @@
 package com.baidu.tieba.chosen.posts.request;
 
-import b.a.r0.c0.a.d.b;
+import c.a.r0.h0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ChosenPostCacheModel extends CacheModel<b, ChosenPostActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CACHE_KEY = "chosen_post_cache";

@@ -2,17 +2,17 @@ package com.facebook.imageutils;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.audio.b;
+import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WebpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VP8L_HEADER = "VP8L";
@@ -79,13 +79,13 @@ public class WebpUtil {
     public static int getInt(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, inputStream)) == null) ? ((((byte) inputStream.read()) << 24) & (-16777216)) | ((((byte) inputStream.read()) << 16) & 16711680) | ((((byte) inputStream.read()) << 8) & 65280) | (((byte) inputStream.read()) & 255) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) ? ((((byte) inputStream.read()) << 24) & (-16777216)) | ((((byte) inputStream.read()) << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680) | ((((byte) inputStream.read()) << 8) & 65280) | (((byte) inputStream.read()) & 255) : invokeL.intValue;
     }
 
     public static short getShort(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream)) == null) ? (short) (inputStream.read() & 255) : invokeL.shortValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) ? (short) (inputStream.read() & 255) : invokeL.shortValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -108,7 +108,7 @@ public class WebpUtil {
                         inputStream.close();
                     }
                 }
-                if (compare(bArr, b.f58230e)) {
+                if (compare(bArr, b.f51909e)) {
                     getInt(inputStream);
                     inputStream.read(bArr);
                     if (!compare(bArr, "WEBP")) {
@@ -226,7 +226,7 @@ public class WebpUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, inputStream)) == null) {
-            return ((getByte(inputStream) << 16) & 16711680) | ((getByte(inputStream) << 8) & 65280) | (getByte(inputStream) & 255);
+            return ((getByte(inputStream) << YogaNodeJNIBase.HAS_NEW_LAYOUT) & 16711680) | ((getByte(inputStream) << 8) & 65280) | (getByte(inputStream) & 255);
         }
         return invokeL.intValue;
     }

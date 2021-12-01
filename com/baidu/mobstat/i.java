@@ -6,26 +6,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f42451a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42452b;
+    public String f37497b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42453c;
+    public String f37498c;
 
-    public i(long j, String str, String str2) {
+    public i(long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2};
+            Object[] objArr = {Long.valueOf(j2), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,22 +33,22 @@ public class i {
                 return;
             }
         }
-        this.f42451a = -1L;
+        this.a = -1L;
         str2 = str2 == null ? "" : str2;
-        this.f42451a = j;
-        this.f42452b = str;
-        this.f42453c = str2;
+        this.a = j2;
+        this.f37497b = str;
+        this.f37498c = str2;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42451a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42453c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37498c : (String) invokeV.objValue;
     }
 }

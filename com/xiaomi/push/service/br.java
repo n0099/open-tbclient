@@ -9,13 +9,11 @@ import com.xiaomi.push.fa;
 import com.xiaomi.push.fq;
 import com.xiaomi.push.gc;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class br implements fq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f72395a;
+    public final /* synthetic */ XMPushService a;
 
     public br(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -32,14 +30,14 @@ public class br implements fq {
                 return;
             }
         }
-        this.f72395a = xMPushService;
+        this.a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fq
     public void a(fa faVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, faVar) == null) {
-            XMPushService xMPushService = this.f72395a;
+            XMPushService xMPushService = this.a;
             xMPushService.a(new XMPushService.c(xMPushService, faVar));
         }
     }
@@ -48,7 +46,7 @@ public class br implements fq {
     public void a(gc gcVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcVar) == null) {
-            XMPushService xMPushService = this.f72395a;
+            XMPushService xMPushService = this.a;
             xMPushService.a(new XMPushService.k(xMPushService, gcVar));
         }
     }

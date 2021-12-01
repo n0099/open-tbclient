@@ -2,7 +2,6 @@ package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +51,7 @@ public class Validate {
 
     public static <T> void exclusiveBetween(T t, T t2, Comparable<T> comparable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, t, t2, comparable) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, t, t2, comparable) == null) {
             if (comparable.compareTo(t) <= 0 || comparable.compareTo(t2) >= 0) {
                 throw new IllegalArgumentException(String.format(DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, comparable, t, t2));
             }
@@ -97,10 +96,10 @@ public class Validate {
         throw new IllegalArgumentException(String.format(DEFAULT_IS_INSTANCE_OF_EX_MESSAGE, objArr));
     }
 
-    public static void isTrue(boolean z, String str, long j) {
+    public static void isTrue(boolean z, String str, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{Boolean.valueOf(z), str, Long.valueOf(j)}) == null) && !z) {
-            throw new IllegalArgumentException(String.format(str, Long.valueOf(j)));
+        if ((interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{Boolean.valueOf(z), str, Long.valueOf(j2)}) == null) && !z) {
+            throw new IllegalArgumentException(String.format(str, Long.valueOf(j2)));
         }
     }
 
@@ -233,7 +232,7 @@ public class Validate {
 
     public static <T> void exclusiveBetween(T t, T t2, Comparable<T> comparable, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, t, t2, comparable, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(65542, null, t, t2, comparable, str, objArr) == null) {
             if (comparable.compareTo(t) <= 0 || comparable.compareTo(t2) >= 0) {
                 throw new IllegalArgumentException(String.format(str, objArr));
             }
@@ -288,20 +287,20 @@ public class Validate {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(65583, null, tArr, i2)) == null) ? (T[]) validIndex(tArr, i2, DEFAULT_VALID_INDEX_ARRAY_EX_MESSAGE, Integer.valueOf(i2)) : (T[]) ((Object[]) invokeLI.objValue);
     }
 
-    public static void exclusiveBetween(long j, long j2, long j3) {
+    public static void exclusiveBetween(long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (j3 <= j || j3 >= j2) {
-                throw new IllegalArgumentException(String.format(DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, Long.valueOf(j3), Long.valueOf(j), Long.valueOf(j2)));
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+            if (j4 <= j2 || j4 >= j3) {
+                throw new IllegalArgumentException(String.format(DEFAULT_EXCLUSIVE_BETWEEN_EX_MESSAGE, Long.valueOf(j4), Long.valueOf(j2), Long.valueOf(j3)));
             }
         }
     }
 
-    public static void inclusiveBetween(long j, long j2, long j3) {
+    public static void inclusiveBetween(long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (j3 < j || j3 > j2) {
-                throw new IllegalArgumentException(String.format(DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, Long.valueOf(j3), Long.valueOf(j), Long.valueOf(j2)));
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+            if (j4 < j2 || j4 > j3) {
+                throw new IllegalArgumentException(String.format(DEFAULT_INCLUSIVE_BETWEEN_EX_MESSAGE, Long.valueOf(j4), Long.valueOf(j2), Long.valueOf(j3)));
             }
         }
     }
@@ -348,19 +347,19 @@ public class Validate {
         return (T) invokeLILL.objValue;
     }
 
-    public static void exclusiveBetween(long j, long j2, long j3, String str) {
+    public static void exclusiveBetween(long j2, long j3, long j4, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
-            if (j3 <= j || j3 >= j2) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str}) == null) {
+            if (j4 <= j2 || j4 >= j3) {
                 throw new IllegalArgumentException(String.format(str, new Object[0]));
             }
         }
     }
 
-    public static void inclusiveBetween(long j, long j2, long j3, String str) {
+    public static void inclusiveBetween(long j2, long j3, long j4, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
-            if (j3 < j || j3 > j2) {
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str}) == null) {
+            if (j4 < j2 || j4 > j3) {
                 throw new IllegalArgumentException(String.format(str, new Object[0]));
             }
         }

@@ -7,7 +7,7 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imrtc.msg.BIMRtcListener;
 import com.baidu.android.imrtc.msg.BIMRtcNotifyMsg;
 import com.baidu.android.imrtc.msg.BIMRtcSendMsg;
@@ -63,7 +63,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BIMRtcManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static int BIM_RTC_ACTION_SYNC_SEQID_MAX = 100;
@@ -599,11 +599,11 @@ public class BIMRtcManager {
                 }
                 jSONObject.put("other_uks", sb.toString());
                 jSONObject.put("cseq_id", RtcConstants.IM_RTC_SDK_SEQ_ID.get());
-                long j = RtcConstants.IM_RTC_SERVER_SEQ_ID;
+                long j2 = RtcConstants.IM_RTC_SERVER_SEQ_ID;
                 if (bIMRtcInfo != null) {
-                    j = bIMRtcInfo instanceof BIMAckRtcInfo ? ((BIMAckRtcInfo) bIMRtcInfo).getAckSeqId() : bIMRtcInfo.getSeq();
+                    j2 = bIMRtcInfo instanceof BIMAckRtcInfo ? ((BIMAckRtcInfo) bIMRtcInfo).getAckSeqId() : bIMRtcInfo.getSeq();
                 }
-                jSONObject.put("sseq_id", j);
+                jSONObject.put("sseq_id", j2);
                 jSONObject.put(ShaderParams.VALUE_TYPE_STEP, str);
                 if (TextUtils.isEmpty(str2)) {
                     str2 = bIMRtcInfo instanceof BIMAckRtcInfo ? "" + ((BIMAckRtcInfo) bIMRtcInfo).getSyncAction() : "-1";
@@ -688,11 +688,11 @@ public class BIMRtcManager {
         }
     }
 
-    public void generateToken(String str, String str2, long j, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+    public void generateToken(String str, String str2, long j2, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j), bIMRtcTokenListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j2), bIMRtcTokenListener}) == null) {
             trackRequest("room/get_rtc_token", "c_client_request", -1, "");
-            BIMRtcGetTokenRequest bIMRtcGetTokenRequest = new BIMRtcGetTokenRequest(mContext, str, str2, j, bIMRtcTokenListener);
+            BIMRtcGetTokenRequest bIMRtcGetTokenRequest = new BIMRtcGetTokenRequest(mContext, str, str2, j2, bIMRtcTokenListener);
             HttpExecutor.getInstance().execute(bIMRtcGetTokenRequest, bIMRtcGetTokenRequest);
         }
     }

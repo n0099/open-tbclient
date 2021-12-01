@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +87,7 @@ public class LoadingBar extends TextView {
     private Rect getRect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             return new Rect(0, 0, (getLeft() + (((getRight() - getLeft()) * this.mProgress) / 100)) - getLeft(), getBottom() - getTop());
         }
         return (Rect) invokeV.objValue;
@@ -96,7 +95,7 @@ public class LoadingBar extends TextView {
 
     private void init(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             this.mHander = new Handler();
             this.mPaint = new Paint();
             initSkin();

@@ -29,7 +29,7 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginManager";
@@ -210,9 +210,9 @@ public class PluginManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             if (this.mInstallThreadPool == null) {
-                this.mInstallThreadPool = e.a(i.a().f62337b.getInstallThreads());
+                this.mInstallThreadPool = e.a(i.a().f54604b.getInstallThreads());
             }
-            e.f62332a.execute(new d());
+            e.a.execute(new d());
         }
     }
 

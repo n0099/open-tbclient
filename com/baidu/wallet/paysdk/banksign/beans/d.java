@@ -22,13 +22,11 @@ import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class d extends BaseBean<QueryResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f60471a;
+    public String a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -48,7 +46,7 @@ public class d extends BaseBean<QueryResponse> {
                 return;
             }
         }
-        this.f60471a = null;
+        this.a = null;
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -85,17 +83,17 @@ public class d extends BaseBean<QueryResponse> {
             }
             String b2 = com.baidu.wallet.paysdk.banksign.a.a.a().b();
             if (!TextUtils.isEmpty(b2)) {
-                this.f60471a = b2;
+                this.a = b2;
             } else if (PayDataCache.getInstance().isFromPreCashier()) {
-                this.f60471a = PayDataCache.getInstance().getSelectedCardNo();
+                this.a = PayDataCache.getInstance().getSelectedCardNo();
             } else {
                 CardData.BondCard selectCard = PayRequestCache.getInstance().getSelectCard();
                 if (selectCard != null) {
-                    this.f60471a = selectCard.account_no;
+                    this.a = selectCard.account_no;
                 }
             }
-            if (!TextUtils.isEmpty(this.f60471a)) {
-                arrayList.add(new RestNameValuePair("selected_card_no", this.f60471a));
+            if (!TextUtils.isEmpty(this.a)) {
+                arrayList.add(new RestNameValuePair("selected_card_no", this.a));
             }
             String sessionId = NetworkBean.SessionCache.getInstance().getSessionId(null);
             if (!TextUtils.isEmpty(sessionId)) {

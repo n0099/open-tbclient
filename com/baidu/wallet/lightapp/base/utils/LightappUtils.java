@@ -4,10 +4,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.apollon.utils.Base64Utils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +20,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class LightappUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +86,7 @@ public final class LightappUtils {
     public static String formatJSONForWebViewCallback(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
                 if (str.contains(IStringUtil.WINDOWS_FOLDER_SEPARATOR)) {
                     str = str.replaceAll("\\\\", "\\\\\\\\");
@@ -99,8 +97,8 @@ public final class LightappUtils {
                 if (str.contains("\"")) {
                     str = str.replaceAll("\"", "\\\\\"");
                 }
-                if (str.contains(Part.CRLF)) {
-                    str = str.replaceAll(Part.CRLF, "\\u000d\\u000a");
+                if (str.contains("\r\n")) {
+                    str = str.replaceAll("\r\n", "\\u000d\\u000a");
                 }
                 if (str.contains(StringUtils.LF)) {
                     str = str.replaceAll(StringUtils.LF, "\\u000a");
@@ -114,7 +112,7 @@ public final class LightappUtils {
 
     public static void onError(ILightappInvokerCallback iLightappInvokerCallback, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, iLightappInvokerCallback, str, str2, str3, str4) == null) || iLightappInvokerCallback == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65542, null, iLightappInvokerCallback, str, str2, str3, str4) == null) || iLightappInvokerCallback == null) {
             return;
         }
         HashMap hashMap = new HashMap();
@@ -148,12 +146,12 @@ public final class LightappUtils {
         }
     }
 
-    public static void runOnUiThread(Runnable runnable, long j) {
+    public static void runOnUiThread(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65546, null, runnable, j) == null) || runnable == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(65546, null, runnable, j2) == null) || runnable == null) {
             return;
         }
-        new Handler(Looper.getMainLooper()).postDelayed(runnable, j);
+        new Handler(Looper.getMainLooper()).postDelayed(runnable, j2);
     }
 
     public static void onError(ILightappInvokerCallback iLightappInvokerCallback, String str, String str2, String str3, Collection<String> collection) {

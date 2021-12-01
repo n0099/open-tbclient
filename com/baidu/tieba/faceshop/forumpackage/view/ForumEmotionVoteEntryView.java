@@ -18,25 +18,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ForumEmotionVoteEntryView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49000e;
+    public int f43959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49001f;
+    public int f43960f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f49002g;
+    public LinearLayout f43961g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49003h;
+    public TextView f43962h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49004i;
+    public View f43963i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumEmotionVoteEntryView(Context context) {
@@ -63,11 +63,11 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.forum_emotion_vote_entry_view, this);
-            this.f49002g = (LinearLayout) findViewById(R.id.forum_vote_avatars);
-            this.f49000e = context.getResources().getDimensionPixelSize(R.dimen.ds40);
-            this.f49001f = context.getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f49003h = (TextView) findViewById(R.id.forum_emotion_vote_title);
-            this.f49004i = findViewById(R.id.forum_vote_bottom_line);
+            this.f43961g = (LinearLayout) findViewById(R.id.forum_vote_avatars);
+            this.f43959e = context.getResources().getDimensionPixelSize(R.dimen.ds40);
+            this.f43960f = context.getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f43962h = (TextView) findViewById(R.id.forum_emotion_vote_title);
+            this.f43963i = findViewById(R.id.forum_vote_bottom_line);
         }
     }
 
@@ -75,16 +75,16 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f49002g, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f49003h, R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f49004i, R.color.common_color_10312);
+            SkinManager.setBackgroundColor(this.f43961g, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f43962h, R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f43963i, R.color.common_color_10312);
         }
     }
 
     public void setAvatarList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f49002g.removeAllViews();
+            this.f43961g.removeAllViews();
             if (list == null || list.isEmpty()) {
                 return;
             }
@@ -94,12 +94,12 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
                     tbImageView.setDrawerType(1);
                     tbImageView.setIsRound(true);
                     tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    int i2 = this.f49000e;
+                    int i2 = this.f43959e;
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
-                    layoutParams.leftMargin = this.f49001f;
+                    layoutParams.leftMargin = this.f43960f;
                     layoutParams.gravity = 17;
                     tbImageView.startLoad(str, 10, false);
-                    this.f49002g.addView(tbImageView, layoutParams);
+                    this.f43961g.addView(tbImageView, layoutParams);
                 }
             }
         }

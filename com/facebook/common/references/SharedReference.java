@@ -2,7 +2,6 @@ package com.facebook.common.references;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
 @VisibleForTesting
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SharedReference<T> {
     public static /* synthetic */ Interceptable $ic;
     @GuardedBy("itself")
@@ -29,7 +28,7 @@ public class SharedReference<T> {
     @GuardedBy("this")
     public T mValue;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class NullReferenceException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +128,7 @@ public class SharedReference<T> {
 
     public static void removeLiveReference(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, obj) == null) {
             synchronized (sLiveObjects) {
                 Integer num = sLiveObjects.get(obj);
                 if (num == null) {
@@ -223,6 +222,6 @@ public class SharedReference<T> {
     public static boolean isValid(SharedReference<?> sharedReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, sharedReference)) == null) ? sharedReference != null && sharedReference.isValid() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, sharedReference)) == null) ? sharedReference != null && sharedReference.isValid() : invokeL.booleanValue;
     }
 }

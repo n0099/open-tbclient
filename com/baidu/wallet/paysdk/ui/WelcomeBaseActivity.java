@@ -17,7 +17,7 @@ import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.dxmpay.wallet.core.SDKBaseActivity;
 import com.dxmpay.wallet.core.utils.NFCUtil;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public abstract class WelcomeBaseActivity extends PayBaseBeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

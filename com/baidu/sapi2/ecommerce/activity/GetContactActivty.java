@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.ecommerce.ContactUtil;
+import com.baidu.pass.ecommerce.common.view.ToastUtil;
 import com.baidu.pass.ecommerce.result.GetContactResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GetContactActivty extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_CODE_CONTACT = 4002;
@@ -86,7 +87,12 @@ public class GetContactActivty extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            startActivityForResult(new Intent("android.intent.action.PICK", ContactsContract.CommonDataKinds.Phone.CONTENT_URI), 4002);
+            try {
+                startActivityForResult(new Intent("android.intent.action.PICK", ContactsContract.CommonDataKinds.Phone.CONTENT_URI), 4002);
+            } catch (Exception unused) {
+                ToastUtil.show("当前设备暂不支持");
+                finish();
+            }
             LogUtil.logActivity(this, "onCreate");
         }
     }

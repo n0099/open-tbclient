@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class AccessibilityUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,7 @@ public class AccessibilityUtils {
             view.postDelayed(new Runnable(view) { // from class: com.baidu.wallet.utils.AccessibilityUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f61808a;
+                public final /* synthetic */ View a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -51,7 +49,7 @@ public class AccessibilityUtils {
                             return;
                         }
                     }
-                    this.f61808a = view;
+                    this.a = view;
                 }
 
                 @Override // java.lang.Runnable
@@ -60,7 +58,7 @@ public class AccessibilityUtils {
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || Build.VERSION.SDK_INT < 14) {
                         return;
                     }
-                    this.f61808a.sendAccessibilityEvent(128);
+                    this.a.sendAccessibilityEvent(128);
                 }
             }, 100L);
         }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -63,10 +63,10 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "type", this.type);
-                q.a(jSONObject, "message", this.message);
-                q.a(jSONObject, "urlPackage", this.urlPackage);
-                q.a(jSONObject, "flag", this.flag);
+                t.a(jSONObject, "type", this.type);
+                t.a(jSONObject, "message", this.message);
+                t.a(jSONObject, "urlPackage", this.urlPackage);
+                t.a(jSONObject, "flag", this.flag);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -109,7 +109,7 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "exceptionEvent", this.exceptionEvent);
+                t.a(jSONObject, "exceptionEvent", this.exceptionEvent);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -158,10 +158,10 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "page", this.page);
-                q.a(jSONObject, "params", this.params);
-                q.a(jSONObject, "identity", this.identity);
-                q.a(jSONObject, "pageType", this.pageType);
+                t.a(jSONObject, "page", this.page);
+                t.a(jSONObject, "params", this.params);
+                t.a(jSONObject, "identity", this.identity);
+                t.a(jSONObject, "pageType", this.pageType);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -201,11 +201,11 @@ public class ReportEvent implements com.kwad.sdk.core.b, Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "clientTimeStamp", this.clientTimeStamp);
-            q.a(jSONObject, "clientIncrementId", this.clientIncrementId);
-            q.a(jSONObject, "sessionId", this.sessionId);
-            q.a(jSONObject, "statPackage", this.statPackage);
-            q.a(jSONObject, "timeZone", this.timeZone);
+            t.a(jSONObject, "clientTimeStamp", this.clientTimeStamp);
+            t.a(jSONObject, "clientIncrementId", this.clientIncrementId);
+            t.a(jSONObject, "sessionId", this.sessionId);
+            t.a(jSONObject, "statPackage", this.statPackage);
+            t.a(jSONObject, "timeZone", this.timeZone);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

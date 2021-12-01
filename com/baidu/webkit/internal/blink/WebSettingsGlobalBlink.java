@@ -50,7 +50,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WebSettingsGlobalBlink implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -290,11 +290,11 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void chromiumNetInit(long j) {
+    public static void chromiumNetInit(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65550, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65550, null, j2) == null) {
             initCronet(getKernelContext());
-            mSoHandler = j;
+            mSoHandler = j2;
             synchronized (BdNetEngine.mSelfLock) {
                 Log.w(LOGTAG, "chromiunNetInit notifyAll");
                 BdNetEngine.mSelfLock.notifyAll();
@@ -2547,14 +2547,14 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void notifyAllOnCronetThreadInitializedListener(long j) {
+    public static void notifyAllOnCronetThreadInitializedListener(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65669, null, j) == null) {
-            Log.i(LOGTAG, "NotifyAllOnCronetThreadInitializedListener. nativeTablePointer=%d, list size=%d", Long.valueOf(j), Integer.valueOf(sOnCronetThreadInitializedListenerList.size()));
+        if (interceptable == null || interceptable.invokeJ(65669, null, j2) == null) {
+            Log.i(LOGTAG, "NotifyAllOnCronetThreadInitializedListener. nativeTablePointer=%d, list size=%d", Long.valueOf(j2), Integer.valueOf(sOnCronetThreadInitializedListenerList.size()));
             synchronized (sOnCronetThreadInitializedListenerList) {
-                sNativeV8FunctionTablePointer = j;
+                sNativeV8FunctionTablePointer = j2;
                 for (ValueCallback<Long> valueCallback : sOnCronetThreadInitializedListenerList) {
-                    valueCallback.onReceiveValue(Long.valueOf(j));
+                    valueCallback.onReceiveValue(Long.valueOf(j2));
                 }
                 sOnCronetThreadInitializedListenerList.clear();
             }
@@ -3309,12 +3309,12 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setMagicFilterModelSize(long j) {
+    public static void setMagicFilterModelSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65723, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65723, null, j2) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("mf_size", j);
+                jSONObject.put("mf_size", j2);
                 jSONObject.put("type", 16391);
                 SessionMonitorEngine.getInstance().recordImmediately("sailor_monitor", jSONObject.toString());
             } catch (Throwable th) {
@@ -4116,15 +4116,15 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void uploadMF30InitInfo(long j, long j2, long j3, long j4, boolean z) {
+    public static void uploadMF30InitInfo(long j2, long j3, long j4, long j5, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65772, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65772, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z)}) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("vm_size_in_smaps", j);
-                jSONObject.put("vm_max_slice", j2);
-                jSONObject.put("vm_size_available", j3);
-                jSONObject.put("pm_size_available", j4);
+                jSONObject.put("vm_size_in_smaps", j2);
+                jSONObject.put("vm_max_slice", j3);
+                jSONObject.put("vm_size_available", j4);
+                jSONObject.put("pm_size_available", j5);
                 jSONObject.put("in_good_state", z ? 1 : 0);
                 jSONObject.put("type", CommandMessage.COMMAND_UNSET_ACCOUNTS);
                 sMf30InitInfo = jSONObject;

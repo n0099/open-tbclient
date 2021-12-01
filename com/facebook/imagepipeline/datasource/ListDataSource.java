@@ -1,7 +1,6 @@
 package com.facebook.imagepipeline.datasource;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ import java.util.List;
 import java.util.concurrent.CancellationException;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ListDataSource<T> extends AbstractDataSource<List<CloseableReference<T>>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +26,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
     public int mFinishedDataSources;
 
     /* renamed from: com.facebook.imagepipeline.datasource.ListDataSource$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +54,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
     public static <T> ListDataSource<T> create(DataSource<CloseableReference<T>>... dataSourceArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, dataSourceArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, dataSourceArr)) == null) {
             Preconditions.checkNotNull(dataSourceArr);
             Preconditions.checkState(dataSourceArr.length > 0);
             ListDataSource<T> listDataSource = new ListDataSource<>(dataSourceArr);
@@ -74,7 +73,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             synchronized (this) {
                 int i2 = this.mFinishedDataSources + 1;
                 this.mFinishedDataSources = i2;
@@ -153,7 +152,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class InternalDataSubscriber implements DataSubscriber<CloseableReference<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

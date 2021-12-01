@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DownloadStatusDeliveryImpl implements DownloadStatusDelivery {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadStatusDelivery";
     public transient /* synthetic */ FieldHolder $fh;
     public Executor mDownloadStatusPoster;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class DownloadStatusDeliveryRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

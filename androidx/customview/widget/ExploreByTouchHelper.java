@@ -20,8 +20,6 @@ import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
 import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import androidx.customview.widget.FocusStrategy;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -257,7 +255,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     private AccessibilityEvent createEventForChild(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i2, i3)) == null) {
             AccessibilityEvent obtain = AccessibilityEvent.obtain(i3);
             AccessibilityNodeInfoCompat obtainAccessibilityNodeInfo = obtainAccessibilityNodeInfo(i2);
             obtain.getText().add(obtainAccessibilityNodeInfo.getText());
@@ -281,7 +279,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     private AccessibilityEvent createEventForHost(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
             AccessibilityEvent obtain = AccessibilityEvent.obtain(i2);
             this.mHost.onInitializeAccessibilityEvent(obtain);
             return obtain;
@@ -456,10 +454,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i2)) == null) {
             if (i2 != 19) {
                 if (i2 != 21) {
-                    if (i2 != 22) {
-                        return IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER;
-                    }
-                    return 66;
+                    return i2 != 22 ? 130 : 66;
                 }
                 return 17;
             }

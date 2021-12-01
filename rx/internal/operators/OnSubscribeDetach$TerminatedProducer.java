@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
+import i.f;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes3.dex */
 public final class OnSubscribeDetach$TerminatedProducer implements f {
@@ -65,10 +65,10 @@ public final class OnSubscribeDetach$TerminatedProducer implements f {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (OnSubscribeDetach$TerminatedProducer[]) $VALUES.clone() : (OnSubscribeDetach$TerminatedProducer[]) invokeV.objValue;
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
         }
     }
 }

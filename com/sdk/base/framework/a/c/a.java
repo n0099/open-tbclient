@@ -10,15 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public a<T> f69019a;
+    public a<T> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f69020b;
+    public boolean f60901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k<?> f69021c;
+    public k<?> f60902c;
 
     public a(T t) {
         Interceptable interceptable = $ic;
@@ -35,26 +33,26 @@ public final class a<T> {
                 return;
             }
         }
-        this.f69020b = false;
+        this.f60901b = false;
         a(t);
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69021c.f69046a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f60902c.a : invokeV.intValue;
     }
 
     public final void a(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             if (t == null) {
-                this.f69021c = null;
+                this.f60902c = null;
             } else if (!(t instanceof k)) {
-                this.f69021c = new k<>(b.f69022a, t);
+                this.f60902c = new k<>(b.a, t);
             } else {
-                this.f69021c = (k) t;
-                this.f69020b = true;
+                this.f60902c = (k) t;
+                this.f60901b = true;
             }
         }
     }
@@ -64,11 +62,11 @@ public final class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ?? r0 = (T) this.f69021c;
+            ?? r0 = (T) this.f60902c;
             if (r0 == 0) {
                 return null;
             }
-            return this.f69020b ? r0 : (T) r0.f69047b;
+            return this.f60901b ? r0 : (T) r0.f60920b;
         }
         return (T) invokeV.objValue;
     }

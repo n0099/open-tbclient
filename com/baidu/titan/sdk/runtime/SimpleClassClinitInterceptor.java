@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SimpleClassClinitInterceptor implements ClassClinitInterceptable {
     @Override // com.baidu.titan.sdk.runtime.ClassClinitInterceptable
     public InterceptResult invokeClinit(int i2, String str) {

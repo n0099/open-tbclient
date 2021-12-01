@@ -54,29 +54,29 @@ public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
             Arrays.fill(jArr, -1L);
             int i4 = 0;
             jArr[0] = 1;
-            long j = 0;
+            long j2 = 0;
             long[] sampleDurations = track.getSampleDurations();
             int length = sampleDurations.length;
             int i5 = 0;
             while (i4 < length) {
-                long j2 = sampleDurations[i4];
-                int timescale = ((int) ((j / track.getTrackMetaData().getTimescale()) / this.fragmentLength)) + i2;
+                long j3 = sampleDurations[i4];
+                int timescale = ((int) ((j2 / track.getTrackMetaData().getTimescale()) / this.fragmentLength)) + i2;
                 if (timescale >= i3) {
                     break;
                 }
                 i5++;
                 jArr[timescale] = i5;
-                j += j2;
+                j2 += j3;
                 i4++;
                 i3 = i3;
                 i2 = 1;
             }
-            long j3 = i5 + i2;
+            long j4 = i5 + i2;
             for (int i6 = i3 - i2; i6 >= 0; i6--) {
                 if (jArr[i6] == -1) {
-                    jArr[i6] = j3;
+                    jArr[i6] = j4;
                 }
-                j3 = jArr[i6];
+                j4 = jArr[i6];
             }
             return jArr;
         }

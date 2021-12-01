@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.upload.action.logpb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,19 +22,19 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class BIMLogPb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imsdk.upload.action.logpb.BIMLogPb$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class LogRequest extends GeneratedMessageLite implements LogRequestOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTH_INFO_FIELD_NUMBER = 3;
@@ -58,7 +57,7 @@ public final class BIMLogPb {
         public Object sign_;
         public long version_;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static final class AuthInfo extends GeneratedMessageLite implements AuthInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic = null;
             public static Parser<AuthInfo> PARSER = null;
@@ -71,7 +70,7 @@ public final class BIMLogPb {
             public int memoizedSerializedSize;
             public Object token_;
 
-            /* loaded from: classes6.dex */
+            /* loaded from: classes8.dex */
             public static final class Builder extends GeneratedMessageLite.Builder<AuthInfo, Builder> implements AuthInfoOrBuilder {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -581,12 +580,12 @@ public final class BIMLogPb {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {Boolean.valueOf(z)};
-                    interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+                    interceptable.invokeUnInit(65541, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
                         int i3 = i2 & 2;
                         newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                        interceptable.invokeInitBody(65541, newInitContext);
                         return;
                     }
                 }
@@ -659,7 +658,7 @@ public final class BIMLogPb {
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public interface AuthInfoOrBuilder extends MessageLiteOrBuilder {
             String getToken();
 
@@ -668,7 +667,7 @@ public final class BIMLogPb {
             boolean hasToken();
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogRequest, Builder> implements LogRequestOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -965,12 +964,12 @@ public final class BIMLogPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setRequestTimestampMs(long j) {
+            public Builder setRequestTimestampMs(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
                     this.bitField0_ |= 8;
-                    this.requestTimestampMs_ = j;
+                    this.requestTimestampMs_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -1032,12 +1031,12 @@ public final class BIMLogPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setVersion(long j) {
+            public Builder setVersion(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j2)) == null) {
                     this.bitField0_ |= 1;
-                    this.version_ = j;
+                    this.version_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -1627,12 +1626,12 @@ public final class BIMLogPb {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
-                interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeUnInit(65541, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                    interceptable.invokeInitBody(65541, newInitContext);
                     return;
                 }
             }
@@ -1726,7 +1725,7 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface LogRequestOrBuilder extends MessageLiteOrBuilder {
         LogRequest.AuthInfo getAuthInfo();
 
@@ -1757,7 +1756,7 @@ public final class BIMLogPb {
         boolean hasVersion();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class LogResponse extends GeneratedMessageLite implements LogResponseOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_FIELD_NUMBER = 1;
@@ -1774,7 +1773,7 @@ public final class BIMLogPb {
         public int memoizedSerializedSize;
         public long pingIntervalMs_;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LogResponse, Builder> implements LogResponseOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1961,12 +1960,12 @@ public final class BIMLogPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setPingIntervalMs(long j) {
+            public Builder setPingIntervalMs(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) {
                     this.bitField0_ |= 4;
-                    this.pingIntervalMs_ = j;
+                    this.pingIntervalMs_ = j2;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -2424,12 +2423,12 @@ public final class BIMLogPb {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
-                interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeUnInit(65541, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                    interceptable.invokeInitBody(65541, newInitContext);
                     return;
                 }
             }
@@ -2506,7 +2505,7 @@ public final class BIMLogPb {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface LogResponseOrBuilder extends MessageLiteOrBuilder {
         int getErrorCode();
 

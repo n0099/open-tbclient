@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class Flow implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<Flow> CREATOR;
@@ -29,7 +29,7 @@ public class Flow implements Parcelable {
     public long mStartTime;
     public boolean mValid;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<Flow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,13 +273,13 @@ public class Flow implements Parcelable {
     }
 
     @Deprecated
-    public final void addEvent(String str, String str2, long j) {
+    public final void addEvent(String str, String str2, long j2) {
         UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
             return;
         }
-        uBCManager.flowAddEventWithDate(this, str, str2, j);
+        uBCManager.flowAddEventWithDate(this, str, str2, j2);
     }
 
     public Flow(String str, int i2, int i3) {

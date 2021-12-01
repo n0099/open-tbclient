@@ -5,13 +5,12 @@ import android.media.MediaCodecList;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.c.l0;
+import h.c.l0;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
@@ -111,7 +110,7 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     private boolean isWhitelisted(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             for (String str2 : this.prefixWhitelist) {
                 if (str.startsWith(str2)) {
                     return true;

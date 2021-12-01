@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadTask;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class DownloadTaskImpl implements DownloadTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +161,7 @@ public abstract class DownloadTaskImpl implements DownloadTask {
 
     private void handleDownloadException(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, downloadException) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, downloadException) == null) {
             switch (downloadException.getErrorCode()) {
                 case 106:
                     synchronized (this.mOnDownloadListener) {
@@ -190,7 +189,7 @@ public abstract class DownloadTaskImpl implements DownloadTask {
 
     private void setHttpHeader(Map<String, String> map, URLConnection uRLConnection) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, map, uRLConnection) == null) || map == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, this, map, uRLConnection) == null) || map == null) {
             return;
         }
         for (String str : map.keySet()) {
@@ -257,7 +256,7 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         }
     }
 
-    public abstract RandomAccessFile getFile(File file, String str, long j) throws IOException;
+    public abstract RandomAccessFile getFile(File file, String str, long j2) throws IOException;
 
     public abstract Map<String, String> getHttpHeaders(ThreadRecord threadRecord);
 
@@ -345,10 +344,10 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                     return;
                 }
                 randomAccessFile.write(bArr, 0, read);
-                long j = read;
-                this.mThreadRecord.setFinished(this.mThreadRecord.getFinished() + j);
+                long j2 = read;
+                this.mThreadRecord.setFinished(this.mThreadRecord.getFinished() + j2);
                 synchronized (this.mOnDownloadListener) {
-                    this.mDownloadInfo.setFinished(this.mDownloadInfo.getFinished() + j);
+                    this.mDownloadInfo.setFinished(this.mDownloadInfo.getFinished() + j2);
                     this.mOnDownloadListener.onDownloadProgress(this.mDownloadInfo.getFinished(), this.mDownloadInfo.getLength());
                 }
             } catch (IOException e2) {

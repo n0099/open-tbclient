@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlErrorBean;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
@@ -35,7 +34,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResponseDataProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +163,7 @@ public class ResponseDataProcess {
 
     private void dispatchFetchResult(List<PackageInfo> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, list) == null) || this.mChannelList == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, list) == null) || this.mChannelList == null) {
             return;
         }
         Map<String, List<PackageInfo>> convertMap = convertMap(list);
@@ -380,7 +379,7 @@ public class ResponseDataProcess {
 
     public static void dispatchFetchError(ErrorInfo errorInfo, List<RequestParams.Channel> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, errorInfo, list) == null) || list == null || errorInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, errorInfo, list) == null) || list == null || errorInfo == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();

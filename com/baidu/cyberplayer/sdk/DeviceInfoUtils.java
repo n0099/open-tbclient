@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,21 +14,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.z;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f37827a;
+    public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37828b;
+    public static String f33904b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -99,7 +98,7 @@ public class DeviceInfoUtils {
                 strArr[0] = String.valueOf(registerReceiver.getIntExtra("health", 1));
                 strArr[1] = String.valueOf(registerReceiver.getIntExtra("status", 1));
                 strArr[2] = String.valueOf(registerReceiver.getIntExtra("level", 0));
-                strArr[3] = String.valueOf(registerReceiver.getIntExtra("scale", 0));
+                strArr[3] = String.valueOf(registerReceiver.getIntExtra(AnimationProperty.SCALE, 0));
                 strArr[4] = String.valueOf(registerReceiver.getIntExtra("voltage", 0));
                 strArr[5] = String.valueOf(registerReceiver.getIntExtra("temperature", 0));
                 strArr[6] = registerReceiver.getStringExtra("technology");
@@ -113,7 +112,7 @@ public class DeviceInfoUtils {
     public static String getBatteryLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             if (registerReceiver != null) {
                 return String.valueOf(registerReceiver.getIntExtra("level", 0));
@@ -126,10 +125,10 @@ public class DeviceInfoUtils {
     public static String getBatteryScale() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             Intent registerReceiver = CyberPlayerManager.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             if (registerReceiver != null) {
-                return String.valueOf(registerReceiver.getIntExtra("scale", 0));
+                return String.valueOf(registerReceiver.getIntExtra(AnimationProperty.SCALE, 0));
             }
             return null;
         }
@@ -307,12 +306,12 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            String str2 = f37827a;
+            String str2 = a;
             if (str2 != null) {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f56920b).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
@@ -324,7 +323,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f37827a = str;
+                a = str;
             }
             return str;
         }
@@ -386,12 +385,12 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String str2 = f37828b;
+            String str2 = f33904b;
             if (str2 != null) {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq").start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f56921c).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
@@ -403,7 +402,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f37828b = str;
+                f33904b = str;
             }
             return str;
         }

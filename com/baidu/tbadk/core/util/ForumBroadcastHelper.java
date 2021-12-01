@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import b.a.e.f.p.a;
-import b.a.r0.m3.j0.n;
+import c.a.d.f.p.a;
+import c.a.r0.t3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ForumBroadcastHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PARMARS_BCAST_CONTENT = "content";

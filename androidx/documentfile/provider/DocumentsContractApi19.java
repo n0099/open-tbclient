@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,14 +98,14 @@ public class DocumentsContractApi19 {
     public static long getFlags(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, uri)) == null) ? queryForLong(context, uri, "flags", 0L) : invokeLL.longValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, uri)) == null) ? queryForLong(context, uri, "flags", 0L) : invokeLL.longValue;
     }
 
     @Nullable
     public static String getName(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, uri)) == null) ? queryForString(context, uri, "_display_name", null) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, uri)) == null) ? queryForString(context, uri, "_display_name", null) : (String) invokeLL.objValue;
     }
 
     @Nullable
@@ -170,17 +169,17 @@ public class DocumentsContractApi19 {
         return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65550, null, context, uri, str, i2)) == null) ? (int) queryForLong(context, uri, str, i2) : invokeLLLI.intValue;
     }
 
-    public static long queryForLong(Context context, Uri uri, String str, long j) {
+    public static long queryForLong(Context context, Uri uri, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, uri, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, uri, str, Long.valueOf(j2)})) == null) {
             Cursor cursor = null;
             try {
                 cursor = context.getContentResolver().query(uri, new String[]{str}, null, null, null);
-                return (!cursor.moveToFirst() || cursor.isNull(0)) ? j : cursor.getLong(0);
+                return (!cursor.moveToFirst() || cursor.isNull(0)) ? j2 : cursor.getLong(0);
             } catch (Exception e2) {
                 String str2 = "Failed query: " + e2;
-                return j;
+                return j2;
             } finally {
                 closeQuietly(cursor);
             }

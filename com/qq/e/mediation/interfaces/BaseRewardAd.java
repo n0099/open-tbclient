@@ -24,9 +24,7 @@ public abstract class BaseRewardAd {
     public static final int EVENT_TYPE_ON_VIDEO_CACHED = 2;
     public static final int EVENT_TYPE_ON_VIDEO_COMPLETE = 7;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public LoadAdParams f69003a;
+    public LoadAdParams a;
 
     public BaseRewardAd(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -43,7 +41,7 @@ public abstract class BaseRewardAd {
                 return;
             }
         }
-        this.f69003a = null;
+        this.a = null;
     }
 
     public int getAdapterPriority() {
@@ -64,7 +62,7 @@ public abstract class BaseRewardAd {
     public LoadAdParams getLoadAdParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f69003a : (LoadAdParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (LoadAdParams) invokeV.objValue;
     }
 
     public int getRewardAdType() {
@@ -87,7 +85,7 @@ public abstract class BaseRewardAd {
     public void setLoadAdParams(LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, loadAdParams) == null) {
-            this.f69003a = loadAdParams;
+            this.a = loadAdParams;
         }
     }
 

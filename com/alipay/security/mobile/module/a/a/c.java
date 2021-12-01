@@ -1,7 +1,6 @@
 package com.alipay.security.mobile.module.a.a;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +14,10 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f35136a = "idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#";
+    public static String a = "idnjfhncnsfuobcnt847y929o449u474w7j3h22aoddc98euk#%&&)*&^%#";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,8 +40,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             String str = new String();
-            for (int i2 = 0; i2 < f35136a.length() - 1; i2 += 4) {
-                str = str + f35136a.charAt(i2);
+            for (int i2 = 0; i2 < a.length() - 1; i2 += 4) {
+                str = str + a.charAt(i2);
             }
             return str;
         }
@@ -110,7 +107,7 @@ public final class c {
         InterceptResult invokeLL;
         byte[] doFinal;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             try {
                 PBEKeySpec a2 = a(str);
                 int length = str2.length() / 2;
@@ -145,7 +142,7 @@ public final class c {
     public static byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             try {
                 StringBuilder sb = new StringBuilder();
                 for (int i2 = 0; i2 < 48; i2 += 2) {

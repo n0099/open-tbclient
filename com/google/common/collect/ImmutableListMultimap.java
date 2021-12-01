@@ -1,12 +1,11 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.c.d1;
-import b.h.d.c.o1;
-import b.h.d.c.p0;
-import b.h.d.c.q0;
+import c.i.d.c.d1;
+import c.i.d.c.o1;
+import c.i.d.c.p0;
+import c.i.d.c.q0;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,14 +22,14 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> implements p0<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
     public transient ImmutableListMultimap<V, K> inverse;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class a<K, V> extends ImmutableMultimap.c<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,11 +69,11 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (ImmutableListMultimap) super.a() : (ImmutableListMultimap) invokeV.objValue;
         }
 
-        public a<K, V> g(K k, V v) {
+        public a<K, V> g(K k2, V v) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
-                super.c(k, v);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k2, v)) == null) {
+                super.c(k2, v);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -180,7 +179,7 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
     private ImmutableListMultimap<V, K> invert() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             a builder = builder();
             o1 it = entries().iterator();
             while (it.hasNext()) {
@@ -197,7 +196,7 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
     public static <K, V> ImmutableListMultimap<K, V> of() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? EmptyImmutableListMultimap.INSTANCE : (ImmutableListMultimap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? EmptyImmutableListMultimap.INSTANCE : (ImmutableListMultimap) invokeV.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.google.common.collect.ImmutableMap$b */
@@ -225,8 +224,8 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
                     }
                 }
                 try {
-                    ImmutableMultimap.d.f64261a.b(this, builder.a());
-                    ImmutableMultimap.d.f64262b.a(this, i2);
+                    ImmutableMultimap.d.a.b(this, builder.a());
+                    ImmutableMultimap.d.f56207b.a(this, i2);
                     return;
                 } catch (IllegalArgumentException e2) {
                     throw ((InvalidObjectException) new InvalidObjectException(e2.getMessage()).initCause(e2));
@@ -246,25 +245,25 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, b.h.d.c.q0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
     public /* bridge */ /* synthetic */ ImmutableCollection get(Object obj) {
         return get((ImmutableListMultimap<K, V>) obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, b.h.d.c.c, b.h.d.c.q0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     @Deprecated
     public /* bridge */ /* synthetic */ ImmutableCollection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableListMultimap<K, V>) obj, iterable);
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v) {
+    public static <K, V> ImmutableListMultimap<K, V> of(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, k, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, k2, v)) == null) {
             a builder = builder();
-            builder.g(k, v);
+            builder.g(k2, v);
             return builder.f();
         }
         return (ImmutableListMultimap) invokeLL.objValue;
@@ -272,7 +271,7 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, b.h.d.c.q0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
     public /* bridge */ /* synthetic */ Collection get(Object obj) {
         return get((ImmutableListMultimap<K, V>) obj);
     }
@@ -296,7 +295,7 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, b.h.d.c.c, b.h.d.c.q0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     @Deprecated
     public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableListMultimap<K, V>) obj, iterable);
@@ -304,32 +303,32 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, b.h.d.c.q0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
     public /* bridge */ /* synthetic */ List get(Object obj) {
         return get((ImmutableListMultimap<K, V>) obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, b.h.d.c.c, b.h.d.c.q0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     @Deprecated
     public /* bridge */ /* synthetic */ List replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableListMultimap<K, V>) obj, iterable);
     }
 
-    @Override // com.google.common.collect.ImmutableMultimap, b.h.d.c.q0
-    public ImmutableList<V> get(K k) {
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
+    public ImmutableList<V> get(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
-            ImmutableList<V> immutableList = (ImmutableList) this.map.get(k);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k2)) == null) {
+            ImmutableList<V> immutableList = (ImmutableList) this.map.get(k2);
             return immutableList == null ? ImmutableList.of() : immutableList;
         }
         return (ImmutableList) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMultimap, b.h.d.c.q0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
     @Deprecated
     public ImmutableList<V> removeAll(Object obj) {
         InterceptResult invokeL;
@@ -340,24 +339,24 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
         return (ImmutableList) invokeL.objValue;
     }
 
-    @Override // com.google.common.collect.ImmutableMultimap, b.h.d.c.c, b.h.d.c.q0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     @Deprecated
-    public ImmutableList<V> replaceValues(K k, Iterable<? extends V> iterable) {
+    public ImmutableList<V> replaceValues(K k2, Iterable<? extends V> iterable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k, iterable)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, k2, iterable)) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableList) invokeLL.objValue;
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v, K k2, V v2) {
+    public static <K, V> ImmutableListMultimap<K, V> of(K k2, V v, K k3, V v2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65544, null, k, v, k2, v2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65544, null, k2, v, k3, v2)) == null) {
             a builder = builder();
-            builder.g(k, v);
-            builder.g(k2, v2);
+            builder.g(k2, v);
+            builder.g(k3, v2);
             return builder.f();
         }
         return (ImmutableListMultimap) invokeLLLL.objValue;
@@ -374,43 +373,43 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
         return (ImmutableListMultimap) invokeL.objValue;
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
+    public static <K, V> ImmutableListMultimap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{k, v, k2, v2, k3, v3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{k2, v, k3, v2, k4, v3})) == null) {
             a builder = builder();
-            builder.g(k, v);
-            builder.g(k2, v2);
-            builder.g(k3, v3);
+            builder.g(k2, v);
+            builder.g(k3, v2);
+            builder.g(k4, v3);
             return builder.f();
         }
         return (ImmutableListMultimap) invokeCommon.objValue;
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
+    public static <K, V> ImmutableListMultimap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3, K k5, V v4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{k2, v, k3, v2, k4, v3, k5, v4})) == null) {
             a builder = builder();
-            builder.g(k, v);
-            builder.g(k2, v2);
-            builder.g(k3, v3);
-            builder.g(k4, v4);
+            builder.g(k2, v);
+            builder.g(k3, v2);
+            builder.g(k4, v3);
+            builder.g(k5, v4);
             return builder.f();
         }
         return (ImmutableListMultimap) invokeCommon.objValue;
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+    public static <K, V> ImmutableListMultimap<K, V> of(K k2, V v, K k3, V v2, K k4, V v3, K k5, V v4, K k6, V v5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{k2, v, k3, v2, k4, v3, k5, v4, k6, v5})) == null) {
             a builder = builder();
-            builder.g(k, v);
-            builder.g(k2, v2);
-            builder.g(k3, v3);
-            builder.g(k4, v4);
-            builder.g(k5, v5);
+            builder.g(k2, v);
+            builder.g(k3, v2);
+            builder.g(k4, v3);
+            builder.g(k5, v4);
+            builder.g(k6, v5);
             return builder.f();
         }
         return (ImmutableListMultimap) invokeCommon.objValue;

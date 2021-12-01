@@ -10,12 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ADEvent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final int f68870a;
+    public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object[] f68871b;
+    public final Object[] f60792b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ADEvent(int i2) {
@@ -53,15 +51,15 @@ public class ADEvent {
                 return;
             }
         }
-        this.f68870a = i2;
-        this.f68871b = objArr;
+        this.a = i2;
+        this.f60792b = objArr;
     }
 
     public Object[] getParas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Object[] objArr = this.f68871b;
+            Object[] objArr = this.f60792b;
             return objArr == null ? new Object[0] : objArr;
         }
         return (Object[]) invokeV.objValue;
@@ -70,6 +68,6 @@ public class ADEvent {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68870a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 }

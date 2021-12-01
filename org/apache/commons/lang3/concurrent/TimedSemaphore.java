@@ -31,13 +31,13 @@ public class TimedSemaphore {
     public final TimeUnit unit;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TimedSemaphore(long j, TimeUnit timeUnit, int i2) {
-        this(null, j, timeUnit, i2);
+    public TimedSemaphore(long j2, TimeUnit timeUnit, int i2) {
+        this(null, j2, timeUnit, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {Long.valueOf(j), timeUnit, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j2), timeUnit, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -280,12 +280,12 @@ public class TimedSemaphore {
         return invokeV.booleanValue;
     }
 
-    public TimedSemaphore(ScheduledExecutorService scheduledExecutorService, long j, TimeUnit timeUnit, int i2) {
+    public TimedSemaphore(ScheduledExecutorService scheduledExecutorService, long j2, TimeUnit timeUnit, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {scheduledExecutorService, Long.valueOf(j), timeUnit, Integer.valueOf(i2)};
+            Object[] objArr = {scheduledExecutorService, Long.valueOf(j2), timeUnit, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -295,8 +295,8 @@ public class TimedSemaphore {
                 return;
             }
         }
-        Validate.inclusiveBetween(1L, Long.MAX_VALUE, j, "Time period must be greater than 0!");
-        this.period = j;
+        Validate.inclusiveBetween(1L, Long.MAX_VALUE, j2, "Time period must be greater than 0!");
+        this.period = j2;
         this.unit = timeUnit;
         if (scheduledExecutorService != null) {
             this.executorService = scheduledExecutorService;

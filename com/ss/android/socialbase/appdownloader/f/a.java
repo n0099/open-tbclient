@@ -6,7 +6,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,9 +19,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, g.a> f69915a;
+    public static final HashMap<String, g.a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +35,7 @@ public class a {
                 return;
             }
         }
-        f69915a = new HashMap<>();
+        a = new HashMap<>();
     }
 
     public static boolean a(JSONArray jSONArray, String str) {
@@ -98,7 +95,7 @@ public class a {
     public static boolean a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
             if (jSONObject == null) {
                 return false;
             }
@@ -165,15 +162,15 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (f69915a.containsKey(str)) {
-                g.a aVar = f69915a.get(str);
+            if (a.containsKey(str)) {
+                g.a aVar = a.get(str);
                 if (aVar != null) {
                     return aVar;
                 }
                 return null;
             }
             g.a b2 = g.b(str);
-            f69915a.put(str, b2);
+            a.put(str, b2);
             if (b2 != null) {
                 return b2;
             }
@@ -238,7 +235,7 @@ public class a {
     public static boolean a(JSONObject jSONObject, Context context, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject, context, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, context, str)) == null) {
             if (!TextUtils.isEmpty(str) && context != null && jSONObject != null) {
                 String optString = jSONObject.optString("s");
                 try {

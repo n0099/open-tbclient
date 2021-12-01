@@ -10,18 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HostPartUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Class fragmentActivityClazz;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final HostPartUtils f62414a;
+        public static final HostPartUtils a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,7 +36,7 @@ public class HostPartUtils {
                 }
             }
             System.out.println("HostPartUtils SingletonHolder");
-            f62414a = new HostPartUtils();
+            a = new HostPartUtils();
         }
     }
 
@@ -72,7 +70,7 @@ public class HostPartUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             System.out.println("HostPartUtils getFragmentActivityClass");
-            return a.f62414a.fragmentActivityClazz;
+            return a.a.fragmentActivityClazz;
         }
         return (Class) invokeV.objValue;
     }

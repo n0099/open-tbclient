@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,7 +106,7 @@ public class Conversion {
     public static char binaryToHexDigit(boolean[] zArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, zArr)) == null) ? binaryToHexDigit(zArr, 0) : invokeL.charValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, zArr)) == null) ? binaryToHexDigit(zArr, 0) : invokeL.charValue;
     }
 
     public static char binaryToHexDigitMsb0_4bits(boolean[] zArr) {
@@ -135,19 +134,19 @@ public class Conversion {
         return invokeCommon.intValue;
     }
 
-    public static long binaryToLong(boolean[] zArr, int i2, long j, int i3, int i4) {
+    public static long binaryToLong(boolean[] zArr, int i2, long j2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{zArr, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{zArr, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if ((zArr.length == 0 && i2 == 0) || i4 == 0) {
-                return j;
+                return j2;
             }
             if ((i4 - 1) + i3 < 64) {
                 for (int i5 = 0; i5 < i4; i5++) {
                     int i6 = i5 + i3;
-                    j = (j & (~(1 << i6))) | ((zArr[i5 + i2] ? 1L : 0L) << i6);
+                    j2 = (j2 & (~(1 << i6))) | ((zArr[i5 + i2] ? 1L : 0L) << i6);
                 }
-                return j;
+                return j2;
             }
             throw new IllegalArgumentException("nBools-1+dstPos is greather or equal to than 64");
         }
@@ -192,19 +191,19 @@ public class Conversion {
         return invokeCommon.intValue;
     }
 
-    public static long byteArrayToLong(byte[] bArr, int i2, long j, int i3, int i4) {
+    public static long byteArrayToLong(byte[] bArr, int i2, long j2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{bArr, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if ((bArr.length == 0 && i2 == 0) || i4 == 0) {
-                return j;
+                return j2;
             }
             if (((i4 - 1) * 8) + i3 < 64) {
                 for (int i5 = 0; i5 < i4; i5++) {
                     int i6 = (i5 * 8) + i3;
-                    j = (j & (~(255 << i6))) | ((bArr[i5 + i2] & 255) << i6);
+                    j2 = (j2 & (~(255 << i6))) | ((bArr[i5 + i2] & 255) << i6);
                 }
-                return j;
+                return j2;
             }
             throw new IllegalArgumentException("(nBytes-1)*8+dstPos is greather or equal to than 64");
         }
@@ -549,19 +548,19 @@ public class Conversion {
         return invokeCommon.intValue;
     }
 
-    public static long hexToLong(String str, int i2, long j, int i3, int i4) {
+    public static long hexToLong(String str, int i2, long j2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (i4 == 0) {
-                return j;
+                return j2;
             }
             if (((i4 - 1) * 4) + i3 < 64) {
                 for (int i5 = 0; i5 < i4; i5++) {
                     int i6 = (i5 * 4) + i3;
-                    j = (j & (~(15 << i6))) | ((hexDigitToInt(str.charAt(i5 + i2)) & 15) << i6);
+                    j2 = (j2 & (~(15 << i6))) | ((hexDigitToInt(str.charAt(i5 + i2)) & 15) << i6);
                 }
-                return j;
+                return j2;
             }
             throw new IllegalArgumentException("(nHexs-1)*4+dstPos is greather or equal to than 64");
         }
@@ -587,19 +586,19 @@ public class Conversion {
         return invokeCommon.shortValue;
     }
 
-    public static long intArrayToLong(int[] iArr, int i2, long j, int i3, int i4) {
+    public static long intArrayToLong(int[] iArr, int i2, long j2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65562, null, new Object[]{iArr, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65562, null, new Object[]{iArr, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if ((iArr.length == 0 && i2 == 0) || i4 == 0) {
-                return j;
+                return j2;
             }
             if (((i4 - 1) * 32) + i3 < 64) {
                 for (int i5 = 0; i5 < i4; i5++) {
                     int i6 = (i5 * 32) + i3;
-                    j = (j & (~(4294967295 << i6))) | ((iArr[i5 + i2] & 4294967295L) << i6);
+                    j2 = (j2 & (~(4294967295 << i6))) | ((iArr[i5 + i2] & 4294967295L) << i6);
                 }
-                return j;
+                return j2;
             }
             throw new IllegalArgumentException("(nInts-1)*32+dstPos is greather or equal to than 64");
         }
@@ -749,16 +748,16 @@ public class Conversion {
         return (short[]) invokeCommon.objValue;
     }
 
-    public static boolean[] longToBinary(long j, int i2, boolean[] zArr, int i3, int i4) {
+    public static boolean[] longToBinary(long j2, int i2, boolean[] zArr, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65569, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), zArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65569, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), zArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (i4 == 0) {
                 return zArr;
             }
             if ((i4 - 1) + i2 < 64) {
                 for (int i5 = 0; i5 < i4; i5++) {
-                    zArr[i3 + i5] = (1 & (j >> (i5 + i2))) != 0;
+                    zArr[i3 + i5] = (1 & (j2 >> (i5 + i2))) != 0;
                 }
                 return zArr;
             }
@@ -767,16 +766,16 @@ public class Conversion {
         return (boolean[]) invokeCommon.objValue;
     }
 
-    public static byte[] longToByteArray(long j, int i2, byte[] bArr, int i3, int i4) {
+    public static byte[] longToByteArray(long j2, int i2, byte[] bArr, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (i4 == 0) {
                 return bArr;
             }
             if (((i4 - 1) * 8) + i2 < 64) {
                 for (int i5 = 0; i5 < i4; i5++) {
-                    bArr[i3 + i5] = (byte) (255 & (j >> ((i5 * 8) + i2)));
+                    bArr[i3 + i5] = (byte) (255 & (j2 >> ((i5 * 8) + i2)));
                 }
                 return bArr;
             }
@@ -785,10 +784,10 @@ public class Conversion {
         return (byte[]) invokeCommon.objValue;
     }
 
-    public static String longToHex(long j, int i2, String str, int i3, int i4) {
+    public static String longToHex(long j2, int i2, String str, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (i4 == 0) {
                 return str;
             }
@@ -796,7 +795,7 @@ public class Conversion {
                 StringBuilder sb = new StringBuilder(str);
                 int length = sb.length();
                 for (int i5 = 0; i5 < i4; i5++) {
-                    int i6 = (int) ((j >> ((i5 * 4) + i2)) & 15);
+                    int i6 = (int) ((j2 >> ((i5 * 4) + i2)) & 15);
                     int i7 = i3 + i5;
                     if (i7 == length) {
                         length++;
@@ -812,16 +811,16 @@ public class Conversion {
         return (String) invokeCommon.objValue;
     }
 
-    public static int[] longToIntArray(long j, int i2, int[] iArr, int i3, int i4) {
+    public static int[] longToIntArray(long j2, int i2, int[] iArr, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), iArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), iArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (i4 == 0) {
                 return iArr;
             }
             if (((i4 - 1) * 32) + i2 < 64) {
                 for (int i5 = 0; i5 < i4; i5++) {
-                    iArr[i3 + i5] = (int) ((-1) & (j >> ((i5 * 32) + i2)));
+                    iArr[i3 + i5] = (int) ((-1) & (j2 >> ((i5 * 32) + i2)));
                 }
                 return iArr;
             }
@@ -830,16 +829,16 @@ public class Conversion {
         return (int[]) invokeCommon.objValue;
     }
 
-    public static short[] longToShortArray(long j, int i2, short[] sArr, int i3, int i4) {
+    public static short[] longToShortArray(long j2, int i2, short[] sArr, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2), sArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), sArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (i4 == 0) {
                 return sArr;
             }
             if (((i4 - 1) * 16) + i2 < 64) {
                 for (int i5 = 0; i5 < i4; i5++) {
-                    sArr[i3 + i5] = (short) (WebSocketProtocol.PAYLOAD_SHORT_MAX & (j >> ((i5 * 16) + i2)));
+                    sArr[i3 + i5] = (short) (WebSocketProtocol.PAYLOAD_SHORT_MAX & (j2 >> ((i5 * 16) + i2)));
                 }
                 return sArr;
             }
@@ -867,19 +866,19 @@ public class Conversion {
         return invokeCommon.intValue;
     }
 
-    public static long shortArrayToLong(short[] sArr, int i2, long j, int i3, int i4) {
+    public static long shortArrayToLong(short[] sArr, int i2, long j2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65575, null, new Object[]{sArr, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65575, null, new Object[]{sArr, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if ((sArr.length == 0 && i2 == 0) || i4 == 0) {
-                return j;
+                return j2;
             }
             if (((i4 - 1) * 16) + i3 < 64) {
                 for (int i5 = 0; i5 < i4; i5++) {
                     int i6 = (i5 * 16) + i3;
-                    j = (j & (~(WebSocketProtocol.PAYLOAD_SHORT_MAX << i6))) | ((sArr[i5 + i2] & WebSocketProtocol.PAYLOAD_SHORT_MAX) << i6);
+                    j2 = (j2 & (~(WebSocketProtocol.PAYLOAD_SHORT_MAX << i6))) | ((sArr[i5 + i2] & WebSocketProtocol.PAYLOAD_SHORT_MAX) << i6);
                 }
-                return j;
+                return j2;
             }
             throw new IllegalArgumentException("(nShorts-1)*16+dstPos is greather or equal to than 64");
         }
@@ -992,7 +991,7 @@ public class Conversion {
     public static char binaryToHexDigit(boolean[] zArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, zArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, zArr, i2)) == null) {
             if (zArr.length != 0) {
                 int i3 = i2 + 3;
                 if (zArr.length > i3 && zArr[i3]) {

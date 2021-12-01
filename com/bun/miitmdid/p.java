@@ -9,12 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.opendeviceidlibrary.OpenDeviceId;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class p extends l implements OpenDeviceId.CallBack<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context j;
-    public OpenDeviceId k;
+
+    /* renamed from: j  reason: collision with root package name */
+    public Context f54435j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public OpenDeviceId f54436k;
 
     public p(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +35,7 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
                 return;
             }
         }
-        this.j = context;
+        this.f54435j = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,21 +49,21 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
                 return;
             }
             if (str.equals("Deviceid Service Connected")) {
-                this.f62092f = true;
+                this.f54418f = true;
                 try {
-                    this.f62089c = openDeviceId.getOAID();
-                    this.f62091e = openDeviceId.getAAID();
-                    this.f62090d = openDeviceId.getVAID();
+                    this.f54415c = openDeviceId.getOAID();
+                    this.f54417e = openDeviceId.getAAID();
+                    this.f54416d = openDeviceId.getVAID();
                 } catch (Exception e2) {
                     e0.b("LenovoProvider", "serviceConnected: Exception: " + e2.getMessage());
                 }
-                this.f62093g = false;
-                a(this.f62089c, this.f62090d, this.f62091e, this.f62092f, this.f62093g);
+                this.f54419g = false;
+                a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
             }
             e0.d("LenovoProvider", "serviceConnected error: " + str);
             a();
-            this.f62093g = false;
-            a(this.f62089c, this.f62090d, this.f62091e, this.f62092f, this.f62093g);
+            this.f54419g = false;
+            a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
         }
     }
 
@@ -69,25 +73,25 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (isSync()) {
                 e0.c("LenovoProvider", "doStart: sync, unsupported");
-                this.f62089c = "";
-                this.f62090d = "";
-                this.f62091e = "";
-                this.f62092f = false;
-                this.f62093g = false;
+                this.f54415c = "";
+                this.f54416d = "";
+                this.f54417e = "";
+                this.f54418f = false;
+                this.f54419g = false;
                 a("", "", "", false, false);
                 return;
             }
             e0.c("LenovoProvider", "doStart: async");
-            this.k = new OpenDeviceId();
-            this.j = a(this.j);
+            this.f54436k = new OpenDeviceId();
+            this.f54435j = a(this.f54435j);
             try {
                 c();
-                this.k.init(this.j, this);
+                this.f54436k.init(this.f54435j, this);
                 b();
             } catch (Exception e2) {
                 e0.b("LenovoProvider", "doStart: Exception: " + e2.getMessage());
                 a();
-                a(this.f62089c, this.f62090d, this.f62091e, this.f62092f, this.f62093g);
+                a(this.f54415c, this.f54416d, this.f54417e, this.f54418f, this.f54419g);
             }
         }
     }
@@ -103,7 +107,7 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
     public void shutDown() {
         OpenDeviceId openDeviceId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || isSync() || (openDeviceId = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || isSync() || (openDeviceId = this.f54436k) == null) {
             return;
         }
         openDeviceId.shutdown();

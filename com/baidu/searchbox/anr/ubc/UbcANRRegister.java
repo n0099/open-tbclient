@@ -1,7 +1,6 @@
 package com.baidu.searchbox.anr.ubc;
 
 import android.content.Context;
-import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -26,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UbcANRRegister implements IANRRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static String KEY_ANR_ACTIVE_UPLOAD = "key_anr_active_upload";
@@ -67,7 +66,7 @@ public class UbcANRRegister implements IANRRegister {
                 return;
             }
         }
-        this.separator = Part.CRLF;
+        this.separator = "\r\n";
     }
 
     @Override // com.baidu.searchbox.anr.ioc.IANRRegister

@@ -4,14 +4,13 @@ import android.content.Context;
 import android.os.Environment;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOWNLOAD_DIR = "UgcDownload";
@@ -64,6 +63,6 @@ public class FileUtils {
     public static boolean isSDMounted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
     }
 }

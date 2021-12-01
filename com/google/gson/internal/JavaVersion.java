@@ -1,7 +1,6 @@
 package com.google.gson.internal;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class JavaVersion {
     public static /* synthetic */ Interceptable $ic;
     public static final int majorJavaVersion;
@@ -75,7 +74,7 @@ public final class JavaVersion {
     public static int getMajorJavaVersion(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             int parseDotted = parseDotted(str);
             if (parseDotted == -1) {
                 parseDotted = extractBeginningInt(str);
@@ -91,7 +90,7 @@ public final class JavaVersion {
     public static boolean isJava9OrLater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? majorJavaVersion >= 9 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? majorJavaVersion >= 9 : invokeV.booleanValue;
     }
 
     public static int parseDotted(String str) {

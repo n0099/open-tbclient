@@ -4,18 +4,17 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import b.a.e.a.h;
-import b.a.e.f.p.l;
-import b.a.q0.h0.a;
-import b.a.q0.h0.b;
-import b.a.q0.h0.c;
-import b.a.q0.h0.d;
+import c.a.d.a.h;
+import c.a.d.f.p.l;
+import c.a.q0.i0.a;
+import c.a.q0.i0.b;
+import c.a.q0.i0.c;
+import c.a.q0.i0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.view.MessageRedDotView;
@@ -23,6 +22,7 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.switchs.FlutterMyTabEnableSwitch;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
+import com.baidu.tieba.flutter.base.view.FlutterBaseFragment;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,8 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.FlutterBoost;
-import com.idlefish.flutterboost.containers.FlutterFragment;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterDelegateStatic extends b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERSON_INFO_TAB_MIDDLE_REDDOT_DISTANCE = 10;
@@ -75,7 +74,7 @@ public class FlutterDelegateStatic extends b {
 
     public static void registerFlutterFragment() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             CustomMessageListener customMessageListener = new CustomMessageListener(2007002) { // from class: com.baidu.tieba.flutter.base.view.FlutterDelegateStatic.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +118,7 @@ public class FlutterDelegateStatic extends b {
 
     public static void registerInitEngine() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921618) { // from class: com.baidu.tieba.flutter.base.view.FlutterDelegateStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -156,29 +155,26 @@ public class FlutterDelegateStatic extends b {
         }
     }
 
-    @Override // b.a.q0.h0.b
+    @Override // c.a.q0.i0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            FlutterFragment.NewEngineFragmentBuilder newEngineFragmentBuilder = new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class);
-            newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_MYTAB);
-            newEngineFragmentBuilder.isTabHost(true);
-            cVar.f13359a = newEngineFragmentBuilder.build();
+            cVar.a = new FlutterBaseFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).url(OpenFlutter.FRAGMENT_MYTAB).isTabHost(true).build();
             isInited = false;
-            cVar.f13363e = 8;
+            cVar.f12326e = 8;
             Resources resources = h.a().getResources();
-            cVar.f13360b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f13364f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f13367i = c.m;
-            cVar.f13366h = b.a.q0.h0.e.c.d().c("person");
+            cVar.f12323b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f12327f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f12330i = c.m;
+            cVar.f12329h = c.a.q0.i0.e.c.d().c("person");
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // b.a.q0.h0.b
+    @Override // c.a.q0.i0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -186,11 +182,11 @@ public class FlutterDelegateStatic extends b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f46828f = this.mIndicator;
-            aVar.f46825c = l.e(context, 10.0f);
-            aVar.f46823a = this.tipView;
+            aVar.f41872f = this.mIndicator;
+            aVar.f41869c = l.d(context, 10.0f);
+            aVar.a = this.tipView;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean g2 = b.a.q0.s.e0.b.j().g("key_feedback_tip_tab_show", false);
+            boolean g2 = c.a.q0.s.e0.b.j().g("key_feedback_tip_tab_show", false);
             if (!this.isNew.booleanValue() && !g2) {
                 this.tipView.setVisibility(8);
             } else {
@@ -202,14 +198,14 @@ public class FlutterDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // b.a.q0.h0.b
+    @Override // c.a.q0.i0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.PERSON_TAB_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // b.a.q0.h0.b
+    @Override // c.a.q0.i0.b
     public void onAdd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -244,7 +240,7 @@ public class FlutterDelegateStatic extends b {
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof a)) {
-                        this.this$0.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).f13358a);
+                        this.this$0.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).a);
                         if (this.this$0.isNew.booleanValue()) {
                             this.this$0.tipView.refresh(0);
                             this.this$0.tipView.setVisibility(0);
@@ -260,7 +256,7 @@ public class FlutterDelegateStatic extends b {
         }
     }
 
-    @Override // b.a.q0.h0.b
+    @Override // c.a.q0.i0.b
     public void onRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

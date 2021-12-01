@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DBTaskManager {
     public static /* synthetic */ Interceptable $ic;
     public static DBTaskManager mInstance;

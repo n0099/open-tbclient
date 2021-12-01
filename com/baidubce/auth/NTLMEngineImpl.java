@@ -3,8 +3,6 @@ package com.baidubce.auth;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.widget.player.PlayerEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.RC4;
+import com.kuaishou.weapon.un.w0;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -24,7 +23,7 @@ import java.util.Locale;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class NTLMEngineImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Charset DEFAULT_CHARSET;
@@ -49,7 +48,7 @@ public final class NTLMEngineImpl {
     public static final Charset UNICODE_LITTLE_UNMARKED;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class HMACMD5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +126,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class MD4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,7 +342,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class NTLMEngineException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -390,7 +389,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Type2Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -474,7 +473,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Type3Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -597,7 +596,7 @@ public final class NTLMEngineImpl {
                 addULong(i6);
                 int i7 = this.type2Flags;
                 addULong((i7 & 4) | (i7 & 128) | (i7 & 512) | (524288 & i7) | 33554432 | (32768 & i7) | (i7 & 32) | (i7 & 16) | (536870912 & i7) | (Integer.MIN_VALUE & i7) | (1073741824 & i7) | (8388608 & i7) | (i7 & 1));
-                addUShort(PlayerEvent.PLAY_LOADING_START);
+                addUShort(w0.F);
                 addULong(2600);
                 addUShort(3840);
                 addBytes(this.lmResp);
@@ -680,7 +679,7 @@ public final class NTLMEngineImpl {
     public static byte[] RC4(byte[] bArr, byte[] bArr2) throws NTLMEngineException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
             try {
                 Cipher cipher = Cipher.getInstance(RC4.LOGTAG);
                 cipher.init(1, new SecretKeySpec(bArr2, RC4.LOGTAG));
@@ -1050,7 +1049,7 @@ public final class NTLMEngineImpl {
         return (String) invokeLLLLL.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1233,7 +1232,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Type1Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1278,7 +1277,7 @@ public final class NTLMEngineImpl {
                 addUShort(0);
                 addUShort(0);
                 addULong(40);
-                addUShort(PlayerEvent.PLAY_LOADING_START);
+                addUShort(w0.F);
                 addULong(2600);
                 addUShort(3840);
                 byte[] bArr = this.hostBytes;
@@ -1312,7 +1311,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class CipherGen {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

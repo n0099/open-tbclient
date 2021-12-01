@@ -1,7 +1,7 @@
 package com.baidu.searchbox.logsystem.logsys;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class LogType {
     public static final /* synthetic */ LogType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +35,7 @@ public final class LogType {
         }
         JAVA_CRASH = new LogType("JAVA_CRASH", 0, "$JAVA_CRASH$");
         NATIVE_CRASH = new LogType("NATIVE_CRASH", 1, "$NATIVE_CRASH$");
-        LogType logType = new LogType("NONE", 2, "$NONE$");
+        LogType logType = new LogType(PolyActivity.NONE_PANEL_TYPE, 2, "$NONE$");
         NONE = logType;
         $VALUES = new LogType[]{JAVA_CRASH, NATIVE_CRASH, logType};
     }
@@ -94,7 +94,7 @@ public final class LogType {
     public static LogType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (LogType[]) $VALUES.clone() : (LogType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (LogType[]) $VALUES.clone() : (LogType[]) invokeV.objValue;
     }
 
     public String getTypeName() {

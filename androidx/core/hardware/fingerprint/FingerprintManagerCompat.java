@@ -11,7 +11,6 @@ import androidx.annotation.RequiresPermission;
 import androidx.core.os.CancellationSignal;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -232,7 +231,7 @@ public class FingerprintManagerCompat {
     public static FingerprintManager.CryptoObject wrapCryptoObject(CryptoObject cryptoObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cryptoObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cryptoObject)) == null) {
             if (cryptoObject == null) {
                 return null;
             }

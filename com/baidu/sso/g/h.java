@@ -3,26 +3,26 @@ package com.baidu.sso.g;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import b.a.n0.l.c;
+import c.a.n0.l.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44176e;
+        public final /* synthetic */ String f39238e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f44177f;
+        public final /* synthetic */ Context f39239f;
 
         public a(h hVar, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class h extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f44176e = str;
-            this.f44177f = context;
+            this.f39238e = str;
+            this.f39239f = context;
         }
 
         @Override // java.lang.Runnable
@@ -48,10 +48,10 @@ public class h extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if ("sso_action_t_m".equals(this.f44176e)) {
-                        c.m(this.f44177f);
-                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f44176e) && c.k(this.f44177f) != 0 && b.a.n0.b.c.b(this.f44177f).f()) {
-                        b.a.n0.e.c.j().g(this.f44177f.getApplicationContext(), false);
+                    if ("sso_action_t_m".equals(this.f39238e)) {
+                        c.m(this.f39239f);
+                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.f39238e) && c.k(this.f39239f) != 0 && c.a.n0.b.c.b(this.f39239f).f()) {
+                        c.a.n0.e.c.j().g(this.f39239f.getApplicationContext(), false);
                     }
                 } catch (Throwable th) {
                     c.d(th);
@@ -80,6 +80,6 @@ public class h extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
             return;
         }
-        b.a.n0.h.a.a().post(new a(this, intent.getAction(), context));
+        c.a.n0.h.a.a().post(new a(this, intent.getAction(), context));
     }
 }

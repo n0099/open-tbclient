@@ -3,24 +3,13 @@ package com.idlefish.flutterboost;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.RequiresApi;
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.i.j.g.d;
-import b.a.r0.r3.a;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import com.baidu.adp.plugin.util.Util;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.TTIStats;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
-import com.baidu.tbadk.switchs.FlutterCrashRepairEnableSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,8 +19,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
-import dalvik.system.PathClassLoader;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
+import io.flutter.embedding.android.FlutterEngineProvider;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterJNI;
@@ -39,9 +28,7 @@ import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.loader.FlutterLoader;
 import io.flutter.view.FlutterMain;
-import java.io.File;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +40,7 @@ public class FlutterBoost {
     public transient /* synthetic */ FieldHolder $fh;
     public Activity coveredTransparentActivity;
     public boolean isCoverWithTransparentActivity;
-    public boolean isReady;
+    public boolean isCustomDartInitFinish;
     public Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
     public Activity mCurrentActiveActivity;
     public FlutterEngine mEngine;
@@ -76,11 +63,15 @@ public class FlutterBoost {
         public static int IMMEDIATELY;
         public transient /* synthetic */ FieldHolder $fh;
         public String dartEntrypoint;
+        public FlutterEngineProvider flutterEngineProvider;
+        public Class<? extends FlutterView> flutterViewClass;
         public String initialRoute;
         public boolean isDebug;
         public BoostLifecycleListener lifecycleListener;
         public Application mApp;
+        public FlutterView.RenderMode renderMode;
         public INativeRouter router;
+        public List<String> shellArgs;
         public int whenEngineStart;
 
         static {
@@ -117,8 +108,10 @@ public class FlutterBoost {
             this.initialRoute = "/";
             this.whenEngineStart = ANY_ACTIVITY_CREATED;
             this.isDebug = false;
-            FlutterView.RenderMode renderMode = FlutterView.RenderMode.texture;
+            this.renderMode = FlutterView.RenderMode.texture;
             this.router = null;
+            this.flutterEngineProvider = null;
+            this.flutterViewClass = null;
             this.router = iNativeRouter;
             this.mApp = application;
         }
@@ -158,39 +151,67 @@ public class FlutterBoost {
                     }
 
                     @Override // com.idlefish.flutterboost.Platform
+                    public FlutterEngineProvider flutterEngineProvider() {
+                        InterceptResult invokeV2;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.flutterEngineProvider : (FlutterEngineProvider) invokeV2.objValue;
+                    }
+
+                    @Override // com.idlefish.flutterboost.Platform
                     public Application getApplication() {
                         InterceptResult invokeV2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.mApp : (Application) invokeV2.objValue;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.mApp : (Application) invokeV2.objValue;
+                    }
+
+                    @Override // com.idlefish.flutterboost.Platform
+                    public Class<? extends FlutterView> getFlutterViewClass() {
+                        InterceptResult invokeV2;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048579, this)) == null) ? this.this$0.flutterViewClass : (Class) invokeV2.objValue;
                     }
 
                     @Override // com.idlefish.flutterboost.Platform
                     public String initialRoute() {
                         InterceptResult invokeV2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.initialRoute : (String) invokeV2.objValue;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048580, this)) == null) ? this.this$0.initialRoute : (String) invokeV2.objValue;
                     }
 
                     @Override // com.idlefish.flutterboost.Platform
                     public boolean isDebug() {
                         InterceptResult invokeV2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048579, this)) == null) ? this.this$0.isDebug : invokeV2.booleanValue;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048581, this)) == null) ? this.this$0.isDebug : invokeV2.booleanValue;
                     }
 
                     @Override // com.idlefish.flutterboost.Platform
                     public void openContainer(Context context, String str, Map<String, Object> map, int i2, Map<String, Object> map2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048580, this, new Object[]{context, str, map, Integer.valueOf(i2), map2}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048582, this, new Object[]{context, str, map, Integer.valueOf(i2), map2}) == null) {
                             this.this$0.router.openContainer(context, str, map, i2, map2);
                         }
+                    }
+
+                    @Override // com.idlefish.flutterboost.Platform
+                    public FlutterView.RenderMode renderMode() {
+                        InterceptResult invokeV2;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048583, this)) == null) ? this.this$0.renderMode : (FlutterView.RenderMode) invokeV2.objValue;
+                    }
+
+                    @Override // com.idlefish.flutterboost.Platform
+                    public List<String> shellArgs() {
+                        InterceptResult invokeV2;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.this$0.shellArgs : (List) invokeV2.objValue;
                     }
 
                     @Override // com.idlefish.flutterboost.Platform
                     public int whenEngineStart() {
                         InterceptResult invokeV2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048581, this)) == null) ? this.this$0.whenEngineStart : invokeV2.intValue;
+                        return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048585, this)) == null) ? this.this$0.whenEngineStart : invokeV2.intValue;
                     }
                 };
                 platform.lifecycleListener = this.lifecycleListener;
@@ -222,13 +243,27 @@ public class FlutterBoost {
         public ConfigBuilder renderMode(FlutterView.RenderMode renderMode) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, renderMode)) == null) ? this : (ConfigBuilder) invokeL.objValue;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, renderMode)) == null) {
+                this.renderMode = renderMode;
+                return this;
+            }
+            return (ConfigBuilder) invokeL.objValue;
+        }
+
+        public ConfigBuilder setFlutterViewClass(@NonNull Class<? extends FlutterView> cls) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cls)) == null) {
+                this.flutterViewClass = cls;
+                return this;
+            }
+            return (ConfigBuilder) invokeL.objValue;
         }
 
         public ConfigBuilder whenEngineStart(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
                 this.whenEngineStart = i2;
                 return this;
             }
@@ -294,91 +329,18 @@ public class FlutterBoost {
 
     public final FlutterEngine createEngine() {
         InterceptResult invokeV;
-        boolean z;
-        List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (FlutterCrabReportEnableSwitch.isOn()) {
-                a.getInstance().setFlutterPath("createEngine1");
-            }
             if (this.mEngine == null) {
-                synchronized (b.a.e.i.k.a.f2338a) {
-                    PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
-                    try {
-                        if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {
-                            Object i2 = b.a.e.i.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
-                            Object h3 = b.a.e.i.k.a.h(i2);
-                            if (h3 instanceof File[]) {
-                                File[] fileArr = (File[]) h3;
-                                z = false;
-                                for (int i3 = 0; i3 < fileArr.length; i3++) {
-                                    if (fileArr[i3] != null && fileArr[i3].getPath().contains("pluginFlutter")) {
-                                        z = true;
-                                    }
-                                }
-                            } else if (h3 instanceof List) {
-                                List list2 = (List) h3;
-                                z = false;
-                                for (int i4 = 0; i4 < list2.size(); i4++) {
-                                    if (list2.get(i4) != null && ((File) list2.get(i4)).getPath().contains("pluginFlutter")) {
-                                        z = true;
-                                    }
-                                }
-                            } else {
-                                z = false;
-                            }
-                            if (!z) {
-                                String replace = h2.apkPath.replace(".apk", "/lib");
-                                if (h3 instanceof File[]) {
-                                    list = b.a.e.i.k.a.c(h3, new File(replace));
-                                } else {
-                                    boolean z2 = h3 instanceof List;
-                                    list = h3;
-                                    if (z2) {
-                                        List list3 = (List) h3;
-                                        list3.add(0, new File(replace));
-                                        list = list3;
-                                    }
-                                }
-                                b.a.e.i.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
-                                if (Build.VERSION.SDK_INT <= 25 && (Build.VERSION.SDK_INT != 25 || !Util.t())) {
-                                    if (Build.VERSION.SDK_INT >= 23) {
-                                        Method declaredMethod = i2.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
-                                        declaredMethod.setAccessible(true);
-                                        b.a.e.i.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i2.getClass(), (List) list, null, new ArrayList()));
-                                    } else {
-                                        b.a.e.i.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
-                                    }
-                                }
-                                Method declaredMethod2 = i2.getClass().getDeclaredMethod("makePathElements", List.class);
-                                declaredMethod2.setAccessible(true);
-                                b.a.e.i.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i2.getClass(), (List) list));
-                            }
-                        }
-                    } catch (Exception e2) {
-                        BdLog.e("add flutter.so path err");
-                        e2.printStackTrace();
-                    }
-                    FlutterMain.startInitialization(this.mPlatform.getApplication());
-                    if (FlutterCrabReportEnableSwitch.isOn()) {
-                        a.getInstance().setFlutterPath("createEngine2");
-                    }
-                    String[] strArr = new String[0];
-                    if (h2 != null && h2.apkPath != null) {
-                        String replace2 = h2.apkPath.replace(".apk", "");
-                        strArr = new String[]{"--aot-shared-library-name=" + replace2 + "/lib/libapp.so"};
-                    }
-                    FlutterMain.ensureInitializationComplete(this.mPlatform.getApplication().getApplicationContext(), new FlutterShellArgs(strArr).toArray());
-                    FlutterEngine flutterEngine = new FlutterEngine(this.mPlatform.getApplication().getApplicationContext(), FlutterLoader.getInstance(), new FlutterJNI(), null, false);
-                    this.mEngine = flutterEngine;
-                    registerPlugins(flutterEngine);
-                    if (FlutterCrabReportEnableSwitch.isOn()) {
-                        a.getInstance().setFlutterPath("createEngine3");
-                    }
+                FlutterMain.startInitialization(this.mPlatform.getApplication());
+                FlutterMain.ensureInitializationComplete(this.mPlatform.getApplication().getApplicationContext(), new FlutterShellArgs(this.mPlatform.shellArgs() != null ? this.mPlatform.shellArgs() : Arrays.asList(new String[0])).toArray());
+                if (this.mPlatform.flutterEngineProvider() != null) {
+                    this.mEngine = this.mPlatform.flutterEngineProvider().provideFlutterEngine(this.mPlatform.getApplication().getApplicationContext());
                 }
-            }
-            if (FlutterCrabReportEnableSwitch.isOn()) {
-                a.getInstance().setFlutterPath("createEngine4");
+                if (this.mEngine == null) {
+                    this.mEngine = new FlutterEngine(this.mPlatform.getApplication().getApplicationContext(), FlutterLoader.getInstance(), new FlutterJNI(), null, false);
+                }
+                registerPlugins(this.mEngine);
             }
             return this.mEngine;
         }
@@ -396,13 +358,9 @@ public class FlutterBoost {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                if (FlutterCrabReportEnableSwitch.isOn()) {
-                    a.getInstance().setFlutterPath("doInitialFlutter");
-                }
                 if (this.mEngine != null) {
                     return;
                 }
-                long currentTimeMillis2 = System.currentTimeMillis();
                 if (this.mPlatform.lifecycleListener != null) {
                     this.mPlatform.lifecycleListener.beforeCreateEngine();
                 }
@@ -417,10 +375,6 @@ public class FlutterBoost {
                     createEngine.getNavigationChannel().setInitialRoute(this.mPlatform.initialRoute());
                 }
                 createEngine.getDartExecutor().executeDartEntrypoint(new DartExecutor.DartEntrypoint(FlutterMain.findAppBundlePath(), this.mPlatform.dartEntrypoint()));
-                HashMap hashMap = new HashMap();
-                hashMap.put("seb", String.valueOf(currentTimeMillis2));
-                hashMap.put("see", String.valueOf(System.currentTimeMillis()));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921451, hashMap));
             } finally {
                 TTIStats.record("FlutterBoost.doInitialFlutter", System.currentTimeMillis() - currentTimeMillis);
             }
@@ -433,7 +387,6 @@ public class FlutterBoost {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mEngine : (FlutterEngine) invokeV.objValue;
     }
 
-    @RequiresApi(api = 14)
     public void init(Platform platform) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, platform) == null) {
@@ -492,11 +445,10 @@ public class FlutterBoost {
                         }
                         if (this.this$0.mEnterActivityCreate && this.this$0.mCurrentActiveActivity == activity) {
                             Debuger.log("Application entry background");
-                            FlutterBoostPlugin channel = this.this$0.channel();
-                            if (this.this$0.mEngine != null && channel != null) {
+                            if (this.this$0.mEngine != null) {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("type", NotificationCompat.WearableExtender.KEY_BACKGROUND);
-                                channel.sendEvent("lifecycle", hashMap);
+                                this.this$0.channel().sendEvent("lifecycle", hashMap);
                             }
                             this.this$0.mCurrentActiveActivity = null;
                         }
@@ -531,11 +483,10 @@ public class FlutterBoost {
                     if ((interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) && this.this$0.mEnterActivityCreate) {
                         if (this.this$0.mCurrentActiveActivity == null) {
                             Debuger.log("Application entry foreground");
-                            FlutterBoostPlugin channel = this.this$0.channel();
-                            if (this.this$0.mEngine != null && channel != null) {
+                            if (this.this$0.mEngine != null) {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put("type", Constant.FOREGROUND);
-                                channel.sendEvent("lifecycle", hashMap);
+                                this.this$0.channel().sendEvent("lifecycle", hashMap);
                             }
                         }
                         this.this$0.mCurrentActiveActivity = activity;
@@ -547,11 +498,10 @@ public class FlutterBoost {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) && this.this$0.mEnterActivityCreate && this.this$0.mCurrentActiveActivity == activity) {
                         Debuger.log("Application entry background");
-                        FlutterBoostPlugin channel = this.this$0.channel();
-                        if (this.this$0.mEngine != null && channel != null) {
+                        if (this.this$0.mEngine != null) {
                             HashMap hashMap = new HashMap();
                             hashMap.put("type", NotificationCompat.WearableExtender.KEY_BACKGROUND);
-                            channel.sendEvent("lifecycle", hashMap);
+                            this.this$0.channel().sendEvent("lifecycle", hashMap);
                         }
                         this.this$0.mCurrentActiveActivity = null;
                     }
@@ -582,9 +532,9 @@ public class FlutterBoost {
         }
     }
 
-    public void setFlutterPostFrameCallTime(long j) {
+    public void setFlutterPostFrameCallTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
         }
     }
 }

@@ -8,7 +8,6 @@ import androidx.arch.core.internal.SafeIterableMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -248,7 +247,7 @@ public class LifecycleRegistry extends Lifecycle {
     public static Lifecycle.State getStateAfter(Lifecycle.Event event) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, event)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, event)) == null) {
             switch (AnonymousClass1.$SwitchMap$androidx$lifecycle$Lifecycle$Event[event.ordinal()]) {
                 case 1:
                 case 2:
@@ -270,7 +269,7 @@ public class LifecycleRegistry extends Lifecycle {
     private boolean isSynced() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             if (this.mObserverMap.size() == 0) {
                 return true;
             }

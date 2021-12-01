@@ -2,14 +2,13 @@ package com.baidu.android.common.others.lang;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class StringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +104,7 @@ public final class StringUtils {
         InterceptResult invokeLZ;
         char[] charArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, str, z)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
@@ -125,7 +124,7 @@ public final class StringUtils {
     public static boolean startsWith(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, str, str2, z)) == null) {
             if (str == null || str2 == null || str.length() < str2.length()) {
                 return false;
             }

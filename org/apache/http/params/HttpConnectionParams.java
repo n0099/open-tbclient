@@ -1,7 +1,6 @@
 package org.apache.http.params;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +67,7 @@ public final class HttpConnectionParams implements CoreConnectionPNames {
     public static boolean getTcpNoDelay(HttpParams httpParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, httpParams)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, httpParams)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeL.booleanValue;
@@ -77,7 +76,7 @@ public final class HttpConnectionParams implements CoreConnectionPNames {
     public static boolean isStaleCheckingEnabled(HttpParams httpParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, httpParams)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, httpParams)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeL.booleanValue;

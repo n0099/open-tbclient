@@ -10,7 +10,7 @@ import io.reactivex.MaybeSource;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MaybeLift<T, R> extends AbstractMaybeWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, DownloadStore {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -153,13 +153,13 @@ public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, Downloa
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i2, long j) throws IOException {
+    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i2, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             if (this.remitHelper.isNotFreeToDatabase(breakpointInfo.getId())) {
-                this.sqliteCache.onSyncToFilesystemSuccess(breakpointInfo, i2, j);
+                this.sqliteCache.onSyncToFilesystemSuccess(breakpointInfo, i2, j2);
             } else {
-                this.onSQLiteWrapper.onSyncToFilesystemSuccess(breakpointInfo, i2, j);
+                this.onSQLiteWrapper.onSyncToFilesystemSuccess(breakpointInfo, i2, j2);
             }
         }
     }

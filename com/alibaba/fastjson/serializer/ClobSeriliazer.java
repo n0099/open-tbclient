@@ -13,7 +13,7 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.sql.Clob;
 import java.sql.SQLException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ClobSeriliazer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static final ClobSeriliazer instance;

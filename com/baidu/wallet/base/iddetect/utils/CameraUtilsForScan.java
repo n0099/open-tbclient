@@ -7,7 +7,6 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CameraUtilsForScan {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float BANK_HEIGHT_WIDTH_RADIO = 0.6306f;
@@ -137,7 +136,7 @@ public class CameraUtilsForScan {
     public static float getFrameHeightRatio(Context context, Rect rect, CameraSizeInfo cameraSizeInfo) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, rect, cameraSizeInfo)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, rect, cameraSizeInfo)) == null) {
             float width = (rect.width() * 1.0f) / cameraSizeInfo.mHeight;
             float height = (rect.height() * 1.0f) / cameraSizeInfo.mWidth;
             return width > height ? (width * 0.6306f) / height : (height * 0.6306f) / width;
@@ -150,7 +149,7 @@ public class CameraUtilsForScan {
         boolean z;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, rect, Float.valueOf(f2), list})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, rect, Float.valueOf(f2), list})) == null) {
             boolean z2 = false;
             CameraSizeInfo cameraSizeInfo = null;
             int i3 = 0;

@@ -30,12 +30,10 @@ import org.apache.commons.lang3.StringUtils;
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public c f66391a;
+    public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f66392b;
+    public String f58183b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -50,7 +48,7 @@ public abstract class b {
                 return;
             }
         }
-        this.f66392b = "";
+        this.f58183b = "";
     }
 
     private String a(String str) {
@@ -64,7 +62,7 @@ public abstract class b {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f66391a = cVar;
+            this.a = cVar;
         }
     }
 
@@ -76,9 +74,7 @@ public abstract class b {
             for (File file2 : file.listFiles(new FileFilter(this) { // from class: com.kwad.sdk.crash.report.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f66393a;
+                public final /* synthetic */ b a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -95,7 +91,7 @@ public abstract class b {
                             return;
                         }
                     }
-                    this.f66393a = this;
+                    this.a = this;
                 }
 
                 @Override // java.io.FileFilter
@@ -172,15 +168,15 @@ public abstract class b {
         File[] listFiles;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, file) == null) {
-            String a2 = f.a(file.getPath());
-            File file2 = new File(a2 + ".msg");
-            File file3 = new File(a2 + ".log");
-            File file4 = new File(a2 + ".blog");
-            File file5 = new File(a2 + ".jtrace");
+            String a = f.a(file.getPath());
+            File file2 = new File(a + ".msg");
+            File file3 = new File(a + ".log");
+            File file4 = new File(a + ".blog");
+            File file5 = new File(a + ".jtrace");
             ArrayList<File> arrayList = new ArrayList();
             try {
-                ExceptionMessage a3 = a(file, file2, file3, a2);
-                this.f66391a.a(a3);
+                ExceptionMessage a2 = a(file, file2, file3, a);
+                this.a.a(a2);
                 f.a(file4);
                 ArrayList arrayList2 = new ArrayList();
                 Collections.addAll(arrayList2, file3, file4);
@@ -193,7 +189,7 @@ public abstract class b {
                 File file6 = new File(file.getParentFile().getParent(), SchedulerSupport.CUSTOM);
                 if (file6.exists()) {
                     for (File file7 : file6.listFiles()) {
-                        if (!file7.isDirectory() && (file7.getName().startsWith(a3.mLogUUID) || file7.getName().startsWith(a(a3.mLogUUID)))) {
+                        if (!file7.isDirectory() && (file7.getName().startsWith(a2.mLogUUID) || file7.getName().startsWith(a(a2.mLogUUID)))) {
                             arrayList.add(file7);
                         }
                     }
@@ -206,7 +202,7 @@ public abstract class b {
                     h.b(file8.getPath());
                 }
                 h.b(file5.getPath());
-                f.b(com.kwad.sdk.crash.c.b.f66360b);
+                f.b(com.kwad.sdk.crash.b.b.f58154b);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
@@ -305,15 +301,15 @@ public abstract class b {
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f66392b + e + StringUtils.LF;
-                        this.f66392b = str;
+                        str = this.f58183b + e + StringUtils.LF;
+                        this.f58183b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        str = this.f66392b + e + StringUtils.LF;
-                        this.f66392b = str;
+                        str = this.f58183b + e + StringUtils.LF;
+                        this.f58183b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 
-import b.a.q0.s.q.d2;
-import b.a.r0.w.f.c.f.b.b;
+import c.a.q0.s.q.d2;
+import c.a.r0.a0.f.c.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
                         d2 d2Var = new d2();
-                        d2Var.Z2(optJSONObject2);
+                        d2Var.b3(optJSONObject2);
                         this.followList.add(d2Var);
                     }
                 }
@@ -91,7 +91,7 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                     if (optJSONObject4 != null) {
                         d2 d2Var2 = new d2();
-                        d2Var2.Z2(optJSONObject4);
+                        d2Var2.b3(optJSONObject4);
                         this.recommendList.add(d2Var2);
                     }
                 }

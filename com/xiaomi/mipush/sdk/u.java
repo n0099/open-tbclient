@@ -10,23 +10,21 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.xiaomi.push.service.az;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,19 +50,17 @@ public class u {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f71559a;
+        public String a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f71560b;
+        public String f62707b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f102b;
@@ -84,10 +80,10 @@ public class u {
                     return;
                 }
             }
-            this.f71559a = str;
+            this.a = str;
             this.f101a = z;
             this.f102b = z2;
-            this.f71560b = str2;
+            this.f62707b = str2;
         }
     }
 
@@ -155,7 +151,7 @@ public class u {
     public static boolean a(PackageInfo packageInfo, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, packageInfo, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, packageInfo, strArr)) == null) {
             for (ServiceInfo serviceInfo : packageInfo.services) {
                 if (a(strArr, serviceInfo.name)) {
                     return true;
@@ -169,7 +165,7 @@ public class u {
     public static boolean a(String[] strArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, strArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, strArr, str)) == null) {
             if (strArr != null && str != null) {
                 for (String str2 : strArr) {
                     if (TextUtils.equals(str2, str)) {
@@ -248,7 +244,7 @@ public class u {
         if (interceptable == null || interceptable.invokeLL(65546, null, context, packageInfo) == null) {
             HashSet hashSet = new HashSet();
             String str = context.getPackageName() + ".permission.MIPUSH_RECEIVE";
-            hashSet.addAll(Arrays.asList("android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, str, "android.permission.ACCESS_WIFI_STATE", "android.permission.VIBRATE"));
+            hashSet.addAll(Arrays.asList(com.kuaishou.weapon.un.s.a, "android.permission.ACCESS_NETWORK_STATE", str, com.kuaishou.weapon.un.s.f56839d, "android.permission.VIBRATE"));
             PermissionInfo[] permissionInfoArr = packageInfo.permissions;
             if (permissionInfoArr != null) {
                 for (PermissionInfo permissionInfo : permissionInfoArr) {
@@ -304,7 +300,7 @@ public class u {
                         b bVar = (b) hashMap2.remove(serviceInfo.name);
                         boolean z = bVar.f101a;
                         boolean z2 = bVar.f102b;
-                        String str = bVar.f71560b;
+                        String str = bVar.f62707b;
                         if (z != serviceInfo.enabled) {
                             throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
                         }

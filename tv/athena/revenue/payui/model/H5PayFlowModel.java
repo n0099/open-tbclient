@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class H5PayFlowModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

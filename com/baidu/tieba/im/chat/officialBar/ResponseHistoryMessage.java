@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import b.a.e.f.d.l;
-import b.a.e.f.p.k;
+import c.a.d.f.d.l;
+import c.a.d.f.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -16,29 +16,27 @@ import java.util.LinkedList;
 import java.util.List;
 import protobuf.QueryHistoryMsg.MsgInfo;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> msg;
     public int msgCount;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f51228a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f51229b;
+        public int f45921b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f51230c;
+        public String f45922c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f51231d;
+        public int f45923d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -103,10 +101,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.f51228a = k.getDateStringMouth(date);
-                        aVar.f51229b = msgInfo.type.intValue();
-                        aVar.f51230c = msgInfo.content;
-                        aVar.f51231d = msgInfo.id.intValue();
+                        aVar.a = k.getDateStringMouth(date);
+                        aVar.f45921b = msgInfo.type.intValue();
+                        aVar.f45922c = msgInfo.content;
+                        aVar.f45923d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }
@@ -114,8 +112,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            b.a.q0.s.r.a.f();
-            l<byte[]> d2 = b.a.q0.s.r.a.d("tb.im_official_history");
+            c.a.q0.s.r.a.f();
+            l<byte[]> d2 = c.a.q0.s.r.a.d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

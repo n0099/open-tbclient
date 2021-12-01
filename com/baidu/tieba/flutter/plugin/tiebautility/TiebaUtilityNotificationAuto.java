@@ -11,18 +11,18 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TiebaUtilityNotificationAuto {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class FlutterUtilityNotification {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final BinaryMessenger binaryMessenger;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public interface Reply<T> {
             void reply(T t);
         }
@@ -48,7 +48,7 @@ public class TiebaUtilityNotificationAuto {
         public void onNotification(OnNotifyData onNotifyData, final Reply<NotifyResult> reply) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, onNotifyData, reply) == null) {
-                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterUtilityNotification.onNotification", new StandardMessageCodec()).send(onNotifyData.toMap(), new BasicMessageChannel.Reply() { // from class: b.a.r0.t0.a.k.v0
+                new BasicMessageChannel(this.binaryMessenger, "dev.flutter.pigeon.FlutterUtilityNotification.onNotification", new StandardMessageCodec()).send(onNotifyData.toMap(), new BasicMessageChannel.Reply() { // from class: c.a.r0.z0.a.k.v0
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +64,7 @@ public class TiebaUtilityNotificationAuto {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface HostUtilityNotification {
         void addNotificationObserver(ObserverName observerName);
 
@@ -73,7 +73,7 @@ public class TiebaUtilityNotificationAuto {
         void removeNotificationObserver(ObserverName observerName);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class NotifyResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class TiebaUtilityNotificationAuto {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ObserverName {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +185,7 @@ public class TiebaUtilityNotificationAuto {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class OnNotifyData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,7 +273,7 @@ public class TiebaUtilityNotificationAuto {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PostNotifyParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

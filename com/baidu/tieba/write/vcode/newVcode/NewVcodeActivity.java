@@ -2,10 +2,10 @@ package com.baidu.tieba.write.vcode.newVcode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import b.a.q0.t.c.m0;
-import b.a.r0.e4.s.a.a.a;
-import b.a.r0.e4.s.a.a.b;
-import b.a.r0.e4.s.a.a.c;
+import c.a.q0.t.c.m0;
+import c.a.r0.l4.s.a.a.a;
+import c.a.r0.l4.s.a.a.b;
+import c.a.r0.l4.s.a.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         this.mDragVcodePresenterCallback = new NewWriteModel.g(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NewVcodeActivity f56771a;
+            public final /* synthetic */ NewVcodeActivity a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -68,7 +66,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                         return;
                     }
                 }
-                this.f56771a = this;
+                this.a = this;
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
@@ -82,31 +80,31 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     Bundle bundle = new Bundle();
                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent.putExtras(bundle);
-                    this.f56771a.setResult(0, intent);
-                    this.f56771a.finish();
+                    this.a.setResult(0, intent);
+                    this.a.finish();
                 } else if (postWriteCallBackData.getErrorCode() == 220034) {
-                    this.f56771a.showToast(postWriteCallBackData.getErrorString());
+                    this.a.showToast(postWriteCallBackData.getErrorString());
                     Intent intent2 = new Intent();
                     Bundle bundle2 = new Bundle();
                     bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent2.putExtras(bundle2);
-                    this.f56771a.setResult(0, intent2);
-                    this.f56771a.finish();
+                    this.a.setResult(0, intent2);
+                    this.a.finish();
                 } else if (m0Var == null || writeData == null) {
                 } else {
-                    this.f56771a.mPageType = b.a.e.f.m.b.e("4", 0);
-                    this.f56771a.mPresenter.d();
-                    this.f56771a.mPresenter.onDestroy();
-                    this.f56771a.mWriteData = writeData;
-                    this.f56771a.mWriteData.setVcodeMD5(m0Var.b());
-                    this.f56771a.mWriteData.setVcodeUrl(m0Var.c());
-                    this.f56771a.mWriteData.setVcodeExtra(m0Var.a());
-                    this.f56771a.mWriteModel.setWriteData(this.f56771a.mWriteData);
-                    NewVcodeActivity newVcodeActivity = this.f56771a;
+                    this.a.mPageType = c.a.d.f.m.b.e("4", 0);
+                    this.a.mPresenter.d();
+                    this.a.mPresenter.onDestroy();
+                    this.a.mWriteData = writeData;
+                    this.a.mWriteData.setVcodeMD5(m0Var.b());
+                    this.a.mWriteData.setVcodeUrl(m0Var.c());
+                    this.a.mWriteData.setVcodeExtra(m0Var.a());
+                    this.a.mWriteModel.setWriteData(this.a.mWriteData);
+                    NewVcodeActivity newVcodeActivity = this.a;
                     newVcodeActivity.mPresenter = newVcodeActivity.getVcodePresenterFromType();
-                    this.f56771a.mPresenter.e(true, postWriteCallBackData.getErrorString());
-                    this.f56771a.mNewVcodeView.setPresenter(this.f56771a.mPresenter);
-                    this.f56771a.mPresenter.a(this.f56771a.mNeedFeedBackButton);
+                    this.a.mPresenter.e(true, postWriteCallBackData.getErrorString());
+                    this.a.mNewVcodeView.setPresenter(this.a.mPresenter);
+                    this.a.mPresenter.a(this.a.mNeedFeedBackButton);
                 }
             }
         };
@@ -118,7 +116,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         b cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            if (this.mPageType == b.a.e.f.m.b.e("5", 0)) {
+            if (this.mPageType == c.a.d.f.m.b.e("5", 0)) {
                 cVar = new a(this.mNewVcodeView, this.mWriteModel);
             } else {
                 cVar = new c(this.mNewVcodeView, this.mWriteModel);
@@ -133,7 +131,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         WriteData writeData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65547, this) == null) && (writeData = this.mWriteData) != null && writeData.getType() == 3) {
-            b.a.q0.s.b0.b.g(getPageContext().getPageActivity(), 200, false);
+            c.a.q0.s.b0.b.g(getPageContext().getPageActivity(), 200, false);
         }
     }
 
@@ -193,7 +191,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             this.mWriteModel = newWriteModel;
             newWriteModel.setWriteData(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.mWriteModel.d0(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.mWriteModel.e0(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
             b vcodePresenterFromType = getVcodePresenterFromType();
             this.mPresenter = vcodePresenterFromType;

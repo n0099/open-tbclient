@@ -17,7 +17,6 @@ import com.baidu.fsg.base.utils.ResUtils;
 import com.baidu.fsg.base.utils.RimAnimUtils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
 import com.baidu.fsg.base.widget.SafeScrollView;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_LOADING = 242;
@@ -37,33 +36,31 @@ public class BaseActivity extends Activity implements NoProguard {
     public static final String MULTI_WINDOW_TIPS;
     public static final String MULTI_WINDOW_TIPS_CLOSE;
     public static final String WITH_ANIM = "with_anim";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38162a = "BaseActivity";
+    public static final String a = "BaseActivity";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f38163b = false;
+    public static final boolean f34158b = false;
     public static LinkedList<BaseActivity> mActivityStack;
     public static int mLiveActivityNum;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38164c;
+    public boolean f34159c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f38165d;
+    public boolean f34160d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38166e;
+    public String f34161e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeScrollView f38167f;
+    public SafeScrollView f34162f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f38168g;
+    public boolean f34163g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f38169h;
+    public long f34164h;
     public int mFlag;
     public RimStatisticsUtil mStatUtil;
 
@@ -100,21 +97,21 @@ public class BaseActivity extends Activity implements NoProguard {
             }
         }
         this.mFlag = -1;
-        this.f38164c = false;
-        this.f38165d = true;
-        this.f38166e = MULTI_WINDOW_TIPS;
-        this.f38167f = null;
-        this.f38168g = false;
+        this.f34159c = false;
+        this.f34160d = true;
+        this.f34161e = MULTI_WINDOW_TIPS;
+        this.f34162f = null;
+        this.f34163g = false;
     }
 
     @TargetApi(24)
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode()) {
-            if (this.f38164c) {
-                RimGlobalUtils.toastWithText(getActivity(), this.f38166e, 1);
+            if (this.f34159c) {
+                RimGlobalUtils.toastWithText(getActivity(), this.f34161e, 1);
             }
-            if (this.f38165d) {
+            if (this.f34160d) {
                 return;
             }
             finish();
@@ -140,7 +137,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     public static synchronized void clearTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             synchronized (BaseActivity.class) {
                 Iterator<BaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
@@ -152,7 +149,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     public static synchronized void clearTaskExcept(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, baseActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, baseActivity) == null) {
             synchronized (BaseActivity.class) {
                 Iterator<BaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
@@ -277,7 +274,7 @@ public class BaseActivity extends Activity implements NoProguard {
     public boolean isActivityInForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38168g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34163g : invokeV.booleanValue;
     }
 
     public boolean isRequestedOrientation() {
@@ -312,7 +309,7 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
-            this.f38169h = System.currentTimeMillis();
+            this.f34164h = System.currentTimeMillis();
             this.mStatUtil = RimStatisticsUtil.getInstance();
             RimStatisticsUtil.onPush(getClass().getSimpleName());
             if (isRequestedOrientation()) {
@@ -363,15 +360,15 @@ public class BaseActivity extends Activity implements NoProguard {
             return;
         }
         super.onMultiWindowModeChanged(z);
-        SafeScrollView safeScrollView = this.f38167f;
+        SafeScrollView safeScrollView = this.f34162f;
         if (safeScrollView != null) {
             safeScrollView.dismissKeyBoard();
         }
         if (z && isActivityInForeground()) {
-            if (this.f38164c) {
-                RimGlobalUtils.toastWithText(getActivity(), this.f38166e, 1);
+            if (this.f34159c) {
+                RimGlobalUtils.toastWithText(getActivity(), this.f34161e, 1);
             }
-            if (this.f38165d) {
+            if (this.f34160d) {
                 return;
             }
             finish();
@@ -384,7 +381,7 @@ public class BaseActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
             decLiveActivityNum();
-            this.f38168g = false;
+            this.f34163g = false;
             RimStatisticsUtil.onOut(getClass().getSimpleName());
         }
     }
@@ -395,10 +392,10 @@ public class BaseActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
             addLiveActivityNum();
-            this.f38168g = true;
-            if (0 != this.f38169h) {
-                RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f38169h);
-                this.f38169h = 0L;
+            this.f34163g = true;
+            if (0 != this.f34164h) {
+                RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f34164h);
+                this.f34164h = 0L;
             } else {
                 RimStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
             }
@@ -415,31 +412,31 @@ public class BaseActivity extends Activity implements NoProguard {
 
     public void setIsMultiWindowAvailable(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || z == this.f38165d) {
+        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || z == this.f34160d) {
             return;
         }
-        this.f38165d = z;
+        this.f34160d = z;
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || z == this.f38164c) {
+        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || z == this.f34159c) {
             return;
         }
-        this.f38164c = z;
+        this.f34159c = z;
     }
 
     public void setMultiWindowTipsId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f38166e = str;
+            this.f34161e = str;
         }
     }
 
     public void setSafeScrollView(SafeScrollView safeScrollView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, safeScrollView) == null) {
-            this.f38167f = safeScrollView;
+            this.f34162f = safeScrollView;
         }
     }
 

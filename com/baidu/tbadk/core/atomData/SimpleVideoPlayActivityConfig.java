@@ -9,29 +9,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SimpleVideoPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String THUMB_URL = "thumb_url";
     public static final String VIDEO_URL = "video_url";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f45882a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45883b;
+        public String f40899b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -57,7 +55,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f45883b = str;
+                this.f40899b = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -67,7 +65,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f45882a = str;
+                this.a = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -100,7 +98,7 @@ public class SimpleVideoPlayActivityConfig extends IntentConfig {
         if (bVar == null || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra("video_url", bVar.f45882a);
-        intent.putExtra("thumb_url", bVar.f45883b);
+        intent.putExtra("video_url", bVar.a);
+        intent.putExtra("thumb_url", bVar.f40899b);
     }
 }

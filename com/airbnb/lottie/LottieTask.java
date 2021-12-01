@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LottieTask<T> {
     public static Executor EXECUTOR = Executors.newCachedThreadPool();
     public final Set<LottieListener<Throwable>> failureListeners;
@@ -22,7 +22,7 @@ public class LottieTask<T> {
     public volatile LottieResult<T> result;
     public final Set<LottieListener<T>> successListeners;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class LottieFutureTask extends FutureTask<LottieResult<T>> {
         public LottieFutureTask(Callable<LottieResult<T>> callable) {
             super(callable);

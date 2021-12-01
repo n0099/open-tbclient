@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class hc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,12 +54,12 @@ public class hc {
     public static void a(Context context, he heVar, List<hj> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, context, heVar, list) == null) {
-            HashMap<String, ArrayList<hj>> a2 = a(context, list);
-            if (a2 != null && a2.size() != 0) {
-                a(context, heVar, a2);
+            HashMap<String, ArrayList<hj>> a = a(context, list);
+            if (a != null && a.size() != 0) {
+                a(context, heVar, a);
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m73a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m122a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
         }
     }
 

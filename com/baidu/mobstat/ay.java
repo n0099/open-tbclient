@@ -57,7 +57,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,16 +66,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ay {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ay f41947b;
+    public static final ay f37089b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f41948a;
+    public HashMap<String, String> a;
 
     static {
         InterceptResult invokeClinit;
@@ -91,7 +88,7 @@ public class ay {
                 return;
             }
         }
-        f41947b = new ay();
+        f37089b = new ay();
     }
 
     public ay() {
@@ -107,19 +104,19 @@ public class ay {
                 return;
             }
         }
-        this.f41948a = new HashMap<>();
+        this.a = new HashMap<>();
         b();
     }
 
     public static ay a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f41947b : (ay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f37089b : (ay) invokeV.objValue;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && Build.VERSION.SDK_INT >= 14 && this.f41948a.size() == 0) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && Build.VERSION.SDK_INT >= 14 && this.a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -407,15 +404,15 @@ public class ay {
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) || TextUtils.isEmpty(str) || this.f41948a.containsKey(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) || TextUtils.isEmpty(str) || this.a.containsKey(str)) {
             return;
         }
-        this.f41948a.put(str, str2.toUpperCase(Locale.ENGLISH));
+        this.a.put(str, str2.toUpperCase(Locale.ENGLISH));
     }
 
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f41948a.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (String) invokeL.objValue;
     }
 }

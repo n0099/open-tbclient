@@ -9,12 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.d;
 import com.bytedance.pangle.plugin.PluginManager;
 import java.io.File;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a extends d.a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile a f62260a;
+    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -35,14 +33,14 @@ public class a extends d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f62260a == null) {
+            if (a == null) {
                 synchronized (a.class) {
-                    if (f62260a == null) {
-                        f62260a = new a();
+                    if (a == null) {
+                        a = new a();
                     }
                 }
             }
-            return f62260a;
+            return a;
         }
         return (a) invokeV.objValue;
     }

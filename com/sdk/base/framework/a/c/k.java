@@ -8,12 +8,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class k<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final int f69046a;
+    public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final E f69047b;
+    public final E f60920b;
 
     public k(int i2, E e2) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public class k<E> {
                 return;
             }
         }
-        this.f69046a = i2 == 0 ? b.f69022a : i2;
-        this.f69047b = e2;
+        this.a = i2 == 0 ? b.a : i2;
+        this.f60920b = e2;
     }
 }

@@ -7,7 +7,6 @@ import android.os.Parcelable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -179,7 +178,7 @@ public final class RatingCompat implements Parcelable {
         InterceptResult invokeCommon;
         float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
             if (i2 == 3) {
                 f3 = 3.0f;
             } else if (i2 == 4) {
@@ -201,7 +200,7 @@ public final class RatingCompat implements Parcelable {
     public static RatingCompat newThumbRating(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, null, z)) == null) {
             return new RatingCompat(2, z ? 1.0f : 0.0f);
         }
         return (RatingCompat) invokeZ.objValue;

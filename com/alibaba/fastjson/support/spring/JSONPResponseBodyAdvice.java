@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @ControllerAdvice
 @Order(Integer.MIN_VALUE)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JSONPResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

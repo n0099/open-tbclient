@@ -6,7 +6,6 @@ import android.media.Rating;
 import android.os.Parcel;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,23 +56,23 @@ public class MediaMetadataCompatApi21 {
             }
         }
 
-        public static void putLong(Object obj, String str, long j) {
+        public static void putLong(Object obj, String str, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Long.valueOf(j)}) == null) {
-                ((MediaMetadata.Builder) obj).putLong(str, j);
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Long.valueOf(j2)}) == null) {
+                ((MediaMetadata.Builder) obj).putLong(str, j2);
             }
         }
 
         public static void putRating(Object obj, String str, Object obj2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, obj, str, obj2) == null) {
+            if (interceptable == null || interceptable.invokeLLL(65541, null, obj, str, obj2) == null) {
                 ((MediaMetadata.Builder) obj).putRating(str, (Rating) obj2);
             }
         }
 
         public static void putString(Object obj, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, obj, str, str2) == null) {
+            if (interceptable == null || interceptable.invokeLLL(65542, null, obj, str, str2) == null) {
                 ((MediaMetadata.Builder) obj).putString(str, str2);
             }
         }
@@ -127,13 +126,13 @@ public class MediaMetadataCompatApi21 {
     public static CharSequence getText(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, obj, str)) == null) ? ((MediaMetadata) obj).getText(str) : (CharSequence) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) ? ((MediaMetadata) obj).getText(str) : (CharSequence) invokeLL.objValue;
     }
 
     public static Set<String> keySet(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((MediaMetadata) obj).keySet() : (Set) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? ((MediaMetadata) obj).keySet() : (Set) invokeL.objValue;
     }
 
     public static void writeToParcel(Object obj, Parcel parcel, int i2) {

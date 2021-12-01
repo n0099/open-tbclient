@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -53,10 +53,10 @@ public final class ThreadInfo implements b, Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "mName", this.mName);
-            q.a(jSONObject, "mTrace", this.mTrace);
-            q.a(jSONObject, "mTid", this.mTid);
-            q.a(jSONObject, "mIndex", this.mIndex);
+            t.a(jSONObject, "mName", this.mName);
+            t.a(jSONObject, "mTrace", this.mTrace);
+            t.a(jSONObject, "mTid", this.mTid);
+            t.a(jSONObject, "mIndex", this.mIndex);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

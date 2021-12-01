@@ -6,12 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.Log;
 import io.flutter.app.FlutterPluginRegistry;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterJNI;
@@ -19,7 +19,8 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+@Deprecated
+/* loaded from: classes3.dex */
 public class FlutterNativeView implements BinaryMessenger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterNativeView";
@@ -32,7 +33,7 @@ public class FlutterNativeView implements BinaryMessenger {
     public FlutterView mFlutterView;
     public final FlutterPluginRegistry mPluginRegistry;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class EngineLifecycleListenerImpl implements FlutterEngine.EngineLifecycleListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +58,16 @@ public class FlutterNativeView implements BinaryMessenger {
         }
 
         @Override // io.flutter.embedding.engine.FlutterEngine.EngineLifecycleListener
-        public void onPreEngineRestart() {
+        public void onEngineWillDestroy() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // io.flutter.embedding.engine.FlutterEngine.EngineLifecycleListener
+        public void onPreEngineRestart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 if (this.this$0.mFlutterView != null) {
                     this.this$0.mFlutterView.resetAccessibilityTree();
                 }
@@ -103,7 +111,7 @@ public class FlutterNativeView implements BinaryMessenger {
     public static String getObservatoryUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? FlutterJNI.getObservatoryUri() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? FlutterJNI.getObservatoryUri() : (String) invokeV.objValue;
     }
 
     public void assertAttached() {
@@ -278,7 +286,7 @@ public class FlutterNativeView implements BinaryMessenger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, str, byteBuffer, binaryReply) == null) {
             if (!isAttached()) {
-                String str2 = "FlutterView.send called on a detached view, channel=" + str;
+                Log.d(TAG, "FlutterView.send called on a detached view, channel=" + str);
                 return;
             }
             this.dartExecutor.getBinaryMessenger().send(str, byteBuffer, binaryReply);

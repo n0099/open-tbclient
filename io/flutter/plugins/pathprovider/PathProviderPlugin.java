@@ -7,7 +7,6 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +28,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +37,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
     public final Executor executor;
     public final Executor uiThreadExecutor;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UiThreadExecutor implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +138,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     }
                 }
             }, this.uiThreadExecutor);
-            this.executor.execute(new Runnable() { // from class: f.a.c.a.f
+            this.executor.execute(new Runnable() { // from class: g.a.c.a.f
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -179,7 +178,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
         InterceptResult invokeV;
         File[] externalCacheDirs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             ArrayList arrayList = new ArrayList();
             if (Build.VERSION.SDK_INT >= 19) {
                 for (File file : this.context.getExternalCacheDirs()) {
@@ -205,7 +204,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
         InterceptResult invokeL;
         File[] externalFilesDirs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             ArrayList arrayList = new ArrayList();
             if (Build.VERSION.SDK_INT >= 19) {
                 for (File file : this.context.getExternalFilesDirs(str)) {
@@ -333,7 +332,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     break;
             }
             if (c2 == 0) {
-                executeInBackground(new Callable() { // from class: f.a.c.a.b
+                executeInBackground(new Callable() { // from class: g.a.c.a.b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -345,7 +344,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     }
                 }, result);
             } else if (c2 == 1) {
-                executeInBackground(new Callable() { // from class: f.a.c.a.e
+                executeInBackground(new Callable() { // from class: g.a.c.a.e
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -357,7 +356,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     }
                 }, result);
             } else if (c2 == 2) {
-                executeInBackground(new Callable() { // from class: f.a.c.a.d
+                executeInBackground(new Callable() { // from class: g.a.c.a.d
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -369,7 +368,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                     }
                 }, result);
             } else if (c2 == 3) {
-                executeInBackground(new Callable() { // from class: f.a.c.a.a
+                executeInBackground(new Callable() { // from class: g.a.c.a.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -382,7 +381,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
                 }, result);
             } else if (c2 == 4) {
                 final String androidType = StorageDirectoryMapper.androidType((Integer) methodCall.argument("type"));
-                executeInBackground(new Callable() { // from class: f.a.c.a.c
+                executeInBackground(new Callable() { // from class: g.a.c.a.c
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -396,7 +395,7 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
             } else if (c2 != 5) {
                 result.notImplemented();
             } else {
-                executeInBackground(new Callable() { // from class: f.a.c.a.g
+                executeInBackground(new Callable() { // from class: g.a.c.a.g
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

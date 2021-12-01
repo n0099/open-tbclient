@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,35 +68,37 @@ public class c {
     public static r W;
     public static com.ss.android.socialbase.downloader.d.c X;
     public static volatile boolean Y;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile Context f70175a;
+    public static volatile Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile j f70176b;
+    public static volatile j f61720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile k f70177c;
+    public static volatile k f61721c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile h f70178d;
+    public static volatile h f61722d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile af f70179e;
+    public static volatile af f61723e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile com.ss.android.socialbase.downloader.impls.a f70180f;
+    public static volatile com.ss.android.socialbase.downloader.impls.a f61724f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile o f70181g;
+    public static volatile o f61725g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile o f70182h;
+    public static volatile o f61726h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile a f70183i;
-    public static volatile IDownloadHttpService j;
-    public static volatile com.ss.android.socialbase.downloader.network.h k;
+    public static volatile a f61727i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static volatile IDownloadHttpService f61728j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static volatile com.ss.android.socialbase.downloader.network.h f61729k;
     public static volatile IDownloadHttpService l;
     public static volatile com.ss.android.socialbase.downloader.network.h m;
     public static volatile l n;
@@ -120,13 +121,13 @@ public class c {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public interface InterfaceC2040a {
+        public interface InterfaceC2131a {
             void a();
         }
 
         o a();
 
-        t a(InterfaceC2040a interfaceC2040a);
+        t a(InterfaceC2131a interfaceC2131a);
 
         m b();
     }
@@ -186,14 +187,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f70177c == null) {
+            if (f61721c == null) {
                 synchronized (c.class) {
-                    if (f70177c == null) {
-                        f70177c = new com.ss.android.socialbase.downloader.impls.i();
+                    if (f61721c == null) {
+                        f61721c = new com.ss.android.socialbase.downloader.impls.i();
                     }
                 }
             }
-            return f70177c;
+            return f61721c;
         }
         return (k) invokeV.objValue;
     }
@@ -202,14 +203,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f70180f == null) {
+            if (f61724f == null) {
                 synchronized (c.class) {
-                    if (f70180f == null) {
-                        f70180f = new com.ss.android.socialbase.downloader.impls.e();
+                    if (f61724f == null) {
+                        f61724f = new com.ss.android.socialbase.downloader.impls.e();
                     }
                 }
             }
-            return f70180f;
+            return f61724f;
         }
         return (com.ss.android.socialbase.downloader.impls.a) invokeV.objValue;
     }
@@ -217,27 +218,27 @@ public class c {
     public static int D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? T : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? T : invokeV.intValue;
     }
 
     @NonNull
     public static JSONObject E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (B != null && B.a() != null) {
                 return B.a();
             }
-            return com.ss.android.socialbase.downloader.constants.e.f70104i;
+            return com.ss.android.socialbase.downloader.constants.e.f61675i;
         }
         return (JSONObject) invokeV.objValue;
     }
 
     public static void F() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && TextUtils.isEmpty(com.ss.android.socialbase.downloader.constants.e.f70098c)) {
-            com.ss.android.socialbase.downloader.constants.e.f70098c = RomUtils.MANUFACTURER_OPPO;
-            com.ss.android.socialbase.downloader.constants.e.f70097b = com.ss.android.socialbase.downloader.constants.e.f70098c.toUpperCase();
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && TextUtils.isEmpty(com.ss.android.socialbase.downloader.constants.e.f61669c)) {
+            com.ss.android.socialbase.downloader.constants.e.f61669c = RomUtils.MANUFACTURER_OPPO;
+            com.ss.android.socialbase.downloader.constants.e.f61668b = com.ss.android.socialbase.downloader.constants.e.f61669c.toUpperCase();
         }
     }
 
@@ -264,14 +265,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (f70178d == null) {
+            if (f61722d == null) {
                 synchronized (c.class) {
-                    if (f70178d == null) {
-                        f70178d = new com.ss.android.socialbase.downloader.impls.c();
+                    if (f61722d == null) {
+                        f61722d = new com.ss.android.socialbase.downloader.impls.c();
                     }
                 }
             }
-            return f70178d;
+            return f61722d;
         }
         return (h) invokeV.objValue;
     }
@@ -279,7 +280,7 @@ public class c {
     public static af J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f70179e : (af) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f61723e : (af) invokeV.objValue;
     }
 
     public static g K() {
@@ -336,7 +337,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             synchronized (c.class) {
-                context = f70175a;
+                context = a;
             }
             return context;
         }
@@ -418,9 +419,9 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("supportMultiProc::=");
-            sb.append(f70183i != null);
+            sb.append(f61727i != null);
             com.ss.android.socialbase.downloader.c.a.a("wjd", sb.toString());
-            return f70183i != null;
+            return f61727i != null;
         }
         return invokeV.booleanValue;
     }
@@ -428,7 +429,7 @@ public class c {
     public static a T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? f70183i : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? f61727i : (a) invokeV.objValue;
     }
 
     public static void U() {
@@ -443,7 +444,7 @@ public class c {
             try {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                f70175a.registerReceiver(x, intentFilter);
+                a.registerReceiver(x, intentFilter);
                 J = true;
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -461,23 +462,23 @@ public class c {
                 }
                 boolean z2 = D;
                 c(downloaderBuilder);
-                if (f70176b == null) {
-                    f70176b = new com.ss.android.socialbase.downloader.impls.d();
+                if (f61720b == null) {
+                    f61720b = new com.ss.android.socialbase.downloader.impls.d();
                 }
-                if (f70181g == null) {
-                    f70181g = new com.ss.android.socialbase.downloader.impls.h();
+                if (f61725g == null) {
+                    f61725g = new com.ss.android.socialbase.downloader.impls.h();
                 }
-                if (f70182h == null && f70183i != null) {
-                    f70182h = f70183i.a();
+                if (f61726h == null && f61727i != null) {
+                    f61726h = f61727i.a();
                 }
-                if (f70177c == null) {
-                    f70177c = new com.ss.android.socialbase.downloader.impls.i();
+                if (f61721c == null) {
+                    f61721c = new com.ss.android.socialbase.downloader.impls.i();
                 }
-                if (f70180f == null) {
-                    f70180f = new com.ss.android.socialbase.downloader.impls.e();
+                if (f61724f == null) {
+                    f61724f = new com.ss.android.socialbase.downloader.impls.e();
                 }
-                if (f70178d == null) {
-                    f70178d = new com.ss.android.socialbase.downloader.impls.c();
+                if (f61722d == null) {
+                    f61722d = new com.ss.android.socialbase.downloader.impls.c();
                 }
                 if (w == null) {
                     w = new com.ss.android.socialbase.downloader.impls.b();
@@ -649,7 +650,7 @@ public class c {
     public static IDownloadHttpService d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65605, null)) == null) ? j : (IDownloadHttpService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65605, null)) == null) ? f61728j : (IDownloadHttpService) invokeV.objValue;
     }
 
     public static List<ak> e() {
@@ -668,7 +669,7 @@ public class c {
     public static com.ss.android.socialbase.downloader.network.h f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65609, null)) == null) ? k : (com.ss.android.socialbase.downloader.network.h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65609, null)) == null) ? f61729k : (com.ss.android.socialbase.downloader.network.h) invokeV.objValue;
     }
 
     public static com.ss.android.socialbase.downloader.d.b g() {
@@ -911,14 +912,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65630, null)) == null) {
-            if (f70176b == null) {
+            if (f61720b == null) {
                 synchronized (c.class) {
-                    if (f70176b == null) {
-                        f70176b = new com.ss.android.socialbase.downloader.impls.d();
+                    if (f61720b == null) {
+                        f61720b = new com.ss.android.socialbase.downloader.impls.d();
                     }
                 }
             }
-            return f70176b;
+            return f61720b;
         }
         return (j) invokeV.objValue;
     }
@@ -927,14 +928,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65631, null)) == null) {
-            if (f70181g == null) {
+            if (f61725g == null) {
                 synchronized (c.class) {
-                    if (f70181g == null) {
-                        f70181g = new com.ss.android.socialbase.downloader.impls.h();
+                    if (f61725g == null) {
+                        f61725g = new com.ss.android.socialbase.downloader.impls.h();
                     }
                 }
             }
-            return f70181g;
+            return f61725g;
         }
         return (o) invokeV.objValue;
     }
@@ -943,14 +944,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65632, null)) == null) {
-            if (f70182h == null) {
+            if (f61726h == null) {
                 synchronized (c.class) {
-                    if (f70182h == null) {
-                        f70182h = f70183i.a();
+                    if (f61726h == null) {
+                        f61726h = f61727i.a();
                     }
                 }
             }
-            return f70182h;
+            return f61726h;
         }
         return (o) invokeV.objValue;
     }
@@ -1109,8 +1110,8 @@ public class c {
         if (interceptable == null || interceptable.invokeV(65566, null) == null) {
             synchronized (c.class) {
                 try {
-                    if (J && x != null && f70175a != null) {
-                        f70175a.unregisterReceiver(x);
+                    if (J && x != null && a != null) {
+                        a.unregisterReceiver(x);
                         J = false;
                     }
                 } catch (Exception e2) {
@@ -1176,14 +1177,14 @@ public class c {
             synchronized (R) {
                 for (com.ss.android.socialbase.downloader.depend.k kVar : R) {
                     if (kVar != null) {
-                        if (dVar == com.ss.android.socialbase.downloader.constants.d.f70093b) {
+                        if (dVar == com.ss.android.socialbase.downloader.constants.d.f61665b) {
                             kVar.a();
-                        } else if (dVar == com.ss.android.socialbase.downloader.constants.d.f70094c) {
+                        } else if (dVar == com.ss.android.socialbase.downloader.constants.d.f61666c) {
                             kVar.b();
                         }
                     }
                 }
-                if (dVar == com.ss.android.socialbase.downloader.constants.d.f70094c) {
+                if (dVar == com.ss.android.socialbase.downloader.constants.d.f61666c) {
                     R.clear();
                 }
             }
@@ -1373,8 +1374,8 @@ public class c {
             synchronized (c.class) {
                 if (lVar != null) {
                     n = lVar;
-                    if (f70176b instanceof com.ss.android.socialbase.downloader.impls.d) {
-                        ((com.ss.android.socialbase.downloader.impls.d) f70176b).h();
+                    if (f61720b instanceof com.ss.android.socialbase.downloader.impls.d) {
+                        ((com.ss.android.socialbase.downloader.impls.d) f61720b).h();
                     }
                 }
             }
@@ -1428,9 +1429,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65584, null, iDownloadHttpService) == null) {
             if (iDownloadHttpService != null) {
-                j = iDownloadHttpService;
+                f61728j = iDownloadHttpService;
             }
-            Q = j != null;
+            Q = f61728j != null;
         }
     }
 
@@ -1439,7 +1440,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65585, null, hVar) == null) || hVar == null) {
             return;
         }
-        k = hVar;
+        f61729k = hVar;
     }
 
     public static void a(j jVar) {
@@ -1447,7 +1448,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65579, null, jVar) == null) || jVar == null) {
             return;
         }
-        f70176b = jVar;
+        f61720b = jVar;
     }
 
     public static void a(k kVar) {
@@ -1455,7 +1456,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65580, null, kVar) == null) || kVar == null) {
             return;
         }
-        f70177c = kVar;
+        f61721c = kVar;
     }
 
     public static void a(com.ss.android.socialbase.downloader.d.b bVar) {
@@ -1479,7 +1480,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65578, null, hVar) == null) || hVar == null) {
             return;
         }
-        f70178d = hVar;
+        f61722d = hVar;
     }
 
     public static void a(af afVar) {
@@ -1487,7 +1488,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeL(65572, null, afVar) == null) || afVar == null) {
             return;
         }
-        f70179e = afVar;
+        f61723e = afVar;
     }
 
     public static void a(g gVar) {
@@ -1503,9 +1504,9 @@ public class c {
         if (interceptable == null || interceptable.invokeL(65567, null, context) == null) {
             synchronized (c.class) {
                 if (context != null) {
-                    if (f70175a == null) {
-                        f70175a = context.getApplicationContext();
-                        com.ss.android.socialbase.downloader.a.a.a().a(f70175a);
+                    if (a == null) {
+                        a = context.getApplicationContext();
+                        com.ss.android.socialbase.downloader.a.a.a().a(a);
                     }
                 }
             }
@@ -1548,7 +1549,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65576, null, aVar) == null) {
             com.ss.android.socialbase.downloader.c.a.a("wjd", "setIndependentServiceCreator::creator=" + aVar);
-            f70183i = aVar;
+            f61727i = aVar;
         }
     }
 }

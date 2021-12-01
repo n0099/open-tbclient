@@ -1,8 +1,7 @@
 package com.airbnb.lottie.network;
 
 import com.airbnb.lottie.utils.Logger;
-import com.baidu.mobads.container.util.XAdSimpleImageLoader;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public enum FileExtension {
     JSON(".json"),
     ZIP(".zip");
@@ -25,7 +24,7 @@ public enum FileExtension {
     }
 
     public String tempExtension() {
-        return XAdSimpleImageLoader.TEMP_SUFFIX + this.extension;
+        return ".temp" + this.extension;
     }
 
     @Override // java.lang.Enum

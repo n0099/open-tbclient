@@ -7,31 +7,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f35141a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35142b;
+    public String f31491b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35143c;
+    public String f31492c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35144d;
+    public String f31493d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35145e;
+    public String f31494e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35146f;
+    public String f31495f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35147g;
+    public String f31496g;
 
     public a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
@@ -48,13 +46,13 @@ public final class a {
                 return;
             }
         }
-        this.f35141a = str;
-        this.f35142b = str2;
-        this.f35143c = str3;
-        this.f35144d = str4;
-        this.f35145e = str5;
-        this.f35146f = str6;
-        this.f35147g = str7;
+        this.a = str;
+        this.f31491b = str2;
+        this.f31492c = str3;
+        this.f31493d = str4;
+        this.f31494e = str5;
+        this.f31495f = str6;
+        this.f31496g = str7;
     }
 
     public final String toString() {
@@ -68,34 +66,34 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(Calendar.getInstance().getTime()));
-            stringBuffer.append("," + this.f35141a);
-            stringBuffer.append("," + this.f35142b);
-            stringBuffer.append("," + this.f35143c);
-            stringBuffer.append("," + this.f35144d);
-            if (com.alipay.security.mobile.module.a.a.a(this.f35145e) || this.f35145e.length() < 20) {
+            stringBuffer.append("," + this.a);
+            stringBuffer.append("," + this.f31491b);
+            stringBuffer.append("," + this.f31492c);
+            stringBuffer.append("," + this.f31493d);
+            if (com.alipay.security.mobile.module.a.a.a(this.f31494e) || this.f31494e.length() < 20) {
                 sb = new StringBuilder(",");
-                str = this.f35145e;
+                str = this.f31494e;
             } else {
                 sb = new StringBuilder(",");
-                str = this.f35145e.substring(0, 20);
+                str = this.f31494e.substring(0, 20);
             }
             sb.append(str);
             stringBuffer.append(sb.toString());
-            if (com.alipay.security.mobile.module.a.a.a(this.f35146f) || this.f35146f.length() < 20) {
+            if (com.alipay.security.mobile.module.a.a.a(this.f31495f) || this.f31495f.length() < 20) {
                 sb2 = new StringBuilder(",");
-                str2 = this.f35146f;
+                str2 = this.f31495f;
             } else {
                 sb2 = new StringBuilder(",");
-                str2 = this.f35146f.substring(0, 20);
+                str2 = this.f31495f.substring(0, 20);
             }
             sb2.append(str2);
             stringBuffer.append(sb2.toString());
-            if (com.alipay.security.mobile.module.a.a.a(this.f35147g) || this.f35147g.length() < 20) {
+            if (com.alipay.security.mobile.module.a.a.a(this.f31496g) || this.f31496g.length() < 20) {
                 sb3 = new StringBuilder(",");
-                str3 = this.f35147g;
+                str3 = this.f31496g;
             } else {
                 sb3 = new StringBuilder(",");
-                str3 = this.f35147g.substring(0, 20);
+                str3 = this.f31496g.substring(0, 20);
             }
             sb3.append(str3);
             stringBuffer.append(sb3.toString());

@@ -12,7 +12,6 @@ import android.view.animation.DecelerateInterpolator;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,7 +78,7 @@ public class Explode extends Visibility {
         int centerY;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, view, rect, iArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, this, view, rect, iArr) == null) {
             view.getLocationOnScreen(this.mTempLoc);
             int[] iArr2 = this.mTempLoc;
             int i3 = iArr2[0];
@@ -108,7 +107,7 @@ public class Explode extends Visibility {
 
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, transitionValues) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, transitionValues) == null) {
             View view = transitionValues.view;
             view.getLocationOnScreen(this.mTempLoc);
             int[] iArr = this.mTempLoc;

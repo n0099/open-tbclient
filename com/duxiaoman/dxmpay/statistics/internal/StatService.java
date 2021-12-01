@@ -2,9 +2,8 @@ package com.duxiaoman.dxmpay.statistics.internal;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.c.a.a.a.e;
+import c.d.a.a.a.e;
 import com.alipay.sdk.widget.d;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,16 +16,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f62926a;
+    public ConcurrentHashMap<String, Long> a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class ETag {
         public static final /* synthetic */ ETag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -89,12 +86,10 @@ public class StatService {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static StatService f62927a;
+        public static StatService a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -110,11 +105,11 @@ public class StatService {
                     return;
                 }
             }
-            f62927a = new StatService(null);
+            a = new StatService(null);
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,13 +122,13 @@ public class StatService {
     public static StatService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f62927a : (StatService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (StatService) invokeV.objValue;
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a().f62926a.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().a.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
@@ -150,7 +145,7 @@ public class StatService {
 
     public static void d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         e.a().c(str, null, str2, str3, System.currentTimeMillis());
@@ -158,7 +153,7 @@ public class StatService {
 
     public static void e(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, str3, str4) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, str4) == null) {
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add(0, "");
@@ -212,12 +207,12 @@ public class StatService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            Long l = a().f62926a.get(str);
+            Long l = a().a.get(str);
             if (l == null) {
                 return -1L;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f62926a.remove(str);
+            a().a.remove(str);
             return valueOf.longValue();
         }
         return invokeL.longValue;
@@ -273,6 +268,6 @@ public class StatService {
                 return;
             }
         }
-        this.f62926a = new ConcurrentHashMap<>();
+        this.a = new ConcurrentHashMap<>();
     }
 }

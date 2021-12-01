@@ -25,22 +25,18 @@ import java.util.concurrent.TimeUnit;
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f69680a;
+    public ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f69681b;
+    public ExecutorService f61379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ScheduledExecutorService f69682c;
+    public ScheduledExecutorService f61380c;
 
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static d f69684a;
+        public static d a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,14 +52,14 @@ public class d {
                     return;
                 }
             }
-            f69684a = new d();
+            a = new d();
         }
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f69684a : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (d) invokeV.objValue;
     }
 
     public void b(Runnable runnable) {
@@ -77,16 +73,16 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f69681b == null) {
+            if (this.f61379b == null) {
                 synchronized (d.class) {
-                    if (this.f69681b == null) {
+                    if (this.f61379b == null) {
                         TimeUnit timeUnit = TimeUnit.SECONDS;
                         SynchronousQueue synchronousQueue = new SynchronousQueue();
-                        this.f69681b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
+                        this.f61379b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
                     }
                 }
             }
-            return this.f69681b;
+            return this.f61379b;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -95,14 +91,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f69682c == null) {
+            if (this.f61380c == null) {
                 synchronized (d.class) {
-                    if (this.f69682c == null) {
-                        this.f69682c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
+                    if (this.f61380c == null) {
+                        this.f61380c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
                     }
                 }
             }
-            return this.f69682c;
+            return this.f61380c;
         }
         return (ScheduledExecutorService) invokeV.objValue;
     }
@@ -113,9 +109,7 @@ public class d {
             a(new Runnable(this) { // from class: com.ss.android.downloadlib.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f69683a;
+                public final /* synthetic */ d a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -132,7 +126,7 @@ public class d {
                             return;
                         }
                     }
-                    this.f69683a = this;
+                    this.a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -217,25 +211,25 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f69680a == null) {
+            if (this.a == null) {
                 synchronized (d.class) {
-                    if (this.f69680a == null) {
+                    if (this.a == null) {
                         TimeUnit timeUnit = TimeUnit.SECONDS;
                         SynchronousQueue synchronousQueue = new SynchronousQueue();
-                        this.f69680a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-CPUThreadPool"));
+                        this.a = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-CPUThreadPool"));
                     }
                 }
             }
-            return this.f69680a;
+            return this.a;
         }
         return (ExecutorService) invokeV.objValue;
     }
 
-    public void a(Runnable runnable, long j) {
+    public void a(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j2) == null) {
             try {
-                d().schedule(runnable, j, TimeUnit.MILLISECONDS);
+                d().schedule(runnable, j2, TimeUnit.MILLISECONDS);
             } catch (Throwable th) {
                 th.printStackTrace();
             }

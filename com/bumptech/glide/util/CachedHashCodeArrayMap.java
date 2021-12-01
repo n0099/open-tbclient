@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class CachedHashCodeArrayMap<K, V> extends ArrayMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,12 +51,12 @@ public final class CachedHashCodeArrayMap<K, V> extends ArrayMap<K, V> {
     }
 
     @Override // androidx.collection.SimpleArrayMap, java.util.Map
-    public V put(K k, V v) {
+    public V put(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k2, v)) == null) {
             this.hashCode = 0;
-            return (V) super.put(k, v);
+            return (V) super.put(k2, v);
         }
         return (V) invokeLL.objValue;
     }

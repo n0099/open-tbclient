@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SafeKeyBoardUtil f38565a;
+    public final /* synthetic */ SafeKeyBoardUtil a;
 
     public l(SafeKeyBoardUtil safeKeyBoardUtil) {
         Interceptable interceptable = $ic;
@@ -28,7 +26,7 @@ public class l implements Runnable {
                 return;
             }
         }
-        this.f38565a = safeKeyBoardUtil;
+        this.a = safeKeyBoardUtil;
     }
 
     @Override // java.lang.Runnable
@@ -46,25 +44,25 @@ public class l implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int[] iArr = new int[2];
-            view = this.f38565a.f38540f;
+            view = this.a.f34467f;
             view.getLocationOnScreen(iArr);
-            SafeKeyBoardUtil safeKeyBoardUtil = this.f38565a;
+            SafeKeyBoardUtil safeKeyBoardUtil = this.a;
             int i7 = iArr[1];
-            view2 = safeKeyBoardUtil.f38540f;
+            view2 = safeKeyBoardUtil.f34467f;
             int height = i7 + view2.getHeight();
-            i2 = this.f38565a.f38541g;
-            i3 = this.f38565a.j;
+            i2 = this.a.f34468g;
+            i3 = this.a.f34471j;
             int i8 = height - (i2 - i3);
-            safeKeyBoardEditText = this.f38565a.f38537c;
-            safeKeyBoardUtil.f38543i = i8 + safeKeyBoardEditText.getGap();
-            i4 = this.f38565a.f38543i;
+            safeKeyBoardEditText = this.a.f34464c;
+            safeKeyBoardUtil.f34470i = i8 + safeKeyBoardEditText.getGap();
+            i4 = this.a.f34470i;
             if (i4 > 0) {
-                safeScrollView2 = this.f38565a.f38539e;
-                i6 = this.f38565a.f38543i;
+                safeScrollView2 = this.a.f34466e;
+                i6 = this.a.f34470i;
                 safeScrollView2.smoothScrollBy(0, i6);
             }
-            safeScrollView = this.f38565a.f38539e;
-            i5 = this.f38565a.j;
+            safeScrollView = this.a.f34466e;
+            i5 = this.a.f34471j;
             safeScrollView.notifyShowKeyBoard(i5);
         }
     }

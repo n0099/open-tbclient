@@ -14,13 +14,11 @@ import java.io.File;
 /* loaded from: classes2.dex */
 public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile a f70001a;
+    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f70002b;
+    public boolean f61601b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a() {
@@ -39,21 +37,21 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f70002b = false;
+        this.f61601b = false;
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f70001a == null) {
+            if (a == null) {
                 synchronized (a.class) {
-                    if (f70001a == null) {
-                        f70001a = new a();
+                    if (a == null) {
+                        a = new a();
                     }
                 }
             }
-            return f70001a;
+            return a;
         }
         return (a) invokeV.objValue;
     }
@@ -64,14 +62,14 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Context N = com.ss.android.socialbase.downloader.downloader.c.N();
-            if (!this.f70002b && N != null) {
+            if (!this.f61601b && N != null) {
                 try {
                     File file = new File("/data/data/" + N.getPackageName() + "/database/main/");
                     if (!file.exists()) {
                         file.mkdir();
                     }
                     super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                    this.f70002b = true;
+                    this.f61601b = true;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

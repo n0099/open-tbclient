@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class dv {
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bm.m185a(str), 2) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? Base64.encodeToString(bm.m234a(str), 2) : (String) invokeL.objValue;
     }
 
     public static String a(HashMap<String, String> hashMap) {

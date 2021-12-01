@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.q0.m0.c;
-import b.a.r0.x0.f1;
-import b.a.r0.x0.q0;
-import b.a.r0.x0.t;
+import c.a.q0.n0.c;
+import c.a.r0.d1.f1;
+import c.a.r0.d1.q0;
+import c.a.r0.d1.t;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -25,19 +25,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FrsAllThreadFragment extends BaseFragment implements q0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f49051e;
+    public View f44003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f49052f;
+    public RecyclerView f44004f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f49053g;
+    public String f44005g;
 
     public FrsAllThreadFragment() {
         Interceptable interceptable = $ic;
@@ -56,35 +56,26 @@ public class FrsAllThreadFragment extends BaseFragment implements q0 {
     public final void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f49053g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f44005g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    @Override // b.a.r0.x0.q0
+    @Override // c.a.r0.d1.q0
     public void changeToSpecialFrs(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 
-    @Override // b.a.r0.x0.q0
+    @Override // c.a.r0.d1.q0
     public void forceRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             scrollToTop();
             t tVar = new t();
-            tVar.f27908a = 1;
-            tVar.f27909b = true;
+            tVar.a = 1;
+            tVar.f16010b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
-        }
-    }
-
-    public final void g() {
-        View view;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (view = this.f49051e) != null && (view.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.f49051e.getParent()).removeView(this.f49051e);
-            this.f49051e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
@@ -92,11 +83,20 @@ public class FrsAllThreadFragment extends BaseFragment implements q0 {
     public c getTbPageExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
             return new c(getUniqueId(), "a006", baseFragmentActivity == null ? null : baseFragmentActivity.getIntent());
         }
         return (c) invokeV.objValue;
+    }
+
+    public final void i() {
+        View view;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (view = this.f44003e) != null && (view.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.f44003e.getParent()).removeView(this.f44003e);
+            this.f44003e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -107,10 +107,10 @@ public class FrsAllThreadFragment extends BaseFragment implements q0 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             Bundle arguments = getArguments();
             if (arguments != null) {
-                this.f49053g = arguments.getString("forum_id", "");
+                this.f44005g = arguments.getString("forum_id", "");
             }
-            g();
-            return this.f49051e;
+            i();
+            return this.f44003e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -127,11 +127,11 @@ public class FrsAllThreadFragment extends BaseFragment implements q0 {
         }
     }
 
-    @Override // b.a.r0.x0.q0
+    @Override // c.a.r0.d1.q0
     public void scrollToTop() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (recyclerView = this.f49052f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (recyclerView = this.f44004f) == null) {
             return;
         }
         recyclerView.scrollToPosition(0);
@@ -140,9 +140,9 @@ public class FrsAllThreadFragment extends BaseFragment implements q0 {
     public void setView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            this.f49051e = view;
-            this.f49052f = (RecyclerView) view.findViewById(f1.frs_lv_thread);
-            g();
+            this.f44003e = view;
+            this.f44004f = (RecyclerView) view.findViewById(f1.frs_lv_thread);
+            i();
         }
     }
 }

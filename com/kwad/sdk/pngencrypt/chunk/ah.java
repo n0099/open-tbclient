@@ -13,12 +13,10 @@ import org.apache.commons.lang3.StringUtils;
 public class ah {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final e f66821a;
+    public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f66822b;
+    public final boolean f58714b;
 
     public ah(e eVar) {
         Interceptable interceptable = $ic;
@@ -35,8 +33,8 @@ public class ah {
                 return;
             }
         }
-        this.f66821a = eVar;
-        this.f66822b = !(eVar instanceof f);
+        this.a = eVar;
+        this.f58714b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {
@@ -44,9 +42,9 @@ public class ah {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.f66821a.a("tEXt", str));
-            arrayList.addAll(this.f66821a.a("zTXt", str));
-            arrayList.addAll(this.f66821a.a("iTXt", str));
+            arrayList.addAll(this.a.a("tEXt", str));
+            arrayList.addAll(this.a.a("zTXt", str));
+            arrayList.addAll(this.a.a("iTXt", str));
             return arrayList;
         }
         return (List) invokeL.objValue;
@@ -56,12 +54,12 @@ public class ah {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            List<? extends ae> a2 = a(str);
-            if (a2.isEmpty()) {
+            List<? extends ae> a = a(str);
+            if (a.isEmpty()) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (ae aeVar : a2) {
+            for (ae aeVar : a) {
                 sb.append(aeVar.d());
                 sb.append(StringUtils.LF);
             }

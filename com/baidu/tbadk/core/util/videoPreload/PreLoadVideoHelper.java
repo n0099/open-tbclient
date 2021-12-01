@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
-import b.a.e.m.e.o;
-import b.a.e.m.e.q;
+import c.a.d.m.e.o;
+import c.a.d.m.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PreLoadVideoHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

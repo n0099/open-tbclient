@@ -2,7 +2,6 @@ package org.apache.commons.lang3.event;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,14 +96,14 @@ public class EventListenerSupport<L> implements Serializable {
 
     private void createProxy(Class<L> cls, ClassLoader classLoader) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, cls, classLoader) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, cls, classLoader) == null) {
             this.proxy = cls.cast(Proxy.newProxyInstance(classLoader, new Class[]{cls}, createInvocationHandler()));
         }
     }
 
     private void initializeTransientFields(Class<L> cls, ClassLoader classLoader) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, cls, classLoader) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, cls, classLoader) == null) {
             this.prototypeArray = (L[]) ((Object[]) Array.newInstance((Class<?>) cls, 0));
             createProxy(cls, classLoader);
         }

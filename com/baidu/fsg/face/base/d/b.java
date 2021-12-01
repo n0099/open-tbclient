@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Rect f38651a;
+    public Rect a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Rect f38652b;
+    public Rect f34551b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38653c;
+    public int f34552c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38654d;
+    public int f34553d;
 
     public b() {
         Interceptable interceptable = $ic;

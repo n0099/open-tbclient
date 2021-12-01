@@ -9,11 +9,11 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.k2.f;
-import b.a.r0.k2.g;
-import b.a.r0.k2.h;
-import b.a.r0.k2.l;
-import b.a.r0.k2.s.b;
+import c.a.r0.q2.f;
+import c.a.r0.q2.g;
+import c.a.r0.q2.h;
+import c.a.r0.q2.l;
+import c.a.r0.q2.s.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -24,27 +24,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TextSizeSeekBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53851e;
+    public int f48111e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53852f;
+    public int f48112f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53853g;
+    public int f48113g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f53854h;
+    public int f48114h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f53855i;
-    public int j;
-    public Paint k;
+    public int f48115i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f48116j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public Paint f48117k;
     public int l;
     public Drawable m;
     public int n;
@@ -98,15 +102,15 @@ public class TextSizeSeekBar extends View {
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.k.setColor(this.r);
-            this.k.setStrokeWidth(this.u);
-            int i2 = this.f53854h;
-            int i3 = this.j;
-            canvas.drawLine((float) (i2 / 2.0d), i3, (float) (this.f53851e - (i2 / 2.0d)), i3, this.k);
-            this.k.setStrokeWidth(this.v);
-            this.k.setStrokeCap(Paint.Cap.ROUND);
+            this.f48117k.setColor(this.r);
+            this.f48117k.setStrokeWidth(this.u);
+            int i2 = this.f48114h;
+            int i3 = this.f48116j;
+            canvas.drawLine((float) (i2 / 2.0d), i3, (float) (this.f48111e - (i2 / 2.0d)), i3, this.f48117k);
+            this.f48117k.setStrokeWidth(this.v);
+            this.f48117k.setStrokeCap(Paint.Cap.ROUND);
             for (int i4 = 0; i4 < 4; i4++) {
-                canvas.drawPoint((this.f53853g * i4) + (this.f53854h / 2), this.j, this.k);
+                canvas.drawPoint((this.f48113g * i4) + (this.f48114h / 2), this.f48116j, this.f48117k);
             }
         }
     }
@@ -116,13 +120,13 @@ public class TextSizeSeekBar extends View {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             for (int i2 = 0; i2 < this.o.length; i2++) {
                 if (i2 == this.n) {
-                    this.k.setColor(this.p);
+                    this.f48117k.setColor(this.p);
                 } else {
-                    this.k.setColor(this.q);
+                    this.f48117k.setColor(this.q);
                 }
-                this.k.setTextSize(this.l);
-                this.k.setTextAlign(Paint.Align.CENTER);
-                canvas.drawText(this.o[i2], (this.f53853g * i2) + (this.f53854h / 2), this.j - this.w, this.k);
+                this.f48117k.setTextSize(this.l);
+                this.f48117k.setTextAlign(Paint.Align.CENTER);
+                canvas.drawText(this.o[i2], (this.f48113g * i2) + (this.f48114h / 2), this.f48116j - this.w, this.f48117k);
             }
         }
     }
@@ -132,13 +136,13 @@ public class TextSizeSeekBar extends View {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(g.tbds102);
             Paint paint = new Paint();
-            this.k = paint;
+            this.f48117k = paint;
             paint.setAntiAlias(true);
-            this.k.setDither(true);
-            this.k.setFilterBitmap(true);
+            this.f48117k.setDither(true);
+            this.f48117k.setFilterBitmap(true);
             this.m = SkinManager.getDrawable(h.pic_wordsize_n);
-            this.f53854h = dimensionPixelSize;
-            this.f53855i = dimensionPixelSize;
+            this.f48114h = dimensionPixelSize;
+            this.f48115i = dimensionPixelSize;
             this.l = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(g.T_X09);
             this.o = new String[]{context.getString(l.font_size_small), context.getString(l.font_size_mid), context.getString(l.font_size_big), context.getString(l.font_size_xlarge)};
             this.p = SkinManager.getColor(f.CAM_X0105);
@@ -203,20 +207,20 @@ public class TextSizeSeekBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (this.f53851e == 0 || this.f53852f == 0) {
-                this.f53851e = View.MeasureSpec.getSize(i2);
+            if (this.f48111e == 0 || this.f48112f == 0) {
+                this.f48111e = View.MeasureSpec.getSize(i2);
                 int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(g.ds176);
-                this.f53852f = dimensionPixelSize;
-                this.f53853g = (this.f53851e - this.f53854h) / 3;
-                this.j = dimensionPixelSize / 2;
+                this.f48112f = dimensionPixelSize;
+                this.f48113g = (this.f48111e - this.f48114h) / 3;
+                this.f48116j = dimensionPixelSize / 2;
                 for (int i4 = 0; i4 < 4; i4++) {
-                    int i5 = this.f53853g;
-                    int i6 = this.j;
-                    int i7 = this.f53855i;
-                    this.t.add(new Rect(i5 * i4, i6 - (i7 / 2), (i5 * i4) + this.f53854h, i6 + (i7 / 2)));
+                    int i5 = this.f48113g;
+                    int i6 = this.f48116j;
+                    int i7 = this.f48115i;
+                    this.t.add(new Rect(i5 * i4, i6 - (i7 / 2), (i5 * i4) + this.f48114h, i6 + (i7 / 2)));
                 }
             }
-            setMeasuredDimension(this.f53851e, this.f53852f);
+            setMeasuredDimension(this.f48111e, this.f48112f);
         }
     }
 

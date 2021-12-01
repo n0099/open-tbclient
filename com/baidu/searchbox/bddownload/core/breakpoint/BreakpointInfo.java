@@ -16,7 +16,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BreakpointInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -193,12 +193,12 @@ public class BreakpointInfo {
             if (isChunked()) {
                 return getTotalOffset();
             }
-            long j = 0;
+            long j2 = 0;
             Iterator it = ((ArrayList) ((ArrayList) this.blockInfoList).clone()).iterator();
             while (it.hasNext()) {
-                j += ((BlockInfo) it.next()).getContentLength();
+                j2 += ((BlockInfo) it.next()).getContentLength();
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -209,11 +209,11 @@ public class BreakpointInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             ArrayList arrayList = (ArrayList) ((ArrayList) this.blockInfoList).clone();
             int size = arrayList.size();
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < size; i2++) {
-                j += ((BlockInfo) arrayList.get(i2)).getCurrentOffset();
+                j2 += ((BlockInfo) arrayList.get(i2)).getCurrentOffset();
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

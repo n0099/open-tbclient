@@ -6,9 +6,8 @@ import android.os.Build;
 import android.util.Base64;
 import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
-import b.a.k0.a.e.a;
+import c.a.l0.a.e.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.bean.ImageBitmapBean;
 import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
@@ -27,7 +26,7 @@ import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class WebGLImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_URL = "asset://";
@@ -40,7 +39,7 @@ public class WebGLImageLoader {
     public static BitmapReferenceMap sReferenceMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +143,7 @@ public class WebGLImageLoader {
         InterceptResult invokeL;
         ImageBitmapBean imageBitmapBean;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, webGLImage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, webGLImage)) == null) {
             initializeIfNeeded();
             String src = webGLImage.src();
             String oldSrc = webGLImage.oldSrc();
@@ -174,7 +173,7 @@ public class WebGLImageLoader {
     public static String getRealBdFilePath(V8Engine v8Engine, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, v8Engine, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, v8Engine, str)) == null) {
             String bdFileRealPath = v8Engine.getBdFileRealPath();
             String substring = str.substring(9);
             if (!substring.startsWith(File.separator)) {

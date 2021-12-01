@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +30,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     public static /* synthetic */ Interceptable $ic;
     public static AnimatedImageDecoder sGifAnimatedImageDecoder;
@@ -201,7 +200,7 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
         InterceptResult invokeLLL;
         List<CloseableReference<Bitmap>> list;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, imageDecodeOptions, animatedImage, config)) != null) {
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65541, this, imageDecodeOptions, animatedImage, config)) != null) {
             return (CloseableImage) invokeLLL.objValue;
         }
         CloseableReference<Bitmap> closeableReference = null;
@@ -243,7 +242,7 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     public static AnimatedImageDecoder loadIfPresent(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
                 return (AnimatedImageDecoder) Class.forName(str).newInstance();
             } catch (Throwable unused) {

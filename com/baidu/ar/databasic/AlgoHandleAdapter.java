@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AlgoHandleAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,61 +46,61 @@ public class AlgoHandleAdapter {
 
     public static native long createHandle();
 
-    public static native int destroyHandle(long j);
+    public static native int destroyHandle(long j2);
 
-    public static native boolean getHandleEnableSync(long j);
+    public static native boolean getHandleEnableSync(long j2);
 
-    public static native long getHandleFaceHandle(long j);
+    public static native long getHandleFaceHandle(long j2);
 
-    public static native byte[] getHandleImageData(long j);
+    public static native byte[] getHandleImageData(long j2);
 
-    public static native int getHandleImageHeight(long j);
+    public static native int getHandleImageHeight(long j2);
 
-    public static native int getHandleImageWidth(long j);
+    public static native int getHandleImageWidth(long j2);
 
-    public static native boolean getHandleIsFront(long j);
+    public static native boolean getHandleIsFront(long j2);
 
-    public static native float getHandleMaskBottom(long j);
+    public static native float getHandleMaskBottom(long j2);
 
-    public static native byte[] getHandleMaskData(long j);
+    public static native byte[] getHandleMaskData(long j2);
 
-    public static native int getHandleMaskFormat(long j);
+    public static native int getHandleMaskFormat(long j2);
 
-    public static native int getHandleMaskHeight(long j);
+    public static native int getHandleMaskHeight(long j2);
 
-    public static native float getHandleMaskThreshold(long j);
+    public static native float getHandleMaskThreshold(long j2);
 
-    public static native float getHandleMaskTop(long j);
+    public static native float getHandleMaskTop(long j2);
 
-    public static native int getHandleMaskWidth(long j);
+    public static native int getHandleMaskWidth(long j2);
 
-    public static native int getHandleOrientation(long j);
+    public static native int getHandleOrientation(long j2);
 
-    public static native int getHandleReferenceCount(long j);
+    public static native int getHandleReferenceCount(long j2);
 
-    public static native int getHandleReserveData(long j, ReserveHandleData reserveHandleData);
+    public static native int getHandleReserveData(long j2, ReserveHandleData reserveHandleData);
 
-    public static native float[] getHandleResult(long j);
+    public static native float[] getHandleResult(long j2);
 
-    public static native int getHandleResultLength(long j);
+    public static native int getHandleResultLength(long j2);
 
-    public static native long getHandleTimeStamp(long j);
+    public static native long getHandleTimeStamp(long j2);
 
-    public static native int getHandleType(long j);
+    public static native int getHandleType(long j2);
 
     public static native int getVersion();
 
-    public static native int increaseHandleReference(long j);
+    public static native int increaseHandleReference(long j2);
 
-    public static native int setHandleFaceHandle(long j, long j2);
+    public static native int setHandleFaceHandle(long j2, long j3);
 
-    public static native int setHandleInput(long j, int i2, long j2, int i3, int i4, int i5, boolean z, int i6, boolean z2, ByteBuffer byteBuffer);
+    public static native int setHandleInput(long j2, int i2, long j3, int i3, int i4, int i5, boolean z, int i6, boolean z2, ByteBuffer byteBuffer);
 
-    public static native int setHandleMaskData(long j, int i2, int i3, int i4, byte[] bArr);
+    public static native int setHandleMaskData(long j2, int i2, int i3, int i4, byte[] bArr);
 
-    public static native int setHandleMaskThreshold(long j, float f2);
+    public static native int setHandleMaskThreshold(long j2, float f2);
 
-    public static native int setHandleReserveData(long j, ReserveHandleData reserveHandleData);
+    public static native int setHandleReserveData(long j2, ReserveHandleData reserveHandleData);
 
-    public static native int setHandleResult(long j, int i2, float[] fArr);
+    public static native int setHandleResult(long j2, int i2, float[] fArr);
 }

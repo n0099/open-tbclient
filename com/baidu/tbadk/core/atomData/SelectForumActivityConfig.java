@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SelectForumActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_KEY_BAIJIAHAO_DATA = "extra_key_baijiahao_data";
@@ -118,12 +118,12 @@ public class SelectForumActivityConfig extends IntentConfig {
         getIntent().putExtra("from_share", z);
     }
 
-    public void setLiveId(long j) {
+    public void setLiveId(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra("extra_key_live_id", j);
+        getIntent().putExtra("extra_key_live_id", j2);
     }
 
     public void setMoreForumImg(String str) {

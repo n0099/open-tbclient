@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,7 +107,7 @@ public class ViewGroupUtils {
 
     public static void suppressLayout(@NonNull ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, viewGroup, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65541, null, viewGroup, z) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 29) {
                 viewGroup.suppressLayout(z);

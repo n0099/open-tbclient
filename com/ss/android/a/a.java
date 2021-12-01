@@ -1,7 +1,6 @@
 package com.ss.android.a;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,9 +14,7 @@ import java.io.RandomAccessFile;
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final RandomAccessFile f69220a;
+    public final RandomAccessFile a;
 
     public a(File file) throws FileNotFoundException {
         Interceptable interceptable = $ic;
@@ -34,21 +31,21 @@ public class a implements b {
                 return;
             }
         }
-        this.f69220a = new RandomAccessFile(file, r.f41000a);
+        this.a = new RandomAccessFile(file, "r");
     }
 
     @Override // com.ss.android.a.b
     public long a() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69220a.length() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.length() : invokeV.longValue;
     }
 
     @Override // com.ss.android.a.b
     public void b() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f69220a.close();
+            this.a.close();
         }
     }
 
@@ -56,14 +53,14 @@ public class a implements b {
     public int a(byte[] bArr, int i2, int i3) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) ? this.f69220a.read(bArr, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) ? this.a.read(bArr, i2, i3) : invokeLII.intValue;
     }
 
     @Override // com.ss.android.a.b
-    public void a(long j, long j2) throws IOException {
+    public void a(long j2, long j3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f69220a.seek(j);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            this.a.seek(j2);
         }
     }
 }

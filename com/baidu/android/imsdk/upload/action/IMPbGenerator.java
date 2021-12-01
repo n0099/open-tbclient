@@ -21,7 +21,6 @@ import com.baidu.android.imsdk.upload.action.track.Msg;
 import com.baidu.android.imsdk.upload.action.track.Request;
 import com.baidu.android.imsdk.upload.action.track.Ui;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class IMPbGenerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ALL_LENGTH = 800;
@@ -71,10 +70,10 @@ public final class IMPbGenerator {
         }
     }
 
-    private IMPushPb.Action generateRequestAction(String str, String str2, long j, long j2, long j3, String str3, long j4) {
+    private IMPushPb.Action generateRequestAction(String str, String str2, long j2, long j3, long j4, String str3, long j5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str3, Long.valueOf(j5)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j2).setResponseTime(j3).setErrorCode(j4).setExt(str3).setAliasId(j5).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
     }
 
     private IMPushPb.Common getIMCommon(Context context) {
@@ -113,7 +112,7 @@ public final class IMPbGenerator {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             DisplayMetrics displayMetrics = new DisplayMetrics();
             int i4 = 0;
@@ -137,7 +136,7 @@ public final class IMPbGenerator {
 
     private void putIMAckToActions(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
             for (Ack ack : IMTrackDatabase.getInstance(context).getAcks()) {
                 putIMAckToActions(ack.type, ack.value, ack.timestamp, ack.ext, ack.aliasId);
             }
@@ -169,10 +168,10 @@ public final class IMPbGenerator {
         }
     }
 
-    private void putIMDbToAction(String str, String str2, String str3, String str4, long j, long j2, long j3, String str5, long j4) {
+    private void putIMDbToAction(String str, String str2, String str3, String str4, long j2, long j3, long j4, String str5, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{str, str2, str3, str4, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str5, Long.valueOf(j4)}) == null) {
-            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.DB).setDb(IMPushPb.Db.newBuilder().setTable(str).setClassName(str2).setMethod(str3).setAction(str4).setStartTime(j).setEndTime(j2).setDuration(j3).setExt(str5).setAliasId(j4).build()).build());
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str5, Long.valueOf(j5)}) == null) {
+            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.DB).setDb(IMPushPb.Db.newBuilder().setTable(str).setClassName(str2).setMethod(str3).setAction(str4).setStartTime(j2).setEndTime(j3).setDuration(j4).setExt(str5).setAliasId(j5).build()).build());
         }
     }
 
@@ -194,10 +193,10 @@ public final class IMPbGenerator {
         }
     }
 
-    private void putIMRequestToAction(String str, String str2, long j, long j2, long j3, String str3, long j4) {
+    private void putIMRequestToAction(String str, String str2, long j2, long j3, long j4, String str3, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)}) == null) {
-            putIMActions(generateRequestAction(str, str2, j, j2, j3, str3, j4));
+        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str3, Long.valueOf(j5)}) == null) {
+            putIMActions(generateRequestAction(str, str2, j2, j3, j4, str3, j5));
         }
     }
 
@@ -210,10 +209,10 @@ public final class IMPbGenerator {
         }
     }
 
-    private void putIMUiToAction(String str, String str2, long j, long j2, long j3, String str3, long j4) {
+    private void putIMUiToAction(String str, String str2, long j2, long j3, long j4, String str3, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)}) == null) {
-            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.UI).setUi(IMPushPb.Ui.newBuilder().setCategory(str).setPage(str2).setStartTime(j).setEndTime(j2).setDuration(j3).setExt(str3).setAliasId(j4).build()).build());
+        if (interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str3, Long.valueOf(j5)}) == null) {
+            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.UI).setUi(IMPushPb.Ui.newBuilder().setCategory(str).setPage(str2).setStartTime(j2).setEndTime(j3).setDuration(j4).setExt(str3).setAliasId(j5).build()).build());
         }
     }
 
@@ -285,31 +284,31 @@ public final class IMPbGenerator {
         return (byte[]) invokeLL.objValue;
     }
 
-    private void putIMAckToActions(String str, String str2, long j, String str3, long j2) {
+    private void putIMAckToActions(String str, String str2, long j2, String str3, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{str, str2, Long.valueOf(j), str3, Long.valueOf(j2)}) == null) {
-            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.ACK).setAck(IMPushPb.Ack.newBuilder().setType(str).setValue(str2).setTimestamp(j).setExt(str3).setAliasId(j2).build()).build());
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{str, str2, Long.valueOf(j2), str3, Long.valueOf(j3)}) == null) {
+            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.ACK).setAck(IMPushPb.Ack.newBuilder().setType(str).setValue(str2).setTimestamp(j2).setExt(str3).setAliasId(j3).build()).build());
         }
     }
 
-    private void putIMConnectionToActions(long j, long j2, String str, long j3, long j4, String str2, long j5) {
+    private void putIMConnectionToActions(long j2, long j3, String str, long j4, long j5, String str2, long j6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)}) == null) {
-            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(j).setStopTime(j2).setReason(str).setRetryTime(j3).setRetryCount(j4).setExt(str2).setAliasId(j5).build()).build());
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Long.valueOf(j4), Long.valueOf(j5), str2, Long.valueOf(j6)}) == null) {
+            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(j2).setStopTime(j3).setReason(str).setRetryTime(j4).setRetryCount(j5).setExt(str2).setAliasId(j6).build()).build());
         }
     }
 
-    private void putIMCrashToActions(long j, String str, String str2, long j2) {
+    private void putIMCrashToActions(long j2, String str, String str2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2)}) == null) {
-            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CRASH).setCrash(IMPushPb.Crash.newBuilder().setTimestamp(j).setException(str).setExt(str2).setAliasId(j2).build()).build());
+        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j2), str, str2, Long.valueOf(j3)}) == null) {
+            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CRASH).setCrash(IMPushPb.Crash.newBuilder().setTimestamp(j2).setException(str).setExt(str2).setAliasId(j3).build()).build());
         }
     }
 
-    private void putIMMsgToActions(long j, String str, long j2, long j3, long j4, String str2, long j5) {
+    private void putIMMsgToActions(long j2, String str, long j3, long j4, long j5, String str2, long j6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Long.valueOf(j), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)}) == null) {
-            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.MSG).setMsg(IMPushPb.Msg.newBuilder().setMsgCount(j).setRoomId(str).setDuration(j2).setStartMsgid(j3).setEndMsgid(j4).setExt(str2).setAliasId(j5).build()).build());
+        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), str2, Long.valueOf(j6)}) == null) {
+            putIMActions(IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.MSG).setMsg(IMPushPb.Msg.newBuilder().setMsgCount(j2).setRoomId(str).setDuration(j3).setStartMsgid(j4).setEndMsgid(j5).setExt(str2).setAliasId(j6).build()).build());
         }
     }
 }

@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,7 +76,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
 
     private void allocArrays(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
             if (i2 == 8) {
                 synchronized (ArraySet.class) {
                     if (sTwiceBaseCache != null) {
@@ -112,7 +111,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
 
     public static void freeArrays(int[] iArr, Object[] objArr, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, iArr, objArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65542, null, iArr, objArr, i2) == null) {
             if (iArr.length == 8) {
                 synchronized (ArraySet.class) {
                     if (sTwiceBaseCacheSize < 10) {

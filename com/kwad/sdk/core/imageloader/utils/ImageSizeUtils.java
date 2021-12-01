@@ -2,7 +2,6 @@ package com.kwad.sdk.core.imageloader.utils;
 
 import android.opengl.GLES10;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -164,7 +163,7 @@ public final class ImageSizeUtils {
     public static int considerMaxTextureSize(int i2, int i3, int i4, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) != null) {
             return invokeCommon.intValue;
         }
         int width = maxBitmapSize.getWidth();
@@ -180,7 +179,7 @@ public final class ImageSizeUtils {
     public static ImageSize defineTargetSizeForView(ImageAware imageAware, ImageSize imageSize) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, imageAware, imageSize)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, imageAware, imageSize)) == null) {
             int width = imageAware.getWidth();
             if (width <= 0) {
                 width = imageSize.getWidth();

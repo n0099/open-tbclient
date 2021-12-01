@@ -2,7 +2,6 @@ package com.baidu.pass.biometrics.base.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PassBioFileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PassBioFileUtils";
@@ -75,14 +74,14 @@ public class PassBioFileUtils {
     public static boolean write(File file, byte[] bArr) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, file, bArr)) == null) ? write(file, bArr, true) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, bArr)) == null) ? write(file, bArr, true) : invokeLL.booleanValue;
     }
 
     public static boolean write(File file, byte[] bArr, boolean z) throws IOException {
         InterceptResult invokeLLZ;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, file, bArr, z)) != null) {
+        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65542, null, file, bArr, z)) != null) {
             return invokeLLZ.booleanValue;
         }
         try {

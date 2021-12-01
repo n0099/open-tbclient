@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.pubaccount;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IIsSubscribedListener extends IMListener {
-    void onIsSubscribedResult(int i2, String str, long j, boolean z);
+    void onIsSubscribedResult(int i2, String str, long j2, boolean z);
 }

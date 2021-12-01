@@ -8,7 +8,6 @@ import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.statistics.StatService;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.ResUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class RimStatisticsUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "logsender";
@@ -28,12 +27,10 @@ public final class RimStatisticsUtil {
     public boolean hasInit;
     public r mHttpImpl;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static RimStatisticsUtil f38296a;
+        public static RimStatisticsUtil a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +46,7 @@ public final class RimStatisticsUtil {
                     return;
                 }
             }
-            f38296a = new RimStatisticsUtil(null);
+            a = new RimStatisticsUtil(null);
         }
 
         public a() {
@@ -121,13 +118,13 @@ public final class RimStatisticsUtil {
     public static RimStatisticsUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f38296a : (RimStatisticsUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a.a : (RimStatisticsUtil) invokeV.objValue;
     }
 
     private String getSignKey1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f38143h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? com.baidu.fsg.base.a.f34140h : (String) invokeV.objValue;
     }
 
     private String getSignKey2() {
@@ -252,13 +249,13 @@ public final class RimStatisticsUtil {
         }
     }
 
-    public static void onIn(String str, long j) {
+    public static void onIn(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j2) == null) {
             try {
-                if (0 < j) {
+                if (0 < j2) {
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(Long.toString(j));
+                    arrayList.add(Long.toString(j2));
                     StatService.a(str, StatService.ETag.in, arrayList);
                 } else {
                     StatService.a(str, StatService.ETag.in, (Collection<String>) null);

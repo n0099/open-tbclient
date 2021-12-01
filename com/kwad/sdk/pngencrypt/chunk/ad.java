@@ -10,12 +10,16 @@ public class ad extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66817h;
+    public int f58708h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f66818i;
-    public int j;
-    public int k;
+    public int f58709i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f58710j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f58711k;
     public int[] l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,18 +48,18 @@ public class ad extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            com.kwad.sdk.pngencrypt.k kVar = this.f66810e;
-            if (kVar.f66894f) {
-                this.f66817h = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 0);
-            } else if (!kVar.f66895g) {
-                this.f66818i = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 0);
-                this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 2);
-                this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 4);
+            com.kwad.sdk.pngencrypt.k kVar = this.f58700e;
+            if (kVar.f58798f) {
+                this.f58708h = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 0);
+            } else if (!kVar.f58799g) {
+                this.f58709i = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 0);
+                this.f58710j = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 2);
+                this.f58711k = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 4);
             } else {
-                int length = dVar.f66832d.length;
+                int length = dVar.f58722d.length;
                 this.l = new int[length];
                 for (int i2 = 0; i2 < length; i2++) {
-                    this.l[i2] = dVar.f66832d[i2] & 255;
+                    this.l[i2] = dVar.f58722d[i2] & 255;
                 }
             }
         }

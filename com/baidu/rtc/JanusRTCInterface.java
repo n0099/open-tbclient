@@ -3,7 +3,7 @@ package com.baidu.rtc;
 import com.baidu.rtc.BaiduRtcRoom;
 import java.math.BigInteger;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface JanusRTCInterface {
     void onAttribute(BigInteger bigInteger, String str);
 
@@ -11,7 +11,7 @@ public interface JanusRTCInterface {
 
     void onConnectError();
 
-    void onCreatedHandle(BigInteger bigInteger, long j);
+    void onCreatedHandle(BigInteger bigInteger, long j2);
 
     void onHangUp(BigInteger bigInteger);
 
@@ -45,15 +45,15 @@ public interface JanusRTCInterface {
 
     void onSlowLink(boolean z, int i2);
 
-    void onUserDisShutUp(long j);
+    void onUserDisShutUp(long j2);
 
     void onUserJoinedRoom(BigInteger bigInteger, String str, String str2);
 
-    void onUserKickOff(long j);
+    void onUserKickOff(long j2);
 
     void onUserLeavingRoom(BigInteger bigInteger);
 
-    void onUserShutUp(long j);
+    void onUserShutUp(long j2);
 
     void onWebrtcUp(BigInteger bigInteger);
 

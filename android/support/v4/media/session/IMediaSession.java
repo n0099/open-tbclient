@@ -890,14 +890,14 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void seekTo(long j) throws RemoteException {
+            public void seekTo(long j2) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+                if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeLong(j);
+                        obtain.writeLong(j2);
                         this.mRemote.transact(24, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -1080,14 +1080,14 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void skipToQueueItem(long j) throws RemoteException {
+            public void skipToQueueItem(long j2) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
+                if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeLong(j);
+                        obtain.writeLong(j2);
                         this.mRemote.transact(17, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -1557,7 +1557,7 @@ public interface IMediaSession extends IInterface {
 
     void rewind() throws RemoteException;
 
-    void seekTo(long j) throws RemoteException;
+    void seekTo(long j2) throws RemoteException;
 
     void sendCommand(String str, Bundle bundle, MediaSessionCompat.ResultReceiverWrapper resultReceiverWrapper) throws RemoteException;
 
@@ -1575,7 +1575,7 @@ public interface IMediaSession extends IInterface {
 
     void setVolumeTo(int i2, int i3, String str) throws RemoteException;
 
-    void skipToQueueItem(long j) throws RemoteException;
+    void skipToQueueItem(long j2) throws RemoteException;
 
     void stop() throws RemoteException;
 

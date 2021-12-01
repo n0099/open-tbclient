@@ -3,7 +3,6 @@ package com.baidu.webkit.sdk;
 import android.os.Build;
 import android.util.AndroidRuntimeException;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class ZeusClassLoader extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ANDROIDX = "androidx.";
@@ -141,7 +140,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
     public static String logBeforeCallSuper(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             Log.d(TAG, str2);
             return str;
         }
@@ -151,7 +150,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
     private void makeAndSetDexElements(String str, File file, String str2, ClassLoader classLoader) {
         Object newInstance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, this, str, file, str2, classLoader) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65542, this, str, file, str2, classLoader) == null) {
             try {
                 ensureReflectionInited();
                 String replace = new File(str).getName().replace(".so", ".dex");

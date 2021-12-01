@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE1 = "tx3g";
@@ -29,7 +29,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
     public StyleRecord styleRecord;
     public int verticalJustification;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class BoxRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -246,9 +246,9 @@ public class TextSampleEntry extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(38);
             dataSource.read(allocate);
             allocate.position(6);
@@ -268,7 +268,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
             StyleRecord styleRecord = new StyleRecord();
             this.styleRecord = styleRecord;
             styleRecord.parse(allocate);
-            parseContainer(dataSource, j - 38, boxParser);
+            parseContainer(dataSource, j2 - 38, boxParser);
         }
     }
 
@@ -387,7 +387,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? "TextSampleEntry" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class StyleRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

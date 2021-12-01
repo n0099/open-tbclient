@@ -4,19 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Statistics implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int kTypeWhiteScreen = 12302;
     public static final int kTypeWhiteScreenForAsyncSearch = 12304;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface Client extends INoProGuard {
         boolean onCommitRecord(Record record);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface Record extends INoProGuard {
         int getType();
 

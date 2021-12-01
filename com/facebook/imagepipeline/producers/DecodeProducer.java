@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.producers;
 
 import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +37,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DecodeProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -61,7 +60,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
     public final int mMaxBitmapSize;
     public final ProgressiveJpegConfig mProgressiveJpegConfig;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class LocalImagesProgressiveDecoder extends ProgressiveDecoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +118,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class NetworkImagesProgressiveDecoder extends ProgressiveDecoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +193,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public abstract class ProgressiveDecoder extends DelegatingConsumer<EncodedImage, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DECODE_EXCEPTION_MESSAGE_NUM_HEADER_BYTES = 10;
@@ -341,7 +340,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
             QualityInfo qualityInfo2;
             CloseableImage decode;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, encodedImage, i2) != null) {
+            if (interceptable != null && interceptable.invokeLI(65541, this, encodedImage, i2) != null) {
                 return;
             }
             int i3 = i2;
@@ -430,12 +429,12 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
 
         @Nullable
-        private Map<String, String> getExtraMap(@Nullable CloseableImage closeableImage, long j, QualityInfo qualityInfo, boolean z, String str, String str2, String str3, String str4) {
+        private Map<String, String> getExtraMap(@Nullable CloseableImage closeableImage, long j2, QualityInfo qualityInfo, boolean z, String str, String str2, String str3, String str4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{closeableImage, Long.valueOf(j), qualityInfo, Boolean.valueOf(z), str, str2, str3, str4})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{closeableImage, Long.valueOf(j2), qualityInfo, Boolean.valueOf(z), str, str2, str3, str4})) == null) {
                 if (this.mProducerListener.requiresExtraMap(this.mProducerContext.getId())) {
-                    String valueOf = String.valueOf(j);
+                    String valueOf = String.valueOf(j2);
                     String valueOf2 = String.valueOf(qualityInfo.isOfGoodEnoughQuality());
                     String valueOf3 = String.valueOf(z);
                     if (closeableImage instanceof CloseableStaticBitmap) {

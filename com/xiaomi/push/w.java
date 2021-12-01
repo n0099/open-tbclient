@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class w extends v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Runnable f72457a;
+    public final /* synthetic */ Runnable a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(Context context, File file, Runnable runnable) {
@@ -33,14 +31,14 @@ public final class w extends v {
                 return;
             }
         }
-        this.f72457a = runnable;
+        this.a = runnable;
     }
 
     @Override // com.xiaomi.push.v
     public void a(Context context) {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (runnable = this.f72457a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (runnable = this.a) == null) {
             return;
         }
         runnable.run();

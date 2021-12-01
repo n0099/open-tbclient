@@ -1,7 +1,6 @@
 package com.baidu.sapi2.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 2048;
@@ -145,7 +144,7 @@ public final class FileUtil {
     public static boolean write(File file, byte[] bArr, boolean z) throws IOException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, null, file, bArr, z)) != null) {
+        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65541, null, file, bArr, z)) != null) {
             return invokeLLZ.booleanValue;
         }
         FileOutputStream fileOutputStream = null;

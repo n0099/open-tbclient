@@ -2,7 +2,6 @@ package com.facebook.datasource;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +26,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class IncreasingQualityDataSource extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +41,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         public int mNumberOfDataSources;
         public final /* synthetic */ IncreasingQualityDataSourceSupplier this$0;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +161,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
             InterceptResult invokeI;
             DataSource<T> dataSource;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
                 synchronized (this) {
                     dataSource = null;
                     if (this.mDataSources != null && i2 < this.mDataSources.size()) {
@@ -179,7 +178,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
             InterceptResult invokeI;
             DataSource<T> dataSource;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
                 synchronized (this) {
                     dataSource = (this.mDataSources == null || i2 >= this.mDataSources.size()) ? null : this.mDataSources.get(i2);
                 }

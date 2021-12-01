@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -125,9 +125,9 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 JSONObject optJSONObject = jSONObject.optJSONObject("strategy");
                 JSONArray optJSONArray = jSONObject.optJSONArray("target");
                 this.strategy.parseJson(optJSONObject);
-                ArrayList<com.kwad.sdk.collector.model.d> a2 = com.kwad.sdk.collector.model.c.a(optJSONArray);
-                this.target = a2;
-                this.strategy.setTarget(a2);
+                ArrayList<com.kwad.sdk.collector.model.d> a = com.kwad.sdk.collector.model.c.a(optJSONArray);
+                this.target = a;
+                this.strategy.setTarget(a);
                 duplicateTarget();
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
@@ -154,11 +154,11 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "strategy", this.strategy);
-                q.a(jSONObject, "target", this.target);
-                q.a(jSONObject, "namedStrategy", this.namedStrategy);
-                q.a(jSONObject, "uploadTarget", this.uploadTarget);
-                q.a(jSONObject, "uploadConfig", this.uploadConfig);
+                t.a(jSONObject, "strategy", this.strategy);
+                t.a(jSONObject, "target", this.target);
+                t.a(jSONObject, "namedStrategy", this.namedStrategy);
+                t.a(jSONObject, "uploadTarget", this.uploadTarget);
+                t.a(jSONObject, "uploadConfig", this.uploadConfig);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -339,10 +339,10 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             }
         }
 
-        public void setHistoryGranularity(long j) {
+        public void setHistoryGranularity(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-                this.historyGranularity = j;
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+                this.historyGranularity = j2;
             }
         }
 
@@ -353,24 +353,24 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             }
         }
 
-        public void setNeedSaveLaunchTime(long j) {
+        public void setNeedSaveLaunchTime(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-                this.needSaveLaunchTime = j;
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+                this.needSaveLaunchTime = j2;
             }
         }
 
-        public void setScanInterval(long j) {
+        public void setScanInterval(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-                this.scanInterval = j;
+            if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+                this.scanInterval = j2;
             }
         }
 
-        public void setStartTime(long j) {
+        public void setStartTime(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-                this.startTime = j;
+            if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+                this.startTime = j2;
             }
         }
 
@@ -395,14 +395,14 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "startTime", this.startTime);
-                q.a(jSONObject, "scanInterval", this.scanInterval);
-                q.a(jSONObject, "historyGranularity", this.historyGranularity / 1000);
-                q.a(jSONObject, "name", this.name);
-                q.a(jSONObject, "target", getTarget());
-                q.a(jSONObject, "minLaunchInterval", this.minLaunchInterval);
-                q.a(jSONObject, "needSaveLaunchTime", this.needSaveLaunchTime);
-                q.a(jSONObject, "needLaunch", this.needLaunch);
+                t.a(jSONObject, "startTime", this.startTime);
+                t.a(jSONObject, "scanInterval", this.scanInterval);
+                t.a(jSONObject, "historyGranularity", this.historyGranularity / 1000);
+                t.a(jSONObject, "name", this.name);
+                t.a(jSONObject, "target", getTarget());
+                t.a(jSONObject, "minLaunchInterval", this.minLaunchInterval);
+                t.a(jSONObject, "needSaveLaunchTime", this.needSaveLaunchTime);
+                t.a(jSONObject, "needLaunch", this.needLaunch);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -410,7 +410,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
     }
 
     /* loaded from: classes2.dex */
-    public static class UploadConfig extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
+    public static class UploadConfig extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_FILE_MAX_SIZE = 102400;
         public static final long serialVersionUID = 8541150615721258815L;
@@ -433,7 +433,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             this.fileMaxSize = ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT;
         }
 
-        @Override // com.kwad.sdk.core.response.a.a
+        @Override // com.kwad.sdk.core.response.kwai.a
         public void afterParseJson(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -616,7 +616,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 return;
             }
             try {
-                this.data.parseJson(new JSONObject(com.kwad.sdk.core.b.d.b(jSONObject.optString("data"))));
+                this.data.parseJson(new JSONObject(com.kwad.sdk.core.a.d.b(jSONObject.optString("data"))));
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -639,7 +639,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             JSONObject json = super.toJson();
-            q.a(json, "data", this.data);
+            t.a(json, "data", this.data);
             return json;
         }
         return (JSONObject) invokeV.objValue;

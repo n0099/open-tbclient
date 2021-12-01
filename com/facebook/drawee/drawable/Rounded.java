@@ -1,7 +1,7 @@
 package com.facebook.drawee.drawable;
 
 import android.graphics.ColorFilter;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface Rounded {
     int getBorderColor();
 

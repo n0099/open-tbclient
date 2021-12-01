@@ -28,12 +28,10 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class da {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f71699a = "/MiPushLog";
+    public static String a = "/MiPushLog";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -50,13 +48,13 @@ public class da {
     public boolean f220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71700b;
+    public int f62773b;
 
     /* renamed from: b  reason: collision with other field name */
     public String f221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f71701c;
+    public String f62774c;
 
     static {
         InterceptResult invokeClinit;
@@ -87,7 +85,7 @@ public class da {
             }
         }
         this.f218a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.f71700b = 2097152;
+        this.f62773b = 2097152;
         this.f219a = new ArrayList<>();
     }
 
@@ -109,7 +107,7 @@ public class da {
                     int start = matcher.start();
                     String substring = str.substring(start, this.f221b.length() + start);
                     if (this.f220a) {
-                        if (substring.compareTo(this.f71701c) > 0) {
+                        if (substring.compareTo(this.f62774c) > 0) {
                             read = start;
                             z = true;
                             break;
@@ -128,7 +126,7 @@ public class da {
                     int i4 = read - i3;
                     this.f217a += i4;
                     bufferedWriter.write(cArr, i3, i4);
-                    if (z || this.f217a > this.f71700b) {
+                    if (z || this.f217a > this.f62773b) {
                         return;
                     }
                 }
@@ -150,7 +148,7 @@ public class da {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m615a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + StringUtils.LF);
+                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m664a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + StringUtils.LF);
                     this.f217a = 0;
                     Iterator<File> it = this.f219a.iterator();
                     while (it.hasNext()) {
@@ -212,7 +210,7 @@ public class da {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public da m242a(File file) {
+    public da m291a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
@@ -236,7 +234,7 @@ public class da {
                 this.f221b = this.f218a.format(date);
                 format = this.f218a.format(date2);
             }
-            this.f71701c = format;
+            this.f62774c = format;
             return this;
         }
         return (da) invokeLL.objValue;
@@ -253,14 +251,14 @@ public class da {
                 if (!file2.exists()) {
                     file2 = context.getFilesDir();
                 }
-                m242a(new File(file2, "xmsf.log.1"));
+                m291a(new File(file2, "xmsf.log.1"));
                 file3 = new File(file2, "xmsf.log");
             } else {
-                file2 = new File(context.getExternalFilesDir(null) + f71699a);
-                m242a(new File(file2, "log0.txt"));
+                file2 = new File(context.getExternalFilesDir(null) + a);
+                m291a(new File(file2, "log0.txt"));
                 file3 = new File(file2, "log1.txt");
             }
-            m242a(file3);
+            m291a(file3);
             if (file2.isDirectory()) {
                 File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
                 if (file4.exists()) {
@@ -292,6 +290,6 @@ public class da {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f71700b = i2;
+        this.f62773b = i2;
     }
 }

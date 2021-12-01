@@ -11,12 +11,12 @@ public class Histogram {
     public transient /* synthetic */ FieldHolder $fh;
     public final long handle;
 
-    public Histogram(long j) {
+    public Histogram(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -26,7 +26,7 @@ public class Histogram {
                 return;
             }
         }
-        this.handle = j;
+        this.handle = j2;
     }
 
     public static Histogram createCounts(String str, int i2, int i3, int i4) {
@@ -41,7 +41,7 @@ public class Histogram {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) ? new Histogram(nativeCreateEnumeration(str, i2)) : (Histogram) invokeLI.objValue;
     }
 
-    public static native void nativeAddSample(long j, int i2);
+    public static native void nativeAddSample(long j2, int i2);
 
     public static native long nativeCreateCounts(String str, int i2, int i3, int i4);
 

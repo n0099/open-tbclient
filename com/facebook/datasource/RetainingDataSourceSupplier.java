@@ -1,7 +1,6 @@
 package com.facebook.datasource;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +24,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public final Set<RetainingDataSource> mDataSources;
 
     /* renamed from: com.facebook.datasource.RetainingDataSourceSupplier$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +59,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class RetainingDataSource<T> extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +67,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
         @Nullable
         public DataSource<T> mDataSource;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +149,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
 
         public static <T> void closeSafely(DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, dataSource) == null) || dataSource == null) {
+            if (!(interceptable == null || interceptable.invokeL(65541, null, dataSource) == null) || dataSource == null) {
                 return;
             }
             dataSource.close();
@@ -159,7 +158,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void onDataSourceFailed(DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, dataSource) == null) {
+            if (interceptable == null || interceptable.invokeL(65542, this, dataSource) == null) {
             }
         }
 

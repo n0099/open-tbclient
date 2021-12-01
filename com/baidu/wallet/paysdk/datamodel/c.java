@@ -9,22 +9,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.dxmpay.wallet.core.beans.BeanRequestBase;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class c extends BeanRequestBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f60585a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60586b;
+    public String f53450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60587c;
+    public String f53451c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f60588d;
+    public String f53452d;
 
     public c(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
@@ -41,17 +39,17 @@ public class c extends BeanRequestBase {
                 return;
             }
         }
-        this.f60585a = str;
-        this.f60586b = str2;
-        this.f60587c = str3;
-        this.f60588d = str4;
+        this.a = str;
+        this.f53450b = str2;
+        this.f53451c = str3;
+        this.f53452d = str4;
     }
 
     @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.f60585a) || TextUtils.isEmpty(this.f60586b) || TextUtils.isEmpty(this.f60587c) || TextUtils.isEmpty(this.f60588d)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f53450b) || TextUtils.isEmpty(this.f53451c) || TextUtils.isEmpty(this.f53452d)) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.dxmpay.wallet.core.beans.BeanRequestBase

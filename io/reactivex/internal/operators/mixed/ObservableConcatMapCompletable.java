@@ -28,7 +28,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 @Experimental
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ObservableConcatMapCompletable<T> extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class ObservableConcatMapCompletable<T> extends Completable {
     public final int prefetch;
     public final Observable<T> source;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ConcatMapCompletableObserver<T> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3610901111000061034L;
@@ -54,7 +54,7 @@ public final class ObservableConcatMapCompletable<T> extends Completable {
         public SimpleQueue<T> queue;
         public Disposable upstream;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class ConcatMapInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 5638352172918776687L;

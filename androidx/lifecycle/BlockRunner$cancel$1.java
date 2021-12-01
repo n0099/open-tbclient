@@ -75,7 +75,7 @@ public final class BlockRunner$cancel$1 extends SuspendLambda implements Functio
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         InterceptResult invokeL;
-        long j;
+        long j2;
         CoroutineLiveData coroutineLiveData;
         Job job;
         Interceptable interceptable = $ic;
@@ -85,10 +85,10 @@ public final class BlockRunner$cancel$1 extends SuspendLambda implements Functio
             if (i2 == 0) {
                 ResultKt.throwOnFailure(obj);
                 CoroutineScope coroutineScope = this.p$;
-                j = this.this$0.timeoutInMs;
+                j2 = this.this$0.timeoutInMs;
                 this.L$0 = coroutineScope;
                 this.label = 1;
-                if (DelayKt.delay(j, this) == coroutine_suspended) {
+                if (DelayKt.delay(j2, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             } else if (i2 != 1) {

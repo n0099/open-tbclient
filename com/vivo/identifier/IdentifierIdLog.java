@@ -1,7 +1,6 @@
 package com.vivo.identifier;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IdentifierIdLog {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean mDebug;
@@ -68,7 +67,7 @@ public class IdentifierIdLog {
     public static boolean setDebug(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
             mDebug = z;
             return mDebug;
         }
@@ -77,7 +76,7 @@ public class IdentifierIdLog {
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
             boolean z = mDebug;
         }
     }

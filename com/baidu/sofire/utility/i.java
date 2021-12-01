@@ -3,7 +3,6 @@ package com.baidu.sofire.utility;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import com.android.internal.http.multipart.Part;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,15 +13,13 @@ import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class i {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String[] f44122a;
+    public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f44123b;
+    public static final String[] f39199b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,8 +35,8 @@ public final class i {
                 return;
             }
         }
-        f44122a = new String[]{"java.lang.UnsatisfiedLinkError"};
-        f44123b = new String[]{"space left"};
+        a = new String[]{"java.lang.UnsatisfiedLinkError"};
+        f39199b = new String[]{"space left"};
     }
 
     public static String a(Context context, String str, String str2) {
@@ -50,10 +47,10 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
             try {
-                if (str.contains(f44122a[0])) {
+                if (str.contains(a[0])) {
                     c2 = 1;
                 } else {
-                    c2 = str.contains(f44123b[0]) ? (char) 2 : (char) 0;
+                    c2 = str.contains(f39199b[0]) ? (char) 2 : (char) 0;
                 }
                 if (c2 != 1) {
                     return c2 != 2 ? str : a(context, str);
@@ -98,13 +95,13 @@ public final class i {
                     str2 = str;
                 }
                 JSONArray jSONArray = new JSONArray();
-                long j = 0;
+                long j2 = 0;
                 for (File file : filesDir.listFiles()) {
                     if (file.isDirectory() && file.getName().startsWith(".")) {
-                        j += a(file, jSONArray);
+                        j2 += a(file, jSONArray);
                     }
                 }
-                return ((str2 + Part.CRLF) + jSONArray.toString()) + "\r\nAllFileSize=" + j;
+                return ((str2 + "\r\n") + jSONArray.toString()) + "\r\nAllFileSize=" + j2;
             } catch (Throwable unused) {
                 return str;
             }
@@ -118,7 +115,7 @@ public final class i {
         long length;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, jSONArray)) == null) {
-            long j = 0;
+            long j2 = 0;
             if (file != null && jSONArray != null && file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
                     if (file2.isDirectory()) {
@@ -130,10 +127,10 @@ public final class i {
                         jSONArray.put(jSONObject);
                         length = file2.length();
                     }
-                    j += length;
+                    j2 += length;
                 }
             }
-            return j;
+            return j2;
         }
         return invokeLL.longValue;
     }

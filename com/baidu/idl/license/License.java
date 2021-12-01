@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.idl.authority.AuthorityState;
 import com.baidu.idl.authority.IDLAuthorityException;
 import com.baidu.idl.util.HttpClient;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class License {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LICENSE_AG_ID = -1;
@@ -101,7 +100,7 @@ public class License {
     private InputStream getAssetsLicenseFileInputStream(AssetManager assetManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, assetManager)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, assetManager)) == null) {
             try {
                 if (TextUtils.isEmpty(this.mAlgorithmIdLicenseName)) {
                     return assetManager.open(LICENSE_ASSETS_FILE);

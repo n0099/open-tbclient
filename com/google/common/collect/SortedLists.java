@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.g;
-import b.h.d.a.n;
+import c.i.d.a.g;
+import c.i.d.a.n;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class SortedLists {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class KeyAbsentBehavior {
         public static final /* synthetic */ KeyAbsentBehavior[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -180,7 +180,7 @@ public final class SortedLists {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static abstract class KeyPresentBehavior {
         public static final /* synthetic */ KeyPresentBehavior[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -436,22 +436,22 @@ public final class SortedLists {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static <E, K extends Comparable> int a(List<E> list, g<? super E, K> gVar, K k, KeyPresentBehavior keyPresentBehavior, KeyAbsentBehavior keyAbsentBehavior) {
+    public static <E, K extends Comparable> int a(List<E> list, g<? super E, K> gVar, K k2, KeyPresentBehavior keyPresentBehavior, KeyAbsentBehavior keyAbsentBehavior) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, list, gVar, k, keyPresentBehavior, keyAbsentBehavior)) == null) ? b(list, gVar, k, Ordering.natural(), keyPresentBehavior, keyAbsentBehavior) : invokeLLLLL.intValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, list, gVar, k2, keyPresentBehavior, keyAbsentBehavior)) == null) ? b(list, gVar, k2, Ordering.natural(), keyPresentBehavior, keyAbsentBehavior) : invokeLLLLL.intValue;
     }
 
-    public static <E, K> int b(List<E> list, g<? super E, K> gVar, K k, Comparator<? super K> comparator, KeyPresentBehavior keyPresentBehavior, KeyAbsentBehavior keyAbsentBehavior) {
+    public static <E, K> int b(List<E> list, g<? super E, K> gVar, K k2, Comparator<? super K> comparator, KeyPresentBehavior keyPresentBehavior, KeyAbsentBehavior keyAbsentBehavior) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, gVar, k, comparator, keyPresentBehavior, keyAbsentBehavior})) == null) ? c(Lists.n(list, gVar), k, comparator, keyPresentBehavior, keyAbsentBehavior) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, gVar, k2, comparator, keyPresentBehavior, keyAbsentBehavior})) == null) ? c(Lists.n(list, gVar), k2, comparator, keyPresentBehavior, keyAbsentBehavior) : invokeCommon.intValue;
     }
 
     /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: E, ? super E */

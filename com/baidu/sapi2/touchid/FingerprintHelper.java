@@ -9,7 +9,6 @@ import android.os.CancellationSignal;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FingerprintHelper extends FingerprintManager.AuthenticationCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_CANCLE = -2;
@@ -141,7 +140,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
 
     private void showTryAgainLoginDialog() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             dismissDialog((Activity) this.context, (Dialog) this.fingerprintDialog);
             StatService.onEvent("fingerprint_try_again_dialog_show", null);
             this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(2).setNegativeBtn("取消", new View.OnClickListener(this) { // from class: com.baidu.sapi2.touchid.FingerprintHelper.4
@@ -212,7 +211,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
 
     private void showTryAgainVerifyDialog() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             dismissDialog((Activity) this.context, (Dialog) this.fingerprintDialog);
             this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new View.OnClickListener(this) { // from class: com.baidu.sapi2.touchid.FingerprintHelper.2
                 public static /* synthetic */ Interceptable $ic;

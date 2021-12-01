@@ -2,7 +2,6 @@ package androidx.core.view;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,13 +109,13 @@ public final class MenuKt {
     public static final int getSize(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, menu)) == null) ? menu.size() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, menu)) == null) ? menu.size() : invokeL.intValue;
     }
 
     public static final boolean isEmpty(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, menu)) == null) ? menu.size() == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, menu)) == null) ? menu.size() == 0 : invokeL.booleanValue;
     }
 
     public static final boolean isNotEmpty(Menu menu) {

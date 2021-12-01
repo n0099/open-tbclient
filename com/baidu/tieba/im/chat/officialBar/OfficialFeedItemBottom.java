@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.r0.l1.l.c.a;
+import c.a.r0.r1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51220e;
+    public Context f45911e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51221f;
+    public TextView f45912f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51222g;
+    public TextView f45913g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public OfficialFeedItemBottom(Context context) {
@@ -54,9 +54,9 @@ public class OfficialFeedItemBottom extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.f51220e).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
-            this.f51221f = (TextView) findViewById(R.id.message_no_image_title);
-            this.f51222g = (TextView) findViewById(R.id.message_info);
+            LayoutInflater.from(this.f45911e).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
+            this.f45912f = (TextView) findViewById(R.id.message_no_image_title);
+            this.f45913g = (TextView) findViewById(R.id.message_info);
             onSkinTypeChange();
         }
     }
@@ -64,31 +64,31 @@ public class OfficialFeedItemBottom extends LinearLayout {
     public void adjustForSingleForum(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f51222g.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f45913g.getLayoutParams();
             layoutParams.topMargin = i2;
-            this.f51222g.setLayoutParams(layoutParams);
+            this.f45913g.setLayoutParams(layoutParams);
         }
     }
 
     public void onSkinTypeChange() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f51222g, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f51221f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f45913g, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f45912f, R.color.CAM_X0105);
         }
     }
 
-    public void setData(a.C1072a c1072a, boolean z) {
+    public void setData(a.C1327a c1327a, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, c1072a, z) == null) {
-            int i2 = TextUtils.isEmpty(c1072a.f21780b) ? 8 : 0;
-            this.f51221f.setText(c1072a.f21779a);
-            this.f51222g.setText(c1072a.f21780b);
-            this.f51222g.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, c1327a, z) == null) {
+            int i2 = TextUtils.isEmpty(c1327a.f23039b) ? 8 : 0;
+            this.f45912f.setText(c1327a.a);
+            this.f45913g.setText(c1327a.f23039b);
+            this.f45913g.setVisibility(i2);
             if (z) {
-                this.f51221f.setVisibility(8);
+                this.f45912f.setVisibility(8);
             } else {
-                this.f51221f.setVisibility(0);
+                this.f45912f.setVisibility(0);
             }
         }
     }
@@ -112,7 +112,7 @@ public class OfficialFeedItemBottom extends LinearLayout {
                 return;
             }
         }
-        this.f51220e = context;
+        this.f45911e = context;
         a();
     }
 }

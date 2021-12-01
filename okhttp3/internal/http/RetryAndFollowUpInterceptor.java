@@ -2,7 +2,6 @@ package okhttp3.internal.http;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.http.response.ResponseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -196,7 +195,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
     private int retryAfter(Response response, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, response, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, response, i2)) == null) {
             String header = response.header("Retry-After");
             if (header == null) {
                 return i2;
@@ -212,7 +211,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
     private boolean sameConnection(Response response, HttpUrl httpUrl) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, response, httpUrl)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, response, httpUrl)) == null) {
             HttpUrl url = response.request().url();
             return url.host().equals(httpUrl.host()) && url.port() == httpUrl.port() && url.scheme().equals(httpUrl.scheme());
         }

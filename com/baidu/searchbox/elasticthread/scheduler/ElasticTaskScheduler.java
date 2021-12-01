@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ElasticTaskScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -43,7 +43,7 @@ public class ElasticTaskScheduler {
     public SerialManager mSerialManager;
     public StatisticRecorder mStatisticRecorder;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class TaskMsgInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -249,9 +249,9 @@ public class ElasticTaskScheduler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void postPrintRealTimeData(long j) {
+    public void postPrintRealTimeData(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65550, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65550, this, j2) == null) {
         }
     }
 
@@ -338,12 +338,12 @@ public class ElasticTaskScheduler {
         }
     }
 
-    public void postConcurrentDredgeDelay(long j) {
+    public void postConcurrentDredgeDelay(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
             Message obtain = Message.obtain();
             obtain.what = 3;
-            this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+            this.mSchedulerHandler.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -354,12 +354,12 @@ public class ElasticTaskScheduler {
         }
     }
 
-    public void postConcurrentScheduleDelay(long j) {
+    public void postConcurrentScheduleDelay(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
             Message obtain = Message.obtain();
             obtain.what = 2;
-            this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+            this.mSchedulerHandler.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -370,13 +370,13 @@ public class ElasticTaskScheduler {
         }
     }
 
-    public void postConcurrentTaskDelay(Runnable runnable, String str, int i2, long j) {
+    public void postConcurrentTaskDelay(Runnable runnable, String str, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             Message obtain = Message.obtain();
             obtain.what = 1;
             obtain.obj = new TaskMsgInfo(runnable, str, i2);
-            this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+            this.mSchedulerHandler.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -396,12 +396,12 @@ public class ElasticTaskScheduler {
         }
     }
 
-    public void postSerialDredgeDelay(long j) {
+    public void postSerialDredgeDelay(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
             Message obtain = Message.obtain();
             obtain.what = 6;
-            this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+            this.mSchedulerHandler.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -412,12 +412,12 @@ public class ElasticTaskScheduler {
         }
     }
 
-    public void postSerialScheduleDelay(long j) {
+    public void postSerialScheduleDelay(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
             Message obtain = Message.obtain();
             obtain.what = 5;
-            this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+            this.mSchedulerHandler.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -428,13 +428,13 @@ public class ElasticTaskScheduler {
         }
     }
 
-    public void postSerialTaskDelay(Runnable runnable, String str, int i2, long j) {
+    public void postSerialTaskDelay(Runnable runnable, String str, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{runnable, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             Message obtain = Message.obtain();
             obtain.what = 4;
             obtain.obj = new TaskMsgInfo(runnable, str, i2);
-            this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+            this.mSchedulerHandler.sendMessageDelayed(obtain, j2);
         }
     }
 }

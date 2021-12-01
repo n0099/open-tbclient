@@ -14,12 +14,10 @@ import com.xiaomi.push.hk;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aq {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile aq f72336a;
+    public static volatile aq a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -28,7 +26,7 @@ public class aq {
     /* renamed from: a  reason: collision with other field name */
     public HashSet<a> f904a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,14 +98,14 @@ public class aq {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f72336a == null) {
+            if (a == null) {
                 synchronized (aq.class) {
-                    if (f72336a == null) {
-                        f72336a = new aq(context);
+                    if (a == null) {
+                        a = new aq(context);
                     }
                 }
             }
-            return f72336a;
+            return a;
         }
         return (aq) invokeL.objValue;
     }
@@ -164,7 +162,7 @@ public class aq {
                 String a2 = a(i2);
                 return this.f903a.contains(a2) ? this.f903a.getInt(a2, 0) : i3;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m73a(i2 + " oc int error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m122a(i2 + " oc int error " + e2);
                 return i3;
             }
         }
@@ -183,7 +181,7 @@ public class aq {
                 String a2 = a(i2);
                 return this.f903a.contains(a2) ? this.f903a.getString(a2, null) : str;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m73a(i2 + " oc string error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m122a(i2 + " oc string error " + e2);
                 return str;
             }
         }
@@ -237,7 +235,7 @@ public class aq {
                 String a2 = a(i2);
                 return this.f903a.contains(a2) ? this.f903a.getBoolean(a2, false) : z;
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m73a(i2 + " oc boolean error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m122a(i2 + " oc boolean error " + e2);
                 return z;
             }
         }

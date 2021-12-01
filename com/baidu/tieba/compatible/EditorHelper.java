@@ -3,12 +3,11 @@ package com.baidu.tieba.compatible;
 import android.content.SharedPreferences;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class EditorHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,13 +68,13 @@ public class EditorHelper {
         }
     }
 
-    public static void putLong(SharedPreferences sharedPreferences, String str, long j) {
+    public static void putLong(SharedPreferences sharedPreferences, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sharedPreferences, str, Long.valueOf(j)}) == null) || sharedPreferences == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sharedPreferences, str, Long.valueOf(j2)}) == null) || sharedPreferences == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putLong(str, j);
+        edit.putLong(str, j2);
         if (Build.VERSION.SDK_INT >= 9) {
             edit.apply();
         } else {
@@ -85,7 +84,7 @@ public class EditorHelper {
 
     public static void putString(SharedPreferences sharedPreferences, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, sharedPreferences, str, str2) == null) || sharedPreferences == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, sharedPreferences, str, str2) == null) || sharedPreferences == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
@@ -99,7 +98,7 @@ public class EditorHelper {
 
     public static void remove(SharedPreferences sharedPreferences, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, sharedPreferences, str) == null) || sharedPreferences == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, sharedPreferences, str) == null) || sharedPreferences == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();

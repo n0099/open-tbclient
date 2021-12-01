@@ -1,7 +1,6 @@
 package com.baidu.android.imsdk.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class Base64 {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] legalChars;
@@ -81,7 +80,7 @@ public class Base64 {
     public static String encode(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             int length = bArr.length;
             StringBuffer stringBuffer = new StringBuffer((bArr.length * 3) / 2);
             int i2 = length - 3;

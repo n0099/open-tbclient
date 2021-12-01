@@ -3,9 +3,8 @@ package com.baidu.tbadk.core.util;
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.q;
+import c.a.d.f.p.q;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TbMd5 {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] HEX_DIGITS;
@@ -64,15 +63,15 @@ public class TbMd5 {
                 return "-1";
             }
             String substring = signMd5.substring(8, 24);
-            long j = 0;
             long j2 = 0;
+            long j3 = 0;
             for (int i4 = 0; i4 < 8; i4++) {
-                j2 = (j2 * 16) + Integer.parseInt(substring.substring(i4, i3), 16);
+                j3 = (j3 * 16) + Integer.parseInt(substring.substring(i4, i3), 16);
             }
             for (int i5 = 8; i5 < substring.length(); i5++) {
-                j = (j * 16) + Integer.parseInt(substring.substring(i5, i2), 16);
+                j2 = (j2 * 16) + Integer.parseInt(substring.substring(i5, i2), 16);
             }
-            return String.valueOf(4294967295L & (j + j2));
+            return String.valueOf(4294967295L & (j2 + j3));
         }
         return (String) invokeL.objValue;
     }
@@ -126,14 +125,14 @@ public class TbMd5 {
     public static String getNameMd5FromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? q.c(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? q.c(str) : (String) invokeL.objValue;
     }
 
     public static String getSignMd5(PackageInfo packageInfo) {
         InterceptResult invokeL;
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, packageInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, packageInfo)) == null) {
             if (packageInfo == null || (signatureArr = packageInfo.signatures) == null || signatureArr.length == 0 || signatureArr[0] == null) {
                 return null;
             }

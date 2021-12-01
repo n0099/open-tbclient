@@ -2,7 +2,6 @@ package com.kwad.sdk.crash.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,12 +23,10 @@ import java.nio.charset.StandardCharsets;
 /* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char f66423a;
+    public static final char a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f66424b;
+    public static final String f58207b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,11 +42,11 @@ public class h {
                 return;
             }
         }
-        f66423a = File.separatorChar;
+        a = File.separatorChar;
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        f66424b = stringBuilderWriter.toString();
+        f58207b = stringBuilderWriter.toString();
         printWriter.close();
     }
 
@@ -72,14 +69,14 @@ public class h {
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, reader, writer, cArr)) != null) {
             return invokeLLL.longValue;
         }
-        long j = 0;
+        long j2 = 0;
         while (true) {
             int read = reader.read(cArr);
             if (-1 == read) {
-                return j;
+                return j2;
             }
             writer.write(cArr, 0, read);
-            j += read;
+            j2 += read;
         }
     }
 
@@ -98,7 +95,7 @@ public class h {
     public static String a(InputStream inputStream, Charset charset) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, inputStream, charset)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, inputStream, charset)) == null) {
             StringBuilderWriter stringBuilderWriter = new StringBuilderWriter();
             a(inputStream, stringBuilderWriter, charset);
             return stringBuilderWriter.toString();
@@ -111,7 +108,7 @@ public class h {
         StringWriter stringWriter;
         Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, reader)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, reader)) != null) {
             return (String) invokeL.objValue;
         }
         StringWriter stringWriter2 = new StringWriter();
@@ -214,9 +211,20 @@ public class h {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, reader, writer)) == null) ? a(reader, writer, new char[4096]) : invokeLL.longValue;
     }
 
+    public static String b(Reader reader) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, reader)) == null) {
+            StringBuilderWriter stringBuilderWriter = new StringBuilderWriter();
+            a(reader, stringBuilderWriter);
+            return stringBuilderWriter.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             try {
                 a(str);
             } catch (Throwable unused) {

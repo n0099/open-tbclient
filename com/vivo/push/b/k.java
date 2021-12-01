@@ -6,19 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class k extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f71137a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f71138b;
+    public String f62438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f71139c;
+    public String f62439c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(int i2) {
@@ -45,22 +43,22 @@ public final class k extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("app_id", this.f71137a);
-            aVar.a("client_id", this.f71138b);
-            aVar.a("client_token", this.f71139c);
+            aVar.a("app_id", this.a);
+            aVar.a("client_id", this.f62438b);
+            aVar.a("client_token", this.f62439c);
         }
     }
 
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71137a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71139c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62439c : (String) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -75,9 +73,9 @@ public final class k extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.f71137a = aVar.a("app_id");
-            this.f71138b = aVar.a("client_id");
-            this.f71139c = aVar.a("client_token");
+            this.a = aVar.a("app_id");
+            this.f62438b = aVar.a("client_id");
+            this.f62439c = aVar.a("client_token");
         }
     }
 }

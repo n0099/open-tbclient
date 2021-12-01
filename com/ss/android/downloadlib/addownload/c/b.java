@@ -16,9 +16,7 @@ import org.json.JSONObject;
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public DownloadInfo f69461a;
+    public DownloadInfo a;
 
     public b(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
@@ -35,57 +33,55 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f69461a = downloadInfo;
+        this.a = downloadInfo;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.ss.android.downloadad.api.a.b a2;
+        com.ss.android.downloadad.api.a.b a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f69461a == null || (a2 = f.a().a(this.f69461a)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || (a = f.a().a(this.a)) == null) {
             return;
         }
-        com.ss.android.downloadlib.d.a.a().a("cleanspace_task", a2);
-        long longValue = Double.valueOf((com.ss.android.downloadlib.g.e.a(this.f69461a.getId()) + 1.0d) * this.f69461a.getTotalBytes()).longValue() - this.f69461a.getCurBytes();
-        long a3 = l.a(0L);
+        com.ss.android.downloadlib.d.a.a().a("cleanspace_task", a);
+        long longValue = Double.valueOf((com.ss.android.downloadlib.g.e.a(this.a.getId()) + 1.0d) * this.a.getTotalBytes()).longValue() - this.a.getCurBytes();
+        long a2 = l.a(0L);
         if (j.l() != null) {
             j.l().e();
         }
         c.a();
         c.b();
-        if (com.ss.android.downloadlib.g.e.g(a2.s())) {
+        if (com.ss.android.downloadlib.g.e.g(a.s())) {
             c.a(j.getContext());
         }
-        long a4 = l.a(0L);
-        if (a4 >= longValue) {
-            a2.l("1");
-            i.a().a(a2);
+        long a3 = l.a(0L);
+        if (a3 >= longValue) {
+            a.l("1");
+            i.a().a(a);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.putOpt("quite_clean_size", Long.valueOf(a4 - a3));
+                jSONObject.putOpt("quite_clean_size", Long.valueOf(a3 - a2));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            com.ss.android.downloadlib.d.a.a().a("cleanspace_download_after_quite_clean", jSONObject, a2);
-            Downloader.getInstance(j.getContext()).restart(this.f69461a.getId());
+            com.ss.android.downloadlib.d.a.a().a("cleanspace_download_after_quite_clean", jSONObject, a);
+            Downloader.getInstance(j.getContext()).restart(this.a.getId());
         } else if (j.l() != null) {
-            a2.d(false);
-            d.a().a(a2.a(), new e(this, a2) { // from class: com.ss.android.downloadlib.addownload.c.b.1
+            a.d(false);
+            d.a().a(a.a(), new e(this, a) { // from class: com.ss.android.downloadlib.addownload.c.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadad.api.a.b f69462a;
+                public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f69463b;
+                public final /* synthetic */ b f61239b;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, a2};
+                        Object[] objArr = {this, a};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -95,12 +91,12 @@ public class b implements Runnable {
                             return;
                         }
                     }
-                    this.f69463b = this;
-                    this.f69462a = a2;
+                    this.f61239b = this;
+                    this.a = a;
                 }
             });
-            if (j.l().a(this.f69461a.getId(), this.f69461a.getUrl(), true, longValue)) {
-                a2.e(true);
+            if (j.l().a(this.a.getId(), this.a.getUrl(), true, longValue)) {
+                a.e(true);
             }
         } else {
             JSONObject jSONObject2 = new JSONObject();
@@ -109,7 +105,7 @@ public class b implements Runnable {
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
-            com.ss.android.downloadlib.d.a.a().a("cleanspace_window_show", jSONObject2, a2);
+            com.ss.android.downloadlib.d.a.a().a("cleanspace_window_show", jSONObject2, a);
         }
     }
 }

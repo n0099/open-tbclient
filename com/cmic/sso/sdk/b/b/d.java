@@ -8,25 +8,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class d extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f62816a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f62817b;
+    public final String f54936b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f62818c;
+    public final String f54937c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62819d;
+    public String f54938d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62820e;
+    public String f54939e;
 
     public d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -43,17 +41,17 @@ public class d extends g {
                 return;
             }
         }
-        this.f62819d = "authz";
-        this.f62816a = str;
-        this.f62817b = str2;
-        this.f62818c = str3;
+        this.f54938d = "authz";
+        this.a = str;
+        this.f54936b = str2;
+        this.f54937c = str3;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62816a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
@@ -69,14 +67,14 @@ public class d extends g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f62819d = str;
+            this.f54938d = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f62820e = str;
+            this.f54939e = str;
         }
     }
 
@@ -87,10 +85,10 @@ public class d extends g {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ver", this.f62817b);
-                jSONObject.put("data", this.f62818c);
-                jSONObject.put("userCapaid", this.f62820e);
-                jSONObject.put("funcType", this.f62819d);
+                jSONObject.put("ver", this.f54936b);
+                jSONObject.put("data", this.f54937c);
+                jSONObject.put("userCapaid", this.f54939e);
+                jSONObject.put("funcType", this.f54938d);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

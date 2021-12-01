@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +23,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SimpleDraweeView extends GenericDraweeView {
     public static /* synthetic */ Interceptable $ic;
     public static Supplier<? extends AbstractDraweeControllerBuilder> sDraweecontrollerbuildersupplier;
@@ -57,7 +56,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     private void init(Context context, @Nullable AttributeSet attributeSet) {
         int resourceId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, context, attributeSet) == null) || isInEditMode()) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) || isInEditMode()) {
             return;
         }
         if (sDraweecontrollerbuildersupplier == null) {
@@ -101,7 +100,7 @@ public class SimpleDraweeView extends GenericDraweeView {
 
     public static void initialize(Supplier<Supplier<? extends AbstractDraweeControllerBuilder>> supplier) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, supplier) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, supplier) == null) {
             sSupplierFactory = supplier;
         }
     }

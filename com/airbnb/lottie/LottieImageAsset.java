@@ -3,7 +3,7 @@ package com.airbnb.lottie;
 import android.graphics.Bitmap;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LottieImageAsset {
     @Nullable
     public Bitmap bitmap;

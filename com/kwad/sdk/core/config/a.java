@@ -1,18 +1,22 @@
 package com.kwad.sdk.core.config;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URI;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String[] f65216a;
+    public static final Map<String, com.kwad.sdk.core.config.item.b> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,62 +32,82 @@ public class a {
                 return;
             }
         }
-        f65216a = new String[]{"gifshow.com", "kuaishou.com", "static.yximgs.com"};
+        a = new ConcurrentHashMap();
     }
 
-    public static boolean a(String str) {
+    public static void a(SharedPreferences.Editor editor) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, editor) == null) || editor == null) {
+            return;
+        }
+        for (String str : a.keySet()) {
+            a.get(str).a(editor);
+        }
+    }
+
+    public static void a(SharedPreferences sharedPreferences) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, sharedPreferences) == null) || sharedPreferences == null) {
+            return;
+        }
+        for (String str : a.keySet()) {
+            try {
+                a.get(str).a(sharedPreferences);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.b(e2);
+            }
+        }
+    }
+
+    public static <T> void a(@NonNull com.kwad.sdk.core.config.item.b<T> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
+            a.put(bVar.b(), bVar);
+        }
+    }
+
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        for (String str : a.keySet()) {
+            com.kwad.sdk.core.config.item.b bVar = a.get(str);
+            if (jSONObject.has(str)) {
+                bVar.a(jSONObject);
+            }
+        }
+    }
+
+    @WorkerThread
+    public static synchronized boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            synchronized (a.class) {
+                if (context != null) {
+                    SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_config", 0).edit();
+                    a(edit);
+                    return edit.commit();
+                }
                 return false;
             }
-            try {
-                String host = new URI(str).getHost();
-                if (!b(host)) {
-                    if (!c(host)) {
-                        return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @WorkerThread
+    public static synchronized void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            synchronized (a.class) {
+                if (context != null) {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
+                    if (sharedPreferences != null) {
+                        a(sharedPreferences);
                     }
                 }
-                return true;
-            } catch (Exception unused) {
-                return false;
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (String str2 : f65216a) {
-                if (str.contains(str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (String str2 : c.n()) {
-                if (str.contains(str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

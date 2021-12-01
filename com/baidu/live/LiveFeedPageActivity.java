@@ -3,16 +3,16 @@ package com.baidu.live;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import b.a.w.b.a;
-import b.a.w.e.g.b;
-import b.a.w.e.g.c;
+import c.a.w.b.a;
+import c.a.w.e.g.b;
+import c.a.w.e.g.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LiveFeedPageActivity extends AppCompatActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SOURCE = "source";
@@ -47,7 +47,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
             this.mBaiduLiveTabContainer = aVar;
             setContentView(aVar.u());
             this.mBaiduLiveTabContainer.D();
-            b.a.w.b.c.a.r(this, stringExtra, "chenjinshi");
+            c.a.w.b.c.a.r(this, stringExtra, "chenjinshi");
             LogUtil.logActivity(this, "onCreate");
         }
     }

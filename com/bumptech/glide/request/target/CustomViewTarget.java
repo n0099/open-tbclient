@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +29,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CustomViewTarget";
@@ -47,7 +46,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public final T view;
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class SizeDeterminer {
         public static /* synthetic */ Interceptable $ic;
         public static final int PENDING_SIZE = 0;
@@ -61,7 +60,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         public final View view;
         public boolean waitForLayout;
 
-        /* loaded from: classes11.dex */
+        /* loaded from: classes12.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -187,13 +186,13 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         private boolean isDimensionValid(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) ? i2 > 0 || i2 == Integer.MIN_VALUE : invokeI.booleanValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) ? i2 > 0 || i2 == Integer.MIN_VALUE : invokeI.booleanValue;
         }
 
         private boolean isViewStateAndSizeValid(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, this, i2, i3)) == null) ? isDimensionValid(i2) && isDimensionValid(i3) : invokeII.booleanValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(65542, this, i2, i3)) == null) ? isDimensionValid(i2) && isDimensionValid(i3) : invokeII.booleanValue;
         }
 
         private void notifyCbs(int i2, int i3) {
@@ -331,7 +330,7 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
 
     private void setTag(@Nullable Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, obj) == null) {
             T t = this.view;
             int i2 = this.overrideTag;
             if (i2 == 0) {

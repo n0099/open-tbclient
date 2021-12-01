@@ -1,5 +1,5 @@
 package com.google.android.material.snackbar;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface ContentViewCallback {
     void animateContentIn(int i2, int i3);
 

@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.android.server.SystemConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class Zeus {
     public static /* synthetic */ Interceptable $ic;
     public static Application sApplication;
@@ -75,9 +74,9 @@ public class Zeus {
         PluginDownloadBean pluginDownloadBean;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, str, zeusPluginListener) == null) {
-            com.bytedance.pangle.download.h a2 = com.bytedance.pangle.download.h.a();
-            synchronized (a2) {
-                Iterator<PluginDownloadBean> it = a2.f62248c.iterator();
+            com.bytedance.pangle.download.h a = com.bytedance.pangle.download.h.a();
+            synchronized (a) {
+                Iterator<PluginDownloadBean> it = a.f54548c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         pluginDownloadBean = null;
@@ -89,7 +88,7 @@ public class Zeus {
                     }
                 }
                 if (pluginDownloadBean == null) {
-                    Iterator<PluginDownloadBean> it2 = a2.f62247b.iterator();
+                    Iterator<PluginDownloadBean> it2 = a.f54547b.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
@@ -121,13 +120,13 @@ public class Zeus {
     public static String getHostAbi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? com.bytedance.pangle.helper.b.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? com.bytedance.pangle.helper.b.a() : (String) invokeV.objValue;
     }
 
     public static int getHostAbiBit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? com.bytedance.pangle.helper.b.b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? com.bytedance.pangle.helper.b.b() : invokeV.intValue;
     }
 
     public static int getInstalledPluginVersion(String str) {
@@ -160,7 +159,7 @@ public class Zeus {
     public static boolean hasInit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? i.a().f62336a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? i.a().a : invokeV.booleanValue;
     }
 
     public static boolean hasNewPlugin(String str) {
@@ -214,7 +213,7 @@ public class Zeus {
     public static void preInit() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65555, null) == null) && com.bytedance.pangle.util.h.e()) {
-            com.bytedance.pangle.helper.e.f62332a.execute(new Runnable() { // from class: com.bytedance.pangle.Zeus.1
+            com.bytedance.pangle.helper.e.a.execute(new Runnable() { // from class: com.bytedance.pangle.Zeus.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -250,11 +249,11 @@ public class Zeus {
     public static void registerPluginStateListener(ZeusPluginStateListener zeusPluginStateListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, null, zeusPluginStateListener) == null) {
-            i a2 = i.a();
-            if (a2.f62338c.isEmpty()) {
-                a2.f62338c = new CopyOnWriteArrayList();
+            i a = i.a();
+            if (a.f54605c.isEmpty()) {
+                a.f54605c = new CopyOnWriteArrayList();
             }
-            a2.f62338c.add(zeusPluginStateListener);
+            a.f54605c.add(zeusPluginStateListener);
         }
     }
 
@@ -269,10 +268,10 @@ public class Zeus {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
-            d a2 = com.bytedance.pangle.servermanager.b.a();
-            if (a2 != null) {
+            d a = com.bytedance.pangle.servermanager.b.a();
+            if (a != null) {
                 try {
-                    return a2.c(str);
+                    return a.c(str);
                 } catch (RemoteException e2) {
                     ZeusLogger.e(ZeusLogger.TAG_INSTALL, "syncInstallPlugin error.", e2);
                     return false;
@@ -294,11 +293,11 @@ public class Zeus {
     }
 
     public static void unregisterPluginStateListener(ZeusPluginStateListener zeusPluginStateListener) {
-        i a2;
+        i a;
         List<ZeusPluginStateListener> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65560, null, zeusPluginStateListener) == null) && (list = (a2 = i.a()).f62338c) != null && list.contains(zeusPluginStateListener)) {
-            a2.f62338c.remove(zeusPluginStateListener);
+        if ((interceptable == null || interceptable.invokeL(65560, null, zeusPluginStateListener) == null) && (list = (a = i.a()).f54605c) != null && list.contains(zeusPluginStateListener)) {
+            a.f54605c.remove(zeusPluginStateListener);
         }
     }
 

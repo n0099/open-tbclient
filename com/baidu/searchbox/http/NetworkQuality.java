@@ -2,7 +2,6 @@ package com.baidu.searchbox.http;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NetworkQuality {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BAD_NETWORK_QUALITY = 2;
@@ -37,7 +36,7 @@ public class NetworkQuality {
     public static WeakNetCheckConfig sWeakNetCheckConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class NetworkQualityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,13 +134,13 @@ public class NetworkQuality {
     public static String getNameOfQuality(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? i2 != -1 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? String.valueOf(i2) : "Offline" : "Bad" : "Good" : "Unknown" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? i2 != -1 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? String.valueOf(i2) : "Offline" : "Bad" : "Good" : "Unknown" : (String) invokeI.objValue;
     }
 
     public static int getNetworkQuality() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? sNetworkQuality : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sNetworkQuality : invokeV.intValue;
     }
 
     public static int getNetworkQualityUpdateFrom() {
@@ -250,7 +249,7 @@ public class NetworkQuality {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class WeakNetCheckConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long DEFAULT_TTFB_EXPIRE_TIME = 1000;
@@ -282,12 +281,12 @@ public class NetworkQuality {
             this.sdtProbeDomains = new ArrayList();
         }
 
-        public WeakNetCheckConfig(long j, long j2, long j3, List<String> list, boolean z, boolean z2) {
+        public WeakNetCheckConfig(long j2, long j3, long j4, List<String> list, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), list, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -301,14 +300,14 @@ public class NetworkQuality {
             this.weakTtfbThresholdMillis = 1000L;
             this.nqeWeakTtfbThresholdMillis = 1000L;
             this.sdtProbeDomains = new ArrayList();
-            if (j > 0) {
-                this.goodTtfbThresholdMillis = j;
-            }
             if (j2 > 0) {
-                this.weakTtfbThresholdMillis = j2;
+                this.goodTtfbThresholdMillis = j2;
             }
             if (j3 > 0) {
-                this.nqeWeakTtfbThresholdMillis = j3;
+                this.weakTtfbThresholdMillis = j3;
+            }
+            if (j4 > 0) {
+                this.nqeWeakTtfbThresholdMillis = j4;
             }
             if (list != null && !list.isEmpty()) {
                 ArrayList arrayList = new ArrayList();

@@ -13,12 +13,10 @@ import javax.net.ssl.SSLException;
 import org.apache.http.NoHttpResponseException;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.protocol.HttpContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ad implements HttpRequestRetryHandler {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f34677a = "ad";
+    public static final String a = "ad";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

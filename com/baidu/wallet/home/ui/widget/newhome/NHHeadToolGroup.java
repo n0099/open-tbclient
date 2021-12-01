@@ -19,14 +19,12 @@ import com.baidu.wallet.home.ui.widget.BaseItemLayout;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NHHeadToolGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEM = 4;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f59440a;
+    public List<BaseItemView> a;
     public NetImageView mBackground;
     public GridLayout mGrid;
 
@@ -48,14 +46,14 @@ public class NHHeadToolGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f59440a = new ArrayList();
+        this.a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59440a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -106,7 +104,7 @@ public class NHHeadToolGroup extends BaseItemLayout {
                 NHHeadToolItem nHHeadToolItem = new NHHeadToolItem(getContext());
                 nHHeadToolItem.setData(dataItemArr[i2], getWalletInterface());
                 this.mGrid.addView(nHHeadToolItem);
-                this.f59440a.add(nHHeadToolItem);
+                this.a.add(nHHeadToolItem);
             }
         }
     }
@@ -130,6 +128,6 @@ public class NHHeadToolGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f59440a = new ArrayList();
+        this.a = new ArrayList();
     }
 }

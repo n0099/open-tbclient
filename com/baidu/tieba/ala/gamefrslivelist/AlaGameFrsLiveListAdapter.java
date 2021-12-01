@@ -10,13 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<Fragment> f48013a;
+    public List<Fragment> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveListAdapter(FragmentManager fragmentManager) {
@@ -43,7 +41,7 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Fragment> list = this.f48013a;
+            List<Fragment> list = this.a;
             if (list != null) {
                 return list.size();
             }
@@ -57,8 +55,8 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f48013a.size() > i2) {
-                return this.f48013a.get(i2);
+            if (this.a.size() > i2) {
+                return this.a.get(i2);
             }
             return null;
         }
@@ -68,7 +66,7 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
     public void setFragments(List<Fragment> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f48013a = list;
+            this.a = list;
         }
     }
 }

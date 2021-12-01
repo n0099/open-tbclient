@@ -4,7 +4,6 @@ import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class AbstractDataSource<T> implements DataSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +35,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     public final ConcurrentLinkedQueue<Pair<DataSubscriber<T>, Executor>> mSubscribers;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class DataSourceStatus {
         public static final /* synthetic */ DataSourceStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -219,7 +218,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeLZ;
         T t2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, this, t, z)) != null) {
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65541, this, t, z)) != null) {
             return invokeLZ.booleanValue;
         }
         T t3 = null;
@@ -270,7 +269,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             synchronized (this) {
                 if (isClosed()) {
                     z = isFinished() ? false : true;

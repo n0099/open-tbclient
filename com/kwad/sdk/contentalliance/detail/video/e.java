@@ -40,9 +40,9 @@ public class e implements d {
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.video.d
-    public void a(long j, long j2) {
+    public void a(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
         }
     }
 

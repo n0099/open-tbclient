@@ -3,7 +3,6 @@ package com.baidu.android.common.others.lang;
 import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class StringUtil implements IStringUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARRAY_ELEMENT_SEPARATOR = ", ";
@@ -115,7 +114,7 @@ public final class StringUtil implements IStringUtil {
     public static String arrayToDelimitedString(Object[] objArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, objArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, objArr, str)) == null) {
             if (isObjectArrayEmpty(objArr)) {
                 return "";
             }
@@ -138,7 +137,7 @@ public final class StringUtil implements IStringUtil {
     public static String capitalize(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? changeFirstCharacterCase(str, true) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? changeFirstCharacterCase(str, true) : (String) invokeL.objValue;
     }
 
     public static String changeFirstCharacterCase(String str, boolean z) {

@@ -15,7 +15,6 @@ import androidx.annotation.StyleableRes;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MotionSpec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MotionSpec";
@@ -118,7 +117,7 @@ public class MotionSpec {
     public static MotionSpec createSpecFromAnimators(@NonNull List<Animator> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             MotionSpec motionSpec = new MotionSpec();
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -187,12 +186,12 @@ public class MotionSpec {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int size = this.timings.size();
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < size; i2++) {
                 MotionTiming valueAt = this.timings.valueAt(i2);
-                j = Math.max(j, valueAt.getDelay() + valueAt.getDuration());
+                j2 = Math.max(j2, valueAt.getDelay() + valueAt.getDuration());
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

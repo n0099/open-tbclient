@@ -1,38 +1,46 @@
 package io.flutter.embedding.engine;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.FlutterInjector;
 import io.flutter.Log;
 import io.flutter.embedding.engine.dart.DartExecutor;
+import io.flutter.embedding.engine.deferredcomponents.DeferredComponentManager;
 import io.flutter.embedding.engine.loader.FlutterLoader;
 import io.flutter.embedding.engine.plugins.PluginRegistry;
 import io.flutter.embedding.engine.plugins.activity.ActivityControlSurface;
 import io.flutter.embedding.engine.plugins.broadcastreceiver.BroadcastReceiverControlSurface;
 import io.flutter.embedding.engine.plugins.contentprovider.ContentProviderControlSurface;
 import io.flutter.embedding.engine.plugins.service.ServiceControlSurface;
+import io.flutter.embedding.engine.plugins.util.GeneratedPluginRegister;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import io.flutter.embedding.engine.systemchannels.AccessibilityChannel;
+import io.flutter.embedding.engine.systemchannels.DeferredComponentChannel;
 import io.flutter.embedding.engine.systemchannels.KeyEventChannel;
 import io.flutter.embedding.engine.systemchannels.LifecycleChannel;
 import io.flutter.embedding.engine.systemchannels.LocalizationChannel;
+import io.flutter.embedding.engine.systemchannels.MouseCursorChannel;
 import io.flutter.embedding.engine.systemchannels.NavigationChannel;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
+import io.flutter.embedding.engine.systemchannels.RestorationChannel;
 import io.flutter.embedding.engine.systemchannels.SettingsChannel;
 import io.flutter.embedding.engine.systemchannels.SystemChannel;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
+import io.flutter.plugin.localization.LocalizationPlugin;
 import io.flutter.plugin.platform.PlatformViewsController;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FlutterEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterEngine";
@@ -41,6 +49,8 @@ public class FlutterEngine {
     public final AccessibilityChannel accessibilityChannel;
     @NonNull
     public final DartExecutor dartExecutor;
+    @NonNull
+    public final DeferredComponentChannel deferredComponentChannel;
     @NonNull
     public final EngineLifecycleListener engineLifecycleListener;
     @NonNull
@@ -54,15 +64,21 @@ public class FlutterEngine {
     @NonNull
     public final LocalizationChannel localizationChannel;
     @NonNull
+    public final LocalizationPlugin localizationPlugin;
+    @NonNull
+    public final MouseCursorChannel mouseCursorChannel;
+    @NonNull
     public final NavigationChannel navigationChannel;
     @NonNull
     public final PlatformChannel platformChannel;
     @NonNull
     public final PlatformViewsController platformViewsController;
     @NonNull
-    public final FlutterEnginePluginRegistry pluginRegistry;
+    public final FlutterEngineConnectionRegistry pluginRegistry;
     @NonNull
     public final FlutterRenderer renderer;
+    @NonNull
+    public final RestorationChannel restorationChannel;
     @NonNull
     public final SettingsChannel settingsChannel;
     @NonNull
@@ -70,8 +86,10 @@ public class FlutterEngine {
     @NonNull
     public final TextInputChannel textInputChannel;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface EngineLifecycleListener {
+        void onEngineWillDestroy();
+
         void onPreEngineRestart();
     }
 
@@ -98,7 +116,7 @@ public class FlutterEngine {
 
     private void attachToJni() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             Log.v(TAG, "Attaching to JNI.");
             this.flutterJNI.attachToNative(false);
             if (!isAttachedToJni()) {
@@ -110,18 +128,7 @@ public class FlutterEngine {
     private boolean isAttachedToJni() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? this.flutterJNI.isAttached() : invokeV.booleanValue;
-    }
-
-    private void registerPlugins() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            try {
-                Class.forName("io.flutter.plugins.GeneratedPluginRegistrant").getDeclaredMethod("registerWith", FlutterEngine.class).invoke(null, this);
-            } catch (Exception unused) {
-                Log.w(TAG, "Tried to automatically register plugins with FlutterEngine (" + this + ") but could not find and invoke the GeneratedPluginRegistrant.");
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? this.flutterJNI.isAttached() : invokeV.booleanValue;
     }
 
     public void addEngineLifecycleListener(@NonNull EngineLifecycleListener engineLifecycleListener) {
@@ -135,10 +142,19 @@ public class FlutterEngine {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Log.v(TAG, "Destroying.");
+            for (EngineLifecycleListener engineLifecycleListener : this.engineLifecycleListeners) {
+                engineLifecycleListener.onEngineWillDestroy();
+            }
             this.pluginRegistry.destroy();
+            this.platformViewsController.onDetachedFromJNI();
             this.dartExecutor.onDetachedFromJNI();
             this.flutterJNI.removeEngineLifecycleListener(this.engineLifecycleListener);
+            this.flutterJNI.setDeferredComponentManager(null);
             this.flutterJNI.detachFromNativeAndReleaseResources();
+            if (FlutterInjector.instance().deferredComponentManager() != null) {
+                FlutterInjector.instance().deferredComponentManager().destroy();
+                this.deferredComponentChannel.setDeferredComponentManager(null);
+            }
         }
     }
 
@@ -178,112 +194,153 @@ public class FlutterEngine {
     }
 
     @NonNull
+    public DeferredComponentChannel getDeferredComponentChannel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.deferredComponentChannel : (DeferredComponentChannel) invokeV.objValue;
+    }
+
+    @NonNull
     public KeyEventChannel getKeyEventChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.keyEventChannel : (KeyEventChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.keyEventChannel : (KeyEventChannel) invokeV.objValue;
     }
 
     @NonNull
     public LifecycleChannel getLifecycleChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.lifecycleChannel : (LifecycleChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.lifecycleChannel : (LifecycleChannel) invokeV.objValue;
     }
 
     @NonNull
     public LocalizationChannel getLocalizationChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.localizationChannel : (LocalizationChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.localizationChannel : (LocalizationChannel) invokeV.objValue;
+    }
+
+    @NonNull
+    public LocalizationPlugin getLocalizationPlugin() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.localizationPlugin : (LocalizationPlugin) invokeV.objValue;
+    }
+
+    @NonNull
+    public MouseCursorChannel getMouseCursorChannel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mouseCursorChannel : (MouseCursorChannel) invokeV.objValue;
     }
 
     @NonNull
     public NavigationChannel getNavigationChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.navigationChannel : (NavigationChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.navigationChannel : (NavigationChannel) invokeV.objValue;
     }
 
     @NonNull
     public PlatformChannel getPlatformChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.platformChannel : (PlatformChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.platformChannel : (PlatformChannel) invokeV.objValue;
     }
 
     @NonNull
     public PlatformViewsController getPlatformViewsController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.platformViewsController : (PlatformViewsController) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.platformViewsController : (PlatformViewsController) invokeV.objValue;
     }
 
     @NonNull
     public PluginRegistry getPlugins() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.pluginRegistry : (PluginRegistry) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.pluginRegistry : (PluginRegistry) invokeV.objValue;
     }
 
     @NonNull
     public FlutterRenderer getRenderer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.renderer : (FlutterRenderer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.renderer : (FlutterRenderer) invokeV.objValue;
+    }
+
+    @NonNull
+    public RestorationChannel getRestorationChannel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.restorationChannel : (RestorationChannel) invokeV.objValue;
     }
 
     @NonNull
     public ServiceControlSurface getServiceControlSurface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.pluginRegistry : (ServiceControlSurface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.pluginRegistry : (ServiceControlSurface) invokeV.objValue;
     }
 
     @NonNull
     public SettingsChannel getSettingsChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.settingsChannel : (SettingsChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.settingsChannel : (SettingsChannel) invokeV.objValue;
     }
 
     @NonNull
     public SystemChannel getSystemChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.systemChannel : (SystemChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.systemChannel : (SystemChannel) invokeV.objValue;
     }
 
     @NonNull
     public TextInputChannel getTextInputChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.textInputChannel : (TextInputChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.textInputChannel : (TextInputChannel) invokeV.objValue;
     }
 
     public void removeEngineLifecycleListener(@NonNull EngineLifecycleListener engineLifecycleListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, engineLifecycleListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, engineLifecycleListener) == null) {
             this.engineLifecycleListeners.remove(engineLifecycleListener);
         }
     }
 
+    @NonNull
+    public FlutterEngine spawn(@NonNull Context context, @NonNull DartExecutor.DartEntrypoint dartEntrypoint) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, context, dartEntrypoint)) == null) {
+            if (isAttachedToJni()) {
+                return new FlutterEngine(context, (FlutterLoader) null, this.flutterJNI.spawn(dartEntrypoint.dartEntrypointFunctionName, dartEntrypoint.dartEntrypointLibrary));
+            }
+            throw new IllegalStateException("Spawn can only be called on a fully constructed FlutterEngine");
+        }
+        return (FlutterEngine) invokeLL.objValue;
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FlutterEngine(@NonNull Context context, @Nullable String[] strArr) {
-        this(context, FlutterLoader.getInstance(), new FlutterJNI(), strArr, true);
+        this(context, null, null, strArr, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, strArr};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (FlutterLoader) objArr2[1], (FlutterJNI) objArr2[2], (String[]) objArr2[3], ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -291,27 +348,48 @@ public class FlutterEngine {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FlutterEngine(@NonNull Context context, @Nullable String[] strArr, boolean z) {
-        this(context, FlutterLoader.getInstance(), new FlutterJNI(), strArr, z);
+        this(context, null, null, strArr, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, strArr, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65542, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (FlutterLoader) objArr2[1], (FlutterJNI) objArr2[2], (String[]) objArr2[3], ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65542, newInitContext);
                 return;
             }
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FlutterEngine(@NonNull Context context, @NonNull FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI) {
+    public FlutterEngine(@NonNull Context context, @Nullable String[] strArr, boolean z, boolean z2) {
+        this(context, null, null, new PlatformViewsController(), strArr, z, z2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, strArr, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65543, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (FlutterLoader) objArr2[1], (FlutterJNI) objArr2[2], (PlatformViewsController) objArr2[3], (String[]) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Boolean) objArr2[6]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65543, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public FlutterEngine(@NonNull Context context, @Nullable FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI) {
         this(context, flutterLoader, flutterJNI, null, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -332,27 +410,29 @@ public class FlutterEngine {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FlutterEngine(@NonNull Context context, @NonNull FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI, @Nullable String[] strArr, boolean z) {
+    public FlutterEngine(@NonNull Context context, @Nullable FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI, @Nullable String[] strArr, boolean z) {
         this(context, flutterLoader, flutterJNI, new PlatformViewsController(), strArr, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, flutterLoader, flutterJNI, strArr, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (FlutterLoader) objArr2[1], (FlutterJNI) objArr2[2], (PlatformViewsController) objArr2[3], (String[]) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
     }
 
-    public FlutterEngine(@NonNull Context context, @NonNull FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI, @NonNull PlatformViewsController platformViewsController, @Nullable String[] strArr, boolean z) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public FlutterEngine(@NonNull Context context, @Nullable FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI, @NonNull PlatformViewsController platformViewsController, @Nullable String[] strArr, boolean z) {
+        this(context, flutterLoader, flutterJNI, platformViewsController, strArr, z, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -362,8 +442,28 @@ public class FlutterEngine {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (FlutterLoader) objArr2[1], (FlutterJNI) objArr2[2], (PlatformViewsController) objArr2[3], (String[]) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Boolean) objArr2[6]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public FlutterEngine(@NonNull Context context, @Nullable FlutterLoader flutterLoader, @NonNull FlutterJNI flutterJNI, @NonNull PlatformViewsController platformViewsController, @Nullable String[] strArr, boolean z, boolean z2) {
+        AssetManager assets;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, flutterLoader, flutterJNI, platformViewsController, strArr, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
@@ -392,39 +492,71 @@ public class FlutterEngine {
             }
 
             @Override // io.flutter.embedding.engine.FlutterEngine.EngineLifecycleListener
-            public void onPreEngineRestart() {
+            public void onEngineWillDestroy() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                }
+            }
+
+            @Override // io.flutter.embedding.engine.FlutterEngine.EngineLifecycleListener
+            public void onPreEngineRestart() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     Log.v(FlutterEngine.TAG, "onPreEngineRestart()");
                     for (EngineLifecycleListener engineLifecycleListener : this.this$0.engineLifecycleListeners) {
                         engineLifecycleListener.onPreEngineRestart();
                     }
                     this.this$0.platformViewsController.onPreEngineRestart();
+                    this.this$0.restorationChannel.clearData();
                 }
             }
         };
+        try {
+            assets = context.createPackageContext(context.getPackageName(), 0).getAssets();
+        } catch (PackageManager.NameNotFoundException unused) {
+            assets = context.getAssets();
+        }
+        FlutterInjector instance = FlutterInjector.instance();
+        flutterJNI = flutterJNI == null ? instance.getFlutterJNIFactory().provideFlutterJNI() : flutterJNI;
         this.flutterJNI = flutterJNI;
-        flutterLoader.startInitialization(context.getApplicationContext());
-        flutterLoader.ensureInitializationComplete(context, strArr);
-        flutterJNI.addEngineLifecycleListener(this.engineLifecycleListener);
-        attachToJni();
-        DartExecutor dartExecutor = new DartExecutor(flutterJNI, context.getAssets());
+        DartExecutor dartExecutor = new DartExecutor(flutterJNI, assets);
         this.dartExecutor = dartExecutor;
         dartExecutor.onAttachedToJNI();
-        this.renderer = new FlutterRenderer(flutterJNI);
+        DeferredComponentManager deferredComponentManager = FlutterInjector.instance().deferredComponentManager();
         this.accessibilityChannel = new AccessibilityChannel(this.dartExecutor, flutterJNI);
+        this.deferredComponentChannel = new DeferredComponentChannel(this.dartExecutor);
         this.keyEventChannel = new KeyEventChannel(this.dartExecutor);
         this.lifecycleChannel = new LifecycleChannel(this.dartExecutor);
         this.localizationChannel = new LocalizationChannel(this.dartExecutor);
+        this.mouseCursorChannel = new MouseCursorChannel(this.dartExecutor);
         this.navigationChannel = new NavigationChannel(this.dartExecutor);
         this.platformChannel = new PlatformChannel(this.dartExecutor);
+        this.restorationChannel = new RestorationChannel(this.dartExecutor, z2);
         this.settingsChannel = new SettingsChannel(this.dartExecutor);
         this.systemChannel = new SystemChannel(this.dartExecutor);
         this.textInputChannel = new TextInputChannel(this.dartExecutor);
+        if (deferredComponentManager != null) {
+            deferredComponentManager.setDeferredComponentChannel(this.deferredComponentChannel);
+        }
+        this.localizationPlugin = new LocalizationPlugin(context, this.localizationChannel);
+        flutterLoader = flutterLoader == null ? instance.flutterLoader() : flutterLoader;
+        if (!flutterJNI.isAttached()) {
+            flutterLoader.startInitialization(context.getApplicationContext());
+            flutterLoader.ensureInitializationComplete(context, strArr);
+        }
+        flutterJNI.addEngineLifecycleListener(this.engineLifecycleListener);
+        flutterJNI.setPlatformViewsController(platformViewsController);
+        flutterJNI.setLocalizationPlugin(this.localizationPlugin);
+        flutterJNI.setDeferredComponentManager(instance.deferredComponentManager());
+        if (!flutterJNI.isAttached()) {
+            attachToJni();
+        }
+        this.renderer = new FlutterRenderer(flutterJNI);
         this.platformViewsController = platformViewsController;
-        this.pluginRegistry = new FlutterEnginePluginRegistry(context.getApplicationContext(), this, flutterLoader);
-        if (z) {
-            registerPlugins();
+        platformViewsController.onAttachedToJNI();
+        this.pluginRegistry = new FlutterEngineConnectionRegistry(context.getApplicationContext(), this, flutterLoader);
+        if (z && flutterLoader.automaticallyRegisterPlugins()) {
+            GeneratedPluginRegister.registerGeneratedPlugins(this);
         }
     }
 }

@@ -9,9 +9,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f70681a;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,11 +25,11 @@ public class g {
                 return;
             }
         }
-        f70681a = Pattern.compile("([\t\r\n])+");
+        a = Pattern.compile("([\t\r\n])+");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m63a(String str) {
+    public static boolean m112a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? str == null || str.length() <= 0 : invokeL.booleanValue;

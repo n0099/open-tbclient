@@ -1,7 +1,7 @@
 package com.alipay.a.a;
 
 import java.lang.reflect.Type;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface i {
     Object a(Object obj, Type type);
 

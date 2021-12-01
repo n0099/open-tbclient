@@ -1,7 +1,6 @@
 package com.facebook.common.internal;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Throwables {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,14 +84,14 @@ public final class Throwables {
 
     public static <X extends Throwable> void propagateIfInstanceOf(@Nullable Throwable th, Class<X> cls) throws Throwable {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, th, cls) == null) && th != null && cls.isInstance(th)) {
+        if ((interceptable == null || interceptable.invokeLL(65541, null, th, cls) == null) && th != null && cls.isInstance(th)) {
             throw cls.cast(th);
         }
     }
 
     public static void propagateIfPossible(@Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, th) == null) {
             propagateIfInstanceOf(th, Error.class);
             propagateIfInstanceOf(th, RuntimeException.class);
         }

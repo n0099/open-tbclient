@@ -15,37 +15,35 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e implements com.baidu.fsg.base.restnet.rest.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.rest.c f38223a;
+    public final com.baidu.fsg.base.restnet.rest.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.http.a f38224b;
+    public final com.baidu.fsg.base.restnet.http.a f34204b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38225c;
+    public String f34205c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HttpDefines.HttpMethod f38226d;
+    public HttpDefines.HttpMethod f34206d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38227e;
+    public String f34207e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38228f;
+    public String f34208f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<RestNameValuePair> f38229g;
+    public List<RestNameValuePair> f34209g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RestMultipartEntity f38230h;
+    public RestMultipartEntity f34210h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38231i;
+    public int f34211i;
 
     public e(com.baidu.fsg.base.restnet.rest.c cVar, String str, HttpDefines.HttpMethod httpMethod, List<RestNameValuePair> list, RestMultipartEntity restMultipartEntity, String str2) {
         Interceptable interceptable = $ic;
@@ -62,28 +60,28 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
                 return;
             }
         }
-        this.f38224b = new com.baidu.fsg.base.restnet.http.a();
-        this.f38231i = -1;
-        this.f38223a = cVar;
-        this.f38225c = str2;
-        this.f38226d = httpMethod;
-        this.f38227e = str;
-        this.f38229g = list;
-        this.f38230h = restMultipartEntity;
+        this.f34204b = new com.baidu.fsg.base.restnet.http.a();
+        this.f34211i = -1;
+        this.a = cVar;
+        this.f34205c = str2;
+        this.f34206d = httpMethod;
+        this.f34207e = str;
+        this.f34209g = list;
+        this.f34210h = restMultipartEntity;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public com.baidu.fsg.base.restnet.http.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38224b : (com.baidu.fsg.base.restnet.http.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34204b : (com.baidu.fsg.base.restnet.http.a) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f38231i = i2;
+            this.f34211i = i2;
         }
     }
 
@@ -91,7 +89,7 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f38228f = str;
+            this.f34208f = str;
         }
     }
 
@@ -99,13 +97,13 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38225c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34205c : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f38227e = str;
+            this.f34207e = str;
         }
     }
 
@@ -113,14 +111,14 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38228f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34208f : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f38223a.close();
+            this.a.close();
         }
     }
 
@@ -128,13 +126,13 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f38231i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f34211i : invokeV.intValue;
     }
 
     public RestMultipartEntity e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f38230h : (RestMultipartEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f34210h : (RestMultipartEntity) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
@@ -145,7 +143,7 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
             if (Thread.currentThread().isInterrupted()) {
                 return null;
             }
-            return this.f38223a.a(this);
+            return this.a.a(this);
         }
         return (com.baidu.fsg.base.restnet.rest.e) invokeV.objValue;
     }
@@ -154,12 +152,12 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            List<RestNameValuePair> list = this.f38229g;
+            List<RestNameValuePair> list = this.f34209g;
             if (list == null || list.size() == 0) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (RestNameValuePair restNameValuePair : this.f38229g) {
+            for (RestNameValuePair restNameValuePair : this.f34209g) {
                 String name = restNameValuePair.getName();
                 String value = restNameValuePair.getValue();
                 if (!TextUtils.isEmpty(name)) {
@@ -167,9 +165,9 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
                         value = "";
                     }
                     try {
-                        sb.append(URLEncoder.encode(name, this.f38225c));
-                        sb.append(com.alipay.sdk.encrypt.a.f34958h);
-                        sb.append(URLEncoder.encode(value, this.f38225c));
+                        sb.append(URLEncoder.encode(name, this.f34205c));
+                        sb.append(com.alipay.sdk.encrypt.a.f31351h);
+                        sb.append(URLEncoder.encode(value, this.f34205c));
                         sb.append(Typography.amp);
                     } catch (UnsupportedEncodingException e2) {
                         e2.printStackTrace();
@@ -194,14 +192,14 @@ public class e implements com.baidu.fsg.base.restnet.rest.d {
     public HttpDefines.HttpMethod getMethod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f38226d : (HttpDefines.HttpMethod) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f34206d : (HttpDefines.HttpMethod) invokeV.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.d
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f38227e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f34207e : (String) invokeV.objValue;
     }
 
     public boolean h() {

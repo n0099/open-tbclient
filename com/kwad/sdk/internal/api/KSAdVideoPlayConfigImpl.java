@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
-import com.kwad.sdk.core.config.c;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializable {
@@ -31,7 +30,7 @@ public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializabl
                 return;
             }
         }
-        this.dataFlowAutoStart = c.t();
+        this.dataFlowAutoStart = com.kwad.sdk.core.config.b.o();
     }
 
     @Override // com.kwad.sdk.api.KsAdVideoPlayConfig

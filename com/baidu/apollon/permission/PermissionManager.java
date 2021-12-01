@@ -15,19 +15,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PermissionManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_CODE_CALL_PHONE = 2;
     public static final int REQUEST_CODE_READ_CONTRACT = 3;
     public static final int REQUEST_CODE_READ_SMS = 1;
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f36872a = 0;
+    public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f36873b;
+    public static int f33040b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -113,14 +111,14 @@ public class PermissionManager implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f36873b == 0) {
+            if (f33040b == 0) {
                 try {
-                    f36873b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                    f33040b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                 }
             }
-            return f36873b;
+            return f33040b;
         }
         return invokeL.intValue;
     }

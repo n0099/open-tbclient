@@ -3,7 +3,6 @@ package com.baidu.adp.lib.util;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "BaiduLog";
@@ -86,7 +85,7 @@ public class BdLog {
 
     public static void d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) {
             createMsg(true, str, str2, str3);
         }
     }
@@ -94,7 +93,7 @@ public class BdLog {
     public static int detailException(String str, Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, th)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, th)) == null) {
             isDebugMode();
             return printLog(0, str);
         }

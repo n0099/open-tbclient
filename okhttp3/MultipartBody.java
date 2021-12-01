@@ -325,7 +325,7 @@ public final class MultipartBody extends RequestBody {
                 buffer = 0;
             }
             int size = this.parts.size();
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < size; i2++) {
                 Part part = this.parts.get(i2);
                 Headers headers = part.headers;
@@ -352,7 +352,7 @@ public final class MultipartBody extends RequestBody {
                 }
                 bufferedSink.write(CRLF);
                 if (z) {
-                    j += contentLength;
+                    j2 += contentLength;
                 } else {
                     requestBody.writeTo(bufferedSink);
                 }
@@ -363,11 +363,11 @@ public final class MultipartBody extends RequestBody {
             bufferedSink.write(DASHDASH);
             bufferedSink.write(CRLF);
             if (z) {
-                long size3 = j + buffer.size();
+                long size3 = j2 + buffer.size();
                 buffer.clear();
                 return size3;
             }
-            return j;
+            return j2;
         }
         return invokeLZ.longValue;
     }
@@ -383,9 +383,9 @@ public final class MultipartBody extends RequestBody {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.contentLength;
-            if (j != -1) {
-                return j;
+            long j2 = this.contentLength;
+            if (j2 != -1) {
+                return j2;
             }
             long writeOrCountBytes = writeOrCountBytes(null, true);
             this.contentLength = writeOrCountBytes;

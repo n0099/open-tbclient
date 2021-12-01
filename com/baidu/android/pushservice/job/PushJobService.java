@@ -21,21 +21,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushJobService extends JobService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public Handler f36560a;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final JobService f36561a;
+        public final JobService a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(JobService jobService) {
@@ -55,7 +51,7 @@ public class PushJobService extends JobService {
                     return;
                 }
             }
-            this.f36561a = jobService;
+            this.a = jobService;
         }
 
         @Override // android.os.Handler
@@ -64,12 +60,12 @@ public class PushJobService extends JobService {
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
-                    this.f36561a.jobFinished(jobParameters, true);
+                    this.a.jobFinished(jobParameters, true);
                     if (jobParameters.getJobId() == 1) {
-                        com.baidu.android.pushservice.job.a.a(this.f36561a, false);
+                        com.baidu.android.pushservice.job.a.a(this.a, false);
                     }
                 } catch (Throwable th) {
-                    new b.c(this.f36561a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
+                    new b.c(this.a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
                 }
             }
         }
@@ -120,10 +116,10 @@ public class PushJobService extends JobService {
                 } catch (Exception unused) {
                 }
             }
-            if (this.f36560a == null) {
-                this.f36560a = new a(this);
+            if (this.a == null) {
+                this.a = new a(this);
             }
-            Handler handler = this.f36560a;
+            Handler handler = this.a;
             handler.sendMessageDelayed(Message.obtain(handler, 1, jobParameters), 2000L);
             return true;
         }

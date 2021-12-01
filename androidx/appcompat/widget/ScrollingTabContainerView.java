@@ -32,7 +32,6 @@ import androidx.appcompat.view.ActionBarPolicy;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -491,7 +490,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
 
     private void performCollapse() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || isCollapsed()) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || isCollapsed()) {
             return;
         }
         if (this.mTabSpinner == null) {
@@ -513,7 +512,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     private boolean performExpand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             if (isCollapsed()) {
                 removeView(this.mTabSpinner);
                 addView(this.mTabLayout, new ViewGroup.LayoutParams(-2, -1));
@@ -672,9 +671,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i2, long j) {
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             ((TabView) view).getTab().select();
         }
     }

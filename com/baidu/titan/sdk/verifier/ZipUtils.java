@@ -6,7 +6,7 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import kotlin.UShort;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class ZipUtils {
     public static final int UINT16_MAX_VALUE = 65535;
     public static final int ZIP64_EOCD_LOCATOR_SIG_REVERSE_BYTE_ORDER = 1347094023;
@@ -49,26 +49,26 @@ public abstract class ZipUtils {
         return getUnsignedInt32(byteBuffer, byteBuffer.position() + 12);
     }
 
-    public static final boolean isZip64EndOfCentralDirectoryLocatorPresent(RandomAccessFile randomAccessFile, long j) throws IOException {
-        long j2 = j - 20;
-        if (j2 < 0) {
+    public static final boolean isZip64EndOfCentralDirectoryLocatorPresent(RandomAccessFile randomAccessFile, long j2) throws IOException {
+        long j3 = j2 - 20;
+        if (j3 < 0) {
             return false;
         }
-        randomAccessFile.seek(j2);
+        randomAccessFile.seek(j3);
         return randomAccessFile.readInt() == 1347094023;
     }
 
-    public static void setUnsignedInt32(ByteBuffer byteBuffer, int i2, long j) {
-        if (j >= 0 && j <= 4294967295L) {
-            byteBuffer.putInt(byteBuffer.position() + i2, (int) j);
+    public static void setUnsignedInt32(ByteBuffer byteBuffer, int i2, long j2) {
+        if (j2 >= 0 && j2 <= 4294967295L) {
+            byteBuffer.putInt(byteBuffer.position() + i2, (int) j2);
             return;
         }
-        throw new IllegalArgumentException("uint32 value of out range: " + j);
+        throw new IllegalArgumentException("uint32 value of out range: " + j2);
     }
 
-    public static void setZipEocdCentralDirectoryOffset(ByteBuffer byteBuffer, long j) {
+    public static void setZipEocdCentralDirectoryOffset(ByteBuffer byteBuffer, long j2) {
         assertByteOrderLittleEndian(byteBuffer);
-        setUnsignedInt32(byteBuffer, byteBuffer.position() + 16, j);
+        setUnsignedInt32(byteBuffer, byteBuffer.position() + 16, j2);
     }
 
     public static Pair<ByteBuffer, Long> findZipEndOfCentralDirectoryRecord(RandomAccessFile randomAccessFile, int i2) throws IOException {

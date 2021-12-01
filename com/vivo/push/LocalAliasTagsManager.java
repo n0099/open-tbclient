@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import com.vivo.push.model.UnvarnishedMessage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LocalAliasTagsManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_LOCAL_REQUEST_ID = "push_cache_sp";
@@ -36,7 +35,7 @@ public class LocalAliasTagsManager {
     public ISubscribeAppAliasManager mSubscribeAppAliasManager;
     public ISubscribeAppTagManager mSubscribeAppTagManager;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface LocalMessageCallback {
         boolean onNotificationMessageArrived(Context context, UPSNotificationMessage uPSNotificationMessage);
 
@@ -84,7 +83,7 @@ public class LocalAliasTagsManager {
     public static final LocalAliasTagsManager getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             if (mLocalAliasTagsManager == null) {
                 synchronized (SLOCK) {
                     if (mLocalAliasTagsManager == null) {

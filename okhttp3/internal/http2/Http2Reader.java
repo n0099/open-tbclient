@@ -2,7 +2,6 @@ package okhttp3.internal.http2;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,10 +92,10 @@ public final class Http2Reader implements Closeable {
         }
 
         @Override // okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
+        public long read(Buffer buffer, long j2) throws IOException {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) != null) {
+            if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) != null) {
                 return invokeLJ.longValue;
             }
             while (true) {
@@ -109,7 +108,7 @@ public final class Http2Reader implements Closeable {
                     }
                     readContinuationHeader();
                 } else {
-                    long read = this.source.read(buffer, Math.min(j, i2));
+                    long read = this.source.read(buffer, Math.min(j2, i2));
                     if (read == -1) {
                         return -1L;
                     }
@@ -131,7 +130,7 @@ public final class Http2Reader implements Closeable {
     public interface Handler {
         void ackSettings();
 
-        void alternateService(int i2, String str, ByteString byteString, String str2, int i3, long j);
+        void alternateService(int i2, String str, ByteString byteString, String str2, int i3, long j2);
 
         void data(boolean z, int i2, BufferedSource bufferedSource, int i3) throws IOException;
 
@@ -149,7 +148,7 @@ public final class Http2Reader implements Closeable {
 
         void settings(boolean z, Settings settings);
 
-        void windowUpdate(int i2, long j);
+        void windowUpdate(int i2, long j2);
     }
 
     static {
@@ -250,7 +249,7 @@ public final class Http2Reader implements Closeable {
     private List<Header> readHeaderBlock(int i2, short s, byte b2, int i3) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Short.valueOf(s), Byte.valueOf(b2), Integer.valueOf(i3)})) == null) {
             ContinuationSource continuationSource = this.continuation;
             continuationSource.left = i2;
             continuationSource.length = i2;
@@ -265,7 +264,7 @@ public final class Http2Reader implements Closeable {
 
     private void readHeaders(Handler handler, int i2, byte b2, int i3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{handler, Integer.valueOf(i2), Byte.valueOf(b2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{handler, Integer.valueOf(i2), Byte.valueOf(b2), Integer.valueOf(i3)}) == null) {
             if (i3 != 0) {
                 boolean z = (b2 & 1) != 0;
                 short readByte = (b2 & 8) != 0 ? (short) (this.source.readByte() & 255) : (short) 0;

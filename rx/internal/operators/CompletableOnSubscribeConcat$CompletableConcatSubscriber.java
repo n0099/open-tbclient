@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.b;
-import h.c;
-import h.j;
-import h.k;
+import i.b;
+import i.c;
+import i.j;
+import i.k;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes3.dex */
@@ -17,7 +17,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final SequentialSubscription f73514i;
+    public final SequentialSubscription f64323i;
 
     /* loaded from: classes3.dex */
     public final class ConcatInnerSubscriber extends AtomicInteger implements c {
@@ -44,7 +44,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             this.this$0 = completableOnSubscribeConcat$CompletableConcatSubscriber;
         }
 
-        @Override // h.c
+        @Override // i.c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -52,7 +52,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             }
         }
 
-        @Override // h.c
+        @Override // i.c
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -60,11 +60,11 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             }
         }
 
-        @Override // h.c
+        @Override // i.c
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-                this.this$0.f73514i.set(kVar);
+                this.this$0.f64323i.set(kVar);
             }
         }
     }

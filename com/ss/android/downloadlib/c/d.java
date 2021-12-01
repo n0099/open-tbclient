@@ -64,9 +64,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
             com.ss.android.downloadlib.d.a().a(new Runnable(this) { // from class: com.ss.android.downloadlib.c.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ d f69659a;
+                public final /* synthetic */ d a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -83,7 +81,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
                             return;
                         }
                     }
-                    this.f69659a = this;
+                    this.a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -96,21 +94,21 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
                         for (com.ss.android.downloadad.api.a.b bVar : com.ss.android.downloadlib.addownload.b.f.a().c().values()) {
                             int s = bVar.s();
                             if (s != 0) {
-                                com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(s);
-                                if (a2.b("notification_opt_2") == 1 && (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(s)) != null) {
+                                com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(s);
+                                if (a.b("notification_opt_2") == 1 && (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(s)) != null) {
                                     if (l.b(bVar) && !l.c(bVar.e())) {
                                         int spIntVal2 = downloadInfo.getSpIntVal("restart_notify_open_app_count");
-                                        if (spIntVal2 < a2.a("noti_open_restart_times", 1)) {
+                                        if (spIntVal2 < a.a("noti_open_restart_times", 1)) {
                                             h.a().e(bVar);
                                             downloadInfo.setSpValue("restart_notify_open_app_count", String.valueOf(spIntVal2 + 1));
                                         }
                                     } else if (downloadInfo.getRealStatus() == -2) {
                                         int spIntVal3 = downloadInfo.getSpIntVal("restart_notify_continue_count");
-                                        if (spIntVal3 < a2.a("noti_continue_restart_times", 1)) {
+                                        if (spIntVal3 < a.a("noti_continue_restart_times", 1)) {
                                             h.a().a(bVar);
                                             downloadInfo.setSpValue("restart_notify_continue_count", String.valueOf(spIntVal3 + 1));
                                         }
-                                    } else if (downloadInfo.getRealStatus() == -3 && com.ss.android.socialbase.downloader.i.f.c(downloadInfo) && !l.b(bVar) && (spIntVal = downloadInfo.getSpIntVal("restart_notify_install_count")) < a2.a("noti_install_restart_times", 1)) {
+                                    } else if (downloadInfo.getRealStatus() == -3 && com.ss.android.socialbase.downloader.i.f.c(downloadInfo) && !l.b(bVar) && (spIntVal = downloadInfo.getSpIntVal("restart_notify_install_count")) < a.a("noti_install_restart_times", 1)) {
                                         h.a().c(bVar);
                                         downloadInfo.setSpValue("restart_notify_install_count", String.valueOf(spIntVal + 1));
                                     }
@@ -128,19 +126,19 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadInfo, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             com.ss.android.downloadlib.addownload.b.f.a().b();
-            com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
-            if (a2 == null) {
+            com.ss.android.downloadad.api.a.b a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
+            if (a == null) {
                 return;
             }
             try {
                 if (z) {
-                    a2.c(downloadInfo.getFailedResumeCount());
-                } else if (a2.D() == -1) {
+                    a.c(downloadInfo.getFailedResumeCount());
+                } else if (a.D() == -1) {
                     return;
                 } else {
-                    a2.c(-1);
+                    a.c(-1);
                 }
-                i.a().a(a2);
+                i.a().a(a);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("download_id", downloadInfo.getId());
                 jSONObject.put("name", downloadInfo.getName());
@@ -157,7 +155,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
                 }
                 jSONObject.put("launch_resumed", i3);
                 jSONObject.put("failed_resume_count", downloadInfo.getFailedResumeCount());
-                com.ss.android.downloadlib.d.a.a().a("embeded_ad", "download_uncompleted", jSONObject, a2);
+                com.ss.android.downloadlib.d.a.a().a("embeded_ad", "download_uncompleted", jSONObject, a);
             } catch (Throwable th) {
                 th.printStackTrace();
             }

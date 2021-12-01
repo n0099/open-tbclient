@@ -2,7 +2,6 @@ package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -170,13 +169,13 @@ public final class CharRange implements Iterable<Character>, Serializable {
     public static CharRange isIn(char c2, char c3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) ? new CharRange(c2, c3, false) : (CharRange) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) ? new CharRange(c2, c3, false) : (CharRange) invokeCommon.objValue;
     }
 
     public static CharRange isNot(char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Character.valueOf(c2)})) == null) ? new CharRange(c2, c2, true) : (CharRange) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c2)})) == null) ? new CharRange(c2, c2, true) : (CharRange) invokeCommon.objValue;
     }
 
     public static CharRange isNotIn(char c2, char c3) {

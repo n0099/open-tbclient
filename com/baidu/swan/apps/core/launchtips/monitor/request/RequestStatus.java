@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.newbindcard.NewBindCardEntry;
+import com.tachikoma.core.component.input.ReturnKeyType;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class RequestStatus {
     public static final /* synthetic */ RequestStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +37,7 @@ public final class RequestStatus {
                 return;
             }
         }
-        STATUS_SEND = new RequestStatus("STATUS_SEND", 0, "send");
+        STATUS_SEND = new RequestStatus("STATUS_SEND", 0, ReturnKeyType.SEND);
         STATUS_SUCCESS = new RequestStatus("STATUS_SUCCESS", 1, NewBindCardEntry.BING_CARD_SUCCESS_MSG);
         STATUS_FAILED = new RequestStatus("STATUS_FAILED", 2, "failRate");
         STATUS_UNKNOWN = new RequestStatus("STATUS_UNKNOWN", 3, "unknown");

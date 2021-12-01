@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Rect MICRO_THUMBNAIL_DIMENSIONS;
@@ -143,7 +142,7 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     private EncodedImage getThumbnail(ResizeOptions resizeOptions, int i2) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, resizeOptions, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65541, this, resizeOptions, i2)) != null) {
             return (EncodedImage) invokeLI.objValue;
         }
         int thumbnailKind = getThumbnailKind(resizeOptions);
@@ -191,7 +190,7 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     public static int getThumbnailKind(ResizeOptions resizeOptions) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, resizeOptions)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, resizeOptions)) == null) {
             if (ThumbnailSizeChecker.isImageBigEnough(MICRO_THUMBNAIL_DIMENSIONS.width(), MICRO_THUMBNAIL_DIMENSIONS.height(), resizeOptions)) {
                 return 3;
             }

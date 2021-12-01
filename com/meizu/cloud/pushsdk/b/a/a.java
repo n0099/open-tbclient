@@ -1,26 +1,24 @@
 package com.meizu.cloud.pushsdk.b.a;
 /* loaded from: classes2.dex */
 public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f68114a = false;
+    public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f68115b = "AndroidNetworking";
+    public static String f60181b = "AndroidNetworking";
 
     public static void a() {
-        f68114a = true;
+        a = true;
     }
 
     public static void a(String str) {
-        if (f68114a) {
-            b.j.a.a.a.a(f68115b, str);
+        if (a) {
+            c.k.a.a.a.a(f60181b, str);
         }
     }
 
     public static void b(String str) {
-        if (f68114a) {
-            b.j.a.a.a.d(f68115b, str);
+        if (a) {
+            c.k.a.a.a.d(f60181b, str);
         }
     }
 }

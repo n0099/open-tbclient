@@ -26,7 +26,6 @@ import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,9 +47,10 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class FloatingActionButtonImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIM_STATE_HIDING = 1;
@@ -117,7 +117,7 @@ public class FloatingActionButtonImpl {
     public ArrayList<InternalTransformationCallback> transformationCallbacks;
     public final FloatingActionButton view;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class DisabledElevationAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +156,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class ElevateToHoveredFocusedTranslationZAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,7 +196,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class ElevateToPressedTranslationZAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,21 +236,21 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface InternalTransformationCallback {
         void onScaleChanged();
 
         void onTranslationChanged();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface InternalVisibilityChangedListener {
         void onHidden();
 
         void onShown();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public class ResetElevationAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public abstract class ShadowAnimatorImpl extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -400,7 +400,7 @@ public class FloatingActionButtonImpl {
 
     private void calculateImageMatrixFromScale(float f2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Float.valueOf(f2), matrix}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Float.valueOf(f2), matrix}) == null) {
             matrix.reset();
             Drawable drawable = this.view.getDrawable();
             if (drawable == null || this.maxImageSize == 0) {
@@ -421,17 +421,17 @@ public class FloatingActionButtonImpl {
     private AnimatorSet createAnimator(@NonNull MotionSpec motionSpec, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{motionSpec, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{motionSpec, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             ArrayList arrayList = new ArrayList();
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.view, View.ALPHA, f2);
             motionSpec.getTiming("opacity").apply(ofFloat);
             arrayList.add(ofFloat);
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.view, View.SCALE_X, f3);
-            motionSpec.getTiming("scale").apply(ofFloat2);
+            motionSpec.getTiming(AnimationProperty.SCALE).apply(ofFloat2);
             workAroundOreoBug(ofFloat2);
             arrayList.add(ofFloat2);
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.view, View.SCALE_Y, f3);
-            motionSpec.getTiming("scale").apply(ofFloat3);
+            motionSpec.getTiming(AnimationProperty.SCALE).apply(ofFloat3);
             workAroundOreoBug(ofFloat3);
             arrayList.add(ofFloat3);
             calculateImageMatrixFromScale(f4, this.tmpMatrix);

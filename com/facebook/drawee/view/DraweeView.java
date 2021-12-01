@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ import com.facebook.drawee.interfaces.DraweeHierarchy;
 import com.facebook.drawee.view.AspectRatioMeasure;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sGlobalLegacyVisibilityHandlingEnabled;
@@ -82,7 +81,7 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     private void init(Context context) {
         boolean isTracing;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
             try {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("DraweeView#init");
@@ -125,7 +124,7 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     private void maybeOverrideVisibilityHandling() {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && this.mLegacyVisibilityHandlingEnabled && (drawable = getDrawable()) != null) {
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.mLegacyVisibilityHandlingEnabled && (drawable = getDrawable()) != null) {
             drawable.setVisible(getVisibility() == 0, false);
         }
     }

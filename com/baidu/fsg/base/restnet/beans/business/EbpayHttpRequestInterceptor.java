@@ -1,14 +1,13 @@
 package com.baidu.fsg.base.restnet.beans.business;
 
 import android.content.Context;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.fsg.base.restnet.rest.RestHttpRequestInterceptor;
 import com.baidu.fsg.base.restnet.rest.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_CUID = "cuid_1";
@@ -43,7 +42,7 @@ public class EbpayHttpRequestInterceptor implements RestHttpRequestInterceptor {
     public void intercept(Context context, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, dVar) == null) {
-            dVar.a().set("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+            dVar.a().set("Accept-Encoding", "gzip");
         }
     }
 }

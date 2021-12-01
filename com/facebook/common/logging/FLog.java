@@ -1,7 +1,6 @@
 package com.facebook.common.logging;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ASSERT = 7;
@@ -431,7 +430,7 @@ public class FLog {
 
     public static void d(Class<?> cls, String str, Object obj, Object obj2, Object obj3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(AdIconUtil.AD_TEXT_ID, null, cls, str, obj, obj2, obj3) == null) && sHandler.isLoggable(3)) {
+        if ((interceptable == null || interceptable.invokeLLLLL(65541, null, cls, str, obj, obj2, obj3) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), formatString(str, obj, obj2, obj3));
         }
     }
@@ -452,7 +451,7 @@ public class FLog {
 
     public static void d(Class<?> cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{cls, str, obj, obj2, obj3, obj4}) == null) && sHandler.isLoggable(3)) {
+        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{cls, str, obj, obj2, obj3, obj4}) == null) && sHandler.isLoggable(3)) {
             sHandler.d(getTag(cls), formatString(str, obj, obj2, obj3, obj4));
         }
     }

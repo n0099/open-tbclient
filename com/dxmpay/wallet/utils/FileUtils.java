@@ -1,7 +1,6 @@
 package com.dxmpay.wallet.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtils";
@@ -80,7 +79,7 @@ public class FileUtils {
     public static void ensureParent(File file) {
         File parentFile;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file) == null) || file == null || (parentFile = file.getParentFile()) == null || parentFile.exists()) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, file) == null) || file == null || (parentFile = file.getParentFile()) == null || parentFile.exists()) {
             return;
         }
         parentFile.mkdirs();
@@ -89,7 +88,7 @@ public class FileUtils {
     public static boolean existsFile(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, file)) == null) ? file != null && file.exists() && file.isFile() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, file)) == null) ? file != null && file.exists() && file.isFile() : invokeL.booleanValue;
     }
 
     public static boolean isFileExist(String str) {

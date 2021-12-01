@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClientIdHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BI_CLIENT_ID_FILE_NAME = "hdcltid.ini";
@@ -121,7 +120,7 @@ public class ClientIdHelper {
 
     private void checkConfig() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.mConfig == null) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.mConfig == null) {
             throw new RuntimeException("IConfig must be initialized !!");
         }
     }
@@ -129,7 +128,7 @@ public class ClientIdHelper {
     private int cpuAbiDigit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             if (TextUtils.isEmpty(Build.CPU_ABI)) {
                 return 0;
             }

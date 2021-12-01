@@ -3,7 +3,7 @@ package com.fun.ad.sdk;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface FunAdLoader {
     void destroy();
 
@@ -18,7 +18,7 @@ public interface FunAdLoader {
 
     void recycleLisener();
 
-    <T extends ViewGroup> boolean show(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener, FunNativeAdInflater funNativeAdInflater);
+    <T extends ViewGroup> boolean show(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener, FunNativeAdInflater funNativeAdInflater, IRipperCallBack iRipperCallBack);
 
     <T extends ViewGroup> FunSplashAd showSplash(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener);
 }

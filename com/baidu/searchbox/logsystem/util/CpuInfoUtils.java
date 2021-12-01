@@ -1,7 +1,6 @@
 package com.baidu.searchbox.logsystem.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CpuInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_INFO_DIR = "/sys/devices/system/cpu/";
@@ -142,7 +141,7 @@ public class CpuInfoUtils {
         Throwable th;
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, str)) != null) {
             return invokeL.floatValue;
         }
         FileInputStream fileInputStream2 = null;

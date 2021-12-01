@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.mapapi.UIMsg;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ASCII_ENCODATION = 0;
@@ -102,7 +101,7 @@ public final class HighLevelEncoder {
     public static int getMinimumCount(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             int i2 = 0;
             for (int i3 = 0; i3 < 6; i3++) {
                 i2 += bArr[i3];
@@ -115,7 +114,7 @@ public final class HighLevelEncoder {
     public static void illegalCharacter(char c2) {
         String hexString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Character.valueOf(c2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c2)}) == null) {
             throw new IllegalArgumentException("Illegal character: " + c2 + " (0x" + ("0000".substring(0, 4 - hexString.length()) + Integer.toHexString(c2)) + ')');
         }
     }

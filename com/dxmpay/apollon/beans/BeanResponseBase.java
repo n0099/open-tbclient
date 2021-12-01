@@ -12,7 +12,7 @@ import com.dxmpay.apollon.utils.JsonUtils;
 import com.dxmpay.apollon.utils.StringUtils;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BeanResponseBase implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class BeanResponseBase implements NoProguard {
     public String signature;
     public String token;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Session implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public class BeanResponseBase implements NoProguard {
                 return this.err_msg;
             }
             if (TextUtils.isEmpty(this.result_info)) {
-                return !TextUtils.isEmpty(this.result_string) ? this.result_string : com.baidu.apollon.beans.BeanResponseBase.f36726a;
+                return !TextUtils.isEmpty(this.result_string) ? this.result_string : com.baidu.apollon.beans.BeanResponseBase.a;
             }
             return this.result_info;
         }

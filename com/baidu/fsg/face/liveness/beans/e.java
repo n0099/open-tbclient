@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38947b;
+    public String f34747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38948c;
+    public String f34748c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -46,13 +46,13 @@ public class e extends l {
                 return;
             }
         }
-        this.f38948c = "1";
+        this.f34748c = "1";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f38947b = str;
+            this.f34747b = str;
         }
     }
 
@@ -76,15 +76,15 @@ public class e extends l {
                 arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
                 arrayList.add(new RestNameValuePair("exuid", livenessRecogDTO.exUid));
             }
-            arrayList.add(new RestNameValuePair("imgdigests", this.f38947b));
+            arrayList.add(new RestNameValuePair("imgdigests", this.f34747b));
             String randomString = RandomUtils.getRandomString(4096);
             try {
-                arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f38976a, randomString).getBytes("UTF-8"))));
+                arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.a, randomString).getBytes("UTF-8"))));
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
             }
             arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-            arrayList.add(new RestNameValuePair("last", this.f38948c));
+            arrayList.add(new RestNameValuePair("last", this.f34748c));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -130,7 +130,7 @@ public class e extends l {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f38948c = z ? "1" : "0";
+            this.f34748c = z ? "1" : "0";
         }
     }
 }

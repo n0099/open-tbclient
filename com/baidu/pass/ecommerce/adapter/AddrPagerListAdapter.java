@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.view.addressdialog.ElementNode;
 import com.baidu.sapi2.ecommerce.R;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHolder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int POSITION_HOT_CITY = -1;
@@ -38,7 +37,7 @@ public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHo
     public boolean mHotCitySelected;
     public OnAddressSelectedListener mOnAddressSelectedListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class AddressSelectorHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +86,7 @@ public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHo
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnAddressSelectedListener {
         void onAddressSelected(int i2, AddressBean addressBean);
     }
@@ -218,7 +217,7 @@ public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHo
     private ElementNode.AddressEntity optEntity(ElementNode.AddressEntity addressEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, addressEntity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, addressEntity)) == null) {
             this.mHasHotList = false;
             if (addressEntity == null) {
                 return null;
@@ -235,7 +234,7 @@ public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHo
 
     private void optHotListItem(ElementNode.AddressEntity addressEntity, List<AddressBean> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, addressEntity, list) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, addressEntity, list) == null) {
             List<AddressBean> list2 = addressEntity.hotlists;
             AddressBean addressBean = list.get(0);
             if (list2 == null || list2.isEmpty()) {

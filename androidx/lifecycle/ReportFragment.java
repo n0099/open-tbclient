@@ -12,7 +12,6 @@ import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -198,7 +197,7 @@ public class ReportFragment extends Fragment {
 
     private void dispatchStart(ActivityInitializationListener activityInitializationListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, activityInitializationListener) == null) || activityInitializationListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, activityInitializationListener) == null) || activityInitializationListener == null) {
             return;
         }
         activityInitializationListener.onStart();
@@ -207,7 +206,7 @@ public class ReportFragment extends Fragment {
     public static ReportFragment get(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, activity)) == null) ? (ReportFragment) activity.getFragmentManager().findFragmentByTag(REPORT_FRAGMENT_TAG) : (ReportFragment) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) ? (ReportFragment) activity.getFragmentManager().findFragmentByTag(REPORT_FRAGMENT_TAG) : (ReportFragment) invokeL.objValue;
     }
 
     public static void injectIfNeededIn(Activity activity) {

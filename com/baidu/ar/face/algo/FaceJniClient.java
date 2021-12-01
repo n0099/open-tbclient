@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class FaceJniClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class FaceJniClient {
         }
     }
 
-    public static native FaceAlgoData animateFace(long j, FaceAlgoData faceAlgoData, long j2);
+    public static native FaceAlgoData animateFace(long j2, FaceAlgoData faceAlgoData, long j3);
 
     public static native long createAnimateCore(String[] strArr);
 
@@ -61,19 +61,19 @@ public class FaceJniClient {
 
     public static native long createTrackCoreFromAssetDir(String[] strArr);
 
-    public static native boolean destoryFrame(long j);
+    public static native boolean destoryFrame(long j2);
 
-    public static native FaceAlgoData detectFace(long j, FaceAlgoData faceAlgoData, long j2);
+    public static native FaceAlgoData detectFace(long j2, FaceAlgoData faceAlgoData, long j3);
 
     public static native String getFaceAlgoVersion();
 
-    public static native boolean releaseAnimateCore(long j);
+    public static native boolean releaseAnimateCore(long j2);
 
-    public static native boolean releaseDetectCore(long j);
+    public static native boolean releaseDetectCore(long j2);
 
-    public static native boolean releaseTrackCore(long j);
+    public static native boolean releaseTrackCore(long j2);
 
     public static native int setAssetManager(AssetManager assetManager);
 
-    public static native FaceAlgoData trackFace(long j, FaceAlgoData faceAlgoData, long j2);
+    public static native FaceAlgoData trackFace(long j2, FaceAlgoData faceAlgoData, long j3);
 }

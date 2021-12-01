@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMGroupSetRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,12 +31,12 @@ public class IMGroupSetRequest extends IMUserBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    public IMGroupSetRequest(Context context, String str, String str2, long j, int i2) {
+    public IMGroupSetRequest(Context context, String str, String str2, long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, Long.valueOf(j), Integer.valueOf(i2)};
+            Object[] objArr = {context, str, str2, Long.valueOf(j2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -50,7 +50,7 @@ public class IMGroupSetRequest extends IMUserBaseHttpRequest {
         this.mGroupId = str2;
         this.mKey = str;
         this.mDisturb = i2;
-        this.mAppid = j;
+        this.mAppid = j2;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

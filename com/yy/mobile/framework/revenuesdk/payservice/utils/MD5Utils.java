@@ -2,7 +2,6 @@ package com.yy.mobile.framework.revenuesdk.payservice.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MD5Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MD5Utils";
@@ -95,7 +94,7 @@ public class MD5Utils {
         Interceptable interceptable;
         InterceptResult invokeL;
         Interceptable interceptable2 = $ic;
-        if (interceptable2 == null || (invokeL = (interceptable = interceptable2).invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
+        if (interceptable2 == null || (invokeL = (interceptable = interceptable2).invokeL(65541, null, file)) == null) {
             String str = null;
             if (file != 0) {
                 try {
@@ -155,7 +154,7 @@ public class MD5Utils {
     public static String getFileMd5String(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (str == null || str.length() == 0) {
                 return null;
             }

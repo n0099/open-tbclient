@@ -20,53 +20,55 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.api.KsDrawAd;
-import com.kwad.sdk.core.download.b.a;
-import com.kwad.sdk.core.download.b.b;
-import com.kwad.sdk.core.download.b.c;
+import com.kwad.sdk.core.download.a.a;
+import com.kwad.sdk.core.download.a.b;
+import com.kwad.sdk.core.download.a.c;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-import com.kwad.sdk.core.response.b.a;
+import com.kwad.sdk.core.response.a.a;
+import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.draw.view.DrawDownloadProgressBar;
 import com.kwad.sdk.reward.widget.AppScoreView;
-import com.kwad.sdk.utils.av;
 import com.kwad.sdk.widget.KsLogoView;
 /* loaded from: classes2.dex */
 public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public AdBaseFrameLayout f66585a;
+    public AdBaseFrameLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f66586b;
+    public AdTemplate f58405b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f66587c;
+    public AdInfo f58406c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public b f66588d;
+    public b f58407d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public KsAppDownloadListener f66589e;
+    public KsAppDownloadListener f58408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f66590f;
+    public ImageView f58409f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f66591g;
+    public ViewGroup f58410g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f66592h;
+    public ImageView f58411h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f66593i;
-    public AppScoreView j;
-    public TextView k;
+    public TextView f58412i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public AppScoreView f58413j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public TextView f58414k;
     public TextView l;
     public DrawDownloadProgressBar m;
     public ViewGroup n;
@@ -144,12 +146,12 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.ksad_draw_video_tailframe, this);
-            this.f66590f = (ImageView) findViewById(R.id.ksad_video_cover);
-            this.f66591g = (ViewGroup) findViewById(R.id.ksad_app_container);
-            this.f66592h = (ImageView) findViewById(R.id.ksad_app_icon);
-            this.f66593i = (TextView) findViewById(R.id.ksad_app_name);
-            this.j = (AppScoreView) findViewById(R.id.ksad_app_score);
-            this.k = (TextView) findViewById(R.id.ksad_app_download_count);
+            this.f58409f = (ImageView) findViewById(R.id.ksad_video_cover);
+            this.f58410g = (ViewGroup) findViewById(R.id.ksad_app_container);
+            this.f58411h = (ImageView) findViewById(R.id.ksad_app_icon);
+            this.f58412i = (TextView) findViewById(R.id.ksad_app_name);
+            this.f58413j = (AppScoreView) findViewById(R.id.ksad_app_score);
+            this.f58414k = (TextView) findViewById(R.id.ksad_app_download_count);
             this.l = (TextView) findViewById(R.id.ksad_app_ad_desc);
             DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.ksad_app_download_btn);
             this.m = drawDownloadProgressBar;
@@ -169,7 +171,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ DrawVideoTailFrame f66594b;
+            public final /* synthetic */ DrawVideoTailFrame f58415b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -186,15 +188,15 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
                         return;
                     }
                 }
-                this.f66594b = this;
+                this.f58415b = this;
             }
 
-            @Override // com.kwad.sdk.core.download.b.c
+            @Override // com.kwad.sdk.core.download.a.c
             public void a(int i2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                     super.a(i2);
-                    this.f66594b.m.a(a.a(), i2);
+                    this.f58415b.m.a(a.a(), i2);
                 }
             }
 
@@ -202,7 +204,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onDownloadFailed() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f66594b.m.a(a.u(this.f66594b.f66587c), this.f66594b.m.getMax());
+                    this.f58415b.m.a(a.A(this.f58415b.f58406c), this.f58415b.m.getMax());
                 }
             }
 
@@ -210,7 +212,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onDownloadFinished() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f66594b.m.a(a.a(this.f66594b.f66586b), this.f66594b.m.getMax());
+                    this.f58415b.m.a(a.a(this.f58415b.f58405b), this.f58415b.m.getMax());
                 }
             }
 
@@ -218,7 +220,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onIdle() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                    this.f66594b.m.a(a.u(this.f66594b.f66587c), this.f66594b.m.getMax());
+                    this.f58415b.m.a(a.A(this.f58415b.f58406c), this.f58415b.m.getMax());
                 }
             }
 
@@ -226,7 +228,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onInstalled() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    this.f66594b.m.a(a.j(this.f66594b.f66587c), this.f66594b.m.getMax());
+                    this.f58415b.m.a(a.m(this.f58415b.f58406c), this.f58415b.m.getMax());
                 }
             }
 
@@ -234,7 +236,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
             public void onProgressUpdate(int i2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                    DrawDownloadProgressBar drawDownloadProgressBar = this.f66594b.m;
+                    DrawDownloadProgressBar drawDownloadProgressBar = this.f58415b.m;
                     drawDownloadProgressBar.a(i2 + "%", i2);
                 }
             }
@@ -244,58 +246,58 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f66588d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f58407d) == null) {
             return;
         }
-        KsAppDownloadListener ksAppDownloadListener = this.f66589e;
+        KsAppDownloadListener ksAppDownloadListener = this.f58408e;
         if (ksAppDownloadListener != null) {
             bVar.c(ksAppDownloadListener);
             return;
         }
         KsAppDownloadListener appDownloadListener = getAppDownloadListener();
-        this.f66589e = appDownloadListener;
-        this.f66588d.a(appDownloadListener);
+        this.f58408e = appDownloadListener;
+        this.f58407d.a(appDownloadListener);
     }
 
     public void a(AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f66586b = adTemplate;
-            AdInfo i2 = com.kwad.sdk.core.response.b.c.i(adTemplate);
-            this.f66587c = i2;
-            AdInfo.AdMaterialInfo.MaterialFeature C = a.C(i2);
-            String str = C.coverUrl;
+            this.f58405b = adTemplate;
+            AdInfo j2 = d.j(adTemplate);
+            this.f58406c = j2;
+            AdInfo.AdMaterialInfo.MaterialFeature J = a.J(j2);
+            String str = J.coverUrl;
             this.r.a(adTemplate);
             if (!TextUtils.isEmpty(str)) {
-                int i3 = C.width;
-                int i4 = C.height;
-                if (i3 > 0 && i3 > i4) {
-                    int c2 = av.c(getContext());
+                int i2 = J.width;
+                int i3 = J.height;
+                if (i2 > 0 && i2 > i3) {
+                    int c2 = com.kwad.sdk.a.kwai.a.c(getContext());
                     if (getWidth() != 0) {
                         c2 = getWidth();
                     }
-                    ViewGroup.LayoutParams layoutParams = this.f66590f.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = this.f58409f.getLayoutParams();
                     layoutParams.width = c2;
-                    layoutParams.height = (int) (c2 * (i4 / i3));
+                    layoutParams.height = (int) (c2 * (i3 / i2));
                 }
-                KSImageLoader.loadImage(this.f66590f, str, this.f66586b);
+                KSImageLoader.loadImage(this.f58409f, str, this.f58405b);
             }
-            if (a.v(this.f66587c)) {
-                KSImageLoader.loadAppIcon(this.f66592h, a.n(this.f66587c), this.f66586b, 11);
-                this.f66593i.setText(a.o(this.f66587c));
-                float s = a.s(this.f66587c);
-                if (s >= 3.0f) {
-                    this.j.setScore(s);
-                    this.j.setVisibility(0);
+            if (a.B(this.f58406c)) {
+                KSImageLoader.loadAppIcon(this.f58411h, a.au(this.f58406c), this.f58405b, 11);
+                this.f58412i.setText(a.t(this.f58406c));
+                float x = a.x(this.f58406c);
+                if (x >= 3.0f) {
+                    this.f58413j.setScore(x);
+                    this.f58413j.setVisibility(0);
                 }
-                this.k.setText(a.r(this.f66587c));
-                this.l.setText(a.m(this.f66587c));
-                this.f66591g.setVisibility(0);
+                this.f58414k.setText(a.w(this.f58406c));
+                this.l.setText(a.s(this.f58406c));
+                this.f58410g.setVisibility(0);
                 this.n.setVisibility(8);
             } else {
-                this.o.setText(a.m(this.f66587c));
-                this.p.setText(a.u(this.f66587c));
-                this.f66591g.setVisibility(8);
+                this.o.setText(a.s(this.f58406c));
+                this.p.setText(a.A(this.f58406c));
+                this.f58410g.setVisibility(8);
                 this.n.setVisibility(0);
             }
             this.m.setOnClickListener(this);
@@ -307,7 +309,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
         b bVar;
         KsAppDownloadListener ksAppDownloadListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f66588d) == null || (ksAppDownloadListener = this.f66589e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f58407d) == null || (ksAppDownloadListener = this.f58408e) == null) {
             return;
         }
         bVar.b(ksAppDownloadListener);
@@ -317,12 +319,10 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            com.kwad.sdk.core.download.b.a.a(getContext(), this.f66586b, new a.InterfaceC1941a(this) { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
+            com.kwad.sdk.core.download.a.a.a(new a.C2015a(getContext()).a(this.f58405b).a(this.f58407d).a(view == this.m ? 1 : 2).a(view == this.m).a(new a.b(this) { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DrawVideoTailFrame f66595a;
+                public final /* synthetic */ DrawVideoTailFrame a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -339,27 +339,27 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
                             return;
                         }
                     }
-                    this.f66595a = this;
+                    this.a = this;
                 }
 
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1941a
+                @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f66595a.q != null) {
-                            this.f66595a.q.onAdClicked();
+                        if (this.a.q != null) {
+                            this.a.q.onAdClicked();
                         }
-                        com.kwad.sdk.core.report.a.a(this.f66595a.f66586b, 2, this.f66595a.f66585a.getTouchCoords());
+                        com.kwad.sdk.core.report.a.a(this.a.f58405b, 2, this.a.a.getTouchCoords());
                     }
                 }
-            }, this.f66588d, view == this.m);
+            }));
         }
     }
 
     public void setAdBaseFrameLayout(AdBaseFrameLayout adBaseFrameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, adBaseFrameLayout) == null) {
-            this.f66585a = adBaseFrameLayout;
+            this.a = adBaseFrameLayout;
         }
     }
 
@@ -373,7 +373,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void setApkDownloadHelper(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f66588d = bVar;
+            this.f58407d = bVar;
         }
     }
 }

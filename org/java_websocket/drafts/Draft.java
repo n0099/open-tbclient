@@ -1,9 +1,8 @@
 package org.java_websocket.drafts;
 
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.b.h.i;
-import g.b.i.a;
-import g.b.i.b;
-import g.b.i.d;
-import g.b.i.e;
-import g.b.i.f;
-import g.b.i.h;
-import g.b.k.c;
+import h.b.h.i;
+import h.b.i.a;
+import h.b.i.b;
+import h.b.i.d;
+import h.b.i.e;
+import h.b.i.f;
+import h.b.i.h;
+import h.b.k.c;
 import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Iterator;
@@ -35,12 +34,10 @@ import org.java_websocket.framing.Framedata;
 public abstract class Draft {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public WebSocket.Role f73487a;
+    public WebSocket.Role a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f73488b;
+    public Framedata.Opcode f64306b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -65,7 +62,7 @@ public abstract class Draft {
                     return;
                 }
             }
-            NONE = new CloseHandshakeType("NONE", 0);
+            NONE = new CloseHandshakeType(PolyActivity.NONE_PANEL_TYPE, 0);
             ONEWAY = new CloseHandshakeType("ONEWAY", 1);
             CloseHandshakeType closeHandshakeType = new CloseHandshakeType("TWOWAY", 2);
             TWOWAY = closeHandshakeType;
@@ -192,8 +189,8 @@ public abstract class Draft {
                 return;
             }
         }
-        this.f73487a = null;
-        this.f73488b = null;
+        this.a = null;
+        this.f64306b = null;
     }
 
     public static ByteBuffer p(ByteBuffer byteBuffer) {
@@ -232,8 +229,8 @@ public abstract class Draft {
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v21, types: [g.b.i.e, g.b.i.i] */
-    public static g.b.i.c w(ByteBuffer byteBuffer, WebSocket.Role role) throws InvalidHandshakeException, IncompleteHandshakeException {
+    /* JADX WARN: Type inference failed for: r10v21, types: [h.b.i.i, h.b.i.e] */
+    public static h.b.i.c w(ByteBuffer byteBuffer, WebSocket.Role role) throws InvalidHandshakeException, IncompleteHandshakeException {
         InterceptResult invokeLL;
         d dVar;
         Interceptable interceptable = $ic;
@@ -243,7 +240,7 @@ public abstract class Draft {
                 String[] split = q.split(" ", 3);
                 if (split.length == 3) {
                     if (role == WebSocket.Role.CLIENT) {
-                        if (TbEnum.SystemMessage.EVENT_ID_GROUP_NAME_MODIFY.equals(split[1])) {
+                        if ("101".equals(split[1])) {
                             if ("HTTP/1.1".equalsIgnoreCase(split[0])) {
                                 ?? eVar = new e();
                                 eVar.h(Short.parseShort(split[1]));
@@ -290,7 +287,7 @@ public abstract class Draft {
             }
             throw new IncompleteHandshakeException(byteBuffer.capacity() + 128);
         }
-        return (g.b.i.c) invokeLL.objValue;
+        return (h.b.i.c) invokeLL.objValue;
     }
 
     public abstract HandshakeState a(a aVar, h hVar) throws InvalidHandshakeException;
@@ -317,18 +314,18 @@ public abstract class Draft {
 
     public List<Framedata> e(Framedata.Opcode opcode, ByteBuffer byteBuffer, boolean z) {
         InterceptResult invokeLLZ;
-        g.b.h.f iVar;
+        h.b.h.f iVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, opcode, byteBuffer, z)) == null) {
             if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
                 throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
             }
-            if (this.f73488b != null) {
-                iVar = new g.b.h.c();
+            if (this.f64306b != null) {
+                iVar = new h.b.h.c();
             } else {
-                this.f73488b = opcode;
+                this.f64306b = opcode;
                 if (opcode == Framedata.Opcode.BINARY) {
-                    iVar = new g.b.h.a();
+                    iVar = new h.b.h.a();
                 } else {
                     iVar = opcode == Framedata.Opcode.TEXT ? new i() : null;
                 }
@@ -338,9 +335,9 @@ public abstract class Draft {
             try {
                 iVar.h();
                 if (z) {
-                    this.f73488b = null;
+                    this.f64306b = null;
                 } else {
-                    this.f73488b = opcode;
+                    this.f64306b = opcode;
                 }
                 return Collections.singletonList(iVar);
             } catch (InvalidDataException e2) {
@@ -379,7 +376,7 @@ public abstract class Draft {
             } else {
                 throw new IllegalArgumentException("unknown role");
             }
-            sb.append(Part.CRLF);
+            sb.append("\r\n");
             Iterator<String> g2 = fVar.g();
             while (g2.hasNext()) {
                 String next = g2.next();
@@ -387,13 +384,13 @@ public abstract class Draft {
                 sb.append(next);
                 sb.append(": ");
                 sb.append(d2);
-                sb.append(Part.CRLF);
+                sb.append("\r\n");
             }
-            sb.append(Part.CRLF);
-            byte[] a2 = c.a(sb.toString());
+            sb.append("\r\n");
+            byte[] a = c.a(sb.toString());
             byte[] content = z ? fVar.getContent() : null;
-            ByteBuffer allocate = ByteBuffer.allocate((content == null ? 0 : content.length) + a2.length);
-            allocate.put(a2);
+            ByteBuffer allocate = ByteBuffer.allocate((content == null ? 0 : content.length) + a.length);
+            allocate.put(a);
             if (content != null) {
                 allocate.put(content);
             }
@@ -407,9 +404,9 @@ public abstract class Draft {
 
     public abstract b m(b bVar) throws InvalidHandshakeException;
 
-    public abstract g.b.i.c n(a aVar, g.b.i.i iVar) throws InvalidHandshakeException;
+    public abstract h.b.i.c n(a aVar, h.b.i.i iVar) throws InvalidHandshakeException;
 
-    public abstract void o(g.b.c cVar, Framedata framedata) throws InvalidDataException;
+    public abstract void o(h.b.c cVar, Framedata framedata) throws InvalidDataException;
 
     public int r(f fVar) {
         InterceptResult invokeL;
@@ -432,7 +429,7 @@ public abstract class Draft {
     public void t(WebSocket.Role role) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, role) == null) {
-            this.f73487a = role;
+            this.a = role;
         }
     }
 
@@ -447,6 +444,6 @@ public abstract class Draft {
     public f v(ByteBuffer byteBuffer) throws InvalidHandshakeException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, byteBuffer)) == null) ? w(byteBuffer, this.f73487a) : (f) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, byteBuffer)) == null) ? w(byteBuffer, this.a) : (f) invokeL.objValue;
     }
 }

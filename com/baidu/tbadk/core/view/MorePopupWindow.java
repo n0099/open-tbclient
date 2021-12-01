@@ -7,9 +7,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.m.g;
-import b.a.e.f.p.l;
-import b.a.q0.s.c;
+import c.a.d.f.m.g;
+import c.a.d.f.p.l;
+import c.a.q0.s.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MorePopupWindow extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -155,9 +155,9 @@ public class MorePopupWindow extends PopupWindow {
     public void setWidthAsWidthOfDeviceScreen(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            int k = l.k(context);
-            this.mContentView.getLayoutParams().width = k;
-            setWidth(k);
+            int k2 = l.k(context);
+            this.mContentView.getLayoutParams().width = k2;
+            setWidth(k2);
         }
     }
 

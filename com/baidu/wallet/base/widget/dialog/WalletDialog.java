@@ -14,25 +14,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class WalletDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f58693a;
+    public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Adapter f58694b;
+    public Adapter f52254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f58695c;
+    public LayoutInflater f52255c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewHolder f58696d;
+    public ViewHolder f52256d;
     public Context mContext;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static abstract class Adapter<VH extends ViewHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,13 +67,11 @@ public class WalletDialog extends Dialog {
         public abstract VH onCreateViewHolder(ViewGroup viewGroup);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static abstract class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final View f58697a;
+        public final View a;
 
         public ViewHolder(View view) {
             Interceptable interceptable = $ic;
@@ -93,7 +89,7 @@ public class WalletDialog extends Dialog {
                 }
             }
             if (view != null) {
-                this.f58697a = view;
+                this.a = view;
                 return;
             }
             throw new IllegalArgumentException("contentView may not be null");
@@ -128,13 +124,13 @@ public class WalletDialog extends Dialog {
             super.onCreate(bundle);
             requestWindowFeature(1);
             LayoutInflater from = LayoutInflater.from(this.mContext);
-            this.f58695c = from;
+            this.f52255c = from;
             ViewGroup viewGroup = (ViewGroup) from.inflate(ResUtils.layout(this.mContext, "wallet_base_layout_dialog"), (ViewGroup) null);
-            this.f58693a = viewGroup;
+            this.a = viewGroup;
             setContentView(viewGroup);
-            ViewHolder createViewHolder = this.f58694b.createViewHolder(this.f58693a);
-            this.f58696d = createViewHolder;
-            this.f58693a.addView(createViewHolder.f58697a);
+            ViewHolder createViewHolder = this.f52254b.createViewHolder(this.a);
+            this.f52256d = createViewHolder;
+            this.a.addView(createViewHolder.a);
             setCanceledOnTouchOutside(false);
             setCancelable(false);
         }
@@ -146,8 +142,8 @@ public class WalletDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onStart();
-            Adapter adapter = this.f58694b;
-            if (adapter == null || this.f58693a == null || (viewHolder = this.f58696d) == null) {
+            Adapter adapter = this.f52254b;
+            if (adapter == null || this.a == null || (viewHolder = this.f52256d) == null) {
                 return;
             }
             adapter.bindViewHolder(viewHolder);
@@ -157,7 +153,7 @@ public class WalletDialog extends Dialog {
     public void setAdapter(Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adapter) == null) {
-            this.f58694b = adapter;
+            this.f52254b = adapter;
         }
     }
 

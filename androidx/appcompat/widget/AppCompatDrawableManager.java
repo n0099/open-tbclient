@@ -16,7 +16,6 @@ import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +95,7 @@ public final class AppCompatDrawableManager {
 
     public static synchronized void preload() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             synchronized (AppCompatDrawableManager.class) {
                 if (INSTANCE == null) {
                     AppCompatDrawableManager appCompatDrawableManager = new AppCompatDrawableManager();
@@ -172,13 +171,13 @@ public final class AppCompatDrawableManager {
                         private ColorStateList createDefaultButtonColorStateList(@NonNull Context context) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorButtonNormal)) : (ColorStateList) invokeL.objValue;
+                            return (interceptable2 == null || (invokeL = interceptable2.invokeL(65541, this, context)) == null) ? createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorButtonNormal)) : (ColorStateList) invokeL.objValue;
                         }
 
                         private ColorStateList createSwitchThumbColorStateList(Context context) {
                             InterceptResult invokeL;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context)) == null) {
+                            if (interceptable2 == null || (invokeL = interceptable2.invokeL(65542, this, context)) == null) {
                                 int[][] iArr = new int[3];
                                 int[] iArr2 = new int[3];
                                 ColorStateList themeAttrColorStateList = ThemeUtils.getThemeAttrColorStateList(context, R.attr.colorSwitchThumbNormal);
@@ -365,7 +364,7 @@ public final class AppCompatDrawableManager {
 
     public static void tintDrawable(Drawable drawable, TintInfo tintInfo, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, drawable, tintInfo, iArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, drawable, tintInfo, iArr) == null) {
             ResourceManagerInternal.tintDrawable(drawable, tintInfo, iArr);
         }
     }

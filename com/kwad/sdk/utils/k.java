@@ -1,104 +1,112 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.inputmethod.InputMethodManager;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import android.content.IntentFilter;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicBoolean a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile k f59657b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, View view) {
-        InputMethodManager inputMethodManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, view) == null) || context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
-            return;
-        }
-        String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
-        for (int i2 = 0; i2 < 3; i2++) {
-            try {
-                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i2]);
-                if (!declaredField.isAccessible()) {
-                    declaredField.setAccessible(true);
-                }
-                Object obj = declaredField.get(inputMethodManager);
-                if (!(obj instanceof View)) {
-                    continue;
-                } else if (!context.equals(((View) obj).getContext())) {
-                    return;
-                } else {
-                    declaredField.set(inputMethodManager, null);
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+    /* renamed from: c  reason: collision with root package name */
+    public Context f59658c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a f59659d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835415, "Lcom/kwad/sdk/utils/k;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1510835415, "Lcom/kwad/sdk/utils/k;");
+                return;
             }
         }
+        a = new AtomicBoolean(false);
     }
 
-    public static void a(Context context, Window window) {
+    public k(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, window) == null) || window == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        View decorView = window.getDecorView();
-        a(decorView);
-        a(context, decorView);
+        this.f59658c = context.getApplicationContext();
     }
 
-    public static synchronized void a(View view) {
+    public static k a(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, view) == null) {
-            synchronized (k.class) {
-                if (view == null) {
-                    return;
-                }
-                if (view instanceof WebView) {
-                    try {
-                        ((WebView) view).destroy();
-                    } catch (Throwable unused) {
-                    }
-                } else if (view instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view;
-                    int childCount = viewGroup.getChildCount();
-                    for (int i2 = 0; i2 < childCount; i2++) {
-                        a(viewGroup.getChildAt(i2));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (f59657b == null) {
+                synchronized (k.class) {
+                    if (f59657b == null) {
+                        f59657b = new k(context);
                     }
                 }
             }
+            return f59657b;
+        }
+        return (k) invokeL.objValue;
+    }
+
+    private void c() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && a.get() && (context = this.f59658c) != null) {
+            context.unregisterReceiver(this.f59659d);
+            a.set(false);
         }
     }
 
-    public static void a(com.kwad.sdk.c.a aVar) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f59658c == null || a.get()) {
             return;
         }
-        a(aVar.getActivity(), aVar.getWindow());
+        if (this.f59659d == null) {
+            this.f59659d = new a();
+        }
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
+        intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
+        intentFilter.addDataScheme("package");
+        this.f59658c.registerReceiver(this.f59659d, intentFilter);
+        a.set(true);
     }
 
-    public static void a(com.kwad.sdk.c.b bVar) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar) == null) || bVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c();
         }
-        a(bVar.getActivity(), bVar.getWindow());
-    }
-
-    public static void a(com.kwad.sdk.c.d dVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, dVar) == null) || dVar == null) {
-            return;
-        }
-        View view = dVar.getView();
-        a(dVar.getView());
-        a(dVar.getContext(), view);
     }
 }

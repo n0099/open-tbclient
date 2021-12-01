@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.NonNull;
 import androidx.core.R;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,7 +81,7 @@ public final class ViewGroupCompat {
 
     public static void setLayoutMode(@NonNull ViewGroup viewGroup, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, viewGroup, i2) == null) || Build.VERSION.SDK_INT < 18) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, viewGroup, i2) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
         viewGroup.setLayoutMode(i2);
@@ -91,7 +90,7 @@ public final class ViewGroupCompat {
     @Deprecated
     public static void setMotionEventSplittingEnabled(ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, viewGroup, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65542, null, viewGroup, z) == null) {
             viewGroup.setMotionEventSplittingEnabled(z);
         }
     }

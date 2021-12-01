@@ -27,7 +27,6 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +46,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SubsamplingScaleImageView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EASE_IN_OUT_QUAD = 2;
@@ -138,7 +137,7 @@ public class SubsamplingScaleImageView extends View {
     public PointF vTranslateStart;
     public boolean zoomEnabled;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +222,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +277,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -291,7 +290,7 @@ public class SubsamplingScaleImageView extends View {
         void onTileLoadError(Exception exc);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Tile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -322,7 +321,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -413,7 +412,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -762,27 +761,27 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    private float ease(int i2, long j, float f2, float f3, long j2) {
+    private float ease(int i2, long j2, float f2, float f3, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j3)})) == null) {
             if (i2 != 1) {
                 if (i2 == 2) {
-                    return easeInOutQuad(j, f2, f3, j2);
+                    return easeInOutQuad(j2, f2, f3, j3);
                 }
                 throw new IllegalStateException("Unexpected easing type: " + i2);
             }
-            return easeOutQuad(j, f2, f3, j2);
+            return easeOutQuad(j2, f2, f3, j3);
         }
         return invokeCommon.floatValue;
     }
 
-    private float easeInOutQuad(long j, float f2, float f3, long j2) {
+    private float easeInOutQuad(long j2, float f2, float f3, long j3) {
         InterceptResult invokeCommon;
         float f4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, this, new Object[]{Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
-            float f5 = ((float) j) / (((float) j2) / 2.0f);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, this, new Object[]{Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j3)})) == null) {
+            float f5 = ((float) j2) / (((float) j3) / 2.0f);
             if (f5 < 1.0f) {
                 f4 = (f3 / 2.0f) * f5;
             } else {
@@ -795,11 +794,11 @@ public class SubsamplingScaleImageView extends View {
         return invokeCommon.floatValue;
     }
 
-    private float easeOutQuad(long j, float f2, float f3, long j2) {
+    private float easeOutQuad(long j2, float f2, float f3, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, this, new Object[]{Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
-            float f4 = ((float) j) / ((float) j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, this, new Object[]{Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j3)})) == null) {
+            float f4 = ((float) j2) / ((float) j3);
             return ((-f3) * f4 * (f4 - 2.0f)) + f2;
         }
         return invokeCommon.floatValue;
@@ -2431,7 +2430,7 @@ public class SubsamplingScaleImageView extends View {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? viewToSourceCoord(f2, f3, new PointF()) : (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ScaleAndTranslate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2569,7 +2568,7 @@ public class SubsamplingScaleImageView extends View {
         return (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Anim {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2609,7 +2608,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public final class AnimationBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2628,12 +2627,12 @@ public class SubsamplingScaleImageView extends View {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subsamplingScaleImageView, pointF};
-                interceptable.invokeUnInit(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                interceptable.invokeUnInit(65542, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                    interceptable.invokeInitBody(65542, newInitContext);
                     return;
                 }
             }
@@ -2697,11 +2696,11 @@ public class SubsamplingScaleImageView extends View {
             }
         }
 
-        public AnimationBuilder withDuration(long j) {
+        public AnimationBuilder withDuration(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.duration = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+                this.duration = j2;
                 return this;
             }
             return (AnimationBuilder) invokeJ.objValue;

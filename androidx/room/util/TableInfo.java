@@ -9,14 +9,13 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.room.ColumnInfo;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.filter.FilterValue;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -368,7 +367,7 @@ public class TableInfo {
                     int columnIndex = query.getColumnIndex("name");
                     int columnIndex2 = query.getColumnIndex("type");
                     int columnIndex3 = query.getColumnIndex("notnull");
-                    int columnIndex4 = query.getColumnIndex("pk");
+                    int columnIndex4 = query.getColumnIndex(PushConstants.URI_PACKAGE_NAME);
                     while (query.moveToNext()) {
                         String string = query.getString(columnIndex);
                         hashMap.put(string, new Column(string, query.getString(columnIndex2), query.getInt(columnIndex3) != 0, query.getInt(columnIndex4)));
@@ -387,7 +386,7 @@ public class TableInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cursor)) == null) {
             int columnIndex = cursor.getColumnIndex("id");
-            int columnIndex2 = cursor.getColumnIndex(IAdRequestParam.SEQ);
+            int columnIndex2 = cursor.getColumnIndex("seq");
             int columnIndex3 = cursor.getColumnIndex("from");
             int columnIndex4 = cursor.getColumnIndex("to");
             int count = cursor.getCount();
@@ -405,12 +404,12 @@ public class TableInfo {
     public static Set<ForeignKey> readForeignKeys(SupportSQLiteDatabase supportSQLiteDatabase, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, supportSQLiteDatabase, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, supportSQLiteDatabase, str)) == null) {
             HashSet hashSet = new HashSet();
             Cursor query = supportSQLiteDatabase.query("PRAGMA foreign_key_list(`" + str + "`)");
             try {
                 int columnIndex = query.getColumnIndex("id");
-                int columnIndex2 = query.getColumnIndex(IAdRequestParam.SEQ);
+                int columnIndex2 = query.getColumnIndex("seq");
                 int columnIndex3 = query.getColumnIndex("table");
                 int columnIndex4 = query.getColumnIndex("on_delete");
                 int columnIndex5 = query.getColumnIndex("on_update");
@@ -443,11 +442,11 @@ public class TableInfo {
     public static Index readIndex(SupportSQLiteDatabase supportSQLiteDatabase, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, supportSQLiteDatabase, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, supportSQLiteDatabase, str, z)) == null) {
             Cursor query = supportSQLiteDatabase.query("PRAGMA index_xinfo(`" + str + "`)");
             try {
                 int columnIndex = query.getColumnIndex("seqno");
-                int columnIndex2 = query.getColumnIndex(IAdRequestParam.CELL_ID);
+                int columnIndex2 = query.getColumnIndex("cid");
                 int columnIndex3 = query.getColumnIndex("name");
                 if (columnIndex != -1 && columnIndex2 != -1 && columnIndex3 != -1) {
                     TreeMap treeMap = new TreeMap();

@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public IBinder f72492a;
+    public IBinder a;
 
     public c(IBinder iBinder) {
         Interceptable interceptable = $ic;
@@ -32,7 +30,7 @@ public final class c implements a {
                 return;
             }
         }
-        this.f72492a = iBinder;
+        this.a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.j.a
@@ -44,7 +42,7 @@ public final class c implements a {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken(MsaIdInterface.Stub.DESCRIPTOR);
-                this.f72492a.transact(3, obtain, obtain2, 0);
+                this.a.transact(3, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -59,6 +57,6 @@ public final class c implements a {
     public final IBinder asBinder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72492a : (IBinder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (IBinder) invokeV.objValue;
     }
 }

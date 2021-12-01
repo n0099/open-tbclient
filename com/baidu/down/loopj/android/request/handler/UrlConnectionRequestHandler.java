@@ -9,7 +9,6 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.common.UrlDNSInfo;
 import com.baidu.down.common.intercepter.ResponseInfo;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.down.loopj.android.http.BinaryHttpResponseHandler;
 import com.baidu.down.loopj.android.http.exp.HandlerRetryException;
 import com.baidu.down.loopj.android.http.exp.URLDNSException;
@@ -37,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -144,7 +143,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     private boolean isGzip(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? str != null && str.contains(AsyncHttpClient.ENCODING_GZIP) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? str != null && str.contains("gzip") : invokeL.booleanValue;
     }
 
     private void requestConnect(String str) throws IOException {

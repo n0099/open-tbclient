@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.m.b;
-import b.a.e.f.p.j;
-import b.a.e.f.p.k;
-import b.a.e.m.e.n;
-import b.a.q0.a.g;
-import b.a.q0.a.w;
+import c.a.d.f.m.b;
+import c.a.d.f.p.j;
+import c.a.d.f.p.k;
+import c.a.d.m.e.n;
+import c.a.q0.a.g;
+import c.a.q0.a.w;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -39,8 +39,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements b.a.r0.h1.k.a.a {
+/* loaded from: classes10.dex */
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.r0.n1.k.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -52,13 +52,11 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public TopicDetailView mTopicDetailView;
     public long topicID;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements g.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ TopicDetailActivity f50734a;
+        public final /* synthetic */ TopicDetailActivity a;
 
         public a(TopicDetailActivity topicDetailActivity) {
             Interceptable interceptable = $ic;
@@ -75,18 +73,18 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     return;
                 }
             }
-            this.f50734a = topicDetailActivity;
+            this.a = topicDetailActivity;
         }
 
-        @Override // b.a.q0.a.g.b
+        @Override // c.a.q0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.z) instanceof String)) {
-                String str = (String) hashMap.get(g.z);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.A) instanceof String)) {
+                String str = (String) hashMap.get(g.A);
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.f50734a.topicID = b.g(str, -1L);
+                this.a.topicID = b.g(str, -1L);
             }
         }
     }
@@ -167,14 +165,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // b.a.r0.h1.k.a.a
+    @Override // c.a.r0.n1.k.a.a
     public void loadData() {
         int i2;
         String substring;
@@ -231,12 +229,12 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // b.a.r0.h1.k.a.a
-    public void netCallback(int i2, b.a.r0.h1.k.a.c.a aVar) {
+    @Override // c.a.r0.n1.k.a.a
+    public void netCallback(int i2, c.a.r0.n1.k.a.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
             this.mTopicDetailView.hideLoadingView();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f19055f)) {
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f20653f)) {
                 this.mTopicDetailView.hideNetRefreshView();
                 this.mTopicDetailView.setData(aVar);
                 return;
@@ -245,7 +243,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // b.a.r0.h1.k.a.a
+    @Override // c.a.r0.n1.k.a.a
     public void netThreadCallback(int i2, boolean z, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) {
@@ -288,7 +286,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             adjustResizeForSoftInput();
             this.mTopicDetailModel.D(this);
             loadData();
-            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.a.e.a.b.g().i("MainTabActivity")) {
+            if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }
             if (this.mIsFromSchema) {
@@ -320,13 +318,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    public void requestNextPageThreadData(long j) {
+    public void requestNextPageThreadData(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            long j2 = this.mCurPageNum + 1;
-            this.mCurPageNum = j2;
-            this.mLastThreadId = j;
-            this.mTopicDetailModel.C(this.topicID, j2, j);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            long j3 = this.mCurPageNum + 1;
+            this.mCurPageNum = j3;
+            this.mLastThreadId = j2;
+            this.mTopicDetailModel.C(this.topicID, j3, j2);
         }
     }
 }

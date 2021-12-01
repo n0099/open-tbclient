@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.kernel.DefaultKernelFactory;
 import com.baidu.searchbox.player.kernel.IKernelFactory;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BDPlayerConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int DEFAULT_INSTALL_TYPE = 31;
@@ -101,7 +100,7 @@ public class BDPlayerConfig {
     @PublicMethod
     public static void initCyber() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             initCyber(true);
         }
     }
@@ -162,7 +161,7 @@ public class BDPlayerConfig {
     @PublicMethod
     public static void initCyber(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) || CyberPlayerManager.isCoreLoaded(DEFAULT_INSTALL_TYPE)) {
+        if (!(interceptable == null || interceptable.invokeZ(65542, null, z) == null) || CyberPlayerManager.isCoreLoaded(DEFAULT_INSTALL_TYPE)) {
             return;
         }
         Context appContext = getAppContext();

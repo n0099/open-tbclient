@@ -19,15 +19,13 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AlipayResultActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, a> f34808a;
+    public static final ConcurrentHashMap<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(int i2, String str, String str2);
     }
@@ -45,7 +43,7 @@ public class AlipayResultActivity extends Activity {
                 return;
             }
         }
-        f34808a = new ConcurrentHashMap<>();
+        a = new ConcurrentHashMap<>();
     }
 
     public AlipayResultActivity() {
@@ -65,7 +63,7 @@ public class AlipayResultActivity extends Activity {
     private void a(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, str, bundle) == null) {
-            a remove = f34808a.remove(str);
+            a remove = a.remove(str);
             if (remove == null) {
                 return;
             }
@@ -95,7 +93,7 @@ public class AlipayResultActivity extends Activity {
                 stringExtra = intent.getStringExtra("session");
                 bundleExtra = intent.getBundleExtra("result");
                 stringExtra2 = intent.getStringExtra("scene");
-                a2 = a.C1564a.a(stringExtra);
+                a2 = a.C1640a.a(stringExtra);
             } catch (Throwable unused) {
                 finish();
             }
@@ -134,7 +132,7 @@ public class AlipayResultActivity extends Activity {
                     com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.x0, th);
                     if (TextUtils.isEmpty(stringExtra)) {
                     }
-                    com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f35001d);
+                    com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f31386d);
                     finish();
                     LogUtil.logActivity(this, "onCreate");
                 }
@@ -143,10 +141,10 @@ public class AlipayResultActivity extends Activity {
                 com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.Z, "" + SystemClock.elapsedRealtime());
                 com.alipay.sdk.app.statistic.a.a(a2, "biz", com.alipay.sdk.app.statistic.b.a0, bundleExtra.getInt("endCode", -1) + "|" + bundleExtra.getString("memo", "-"));
                 OpenAuthTask.a(stringExtra, 9000, StatHelper.SENSOR_OK, bundleExtra);
-                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f35001d);
+                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f31386d);
                 finish();
             } else {
-                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f35001d);
+                com.alipay.sdk.app.statistic.a.b(this, a2, "", a2.f31386d);
                 finish();
             }
             LogUtil.logActivity(this, "onCreate");

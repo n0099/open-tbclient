@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import com.bumptech.glide.TransitionOptions;
 import com.bumptech.glide.request.transition.BitmapTransitionFactory;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.bumptech.glide.request.transition.TransitionFactory;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class BitmapTransitionOptions extends TransitionOptions<BitmapTransitionOptions, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +51,7 @@ public final class BitmapTransitionOptions extends TransitionOptions<BitmapTrans
     public static BitmapTransitionOptions withWrapped(@NonNull TransitionFactory<Drawable> transitionFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, transitionFactory)) == null) ? new BitmapTransitionOptions().transitionUsing(transitionFactory) : (BitmapTransitionOptions) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, transitionFactory)) == null) ? new BitmapTransitionOptions().transitionUsing(transitionFactory) : (BitmapTransitionOptions) invokeL.objValue;
     }
 
     @NonNull
@@ -87,7 +86,7 @@ public final class BitmapTransitionOptions extends TransitionOptions<BitmapTrans
     public static BitmapTransitionOptions withCrossFade(@NonNull DrawableCrossFadeFactory drawableCrossFadeFactory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, drawableCrossFadeFactory)) == null) ? new BitmapTransitionOptions().crossFade(drawableCrossFadeFactory) : (BitmapTransitionOptions) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, drawableCrossFadeFactory)) == null) ? new BitmapTransitionOptions().crossFade(drawableCrossFadeFactory) : (BitmapTransitionOptions) invokeL.objValue;
     }
 
     @NonNull

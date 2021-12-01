@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PoiInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PoiInfo> CREATOR;
@@ -38,7 +38,7 @@ public class PoiInfo implements Parcelable {
     public String uid;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class POITYPE {
         public static final /* synthetic */ POITYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -48,9 +48,7 @@ public class PoiInfo implements Parcelable {
         public static final POITYPE SUBWAY_LINE;
         public static final POITYPE SUBWAY_STATION;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f40484a;
+        public int a;
 
         static {
             InterceptResult invokeClinit;
@@ -92,7 +90,7 @@ public class PoiInfo implements Parcelable {
                     return;
                 }
             }
-            this.f40484a = i3;
+            this.a = i3;
         }
 
         public static POITYPE fromInt(int i2) {
@@ -134,11 +132,11 @@ public class PoiInfo implements Parcelable {
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40484a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ParentPoiInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<ParentPoiInfo> CREATOR;

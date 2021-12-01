@@ -17,6 +17,7 @@ import com.baidu.sapi2.share.ShareLoginModel;
 import com.baidu.sapi2.share.ShareResultCallback;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_EXTRA_PARAMS = "key_extra_params";
@@ -35,32 +36,30 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static final String KEY_VERSION = "key_version";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f43451h = "ShareResultProxyActivity";
+    public static final String f38690h = "ShareResultProxyActivity";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f43452i = "key_launch_share_activity_status";
+    public static final String f38691i = "key_launch_share_activity_status";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f43453a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43454b;
+    public String f38692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43455c;
+    public String f38693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f43456d;
+    public String f38694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<PassNameValuePair> f43457e;
+    public ArrayList<PassNameValuePair> f38695e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43458f;
+    public String f38696f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f43459g;
+    public boolean f38697g;
 
     public ShareResultProxyActivity() {
         Interceptable interceptable = $ic;
@@ -79,14 +78,15 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f43459g = true;
-            this.f43453a = getIntent().getStringExtra(KEY_PKG);
-            if (ShareLoginModel.getInstance().isMeetShareV4(this, this.f43453a)) {
-                Log.d(f43451h, "openShareLogin: is meet share_v4");
-                ShareLoginModel.getInstance().openV4ShareLogin(this, this.f43453a, "product");
+            this.f38697g = true;
+            this.a = getIntent().getStringExtra(KEY_PKG);
+            if (ShareLoginModel.getInstance().isMeetShareV4(this, this.a)) {
+                Log.d(f38690h, "openShareLogin: is meet share_v4");
+                ShareLoginModel.getInstance().openV4ShareLogin(this, this.a, "product");
+                ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_NEED_AUTH, "0");
                 return;
             }
-            Log.d(f43451h, "openShareLogin: is not share_v4");
+            Log.d(f38690h, "openShareLogin: is not share_v4");
             b();
         }
     }
@@ -95,13 +95,14 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Intent intent = getIntent();
-            this.f43453a = intent.getStringExtra(KEY_PKG);
-            this.f43454b = intent.getStringExtra("key_url");
-            this.f43455c = intent.getStringExtra(KEY_TRACE_ID);
-            this.f43456d = intent.getStringExtra("key_session_id");
-            this.f43457e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
-            this.f43458f = intent.getStringExtra("key_version");
-            new ShareCallPacking().startLoginShareActivityForResult(this, this.f43453a, this.f43454b, this.f43455c, this.f43456d, this.f43457e, this.f43458f, "product");
+            this.a = intent.getStringExtra(KEY_PKG);
+            this.f38692b = intent.getStringExtra("key_url");
+            this.f38693c = intent.getStringExtra(KEY_TRACE_ID);
+            this.f38694d = intent.getStringExtra("key_session_id");
+            this.f38695e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
+            this.f38696f = intent.getStringExtra("key_version");
+            new ShareCallPacking().startLoginShareActivityForResult(this, this.a, this.f38692b, this.f38693c, this.f38694d, this.f38695e, this.f38696f, "product");
+            ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_NEED_AUTH, "1");
         }
     }
 
@@ -116,9 +117,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
                 ShareLoginModel.getInstance().processShareResult(this, intent, new ShareResultCallback(this) { // from class: com.baidu.sapi2.activity.ShareResultProxyActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ ShareResultProxyActivity f43460a;
+                    public final /* synthetic */ ShareResultProxyActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -135,7 +134,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f43460a = this;
+                        this.a = this;
                     }
 
                     @Override // com.baidu.sapi2.share.ShareResultCallback
@@ -179,9 +178,9 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
             attributes.flags = 32;
             window.setAttributes(attributes);
             if (bundle != null) {
-                this.f43459g = bundle.getBoolean(f43452i, false);
+                this.f38697g = bundle.getBoolean(f38691i, false);
             }
-            if (!this.f43459g) {
+            if (!this.f38697g) {
                 a();
             }
             LogUtil.logActivity(this, "onCreate");
@@ -192,7 +191,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            bundle.putBoolean(f43452i, this.f43459g);
+            bundle.putBoolean(f38691i, this.f38697g);
             super.onSaveInstanceState(bundle);
         }
     }

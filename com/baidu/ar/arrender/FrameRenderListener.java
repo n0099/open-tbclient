@@ -1,7 +1,7 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface FrameRenderListener {
-    void onRenderFinished(long j);
+    void onRenderFinished(long j2);
 
-    void onRenderStarted(long j);
+    void onRenderStarted(long j2);
 }

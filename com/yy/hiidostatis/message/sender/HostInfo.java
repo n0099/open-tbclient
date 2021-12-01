@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import okhttp3.Call;
 import okhttp3.Dns;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HostInfo implements HostManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CHANGE_DNS_MIN_ERR_COUNT = 30;

@@ -2,7 +2,6 @@ package com.google.gson;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class JsonPrimitive extends JsonElement {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?>[] PRIMITIVE_TYPES;
@@ -58,7 +57,7 @@ public final class JsonPrimitive extends JsonElement {
     public static boolean isIntegral(JsonPrimitive jsonPrimitive) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, jsonPrimitive)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jsonPrimitive)) == null) {
             Object obj = jsonPrimitive.value;
             if (obj instanceof Number) {
                 Number number = (Number) obj;
@@ -319,12 +318,12 @@ public final class JsonPrimitive extends JsonElement {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }

@@ -8,12 +8,11 @@ import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
 import com.airbnb.lottie.model.content.ShapeFill;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
-import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.IOException;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ShapeFillParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "o", "fillEnabled", r.f41000a, "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "o", "fillEnabled", "r", "hd");
 
     public static ShapeFill parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         AnimatableIntegerValue animatableIntegerValue = null;

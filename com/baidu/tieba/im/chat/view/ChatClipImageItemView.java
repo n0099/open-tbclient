@@ -9,10 +9,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.e.g.a.g;
-import b.a.e.g.a.j;
-import b.a.e.g.a.m;
+import c.a.d.f.p.l;
+import c.a.d.g.a.g;
+import c.a.d.g.a.j;
+import c.a.d.g.a.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ChatClipImageItemView extends TbImageView implements j.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     public j pathClipDrawer;
     public int position;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(Canvas canvas);
     }
@@ -61,7 +61,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         }
     }
 
-    @Override // b.a.e.g.a.j.a
+    @Override // c.a.d.g.a.j.a
     public void drawWhenPathAvailable(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
@@ -69,11 +69,11 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public b.a.e.m.d.a getBdImage() {
+    public c.a.d.m.d.a getBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b.a.e.m.d.a bdImage = super.getBdImage();
+            c.a.d.m.d.a bdImage = super.getBdImage();
             boolean z = true;
             boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
             boolean z3 = bdImage != null && bdImage.w();
@@ -84,18 +84,18 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             jVar.u(z);
             return bdImage;
         }
-        return (b.a.e.m.d.a) invokeV.objValue;
+        return (c.a.d.m.d.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public b.a.e.m.d.a getDefaultBdImage() {
+    public c.a.d.m.d.a getDefaultBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             this.pathClipDrawer.u(false);
             return super.getDefaultBdImage();
         }
-        return (b.a.e.m.d.a) invokeV.objValue;
+        return (c.a.d.m.d.a) invokeV.objValue;
     }
 
     public boolean isLeft() {
@@ -104,7 +104,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.P : invokeV.booleanValue;
     }
 
-    @Override // b.a.e.g.a.j.a
+    @Override // c.a.d.g.a.j.a
     public Path makePath(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -231,11 +231,11 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            int e2 = l.e(getContext(), 4.0f);
-            int e3 = l.e(getContext(), 12.0f);
-            int e4 = l.e(getContext(), 6.0f);
-            int e5 = l.e(getContext(), 10.0f);
-            float f5 = e4;
+            int d2 = l.d(getContext(), 4.0f);
+            int d3 = l.d(getContext(), 12.0f);
+            int d4 = l.d(getContext(), 6.0f);
+            int d5 = l.d(getContext(), 10.0f);
+            float f5 = d4;
             float f6 = 2.0f * f4;
             float f7 = (f2 - f5) - f6;
             float f8 = f3 - f6;
@@ -243,7 +243,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             path.offset(0.0f, 0.0f);
             if (this.P) {
                 float f9 = f5 + f4;
-                float f10 = e2;
+                float f10 = d2;
                 float f11 = f4 + f10;
                 path.moveTo(f9, f11);
                 float f12 = f9 + f10;
@@ -258,16 +258,16 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
                 path.quadTo(f13, f15, f14, f15);
                 path.lineTo(f12, f15);
                 path.quadTo(f9, f15, f9, f16);
-                float f17 = e5;
-                path.lineTo(f9, e3 + f4 + f17);
+                float f17 = d5;
+                path.lineTo(f9, d3 + f4 + f17);
                 float f18 = 1 + f4;
-                int i2 = e5 + (e3 / 2);
+                int i2 = d5 + (d3 / 2);
                 path.lineTo(f18, i2 + 1);
                 path.lineTo(f18, i2 - 1);
                 path.lineTo(f9, f4 + f17);
                 path.lineTo(f9, f11);
             } else {
-                float f19 = e2;
+                float f19 = d2;
                 float f20 = f4 + f19;
                 path.moveTo(f4, f20);
                 path.quadTo(f4, f4, f20, f4);
@@ -275,14 +275,14 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
                 float f22 = f21 - f19;
                 path.lineTo(f22, f4);
                 path.quadTo(f21, f4, f21, f20);
-                float f23 = e5 + f4;
+                float f23 = d5 + f4;
                 path.lineTo(f21, f23);
                 float f24 = 1;
                 float f25 = (f5 + f21) - f24;
-                float f26 = (e3 / 2) + f23;
+                float f26 = (d3 / 2) + f23;
                 path.lineTo(f25, f26 - f24);
                 path.lineTo(f25, f26 + f24);
-                path.lineTo(f21, f23 + e3);
+                path.lineTo(f21, f23 + d3);
                 float f27 = f8 + f4;
                 float f28 = f27 - f19;
                 path.lineTo(f21, f28);

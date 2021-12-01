@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.FrsPage.PostPrefix;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PostPrefixData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6807267689393049879L;

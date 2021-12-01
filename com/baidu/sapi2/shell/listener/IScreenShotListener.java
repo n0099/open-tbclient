@@ -1,5 +1,5 @@
 package com.baidu.sapi2.shell.listener;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface IScreenShotListener {
     void onScreenShot();
 }

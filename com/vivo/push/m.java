@@ -7,16 +7,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ISubscribeAppTagManager;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class m implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f71236a;
+    public final /* synthetic */ List a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f71237b;
+    public final /* synthetic */ LocalAliasTagsManager f62496b;
 
     public m(LocalAliasTagsManager localAliasTagsManager, List list) {
         Interceptable interceptable = $ic;
@@ -33,8 +31,8 @@ public final class m implements Runnable {
                 return;
             }
         }
-        this.f71237b = localAliasTagsManager;
-        this.f71236a = list;
+        this.f62496b = localAliasTagsManager;
+        this.a = list;
     }
 
     @Override // java.lang.Runnable
@@ -42,14 +40,14 @@ public final class m implements Runnable {
         List list;
         ISubscribeAppTagManager iSubscribeAppTagManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.f71236a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null || list.size() <= 0) {
             return;
         }
         HashSet hashSet = new HashSet();
-        for (String str : this.f71236a) {
+        for (String str : this.a) {
             hashSet.add(str);
         }
-        iSubscribeAppTagManager = this.f71237b.mSubscribeAppTagManager;
+        iSubscribeAppTagManager = this.f62496b.mSubscribeAppTagManager;
         iSubscribeAppTagManager.delTagsSuccess(hashSet);
     }
 }

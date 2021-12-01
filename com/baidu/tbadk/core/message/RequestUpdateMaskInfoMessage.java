@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.UpdateMaskInfo.DataReq;
 import protobuf.UpdateMaskInfo.UpdateMaskInfoReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FALSE = 0;
@@ -112,10 +112,10 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
         }
     }
 
-    public void setG_id(long j) {
+    public void setG_id(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.g_id = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.g_id = j2;
         }
     }
 

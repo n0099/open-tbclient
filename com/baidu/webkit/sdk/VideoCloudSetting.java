@@ -8,7 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class VideoCloudSetting {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
@@ -56,7 +55,7 @@ public class VideoCloudSetting {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class MatchedType {
         public static final /* synthetic */ MatchedType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -119,7 +118,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class VideoCloudSettingItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,7 +205,7 @@ public class VideoCloudSetting {
         private String[] parseSubItems(String str, String str2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, str2)) == null) {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
@@ -285,7 +284,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class VideoSettings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -441,7 +440,7 @@ public class VideoCloudSetting {
         InterceptResult invokeV;
         int parseInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String videoCfgValue = getVideoCfgValue(PREF_KEY_CYBER_FEED_PLAY_COUNT, null);
             Log.d(TAG, "getFeedVideoPvCount feedCountStr ".concat(String.valueOf(videoCfgValue)));
             if (videoCfgValue != null) {
@@ -463,7 +462,7 @@ public class VideoCloudSetting {
     public static SharedPreferences getPrefs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             Context context = WebKitFactory.getContext();
             if (context == null) {
                 return null;

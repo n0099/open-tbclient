@@ -1,7 +1,6 @@
 package com.baidu.pass.ecommerce.common;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JsonFieldConverter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "JsonFieldConverter";
@@ -75,7 +74,7 @@ public class JsonFieldConverter {
 
     public static void putStr(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, jSONObject) == null) {
             try {
                 jSONObject.put(str, str2);
             } catch (JSONException e2) {

@@ -11,7 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_LEN = 4194304;

@@ -4,19 +4,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f34755a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34756b;
+    public String f31181b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34757c;
+    public String f31182c;
 
     public b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -33,11 +31,11 @@ public final class b {
                 return;
             }
         }
-        this.f34755a = "";
-        this.f34756b = "";
-        this.f34757c = "";
-        this.f34755a = str;
-        this.f34756b = str2;
-        this.f34757c = str3;
+        this.a = "";
+        this.f31181b = "";
+        this.f31182c = "";
+        this.a = str;
+        this.f31181b = str2;
+        this.f31182c = str3;
     }
 }

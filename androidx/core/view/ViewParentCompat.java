@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.NonNull;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,7 +97,7 @@ public final class ViewParentCompat {
 
     public static void onNestedPreScroll(ViewParent viewParent, View view, int i2, int i3, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{viewParent, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{viewParent, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
             onNestedPreScroll(viewParent, view, i2, i3, iArr, 0);
         }
     }
@@ -139,7 +138,7 @@ public final class ViewParentCompat {
 
     public static void onNestedPreScroll(ViewParent viewParent, View view, int i2, int i3, int[] iArr, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{viewParent, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr, Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{viewParent, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr, Integer.valueOf(i4)}) == null) {
             if (viewParent instanceof NestedScrollingParent2) {
                 ((NestedScrollingParent2) viewParent).onNestedPreScroll(view, i2, i3, iArr, i4);
             } else if (i4 == 0) {

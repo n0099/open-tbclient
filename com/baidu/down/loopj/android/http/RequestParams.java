@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.common.BasicNameValuePair;
 import com.baidu.down.utils.URLEncodedUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RequestParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ENCODING = "UTF-8";
@@ -31,7 +30,7 @@ public class RequestParams {
     public ConcurrentHashMap<String, String> urlParams;
     public ConcurrentHashMap<String, ArrayList<String>> urlParamsWithArray;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FileWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +102,7 @@ public class RequestParams {
 
     private void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.urlParams = new ConcurrentHashMap<>();
             this.fileParams = new ConcurrentHashMap<>();
             this.urlParamsWithArray = new ConcurrentHashMap<>();

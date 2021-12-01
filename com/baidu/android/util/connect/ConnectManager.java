@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ConnectManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -181,14 +180,14 @@ public class ConnectManager {
     public static boolean isNetworkConnected(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? NetWorkUtils.isConnected(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? NetWorkUtils.isConnected(context) : invokeL.booleanValue;
     }
 
     @Deprecated
     public static boolean isWifi(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? NetWorkUtils.isWifiConnected(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? NetWorkUtils.isWifiConnected(context) : invokeL.booleanValue;
     }
 
     public String getApn() {

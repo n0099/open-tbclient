@@ -24,7 +24,6 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,7 +60,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -99,15 +98,15 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public View mNightModeView;
     public SafeScrollView mSafeScrollView;
     public boolean mWindowNightMode;
-    public b.e.b.b.a myOrientoinListener;
+    public c.f.b.b.a myOrientoinListener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f63431e;
+        public final /* synthetic */ BaseActivity f55473e;
 
         public a(BaseActivity baseActivity) {
             Interceptable interceptable = $ic;
@@ -124,7 +123,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     return;
                 }
             }
-            this.f63431e = baseActivity;
+            this.f55473e = baseActivity;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -138,13 +137,13 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f63432e;
+        public final /* synthetic */ BaseActivity f55474e;
 
         public b(BaseActivity baseActivity) {
             Interceptable interceptable = $ic;
@@ -161,25 +160,25 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     return;
                 }
             }
-            this.f63432e = baseActivity;
+            this.f55474e = baseActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f63432e.onBackPressed();
+                this.f55474e.onBackPressed();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class c implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f63433e;
+        public final /* synthetic */ BaseActivity f55475e;
 
         public c(BaseActivity baseActivity) {
             Interceptable interceptable = $ic;
@@ -196,25 +195,25 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     return;
                 }
             }
-            this.f63433e = baseActivity;
+            this.f55475e = baseActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f63433e.cancleRequest();
+                this.f55475e.cancleRequest();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f63434e;
+        public final /* synthetic */ BaseActivity f55476e;
 
         public d(BaseActivity baseActivity) {
             Interceptable interceptable = $ic;
@@ -231,25 +230,25 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     return;
                 }
             }
-            this.f63434e = baseActivity;
+            this.f55476e = baseActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                WalletGlobalUtils.safeDismissDialog(this.f63434e, 11);
+                WalletGlobalUtils.safeDismissDialog(this.f55476e, 11);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f63435e;
+        public final /* synthetic */ BaseActivity f55477e;
 
         public e(BaseActivity baseActivity) {
             Interceptable interceptable = $ic;
@@ -266,16 +265,16 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     return;
                 }
             }
-            this.f63435e = baseActivity;
+            this.f55477e = baseActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                WalletGlobalUtils.safeDismissDialog(this.f63435e, 11);
+                WalletGlobalUtils.safeDismissDialog(this.f55477e, 11);
                 try {
-                    this.f63435e.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                    this.f55477e.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                 } catch (Exception e2) {
                     LogUtil.e("BaseActivity", "onPrepareDialog. DIALOG_NO_NETWORK. onClick", e2);
                 }
@@ -283,16 +282,16 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PromptDialog f63436e;
+        public final /* synthetic */ PromptDialog f55478e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f63437f;
+        public final /* synthetic */ BaseActivity f55479f;
 
         public f(BaseActivity baseActivity, PromptDialog promptDialog) {
             Interceptable interceptable = $ic;
@@ -309,34 +308,34 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     return;
                 }
             }
-            this.f63437f = baseActivity;
-            this.f63436e = promptDialog;
+            this.f55479f = baseActivity;
+            this.f55478e = promptDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f63436e.dismiss();
+                this.f55478e.dismiss();
                 try {
-                    ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f63437f.getActivity());
-                    PhoneUtils.showInstalledAppOrDetails(this.f63437f.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
+                    ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f55479f.getActivity());
+                    PhoneUtils.showInstalledAppOrDetails(this.f55479f.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
                 } catch (Throwable unused) {
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PromptDialog f63438e;
+        public final /* synthetic */ PromptDialog f55480e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f63439f;
+        public final /* synthetic */ BaseActivity f55481f;
 
         public g(BaseActivity baseActivity, PromptDialog promptDialog) {
             Interceptable interceptable = $ic;
@@ -353,26 +352,26 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     return;
                 }
             }
-            this.f63439f = baseActivity;
-            this.f63438e = promptDialog;
+            this.f55481f = baseActivity;
+            this.f55480e = promptDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f63438e.dismiss();
+                this.f55480e.dismiss();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class h implements ComponentCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Application f63440e;
+        public final /* synthetic */ Application f55482e;
 
         public h(Application application) {
             Interceptable interceptable = $ic;
@@ -389,7 +388,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     return;
                 }
             }
-            this.f63440e = application;
+            this.f55482e = application;
         }
 
         @Override // android.content.ComponentCallbacks
@@ -398,7 +397,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) || configuration == null || configuration.fontScale <= 0.0f) {
                 return;
             }
-            float unused = BaseActivity.sNocompatScaleDensity = this.f63440e.getResources().getDisplayMetrics().scaledDensity;
+            float unused = BaseActivity.sNocompatScaleDensity = this.f55482e.getResources().getDisplayMetrics().scaledDensity;
         }
 
         @Override // android.content.ComponentCallbacks
@@ -473,7 +472,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
 
     public static synchronized void clearTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             synchronized (BaseActivity.class) {
                 Iterator<BaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
@@ -485,7 +484,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
 
     public static synchronized void clearTaskExcept(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, baseActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, baseActivity) == null) {
             synchronized (BaseActivity.class) {
                 Iterator<BaseActivity> it = mActivityStack.iterator();
                 while (it.hasNext()) {
@@ -968,7 +967,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
             addToTask(this);
             if (Build.VERSION.SDK_INT >= 27) {
                 if (Settings.System.getInt(getContentResolver(), "accelerometer_rotation", 0) == 1) {
-                    b.e.b.b.a aVar = new b.e.b.b.a(getActivity());
+                    c.f.b.b.a aVar = new c.f.b.b.a(getActivity());
                     this.myOrientoinListener = aVar;
                     aVar.enable();
                 }
@@ -1002,7 +1001,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        b.e.b.b.a aVar;
+        c.f.b.b.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             keyBoardAdjustDetach();

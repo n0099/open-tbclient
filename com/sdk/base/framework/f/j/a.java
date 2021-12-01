@@ -17,12 +17,10 @@ import kotlin.text.Typography;
 /* loaded from: classes2.dex */
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69176a = "com.sdk.base.framework.f.j.a";
+    public static final String a = "com.sdk.base.framework.f.j.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f69177b;
+    public static boolean f61021b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +36,7 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f69177b = f.f69125b;
+        f61021b = f.f60988b;
     }
 
     public a() {
@@ -72,7 +70,7 @@ public class a extends com.sdk.base.framework.f.a {
                     String sb2 = sb.toString();
                     if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
                         stringBuffer.append(key);
-                        stringBuffer.append(com.alipay.sdk.encrypt.a.f34958h);
+                        stringBuffer.append(com.alipay.sdk.encrypt.a.f31351h);
                         stringBuffer.append(entry.getValue());
                         stringBuffer.append(Typography.amp);
                     }
@@ -82,7 +80,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return e.a(stringBuffer.toString());
             } catch (Exception e2) {
-                c.b(f69176a, e2.getMessage(), Boolean.valueOf(f69177b));
+                c.b(a, e2.getMessage(), Boolean.valueOf(f61021b));
                 return null;
             }
         }

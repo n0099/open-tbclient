@@ -29,5 +29,5 @@ public interface SelectBuilder<R> {
     <P, Q> void invoke(SelectClause2<? super P, ? extends Q> selectClause2, Function2<? super Q, ? super Continuation<? super R>, ? extends Object> function2);
 
     @ExperimentalCoroutinesApi
-    void onTimeout(long j, Function1<? super Continuation<? super R>, ? extends Object> function1);
+    void onTimeout(long j2, Function1<? super Continuation<? super R>, ? extends Object> function1);
 }

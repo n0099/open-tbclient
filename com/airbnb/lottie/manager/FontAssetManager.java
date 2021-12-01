@@ -8,9 +8,10 @@ import androidx.annotation.Nullable;
 import com.airbnb.lottie.FontAssetDelegate;
 import com.airbnb.lottie.model.MutablePair;
 import com.airbnb.lottie.utils.Logger;
+import com.tachikoma.core.component.text.FontManager;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FontAssetManager {
     public final AssetManager assetManager;
     @Nullable
@@ -43,7 +44,7 @@ public class FontAssetManager {
             fetchFont = Typeface.createFromAsset(this.assetManager, fontPath);
         }
         if (fetchFont == null) {
-            fetchFont = Typeface.createFromAsset(this.assetManager, "fonts/" + str + this.defaultFontFileExtension);
+            fetchFont = Typeface.createFromAsset(this.assetManager, FontManager.FONTS_ASSET_PATH + str + this.defaultFontFileExtension);
         }
         this.fontFamilies.put(str, fetchFont);
         return fetchFont;

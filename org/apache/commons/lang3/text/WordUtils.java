@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.text;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +45,7 @@ public class WordUtils {
     public static boolean containsAllWords(CharSequence charSequence, CharSequence... charSequenceArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, charSequence, charSequenceArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, charSequence, charSequenceArr)) == null) {
             if (StringUtils.isEmpty(charSequence) || ArrayUtils.isEmpty(charSequenceArr)) {
                 return false;
             }
@@ -66,7 +65,7 @@ public class WordUtils {
     public static String initials(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? initials(str, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? initials(str, null) : (String) invokeL.objValue;
     }
 
     public static boolean isDelimiter(char c2, char[] cArr) {

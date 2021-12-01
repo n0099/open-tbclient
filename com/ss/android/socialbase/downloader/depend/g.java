@@ -23,17 +23,15 @@ public interface g extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C2030a implements g {
+        public static class C2121a implements g {
             public static /* synthetic */ Interceptable $ic;
-
-            /* renamed from: a  reason: collision with root package name */
-            public static g f70135a;
+            public static g a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f70136b;
+            public IBinder f61697b;
 
-            public C2030a(IBinder iBinder) {
+            public C2121a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +46,7 @@ public interface g extends IInterface {
                         return;
                     }
                 }
-                this.f70136b = iBinder;
+                this.f61697b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.g
@@ -62,7 +60,7 @@ public interface g extends IInterface {
                         obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        if (!this.f70136b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        if (!this.f61697b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                             return a.a().a(str, str2);
                         }
                         obtain2.readException();
@@ -79,7 +77,7 @@ public interface g extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70136b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61697b : (IBinder) invokeV.objValue;
             }
         }
 
@@ -110,7 +108,7 @@ public interface g extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
                     return (g) queryLocalInterface;
                 }
-                return new C2030a(iBinder);
+                return new C2121a(iBinder);
             }
             return (g) invokeL.objValue;
         }
@@ -135,11 +133,11 @@ public interface g extends IInterface {
                     return true;
                 }
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
-                Uri a2 = a(parcel.readString(), parcel.readString());
+                Uri a = a(parcel.readString(), parcel.readString());
                 parcel2.writeNoException();
-                if (a2 != null) {
+                if (a != null) {
                     parcel2.writeInt(1);
-                    a2.writeToParcel(parcel2, 1);
+                    a.writeToParcel(parcel2, 1);
                 } else {
                     parcel2.writeInt(0);
                 }
@@ -151,7 +149,7 @@ public interface g extends IInterface {
         public static g a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2030a.f70135a : (g) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2121a.a : (g) invokeV.objValue;
         }
     }
 }

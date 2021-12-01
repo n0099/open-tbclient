@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.apollon.utils.DxmApplicationContextImpl;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,23 +30,21 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void a(String[] strArr);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class b extends FilterInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final HttpURLConnection f59969a;
+        public final HttpURLConnection a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(HttpURLConnection httpURLConnection) {
@@ -67,7 +64,7 @@ public final class c {
                     return;
                 }
             }
-            this.f59969a = httpURLConnection;
+            this.a = httpURLConnection;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -75,7 +72,7 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.close();
-                this.f59969a.disconnect();
+                this.a.disconnect();
             }
         }
     }
@@ -134,18 +131,16 @@ public final class c {
             new Thread(str, strArr, context, aVar) { // from class: com.baidu.wallet.lightapp.business.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f59965a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String[] f59966b;
+                public final /* synthetic */ String[] f53066b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Context f59967c;
+                public final /* synthetic */ Context f53067c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f59968d;
+                public final /* synthetic */ a f53068d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -162,10 +157,10 @@ public final class c {
                             return;
                         }
                     }
-                    this.f59965a = str;
-                    this.f59966b = strArr;
-                    this.f59967c = context;
-                    this.f59968d = aVar;
+                    this.a = str;
+                    this.f53066b = strArr;
+                    this.f53067c = context;
+                    this.f53068d = aVar;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -173,47 +168,47 @@ public final class c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         super.run();
-                        LogUtil.i(BeanConstants.WEB_VIEW_CACHE_TAG, "ZipFileLoader load: " + this.f59965a);
+                        LogUtil.i(BeanConstants.WEB_VIEW_CACHE_TAG, "ZipFileLoader load: " + this.a);
                         String[] strArr2 = new String[0];
                         long uptimeMillis = SystemClock.uptimeMillis();
                         try {
-                            strArr2 = c.c(this.f59965a, this.f59966b, this.f59967c);
+                            strArr2 = c.c(this.a, this.f53066b, this.f53067c);
                             LogUtil.i(BeanConstants.WEB_VIEW_CACHE_TAG, "END: cache duration: " + (SystemClock.uptimeMillis() - uptimeMillis));
                         } catch (IOException e2) {
                             LogUtil.e(BeanConstants.WEB_VIEW_CACHE_TAG, "EXCEPTION on load from cache", e2);
-                            Tracker.send(LightAppStatEvent.OFFLINECACHE_DOWNLOAD_JSHOOK_FILE_FAILED, Arrays.asList(this.f59965a, "EXCEPTION on load from cache", e2.toString()), this.f59967c);
+                            Tracker.send(LightAppStatEvent.OFFLINECACHE_DOWNLOAD_JSHOOK_FILE_FAILED, Arrays.asList(this.a, "EXCEPTION on load from cache", e2.toString()), this.f53067c);
                         }
                         if (c.b(strArr2)) {
                             long uptimeMillis2 = SystemClock.uptimeMillis();
                             try {
-                                String str2 = this.f59965a;
-                                String[] strArr3 = this.f59966b;
-                                Context context2 = this.f59967c;
-                                strArr2 = c.b(str2, strArr3, context2, c.b(this.f59965a) + File.separatorChar);
+                                String str2 = this.a;
+                                String[] strArr3 = this.f53066b;
+                                Context context2 = this.f53067c;
+                                strArr2 = c.b(str2, strArr3, context2, c.b(this.a) + File.separatorChar);
                                 LogUtil.i(BeanConstants.WEB_VIEW_CACHE_TAG, "END: local duration: " + (SystemClock.uptimeMillis() - uptimeMillis2));
                             } catch (IOException e3) {
                                 LogUtil.e(BeanConstants.WEB_VIEW_CACHE_TAG, "EXCEPTION on load from local", e3);
                                 if (!(e3 instanceof FileNotFoundException)) {
-                                    Tracker.send(LightAppStatEvent.OFFLINECACHE_DOWNLOAD_JSHOOK_FILE_FAILED, Arrays.asList(this.f59965a, "EXCEPTION on load from local", e3.toString()), this.f59967c);
+                                    Tracker.send(LightAppStatEvent.OFFLINECACHE_DOWNLOAD_JSHOOK_FILE_FAILED, Arrays.asList(this.a, "EXCEPTION on load from local", e3.toString()), this.f53067c);
                                 }
                             }
-                            a aVar2 = this.f59968d;
+                            a aVar2 = this.f53068d;
                             if (aVar2 != null) {
                                 aVar2.a(strArr2);
                                 LogUtil.i(BeanConstants.WEB_VIEW_CACHE_TAG, "RESULT: load from local, is empty: " + c.b(strArr2));
                             }
                             try {
                                 long uptimeMillis3 = SystemClock.uptimeMillis();
-                                c.d(this.f59965a, this.f59966b, this.f59967c);
+                                c.d(this.a, this.f53066b, this.f53067c);
                                 LogUtil.i(BeanConstants.WEB_VIEW_CACHE_TAG, "END: network duration: " + (SystemClock.uptimeMillis() - uptimeMillis3));
                                 return;
                             } catch (IOException e4) {
                                 LogUtil.e(BeanConstants.WEB_VIEW_CACHE_TAG, "EXCEPTION on load from network", e4);
-                                Tracker.send(LightAppStatEvent.OFFLINECACHE_DOWNLOAD_JSHOOK_FILE_FAILED, Arrays.asList(this.f59965a, "EXCEPTION on load from network", e4.toString()), this.f59967c);
+                                Tracker.send(LightAppStatEvent.OFFLINECACHE_DOWNLOAD_JSHOOK_FILE_FAILED, Arrays.asList(this.a, "EXCEPTION on load from network", e4.toString()), this.f53067c);
                                 return;
                             }
                         }
-                        a aVar3 = this.f59968d;
+                        a aVar3 = this.f53068d;
                         if (aVar3 != null) {
                             aVar3.a(strArr2);
                             LogUtil.i(BeanConstants.WEB_VIEW_CACHE_TAG, "RESULT: load from cache, is empty: " + c.b(strArr2));
@@ -264,14 +259,14 @@ public final class c {
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap();
         linkedHashMap.put("url", str2);
-        linkedHashMap.put(com.baidu.fsg.face.base.b.c.f38604g, str);
+        linkedHashMap.put(com.baidu.fsg.face.base.b.c.f34512g, str);
         Tracker.send(LightAppStatEvent.JS_FILE_VERIFY_FAILED, linkedHashMap, context);
     }
 
     public static byte[] a(InputStream inputStream, boolean z) throws IOException {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, inputStream, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, inputStream, z)) == null) {
             if (inputStream != null) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 byte[] bArr = new byte[1024];

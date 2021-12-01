@@ -13,7 +13,6 @@ import com.baidu.android.pushservice.frequency.GetNoDisturbListener;
 import com.baidu.android.pushservice.frequency.UploadDataListener;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +24,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PushManager";
@@ -79,7 +78,7 @@ public class PushManager {
     public static void delTags(Context context, List<String> list) {
         Intent c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, list) == null) || list == null || list.size() == 0 || (c2 = f.c(context)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, list) == null) || list == null || list.size() == 0 || (c2 = f.c(context)) == null) {
             return;
         }
         Iterator<String> it = list.iterator();
@@ -98,7 +97,7 @@ public class PushManager {
 
     public static void deleteNotificationChannel(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str) == null) && m.p(context)) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) && m.p(context)) {
             com.baidu.android.pushservice.j.h.a(context, str);
         }
     }
@@ -114,7 +113,7 @@ public class PushManager {
     public static void enableHuaweiProxy(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, context, z) == null) {
-            PushSettings.f35790c = z ? 1 : 0;
+            PushSettings.f32151c = z ? 1 : 0;
             com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", z ? 1 : 0);
         }
     }
@@ -124,11 +123,11 @@ public class PushManager {
         if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.f36146e = str;
+        f.f32450e = str;
         com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPID_KEY", str);
-        f.f36147f = str2;
+        f.f32451f = str2;
         com.baidu.android.pushservice.j.i.a(context, "BD_MEIZU_PROXY_APPKEY_KEY", str2);
-        PushSettings.f35791d = z ? 1 : 0;
+        PushSettings.f32152d = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", z ? 1 : 0);
     }
 
@@ -137,18 +136,18 @@ public class PushManager {
         if (!(interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        f.f36148g = str;
+        f.f32452g = str;
         com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPKEY_KEY", str);
-        f.f36149h = str2;
+        f.f32453h = str2;
         com.baidu.android.pushservice.j.i.a(context, "BD_OPPO_PROXY_APPSECRET_KEY", str2);
-        PushSettings.f35792e = z ? 1 : 0;
+        PushSettings.f32153e = z ? 1 : 0;
         com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableVivoProxy(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65547, null, context, z) == null) {
-            PushSettings.f35793f = z ? 1 : 0;
+            PushSettings.f32154f = z ? 1 : 0;
             com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", z ? 1 : 0);
         }
     }
@@ -157,14 +156,14 @@ public class PushManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) {
             if (!TextUtils.isEmpty(str)) {
-                f.f36144c = str;
+                f.f32448c = str;
                 com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPID_KEY", str);
             }
             if (!TextUtils.isEmpty(str2)) {
-                f.f36145d = str2;
+                f.f32449d = str2;
                 com.baidu.android.pushservice.j.i.a(context, "BD_PROXY_APPKEY_KEY", str2);
             }
-            PushSettings.f35789b = z ? 1 : 0;
+            PushSettings.f32150b = z ? 1 : 0;
             com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", z ? 1 : 0);
         }
     }
@@ -261,9 +260,7 @@ public class PushManager {
             new Handler(context.getMainLooper()).postDelayed(new Runnable(context) { // from class: com.baidu.android.pushservice.PushManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f35747a;
+                public final /* synthetic */ Context a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -280,14 +277,14 @@ public class PushManager {
                             return;
                         }
                     }
-                    this.f35747a = context;
+                    this.a = context;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        l.a(this.f35747a, null);
+                        l.a(this.a, null);
                     }
                 }
             }, com.baidu.android.pushservice.b.d.h() * 1000);
@@ -424,8 +421,8 @@ public class PushManager {
         if (!(interceptable == null || interceptable.invokeLIL(65566, null, context, i2, str) == null) || f.m(context)) {
             return;
         }
-        f.f36142a = i2;
-        f.f36143b = str;
+        f.a = i2;
+        f.f32447b = str;
         h.b(context);
         String f2 = m.f(context, str);
         if (TextUtils.isEmpty(f2)) {
@@ -435,7 +432,7 @@ public class PushManager {
         com.baidu.android.pushservice.g.a.a("PushManager", "startWork from " + context.getPackageName() + " checkResult: " + f2, context.getApplicationContext());
         m.a("startWork from " + context.getPackageName() + " checkResult: " + f2, context);
         if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2) || !PushSettings.e(context)) && i2 == 0) {
-            f.a(context, i2, f.f36143b);
+            f.a(context, i2, f.f32447b);
         } else {
             f.c(context, 10101, f2);
         }

@@ -13,7 +13,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AnchorInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -179,10 +179,10 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         this.isVip = anchorInfo.is_vip.intValue();
     }
 
-    public void setAuthorId(long j) {
+    public void setAuthorId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.authorId = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.authorId = j2;
         }
     }
 
@@ -193,10 +193,10 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         }
     }
 
-    public void setGroup_id(long j) {
+    public void setGroup_id(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.group_id = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.group_id = j2;
         }
     }
 

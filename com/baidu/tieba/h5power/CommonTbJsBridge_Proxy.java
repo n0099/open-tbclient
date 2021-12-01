@@ -1,13 +1,12 @@
 package com.baidu.tieba.h5power;
 
-import b.a.e.f.p.k;
-import b.a.r0.m3.n0.d.a;
-import b.a.r0.m3.n0.d.b;
-import b.a.r0.m3.n0.d.c;
-import b.a.r0.m3.n0.d.e;
+import c.a.d.f.p.k;
+import c.a.r0.t3.n0.d.a;
+import c.a.r0.t3.n0.d.b;
+import c.a.r0.t3.n0.d.c;
+import c.a.r0.t3.n0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.DocumentOpenUtil;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -18,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CommonTbJsBridge_Proxy extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
     }
 
-    @Override // b.a.r0.m3.n0.d.a
+    @Override // c.a.r0.t3.n0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -264,7 +264,7 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar2.y(0);
             } else if (b2.equals("router/goToEditPost")) {
                 cVar2.r(true);
-                c goToEditPost = this.mJsBridge.goToEditPost(e2.optString(IAdRequestParam.POS), e2.optString("tid"), e2.optString("floorId"), e2.optString("postId"), e2.optString("content"), e2.optString("fid"), e2.optString("fname"));
+                c goToEditPost = this.mJsBridge.goToEditPost(e2.optString("pos"), e2.optString("tid"), e2.optString("floorId"), e2.optString("postId"), e2.optString("content"), e2.optString("fid"), e2.optString("fname"));
                 if (goToEditPost != null) {
                     cVar2.x(goToEditPost.f());
                     cVar2.t(goToEditPost.b());
@@ -354,7 +354,7 @@ public class CommonTbJsBridge_Proxy extends a {
                 cVar2.y(0);
             } else if (b2.equals("account/startDownloadCss")) {
                 cVar2.r(true);
-                c startDownloadCss = this.mJsBridge.startDownloadCss(e2.optString("downloadUrl"));
+                c startDownloadCss = this.mJsBridge.startDownloadCss(e2.optString(TTDownloadField.TT_DOWNLOAD_URL));
                 if (startDownloadCss != null) {
                     cVar2.x(startDownloadCss.f());
                     cVar2.t(startDownloadCss.b());
@@ -510,7 +510,7 @@ public class CommonTbJsBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // b.a.r0.m3.n0.d.a
+    @Override // c.a.r0.t3.n0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

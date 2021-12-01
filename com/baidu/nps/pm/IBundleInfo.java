@@ -1,5 +1,5 @@
 package com.baidu.nps.pm;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IBundleInfo {
     int getAbi();
 
@@ -89,11 +89,11 @@ public interface IBundleInfo {
 
     void setSilenceUpdate(int i2);
 
-    void setSize(long j);
+    void setSize(long j2);
 
     void setType(int i2);
 
-    void setUpdateV(long j);
+    void setUpdateV(long j2);
 
     void setVersionCode(int i2);
 

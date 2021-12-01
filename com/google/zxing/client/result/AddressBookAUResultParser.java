@@ -1,7 +1,5 @@
 package com.google.zxing.client.result;
 
-import com.android.internal.http.multipart.Part;
-import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Result;
 import java.util.ArrayList;
 import org.apache.commons.lang3.CharUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class AddressBookAUResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,11 +57,11 @@ public final class AddressBookAUResultParser extends ResultParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, result)) == null) {
             String massagedText = ResultParser.getMassagedText(result);
-            if (massagedText.contains("MEMORY") && massagedText.contains(Part.CRLF)) {
+            if (massagedText.contains("MEMORY") && massagedText.contains("\r\n")) {
                 String matchSinglePrefixedField = ResultParser.matchSinglePrefixedField("NAME1:", massagedText, CharUtils.CR, true);
                 String matchSinglePrefixedField2 = ResultParser.matchSinglePrefixedField("NAME2:", massagedText, CharUtils.CR, true);
                 String[] matchMultipleValuePrefix = matchMultipleValuePrefix("TEL", 3, massagedText, true);
-                String[] matchMultipleValuePrefix2 = matchMultipleValuePrefix(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_MAIL, 3, massagedText, true);
+                String[] matchMultipleValuePrefix2 = matchMultipleValuePrefix("MAIL", 3, massagedText, true);
                 String matchSinglePrefixedField3 = ResultParser.matchSinglePrefixedField("MEMORY:", massagedText, CharUtils.CR, false);
                 String matchSinglePrefixedField4 = ResultParser.matchSinglePrefixedField("ADD:", massagedText, CharUtils.CR, true);
                 return new AddressBookParsedResult(ResultParser.maybeWrap(matchSinglePrefixedField), null, matchSinglePrefixedField2, matchMultipleValuePrefix, null, matchMultipleValuePrefix2, null, null, matchSinglePrefixedField3, matchSinglePrefixedField4 != null ? new String[]{matchSinglePrefixedField4} : null, null, null, null, null, null, null);

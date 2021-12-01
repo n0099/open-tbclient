@@ -12,7 +12,6 @@ import android.util.AndroidException;
 import android.util.Range;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +108,7 @@ public class Camera2Enumerator implements CameraEnumerator {
     private CameraCharacteristics getCameraCharacteristics(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             try {
                 return this.cameraManager.getCameraCharacteristics(str);
             } catch (AndroidException e2) {
@@ -123,7 +122,7 @@ public class Camera2Enumerator implements CameraEnumerator {
     public static int getFpsUnitFactor(Range<Integer>[] rangeArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, rangeArr)) == null) ? (rangeArr.length != 0 && rangeArr[0].getUpper().intValue() >= 1000) ? 1 : 1000 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, rangeArr)) == null) ? (rangeArr.length != 0 && rangeArr[0].getUpper().intValue() >= 1000) ? 1 : 1000 : invokeL.intValue;
     }
 
     public static List<Size> getSupportedSizes(CameraCharacteristics cameraCharacteristics) {
@@ -230,7 +229,7 @@ public class Camera2Enumerator implements CameraEnumerator {
 
     public static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(CameraManager cameraManager, String str) {
         InterceptResult invokeLL;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, cameraManager, str)) == null) {
             synchronized (cachedSupportedFormats) {
@@ -252,11 +251,11 @@ public class Camera2Enumerator implements CameraEnumerator {
                     ArrayList arrayList = new ArrayList();
                     for (Size size : supportedSizes) {
                         try {
-                            j = streamConfigurationMap.getOutputMinFrameDuration(SurfaceTexture.class, new android.util.Size(size.width, size.height));
+                            j2 = streamConfigurationMap.getOutputMinFrameDuration(SurfaceTexture.class, new android.util.Size(size.width, size.height));
                         } catch (Exception unused) {
-                            j = 0;
+                            j2 = 0;
                         }
-                        int round = j == 0 ? i2 : ((int) Math.round(1.0E9d / j)) * 1000;
+                        int round = j2 == 0 ? i2 : ((int) Math.round(1.0E9d / j2)) * 1000;
                         arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, 0, round));
                         Logging.d(TAG, "Format: " + size.width + "x" + size.height + "@" + round);
                     }

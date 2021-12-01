@@ -2,7 +2,6 @@ package com.baidu.fsg.base.statistics;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,19 +12,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38297a = "logsender";
+    public static final String a = "logsender";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f38298b;
+    public ConcurrentHashMap<String, Long> f34265b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ETag {
         public static final /* synthetic */ ETag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -88,12 +85,10 @@ public class StatService {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static StatService f38299a;
+        public static StatService a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -109,7 +104,7 @@ public class StatService {
                     return;
                 }
             }
-            f38299a = new StatService(null);
+            a = new StatService(null);
         }
 
         public a() {
@@ -140,7 +135,7 @@ public class StatService {
                 return;
             }
         }
-        this.f38298b = new ConcurrentHashMap<>();
+        this.f34265b = new ConcurrentHashMap<>();
     }
 
     public /* synthetic */ StatService(q qVar) {
@@ -150,7 +145,7 @@ public class StatService {
     public static StatService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f38299a : (StatService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (StatService) invokeV.objValue;
     }
 
     public static ArrayList<String> a(String str, String str2) {
@@ -158,12 +153,12 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            Long l = a().f38298b.get(str);
+            Long l = a().f34265b.get(str);
             if (l == null) {
                 return null;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f38298b.remove(str);
+            a().f34265b.remove(str);
             arrayList.add(Long.toString(valueOf.longValue()));
             arrayList.add(str2);
             return arrayList;
@@ -174,13 +169,13 @@ public class StatService {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a().f38298b.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().f34265b.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 
     public static synchronized void a(String str, ETag eTag, Collection<String> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, eTag, collection) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, eTag, collection) == null) {
             synchronized (StatService.class) {
                 if (eTag != null) {
                     a(str, eTag.name(), collection);
@@ -191,23 +186,23 @@ public class StatService {
 
     public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         a(str, str2, str3, System.currentTimeMillis());
     }
 
-    public static void a(String str, String str2, String str3, long j) {
+    public static void a(String str, String str2, String str3, long j2) {
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Long.valueOf(j2)}) == null) {
             if (str3 != null) {
                 arrayList = new ArrayList(1);
                 arrayList.add(str3);
             } else {
                 arrayList = null;
             }
-            a(str, str2, arrayList, j);
+            a(str, str2, arrayList, j2);
         }
     }
 
@@ -219,10 +214,10 @@ public class StatService {
         a(str, str2, collection, System.currentTimeMillis());
     }
 
-    public static void a(String str, String str2, Collection<String> collection, long j) {
+    public static void a(String str, String str2, Collection<String> collection, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, collection, Long.valueOf(j)}) == null) {
-            i.a(RimStatisticsUtil.getAppContext()).a(h.a(str, j, str2, com.baidu.fsg.base.statistics.a.a(), collection));
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, collection, Long.valueOf(j2)}) == null) {
+            i.a(RimStatisticsUtil.getAppContext()).a(h.a(str, j2, str2, com.baidu.fsg.base.statistics.a.a(), collection));
             if (i.a(RimStatisticsUtil.getAppContext()).getCount() >= 200) {
                 n.a().b("normal_log");
             }

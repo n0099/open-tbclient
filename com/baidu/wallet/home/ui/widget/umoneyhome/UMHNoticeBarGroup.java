@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.ui.widget.credithome.CHNoticeBarGroup;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UMHNoticeBarGroup extends CHNoticeBarGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

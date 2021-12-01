@@ -1,7 +1,7 @@
 package com.facebook.common.media;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MediaUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, String> ADDITIONAL_ALLOWED_MIME_TYPES;
@@ -33,7 +33,7 @@ public class MediaUtils {
                 return;
             }
         }
-        ADDITIONAL_ALLOWED_MIME_TYPES = ImmutableMap.of("mkv", "video/x-matroska", "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
+        ADDITIONAL_ALLOWED_MIME_TYPES = ImmutableMap.of("mkv", "video/x-matroska", "glb", "model/gltf-binary", BdVideoSeries.FORMAT_FLV, "flv-application/octet-stream");
     }
 
     public MediaUtils() {
@@ -89,13 +89,13 @@ public class MediaUtils {
     public static boolean isPhoto(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? str != null && str.startsWith(FileUtils.IMAGE_FILE_START) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? str != null && str.startsWith(FileUtils.IMAGE_FILE_START) : invokeL.booleanValue;
     }
 
     public static boolean isThreeD(@Nullable String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? str != null && str.equals("model/gltf-binary") : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? str != null && str.equals("model/gltf-binary") : invokeL.booleanValue;
     }
 
     public static boolean isVideo(@Nullable String str) {

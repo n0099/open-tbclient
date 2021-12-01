@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.packet.impl.d;
 import com.alipay.sdk.packet.impl.e;
 import com.alipay.sdk.util.h;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,24 +17,22 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.alipay.sdk.app.statistic.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class C1558a {
+    /* loaded from: classes7.dex */
+    public static final class C1634a {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final String f34882a = "RecordPref";
+        public static final String a = "RecordPref";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f34883b = "alipay_cashier_statistic_record";
+        public static final String f31280b = "alipay_cashier_statistic_record";
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1558a() {
+        public C1634a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,17 +50,17 @@ public class a {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, str2)) == null) {
-                synchronized (C1558a.class) {
-                    com.alipay.sdk.util.c.b(f34882a, "stat append " + str2 + " , " + str);
+                synchronized (C1634a.class) {
+                    com.alipay.sdk.util.c.b(a, "stat append " + str2 + " , " + str);
                     if (context != null && !TextUtils.isEmpty(str)) {
                         if (TextUtils.isEmpty(str2)) {
                             str2 = UUID.randomUUID().toString();
                         }
-                        C1559a a2 = a(context);
-                        if (a2.f34884a.size() > 20) {
-                            a2.f34884a.clear();
+                        C1635a a2 = a(context);
+                        if (a2.a.size() > 20) {
+                            a2.a.clear();
                         }
-                        a2.f34884a.put(str2, str);
+                        a2.a.put(str2, str);
                         a(context, a2);
                         return str2;
                     }
@@ -76,32 +73,30 @@ public class a {
         public static synchronized String b(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-                synchronized (C1558a.class) {
-                    com.alipay.sdk.util.c.b(f34882a, "stat peek");
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+                synchronized (C1634a.class) {
+                    com.alipay.sdk.util.c.b(a, "stat peek");
                     if (context == null) {
                         return null;
                     }
-                    C1559a a2 = a(context);
-                    if (a2.f34884a.isEmpty()) {
+                    C1635a a2 = a(context);
+                    if (a2.a.isEmpty()) {
                         return null;
                     }
-                    return a2.f34884a.entrySet().iterator().next().getValue();
+                    return a2.a.entrySet().iterator().next().getValue();
                 }
             }
             return (String) invokeL.objValue;
         }
 
         /* renamed from: com.alipay.sdk.app.statistic.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static final class C1559a {
+        /* loaded from: classes7.dex */
+        public static final class C1635a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final LinkedHashMap<String, String> a;
 
-            /* renamed from: a  reason: collision with root package name */
-            public final LinkedHashMap<String, String> f34884a;
-
-            public C1559a() {
+            public C1635a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +109,7 @@ public class a {
                         return;
                     }
                 }
-                this.f34884a = new LinkedHashMap<>();
+                this.a = new LinkedHashMap<>();
             }
 
             public String a() {
@@ -123,7 +118,7 @@ public class a {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     try {
                         JSONArray jSONArray = new JSONArray();
-                        for (Map.Entry<String, String> entry : this.f34884a.entrySet()) {
+                        for (Map.Entry<String, String> entry : this.a.entrySet()) {
                             JSONArray jSONArray2 = new JSONArray();
                             jSONArray2.put(entry.getKey()).put(entry.getValue());
                             jSONArray.put(jSONArray2);
@@ -137,7 +132,7 @@ public class a {
                 return (String) invokeV.objValue;
             }
 
-            public C1559a(String str) {
+            public C1635a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,12 +147,12 @@ public class a {
                         return;
                     }
                 }
-                this.f34884a = new LinkedHashMap<>();
+                this.a = new LinkedHashMap<>();
                 try {
                     JSONArray jSONArray = new JSONArray(str);
                     for (int i4 = 0; i4 < jSONArray.length(); i4++) {
                         JSONArray jSONArray2 = jSONArray.getJSONArray(i4);
-                        this.f34884a.put(jSONArray2.getString(0), jSONArray2.getString(1));
+                        this.a.put(jSONArray2.getString(0), jSONArray2.getString(1));
                     }
                 } catch (Throwable th) {
                     com.alipay.sdk.util.c.a(th);
@@ -169,22 +164,22 @@ public class a {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-                synchronized (C1558a.class) {
-                    com.alipay.sdk.util.c.b(f34882a, "stat remove " + str);
+                synchronized (C1634a.class) {
+                    com.alipay.sdk.util.c.b(a, "stat remove " + str);
                     if (context != null && !TextUtils.isEmpty(str)) {
-                        C1559a a2 = a(context);
-                        if (a2.f34884a.isEmpty()) {
+                        C1635a a2 = a(context);
+                        if (a2.a.isEmpty()) {
                             return 0;
                         }
                         ArrayList arrayList = new ArrayList();
-                        for (Map.Entry<String, String> entry : a2.f34884a.entrySet()) {
+                        for (Map.Entry<String, String> entry : a2.a.entrySet()) {
                             if (str.equals(entry.getValue())) {
                                 arrayList.add(entry.getKey());
                             }
                         }
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
-                            a2.f34884a.remove((String) it.next());
+                            a2.a.remove((String) it.next());
                         }
                         a(context, a2);
                         return arrayList.size();
@@ -195,61 +190,59 @@ public class a {
             return invokeLL.intValue;
         }
 
-        public static synchronized C1559a a(Context context) {
+        public static synchronized C1635a a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-                synchronized (C1558a.class) {
+                synchronized (C1634a.class) {
                     try {
-                        String a2 = h.a(null, context, f34883b, null);
+                        String a2 = h.a(null, context, f31280b, null);
                         if (TextUtils.isEmpty(a2)) {
-                            return new C1559a();
+                            return new C1635a();
                         }
-                        return new C1559a(a2);
+                        return new C1635a(a2);
                     } catch (Throwable th) {
                         com.alipay.sdk.util.c.a(th);
-                        return new C1559a();
+                        return new C1635a();
                     }
                 }
             }
-            return (C1559a) invokeL.objValue;
+            return (C1635a) invokeL.objValue;
         }
 
-        public static synchronized void a(Context context, C1559a c1559a) {
+        public static synchronized void a(Context context, C1635a c1635a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, c1559a) == null) {
-                synchronized (C1558a.class) {
-                    if (c1559a == null) {
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, c1635a) == null) {
+                synchronized (C1634a.class) {
+                    if (c1635a == null) {
                         try {
-                            c1559a = new C1559a();
+                            c1635a = new C1635a();
                         } catch (Throwable th) {
                             com.alipay.sdk.util.c.a(th);
                         }
                     }
-                    h.b(null, context, f34883b, c1559a.a());
+                    h.b(null, context, f31280b, c1635a.a());
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.alipay.sdk.app.statistic.a$b$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public static class RunnableC1560a implements Runnable {
+        /* loaded from: classes7.dex */
+        public static class RunnableC1636a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f34885a;
+            public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Context f34886b;
+            public final /* synthetic */ Context f31281b;
 
-            public RunnableC1560a(String str, Context context) {
+            public RunnableC1636a(String str, Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -264,18 +257,18 @@ public class a {
                         return;
                     }
                 }
-                this.f34885a = str;
-                this.f34886b = context;
+                this.a = str;
+                this.f31281b = context;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (TextUtils.isEmpty(this.f34885a) || b.b(this.f34886b, this.f34885a)) {
+                    if (TextUtils.isEmpty(this.a) || b.b(this.f31281b, this.a)) {
                         for (int i2 = 0; i2 < 4; i2++) {
-                            String b2 = C1558a.b(this.f34886b);
-                            if (TextUtils.isEmpty(b2) || !b.b(this.f34886b, b2)) {
+                            String b2 = C1634a.b(this.f31281b);
+                            if (TextUtils.isEmpty(b2) || !b.b(this.f31281b, b2)) {
                                 return;
                             }
                         }
@@ -301,11 +294,11 @@ public class a {
         public static synchronized boolean b(Context context, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
                 synchronized (b.class) {
                     com.alipay.sdk.util.c.b(com.alipay.sdk.cons.a.x, "stat sub " + str);
                     if ((com.alipay.sdk.data.a.u().d() ? new d() : new e()).a((com.alipay.sdk.sys.a) null, context, str) != null) {
-                        C1558a.a(context, str);
+                        C1634a.a(context, str);
                         return true;
                     }
                     return false;
@@ -343,20 +336,18 @@ public class a {
                         return;
                     }
                     if (!TextUtils.isEmpty(str)) {
-                        C1558a.a(context, str, str2);
+                        C1634a.a(context, str, str2);
                     }
-                    new Thread(new RunnableC1560a(str, context)).start();
+                    new Thread(new RunnableC1636a(str, context)).start();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final String f34887a = "alipay_cashier_statistic_v";
+        public static final String a = "alipay_cashier_statistic_v";
         public transient /* synthetic */ FieldHolder $fh;
 
         public c() {
@@ -443,7 +434,7 @@ public class a {
                     return;
                 }
                 try {
-                    C1558a.a(context, aVar.f35006i.a(str), str2);
+                    C1634a.a(context, aVar.f31391i.a(str), str2);
                 } catch (Throwable th) {
                     com.alipay.sdk.util.c.a(th);
                 }
@@ -458,7 +449,7 @@ public class a {
                 if (context == null || aVar == null) {
                     return;
                 }
-                b.a(context, aVar.f35006i, str, str2);
+                b.a(context, aVar.f31391i, str, str2);
             }
         }
     }
@@ -468,7 +459,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLLL(65545, null, aVar, str, str2, str3) == null) || aVar == null) {
             return;
         }
-        aVar.f35006i.b(str, str2, str3);
+        aVar.f31391i.b(str, str2, str3);
     }
 
     public static synchronized void a(Context context) {
@@ -485,23 +476,23 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLL(65543, null, aVar, str, th) == null) || aVar == null || th == null || th.getClass() == null) {
             return;
         }
-        aVar.f35006i.a(str, th.getClass().getSimpleName(), th);
+        aVar.f31391i.a(str, th.getClass().getSimpleName(), th);
     }
 
     public static void a(com.alipay.sdk.sys.a aVar, String str, String str2, Throwable th, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, aVar, str, str2, th, str3) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65542, null, aVar, str, str2, th, str3) == null) || aVar == null) {
             return;
         }
-        aVar.f35006i.a(str, str2, th, str3);
+        aVar.f31391i.a(str, str2, th, str3);
     }
 
     public static void a(com.alipay.sdk.sys.a aVar, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, aVar, str, str2, th) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65541, null, aVar, str, str2, th) == null) || aVar == null) {
             return;
         }
-        aVar.f35006i.a(str, str2, th);
+        aVar.f31391i.a(str, str2, th);
     }
 
     public static void a(com.alipay.sdk.sys.a aVar, String str, String str2, String str3) {
@@ -509,7 +500,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, str, str2, str3) == null) || aVar == null) {
             return;
         }
-        aVar.f35006i.a(str, str2, str3);
+        aVar.f31391i.a(str, str2, str3);
     }
 
     public static void a(com.alipay.sdk.sys.a aVar, String str, String str2) {
@@ -517,6 +508,6 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLLL(65539, null, aVar, str, str2) == null) || aVar == null) {
             return;
         }
-        aVar.f35006i.a(str, str2);
+        aVar.f31391i.a(str, str2);
     }
 }

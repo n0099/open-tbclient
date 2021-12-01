@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,15 +19,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.utils.LogUtil;
 import java.util.HashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, NinePatchDrawable> f61541a = null;
+    public static HashMap<String, NinePatchDrawable> a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61542b = "b";
+    public static final String f54057b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +41,7 @@ public class b {
                 return;
             }
         }
-        f61541a = new HashMap<>();
+        a = new HashMap<>();
     }
 
     public b() {
@@ -108,7 +105,7 @@ public class b {
             try {
                 return Color.parseColor(str);
             } catch (Exception e2) {
-                LogUtil.d(f61542b, e2.getMessage());
+                LogUtil.d(f54057b, e2.getMessage());
                 return color;
             }
         }
@@ -131,7 +128,7 @@ public class b {
     public static GradientDrawable a(Context context, int i2, int i3, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(i2);
             gradientDrawable.setShape(i3);
@@ -146,18 +143,18 @@ public class b {
         NinePatchDrawable b2;
         HashMap<String, NinePatchDrawable> hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             String str2 = str.contains(",") ? str.split(",")[0] : str;
-            HashMap<String, NinePatchDrawable> hashMap2 = f61541a;
+            HashMap<String, NinePatchDrawable> hashMap2 = a;
             if (hashMap2 == null) {
                 b2 = b(context, str2);
                 hashMap = new HashMap<>();
-                f61541a = hashMap;
-            } else if (hashMap2.containsKey(str) && f61541a.get(str) != null) {
-                return f61541a.get(str);
+                a = hashMap;
+            } else if (hashMap2.containsKey(str) && a.get(str) != null) {
+                return a.get(str);
             } else {
                 b2 = b(context, str2);
-                hashMap = f61541a;
+                hashMap = a;
             }
             hashMap.put(str, b2);
             return b2;

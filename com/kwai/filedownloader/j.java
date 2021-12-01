@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,35 +18,31 @@ import java.util.concurrent.LinkedBlockingQueue;
 /* loaded from: classes2.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f67903a = 10;
+    public static int a = 10;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f67904b = 5;
+    public static int f60004b = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f67905c;
+    public final Executor f60005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f67906d;
+    public final Handler f60006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedBlockingQueue<s> f67907e;
+    public final LinkedBlockingQueue<t> f60007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f67908f;
+    public final Object f60008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ArrayList<s> f67909g;
+    public final ArrayList<t> f60009g;
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final j f67912a;
+        public static final j a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -63,7 +58,7 @@ public class j {
                     return;
                 }
             }
-            f67912a = new j();
+            a = new j();
         }
     }
 
@@ -86,10 +81,10 @@ public class j {
             }
         }
 
-        private void a(ArrayList<s> arrayList) {
+        private void a(ArrayList<t> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, arrayList) == null) {
-                Iterator<s> it = arrayList.iterator();
+                Iterator<t> it = arrayList.iterator();
                 while (it.hasNext()) {
                     it.next().b();
                 }
@@ -104,7 +99,7 @@ public class j {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
                 int i2 = message.what;
                 if (i2 == 1) {
-                    ((s) message.obj).b();
+                    ((t) message.obj).b();
                 } else if (i2 == 2) {
                     a((ArrayList) message.obj);
                     j.a().c();
@@ -143,100 +138,98 @@ public class j {
                 return;
             }
         }
-        this.f67905c = com.kwai.filedownloader.f.b.a(5, "BlockCompleted");
-        this.f67908f = new Object();
-        this.f67909g = new ArrayList<>();
-        this.f67906d = new Handler(Looper.getMainLooper(), new b());
-        this.f67907e = new LinkedBlockingQueue<>();
+        this.f60005c = com.kwai.filedownloader.e.b.a(5, "BlockCompleted");
+        this.f60008f = new Object();
+        this.f60009g = new ArrayList<>();
+        this.f60006d = new Handler(Looper.getMainLooper(), new b());
+        this.f60007e = new LinkedBlockingQueue<>();
     }
 
     public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f67912a : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (j) invokeV.objValue;
     }
 
-    private void b(s sVar) {
+    private void b(t tVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, sVar) == null) {
-            Handler handler = this.f67906d;
-            handler.sendMessage(handler.obtainMessage(1, sVar));
+        if (interceptable == null || interceptable.invokeL(65541, this, tVar) == null) {
+            Handler handler = this.f60006d;
+            handler.sendMessage(handler.obtainMessage(1, tVar));
         }
     }
 
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f67903a > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a > 0 : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            synchronized (this.f67908f) {
-                if (this.f67909g.isEmpty()) {
-                    if (this.f67907e.isEmpty()) {
+            synchronized (this.f60008f) {
+                if (this.f60009g.isEmpty()) {
+                    if (this.f60007e.isEmpty()) {
                         return;
                     }
                     int i2 = 0;
                     if (b()) {
-                        int i3 = f67903a;
-                        int min = Math.min(this.f67907e.size(), f67904b);
+                        int i3 = a;
+                        int min = Math.min(this.f60007e.size(), f60004b);
                         while (i2 < min) {
-                            this.f67909g.add(this.f67907e.remove());
+                            this.f60009g.add(this.f60007e.remove());
                             i2++;
                         }
                         i2 = i3;
                     } else {
-                        this.f67907e.drainTo(this.f67909g);
+                        this.f60007e.drainTo(this.f60009g);
                     }
-                    Handler handler = this.f67906d;
-                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f67909g), i2);
+                    Handler handler = this.f60006d;
+                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f60009g), i2);
                 }
             }
         }
     }
 
-    private void c(s sVar) {
+    private void c(t tVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, sVar) == null) {
-            synchronized (this.f67908f) {
-                this.f67907e.offer(sVar);
+        if (interceptable == null || interceptable.invokeL(65544, this, tVar) == null) {
+            synchronized (this.f60008f) {
+                this.f60007e.offer(tVar);
             }
             c();
         }
     }
 
-    public void a(s sVar) {
+    public void a(t tVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sVar) == null) {
-            a(sVar, false);
+        if (interceptable == null || interceptable.invokeL(1048576, this, tVar) == null) {
+            a(tVar, false);
         }
     }
 
-    public void a(s sVar, boolean z) {
+    public void a(t tVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sVar, z) == null) {
-            if (sVar.c()) {
-                sVar.b();
-            } else if (sVar.d()) {
-                this.f67905c.execute(new Runnable(this, sVar) { // from class: com.kwai.filedownloader.j.1
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tVar, z) == null) {
+            if (tVar.c()) {
+                tVar.b();
+            } else if (tVar.d()) {
+                this.f60005c.execute(new Runnable(this, tVar) { // from class: com.kwai.filedownloader.j.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ s f67910a;
+                    public final /* synthetic */ t a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ j f67911b;
+                    public final /* synthetic */ j f60010b;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, sVar};
+                            Object[] objArr = {this, tVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -246,34 +239,34 @@ public class j {
                                 return;
                             }
                         }
-                        this.f67911b = this;
-                        this.f67910a = sVar;
+                        this.f60010b = this;
+                        this.a = tVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f67910a.b();
+                            this.a.b();
                         }
                     }
                 });
             } else {
-                if (!b() && !this.f67907e.isEmpty()) {
-                    synchronized (this.f67908f) {
-                        if (!this.f67907e.isEmpty()) {
-                            Iterator<s> it = this.f67907e.iterator();
+                if (!b() && !this.f60007e.isEmpty()) {
+                    synchronized (this.f60008f) {
+                        if (!this.f60007e.isEmpty()) {
+                            Iterator<t> it = this.f60007e.iterator();
                             while (it.hasNext()) {
                                 b(it.next());
                             }
                         }
-                        this.f67907e.clear();
+                        this.f60007e.clear();
                     }
                 }
                 if (!b() || z) {
-                    b(sVar);
+                    b(tVar);
                 } else {
-                    c(sVar);
+                    c(tVar);
                 }
             }
         }

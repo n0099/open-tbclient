@@ -10,10 +10,10 @@ import android.view.ContextThemeWrapper;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.h.c.a.h;
-import b.h.c.a.i;
-import b.h.c.a.k;
-import b.h.c.a.m;
+import c.i.c.a.h;
+import c.i.c.a.i;
+import c.i.c.a.k;
+import c.i.c.a.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.protobuf.CodedInputStream;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(24)
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class InstallActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOX_SIZE_DP = 280;
@@ -58,30 +58,30 @@ public class InstallActivity extends Activity {
             }
         }
         this.themeWrapper = new ContextThemeWrapper(this, 16974394);
-        this.lastEvent = p.f64029b;
+        this.lastEvent = p.f55969b;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [b.h.c.a.m.a(com.google.ar.core.p):void, b.h.c.a.m.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [c.i.c.a.m.a(com.google.ar.core.p):void, c.i.c.a.m.b(java.lang.Exception):void] */
     public static /* synthetic */ void access$000(InstallActivity installActivity, Exception exc) {
         installActivity.finishWithFailure(exc);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [b.h.c.a.m.a(com.google.ar.core.p):void, b.h.c.a.m.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [c.i.c.a.m.a(com.google.ar.core.p):void, c.i.c.a.m.b(java.lang.Exception):void] */
     public static /* synthetic */ p access$402(InstallActivity installActivity, p pVar) {
         installActivity.lastEvent = pVar;
         return pVar;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [b.h.c.a.m.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [c.i.c.a.m.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean access$500(InstallActivity installActivity) {
         return installActivity.waitingForCompletion;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [b.h.c.a.m.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [c.i.c.a.m.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void access$600(InstallActivity installActivity) {
         installActivity.closeInstaller();
     }
@@ -99,7 +99,7 @@ public class InstallActivity extends Activity {
             getWindow().getDecorView().setMinimumWidth(i2);
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.setDuration(300L);
-            ofFloat.addUpdateListener(new b.h.c.a.j(this, width, i2, height));
+            ofFloat.addUpdateListener(new c.i.c.a.j(this, width, i2, height));
             ofFloat.addListener(new k(this));
             ofFloat.start();
         }
@@ -117,8 +117,8 @@ public class InstallActivity extends Activity {
     public void finishWithFailure(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, exc) == null) {
-            b.h.c.a.f.d().f33782a = exc;
-            b.h.c.a.f.d().g();
+            c.i.c.a.f.d().a = exc;
+            c.i.c.a.f.d().g();
             this.finished = true;
             super.finish();
         }
@@ -181,8 +181,8 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             this.installStarted = true;
-            this.lastEvent = p.f64029b;
-            b.h.c.a.f.d().e(this).c(this, new m(this));
+            this.lastEvent = p.f55969b;
+            c.i.c.a.f.d().e(this).c(this, new m(this));
         }
     }
 
@@ -228,7 +228,7 @@ public class InstallActivity extends Activity {
                         return;
                     }
                     AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                    b.h.c.a.f.d().e(this).e(this, new b.h.c.a.d(atomicReference));
+                    c.i.c.a.f.d().e(this).e(this, new c.i.c.a.d(atomicReference));
                     int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
                     if (ordinal != 0 && ordinal == 3) {
                         finishWithFailure(new UnavailableDeviceNotCompatibleException());
@@ -249,7 +249,7 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (!this.finished) {
-                b.h.c.a.f.d().g();
+                c.i.c.a.f.d().g();
             }
             super.onDestroy();
         }
@@ -274,12 +274,12 @@ public class InstallActivity extends Activity {
             } else if (this.finished) {
             } else {
                 synchronized (this) {
-                    if (this.lastEvent == p.f64029b) {
+                    if (this.lastEvent == p.f55969b) {
                         finish();
-                    } else if (this.lastEvent == p.f64028a) {
+                    } else if (this.lastEvent == p.a) {
                         this.waitingForCompletion = true;
                     } else {
-                        finishWithFailure(b.h.c.a.f.d().f33782a);
+                        finishWithFailure(c.i.c.a.f.d().a);
                     }
                 }
             }

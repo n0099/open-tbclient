@@ -8,14 +8,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.k;
-import b.a.p0.a.k2.a;
-import b.a.p0.a.k2.b;
-import b.a.p0.a.k2.e;
-import b.a.p0.a.k2.f;
-import b.a.p0.w.d;
+import c.a.p0.a.k;
+import c.a.p0.a.k2.a;
+import c.a.p0.a.k2.b;
+import c.a.p0.a.k2.e;
+import c.a.p0.a.k2.f;
+import c.a.p0.w.d;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +39,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.apache.commons.lang3.StringUtils;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SoLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -63,7 +62,7 @@ public final class SoLoader {
                 return;
             }
         }
-        DEBUG = k.f6863a;
+        DEBUG = k.a;
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }
@@ -140,7 +139,7 @@ public final class SoLoader {
     private String getNativeLibraryDir(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 if (SoUtils.hasGingerbread()) {
@@ -158,7 +157,7 @@ public final class SoLoader {
     public static File getReleaseSoFilePath(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? new File(context.getFilesDir(), "lib") : (File) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? new File(context.getFilesDir(), "lib") : (File) invokeL.objValue;
     }
 
     private long getSoSize(ZipFile zipFile, String str) {
@@ -546,11 +545,11 @@ public final class SoLoader {
         if (!(interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{context, str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || sLoadedLibraries.contains(str)) {
             return;
         }
-        a a2 = a.a();
+        a a = a.a();
         if (!z) {
-            load = new SoLoader().loadInternalFromLocal(context, str, a2, z2);
+            load = new SoLoader().loadInternalFromLocal(context, str, a, z2);
         } else {
-            load = load(context, str, a2, z2);
+            load = load(context, str, a, z2);
         }
         if (load) {
             sLoadedLibraries.add(str);

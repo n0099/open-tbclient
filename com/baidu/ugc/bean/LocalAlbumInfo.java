@@ -2,7 +2,7 @@ package com.baidu.ugc.bean;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.j.b;
+import c.a.x0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable<LocalAlbumInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FACE_SCORE_BASE = 20;
@@ -215,10 +215,10 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mIsShowSpeedChanger : invokeV.booleanValue;
     }
 
-    public void setDuration(long j) {
+    public void setDuration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.duration = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.duration = j2;
         }
     }
 
@@ -243,10 +243,10 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
         }
     }
 
-    public void setSize(long j) {
+    public void setSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            this.size = j;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
+            this.size = j2;
         }
     }
 
@@ -259,7 +259,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LocalAlbumInfo m41clone() {
+    public LocalAlbumInfo m89clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -297,12 +297,12 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
             if (localAlbumInfo == null) {
                 return -1;
             }
-            long j = this.date;
-            long j2 = localAlbumInfo.date;
-            if (j > j2) {
+            long j2 = this.date;
+            long j3 = localAlbumInfo.date;
+            if (j2 > j3) {
                 return -1;
             }
-            return j < j2 ? 1 : 0;
+            return j2 < j3 ? 1 : 0;
         }
         return invokeL.intValue;
     }

@@ -3,11 +3,10 @@ package com.baidu.rtc;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.a.b.a;
-import b.a.a.b.b;
-import b.a.a.b.c;
+import c.a.a.b.a;
+import c.a.a.b.b;
+import c.a.a.b.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RTCLoadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JINGLE_LIB_NAME = "jingle_peerconnection_so";
@@ -33,7 +32,7 @@ public class RTCLoadManager {
     public LoadStatus mLoadStatus;
     public c mSoCallback;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface LoadListener {
         void onLoadError(int i2, String str);
 
@@ -43,7 +42,7 @@ public class RTCLoadManager {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class LoadStatus {
         public static final /* synthetic */ LoadStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -150,7 +149,7 @@ public class RTCLoadManager {
                 this.this$0 = this;
             }
 
-            @Override // b.a.a.b.c
+            @Override // c.a.a.b.c
             public void onDownloadFail(String str, int i4, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i4, str2) == null) {
@@ -160,7 +159,7 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // b.a.a.b.c.a, b.a.a.b.c
+            @Override // c.a.a.b.c.a, c.a.a.b.c
             public void onDownloadProgress(float f2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
@@ -168,7 +167,7 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // b.a.a.b.c
+            @Override // c.a.a.b.c
             public void onDownloadSuccess(String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
@@ -193,7 +192,7 @@ public class RTCLoadManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void callbackFail(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, this, i2, str) == null) || this.mCallbackList == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65542, this, i2, str) == null) || this.mCallbackList == null) {
             return;
         }
         for (int i3 = 0; i3 < this.mCallbackList.size(); i3++) {

@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AdTemplate extends com.kwad.sdk.core.response.a.a implements Serializable {
+public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5413539480595883024L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,10 +31,14 @@ public class AdTemplate extends com.kwad.sdk.core.response.a.a implements Serial
     public String impAdExtra;
     public transient String installFrom;
     public boolean interactLandingPageShowing;
+    public boolean isDrawAdHasLook;
+    public boolean isWebViewDownload;
     public long llsid;
     @Nullable
     public SceneImpl mAdScene;
+    public boolean mAdWebVideoPageShowing;
     public int mBidEcpm;
+    public boolean mCheatingFlow;
     public transient boolean mContentPvReported;
     public transient boolean mDownloadFinishReported;
     public boolean mHasEntryAdClick;
@@ -59,12 +63,15 @@ public class AdTemplate extends com.kwad.sdk.core.response.a.a implements Serial
     public transient boolean mPvReported;
     public transient boolean mRelatedContentPvReported;
     public int mRequestCount;
+    public boolean mRewardVerifyCalled;
     public transient boolean mTrackUrlReported;
     public String mUniqueId;
     public VideoPlayerStatus mVideoPlayerStatus;
     public volatile long mVisibleTimeParam;
+    public boolean mXiaomiAppStoreDetailViewOpen;
     public boolean needHide;
     public NewsInfo newsInfo;
+    public PhotoAd photoAd;
     public PhotoInfo photoInfo;
     public long posId;
     public int positionShow;
@@ -87,12 +94,14 @@ public class AdTemplate extends com.kwad.sdk.core.response.a.a implements Serial
         }
         this.adInfoList = new ArrayList();
         this.photoInfo = new PhotoInfo();
+        this.photoAd = new PhotoAd();
         this.newsInfo = new NewsInfo();
         this.aggregatePageEntranceInfo = new AggregatePageEntranceInfo();
         this.mLiveInfo = new LiveInfo();
         this.positionShow = -1;
         this.serverPosition = -1;
         this.mIsFromContent = false;
+        this.isDrawAdHasLook = false;
         this.mUniqueId = "";
         this.mMiniWindowId = null;
         this.mHasSelected = false;
@@ -105,10 +114,15 @@ public class AdTemplate extends com.kwad.sdk.core.response.a.a implements Serial
         this.mVisibleTimeParam = -1L;
         this.mIsLeftSlipStatus = 0;
         this.interactLandingPageShowing = false;
+        this.mAdWebVideoPageShowing = false;
+        this.mRewardVerifyCalled = false;
+        this.mCheatingFlow = false;
+        this.mXiaomiAppStoreDetailViewOpen = false;
+        this.isWebViewDownload = false;
         this.mLocalParams = new HashMap();
     }
 
-    @Override // com.kwad.sdk.core.response.a.a
+    @Override // com.kwad.sdk.core.response.kwai.a
     public void afterParseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -182,16 +196,24 @@ public class AdTemplate extends com.kwad.sdk.core.response.a.a implements Serial
         return invokeLL.objValue;
     }
 
+    public void setCheatingFlow(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || this.mCheatingFlow) {
+            return;
+        }
+        this.mCheatingFlow = z;
+    }
+
     public void setServerPosition(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i2) == null) && this.serverPosition == -1) {
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && this.serverPosition == -1) {
             this.serverPosition = i2;
         }
     }
 
     public void setShowPosition(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             this.positionShow = i2;
         }
     }

@@ -1,14 +1,12 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.content.Context;
-import b.a.r0.u.a.i.b;
-import b.a.r0.u.a.i.c;
+import c.a.r0.y.a.h.b;
+import c.a.r0.y.a.h.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -18,12 +16,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SplashStaticHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class SplashStaticHttpResponse extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,8 +88,8 @@ public class SplashStaticHttpRequest extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
             SplashStaticHttpRequest splashStaticHttpRequest = new SplashStaticHttpRequest();
-            splashStaticHttpRequest.addParam(XAdRemoteAPKDownloadExtraInfo.PLACE_ID, str);
-            splashStaticHttpRequest.addParam("text", PrefetchEvent.STATE_CLICK);
+            splashStaticHttpRequest.addParam("placeId", str);
+            splashStaticHttpRequest.addParam("text", "click");
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, "http://5v.baidu.com/statistics/tj.gif");
             tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);

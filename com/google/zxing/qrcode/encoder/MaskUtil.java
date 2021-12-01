@@ -1,13 +1,12 @@
 package com.google.zxing.qrcode.encoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class MaskUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int N1 = 3;
@@ -124,7 +123,7 @@ public final class MaskUtil {
     public static int applyMaskPenaltyRule4(ByteMatrix byteMatrix) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, byteMatrix)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteMatrix)) == null) {
             byte[][] array = byteMatrix.getArray();
             int width = byteMatrix.getWidth();
             int height = byteMatrix.getHeight();
@@ -149,7 +148,7 @@ public final class MaskUtil {
         int i5;
         int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i2, i3, i4)) == null) {
             switch (i2) {
                 case 0:
                     i4 += i3;

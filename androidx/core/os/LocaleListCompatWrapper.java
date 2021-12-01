@@ -8,7 +8,6 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.statistics.h;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -48,7 +47,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
             }
         }
         sEmptyList = new Locale[0];
-        LOCALE_EN_XA = new Locale(h.f38333a, "XA");
+        LOCALE_EN_XA = new Locale(h.a, "XA");
         LOCALE_AR_XB = new Locale("ar", "XB");
         EN_LATN = LocaleListCompat.forLanguageTagCompat("en-Latn");
     }
@@ -175,7 +174,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     public static String getLikelyScript(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, locale)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, locale)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 String script = locale.getScript();
                 if (!script.isEmpty()) {
@@ -190,7 +189,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     public static boolean isPseudoLocale(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, locale)) == null) ? LOCALE_EN_XA.equals(locale) || LOCALE_AR_XB.equals(locale) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, locale)) == null) ? LOCALE_EN_XA.equals(locale) || LOCALE_AR_XB.equals(locale) : invokeL.booleanValue;
     }
 
     @IntRange(from = 0, to = 1)

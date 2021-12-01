@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
-import b.a.e.f.p.k;
-import b.a.e.m.e.n;
+import c.a.d.f.p.k;
+import c.a.d.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 9;
@@ -72,7 +72,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mList : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, b.a.e.m.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
@@ -17,19 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AgreeView.d v;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements AgreeView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ThreadCardBottomOpSegmentLayout f46244a;
+        public final /* synthetic */ ThreadCardBottomOpSegmentLayout a;
 
         public a(ThreadCardBottomOpSegmentLayout threadCardBottomOpSegmentLayout) {
             Interceptable interceptable = $ic;
@@ -46,14 +44,14 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                     return;
                 }
             }
-            this.f46244a = threadCardBottomOpSegmentLayout;
+            this.a = threadCardBottomOpSegmentLayout;
         }
 
         @Override // com.baidu.tbadk.core.view.AgreeView.d
         public void a(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                this.f46244a.x(this.f46244a.D(), z);
+                this.a.x(this.a.C(), z);
             }
         }
     }
@@ -107,7 +105,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         return invokeZ.booleanValue;
     }
 
-    public final boolean D() {
+    public final boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData != null : invokeV.booleanValue;
@@ -134,7 +132,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     public void onDataAfterLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            x(D(), this.mAgreeView.isAgreeAlone());
+            x(C(), this.mAgreeView.isAgreeAlone());
         }
     }
 
@@ -144,10 +142,10 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.updateLayout();
             this.mAgreeView.setVisibilityListener(this.v);
-            boolean D = D();
-            if (B(D) || A(D)) {
-                this.mAgreeView.adjustLayoutForWeight(D);
-                y(D());
+            boolean C = C();
+            if (B(C) || A(C)) {
+                this.mAgreeView.adjustLayoutForWeight(C);
+                y(C());
             }
         }
     }
@@ -164,7 +162,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 }
                 layoutParams.width = -2;
                 layoutParams.weight = 0.0f;
-                layoutParams.leftMargin = l.g(this.mContext, R.dimen.tbds50);
+                layoutParams.leftMargin = l.f(this.mContext, R.dimen.tbds50);
                 layoutParams.rightMargin = 0;
                 this.mAgreeView.setLayoutParams(layoutParams);
                 return;
@@ -188,7 +186,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 z(0, -1, 0, 1.0f, true, this.mAgreeView.isAgreeAlone());
                 return;
             }
-            z(-2, -1, l.g(getContext(), R.dimen.tbds78), 0.0f, false, this.mAgreeView.isAgreeAlone());
+            z(-2, -1, l.f(getContext(), R.dimen.tbds78), 0.0f, false, this.mAgreeView.isAgreeAlone());
         }
     }
 

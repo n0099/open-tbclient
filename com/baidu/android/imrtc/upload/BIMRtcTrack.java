@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BIMRtcTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imrtc.upload.BIMRtcTrack$2  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$imsdk$upload$action$pb$IMPushPb$ActionType;
         public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class BIMRtcTrack {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class RequestBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int REQUEST_BIM_RTC = 501210;
@@ -81,11 +81,11 @@ public class BIMRtcTrack {
             request.aliasId = -1L;
         }
 
-        public RequestBuilder aliasId(long j) {
+        public RequestBuilder aliasId(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                this.request.aliasId = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+                this.request.aliasId = j2;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
@@ -98,11 +98,11 @@ public class BIMRtcTrack {
             }
         }
 
-        public RequestBuilder errorCode(long j) {
+        public RequestBuilder errorCode(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                this.request.errorCode = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+                this.request.errorCode = j2;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
@@ -138,21 +138,21 @@ public class BIMRtcTrack {
             return (RequestBuilder) invokeL.objValue;
         }
 
-        public RequestBuilder requestTime(long j) {
+        public RequestBuilder requestTime(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-                this.request.timestamp = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
+                this.request.timestamp = j2;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;
         }
 
-        public RequestBuilder responseTime(long j) {
+        public RequestBuilder responseTime(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-                this.request.responseTime = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
+                this.request.responseTime = j2;
                 return this;
             }
             return (RequestBuilder) invokeJ.objValue;

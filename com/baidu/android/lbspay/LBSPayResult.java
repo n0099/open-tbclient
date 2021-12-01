@@ -20,7 +20,7 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LBSPayResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ACTION_EXIT = "com.baidu.android.lbspay.EXIT";

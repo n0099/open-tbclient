@@ -9,14 +9,13 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.k.a;
-import b.a.e.k.d;
-import b.a.e.k.e;
+import c.a.d.f.k.a;
+import c.a.d.k.d;
+import c.a.d.k.e;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
@@ -31,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARROW = "skin_arrow";
@@ -55,14 +54,14 @@ public class ViewHelper {
     public static int mSkin_1_common_color = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ShareCallback {
         void finishProgressForSharing();
 
         void startProgressForSharing();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ViewCallback {
         boolean onViewFound(View view);
     }
@@ -133,7 +132,7 @@ public class ViewHelper {
     public static boolean checkUpIsLoginFromH5(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) {
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (!isLogin) {
                 skipToLoginActivityFromH5(context, str, str2);
@@ -386,10 +385,10 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65558, null, context) == null) || context == null) {
             return;
         }
-        b.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libbd_pass_face_sdk.so"))) {
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(e.f2362a);
+            requestParams.setRunType(e.a);
             requestParams.setRunNode("aps");
             requestParams.addChannel(new d("com.baidu.tieba.soloader.libbdface", (DefaultDownloadCallback) null));
             PmsManager.getInstance().execute(requestParams);
@@ -402,7 +401,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLL(65559, null, context, str, str2) == null) || context == null) {
             return;
         }
-        b.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
@@ -412,7 +411,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65560, null, context) == null) || context == null) {
             return;
         }
-        b.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        c.a.q0.s.a0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 
@@ -440,7 +439,7 @@ public class ViewHelper {
     public static boolean checkUpIsLoginFromH5(LoginActivityConfig loginActivityConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, loginActivityConfig)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, loginActivityConfig)) == null) {
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (!isLogin) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));

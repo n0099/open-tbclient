@@ -13,7 +13,7 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.converter.AbstractMessageConverter;
 import org.springframework.util.MimeType;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MappingFastJsonMessageConverter extends AbstractMessageConverter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

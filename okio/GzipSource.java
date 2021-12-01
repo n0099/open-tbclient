@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.w0;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
@@ -72,7 +73,7 @@ public final class GzipSource implements Source {
             if (z) {
                 updateCrc(this.source.buffer(), 0L, 10L);
             }
-            checkEqual("ID1ID2", 8075, this.source.readShort());
+            checkEqual("ID1ID2", w0.y5, this.source.readShort());
             this.source.skip(8L);
             if (((b2 >> 2) & 1) == 1) {
                 this.source.require(2L);
@@ -123,26 +124,26 @@ public final class GzipSource implements Source {
         }
     }
 
-    private void updateCrc(Buffer buffer, long j, long j2) {
+    private void updateCrc(Buffer buffer, long j2, long j3) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{buffer, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{buffer, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             Segment segment = buffer.head;
             while (true) {
                 int i3 = segment.limit;
                 int i4 = segment.pos;
-                if (j < i3 - i4) {
+                if (j2 < i3 - i4) {
                     break;
                 }
-                j -= i3 - i4;
+                j2 -= i3 - i4;
                 segment = segment.next;
             }
-            while (j2 > 0) {
-                int min = (int) Math.min(segment.limit - i2, j2);
-                this.crc.update(segment.data, (int) (segment.pos + j), min);
-                j2 -= min;
+            while (j3 > 0) {
+                int min = (int) Math.min(segment.limit - i2, j3);
+                this.crc.update(segment.data, (int) (segment.pos + j2), min);
+                j3 -= min;
                 segment = segment.next;
-                j = 0;
+                j2 = 0;
             }
         }
     }
@@ -156,13 +157,13 @@ public final class GzipSource implements Source {
     }
 
     @Override // okio.Source
-    public long read(Buffer buffer, long j) throws IOException {
+    public long read(Buffer buffer, long j2) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
-            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
-                throw new IllegalArgumentException("byteCount < 0: " + j);
+                throw new IllegalArgumentException("byteCount < 0: " + j2);
             } else if (i2 == 0) {
                 return 0L;
             } else {
@@ -171,10 +172,10 @@ public final class GzipSource implements Source {
                     this.section = 1;
                 }
                 if (this.section == 1) {
-                    long j2 = buffer.size;
-                    long read = this.inflaterSource.read(buffer, j);
+                    long j3 = buffer.size;
+                    long read = this.inflaterSource.read(buffer, j2);
                     if (read != -1) {
-                        updateCrc(buffer, j2, read);
+                        updateCrc(buffer, j3, read);
                         return read;
                     }
                     this.section = 2;

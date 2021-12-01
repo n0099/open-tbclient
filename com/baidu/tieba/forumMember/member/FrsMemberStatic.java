@@ -1,17 +1,17 @@
 package com.baidu.tieba.forumMember.member;
 
-import b.a.r0.v0.b.c;
-import b.a.r0.v0.b.d;
-import b.a.r0.v0.c.f;
-import b.a.r0.v0.c.g;
-import b.a.r0.v0.c.h;
-import b.a.r0.v0.c.i;
-import b.a.r0.v0.c.j;
-import b.a.r0.v0.c.k;
-import b.a.r0.v0.c.l;
-import b.a.r0.x0.f0;
-import b.a.r0.x0.g0;
-import b.a.r0.x0.n;
+import c.a.r0.b1.b.c;
+import c.a.r0.b1.b.d;
+import c.a.r0.b1.c.f;
+import c.a.r0.b1.c.g;
+import c.a.r0.b1.c.h;
+import c.a.r0.b1.c.i;
+import c.a.r0.b1.c.j;
+import c.a.r0.b1.c.k;
+import c.a.r0.b1.c.l;
+import c.a.r0.d1.f0;
+import c.a.r0.d1.g0;
+import c.a.r0.d1.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FrsMemberStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,17 +61,17 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new g(null, h.f25739h));
-                absDelegateAdapterList.add(new i(null, j.f25744g));
-                absDelegateAdapterList.add(new f(null, n.f27580g));
-                absDelegateAdapterList.add(new b.a.r0.v0.b.a(null, b.a.r0.v0.b.b.f25715f));
-                absDelegateAdapterList.add(new c(null, d.k));
-                absDelegateAdapterList.add(new k(null, l.f25748i));
+                absDelegateAdapterList.add(new g(null, h.f14729h));
+                absDelegateAdapterList.add(new i(null, j.f14734g));
+                absDelegateAdapterList.add(new f(null, n.f15726g));
+                absDelegateAdapterList.add(new c.a.r0.b1.b.a(null, c.a.r0.b1.b.b.f14707f));
+                absDelegateAdapterList.add(new c(null, d.f14710k));
+                absDelegateAdapterList.add(new k(null, l.f14738i));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,8 +102,8 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
-                b.a.r0.v0.c.d dVar = new b.a.r0.v0.c.d();
-                dVar.E(f0Var.f27282e);
+                c.a.r0.b1.c.d dVar = new c.a.r0.b1.c.d();
+                dVar.E(f0Var.f15469e);
                 f0Var.a(3, dVar);
             }
         }

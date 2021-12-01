@@ -3,7 +3,6 @@ package com.idlefish.flutterboost;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.FlutterAttachSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,6 @@ public class ContainerRecord implements IContainerRecord {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final IFlutterViewContainer mContainer;
-    public final long mCreatTime;
     public final FlutterViewContainerManager mManager;
     public MethodChannelProxy mProxy;
     public int mState;
@@ -48,7 +46,7 @@ public class ContainerRecord implements IContainerRecord {
         }
         this.mState = 0;
         this.mProxy = new MethodChannelProxy(this, null);
-        Map<String, Object> containerUrlParams = iFlutterViewContainer.getContainerUrlParams();
+        Map containerUrlParams = iFlutterViewContainer.getContainerUrlParams();
         if (containerUrlParams != null && containerUrlParams.containsKey("__container_uniqueId_key__")) {
             this.mUniqueId = String.valueOf(containerUrlParams.get("__container_uniqueId_key__"));
         } else {
@@ -56,7 +54,6 @@ public class ContainerRecord implements IContainerRecord {
         }
         this.mManager = flutterViewContainerManager;
         this.mContainer = iFlutterViewContainer;
-        this.mCreatTime = System.currentTimeMillis();
     }
 
     public static String genUniqueId(Object obj) {
@@ -69,24 +66,28 @@ public class ContainerRecord implements IContainerRecord {
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IContainerRecord
-    public long creatTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCreatTime : invokeV.longValue;
-    }
-
-    @Override // com.idlefish.flutterboost.interfaces.IContainerRecord
     public IFlutterViewContainer getContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mContainer : (IFlutterViewContainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mContainer : (IFlutterViewContainer) invokeV.objValue;
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IContainerRecord
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mState : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mState : invokeV.intValue;
+    }
+
+    @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
+    public boolean isLocked() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            IContainerRecord currentTopRecord = this.mManager.getCurrentTopRecord();
+            return (currentTopRecord == this || currentTopRecord == null) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
@@ -102,21 +103,14 @@ public class ContainerRecord implements IContainerRecord {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Utils.assertCallOnMainThread();
             int i2 = this.mState;
+            if (i2 == 2) {
+                return;
+            }
             if (i2 != 1 && i2 != 3) {
                 Debuger.exception("state error");
             }
             this.mState = 2;
             this.mManager.pushRecord(this);
-            if (FlutterAttachSwitch.isOn()) {
-                IContainerRecord peekShowRecord = this.mManager.peekShowRecord();
-                if (peekShowRecord != null && this != peekShowRecord && peekShowRecord.getContainer().getBoostFlutterView().isAttachedToFlutterEngine()) {
-                    peekShowRecord.getContainer().getBoostFlutterView().onDetach();
-                }
-                if (this != peekShowRecord) {
-                    this.mManager.pushShowRecord(this);
-                }
-                this.mManager.logShowRecord();
-            }
             this.mProxy.appear();
             this.mContainer.getBoostFlutterView().onAttach();
         }
@@ -135,10 +129,7 @@ public class ContainerRecord implements IContainerRecord {
             hashMap.put("type", "backPressedCallback");
             hashMap.put("name", this.mContainer.getContainerUrl());
             hashMap.put("uniqueId", this.mUniqueId);
-            FlutterBoostPlugin channel = FlutterBoost.instance().channel();
-            if (channel != null) {
-                channel.sendEvent("lifecycle", hashMap);
-            }
+            FlutterBoost.instance().channel().sendEvent("lifecycle", hashMap);
         }
     }
 
@@ -174,19 +165,6 @@ public class ContainerRecord implements IContainerRecord {
             }
             this.mState = 4;
             this.mProxy.destroy();
-            if (FlutterAttachSwitch.isOn()) {
-                this.mContainer.getBoostFlutterView().onDetach();
-                if (this == this.mManager.peekShowRecord()) {
-                    this.mManager.popShowRecord();
-                } else {
-                    this.mManager.removeShowRecord(this);
-                }
-                IContainerRecord peekShowRecord = this.mManager.peekShowRecord();
-                if (peekShowRecord != null && !peekShowRecord.getContainer().getBoostFlutterView().isAttachedToFlutterEngine()) {
-                    peekShowRecord.getContainer().getBoostFlutterView().onAttach();
-                }
-                this.mManager.logShowRecord();
-            }
             this.mManager.removeRecord(this);
             this.mManager.setContainerResult(this, -1, -1, null);
             this.mManager.hasContainerAppear();
@@ -206,9 +184,7 @@ public class ContainerRecord implements IContainerRecord {
             if (getContainer().getContextActivity().isFinishing()) {
                 this.mProxy.destroy();
             }
-            if (!FlutterAttachSwitch.isOn()) {
-                this.mContainer.getBoostFlutterView().onDetach();
-            }
+            this.mContainer.getBoostFlutterView().onDetach();
             this.mManager.popRecord(this);
         }
     }
@@ -315,10 +291,7 @@ public class ContainerRecord implements IContainerRecord {
                 hashMap.put("pageName", str2);
                 hashMap.put("params", map);
                 hashMap.put("uniqueId", str3);
-                FlutterBoostPlugin channel = FlutterBoost.instance().channel();
-                if (channel != null) {
-                    channel.invokeMethod(str, hashMap);
-                }
+                FlutterBoost.instance().channel().invokeMethod(str, hashMap);
             }
         }
 
@@ -329,10 +302,7 @@ public class ContainerRecord implements IContainerRecord {
                 hashMap.put("pageName", str2);
                 hashMap.put("params", map);
                 hashMap.put("uniqueId", str3);
-                FlutterBoostPlugin channel = FlutterBoost.instance().channel();
-                if (channel != null) {
-                    channel.invokeMethodUnsafe(str, hashMap);
-                }
+                FlutterBoost.instance().channel().invokeMethodUnsafe(str, hashMap);
             }
         }
 

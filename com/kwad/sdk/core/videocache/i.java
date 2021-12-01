@@ -18,19 +18,17 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class i extends ProxySelector {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final List<Proxy> f66096a;
+    public static final List<Proxy> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ProxySelector f66097b;
+    public final ProxySelector f57921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f66098c;
+    public final String f57922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f66099d;
+    public final int f57923d;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +43,7 @@ public class i extends ProxySelector {
                 return;
             }
         }
-        f66096a = Arrays.asList(Proxy.NO_PROXY);
+        a = Arrays.asList(Proxy.NO_PROXY);
     }
 
     public i(ProxySelector proxySelector, String str, int i2) {
@@ -63,9 +61,9 @@ public class i extends ProxySelector {
                 return;
             }
         }
-        this.f66097b = (ProxySelector) j.a(proxySelector);
-        this.f66098c = (String) j.a(str);
-        this.f66099d = i2;
+        this.f57921b = (ProxySelector) j.a(proxySelector);
+        this.f57922c = (String) j.a(str);
+        this.f57923d = i2;
     }
 
     public static void a(String str, int i2) {
@@ -79,7 +77,7 @@ public class i extends ProxySelector {
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
-            this.f66097b.connectFailed(uri, socketAddress, iOException);
+            this.f57921b.connectFailed(uri, socketAddress, iOException);
         }
     }
 
@@ -88,7 +86,7 @@ public class i extends ProxySelector {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            return this.f66098c.equals(uri.getHost()) && this.f66099d == uri.getPort() ? f66096a : this.f66097b.select(uri);
+            return this.f57922c.equals(uri.getHost()) && this.f57923d == uri.getPort() ? a : this.f57921b.select(uri);
         }
         return (List) invokeL.objValue;
     }

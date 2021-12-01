@@ -19,13 +19,11 @@ import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class b extends BaseBean<GetJumpUrlResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f60470a;
+    public String a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -50,7 +48,7 @@ public class b extends BaseBean<GetJumpUrlResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f60470a = str;
+            this.a = str;
         }
     }
 
@@ -87,8 +85,8 @@ public class b extends BaseBean<GetJumpUrlResponse> {
             if (!TextUtils.isEmpty(sessionId)) {
                 arrayList.add(new RestNameValuePair("session_id", sessionId));
             }
-            if (!TextUtils.isEmpty(this.f60470a)) {
-                arrayList.add(new RestNameValuePair("selected_card_no", this.f60470a));
+            if (!TextUtils.isEmpty(this.a)) {
+                arrayList.add(new RestNameValuePair("selected_card_no", this.a));
             }
             if (!TextUtils.isEmpty(str2)) {
                 arrayList.add(new RestNameValuePair("serial_num", str2));

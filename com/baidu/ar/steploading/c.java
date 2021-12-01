@@ -9,14 +9,14 @@ import com.baidu.ar.h.t;
 import com.baidu.ar.ihttp.Downloader;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IProgressCallback;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class c extends com.baidu.ar.e.a<String, Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class c extends com.baidu.ar.e.a<String, Void> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, fVar)) == null) {
             String parent = new File(this.xx.caseDir).getParent();
-            if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(fVar.xM)) {
+            if ("gzip".equalsIgnoreCase(fVar.xM)) {
                 str = String.format("/temp/%s.zip", fVar.xL);
                 sb = new StringBuilder();
                 sb.append(parent);
@@ -77,7 +77,7 @@ public class c extends com.baidu.ar.e.a<String, Void> {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, this, str, fVar, i2)) == null) {
             File file = new File(str);
             if (file.exists() && file.length() == i2) {
-                if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(fVar.xM)) {
+                if ("gzip".equalsIgnoreCase(fVar.xM)) {
                     return t.a(new File(str), new File(this.xx.caseDir).getParentFile());
                 }
                 return true;
@@ -94,7 +94,7 @@ public class c extends com.baidu.ar.e.a<String, Void> {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, iCallbackWith, iError) == null) {
             if (TextUtils.isEmpty(str)) {
                 iError.onError(2, "res url is not exists", null);
-            } else if ("local".equals(str)) {
+            } else if (MainTabActivity.TAB_CODE_LOCAL.equals(str)) {
                 iCallbackWith.run(null);
             } else {
                 f aN = this.xz.aN(this.xy);
@@ -102,18 +102,18 @@ public class c extends com.baidu.ar.e.a<String, Void> {
                     iError.onError(2, "res is not exists", null);
                     return;
                 }
-                String a2 = a(aN);
-                if (a2 == null) {
+                String a = a(aN);
+                if (a == null) {
                     iError.onError(2, "未知的资源encoding", null);
                     return;
                 }
                 Downloader downloader = new Downloader(str);
                 try {
                     int fileSize = downloader.getFileSize();
-                    if (!a(a2, aN, fileSize)) {
+                    if (!a(a, aN, fileSize)) {
                         try {
-                            downloader.download(a2, this.qN);
-                            if (!a(a2, aN, fileSize)) {
+                            downloader.download(a, this.qN);
+                            if (!a(a, aN, fileSize)) {
                                 iError.onError(2, "download fail", null);
                                 return;
                             }

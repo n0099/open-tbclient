@@ -19,15 +19,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final c f62370a;
+    public static final c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +69,8 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
                 Object b2 = b(context);
-                Object a2 = a(b2, "mWhiteList");
-                if (!(a2 instanceof String[])) {
+                Object a = a(b2, "mWhiteList");
+                if (!(a instanceof String[])) {
                     if (b2 != null) {
                         FieldUtils.writeField(b2, "mResourceConfig", (Object) null);
                         return false;
@@ -81,7 +79,7 @@ public final class b {
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(context.getPackageName());
-                Collections.addAll(arrayList, (String[]) a2);
+                Collections.addAll(arrayList, (String[]) a);
                 FieldUtils.writeField(b2, "mWhiteList", arrayList.toArray(new String[arrayList.size()]));
                 return true;
             }
@@ -116,13 +114,13 @@ public final class b {
     }
 
     /* renamed from: com.bytedance.pangle.receiver.b$b  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static class C1885b extends e {
+    /* loaded from: classes12.dex */
+    public static class C1957b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1885b() {
+        public C1957b() {
             super((byte) 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -149,17 +147,17 @@ public final class b {
             return invokeL.booleanValue;
         }
 
-        public /* synthetic */ C1885b(byte b2) {
+        public /* synthetic */ C1957b(byte b2) {
             this();
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface c {
         boolean a(Context context);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class d extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,9 +185,9 @@ public final class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Object a2 = a.a(context, "mWhiteList");
-                if (a2 instanceof List) {
-                    ((List) a2).add(context.getPackageName());
+                Object a = a.a(context, "mWhiteList");
+                if (a instanceof List) {
+                    ((List) a).add(context.getPackageName());
                     return true;
                 }
                 return false;
@@ -202,7 +200,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class e extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -230,9 +228,9 @@ public final class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Object a2 = a.a(context, "mWhiteListMap");
-                if (a2 instanceof Map) {
-                    Map map = (Map) a2;
+                Object a = a.a(context, "mWhiteListMap");
+                if (a instanceof Map) {
+                    Map map = (Map) a;
                     List list = (List) map.get(0);
                     if (list == null) {
                         list = new ArrayList();
@@ -266,13 +264,13 @@ public final class b {
         }
         int i2 = Build.VERSION.SDK_INT;
         if (i2 < 24) {
-            f62370a = new a((byte) 0);
+            a = new a((byte) 0);
         } else if (i2 < 26) {
-            f62370a = new d((byte) 0);
+            a = new d((byte) 0);
         } else if (i2 < 28) {
-            f62370a = new e((byte) 0);
+            a = new e((byte) 0);
         } else {
-            f62370a = new C1885b((byte) 0);
+            a = new C1957b((byte) 0);
         }
     }
 
@@ -283,7 +281,7 @@ public final class b {
         }
         try {
             if (TextUtils.equals(Build.BRAND.toLowerCase(), RomUtils.MANUFACTURER_HUAWEI)) {
-                f62370a.a(application.getBaseContext());
+                a.a(application.getBaseContext());
             }
         } catch (Throwable unused) {
         }

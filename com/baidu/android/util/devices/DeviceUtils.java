@@ -14,9 +14,6 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.IDevices;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,12 +31,12 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DeviceUtils implements IDevices {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -112,7 +109,7 @@ public class DeviceUtils implements IDevices {
                         RandomAccessFile randomAccessFile2 = null;
                         try {
                             try {
-                                randomAccessFile = new RandomAccessFile(file, r.f41000a);
+                                randomAccessFile = new RandomAccessFile(file, "r");
                             } catch (Throwable th) {
                                 th = th;
                             }
@@ -227,7 +224,7 @@ public class DeviceUtils implements IDevices {
         public static String[] getSupportedABIs() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
                 if (Build.VERSION.SDK_INT >= 21) {
                     return Build.SUPPORTED_ABIS;
                 }
@@ -241,7 +238,7 @@ public class DeviceUtils implements IDevices {
         public static CPUInfo getSystemCPUInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
                 CPUInfo cPUInfo = systemCPUInfo;
                 if (cPUInfo != null) {
                     return cPUInfo;
@@ -334,7 +331,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class OSInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,7 +361,7 @@ public class DeviceUtils implements IDevices {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
                 String str = Build.VERSION.RELEASE;
-                return TextUtils.isEmpty(str) ? XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT : str.replace("_", "-");
+                return TextUtils.isEmpty(str) ? "0.0" : str.replace("_", "-");
             }
             return (String) invokeV.objValue;
         }
@@ -386,14 +383,14 @@ public class DeviceUtils implements IDevices {
         public static boolean hasGingerbread() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Build.VERSION.SDK_INT >= 9 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.VERSION.SDK_INT >= 9 : invokeV.booleanValue;
         }
 
         @SuppressLint({"ObsoleteSdkInt"})
         public static boolean hasHoneycomb() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? Build.VERSION.SDK_INT >= 11 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.VERSION.SDK_INT >= 11 : invokeV.booleanValue;
         }
 
         @SuppressLint({"ObsoleteSdkInt"})
@@ -522,7 +519,7 @@ public class DeviceUtils implements IDevices {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
@@ -594,7 +591,7 @@ public class DeviceUtils implements IDevices {
         public static int getDensityDpi(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
                 initDisplayMetrics(context);
                 DisplayMetrics displayMetrics = sDisplayMetrics;
                 if (displayMetrics != null) {
@@ -608,7 +605,7 @@ public class DeviceUtils implements IDevices {
         public static int getDisplayHeight(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
                 DisplayMetrics displayMetrics = getDisplayMetrics(context);
                 if (displayMetrics != null) {
                     return displayMetrics.heightPixels;

@@ -11,7 +11,7 @@ import android.opengl.EGLSurface;
 import android.os.Build;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.c;
+import c.a.x0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import org.webrtc.EglBase10;
 @TargetApi(18)
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class EglCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_RECORDABLE_ANDROID = 12610;
@@ -212,10 +212,10 @@ public final class EglCore {
         }
     }
 
-    public void setPresentationTime(EGLSurface eGLSurface, long j) {
+    public void setPresentationTime(EGLSurface eGLSurface, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048588, this, eGLSurface, j) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.mEGLDisplay, eGLSurface, j);
+        if (interceptable == null || interceptable.invokeLJ(1048588, this, eGLSurface, j2) == null) {
+            EGLExt.eglPresentationTimeANDROID(this.mEGLDisplay, eGLSurface, j2);
         }
     }
 

@@ -28,7 +28,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractChannelPay implements IChannelPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

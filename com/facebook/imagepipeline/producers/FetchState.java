@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.common.BytesRange;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FetchState {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,10 +110,10 @@ public class FetchState {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mContext.getImageRequest().getSourceUri() : (Uri) invokeV.objValue;
     }
 
-    public void setLastIntermediateResultTimeMs(long j) {
+    public void setLastIntermediateResultTimeMs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.mLastIntermediateResultTimeMs = j;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.mLastIntermediateResultTimeMs = j2;
         }
     }
 

@@ -1,7 +1,6 @@
 package com.qq.e.comm.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,13 +51,13 @@ public class GDTLogger {
 
     public static void w(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
         }
     }
 
     public static void w(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
         }
     }
 }

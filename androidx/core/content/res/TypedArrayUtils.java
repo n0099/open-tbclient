@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleableRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,14 +78,14 @@ public class TypedArrayUtils {
     public static boolean getNamedBoolean(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? !hasAttribute(xmlPullParser, str) ? z : typedArray.getBoolean(i2, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? !hasAttribute(xmlPullParser, str) ? z : typedArray.getBoolean(i2, z) : invokeCommon.booleanValue;
     }
 
     @ColorInt
     public static int getNamedColor(@NonNull TypedArray typedArray, @NonNull XmlPullParser xmlPullParser, @NonNull String str, @StyleableRes int i2, @ColorInt int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? !hasAttribute(xmlPullParser, str) ? i3 : typedArray.getColor(i2, i3) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{typedArray, xmlPullParser, str, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? !hasAttribute(xmlPullParser, str) ? i3 : typedArray.getColor(i2, i3) : invokeCommon.intValue;
     }
 
     @Nullable

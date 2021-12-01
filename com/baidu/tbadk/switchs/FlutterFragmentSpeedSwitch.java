@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import b.a.q0.b.d;
-import b.a.q0.s.e0.b;
+import c.a.q0.b.d;
+import c.a.q0.s.e0.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FlutterFragmentSpeedSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FLUTTER_FRAGMENT_SPEED_ENABLE = "flutter_fragment_speed_2";
@@ -55,7 +55,7 @@ public class FlutterFragmentSpeedSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                if (d.C()) {
+                if (d.E()) {
                     type = 0;
                 } else {
                     type = b.j().k("key_flutter_fragment_speed", 0);
@@ -66,7 +66,7 @@ public class FlutterFragmentSpeedSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, b.a.e.f.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.d.f.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

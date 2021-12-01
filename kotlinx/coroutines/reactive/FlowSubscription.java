@@ -145,20 +145,20 @@ public final class FlowSubscription<T> extends AbstractCoroutine<Unit> implement
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
-        long j2;
+    public void request(long j2) {
         long j3;
-        if (j <= 0) {
+        long j4;
+        if (j2 <= 0) {
             return;
         }
         start();
         do {
-            j2 = this.requested;
-            j3 = j2 + j;
-            if (j3 <= 0) {
-                j3 = Long.MAX_VALUE;
+            j3 = this.requested;
+            j4 = j3 + j2;
+            if (j4 <= 0) {
+                j4 = Long.MAX_VALUE;
             }
-        } while (!requested$FU.compareAndSet(this, j2, j3));
+        } while (!requested$FU.compareAndSet(this, j3, j4));
         CancellableContinuation<? super Unit> cancellableContinuation = (CancellableContinuation) producer$FU.getAndSet(this, null);
         if (cancellableContinuation != null) {
             resumeSafely(cancellableContinuation);

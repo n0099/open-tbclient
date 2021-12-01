@@ -24,7 +24,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -267,7 +266,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
 
     private void setActionBarDescription(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
             Delegate delegate = this.mActivityImpl;
             if (delegate != null) {
                 delegate.setActionBarDescription(i2);
@@ -294,7 +293,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
 
     private void setActionBarUpIndicator(Drawable drawable, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, drawable, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65542, this, drawable, i2) == null) {
             Delegate delegate = this.mActivityImpl;
             if (delegate != null) {
                 delegate.setActionBarUpIndicator(drawable, i2);

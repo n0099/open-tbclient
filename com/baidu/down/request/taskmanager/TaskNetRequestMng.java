@@ -15,7 +15,6 @@ import com.baidu.down.utils.DeviceInfoUtils;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.Utils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class TaskNetRequestMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -70,9 +69,9 @@ public final class TaskNetRequestMng {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, 0L);
-            long j2 = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 86400L);
-            if (mIsRequestConfig || Math.abs(j - currentTimeMillis) <= j2 * 1000) {
+            long j2 = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, 0L);
+            long j3 = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 86400L);
+            if (mIsRequestConfig || Math.abs(j2 - currentTimeMillis) <= j3 * 1000) {
                 return;
             }
             mIsRequestConfig = true;
@@ -209,7 +208,7 @@ public final class TaskNetRequestMng {
 
     public static void requestConfigInfo(Context context, HttpURLExecutorRunnable.OnWebRequestListener onWebRequestListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, onWebRequestListener) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, onWebRequestListener) == null) {
             HttpURLExecutorRunnable httpURLExecutorRunnable = new HttpURLExecutorRunnable(context, TextUtils.equals(DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_HOST_TYPE, DownPrefUtils.HOST_TYPE_NAME), DownPrefUtils.HOST_TYPE_IP), IdentityManager.getInstance(context).processCommonParams(com.baidu.down.utils.Constants.CONFIG_URL), null, onWebRequestListener);
             mHttpURLExecutorRunnable = httpURLExecutorRunnable;
             httpURLExecutorRunnable.execute();
@@ -218,7 +217,7 @@ public final class TaskNetRequestMng {
 
     public static void requestRemoteConfig(Context context, String str, String str2, HttpURLExecutorRunnable.OnWebRequestListener onWebRequestListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2, onWebRequestListener) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, context, str, str2, onWebRequestListener) == null) {
             requestRemoteConfig(context, str2, null, null, str, true, null, null, onWebRequestListener);
         }
     }

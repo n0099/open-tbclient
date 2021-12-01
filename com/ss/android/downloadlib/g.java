@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.annotation.MainThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,54 +23,52 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile g f69730a;
+    public static volatile g a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.download.api.a f69731b;
+    public final com.ss.android.download.api.a f61407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f69732c;
+    public final f f61408c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ss.android.downloadad.api.a f69733d;
+    public final com.ss.android.downloadad.api.a f61409d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ss.android.downloadad.api.b f69734e;
+    public com.ss.android.downloadad.api.b f61410e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f69735f;
+    public long f61411f;
 
     /* JADX INFO: Access modifiers changed from: private */
     public f h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? this.f69732c : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.f61408c : (f) invokeV.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f69735f = System.currentTimeMillis();
+            this.f61411f = System.currentTimeMillis();
         }
     }
 
     public com.ss.android.downloadad.api.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f69733d : (com.ss.android.downloadad.api.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f61409d : (com.ss.android.downloadad.api.a) invokeV.objValue;
     }
 
     public com.ss.android.downloadad.api.b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.f69734e == null) {
-                this.f69734e = b.a();
+            if (this.f61410e == null) {
+                this.f61410e = b.a();
             }
-            return this.f69734e;
+            return this.f61410e;
         }
         return (com.ss.android.downloadad.api.b) invokeV.objValue;
     }
@@ -104,26 +101,24 @@ public class g {
                 return;
             }
         }
-        this.f69732c = f.a();
-        this.f69731b = new e();
-        this.f69735f = System.currentTimeMillis();
+        this.f61408c = f.a();
+        this.f61407b = new e();
+        this.f61411f = System.currentTimeMillis();
         b(context);
-        this.f69733d = a.a();
+        this.f61409d = a.a();
     }
 
     public static g a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f69730a == null) {
+            if (a == null) {
                 synchronized (g.class) {
-                    if (f69730a == null) {
+                    if (a == null) {
                         com.ss.android.downloadlib.e.b.a(new Runnable(context) { // from class: com.ss.android.downloadlib.g.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Context f69736a;
+                            public final /* synthetic */ Context a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -140,28 +135,28 @@ public class g {
                                         return;
                                     }
                                 }
-                                this.f69736a = context;
+                                this.a = context;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    g unused = g.f69730a = new g(this.f69736a);
+                                    g unused = g.a = new g(this.a);
                                 }
                             }
                         });
                     }
                 }
             }
-            return f69730a;
+            return a;
         }
         return (g) invokeL.objValue;
     }
 
     private void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
             j.a(context);
             Downloader.getInstance(j.getContext());
             com.ss.android.downloadlib.addownload.b.f.a().b();
@@ -178,7 +173,7 @@ public class g {
     public com.ss.android.download.api.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69731b : (com.ss.android.download.api.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61407b : (com.ss.android.download.api.a) invokeV.objValue;
     }
 
     @MainThread
@@ -188,21 +183,19 @@ public class g {
             com.ss.android.downloadlib.e.b.a(new Runnable(this, context, i2, downloadStatusChangeListener, downloadModel) { // from class: com.ss.android.downloadlib.g.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f69740a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f69741b;
+                public final /* synthetic */ int f61414b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadStatusChangeListener f69742c;
+                public final /* synthetic */ DownloadStatusChangeListener f61415c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DownloadModel f69743d;
+                public final /* synthetic */ DownloadModel f61416d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ g f69744e;
+                public final /* synthetic */ g f61417e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -219,18 +212,18 @@ public class g {
                             return;
                         }
                     }
-                    this.f69744e = this;
-                    this.f69740a = context;
-                    this.f69741b = i2;
-                    this.f69742c = downloadStatusChangeListener;
-                    this.f69743d = downloadModel;
+                    this.f61417e = this;
+                    this.a = context;
+                    this.f61414b = i2;
+                    this.f61415c = downloadStatusChangeListener;
+                    this.f61416d = downloadModel;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f69744e.h().a(this.f69740a, this.f69741b, this.f69742c, this.f69743d);
+                        this.f61417e.h().a(this.a, this.f61414b, this.f61415c, this.f61416d);
                     }
                 }
             });
@@ -238,43 +231,41 @@ public class g {
     }
 
     @MainThread
-    public void a(String str, long j, int i2, DownloadEventConfig downloadEventConfig, DownloadController downloadController, u uVar, IDownloadButtonClickListener iDownloadButtonClickListener) {
+    public void a(String str, long j2, int i2, DownloadEventConfig downloadEventConfig, DownloadController downloadController, u uVar, IDownloadButtonClickListener iDownloadButtonClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i2), downloadEventConfig, downloadController, uVar, iDownloadButtonClickListener}) == null) {
-            com.ss.android.downloadlib.e.b.a(new Runnable(this, str, j, i2, downloadEventConfig, downloadController, uVar, iDownloadButtonClickListener) { // from class: com.ss.android.downloadlib.g.4
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), downloadEventConfig, downloadController, uVar, iDownloadButtonClickListener}) == null) {
+            com.ss.android.downloadlib.e.b.a(new Runnable(this, str, j2, i2, downloadEventConfig, downloadController, uVar, iDownloadButtonClickListener) { // from class: com.ss.android.downloadlib.g.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f69745a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f69746b;
+                public final /* synthetic */ long f61418b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f69747c;
+                public final /* synthetic */ int f61419c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DownloadEventConfig f69748d;
+                public final /* synthetic */ DownloadEventConfig f61420d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadController f69749e;
+                public final /* synthetic */ DownloadController f61421e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ u f69750f;
+                public final /* synthetic */ u f61422f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ IDownloadButtonClickListener f69751g;
+                public final /* synthetic */ IDownloadButtonClickListener f61423g;
 
                 /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ g f69752h;
+                public final /* synthetic */ g f61424h;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Long.valueOf(j), Integer.valueOf(i2), downloadEventConfig, downloadController, uVar, iDownloadButtonClickListener};
+                        Object[] objArr = {this, str, Long.valueOf(j2), Integer.valueOf(i2), downloadEventConfig, downloadController, uVar, iDownloadButtonClickListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -284,21 +275,21 @@ public class g {
                             return;
                         }
                     }
-                    this.f69752h = this;
-                    this.f69745a = str;
-                    this.f69746b = j;
-                    this.f69747c = i2;
-                    this.f69748d = downloadEventConfig;
-                    this.f69749e = downloadController;
-                    this.f69750f = uVar;
-                    this.f69751g = iDownloadButtonClickListener;
+                    this.f61424h = this;
+                    this.a = str;
+                    this.f61418b = j2;
+                    this.f61419c = i2;
+                    this.f61420d = downloadEventConfig;
+                    this.f61421e = downloadController;
+                    this.f61422f = uVar;
+                    this.f61423g = iDownloadButtonClickListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f69752h.h().a(this.f69745a, this.f69746b, this.f69747c, this.f69748d, this.f69749e, this.f69750f, this.f69751g);
+                        this.f61424h.h().a(this.a, this.f61418b, this.f61419c, this.f61420d, this.f61421e, this.f61422f, this.f61423g);
                     }
                 }
             });
@@ -306,37 +297,35 @@ public class g {
     }
 
     @MainThread
-    public void a(String str, long j, int i2, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
+    public void a(String str, long j2, int i2, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i2), downloadEventConfig, downloadController}) == null) {
-            com.ss.android.downloadlib.e.b.a(new Runnable(this, str, j, i2, downloadEventConfig, downloadController) { // from class: com.ss.android.downloadlib.g.5
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), downloadEventConfig, downloadController}) == null) {
+            com.ss.android.downloadlib.e.b.a(new Runnable(this, str, j2, i2, downloadEventConfig, downloadController) { // from class: com.ss.android.downloadlib.g.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f69753a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f69754b;
+                public final /* synthetic */ long f61425b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f69755c;
+                public final /* synthetic */ int f61426c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ DownloadEventConfig f69756d;
+                public final /* synthetic */ DownloadEventConfig f61427d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadController f69757e;
+                public final /* synthetic */ DownloadController f61428e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ g f69758f;
+                public final /* synthetic */ g f61429f;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Long.valueOf(j), Integer.valueOf(i2), downloadEventConfig, downloadController};
+                        Object[] objArr = {this, str, Long.valueOf(j2), Integer.valueOf(i2), downloadEventConfig, downloadController};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -346,19 +335,19 @@ public class g {
                             return;
                         }
                     }
-                    this.f69758f = this;
-                    this.f69753a = str;
-                    this.f69754b = j;
-                    this.f69755c = i2;
-                    this.f69756d = downloadEventConfig;
-                    this.f69757e = downloadController;
+                    this.f61429f = this;
+                    this.a = str;
+                    this.f61425b = j2;
+                    this.f61426c = i2;
+                    this.f61427d = downloadEventConfig;
+                    this.f61428e = downloadController;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f69758f.h().a(this.f69753a, this.f69754b, this.f69755c, this.f69756d, this.f69757e);
+                        this.f61429f.h().a(this.a, this.f61425b, this.f61426c, this.f61427d, this.f61428e);
                     }
                 }
             });
@@ -372,15 +361,13 @@ public class g {
             com.ss.android.downloadlib.e.b.a(new Runnable(this, str, i2) { // from class: com.ss.android.downloadlib.g.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f69759a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f69760b;
+                public final /* synthetic */ int f61430b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ g f69761c;
+                public final /* synthetic */ g f61431c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -397,16 +384,16 @@ public class g {
                             return;
                         }
                     }
-                    this.f69761c = this;
-                    this.f69759a = str;
-                    this.f69760b = i2;
+                    this.f61431c = this;
+                    this.a = str;
+                    this.f61430b = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f69761c.h().a(this.f69759a, this.f69760b);
+                        this.f61431c.h().a(this.a, this.f61430b);
                     }
                 }
             });
@@ -416,7 +403,7 @@ public class g {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f69735f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f61411f : invokeV.longValue;
     }
 
     @MainThread
@@ -426,15 +413,13 @@ public class g {
             com.ss.android.downloadlib.e.b.a(new Runnable(this, str, z) { // from class: com.ss.android.downloadlib.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f69737a;
+                public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f69738b;
+                public final /* synthetic */ boolean f61412b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ g f69739c;
+                public final /* synthetic */ g f61413c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -451,16 +436,16 @@ public class g {
                             return;
                         }
                     }
-                    this.f69739c = this;
-                    this.f69737a = str;
-                    this.f69738b = z;
+                    this.f61413c = this;
+                    this.a = str;
+                    this.f61412b = z;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f69739c.h().a(this.f69737a, this.f69738b);
+                        this.f61413c.h().a(this.a, this.f61412b);
                     }
                 }
             });

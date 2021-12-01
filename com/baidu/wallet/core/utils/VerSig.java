@@ -9,12 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class VerSig {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f58981a = 0;
+    public static final int a = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     public VerSig() {

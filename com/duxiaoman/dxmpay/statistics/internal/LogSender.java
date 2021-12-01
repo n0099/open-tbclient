@@ -7,9 +7,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Base64;
-import b.c.a.a.a.d;
-import b.c.a.a.a.e;
-import b.c.a.a.a.g;
+import c.d.a.a.a.d;
+import c.d.a.a.a.e;
+import c.d.a.a.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,23 +21,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.duxiaoman.dxmpay.statistics.StatApi;
 import com.duxiaoman.dxmpay.statistics.StrategyProcess;
 import java.util.HashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LogSender {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f62922a;
+    public HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f62923b;
+    public Handler f55010b;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static LogSender f62924a;
+        public static LogSender a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,17 +49,15 @@ public class LogSender {
                     return;
                 }
             }
-            f62924a = new LogSender(null);
+            a = new LogSender(null);
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ LogSender f62925a;
+        public final /* synthetic */ LogSender a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(LogSender logSender, Looper looper) {
@@ -83,7 +77,7 @@ public class LogSender {
                     return;
                 }
             }
-            this.f62925a = logSender;
+            this.a = logSender;
         }
 
         @Override // android.os.Handler
@@ -94,11 +88,11 @@ public class LogSender {
             }
             int i2 = message.what;
             if (10000 == i2) {
-                this.f62925a.d((String) message.obj);
-                this.f62925a.f();
+                this.a.d((String) message.obj);
+                this.a.f();
             } else if (10001 == i2) {
-                this.f62925a.d("normal_log");
-                this.f62925a.f();
+                this.a.d("normal_log");
+                this.a.f();
             } else if (10002 == i2) {
                 StrategyProcess.getInstance().loadCachedStrategy(StatApi.getAppContext());
             }
@@ -112,7 +106,7 @@ public class LogSender {
     public static LogSender getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f62924a : (LogSender) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (LogSender) invokeV.objValue;
     }
 
     public void a() {
@@ -121,8 +115,8 @@ public class LogSender {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (appContext = StatApi.getAppContext()) == null) {
             return;
         }
-        g.b(b.c.a.a.a.b.a().e(appContext));
-        this.f62923b.sendEmptyMessage(10002);
+        g.b(c.d.a.a.a.b.a().e(appContext));
+        this.f55010b.sendEmptyMessage(10002);
     }
 
     public final synchronized boolean c(Context context, String str) {
@@ -133,11 +127,11 @@ public class LogSender {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                String b2 = b.c.a.a.a.b.a().b(context);
+                String b2 = c.d.a.a.a.b.a().b(context);
                 if (TextUtils.isEmpty(b2)) {
                     return false;
                 }
-                return b2.equals(b.c.a.a.a.a.e(str.getBytes(), false));
+                return b2.equals(c.d.a.a.a.a.e(str.getBytes(), false));
             }
         }
         return invokeLL.booleanValue;
@@ -148,17 +142,17 @@ public class LogSender {
         Context appContext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (d.a().g() || (appContext = StatApi.getAppContext()) == null || !b.c.a.a.a.a.h(appContext)) {
+            if (d.a().g() || (appContext = StatApi.getAppContext()) == null || !c.d.a.a.a.a.h(appContext)) {
                 return false;
             }
             d.b f2 = d.a().f(str);
-            if (f2.f30964a == 0 || TextUtils.isEmpty(f2.f30965b) || !e(f2.f30965b, null)) {
+            if (f2.a == 0 || TextUtils.isEmpty(f2.f28013b) || !e(f2.f28013b, null)) {
                 return false;
             }
             if (str.equals("normal_log")) {
-                b.c.a.a.a.b.a().d(appContext, b.c.a.a.a.a.e(f2.f30965b.getBytes(), false));
+                c.d.a.a.a.b.a().d(appContext, c.d.a.a.a.a.e(f2.f28013b.getBytes(), false));
             }
-            e.a().b(str, f2.f30964a);
+            e.a().b(str, f2.a);
             return true;
         }
         return invokeL.booleanValue;
@@ -180,7 +174,7 @@ public class LogSender {
                     String uploadUrl = settings.getUploadUrl();
                     String encodeToString = Base64.encodeToString(f.b(str3, settings.getCommonEvent(), settings.getDistinctId(), settings.getDistinctIdKey(), settings.isLogin(), settings.getProductName(), settings.getSDKVersion(), settings.getChannelId(), settings.getAppVersionName(), settings.getAppVersionCode()).getBytes(), 2);
                     HashMap hashMap = new HashMap();
-                    hashMap.put("sign", b.c.a.a.a.a.e((encodeToString + "(null)").getBytes("GBK"), false));
+                    hashMap.put("sign", c.d.a.a.a.a.e((encodeToString + "(null)").getBytes("GBK"), false));
                     hashMap.put("data", encodeToString);
                     if (!TextUtils.isEmpty(str2)) {
                         hashMap.put("mk", str2);
@@ -201,12 +195,12 @@ public class LogSender {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (appContext = StatApi.getAppContext()) == null) {
             return;
         }
-        this.f62923b.removeMessages(10001);
+        this.f55010b.removeMessages(10001);
         int i2 = StrategyProcess.getInstance().get3GSendingInterval();
-        if (b.c.a.a.a.a.k(appContext)) {
+        if (c.d.a.a.a.a.k(appContext)) {
             i2 = StrategyProcess.getInstance().getWifiSendingInterval();
         }
-        this.f62923b.sendEmptyMessageDelayed(10001, i2 * 60000);
+        this.f55010b.sendEmptyMessageDelayed(10001, i2 * 60000);
     }
 
     public final boolean g(Context context, String str) {
@@ -225,7 +219,7 @@ public class LogSender {
     public void triggerSending(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f62923b.obtainMessage(10000, str).sendToTarget();
+            this.f55010b.obtainMessage(10000, str).sendToTarget();
         }
     }
 
@@ -243,8 +237,8 @@ public class LogSender {
             }
         }
         HandlerThread handlerThread = new HandlerThread("SensorLogSenderThread");
-        this.f62922a = handlerThread;
+        this.a = handlerThread;
         handlerThread.start();
-        this.f62923b = new b(this, this.f62922a.getLooper());
+        this.f55010b = new b(this, this.a.getLooper());
     }
 }

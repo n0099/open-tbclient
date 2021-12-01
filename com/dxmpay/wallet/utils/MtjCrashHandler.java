@@ -17,12 +17,10 @@ import com.dxmpay.wallet.core.beans.BeanConstants;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MtjCrashHandler {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile AtomicBoolean f63601a;
+    public static volatile AtomicBoolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +36,7 @@ public class MtjCrashHandler {
                 return;
             }
         }
-        f63601a = new AtomicBoolean(false);
+        a = new AtomicBoolean(false);
     }
 
     public MtjCrashHandler() {
@@ -63,7 +61,7 @@ public class MtjCrashHandler {
             linkedList.add("com.baidu.wallet");
             linkedList.add(BuildConfig.APPLICATION_ID);
             linkedList.add("com.baidu.android.pay");
-            linkedList.add(a.f36651b);
+            linkedList.add(a.f32869b);
             linkedList.add("com.baidu.android.minipay");
             linkedList.add(com.baidu.android.lbspay.BuildConfig.LIBRARY_PACKAGE_NAME);
             linkedList.add("com.dxm.face");
@@ -95,7 +93,7 @@ public class MtjCrashHandler {
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && f63601a.compareAndSet(false, true) && b()) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) && a.compareAndSet(false, true) && b()) {
             try {
                 StatService.setDebugOn(false);
                 StatService.setOn(context, 16);

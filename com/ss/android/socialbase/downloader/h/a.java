@@ -11,15 +11,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f70311a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f70312b;
+    public final AtomicInteger f61844b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f70313c;
+    public final boolean f61845c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(String str) {
@@ -47,9 +45,9 @@ public class a implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            int incrementAndGet = this.f70312b.incrementAndGet();
-            Thread thread = new Thread(runnable, this.f70311a + "-" + incrementAndGet);
-            if (!this.f70313c) {
+            int incrementAndGet = this.f61844b.incrementAndGet();
+            Thread thread = new Thread(runnable, this.a + "-" + incrementAndGet);
+            if (!this.f61845c) {
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
@@ -77,8 +75,8 @@ public class a implements ThreadFactory {
                 return;
             }
         }
-        this.f70312b = new AtomicInteger();
-        this.f70311a = str;
-        this.f70313c = z;
+        this.f61844b = new AtomicInteger();
+        this.a = str;
+        this.f61845c = z;
     }
 }

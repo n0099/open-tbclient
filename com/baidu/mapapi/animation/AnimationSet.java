@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AnimationSet extends Animation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,10 +61,10 @@ public class AnimationSet extends Animation {
     }
 
     @Override // com.baidu.mapapi.animation.Animation
-    public void setDuration(long j) {
+    public void setDuration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.bdAnimation.a(j);
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.bdAnimation.a(j2);
         }
     }
 

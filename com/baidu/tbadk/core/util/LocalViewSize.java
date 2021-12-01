@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LocalViewSize {
     public static /* synthetic */ Interceptable $ic;
     public static LocalViewSize sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ImageSize implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,11 +112,11 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int k = l.k(this.mContext);
-            if (k >= 1080) {
+            int k2 = l.k(this.mContext);
+            if (k2 >= 1080) {
                 return 1080;
             }
-            return (k < 720 || k >= 1080) ? 480 : 720;
+            return (k2 < 720 || k2 >= 1080) ? 480 : 720;
         }
         return invokeV.intValue;
     }
@@ -173,16 +173,16 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int k = l.k(this.mContext);
+            int k2 = l.k(this.mContext);
             int i2 = 240;
-            if (k < 240) {
-                i2 = k / 3;
-            } else if (k <= 320) {
+            if (k2 < 240) {
+                i2 = k2 / 3;
+            } else if (k2 <= 320) {
                 i2 = 80;
-            } else if (k <= 480) {
+            } else if (k2 <= 480) {
                 i2 = 160;
-            } else if (k > 720) {
-                i2 = k / 3;
+            } else if (k2 > 720) {
+                i2 = k2 / 3;
             }
             ImageSize imageSize = new ImageSize();
             imageSize.height = i2;

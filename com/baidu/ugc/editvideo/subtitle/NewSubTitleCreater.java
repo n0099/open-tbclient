@@ -13,8 +13,8 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.f;
-import b.a.x0.t.v;
+import c.a.x0.t.f;
+import c.a.x0.t.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -34,7 +34,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NewSubTitleCreater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class NewSubTitleCreater {
     public String savePath;
 
     /* renamed from: com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater$2  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Paint$Align;
         public static /* synthetic */ Interceptable $ic;
@@ -90,7 +90,7 @@ public class NewSubTitleCreater {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface SubtitleCreaterCallBack {
         void onSubtitleBitmapCreated();
     }
@@ -586,9 +586,9 @@ public class NewSubTitleCreater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, subTitleUnit) == null) {
             int[] subtileWH = getSubtileWH(subTitleUnit);
-            Bitmap a2 = f.a(subTitleUnit.mTextStyleEntity);
-            this.mNineBitmap = a2;
-            NinePatchChunk f2 = f.f(a2, subTitleUnit.mTextStyleEntity);
+            Bitmap a = f.a(subTitleUnit.mTextStyleEntity);
+            this.mNineBitmap = a;
+            NinePatchChunk f2 = f.f(a, subTitleUnit.mTextStyleEntity);
             this.mNinePatchChunk = f2;
             int i2 = subtileWH[0];
             subTitleUnit.width = i2;
@@ -716,18 +716,18 @@ public class NewSubTitleCreater {
         this.mHandler = new Handler(this.mHandlerThread.getLooper());
     }
 
-    public SubTitleUnit getSubTitle(long j, long j2) {
+    public SubTitleUnit getSubTitle(long j2, long j3) {
         InterceptResult invokeCommon;
         Bitmap value;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             if (this.mSubTitleUnits == null || this.mSubtitleCache == null) {
                 return getEmptySubTitle();
             }
             synchronized (this.mSubtitleCache) {
                 SubTitleUnit subTitleUnit = null;
                 for (SubTitleUnit subTitleUnit2 : this.mSubTitleUnits) {
-                    if (subTitleUnit2.startTime <= j2) {
+                    if (subTitleUnit2.startTime <= j3) {
                         if (subTitleUnit != null) {
                             if (this.mSubtitleCache.get(getCacheKey(subTitleUnit2)) == null) {
                                 onGetSubtitleBitmap(subTitleUnit2, false);
@@ -743,7 +743,7 @@ public class NewSubTitleCreater {
                                 }
                             }
                             return subTitleUnit;
-                        } else if (j < subTitleUnit2.startTime || j > subTitleUnit2.endTime) {
+                        } else if (j2 < subTitleUnit2.startTime || j2 > subTitleUnit2.endTime) {
                             String cacheKey = getCacheKey(subTitleUnit2);
                             Bitmap bitmap = this.mSubtitleCache.get(cacheKey);
                             if (bitmap != null) {
@@ -777,17 +777,17 @@ public class NewSubTitleCreater {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSubTitleConfig : (SubTitleConfig) invokeV.objValue;
     }
 
-    public SubTitleUnit getSubTitleSync(long j) {
+    public SubTitleUnit getSubTitleSync(long j2) {
         InterceptResult invokeJ;
         SubTitleUnit subTitleUnit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
             List<SubTitleUnit> list = this.mSubTitleUnits;
             if (list == null) {
                 return getEmptySubTitle();
             }
             for (SubTitleUnit subTitleUnit2 : list) {
-                if (j >= subTitleUnit2.startTime && j <= subTitleUnit2.endTime) {
+                if (j2 >= subTitleUnit2.startTime && j2 <= subTitleUnit2.endTime) {
                     Bitmap bitmap = this.mSubtitleCache.get(getCacheKey(subTitleUnit2));
                     if (bitmap == null || bitmap.isRecycled()) {
                         if (!this.mSubtitleCache.isEmpty()) {

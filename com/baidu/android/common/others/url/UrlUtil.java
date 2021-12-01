@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.Patterns;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
@@ -31,7 +30,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UrlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -145,7 +144,7 @@ public class UrlUtil {
     public static String appendParams(String str, @NonNull Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, map)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, map)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
@@ -177,7 +176,7 @@ public class UrlUtil {
     public static String decodeUrl(String str, String str2) throws UnsupportedEncodingException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) ? URLDecoder.decode(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) ? URLDecoder.decode(str, str2) : (String) invokeLL.objValue;
     }
 
     public static String decodeWithUTF8(String str) {
@@ -315,11 +314,11 @@ public class UrlUtil {
         return (String) invokeL.objValue;
     }
 
-    public static String getCookieStr(String str, String str2, String str3, long j) {
+    public static String getCookieStr(String str, String str2, String str3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
-            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ";";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, str2, str3, Long.valueOf(j2)})) == null) {
+            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j2 + ";";
         }
         return (String) invokeCommon.objValue;
     }

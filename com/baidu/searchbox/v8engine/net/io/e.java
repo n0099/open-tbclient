@@ -7,31 +7,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final byte[] f43800a;
+    public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f43801b;
+    public int f38972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f43802c;
+    public int f38973c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f43803d;
+    public boolean f38974d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f43804e;
+    public boolean f38975e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f43805f;
+    public e f38976f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f43806g;
+    public e f38977g;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -46,17 +44,17 @@ public final class e {
                 return;
             }
         }
-        this.f43800a = new byte[8192];
-        this.f43804e = true;
-        this.f43803d = false;
+        this.a = new byte[8192];
+        this.f38975e = true;
+        this.f38974d = false;
     }
 
     public e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f43803d = true;
-            return new e(this.f43800a, this.f43801b, this.f43802c, true, false);
+            this.f38974d = true;
+            return new e(this.a, this.f38972b, this.f38973c, true, false);
         }
         return (e) invokeV.objValue;
     }
@@ -66,15 +64,15 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e eVar = this.f43805f;
+            e eVar = this.f38976f;
             if (eVar == this) {
                 eVar = null;
             }
-            e eVar2 = this.f43806g;
-            eVar2.f43805f = this.f43805f;
-            this.f43805f.f43806g = eVar2;
-            this.f43805f = null;
-            this.f43806g = null;
+            e eVar2 = this.f38977g;
+            eVar2.f38976f = this.f38976f;
+            this.f38976f.f38977g = eVar2;
+            this.f38976f = null;
+            this.f38977g = null;
             return eVar;
         }
         return (e) invokeV.objValue;
@@ -84,10 +82,10 @@ public final class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) {
-            eVar.f43806g = this;
-            eVar.f43805f = this.f43805f;
-            this.f43805f.f43806g = eVar;
-            this.f43805f = eVar;
+            eVar.f38977g = this;
+            eVar.f38976f = this.f38976f;
+            this.f38976f.f38977g = eVar;
+            this.f38976f = eVar;
             return eVar;
         }
         return (e) invokeL.objValue;
@@ -108,10 +106,10 @@ public final class e {
                 return;
             }
         }
-        this.f43800a = bArr;
-        this.f43801b = i2;
-        this.f43802c = i3;
-        this.f43803d = z;
-        this.f43804e = z2;
+        this.a = bArr;
+        this.f38972b = i2;
+        this.f38973c = i3;
+        this.f38974d = z;
+        this.f38975e = z2;
     }
 }

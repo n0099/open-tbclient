@@ -10,7 +10,7 @@ public class a {
     }
 
     public static boolean b(Context context) {
-        NetworkInfo a2 = a(context);
-        return a2 != null && a2.isConnected() && a2.getType() == 1;
+        NetworkInfo a = a(context);
+        return a != null && a.isConnected() && a.getType() == 1;
     }
 }

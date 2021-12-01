@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,7 +8,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ErrorResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +46,7 @@ public class ErrorResponse implements IBaseJsonResponse {
                     this.cmd = jSONObject.optInt("cmd");
                     this.appid = jSONObject.optInt("appid");
                     this.uid = jSONObject.optLong("uid");
-                    this.seq = jSONObject.optString(IAdRequestParam.SEQ);
+                    this.seq = jSONObject.optString("seq");
                     RLog.info("ErrorResponse", "jsonObject", jSONObject);
                     return;
                 } catch (JSONException e2) {

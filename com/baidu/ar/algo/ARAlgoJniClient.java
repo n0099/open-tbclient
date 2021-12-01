@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARAlgoJniClient {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ARAlgoJniClient arAlgoJniClient;
@@ -73,57 +73,57 @@ public class ARAlgoJniClient {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? nativeGetVersion() : (String) invokeV.objValue;
     }
 
-    private native int nativeAddTracker2D(long j, String str);
+    private native int nativeAddTracker2D(long j2, String str);
 
-    private native int nativeAddTracker3D(long j, String str, int i2);
+    private native int nativeAddTracker3D(long j2, String str, int i2);
 
-    private native int nativeAddTrackerVO(long j, String str);
+    private native int nativeAddTrackerVO(long j2, String str);
 
-    private native int nativeAddTrackerVPS(long j, String str);
+    private native int nativeAddTrackerVPS(long j2, String str);
 
-    private native int nativeCreateTrackingSystem(long j, int i2, int i3, float[] fArr, float[] fArr2);
+    private native int nativeCreateTrackingSystem(long j2, int i2, int i3, float[] fArr, float[] fArr2);
 
-    private native int nativeGet2dMarkerSize(long j, int i2, int[] iArr);
+    private native int nativeGet2dMarkerSize(long j2, int i2, int[] iArr);
 
-    private native int nativeGetModelPose(long j, int i2, String str, float[] fArr);
+    private native int nativeGetModelPose(long j2, int i2, String str, float[] fArr);
 
-    private native int nativeGetTrackerPose(long j, int i2, float[] fArr);
+    private native int nativeGetTrackerPose(long j2, int i2, float[] fArr);
 
     public static native String nativeGetVersion();
 
     private native long nativeInitTrackerSystem();
 
-    private native int nativeInsertModel(long j, int i2, int i3, int i4, String str, float f2, float[] fArr);
+    private native int nativeInsertModel(long j2, int i2, int i3, int i4, String str, float f2, float[] fArr);
 
-    private native int nativeRelease(long j);
+    private native int nativeRelease(long j2);
 
-    private native int nativeRemoveAllModels(long j, int i2);
+    private native int nativeRemoveAllModels(long j2, int i2);
 
-    private native int nativeRemoveAllTrackers(long j);
+    private native int nativeRemoveAllTrackers(long j2);
 
-    private native int nativeRemoveModel(long j, int i2, String str);
+    private native int nativeRemoveModel(long j2, int i2, String str);
 
-    private native int nativeRemoveTracker(long j, int i2);
+    private native int nativeRemoveTracker(long j2, int i2);
 
-    private native int nativeResetAllTrackers(long j);
+    private native int nativeResetAllTrackers(long j2);
 
-    private native int nativeResetTracker(long j, int i2);
+    private native int nativeResetTracker(long j2, int i2);
 
-    private native int nativeTrackFrame(long j, byte[] bArr, double d2, float[] fArr, FrameType frameType);
+    private native int nativeTrackFrame(long j2, byte[] bArr, double d2, float[] fArr, FrameType frameType);
 
-    private native int nativeTrackFrameByteBuffer(long j, ByteBuffer byteBuffer, double d2, float[] fArr, FrameType frameType);
+    private native int nativeTrackFrameByteBuffer(long j2, ByteBuffer byteBuffer, double d2, float[] fArr, FrameType frameType);
 
-    private native int nativeVpsServerReceiver(long j, int i2, byte[] bArr);
+    private native int nativeVpsServerReceiver(long j2, int i2, byte[] bArr);
 
     public int addTracker2D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeAddTracker2D(j, str);
+            return nativeAddTracker2D(j2, str);
         }
         return invokeL.intValue;
     }
@@ -132,11 +132,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeAddTracker3D(j, str, i2);
+            return nativeAddTracker3D(j2, str, i2);
         }
         return invokeLI.intValue;
     }
@@ -145,11 +145,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeAddTrackerVO(j, str);
+            return nativeAddTrackerVO(j2, str);
         }
         return invokeL.intValue;
     }
@@ -158,11 +158,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeAddTrackerVPS(j, str);
+            return nativeAddTrackerVPS(j2, str);
         }
         return invokeL.intValue;
     }
@@ -182,11 +182,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, iArr)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeGet2dMarkerSize(j, i2, iArr);
+            return nativeGet2dMarkerSize(j2, i2, iArr);
         }
         return invokeIL.intValue;
     }
@@ -195,11 +195,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, str, fArr)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeGetModelPose(j, i2, str, fArr);
+            return nativeGetModelPose(j2, i2, str, fArr);
         }
         return invokeILL.intValue;
     }
@@ -208,11 +208,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, fArr)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeGetTrackerPose(j, i2, fArr);
+            return nativeGetTrackerPose(j2, i2, fArr);
         }
         return invokeIL.intValue;
     }
@@ -221,11 +221,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Float.valueOf(f2), fArr})) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeInsertModel(j, i2, i3, i4, str, f2, fArr);
+            return nativeInsertModel(j2, i2, i3, i4, str, f2, fArr);
         }
         return invokeCommon.intValue;
     }
@@ -234,11 +234,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return 0;
             }
-            int nativeRelease = nativeRelease(j);
+            int nativeRelease = nativeRelease(j2);
             this.trackSystemHandler = 0L;
             return nativeRelease;
         }
@@ -249,11 +249,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeRemoveAllModels(j, i2);
+            return nativeRemoveAllModels(j2, i2);
         }
         return invokeI.intValue;
     }
@@ -262,11 +262,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeRemoveAllTrackers(j);
+            return nativeRemoveAllTrackers(j2);
         }
         return invokeV.intValue;
     }
@@ -275,11 +275,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i2, str)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeRemoveModel(j, i2, str);
+            return nativeRemoveModel(j2, i2, str);
         }
         return invokeIL.intValue;
     }
@@ -288,11 +288,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeRemoveTracker(j, i2);
+            return nativeRemoveTracker(j2, i2);
         }
         return invokeI.intValue;
     }
@@ -301,11 +301,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeResetAllTrackers(j);
+            return nativeResetAllTrackers(j2);
         }
         return invokeV.intValue;
     }
@@ -314,11 +314,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeResetTracker(j, i2);
+            return nativeResetTracker(j2, i2);
         }
         return invokeI.intValue;
     }
@@ -327,11 +327,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{byteBuffer, Double.valueOf(d2), fArr, frameType})) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeTrackFrameByteBuffer(j, byteBuffer, d2, fArr, frameType);
+            return nativeTrackFrameByteBuffer(j2, byteBuffer, d2, fArr, frameType);
         }
         return invokeCommon.intValue;
     }
@@ -340,11 +340,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{bArr, Double.valueOf(d2), fArr, frameType})) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeTrackFrame(j, bArr, d2, fArr, frameType);
+            return nativeTrackFrame(j2, bArr, d2, fArr, frameType);
         }
         return invokeCommon.intValue;
     }
@@ -353,11 +353,11 @@ public class ARAlgoJniClient {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048594, this, i2, bArr)) == null) {
-            long j = this.trackSystemHandler;
-            if (j == 0) {
+            long j2 = this.trackSystemHandler;
+            if (j2 == 0) {
                 return -2;
             }
-            return nativeVpsServerReceiver(j, i2, bArr);
+            return nativeVpsServerReceiver(j2, i2, bArr);
         }
         return invokeIL.intValue;
     }

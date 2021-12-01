@@ -27,24 +27,24 @@ public final class CoroutineId extends AbstractCoroutineContextElement implement
         }
     }
 
-    public CoroutineId(long j) {
+    public CoroutineId(long j2) {
         super(Key);
-        this.id = j;
+        this.id = j2;
     }
 
-    public static /* synthetic */ CoroutineId copy$default(CoroutineId coroutineId, long j, int i2, Object obj) {
+    public static /* synthetic */ CoroutineId copy$default(CoroutineId coroutineId, long j2, int i2, Object obj) {
         if ((i2 & 1) != 0) {
-            j = coroutineId.id;
+            j2 = coroutineId.id;
         }
-        return coroutineId.copy(j);
+        return coroutineId.copy(j2);
     }
 
     public final long component1() {
         return this.id;
     }
 
-    public final CoroutineId copy(long j) {
-        return new CoroutineId(j);
+    public final CoroutineId copy(long j2) {
+        return new CoroutineId(j2);
     }
 
     public boolean equals(Object obj) {
@@ -69,8 +69,8 @@ public final class CoroutineId extends AbstractCoroutineContextElement implement
     }
 
     public int hashCode() {
-        long j = this.id;
-        return (int) (j ^ (j >>> 32));
+        long j2 = this.id;
+        return (int) (j2 ^ (j2 >>> 32));
     }
 
     @Override // kotlin.coroutines.AbstractCoroutineContextElement, kotlin.coroutines.CoroutineContext.Element, kotlin.coroutines.CoroutineContext

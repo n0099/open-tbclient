@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class h implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final ByteBuffer f62300a;
+    public final ByteBuffer a;
 
     public h(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
@@ -30,27 +28,27 @@ public final class h implements k {
                 return;
             }
         }
-        this.f62300a = byteBuffer.slice();
+        this.a = byteBuffer.slice();
     }
 
     @Override // com.bytedance.pangle.f.k
     public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62300a.capacity() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.capacity() : invokeV.longValue;
     }
 
     @Override // com.bytedance.pangle.f.k
-    public final void a(j jVar, long j, int i2) {
+    public final void a(j jVar, long j2, int i2) {
         ByteBuffer slice;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jVar, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            synchronized (this.f62300a) {
-                this.f62300a.position(0);
-                int i3 = (int) j;
-                this.f62300a.limit(i2 + i3);
-                this.f62300a.position(i3);
-                slice = this.f62300a.slice();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jVar, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+            synchronized (this.a) {
+                this.a.position(0);
+                int i3 = (int) j2;
+                this.a.limit(i2 + i3);
+                this.a.position(i3);
+                slice = this.a.slice();
             }
             jVar.a(slice);
         }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class hp {
     public static /* synthetic */ Interceptable $ic;
     public static final hp A;
@@ -35,38 +35,40 @@ public final class hp {
     public static final hp V;
     public static final hp W;
     public static final hp X;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final hp f72041a;
+    public static final hp a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hp[] f513a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hp f72042b;
+    public static final hp f63017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hp f72043c;
+    public static final hp f63018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hp f72044d;
+    public static final hp f63019d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hp f72045e;
+    public static final hp f63020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hp f72046f;
+    public static final hp f63021f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hp f72047g;
+    public static final hp f63022g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hp f72048h;
+    public static final hp f63023h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final hp f72049i;
-    public static final hp j;
-    public static final hp k;
+    public static final hp f63024i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final hp f63025j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final hp f63026k;
     public static final hp l;
     public static final hp m;
     public static final hp n;
@@ -100,17 +102,17 @@ public final class hp {
                 return;
             }
         }
-        f72041a = new hp("Invalid", 0, "INVALID");
-        f72042b = new hp("BarClick", 1, "bar:click");
-        f72043c = new hp("BarCancel", 2, "bar:cancel");
-        f72044d = new hp("AppOpen", 3, "app:open");
-        f72045e = new hp("PackageUninstall", 4, "package uninstalled");
-        f72046f = new hp("AppUninstall", 5, "app_uninstalled");
-        f72047g = new hp("ClientInfoUpdate", 6, "client_info_update");
-        f72048h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
-        f72049i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
-        j = new hp("PullOfflineMessage", 9, "pull");
-        k = new hp("IosSleep", 10, "ios_sleep");
+        a = new hp("Invalid", 0, "INVALID");
+        f63017b = new hp("BarClick", 1, "bar:click");
+        f63018c = new hp("BarCancel", 2, "bar:cancel");
+        f63019d = new hp("AppOpen", 3, "app:open");
+        f63020e = new hp("PackageUninstall", 4, "package uninstalled");
+        f63021f = new hp("AppUninstall", 5, "app_uninstalled");
+        f63022g = new hp("ClientInfoUpdate", 6, "client_info_update");
+        f63023h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
+        f63024i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
+        f63025j = new hp("PullOfflineMessage", 9, "pull");
+        f63026k = new hp("IosSleep", 10, "ios_sleep");
         l = new hp("IosWakeUp", 11, "ios_wakeup");
         m = new hp("AwakeApp", 12, "awake_app");
         n = new hp("NormalClientConfigUpdate", 13, "normal_client_config_update");
@@ -151,7 +153,7 @@ public final class hp {
         W = new hp("ScenePushRuleDelete", 48, "scene_push_rule_delete");
         hp hpVar = new hp("ScenePushRuleTrigger", 49, "scene_push_rule_trigger");
         X = hpVar;
-        f513a = new hp[]{f72041a, f72042b, f72043c, f72044d, f72045e, f72046f, f72047g, f72048h, f72049i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
+        f513a = new hp[]{a, f63017b, f63018c, f63019d, f63020e, f63021f, f63022g, f63023h, f63024i, f63025j, f63026k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
     }
 
     public hp(String str, int i2, String str2) {

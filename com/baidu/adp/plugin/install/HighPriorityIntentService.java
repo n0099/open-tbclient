@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class HighPriorityIntentService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,13 +23,11 @@ public abstract class HighPriorityIntentService extends Service {
     public volatile a mServiceHandler;
     public volatile Looper mServiceLooper;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public final class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HighPriorityIntentService f35275a;
+        public final /* synthetic */ HighPriorityIntentService a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HighPriorityIntentService highPriorityIntentService, Looper looper) {
@@ -49,15 +47,15 @@ public abstract class HighPriorityIntentService extends Service {
                     return;
                 }
             }
-            this.f35275a = highPriorityIntentService;
+            this.a = highPriorityIntentService;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f35275a.onHandleIntent((Intent) message.obj);
-                this.f35275a.stopSelf(message.arg1);
+                this.a.onHandleIntent((Intent) message.obj);
+                this.a.stopSelf(message.arg1);
             }
         }
     }

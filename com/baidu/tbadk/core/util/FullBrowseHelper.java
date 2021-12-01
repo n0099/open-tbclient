@@ -12,16 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.f;
-import b.a.e.a.j;
-import b.a.e.c.f.b;
-import b.a.q0.m.a;
-import b.a.q0.s.u.c;
+import c.a.d.a.f;
+import c.a.d.a.j;
+import c.a.d.c.f.b;
+import c.a.q0.m.a;
+import c.a.q0.s.u.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.tbadk.TbSingleton;
@@ -42,7 +41,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FullBrowseHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCOUNT_PROTOCOL_END = 60;
@@ -51,12 +50,12 @@ public class FullBrowseHelper {
     public static final int PRIVICY_START = 47;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IAcceptPrivacyConfirm {
         void onConfirm();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class NoLineClickableSpan extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +149,7 @@ public class FullBrowseHelper {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // b.a.e.c.f.f
+                @Override // c.a.d.c.f.f
                 public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -160,7 +159,7 @@ public class FullBrowseHelper {
                             if ((data instanceof IntentConfig) && ((IntentConfig) data).getContext() != null) {
                                 Class<?> cls = data.getClass();
                                 if (LoginActivityConfig.class == cls) {
-                                    FullBrowseHelper.showDialog(j.a(b.a.e.a.b.g().b()), new IAcceptPrivacyConfirm(this, customMessage) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5.1
+                                    FullBrowseHelper.showDialog(j.a(c.a.d.a.b.g().b()), new IAcceptPrivacyConfirm(this, customMessage) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.5.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass5 this$0;
@@ -200,12 +199,12 @@ public class FullBrowseHelper {
                                     return null;
                                 } else if (MainTabActivityConfig.class != cls && PbActivityConfig.class != cls && FrsActivityConfig.class != cls && ImageViewerConfig.class != cls && LogoActivityConfig.class != cls) {
                                     if (InterestGuideActivityConfig.class != cls && NewUserRedPackageActivityConfig.class != cls) {
-                                        FullBrowseHelper.showDialog(j.a(b.a.e.a.b.g().b()), null);
+                                        FullBrowseHelper.showDialog(j.a(c.a.d.a.b.g().b()), null);
                                     }
                                     return null;
                                 }
                             } else if (customMessage.getCmd() == 2002015 || customMessage.getCmd() == 2921361) {
-                                FullBrowseHelper.showDialog(j.a(b.a.e.a.b.g().b()), null);
+                                FullBrowseHelper.showDialog(j.a(c.a.d.a.b.g().b()), null);
                                 return null;
                             }
                         }
@@ -219,7 +218,7 @@ public class FullBrowseHelper {
 
     public static void showDialog(f fVar, IAcceptPrivacyConfirm iAcceptPrivacyConfirm) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, fVar, iAcceptPrivacyConfirm) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, fVar, iAcceptPrivacyConfirm) == null) {
             View inflate = LayoutInflater.from(fVar.getPageActivity()).inflate(R.layout.full_browse_dialog, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(R.id.private_title);
             inflate.findViewById(R.id.protocol_layout).setVisibility(0);
@@ -308,7 +307,7 @@ public class FullBrowseHelper {
             }
             textView2.setMovementMethod(LinkMovementMethod.getInstance());
             textView2.setText(spannableString);
-            b.a.q0.s.s.a aVar = new b.a.q0.s.s.a(fVar.getPageActivity());
+            c.a.q0.s.s.a aVar = new c.a.q0.s.s.a(fVar.getPageActivity());
             aVar.setContentView(inflate);
             aVar.setContentViewSize(8);
             aVar.setCanceledOnTouchOutside(false);
@@ -324,7 +323,7 @@ public class FullBrowseHelper {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IAcceptPrivacyConfirm val$acceptPrivacyConfirm;
-                public final /* synthetic */ b.a.q0.s.s.a val$mPrivateDialog;
+                public final /* synthetic */ c.a.q0.s.s.a val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -357,7 +356,7 @@ public class FullBrowseHelper {
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921562, Boolean.FALSE));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921563));
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 2).param("obj_locate", b.a.q0.s.e0.b.j().k("app_restart_times", 0) >= 2 ? 2 : 1));
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 2).param("obj_locate", c.a.q0.s.e0.b.j().k("app_restart_times", 0) >= 2 ? 2 : 1));
                         this.val$mPrivateDialog.dismiss();
                     }
                 }
@@ -365,7 +364,7 @@ public class FullBrowseHelper {
             textView4.setOnClickListener(new View.OnClickListener(aVar) { // from class: com.baidu.tbadk.core.util.FullBrowseHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b.a.q0.s.s.a val$mPrivateDialog;
+                public final /* synthetic */ c.a.q0.s.s.a val$mPrivateDialog;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -389,14 +388,14 @@ public class FullBrowseHelper {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 1).param("obj_locate", b.a.q0.s.e0.b.j().k("app_restart_times", 0) >= 2 ? 2 : 1));
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_CLICK).param("obj_source", 4).param("obj_type", 1).param("obj_locate", c.a.q0.s.e0.b.j().k("app_restart_times", 0) >= 2 ? 2 : 1));
                         this.val$mPrivateDialog.dismiss();
                     }
                 }
             });
             aVar.create(fVar);
             aVar.show();
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4).addParam("obj_locate", b.a.q0.s.e0.b.j().k("app_restart_times", 0) < 2 ? 1 : 2));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE).addParam("obj_type", 4).addParam("obj_locate", c.a.q0.s.e0.b.j().k("app_restart_times", 0) < 2 ? 1 : 2));
             c.d(textView).v(R.color.CAM_X0105);
             WebPManager.setMaskDrawable((ImageView) inflate.findViewById(R.id.full_browse_image1), R.drawable.full_mode_icon_mask_recommend1, null);
             c.d((TextView) inflate.findViewById(R.id.full_browse_image_text1)).v(R.color.CAM_X0105);

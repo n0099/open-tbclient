@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class h extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f62322a;
+    public int a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(String str, int i2) {
@@ -31,7 +29,7 @@ public final class h extends Exception {
                 return;
             }
         }
-        this.f62322a = i2;
+        this.a = i2;
     }
 
     @Override // java.lang.Throwable
@@ -42,7 +40,7 @@ public final class h extends Exception {
             String name = h.class.getName();
             String localizedMessage = getLocalizedMessage();
             if (localizedMessage != null) {
-                return name + ": " + localizedMessage + " errorCode: " + this.f62322a;
+                return name + ": " + localizedMessage + " errorCode: " + this.a;
             }
             return name;
         }
@@ -68,6 +66,6 @@ public final class h extends Exception {
                 return;
             }
         }
-        this.f62322a = -1;
+        this.a = -1;
     }
 }

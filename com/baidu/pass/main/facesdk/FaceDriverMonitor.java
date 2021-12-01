@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FaceDriverMonitor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -114,11 +114,11 @@ public class FaceDriverMonitor {
         }
     }
 
-    public native BDFaceDriverMonitorInfo nativeDriverMonitor(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo);
+    public native BDFaceDriverMonitorInfo nativeDriverMonitor(long j2, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo);
 
-    public native int nativeDriverMonitorInit(long j, byte[] bArr);
+    public native int nativeDriverMonitorInit(long j2, byte[] bArr);
 
-    public native int nativeUnInitDriverMonitor(long j);
+    public native int nativeUnInitDriverMonitor(long j2);
 
     public int uninitDriverMonitor() {
         InterceptResult invokeV;

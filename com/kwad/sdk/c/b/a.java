@@ -1,118 +1,163 @@
 package com.kwad.sdk.c.b;
 
-import android.app.Activity;
-import android.os.SystemClock;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.report.d;
-import com.kwad.sdk.utils.ar;
+import com.kwad.sdk.utils.q;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f65022a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f65023b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f65024c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f65025d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f65026e;
-
-    public a() {
+    public static File a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            File filesDir = context.getFilesDir();
+            if (filesDir == null) {
+                return new File("/data/data/" + context.getPackageName() + "/file/");
             }
+            return filesDir;
         }
+        return (File) invokeL.objValue;
     }
 
-    public void a() {
+    public static String a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = new b();
-            bVar.f65028a = this.f65022a;
-            long j = this.f65023b;
-            bVar.f65030c = j != 0 ? this.f65024c - j : 0L;
-            long j2 = this.f65024c;
-            bVar.f65031d = j2 != 0 ? this.f65025d - j2 : 0L;
-            long j3 = this.f65023b;
-            bVar.f65029b = j3 != 0 ? this.f65025d - j3 : 0L;
-            d.a(bVar);
-            com.kwad.sdk.core.d.a.a("PageMonitor", bVar.toString());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            String b2 = b(context);
+            if (TextUtils.isEmpty(b2)) {
+                return null;
+            }
+            return b2 + File.separator + str;
         }
+        return (String) invokeLL.objValue;
     }
 
-    public void a(long j) {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f65023b = j;
-            this.f65024c = SystemClock.uptimeMillis();
-        }
-    }
-
-    public void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || this.f65026e) {
+        if (interceptable != null && interceptable.invokeLL(65538, null, str, str2) != null) {
             return;
         }
-        this.f65026e = true;
-        ar.a(new Runnable(this) { // from class: com.kwad.sdk.c.b.a.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f65027a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+        ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(str));
+        while (true) {
+            ZipEntry nextEntry = zipInputStream.getNextEntry();
+            if (nextEntry == null) {
+                q.b(zipInputStream);
+                return;
+            }
+            String name = nextEntry.getName();
+            if (!nextEntry.isDirectory()) {
+                File file = new File(str2 + File.separator + name);
+                if (!file.exists()) {
+                    file.getParentFile().mkdirs();
+                    file.createNewFile();
+                }
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = zipInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
                     }
+                    fileOutputStream.write(bArr, 0, read);
+                    fileOutputStream.flush();
                 }
-                this.f65027a = this;
+                q.b(fileOutputStream);
+            } else if (!name.contains(Constants.PATH_PARENT)) {
+                String substring = name.substring(0, name.length() - 1);
+                new File(str2 + File.separator + substring).mkdirs();
             }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f65027a.f65025d = SystemClock.uptimeMillis();
-                    this.f65027a.a();
-                }
-            }
-        });
+        }
     }
 
-    public void a(String str) {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f65022a = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                return true;
+            }
+            return file.mkdirs();
         }
+        return invokeL.booleanValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            String str = a(context) + File.separator + "offlinepackage";
+            File file = new File(str);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            String b2 = b(context);
+            if (TextUtils.isEmpty(b2)) {
+                return null;
+            }
+            return b2 + File.separator + str + ".zip";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            String b2 = b(context);
+            if (TextUtils.isEmpty(b2)) {
+                return null;
+            }
+            a(b2);
+            return b2 + File.separator + "packageIndex.json";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            String b2 = b(context);
+            if (TextUtils.isEmpty(b2)) {
+                return null;
+            }
+            return b2 + File.separator + str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            String b2 = b(context);
+            if (TextUtils.isEmpty(b2)) {
+                return null;
+            }
+            return b2 + File.separator + str + File.separator + "_manifest_.json";
+        }
+        return (String) invokeLL.objValue;
     }
 }

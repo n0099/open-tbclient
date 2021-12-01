@@ -17,22 +17,20 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CHFinanceEntryItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public NetImageView f59341a;
+    public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f59342b;
+    public MaskTextView f52651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f59343c;
+    public MaskTextView f52652c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class EntryType {
         public static final /* synthetic */ EntryType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -126,9 +124,9 @@ public class CHFinanceEntryItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entryType) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), EntryType.ENTRY_TYPE_NORMAL.equals(entryType) ? "wallet_home_ch_finance_entry_normal_item" : "wallet_home_ch_finance_entry_large_item"), this);
             setGravity(13);
-            this.f59341a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fe_logo"));
-            this.f59342b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_title"));
-            this.f59343c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_desc"));
+            this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_fe_logo"));
+            this.f52651b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_title"));
+            this.f52652c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fe_desc"));
         }
     }
 
@@ -137,9 +135,9 @@ public class CHFinanceEntryItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f59341a, getData().logo);
-        this.f59342b.setMaskText(getData().name);
-        this.f59343c.setMaskText(getData().value1);
+        setNetImageViewUrl(this.a, getData().logo);
+        this.f52651b.setMaskText(getData().name);
+        this.f52652c.setMaskText(getData().value1);
         handlePoint();
     }
 

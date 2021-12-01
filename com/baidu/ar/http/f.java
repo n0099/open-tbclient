@@ -7,7 +7,6 @@ import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.ar.ihttp.IProgressCallback;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class f implements IHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +118,7 @@ public class f implements IHttpRequest {
     private boolean ao(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             k kVar = this.qY;
             if (kVar != null && !(kVar instanceof n)) {
                 this.qK.ap(a(kVar));
@@ -142,7 +141,7 @@ public class f implements IHttpRequest {
     private boolean eL() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             k kVar = this.qY;
             if (kVar != null && !(kVar instanceof b)) {
                 this.qK.ap(a(kVar));
@@ -379,9 +378,9 @@ public class f implements IHttpRequest {
             if (lVar != null) {
                 lVar.cancel();
             }
-            l a2 = this.qW.getExecutor().a(eM(), this.qN);
-            this.qZ = a2;
-            return a2.eH();
+            l a = this.qW.getExecutor().a(eM(), this.qN);
+            this.qZ = a;
+            return a.eH();
         }
         return (IHttpResponse) invokeV.objValue;
     }

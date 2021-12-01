@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +32,7 @@ import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class GifFrameLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +55,7 @@ public class GifFrameLoader {
     public Transformation<Bitmap> transformation;
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class DelayTarget extends SimpleTarget<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,12 +64,12 @@ public class GifFrameLoader {
         public Bitmap resource;
         public final long targetTime;
 
-        public DelayTarget(Handler handler, int i2, long j) {
+        public DelayTarget(Handler handler, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {handler, Integer.valueOf(i2), Long.valueOf(j)};
+                Object[] objArr = {handler, Integer.valueOf(i2), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -82,7 +81,7 @@ public class GifFrameLoader {
             }
             this.handler = handler;
             this.index = i2;
-            this.targetTime = j;
+            this.targetTime = j2;
         }
 
         public Bitmap getResource() {
@@ -105,12 +104,12 @@ public class GifFrameLoader {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface FrameCallback {
         void onFrameReady();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class FrameLoaderCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_CLEAR = 2;
@@ -157,7 +156,7 @@ public class GifFrameLoader {
     }
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface OnEveryFrameListener {
         void onFrameReady();
     }
@@ -203,7 +202,7 @@ public class GifFrameLoader {
 
     private void loadNextFrame() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.isRunning && !this.isLoadPending) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && this.isRunning && !this.isLoadPending) {
             if (this.startFromFirstFrame) {
                 Preconditions.checkArgument(this.pendingTarget == null, "Pending target must be null when starting from the first frame");
                 this.gifDecoder.resetFrameIndex();
@@ -226,7 +225,7 @@ public class GifFrameLoader {
     private void recycleFirstFrame() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (bitmap = this.firstFrame) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (bitmap = this.firstFrame) == null) {
             return;
         }
         this.bitmapPool.put(bitmap);

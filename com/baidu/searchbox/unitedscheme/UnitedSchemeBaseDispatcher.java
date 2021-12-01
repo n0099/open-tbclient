@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.unitedscheme.security.SchemeSecurity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -19,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_KEY = "action";
@@ -29,7 +28,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, UnitedSchemeBaseAction> schemeActionMap;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ConfirmDialogCallback {
         void onCancel();
 
@@ -91,7 +90,7 @@ public abstract class UnitedSchemeBaseDispatcher implements UnitedSchemeAbsDispa
         boolean invoke;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, context, unitedSchemeEntity, callbackHandler)) == null) {
             String path = unitedSchemeEntity.getPath(true);
             if (!TextUtils.isEmpty(path)) {
                 Class<? extends UnitedSchemeAbsDispatcher> subDispatcher = getSubDispatcher(path);

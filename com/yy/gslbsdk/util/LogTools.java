@@ -2,7 +2,6 @@ package com.yy.gslbsdk.util;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.GslbEvent;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LogTools {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -83,14 +82,14 @@ public class LogTools {
 
     public static void printMsgEvent(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) {
             GslbEvent.INSTANCE.onMessage(String.format(Locale.US, " [%s][%s][%s] %s", str, TAG, str2, str3));
         }
     }
 
     public static void printWarning(String str, Exception exc) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, exc) == null) || exc == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, exc) == null) || exc == null) {
             return;
         }
         if (GlobalTools.LOG_IS_OPEN) {

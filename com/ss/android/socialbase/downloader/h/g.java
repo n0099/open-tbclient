@@ -14,26 +14,22 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Object f70340a;
+    public Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Queue<b> f70341b;
+    public Queue<b> f61869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f70342c;
+    public a f61870c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f70343d;
+    public Handler f61871d;
 
     /* loaded from: classes2.dex */
     public class a extends HandlerThread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ g f70344a;
+        public final /* synthetic */ g a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(g gVar, String str) {
@@ -53,7 +49,7 @@ public class g {
                     return;
                 }
             }
-            this.f70344a = gVar;
+            this.a = gVar;
         }
 
         @Override // android.os.HandlerThread
@@ -62,12 +58,12 @@ public class g {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.onLooperPrepared();
                 Looper looper = getLooper();
-                synchronized (this.f70344a.f70340a) {
-                    this.f70344a.f70343d = new Handler(looper);
+                synchronized (this.a.a) {
+                    this.a.f61871d = new Handler(looper);
                 }
-                while (!this.f70344a.f70341b.isEmpty()) {
-                    b bVar = (b) this.f70344a.f70341b.poll();
-                    this.f70344a.f70343d.postDelayed(bVar.f70345a, bVar.f70346b);
+                while (!this.a.f61869b.isEmpty()) {
+                    b bVar = (b) this.a.f61869b.poll();
+                    this.a.f61871d.postDelayed(bVar.a, bVar.f61872b);
                 }
             }
         }
@@ -77,22 +73,20 @@ public class g {
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public Runnable f70345a;
+        public Runnable a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f70346b;
+        public long f61872b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ g f70347c;
+        public final /* synthetic */ g f61873c;
 
-        public b(g gVar, Runnable runnable, long j) {
+        public b(g gVar, Runnable runnable, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gVar, runnable, Long.valueOf(j)};
+                Object[] objArr = {gVar, runnable, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -102,9 +96,9 @@ public class g {
                     return;
                 }
             }
-            this.f70347c = gVar;
-            this.f70345a = runnable;
-            this.f70346b = j;
+            this.f61873c = gVar;
+            this.a = runnable;
+            this.f61872b = j2;
         }
     }
 
@@ -123,22 +117,22 @@ public class g {
                 return;
             }
         }
-        this.f70340a = new Object();
-        this.f70341b = new ConcurrentLinkedQueue();
-        this.f70342c = new a(this, str);
+        this.a = new Object();
+        this.f61869b = new ConcurrentLinkedQueue();
+        this.f61870c = new a(this, str);
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f70342c.quit();
+            this.f61870c.quit();
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f70342c.start();
+            this.f61870c.start();
         }
     }
 
@@ -149,18 +143,18 @@ public class g {
         }
     }
 
-    public void a(Runnable runnable, long j) {
+    public void a(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j) == null) {
-            if (this.f70343d == null) {
-                synchronized (this.f70340a) {
-                    if (this.f70343d == null) {
-                        this.f70341b.add(new b(this, runnable, j));
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j2) == null) {
+            if (this.f61871d == null) {
+                synchronized (this.a) {
+                    if (this.f61871d == null) {
+                        this.f61869b.add(new b(this, runnable, j2));
                         return;
                     }
                 }
             }
-            this.f70343d.postDelayed(runnable, j);
+            this.f61871d.postDelayed(runnable, j2);
         }
     }
 }

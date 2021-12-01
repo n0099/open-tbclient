@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class v implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ContentResolver f71329a;
+    public ContentResolver a;
 
     public v() {
         Interceptable interceptable = $ic;
@@ -37,7 +35,7 @@ public final class v implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             if (k.b()) {
-                this.f71329a = context.getContentResolver();
+                this.a = context.getContentResolver();
                 return true;
             }
             return false;
@@ -50,7 +48,7 @@ public final class v implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
             try {
-                Settings.System.putString(this.f71329a, str, str2);
+                Settings.System.putString(this.a, str, str2);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 p.b("SettingsCache", "putString error by " + str);
@@ -64,7 +62,7 @@ public final class v implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             try {
-                return Settings.System.getString(this.f71329a, str);
+                return Settings.System.getString(this.a, str);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 p.b("SettingsCache", "getString error by " + str);

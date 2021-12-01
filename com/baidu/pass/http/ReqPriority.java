@@ -8,16 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ReqPriority implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic;
     public static final ReqPriority HIGH;
     public static final ReqPriority IMMEDIATE;
     public static final ReqPriority LOW;
     public static final ReqPriority NORMAL;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ ReqPriority[] f42803a;
+    public static final /* synthetic */ ReqPriority[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +36,7 @@ public final class ReqPriority implements com.baidu.pass.a {
         HIGH = new ReqPriority("HIGH", 2);
         ReqPriority reqPriority = new ReqPriority("IMMEDIATE", 3);
         IMMEDIATE = reqPriority;
-        f42803a = new ReqPriority[]{LOW, NORMAL, HIGH, reqPriority};
+        a = new ReqPriority[]{LOW, NORMAL, HIGH, reqPriority};
     }
 
     public ReqPriority(String str, int i2) {
@@ -69,6 +67,6 @@ public final class ReqPriority implements com.baidu.pass.a {
     public static ReqPriority[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ReqPriority[]) f42803a.clone() : (ReqPriority[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ReqPriority[]) a.clone() : (ReqPriority[]) invokeV.objValue;
     }
 }

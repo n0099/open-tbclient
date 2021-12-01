@@ -56,7 +56,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsResolveFlow {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DnsResolveFlow";
@@ -141,10 +141,10 @@ public class DnsResolveFlow {
         };
     }
 
-    private void collectStat0(long j, DnsResultInfo dnsResultInfo) {
+    private void collectStat0(long j2, DnsResultInfo dnsResultInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65543, this, j, dnsResultInfo) == null) {
-            DataCacheMgr.INSTANCE.addDnsCost(SystemClock.uptimeMillis() - j);
+        if (interceptable == null || interceptable.invokeJL(65543, this, j2, dnsResultInfo) == null) {
+            DataCacheMgr.INSTANCE.addDnsCost(SystemClock.uptimeMillis() - j2);
             if (dnsResultInfo.mErrorCode != 0) {
                 DataCacheMgr.INSTANCE.addFailedDnsCount();
             } else if (dnsResultInfo.mDataSource == 4) {
@@ -545,7 +545,7 @@ public class DnsResolveFlow {
                                             }
                                             this.val$rsInfo.httpErrCode = 0;
                                             this.val$rsInfo.httpErrMsg = "success";
-                                            long j = uptimeMillis2 - uptimeMillis;
+                                            long j2 = uptimeMillis2 - uptimeMillis;
                                             this.val$mRequestLock.compareAndSet(-1, resInfo.getStatus());
                                             if (resInfo.getStatus() == 6 && resInfo.getDns() != null) {
                                                 for (DnsInfo dnsInfo : resInfo.getDns().values()) {
@@ -558,10 +558,10 @@ public class DnsResolveFlow {
                                             IpVersionController.getInstance().putHttpDNSIntoCache(GlobalTools.APP_CONTEXT, resInfo);
                                             ServerIPInfo serverIPInfo = new ServerIPInfo();
                                             serverIPInfo.setIp(this.val$ip);
-                                            serverIPInfo.setScore(j);
+                                            serverIPInfo.setScore(j2);
                                             IpVersionController.getInstance().resetBestServerIPCache(serverIPInfo);
                                             if (resInfo.getHttpdns().isRe()) {
-                                                QualityDetectFlow.getInstance().addReportData(GlobalTools.HTTPDNS_REPORT_HOST, this.val$ip, j);
+                                                QualityDetectFlow.getInstance().addReportData(GlobalTools.HTTPDNS_REPORT_HOST, this.val$ip, j2);
                                             }
                                             if (ServerIPMgr.getInstance().canUpdate(GlobalTools.APP_CONTEXT, resInfo.getHttpdns().getVer())) {
                                                 ServerIPMgr.getInstance().updateServerIP(GlobalTools.APP_CONTEXT, this.val$ip);
@@ -583,7 +583,7 @@ public class DnsResolveFlow {
                                         this.val$rsInfo.httpErrMsg = requestHttpDnsV2[1];
                                     } else {
                                         StatisticInfo statisticInfo3 = this.val$rsInfo;
-                                        statisticInfo3.httpErrCode = BannerFocusImageViewGroup.f58645f;
+                                        statisticInfo3.httpErrCode = BannerFocusImageViewGroup.f52228f;
                                         statisticInfo3.httpErrMsg = "result is null";
                                     }
                                     if (this.val$requestFailedCount.decrementAndGet() == 0) {
@@ -841,28 +841,28 @@ public class DnsResolveFlow {
         }
     }
 
-    private boolean isDead(long j) {
+    private boolean isDead(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, this, j)) == null) ? System.currentTimeMillis() >= j + ((long) (GlobalTools.TTL_LIVE_SECOND * 1000)) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65553, this, j2)) == null) ? System.currentTimeMillis() >= j2 + ((long) (GlobalTools.TTL_LIVE_SECOND * 1000)) : invokeJ.booleanValue;
     }
 
-    private boolean isExpired(long j) {
+    private boolean isExpired(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, this, j)) == null) ? System.currentTimeMillis() >= j : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65554, this, j2)) == null) ? System.currentTimeMillis() >= j2 : invokeJ.booleanValue;
     }
 
-    private boolean isHostDead(long j) {
+    private boolean isHostDead(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65555, this, j)) == null) ? System.currentTimeMillis() >= j + ((long) (GlobalTools.TTL_HOST_ALIVE_SECOND * 1000)) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65555, this, j2)) == null) ? System.currentTimeMillis() >= j2 + ((long) (GlobalTools.TTL_HOST_ALIVE_SECOND * 1000)) : invokeJ.booleanValue;
     }
 
-    private boolean isNearlyExpired(long j) {
+    private boolean isNearlyExpired(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, this, j)) == null) ? j - System.currentTimeMillis() < ((long) GlobalTools.TTL_NEARLY_EXPIRED_TIME_SPAN) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, this, j2)) == null) ? j2 - System.currentTimeMillis() < ((long) GlobalTools.TTL_NEARLY_EXPIRED_TIME_SPAN) : invokeJ.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1024,7 +1024,7 @@ public class DnsResolveFlow {
         String str2;
         String str3;
         String str4;
-        long j;
+        long j2;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)})) == null) {
@@ -1142,7 +1142,7 @@ public class DnsResolveFlow {
                             if (z4) {
                                 str3 = createRequestId;
                                 str4 = "Statistic";
-                                j = 5000;
+                                j2 = 5000;
                                 i2 = 0;
                             } else {
                                 boolean enableExpired = TtlController.getInstance().enableExpired();
@@ -1209,7 +1209,7 @@ public class DnsResolveFlow {
                                         }
                                         return dnsResultInfo;
                                     }
-                                    j = 5000;
+                                    j2 = 5000;
                                 } catch (Throwable th) {
                                     th = th;
                                     str2 = str4;
@@ -1399,7 +1399,7 @@ public class DnsResolveFlow {
                                             }
                                         }
                                     });
-                                    StatisticMgr.getInstance().addTask(threadInfo6, j);
+                                    StatisticMgr.getInstance().addTask(threadInfo6, j2);
                                 }
                                 return dnsResultInfo;
                             } else {

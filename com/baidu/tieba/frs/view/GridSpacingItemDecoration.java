@@ -7,22 +7,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f50019a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50020b;
+    public int f44836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f50021c;
+    public int f44837c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f50022d;
+    public boolean f44838d;
 
     public GridSpacingItemDecoration(int i2, int i3, int i4, boolean z) {
         Interceptable interceptable = $ic;
@@ -39,10 +37,10 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f50019a = i2;
-        this.f50020b = i3;
-        this.f50021c = i4;
-        this.f50022d = z;
+        this.a = i2;
+        this.f44836b = i3;
+        this.f44837c = i4;
+        this.f44838d = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -50,23 +48,23 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
             int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
-            int i2 = this.f50019a;
+            int i2 = this.a;
             int i3 = childAdapterPosition % i2;
-            if (this.f50022d) {
-                int i4 = this.f50020b;
+            if (this.f44838d) {
+                int i4 = this.f44836b;
                 rect.left = i4 - ((i3 * i4) / i2);
                 rect.right = ((i3 + 1) * i4) / i2;
                 if (childAdapterPosition < i2) {
                     rect.top = i4;
                 }
-                rect.bottom = this.f50020b;
+                rect.bottom = this.f44836b;
                 return;
             }
-            int i5 = this.f50020b;
+            int i5 = this.f44836b;
             rect.left = (i3 * i5) / i2;
             rect.right = i5 - (((i3 + 1) * i5) / i2);
             if (childAdapterPosition >= i2) {
-                rect.top = this.f50021c;
+                rect.top = this.f44837c;
             }
         }
     }

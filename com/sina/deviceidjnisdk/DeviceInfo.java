@@ -7,12 +7,12 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
 /* loaded from: classes2.dex */
 public class DeviceInfo {
     public static /* synthetic */ Interceptable $ic;
@@ -40,7 +40,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, "android.permission.READ_PHONE_STATE")) {
+            if (isPermissionGranted(context, s.f56838c)) {
                 try {
                     telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 } catch (Exception unused) {
@@ -75,7 +75,7 @@ public class DeviceInfo {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (isPermissionGranted(context, "android.permission.READ_PHONE_STATE")) {
+            if (isPermissionGranted(context, s.f56838c)) {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
                     return null;
@@ -95,7 +95,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, "android.permission.ACCESS_WIFI_STATE")) {
+            if (isPermissionGranted(context, s.f56839d)) {
                 try {
                     WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
                     if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
@@ -114,6 +114,6 @@ public class DeviceInfo {
     public static boolean isPermissionGranted(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) ? context.getPackageManager().checkPermission(str, context.getPackageName()) == 0 : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) ? context.getPackageManager().checkPermission(str, context.getPackageName()) == 0 : invokeLL.booleanValue;
     }
 }

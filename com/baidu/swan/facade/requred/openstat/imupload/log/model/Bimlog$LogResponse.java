@@ -2,7 +2,6 @@ package com.baidu.swan.facade.requred.openstat.imupload.log.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Bimlog$LogResponse extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_FIELD_NUMBER = 1;
@@ -41,7 +40,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
     public int memoizedSerializedSize;
     public long pingIntervalMs_;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends AbstractParser<Bimlog$LogResponse> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,22 +69,22 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bimlog$LogResponse, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f45320e;
+        public int f40356e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f45321f;
+        public int f40357f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f45322g;
+        public Object f40358g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f45323h;
+        public long f40359h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -100,7 +99,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
                     return;
                 }
             }
-            this.f45322g = "";
+            this.f40358g = "";
             maybeForceBuilderInitialization();
         }
 
@@ -161,18 +160,18 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (b.a.p0.g.p.a.d.d.a.a) null);
-                int i2 = this.f45320e;
+                Bimlog$LogResponse bimlog$LogResponse = new Bimlog$LogResponse(this, (c.a.p0.g.p.a.d.d.a.a) null);
+                int i2 = this.f40356e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                bimlog$LogResponse.errorCode_ = this.f45321f;
+                bimlog$LogResponse.errorCode_ = this.f40357f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                bimlog$LogResponse.errorMsg_ = this.f45322g;
+                bimlog$LogResponse.errorMsg_ = this.f40358g;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                bimlog$LogResponse.pingIntervalMs_ = this.f45323h;
+                bimlog$LogResponse.pingIntervalMs_ = this.f40359h;
                 bimlog$LogResponse.bitField0_ = i3;
                 return bimlog$LogResponse;
             }
@@ -184,14 +183,14 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f45321f = 0;
-                int i2 = this.f45320e & (-2);
-                this.f45320e = i2;
-                this.f45322g = "";
+                this.f40357f = 0;
+                int i2 = this.f40356e & (-2);
+                this.f40356e = i2;
+                this.f40358g = "";
                 int i3 = i2 & (-3);
-                this.f45320e = i3;
-                this.f45323h = 0L;
-                this.f45320e = i3 & (-5);
+                this.f40356e = i3;
+                this.f40359h = 0L;
+                this.f40356e = i3 & (-5);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -231,8 +230,8 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
                     u(bimlog$LogResponse.getErrorCode());
                 }
                 if (bimlog$LogResponse.hasErrorMsg()) {
-                    this.f45320e |= 2;
-                    this.f45322g = bimlog$LogResponse.errorMsg_;
+                    this.f40356e |= 2;
+                    this.f40358g = bimlog$LogResponse.errorMsg_;
                 }
                 if (bimlog$LogResponse.hasPingIntervalMs()) {
                     v(bimlog$LogResponse.getPingIntervalMs());
@@ -285,19 +284,19 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-                this.f45320e |= 1;
-                this.f45321f = i2;
+                this.f40356e |= 1;
+                this.f40357f = i2;
                 return this;
             }
             return (b) invokeI.objValue;
         }
 
-        public b v(long j) {
+        public b v(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j)) == null) {
-                this.f45320e |= 4;
-                this.f45323h = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j2)) == null) {
+                this.f40356e |= 4;
+                this.f40359h = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -343,7 +342,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         bimlog$LogResponse.initFields();
     }
 
-    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b.a.p0.g.p.a.d.d.a.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bimlog$LogResponse(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.p0.g.p.a.d.d.a.a aVar) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -511,7 +510,7 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
         }
     }
 
-    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, b.a.p0.g.p.a.d.d.a.a aVar) {
+    public /* synthetic */ Bimlog$LogResponse(GeneratedMessageLite.Builder builder, c.a.p0.g.p.a.d.d.a.a aVar) {
         this(builder);
     }
 
@@ -608,12 +607,12 @@ public final class Bimlog$LogResponse extends GeneratedMessageLite implements Me
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }

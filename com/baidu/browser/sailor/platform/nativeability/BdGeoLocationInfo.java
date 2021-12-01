@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BdGeoLocationInfo implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COOR_TYPE_GCJ = "gcj02";
@@ -199,10 +199,10 @@ public class BdGeoLocationInfo implements INoProGuard {
         }
     }
 
-    public void setTime(long j) {
+    public void setTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.mTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.mTime = j2;
         }
     }
 

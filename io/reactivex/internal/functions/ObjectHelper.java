@@ -1,7 +1,6 @@
 package io.reactivex.internal.functions;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.functions.BiPredicate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ObjectHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final BiPredicate<Object, Object> EQUALS;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BiObjectPredicate implements BiPredicate<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,11 +86,11 @@ public final class ObjectHelper {
         return invokeII.intValue;
     }
 
-    public static int compare(long j, long j2) {
+    public static int compare(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
             if (i2 < 0) {
                 return -1;
             }
@@ -109,13 +108,13 @@ public final class ObjectHelper {
     public static <T> BiPredicate<T, T> equalsPredicate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (BiPredicate<T, T>) EQUALS : (BiPredicate) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (BiPredicate<T, T>) EQUALS : (BiPredicate) invokeV.objValue;
     }
 
     public static int hashCode(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
             if (obj != null) {
                 return obj.hashCode();
             }
@@ -148,14 +147,14 @@ public final class ObjectHelper {
         return invokeIL.intValue;
     }
 
-    public static long verifyPositive(long j, String str) {
+    public static long verifyPositive(long j2, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65545, null, j, str)) == null) {
-            if (j > 0) {
-                return j;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65545, null, j2, str)) == null) {
+            if (j2 > 0) {
+                return j2;
             }
-            throw new IllegalArgumentException(str + " > 0 required but it was " + j);
+            throw new IllegalArgumentException(str + " > 0 required but it was " + j2);
         }
         return invokeJL.longValue;
     }

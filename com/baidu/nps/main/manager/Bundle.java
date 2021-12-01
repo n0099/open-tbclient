@@ -6,20 +6,21 @@ import android.content.pm.ProviderInfo;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;
-import b.a.b0.h.a;
-import b.a.b0.i.c;
-import b.a.b0.i.e;
+import c.a.c0.h.a;
+import c.a.c0.i.c;
+import c.a.c0.i.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.invoke.IInvoker;
 import com.baidu.nps.main.invoke.InvokeException;
 import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.utils.Constant;
 import com.baidu.nps.utils.ContextHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Bundle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLAZZ_SUFFIX_INVOKER = ".Invoker";
@@ -55,11 +56,11 @@ public class Bundle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Application applicationContext = ContextHolder.getApplicationContext();
-            PackageInfo a2 = e.a(c.d(applicationContext, this.mBundleInfo.getPackageName() + ".apk").getAbsolutePath(), 138);
-            if (a2 == null) {
+            PackageInfo a = e.a(c.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
+            if (a == null) {
                 return false;
             }
-            ProviderInfo[] providerInfoArr = a2.providers;
+            ProviderInfo[] providerInfoArr = a.providers;
             if (providerInfoArr != null) {
                 for (ProviderInfo providerInfo : providerInfoArr) {
                     android.os.Bundle bundle = new android.os.Bundle();

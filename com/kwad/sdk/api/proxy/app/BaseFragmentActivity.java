@@ -480,6 +480,35 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
 
     @Keep
     /* loaded from: classes2.dex */
+    public static class GoodsPlayBackActivity extends BaseFragmentActivity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public GoodsPlayBackActivity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, GoodsPlayBackActivity.class, this) : (IFragmentActivityProxy) invokeL.objValue;
+        }
+    }
+
+    @Keep
+    /* loaded from: classes2.dex */
     public static class KsTrendsActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -504,6 +533,202 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, KsTrendsActivity.class, this) : (IFragmentActivityProxy) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class LandscapeFragmentActivity extends BaseFragmentActivity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public LandscapeFragmentActivity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, LandscapeFragmentActivity.class, this) : (IFragmentActivityProxy) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class LandscapeFragmentActivitySingleInstance1 extends BaseFragmentActivity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public LandscapeFragmentActivitySingleInstance1() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, LandscapeFragmentActivitySingleInstance1.class, this) : (IFragmentActivityProxy) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class LandscapeFragmentActivitySingleInstance2 extends BaseFragmentActivity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public LandscapeFragmentActivitySingleInstance2() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, LandscapeFragmentActivitySingleInstance2.class, this) : (IFragmentActivityProxy) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class LandscapeFragmentActivitySingleTask1 extends BaseFragmentActivity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public LandscapeFragmentActivitySingleTask1() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, LandscapeFragmentActivitySingleTask1.class, this) : (IFragmentActivityProxy) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class LandscapeFragmentActivitySingleTask2 extends BaseFragmentActivity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public LandscapeFragmentActivitySingleTask2() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, LandscapeFragmentActivitySingleTask2.class, this) : (IFragmentActivityProxy) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class LandscapeFragmentActivitySingleTop1 extends BaseFragmentActivity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public LandscapeFragmentActivitySingleTop1() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, LandscapeFragmentActivitySingleTop1.class, this) : (IFragmentActivityProxy) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class LandscapeFragmentActivitySingleTop2 extends BaseFragmentActivity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public LandscapeFragmentActivitySingleTop2() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, LandscapeFragmentActivitySingleTop2.class, this) : (IFragmentActivityProxy) invokeL.objValue;
         }
     }
 
@@ -560,6 +785,34 @@ public abstract class BaseFragmentActivity extends BaseProxyFragmentActivity {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, ProfileVideoDetailActivity.class, this) : (IFragmentActivityProxy) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class RequestInstallPermissionActivity extends BaseFragmentActivity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public RequestInstallPermissionActivity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.proxy.BaseProxyFragmentActivity
+        @NonNull
+        public IFragmentActivityProxy getDelegate(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? (IFragmentActivityProxy) Loader.get().newComponentProxy(context, RequestInstallPermissionActivity.class, this) : (IFragmentActivityProxy) invokeL.objValue;
         }
     }
 

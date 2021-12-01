@@ -10,24 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface d extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a extends Binder implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.sso.n.d$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C1720a implements d {
+        /* loaded from: classes9.dex */
+        public static class C1790a implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public IBinder a;
 
-            /* renamed from: a  reason: collision with root package name */
-            public IBinder f44178a;
-
-            public C1720a(IBinder iBinder) {
+            public C1790a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +40,7 @@ public interface d extends IInterface {
                         return;
                     }
                 }
-                this.f44178a = iBinder;
+                this.a = iBinder;
             }
 
             public String a() {
@@ -53,7 +51,7 @@ public interface d extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                        this.f44178a.transact(1, obtain, obtain2, 0);
+                        this.a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                         return obtain2.readString();
                     } finally {
@@ -68,7 +66,7 @@ public interface d extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44178a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -80,7 +78,7 @@ public interface d extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C1720a(iBinder) : (d) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C1790a(iBinder) : (d) queryLocalInterface;
             }
             return (d) invokeL.objValue;
         }

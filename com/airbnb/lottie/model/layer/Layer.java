@@ -12,7 +12,7 @@ import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
 import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Layer {
     public final LottieComposition composition;
     public final boolean hidden;
@@ -41,7 +41,7 @@ public class Layer {
     public final float timeStretch;
     public final AnimatableTransform transform;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum LayerType {
         PRE_COMP,
         SOLID,
@@ -52,7 +52,7 @@ public class Layer {
         UNKNOWN
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public enum MatteType {
         NONE,
         ADD,
@@ -62,13 +62,13 @@ public class Layer {
         UNKNOWN
     }
 
-    public Layer(List<ContentModel> list, LottieComposition lottieComposition, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, AnimatableTransform animatableTransform, int i2, int i3, int i4, float f2, float f3, int i5, int i6, @Nullable AnimatableTextFrame animatableTextFrame, @Nullable AnimatableTextProperties animatableTextProperties, List<Keyframe<Float>> list3, MatteType matteType, @Nullable AnimatableFloatValue animatableFloatValue, boolean z) {
+    public Layer(List<ContentModel> list, LottieComposition lottieComposition, String str, long j2, LayerType layerType, long j3, @Nullable String str2, List<Mask> list2, AnimatableTransform animatableTransform, int i2, int i3, int i4, float f2, float f3, int i5, int i6, @Nullable AnimatableTextFrame animatableTextFrame, @Nullable AnimatableTextProperties animatableTextProperties, List<Keyframe<Float>> list3, MatteType matteType, @Nullable AnimatableFloatValue animatableFloatValue, boolean z) {
         this.shapes = list;
         this.composition = lottieComposition;
         this.layerName = str;
-        this.layerId = j;
+        this.layerId = j2;
         this.layerType = layerType;
-        this.parentId = j2;
+        this.parentId = j3;
         this.refId = str2;
         this.masks = list2;
         this.transform = animatableTransform;

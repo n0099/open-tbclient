@@ -13,7 +13,7 @@ import com.google.android.material.slider.BasicLabelFormatter;
 import java.lang.reflect.Array;
 import java.math.BigInteger;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class RyuDouble {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] POW5_INV_SPLIT;
@@ -94,13 +94,13 @@ public final class RyuDouble {
         int i3;
         boolean z;
         boolean z2;
-        long j;
         long j2;
-        int i4;
         long j3;
+        int i4;
+        long j4;
         boolean z3;
         boolean z4;
-        long j4;
+        long j5;
         int i5;
         int i6;
         int i7;
@@ -171,19 +171,19 @@ public final class RyuDouble {
                         cArr[i34] = '0';
                     } else {
                         int i35 = (int) ((doubleToLongBits >>> 52) & 2047);
-                        long j5 = doubleToLongBits & 4503599627370495L;
+                        long j6 = doubleToLongBits & 4503599627370495L;
                         if (i35 == 0) {
                             i3 = -1074;
                         } else {
                             i3 = (i35 - 1023) - 52;
-                            j5 |= 4503599627370496L;
+                            j6 |= 4503599627370496L;
                         }
                         boolean z6 = i29 < 0;
-                        boolean z7 = (j5 & 1) == 0;
-                        long j6 = 4 * j5;
-                        long j7 = j6 + 2;
-                        int i36 = (j5 != 4503599627370496L || i35 <= 1) ? 1 : 0;
-                        long j8 = (j6 - 1) - i36;
+                        boolean z7 = (j6 & 1) == 0;
+                        long j7 = 4 * j6;
+                        long j8 = j7 + 2;
+                        int i36 = (j6 != 4503599627370496L || i35 <= 1) ? 1 : 0;
+                        long j9 = (j7 - 1) - i36;
                         int i37 = i3 - 2;
                         int i38 = 3;
                         if (i37 >= 0) {
@@ -191,91 +191,91 @@ public final class RyuDouble {
                             int i39 = ((((-i37) + max) + (((max == 0 ? 1 : (int) ((((max * 23219280) + 10000000) - 1) / 10000000)) + 122) - 1)) - 93) - 21;
                             if (i39 >= 0) {
                                 int[] iArr = POW5_INV_SPLIT[max];
-                                long j9 = j6 >>> 31;
-                                long j10 = j6 & 2147483647L;
+                                long j10 = j7 >>> 31;
+                                long j11 = j7 & 2147483647L;
                                 z = z6;
-                                long j11 = ((((((((((((j10 * iArr[3]) >>> 31) + (iArr[2] * j10)) + (j9 * iArr[3])) >>> 31) + (iArr[1] * j10)) + (iArr[2] * j9)) >>> 31) + (iArr[0] * j10)) + (iArr[1] * j9)) >>> 21) + ((iArr[0] * j9) << 10)) >>> i39;
-                                long j12 = j7 >>> 31;
-                                long j13 = j7 & 2147483647L;
+                                long j12 = ((((((((((((j11 * iArr[3]) >>> 31) + (iArr[2] * j11)) + (j10 * iArr[3])) >>> 31) + (iArr[1] * j11)) + (iArr[2] * j10)) >>> 31) + (iArr[0] * j11)) + (iArr[1] * j10)) >>> 21) + ((iArr[0] * j10) << 10)) >>> i39;
+                                long j13 = j8 >>> 31;
+                                long j14 = j8 & 2147483647L;
                                 z2 = z7;
-                                long j14 = ((((((((((((j13 * iArr[3]) >>> 31) + (iArr[2] * j13)) + (j12 * iArr[3])) >>> 31) + (iArr[1] * j13)) + (iArr[2] * j12)) >>> 31) + (iArr[0] * j13)) + (iArr[1] * j12)) >>> 21) + ((iArr[0] * j12) << 10)) >>> i39;
-                                long j15 = j8 >>> 31;
-                                long j16 = j8 & 2147483647L;
-                                j3 = j14;
-                                j2 = ((((((((((((j16 * iArr[3]) >>> 31) + (iArr[2] * j16)) + (j15 * iArr[3])) >>> 31) + (iArr[1] * j16)) + (iArr[2] * j15)) >>> 31) + (iArr[0] * j16)) + (iArr[1] * j15)) >>> 21) + ((iArr[0] * j15) << 10)) >>> i39;
+                                long j15 = ((((((((((((j14 * iArr[3]) >>> 31) + (iArr[2] * j14)) + (j13 * iArr[3])) >>> 31) + (iArr[1] * j14)) + (iArr[2] * j13)) >>> 31) + (iArr[0] * j14)) + (iArr[1] * j13)) >>> 21) + ((iArr[0] * j13) << 10)) >>> i39;
+                                long j16 = j9 >>> 31;
+                                long j17 = j9 & 2147483647L;
+                                j4 = j15;
+                                j3 = ((((((((((((j17 * iArr[3]) >>> 31) + (iArr[2] * j17)) + (j16 * iArr[3])) >>> 31) + (iArr[1] * j17)) + (iArr[2] * j16)) >>> 31) + (iArr[0] * j17)) + (iArr[1] * j16)) >>> 21) + ((iArr[0] * j16) << 10)) >>> i39;
                                 if (max <= 21) {
-                                    int i40 = ((j6 % 5) > 0L ? 1 : ((j6 % 5) == 0L ? 0 : -1));
+                                    int i40 = ((j7 % 5) > 0L ? 1 : ((j7 % 5) == 0L ? 0 : -1));
                                     if (i40 == 0) {
                                         if (i40 != 0) {
                                             i12 = 0;
-                                        } else if (j6 % 25 != 0) {
+                                        } else if (j7 % 25 != 0) {
                                             i12 = 1;
-                                        } else if (j6 % 125 != 0) {
+                                        } else if (j7 % 125 != 0) {
                                             i12 = 2;
-                                        } else if (j6 % 625 != 0) {
+                                        } else if (j7 % 625 != 0) {
                                             i12 = 3;
                                         } else {
-                                            long j17 = j6 / 625;
+                                            long j18 = j7 / 625;
                                             i12 = 4;
-                                            for (long j18 = 0; j17 > j18 && j17 % 5 == j18; j18 = 0) {
-                                                j17 /= 5;
+                                            for (long j19 = 0; j18 > j19 && j18 % 5 == j19; j19 = 0) {
+                                                j18 /= 5;
                                                 i12++;
                                             }
                                         }
                                         z4 = i12 >= max;
                                         z5 = false;
-                                        j = j11;
+                                        j2 = j12;
                                         z3 = z5;
                                         i4 = max;
                                     } else if (z2) {
-                                        if (j8 % 5 != 0) {
+                                        if (j9 % 5 != 0) {
                                             i11 = 0;
-                                        } else if (j8 % 25 != 0) {
+                                        } else if (j9 % 25 != 0) {
                                             i11 = 1;
-                                        } else if (j8 % 125 != 0) {
+                                        } else if (j9 % 125 != 0) {
                                             i11 = 2;
-                                        } else if (j8 % 625 != 0) {
+                                        } else if (j9 % 625 != 0) {
                                             i11 = 3;
                                         } else {
-                                            long j19 = j8 / 625;
+                                            long j20 = j9 / 625;
                                             i11 = 4;
-                                            for (long j20 = 0; j19 > j20 && j19 % 5 == j20; j20 = 0) {
-                                                j19 /= 5;
+                                            for (long j21 = 0; j20 > j21 && j20 % 5 == j21; j21 = 0) {
+                                                j20 /= 5;
                                                 i11++;
                                             }
                                         }
                                         if (i11 >= max) {
                                             z5 = true;
                                             z4 = false;
-                                            j = j11;
+                                            j2 = j12;
                                             z3 = z5;
                                             i4 = max;
                                         }
                                     } else {
-                                        if (j7 % 5 != 0) {
+                                        if (j8 % 5 != 0) {
                                             i10 = 0;
-                                        } else if (j7 % 25 != 0) {
+                                        } else if (j8 % 25 != 0) {
                                             i10 = 1;
-                                        } else if (j7 % 125 != 0) {
+                                        } else if (j8 % 125 != 0) {
                                             i10 = 2;
-                                        } else if (j7 % 625 != 0) {
+                                        } else if (j8 % 625 != 0) {
                                             i10 = 3;
                                         } else {
-                                            long j21 = j7 / 625;
+                                            long j22 = j8 / 625;
                                             i10 = 4;
-                                            for (long j22 = 0; j21 > j22 && j21 % 5 == j22; j22 = 0) {
-                                                j21 /= 5;
+                                            for (long j23 = 0; j22 > j23 && j22 % 5 == j23; j23 = 0) {
+                                                j22 /= 5;
                                                 i10++;
                                             }
                                         }
                                         if (i10 >= max) {
-                                            j3--;
+                                            j4--;
                                         }
                                     }
                                 }
                                 z5 = false;
                                 z4 = false;
-                                j = j11;
+                                j2 = j12;
                                 z3 = z5;
                                 i4 = max;
                             } else {
@@ -290,41 +290,41 @@ public final class RyuDouble {
                             int i43 = ((max2 - ((i42 == 0 ? 1 : (int) ((((i42 * 23219280) + 10000000) - 1) / 10000000)) + OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY)) - 93) - 21;
                             if (i43 >= 0) {
                                 int[] iArr2 = POW5_SPLIT[i42];
-                                long j23 = j6 >>> 31;
-                                long j24 = j6 & 2147483647L;
-                                long j25 = iArr2[0] * j23;
+                                long j24 = j7 >>> 31;
+                                long j25 = j7 & 2147483647L;
                                 long j26 = iArr2[0] * j24;
-                                long j27 = iArr2[1] * j23;
-                                int i44 = i36;
+                                long j27 = iArr2[0] * j25;
                                 long j28 = iArr2[1] * j24;
-                                long j29 = iArr2[2] * j23;
+                                int i44 = i36;
+                                long j29 = iArr2[1] * j25;
                                 long j30 = iArr2[2] * j24;
-                                long j31 = j23 * iArr2[3];
-                                long j32 = j7 >>> 31;
-                                long j33 = j7 & 2147483647L;
-                                long j34 = iArr2[0] * j33;
-                                long j35 = iArr2[1] * j32;
-                                j = ((((((((((((j24 * iArr2[3]) >>> 31) + j30) + j31) >>> 31) + j28) + j29) >>> 31) + j26) + j27) >>> 21) + (j25 << 10)) >>> i43;
-                                long j36 = ((((((((((((j33 * iArr2[3]) >>> 31) + (iArr2[2] * j33)) + (j32 * iArr2[3])) >>> 31) + (iArr2[1] * j33)) + (iArr2[2] * j32)) >>> 31) + j34) + j35) >>> 21) + ((iArr2[0] * j32) << 10)) >>> i43;
-                                long j37 = j8 >>> 31;
-                                long j38 = j8 & 2147483647L;
-                                j2 = ((((((((((((j38 * iArr2[3]) >>> 31) + (iArr2[2] * j38)) + (j37 * iArr2[3])) >>> 31) + (iArr2[1] * j38)) + (iArr2[2] * j37)) >>> 31) + (iArr2[0] * j38)) + (iArr2[1] * j37)) >>> 21) + ((iArr2[0] * j37) << 10)) >>> i43;
+                                long j31 = iArr2[2] * j25;
+                                long j32 = j24 * iArr2[3];
+                                long j33 = j8 >>> 31;
+                                long j34 = j8 & 2147483647L;
+                                long j35 = iArr2[0] * j34;
+                                long j36 = iArr2[1] * j33;
+                                j2 = ((((((((((((j25 * iArr2[3]) >>> 31) + j31) + j32) >>> 31) + j29) + j30) >>> 31) + j27) + j28) >>> 21) + (j26 << 10)) >>> i43;
+                                long j37 = ((((((((((((j34 * iArr2[3]) >>> 31) + (iArr2[2] * j34)) + (j33 * iArr2[3])) >>> 31) + (iArr2[1] * j34)) + (iArr2[2] * j33)) >>> 31) + j35) + j36) >>> 21) + ((iArr2[0] * j33) << 10)) >>> i43;
+                                long j38 = j9 >>> 31;
+                                long j39 = j9 & 2147483647L;
+                                j3 = ((((((((((((j39 * iArr2[3]) >>> 31) + (iArr2[2] * j39)) + (j38 * iArr2[3])) >>> 31) + (iArr2[1] * j39)) + (iArr2[2] * j38)) >>> 31) + (iArr2[0] * j39)) + (iArr2[1] * j38)) >>> 21) + ((iArr2[0] * j38) << 10)) >>> i43;
                                 i4 = max2 + i37;
                                 if (max2 <= 1) {
                                     if (z2) {
-                                        j3 = j36;
+                                        j4 = j37;
                                         z3 = i44 == 1;
                                     } else {
-                                        j3 = j36 - 1;
+                                        j4 = j37 - 1;
                                         z3 = false;
                                     }
                                     z4 = true;
                                 } else if (max2 < 63) {
-                                    z4 = (j6 & ((1 << (max2 - 1)) - 1)) == 0;
-                                    j3 = j36;
+                                    z4 = (j7 & ((1 << (max2 - 1)) - 1)) == 0;
+                                    j4 = j37;
                                     z3 = false;
                                 } else {
-                                    j3 = j36;
+                                    j4 = j37;
                                     z3 = false;
                                     z4 = false;
                                 }
@@ -332,40 +332,40 @@ public final class RyuDouble {
                                 throw new IllegalArgumentException("" + i43);
                             }
                         }
-                        if (j3 >= 1000000000000000000L) {
+                        if (j4 >= 1000000000000000000L) {
                             i38 = 19;
-                        } else if (j3 >= 100000000000000000L) {
+                        } else if (j4 >= 100000000000000000L) {
                             i38 = 18;
-                        } else if (j3 >= 10000000000000000L) {
+                        } else if (j4 >= 10000000000000000L) {
                             i38 = 17;
-                        } else if (j3 >= 1000000000000000L) {
+                        } else if (j4 >= 1000000000000000L) {
                             i38 = 16;
-                        } else if (j3 >= 100000000000000L) {
+                        } else if (j4 >= 100000000000000L) {
                             i38 = 15;
-                        } else if (j3 >= 10000000000000L) {
+                        } else if (j4 >= 10000000000000L) {
                             i38 = 14;
-                        } else if (j3 >= BasicLabelFormatter.TRILLION) {
+                        } else if (j4 >= BasicLabelFormatter.TRILLION) {
                             i38 = 13;
-                        } else if (j3 >= 100000000000L) {
+                        } else if (j4 >= 100000000000L) {
                             i38 = 12;
-                        } else if (j3 >= 10000000000L) {
+                        } else if (j4 >= 10000000000L) {
                             i38 = 11;
-                        } else if (j3 >= 1000000000) {
+                        } else if (j4 >= 1000000000) {
                             i38 = 10;
-                        } else if (j3 >= 100000000) {
+                        } else if (j4 >= 100000000) {
                             i38 = 9;
-                        } else if (j3 >= 10000000) {
+                        } else if (j4 >= 10000000) {
                             i38 = 8;
-                        } else if (j3 >= 1000000) {
+                        } else if (j4 >= 1000000) {
                             i38 = 7;
-                        } else if (j3 >= 100000) {
+                        } else if (j4 >= 100000) {
                             i38 = 6;
-                        } else if (j3 >= 10000) {
+                        } else if (j4 >= 10000) {
                             i38 = 5;
-                        } else if (j3 >= 1000) {
+                        } else if (j4 >= 1000) {
                             i38 = 4;
-                        } else if (j3 < 100) {
-                            i38 = j3 >= 10 ? 2 : 1;
+                        } else if (j4 < 100) {
+                            i38 = j4 >= 10 ? 2 : 1;
                         }
                         int i45 = (i4 + i38) - 1;
                         boolean z8 = i45 < -3 || i45 >= 7;
@@ -374,50 +374,50 @@ public final class RyuDouble {
                             int i46 = 0;
                             int i47 = 0;
                             while (true) {
-                                long j39 = j3 / 10;
-                                long j40 = j2 / 10;
-                                if (j39 <= j40 || (j3 < 100 && z8)) {
+                                long j40 = j4 / 10;
+                                long j41 = j3 / 10;
+                                if (j40 <= j41 || (j4 < 100 && z8)) {
                                     break;
                                 }
-                                z3 &= j2 % 10 == 0;
+                                z3 &= j3 % 10 == 0;
                                 z9 &= i46 == 0;
-                                i46 = (int) (j % 10);
-                                j /= 10;
+                                i46 = (int) (j2 % 10);
+                                j2 /= 10;
                                 i47++;
-                                j3 = j39;
-                                j2 = j40;
+                                j4 = j40;
+                                j3 = j41;
                             }
                             if (z3 && z2) {
-                                while (j2 % 10 == 0 && (j3 >= 100 || !z8)) {
+                                while (j3 % 10 == 0 && (j4 >= 100 || !z8)) {
                                     z9 &= i46 == 0;
-                                    i46 = (int) (j % 10);
-                                    j3 /= 10;
-                                    j /= 10;
+                                    i46 = (int) (j2 % 10);
+                                    j4 /= 10;
                                     j2 /= 10;
+                                    j3 /= 10;
                                     i47++;
                                 }
                             }
-                            if (z9 && i46 == 5 && j % 2 == 0) {
+                            if (z9 && i46 == 5 && j2 % 2 == 0) {
                                 i46 = 4;
                             }
-                            j4 = j + (((j != j2 || (z3 && z2)) && i46 < 5) ? 0 : 1);
+                            j5 = j2 + (((j2 != j3 || (z3 && z2)) && i46 < 5) ? 0 : 1);
                             i5 = i47;
                         } else {
                             i5 = 0;
                             int i48 = 0;
                             while (true) {
-                                long j41 = j3 / 10;
-                                long j42 = j2 / 10;
-                                if (j41 <= j42 || (j3 < 100 && z8)) {
+                                long j42 = j4 / 10;
+                                long j43 = j3 / 10;
+                                if (j42 <= j43 || (j4 < 100 && z8)) {
                                     break;
                                 }
-                                i48 = (int) (j % 10);
-                                j /= 10;
+                                i48 = (int) (j2 % 10);
+                                j2 /= 10;
                                 i5++;
-                                j3 = j41;
-                                j2 = j42;
+                                j4 = j42;
+                                j3 = j43;
                             }
-                            j4 = j + ((j == j2 || i48 >= 5) ? 1 : 0);
+                            j5 = j2 + ((j2 == j3 || i48 >= 5) ? 1 : 0);
                         }
                         int i49 = i38 - i5;
                         if (z) {
@@ -442,16 +442,16 @@ public final class RyuDouble {
                                 }
                                 i7 = i51;
                                 for (int i53 = 0; i53 < i49; i53++) {
-                                    cArr[((i51 + i49) - i53) - 1] = (char) ((j4 % 10) + 48);
-                                    j4 /= 10;
+                                    cArr[((i51 + i49) - i53) - 1] = (char) ((j5 % 10) + 48);
+                                    j5 /= 10;
                                     i7++;
                                 }
                             } else {
                                 int i54 = i45 + 1;
                                 if (i54 >= i49) {
                                     for (int i55 = 0; i55 < i49; i55++) {
-                                        cArr[((i6 + i49) - i55) - 1] = (char) ((j4 % 10) + 48);
-                                        j4 /= 10;
+                                        cArr[((i6 + i49) - i55) - 1] = (char) ((j5 % 10) + 48);
+                                        j5 /= 10;
                                     }
                                     int i56 = i6 + i49;
                                     while (i49 < i54) {
@@ -470,8 +470,8 @@ public final class RyuDouble {
                                             cArr[((i58 + i49) - i59) - 1] = '.';
                                             i58--;
                                         }
-                                        cArr[((i58 + i49) - i59) - 1] = (char) ((j4 % 10) + 48);
-                                        j4 /= 10;
+                                        cArr[((i58 + i49) - i59) - 1] = (char) ((j5 % 10) + 48);
+                                        j5 /= 10;
                                     }
                                     i7 = i6 + i49 + 1;
                                 }
@@ -479,11 +479,11 @@ public final class RyuDouble {
                             return i7 - i2;
                         }
                         for (int i60 = 0; i60 < i49 - 1; i60++) {
-                            int i61 = (int) (j4 % 10);
-                            j4 /= 10;
+                            int i61 = (int) (j5 % 10);
+                            j5 /= 10;
                             cArr[(i6 + i49) - i60] = (char) (i61 + 48);
                         }
-                        cArr[i6] = (char) ((j4 % 10) + 48);
+                        cArr[i6] = (char) ((j5 % 10) + 48);
                         cArr[i6 + 1] = '.';
                         int i62 = i6 + i49 + 1;
                         if (i49 == 1) {

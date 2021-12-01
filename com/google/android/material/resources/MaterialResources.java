@@ -13,14 +13,13 @@ import androidx.annotation.StyleableRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MaterialResources {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +86,7 @@ public class MaterialResources {
     public static int getIndexWithValue(@NonNull TypedArray typedArray, @StyleableRes int i2, @StyleableRes int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, typedArray, i2, i3)) == null) ? typedArray.hasValue(i2) ? i2 : i3 : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, typedArray, i2, i3)) == null) ? typedArray.hasValue(i2) ? i2 : i3 : invokeLII.intValue;
     }
 
     @Nullable
@@ -95,7 +94,7 @@ public class MaterialResources {
         InterceptResult invokeLLI;
         int resourceId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, context, typedArray, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, typedArray, i2)) == null) {
             if (!typedArray.hasValue(i2) || (resourceId = typedArray.getResourceId(i2, 0)) == 0) {
                 return null;
             }

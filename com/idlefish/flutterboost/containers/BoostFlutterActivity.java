@@ -1,6 +1,7 @@
 package com.idlefish.flutterboost.containers;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -18,9 +19,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
-import b.a.e.a.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -31,15 +30,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.FlutterBoost;
-import com.idlefish.flutterboost.XFlutterView;
-import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
+import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import io.flutter.Log;
 import io.flutter.embedding.android.DrawableSplashScreen;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
+import io.flutter.plugin.platform.PlatformPlugin;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,22 +46,21 @@ import java.util.Map;
 public class BoostFlutterActivity extends Activity implements FlutterActivityAndFragmentDelegate.Host, LifecycleOwner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_BACKGROUND_MODE;
-    public static final String EXTRA_ANIMATED = "animated";
     public static final String EXTRA_BACKGROUND_MODE = "background_mode";
     public static final String EXTRA_DART_ENTRYPOINT = "dart_entrypoint";
     public static final String EXTRA_DESTROY_ENGINE_WITH_ACTIVITY = "destroy_engine_with_activity";
     public static final String EXTRA_PARAMS = "params";
-    public static final String EXTRA_SHOW_LOADING = "showloading";
-    public static final String EXTRA_SWIPEBACK = "swipeback";
     public static final String EXTRA_URL = "url";
     public static final String NORMAL_THEME_META_DATA_KEY = "io.flutter.embedding.android.NormalTheme";
     public static final String SPLASH_SCREEN_META_DATA_KEY = "io.flutter.embedding.android.SplashScreenDrawable";
     public static final String TAG = "NewBoostFlutterActivity";
-    public static XPlatformPlugin sXPlatformPlugin;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity coveredTransparentActivity;
     public FlutterActivityAndFragmentDelegate delegate;
+    public boolean isCoverWithTransparentActivity;
     @NonNull
     public LifecycleRegistry lifecycle;
+    public Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -130,7 +128,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         public transient /* synthetic */ FieldHolder $fh;
         public final Class<? extends BoostFlutterActivity> activityClass;
         public String backgroundMode;
-        public Map<String, Object> params;
+        public Map params;
         public String url;
 
         public NewEngineIntentBuilder(@NonNull Class<? extends BoostFlutterActivity> cls) {
@@ -229,12 +227,93 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
                 return;
             }
         }
+        this.isCoverWithTransparentActivity = false;
+        this.mActivityLifecycleCallbacks = new Application.ActivityLifecycleCallbacks(this) { // from class: com.idlefish.flutterboost.containers.BoostFlutterActivity.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ BoostFlutterActivity this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, activity, bundle) == null) && this.this$0.isCoverWithTransparentActivity) {
+                    if (this.this$0.coveredTransparentActivity == null) {
+                        this.this$0.coveredTransparentActivity = activity;
+                    }
+                    if (activity instanceof BoostFlutterActivity) {
+                        this.this$0.delegate.onPause();
+                    }
+                }
+            }
+
+            @Override // android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityDestroyed(@NonNull Activity activity) {
+                Interceptable interceptable2 = $ic;
+                if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && this.this$0.coveredTransparentActivity == activity) {
+                    this.this$0.coveredTransparentActivity = null;
+                    this.this$0.isCoverWithTransparentActivity = false;
+                }
+            }
+
+            @Override // android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityPaused(@NonNull Activity activity) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+                }
+            }
+
+            @Override // android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityResumed(@NonNull Activity activity) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048579, this, activity) == null) {
+                }
+            }
+
+            @Override // android.app.Application.ActivityLifecycleCallbacks
+            public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048580, this, activity, bundle) == null) {
+                }
+            }
+
+            @Override // android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityStarted(@NonNull Activity activity) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
+                }
+            }
+
+            @Override // android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityStopped(@NonNull Activity activity) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
+                }
+            }
+        };
         this.lifecycle = new LifecycleRegistry(this);
     }
 
     private void configureStatusBarForFullscreenFlutterExperience() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         Window window = getWindow();
@@ -245,7 +324,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
 
     private void configureWindowForTransparency() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && getBackgroundMode() == BackgroundMode.transparent) {
+        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && getBackgroundMode() == BackgroundMode.transparent) {
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
             getWindow().setFlags(512, 512);
         }
@@ -254,24 +333,24 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     public static Intent createDefaultIntent(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? withNewEngine().build(context) : (Intent) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) ? withNewEngine().build(context) : (Intent) invokeL.objValue;
     }
 
     @Nullable
     private Drawable getSplashScreenFromManifest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             try {
                 Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 129).metaData;
                 Integer valueOf = bundle != null ? Integer.valueOf(bundle.getInt("io.flutter.embedding.android.SplashScreenDrawable")) : null;
-                if (valueOf != null) {
-                    if (Build.VERSION.SDK_INT > 21) {
-                        return getResources().getDrawable(valueOf.intValue(), getTheme());
-                    }
-                    return getResources().getDrawable(valueOf.intValue());
+                if (valueOf == null || valueOf.intValue() <= 0) {
+                    return null;
                 }
-                return null;
+                if (Build.VERSION.SDK_INT > 21) {
+                    return getResources().getDrawable(valueOf.intValue(), getTheme());
+                }
+                return getResources().getDrawable(valueOf.intValue());
             } catch (PackageManager.NameNotFoundException unused) {
                 return null;
             }
@@ -282,12 +361,12 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     private boolean isDebuggable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? (getApplicationInfo().flags & 2) != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? (getApplicationInfo().flags & 2) != 0 : invokeV.booleanValue;
     }
 
     private void switchLaunchThemeForNormalTheme() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             try {
                 ActivityInfo activityInfo = getPackageManager().getActivityInfo(getComponentName(), 128);
                 if (activityInfo.metaData != null) {
@@ -307,7 +386,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
     public static NewEngineIntentBuilder withNewEngine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new NewEngineIntentBuilder(BoostFlutterActivity.class) : (NewEngineIntentBuilder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? new NewEngineIntentBuilder(BoostFlutterActivity.class) : (NewEngineIntentBuilder) invokeV.objValue;
     }
 
     @Override // io.flutter.embedding.android.FlutterEngineConfigurator
@@ -359,12 +438,20 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getIntent().hasExtra("url") ? getIntent().getStringExtra("url") : "" : (String) invokeV.objValue;
     }
 
-    public Map<String, Object> getContainerUrlParams() {
+    public Map getContainerUrlParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (getIntent().hasExtra("params")) {
-                return ((SerializableMap) getIntent().getSerializableExtra("params")).getMap();
+                Map<String, Object> map = ((SerializableMap) getIntent().getSerializableExtra("params")).getMap();
+                if (map != null && map.size() > 0) {
+                    for (Map.Entry<String, Object> entry : map.entrySet()) {
+                        if (entry != null && (entry.getValue() instanceof Boolean)) {
+                            map.put(entry.getKey(), Boolean.valueOf(((Boolean) entry.getValue()).booleanValue()));
+                        }
+                    }
+                }
+                return map;
             }
             return new HashMap();
         }
@@ -379,30 +466,30 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (Context) invokeV.objValue;
     }
 
-    public FlutterActivityAndFragmentDelegate getFlutterDelegate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.delegate : (FlutterActivityAndFragmentDelegate) invokeV.objValue;
-    }
-
     @Nullable
     public FlutterEngine getFlutterEngine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.delegate.getFlutterEngine() : (FlutterEngine) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.delegate.getFlutterEngine() : (FlutterEngine) invokeV.objValue;
     }
 
     @NonNull
     public FlutterShellArgs getFlutterShellArgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? FlutterShellArgs.fromIntent(getIntent()) : (FlutterShellArgs) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? FlutterShellArgs.fromIntent(getIntent()) : (FlutterShellArgs) invokeV.objValue;
     }
 
-    public XFlutterView getFlutterView() {
+    public FlutterView getFlutterView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.delegate.getFlutterView() : (XFlutterView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.delegate.getFlutterView() : (FlutterView) invokeV.objValue;
+    }
+
+    public IFlutterViewContainer getIFlutterViewContainer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.delegate : (IFlutterViewContainer) invokeV.objValue;
     }
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, androidx.lifecycle.LifecycleOwner
@@ -413,7 +500,6 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.lifecycle : (Lifecycle) invokeV.objValue;
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @NonNull
     public FlutterView.RenderMode getRenderMode() {
         InterceptResult invokeV;
@@ -450,7 +536,6 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
             switchLaunchThemeForNormalTheme();
-            a.b(this);
             super.onCreate(bundle);
             this.lifecycle.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
             FlutterActivityAndFragmentDelegate flutterActivityAndFragmentDelegate = new FlutterActivityAndFragmentDelegate(this);
@@ -458,6 +543,8 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
             flutterActivityAndFragmentDelegate.onAttach(this);
             configureWindowForTransparency();
             setContentView(createFlutterView());
+            configureStatusBarForFullscreenFlutterExperience();
+            getApplication().registerActivityLifecycleCallbacks(this.mActivityLifecycleCallbacks);
             LogUtil.logActivity(this, "onCreate");
         }
     }
@@ -469,6 +556,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
             super.onDestroy();
             this.delegate.onDestroyView();
             this.delegate.onDetach();
+            getApplication().unregisterActivityLifecycleCallbacks(this.mActivityLifecycleCallbacks);
         }
     }
 
@@ -486,7 +574,9 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onPause();
-            this.delegate.onPause();
+            if (!this.isCoverWithTransparentActivity) {
+                this.delegate.onPause();
+            }
             this.lifecycle.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE);
         }
     }
@@ -514,6 +604,9 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onResume();
             this.lifecycle.handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
+            if (this.isCoverWithTransparentActivity) {
+                return;
+            }
             this.delegate.onResume();
         }
     }
@@ -564,10 +657,16 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @Nullable
-    public XPlatformPlugin providePlatformPlugin(@NonNull FlutterEngine flutterEngine) {
-        InterceptResult invokeL;
+    public PlatformPlugin providePlatformPlugin(@Nullable Activity activity, @NonNull FlutterEngine flutterEngine) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, flutterEngine)) == null) ? BoostViewUtils.getPlatformPlugin(flutterEngine.getPlatformChannel()) : (XPlatformPlugin) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, activity, flutterEngine)) == null) {
+            if (activity != null) {
+                return new PlatformPlugin(getActivity(), flutterEngine.getPlatformChannel());
+            }
+            return null;
+        }
+        return (PlatformPlugin) invokeLL.objValue;
     }
 
     @Nullable
@@ -584,14 +683,10 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         return (SplashScreen) invokeV.objValue;
     }
 
-    @Override // android.app.Activity
-    public void setRequestedOrientation(int i2) {
+    public void setIsCoverWithTransparentActivity(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            if (a.d(this) && a.a(i2)) {
-                return;
-            }
-            super.setRequestedOrientation(i2);
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            this.isCoverWithTransparentActivity = z;
         }
     }
 
@@ -601,6 +696,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         }
     }
 
+    @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public boolean shouldAttachEngineToActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

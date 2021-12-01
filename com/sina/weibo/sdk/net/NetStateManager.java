@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.sina.weibo.sdk.utils.LogUtil;
 /* loaded from: classes2.dex */
 public class NetStateManager {
@@ -187,7 +186,7 @@ public class NetStateManager {
             if (context == null) {
                 LogUtil.e("Weibosdk", "unexpected null context in isNetworkConnected");
                 return false;
-            } else if (context.getPackageManager().checkPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, context.getPackageName()) != 0) {
+            } else if (context.getPackageManager().checkPermission("android.permission.ACCESS_NETWORK_STATE", context.getPackageName()) != 0) {
                 return false;
             } else {
                 NetworkInfo networkInfo = null;

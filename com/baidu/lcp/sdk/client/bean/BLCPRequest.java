@@ -7,28 +7,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BLCPRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f39435a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f39436b;
+    public long f35158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f39437c;
+    public byte[] f35159c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f39438d;
+    public long f35160d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SendTimeoutSecond f39439e;
+    public SendTimeoutSecond f35161e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SendTimeoutSecond {
         public static final /* synthetic */ SendTimeoutSecond[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,10 +102,10 @@ public class BLCPRequest {
                 return;
             }
         }
-        this.f39435a = -1L;
-        this.f39436b = -1L;
-        this.f39437c = new byte[0];
-        this.f39438d = -1L;
-        this.f39439e = SendTimeoutSecond.TIMEOUT_120s;
+        this.a = -1L;
+        this.f35158b = -1L;
+        this.f35159c = new byte[0];
+        this.f35160d = -1L;
+        this.f35161e = SendTimeoutSecond.TIMEOUT_120s;
     }
 }

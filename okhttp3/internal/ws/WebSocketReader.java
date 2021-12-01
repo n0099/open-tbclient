@@ -1,7 +1,6 @@
 package okhttp3.internal.ws;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -77,9 +76,9 @@ public final class WebSocketReader {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            long j = this.frameLength;
-            if (j > 0) {
-                this.source.readFully(this.controlFrameBuffer, j);
+            long j2 = this.frameLength;
+            if (j2 > 0) {
+                this.source.readFully(this.controlFrameBuffer, j2);
                 if (!this.isClient) {
                     this.controlFrameBuffer.readAndWriteUnsafe(this.maskCursor);
                     this.maskCursor.seek(0L);
@@ -146,11 +145,11 @@ public final class WebSocketReader {
                         if (z5 == this.isClient) {
                             throw new ProtocolException(this.isClient ? "Server-sent frames must not be masked." : "Client-sent frames must be masked.");
                         }
-                        long j = readByte2 & 127;
-                        this.frameLength = j;
-                        if (j == 126) {
+                        long j2 = readByte2 & 127;
+                        this.frameLength = j2;
+                        if (j2 == 126) {
                             this.frameLength = this.source.readShort() & WebSocketProtocol.PAYLOAD_SHORT_MAX;
-                        } else if (j == 127) {
+                        } else if (j2 == 127) {
                             long readLong = this.source.readLong();
                             this.frameLength = readLong;
                             if (readLong < 0) {
@@ -180,9 +179,9 @@ public final class WebSocketReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             while (!this.closed) {
-                long j = this.frameLength;
-                if (j > 0) {
-                    this.source.readFully(this.messageFrameBuffer, j);
+                long j2 = this.frameLength;
+                if (j2 > 0) {
+                    this.source.readFully(this.messageFrameBuffer, j2);
                     if (!this.isClient) {
                         this.messageFrameBuffer.readAndWriteUnsafe(this.maskCursor);
                         this.maskCursor.seek(this.messageFrameBuffer.size() - this.frameLength);
@@ -220,7 +219,7 @@ public final class WebSocketReader {
 
     private void readUntilNonControlFrame() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             while (!this.closed) {
                 readHeader();
                 if (!this.isControlFrame) {

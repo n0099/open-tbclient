@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.b;
-import com.kwad.sdk.core.response.a.a;
+import com.kwad.sdk.core.response.kwai.a;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class ActivityInfo extends a implements b, Serializable {

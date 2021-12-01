@@ -12,7 +12,7 @@ import com.airbnb.lottie.animation.keyframe.ValueCallbackKeyframeAnimation;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.value.LottieValueCallback;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class StrokeContent extends BaseStrokeContent {
     public final BaseKeyframeAnimation<Integer, Integer> colorAnimation;
     @Nullable

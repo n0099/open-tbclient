@@ -9,7 +9,6 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.utils.BdVideoLog;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TextureVideoKernel extends AbsVideoCyber {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TextureVideoKernel";
@@ -132,7 +131,7 @@ public class TextureVideoKernel extends AbsVideoCyber {
 
     private void setVideoURI(Uri uri, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, uri, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, uri, hashMap) == null) {
             BdVideoLog.d("TextureVideoKernel", "setVideoURI");
             try {
                 initPlayer();

@@ -31,7 +31,6 @@ import com.baidu.android.util.devices.IDevices;
 import com.baidu.apollon.ApollonConstants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.permission.PermissionManager;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
@@ -42,6 +41,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -63,38 +63,40 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f37150a;
+    public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f37151b;
+    public static final Pattern f33260b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f37152c;
+    public static final Pattern f33261c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f37153d;
+    public static final Pattern f33262d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f37154e = "PhoneUtils";
+    public static final String f33263e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f37155f = "_pay.preferences";
+    public static final String f33264f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f37156g = "cuid_1";
+    public static final String f33265g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f37157h = "cuid_2";
+    public static final String f33266h = "cuid_2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f37158i = "wime";
-    public static final String j = "identity_code";
-    public static final String k = "phone_number";
+    public static final String f33267i = "wime";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f33268j = "identity_code";
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final String f33269k = "phone_number";
     public static final String l = "card_no";
     public static final String m = "valid_date";
     public static final String n = "cvv2";
@@ -107,7 +109,7 @@ public final class PhoneUtils {
     public static String u;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -117,12 +119,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARMV6 = "armv6";
         public static final String PROCESSOR_ARMV7 = "armv7";
         public static final String PROCESSOR_ARM_PREFIX = "armv";
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final String f37159a = "processor";
+        public static final String a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f37160b = "features";
+        public static final String f33270b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -151,7 +151,7 @@ public final class PhoneUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,10 +192,10 @@ public final class PhoneUtils {
             }
         }
         q = new ArrayList<>();
-        f37150a = Pattern.compile("((\\d|[A-F]){32}).*");
-        f37151b = Pattern.compile("((\\d|[a-f]){32}).*");
-        f37152c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f37153d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        a = Pattern.compile("((\\d|[A-F]){32}).*");
+        f33260b = Pattern.compile("((\\d|[a-f]){32}).*");
+        f33261c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f33262d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
         q.add("card_no");
         q.add("valid_date");
         q.add("cvv2");
@@ -238,7 +238,7 @@ public final class PhoneUtils {
     public static String encrypt(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
             if (q.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
@@ -256,7 +256,7 @@ public final class PhoneUtils {
     public static int getAppVersionCode(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             if (context == null) {
                 return 0;
             }
@@ -349,11 +349,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f37152c.matcher(cuid).matches()) {
+            if (f33261c.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f37153d.matcher(cuid).matches()) {
+                if (f33262d.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -373,12 +373,12 @@ public final class PhoneUtils {
         if (interceptable != null && (invokeL = interceptable.invokeL(65549, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, "android.permission.READ_PHONE_STATE")) {
+        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, s.f56838c)) {
             return "";
         }
         format = String.format("%s_%s_%s", 0, 0, 0);
         try {
-            if ((hasPermission(context, "android.permission.ACCESS_FINE_LOCATION") || hasPermission(context, "android.permission.ACCESS_COARSE_LOCATION")) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
+            if ((hasPermission(context, s.f56842g) || hasPermission(context, s.f56843h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
                 if (cellLocation instanceof GsmCellLocation) {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
@@ -398,7 +398,7 @@ public final class PhoneUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             try {
-                if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                if (hasPermission(context, s.f56842g)) {
                     Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
                     LogUtil.d("PhoneUtils", "location: " + lastKnownLocation);
                     return lastKnownLocation != null ? String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude())) : "";
@@ -451,7 +451,7 @@ public final class PhoneUtils {
         LocationManager locationManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, comparator)) == null) {
-            if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION") && (locationManager = (LocationManager) context.getApplicationContext().getSystemService("location")) != null) {
+            if (hasPermission(context, s.f56842g) && (locationManager = (LocationManager) context.getApplicationContext().getSystemService("location")) != null) {
                 List<String> allProviders = locationManager.getAllProviders();
                 Location[] locationArr = new Location[allProviders.size()];
                 for (int i2 = 0; i2 < allProviders.size(); i2++) {
@@ -766,7 +766,7 @@ public final class PhoneUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
             String str = "";
             try {
-                if (hasPermission(context, "android.permission.ACCESS_WIFI_STATE")) {
+                if (hasPermission(context, s.f56839d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled()) {
                         int i2 = Integer.MAX_VALUE;
@@ -890,10 +890,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f37150a.matcher(deviceID);
+            Matcher matcher = a.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f37151b.matcher(deviceID);
+                Matcher matcher2 = f33260b.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;

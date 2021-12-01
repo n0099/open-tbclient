@@ -14,19 +14,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.activity.BaseActivity;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class RimGlobalUtils {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f38447a;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public RimGlobalUtils() {
@@ -46,7 +43,7 @@ public final class RimGlobalUtils {
     public static String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f38447a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (String) invokeV.objValue;
     }
 
     public static String getZid(Context context) {
@@ -101,7 +98,7 @@ public final class RimGlobalUtils {
         InputMethodManager inputMethodManager;
         View currentFocus;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, activity) == null) || (inputMethodManager = (InputMethodManager) activity.getSystemService("input_method")) == null || (currentFocus = activity.getCurrentFocus()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, activity) == null) || (inputMethodManager = (InputMethodManager) activity.getSystemService("input_method")) == null || (currentFocus = activity.getCurrentFocus()) == null) {
             return;
         }
         inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 2);
@@ -109,7 +106,7 @@ public final class RimGlobalUtils {
 
     public static void safeDismissDialog(BaseActivity baseActivity, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, baseActivity, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65542, null, baseActivity, i2) == null) {
             try {
                 Activity activity = baseActivity.getActivity();
                 if (activity == null || activity.isFinishing()) {
@@ -138,7 +135,7 @@ public final class RimGlobalUtils {
     public static void safeShowDialog(BaseActivity baseActivity, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65544, null, baseActivity, i2, str) == null) {
-            f38447a = str;
+            a = str;
             try {
                 baseActivity.getActivity().showDialog(i2);
             } catch (Exception e2) {
@@ -152,7 +149,7 @@ public final class RimGlobalUtils {
     public static void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            f38447a = str;
+            a = str;
         }
     }
 
@@ -167,12 +164,10 @@ public final class RimGlobalUtils {
             view.postDelayed(new Runnable(context, view) { // from class: com.baidu.fsg.base.utils.RimGlobalUtils.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f38448a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ View f38449b;
+                public final /* synthetic */ View f34381b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -189,15 +184,15 @@ public final class RimGlobalUtils {
                             return;
                         }
                     }
-                    this.f38448a = context;
-                    this.f38449b = view;
+                    this.a = context;
+                    this.f34381b = view;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ((InputMethodManager) this.f38448a.getSystemService("input_method")).showSoftInput(this.f38449b, 0);
+                        ((InputMethodManager) this.a.getSystemService("input_method")).showSoftInput(this.f34381b, 0);
                     }
                 }
             }, 100L);

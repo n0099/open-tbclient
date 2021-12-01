@@ -9,7 +9,7 @@ import com.baidu.wallet.base.datamodel.Authorize;
 import com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView;
 import com.dxmpay.wallet.base.datamodel.UserData;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a extends AuthorizeInfoView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,13 +42,13 @@ public class a extends AuthorizeInfoView.b {
         }
         if (obj instanceof Authorize) {
             Authorize authorize = (Authorize) obj;
-            this.f61323a.setLogo(authorize.sp_logo_url);
-            this.f61323a.setTitle(authorize.sp_company_title);
-            this.f61323a.setTips(authorize.authorize_action_desc);
+            this.a.setLogo(authorize.sp_logo_url);
+            this.a.setTitle(authorize.sp_company_title);
+            this.a.setTips(authorize.authorize_action_desc);
             String[] strArr = authorize.authorize_desc;
             int i2 = 0;
             if (strArr != null && strArr.length > 0) {
-                this.f61323a.setDesc(strArr[0]);
+                this.a.setDesc(strArr[0]);
             }
             if (authorize.detail_info == null) {
                 return;
@@ -67,12 +67,12 @@ public class a extends AuthorizeInfoView.b {
                     }
                     i2++;
                 } else {
-                    this.f61323a.setTipMessage(sb.toString());
+                    this.a.setTipMessage(sb.toString());
                     return;
                 }
             }
         } else if (obj instanceof UserData.UserModel) {
-            this.f61323a.setPhone(((UserData.UserModel) obj).authorize_display_name);
+            this.a.setPhone(((UserData.UserModel) obj).authorize_display_name);
         }
     }
 }

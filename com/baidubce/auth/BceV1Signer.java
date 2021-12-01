@@ -3,7 +3,6 @@ package com.baidubce.auth;
 import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +30,7 @@ import java.util.TreeMap;
 import okhttp3.internal.http.HttpMethod;
 import org.apache.commons.lang3.StringUtils;
 @SuppressLint({"NewApi", "DefaultLocale"})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BceV1Signer implements Signer {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> defaultHeadersToSign;
@@ -137,7 +136,7 @@ public class BceV1Signer implements Signer {
     private boolean isDefaultHeaderToSign(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             String lowerCase = str.trim().toLowerCase();
             return lowerCase.startsWith(Headers.BCE_PREFIX) || defaultHeadersToSign.contains(lowerCase);
         }

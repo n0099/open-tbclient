@@ -3,7 +3,6 @@ package com.baidu.pass.face.platform.common;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LogHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogHelper";
@@ -86,7 +85,7 @@ public class LogHelper {
 
     public static void addTipsLogWithKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
             HashMap<String, Integer> hashMap = logTipsMap;
             if (hashMap != null && !hashMap.containsKey(str)) {
                 logTipsMap.put(str, 1);
@@ -102,7 +101,7 @@ public class LogHelper {
 
     public static void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             logMap = new HashMap<>();
             logLivenessLiveness = new ArrayList<>();
             logTipsMap = new HashMap<>();

@@ -41,7 +41,6 @@ import androidx.versionedparcelable.CustomVersionedParcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -222,7 +221,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public static IconCompat createFromIconOrNullIfZeroResId(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, icon)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, icon)) == null) {
             if (getType(icon) == 2 && getResId(icon) == 0) {
                 return null;
             }
@@ -1072,7 +1071,7 @@ public class IconCompat extends CustomVersionedParcelable {
     public static IconCompat createFromIcon(@NonNull Icon icon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, icon)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, icon)) == null) {
             Preconditions.checkNotNull(icon);
             int type = getType(icon);
             if (type != 2) {

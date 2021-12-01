@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +114,7 @@ public class Path {
     public static Box getPath(Container container, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, container, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, container, str)) == null) {
             List<Box> paths = getPaths(container, str, true);
             if (paths.isEmpty()) {
                 return null;
@@ -140,7 +139,7 @@ public class Path {
     public static Box getPath(AbstractContainerBox abstractContainerBox, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, abstractContainerBox, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, abstractContainerBox, str)) == null) {
             List<Box> paths = getPaths(abstractContainerBox, str, true);
             if (paths.isEmpty()) {
                 return null;

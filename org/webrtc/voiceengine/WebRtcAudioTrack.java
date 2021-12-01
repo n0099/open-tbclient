@@ -236,12 +236,12 @@ public class WebRtcAudioTrack {
         usageAttribute = defaultUsageAttribute;
     }
 
-    public WebRtcAudioTrack(long j) {
+    public WebRtcAudioTrack(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -255,7 +255,7 @@ public class WebRtcAudioTrack {
         this.threadChecker = threadChecker;
         threadChecker.checkIsOnValidThread();
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
-        this.nativeAudioTrack = j;
+        this.nativeAudioTrack = j2;
         this.audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
     }
 
@@ -426,10 +426,10 @@ public class WebRtcAudioTrack {
         Logging.d(TAG, "underrun count: " + this.audioTrack.getUnderrunCount());
     }
 
-    private native void nativeCacheDirectBufferAddress(ByteBuffer byteBuffer, long j);
+    private native void nativeCacheDirectBufferAddress(ByteBuffer byteBuffer, long j2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeGetPlayoutData(int i2, long j);
+    public native void nativeGetPlayoutData(int i2, long j2);
 
     private void releaseAudioResources() {
         Interceptable interceptable = $ic;

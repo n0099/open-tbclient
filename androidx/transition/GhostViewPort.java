@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -167,7 +166,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     public static void removeGhost(View view) {
         GhostViewPort ghostView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, view) == null) || (ghostView = getGhostView(view)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, view) == null) || (ghostView = getGhostView(view)) == null) {
             return;
         }
         int i2 = ghostView.mReferences - 1;
@@ -179,7 +178,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
 
     public static void setGhostView(@NonNull View view, @Nullable GhostViewPort ghostViewPort) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, view, ghostViewPort) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, view, ghostViewPort) == null) {
             view.setTag(R.id.ghost_view, ghostViewPort);
         }
     }

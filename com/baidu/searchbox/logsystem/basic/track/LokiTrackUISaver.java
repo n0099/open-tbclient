@@ -2,9 +2,8 @@ package com.baidu.searchbox.logsystem.basic.track;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.h0.b.a.a;
+import c.a.i0.b.a.a;
 import com.baidu.android.util.io.FileUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.searchbox.logsystem.util.Utility;
@@ -22,7 +21,7 @@ import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LokiTrackUISaver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char SEPERATOR_ENTER = '\n';
@@ -148,7 +147,7 @@ public class LokiTrackUISaver {
     public static boolean saveFinalTraceFile(@NonNull File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
             File tempTraceFile = getTempTraceFile();
             return tempTraceFile != null && tempTraceFile.exists() && FileUtils.copyFile(tempTraceFile, file) > 0;
         }
@@ -159,7 +158,7 @@ public class LokiTrackUISaver {
         LinkedList<TrackUI> allTrackUIs;
         TrackUI trackUI2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, trackUI) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, trackUI) == null) {
             File tempTraceFile = getTempTraceFile();
             if (mFirstSaveTempFile) {
                 mFirstSaveTempFile = false;

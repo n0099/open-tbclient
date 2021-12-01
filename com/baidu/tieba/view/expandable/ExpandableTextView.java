@@ -13,9 +13,9 @@ import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.q0.e1.n.f;
-import b.a.r0.d4.h;
+import c.a.d.f.p.l;
+import c.a.q0.f1.n.f;
+import c.a.r0.k4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ExpandableTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int OFF_CONTENT_BACK = 1;
@@ -37,21 +37,25 @@ public class ExpandableTextView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56416e;
+    public int f50477e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpannableStringBuilder f56417f;
+    public SpannableStringBuilder f50478f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SpannableStringBuilder f56418g;
+    public SpannableStringBuilder f50479g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnTouchListener f56419h;
+    public View.OnTouchListener f50480h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnTouchListener f56420i;
-    public boolean j;
-    public boolean k;
+    public View.OnTouchListener f50481i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f50482j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public boolean f50483k;
     public boolean l;
     public SpannableClickTextView m;
     public TextView n;
@@ -65,13 +69,13 @@ public class ExpandableTextView extends RelativeLayout {
     public f v;
     public View.OnClickListener w;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExpandableTextView f56421e;
+        public final /* synthetic */ ExpandableTextView f50484e;
 
         public a(ExpandableTextView expandableTextView) {
             Interceptable interceptable = $ic;
@@ -88,7 +92,7 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f56421e = expandableTextView;
+            this.f50484e = expandableTextView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -97,87 +101,87 @@ public class ExpandableTextView extends RelativeLayout {
             String substring;
             Object[] spans;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f56421e.m == null || this.f56421e.f56417f == null || !this.f56421e.j || (layout = this.f56421e.m.getLayout()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50484e.m == null || this.f50484e.f50478f == null || !this.f50484e.f50482j || (layout = this.f50484e.m.getLayout()) == null) {
                 return;
             }
-            if (!this.f56421e.k) {
-                if (layout.getLineCount() <= this.f56421e.o) {
+            if (!this.f50484e.f50483k) {
+                if (layout.getLineCount() <= this.f50484e.o) {
                     return;
                 }
-                if (this.f56421e.f56418g == null) {
-                    String spannableStringBuilder = this.f56421e.f56417f.toString();
-                    int lineStart = layout.getLineStart(this.f56421e.o - 1);
-                    int lineEnd = layout.getLineEnd(this.f56421e.o - 1);
+                if (this.f50484e.f50479g == null) {
+                    String spannableStringBuilder = this.f50484e.f50478f.toString();
+                    int lineStart = layout.getLineStart(this.f50484e.o - 1);
+                    int lineEnd = layout.getLineEnd(this.f50484e.o - 1);
                     String substring2 = spannableStringBuilder.substring(0, lineStart);
                     String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(spannableStringBuilder.substring(lineStart, lineEnd), StringHelper.getChineseAndEnglishLength(substring) - 6, "");
-                    this.f56421e.f56418g = new SpannableStringBuilder();
-                    this.f56421e.f56418g.append((CharSequence) substring2);
-                    this.f56421e.f56418g.append((CharSequence) cutChineseAndEnglishWithSuffix);
-                    int length = this.f56421e.f56418g.length();
-                    for (Object obj : this.f56421e.f56417f.getSpans(length, spannableStringBuilder.length(), Object.class)) {
-                        int spanStart = this.f56421e.f56417f.getSpanStart(obj);
-                        int spanEnd = this.f56421e.f56417f.getSpanEnd(obj);
+                    this.f50484e.f50479g = new SpannableStringBuilder();
+                    this.f50484e.f50479g.append((CharSequence) substring2);
+                    this.f50484e.f50479g.append((CharSequence) cutChineseAndEnglishWithSuffix);
+                    int length = this.f50484e.f50479g.length();
+                    for (Object obj : this.f50484e.f50478f.getSpans(length, spannableStringBuilder.length(), Object.class)) {
+                        int spanStart = this.f50484e.f50478f.getSpanStart(obj);
+                        int spanEnd = this.f50484e.f50478f.getSpanEnd(obj);
                         if (spanStart < length && spanEnd >= length) {
                             break;
                         }
                         if (obj instanceof SpannableString) {
-                            this.f56421e.f56418g.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
+                            this.f50484e.f50479g.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
                         }
                     }
-                    this.f56421e.f56418g.append((CharSequence) "...");
+                    this.f50484e.f50479g.append((CharSequence) "...");
                     SpannableString spannableString = new SpannableString("展开");
-                    spannableString.setSpan(this.f56421e.u, 0, spannableString.length(), 17);
-                    this.f56421e.f56418g.append((CharSequence) spannableString);
-                    ExpandableTextView expandableTextView = this.f56421e;
-                    expandableTextView.f56420i = new h(expandableTextView.f56418g);
-                    ((h) this.f56421e.f56420i).a(R.color.transparent);
+                    spannableString.setSpan(this.f50484e.u, 0, spannableString.length(), 17);
+                    this.f50484e.f50479g.append((CharSequence) spannableString);
+                    ExpandableTextView expandableTextView = this.f50484e;
+                    expandableTextView.f50481i = new h(expandableTextView.f50479g);
+                    ((h) this.f50484e.f50481i).a(R.color.transparent);
                 }
-                this.f56421e.n.setVisibility(8);
-                this.f56421e.m.setOnTouchListener(this.f56421e.f56420i);
-                this.f56421e.m.setText(this.f56421e.f56418g);
-                if (this.f56421e.s) {
-                    this.f56421e.t();
+                this.f50484e.n.setVisibility(8);
+                this.f50484e.m.setOnTouchListener(this.f50484e.f50481i);
+                this.f50484e.m.setText(this.f50484e.f50479g);
+                if (this.f50484e.s) {
+                    this.f50484e.t();
                 }
-            } else if (!this.f56421e.l) {
-                this.f56421e.l = true;
-                if (this.f56421e.f56416e == 2) {
+            } else if (!this.f50484e.l) {
+                this.f50484e.l = true;
+                if (this.f50484e.f50477e == 2) {
                     int lineCount = layout.getLineCount();
                     int lineEnd2 = layout.getLineEnd(0);
                     int i2 = lineCount - 1;
                     int lineEnd3 = layout.getLineEnd(i2) - layout.getLineStart(i2);
                     SpannableString spannableString2 = new SpannableString("收起");
-                    spannableString2.setSpan(this.f56421e.v, 0, spannableString2.length(), 17);
+                    spannableString2.setSpan(this.f50484e.v, 0, spannableString2.length(), 17);
                     int i3 = lineEnd2 - lineEnd3;
                     if (i3 > 2) {
-                        this.f56421e.f56417f.append((CharSequence) spannableString2);
+                        this.f50484e.f50478f.append((CharSequence) spannableString2);
                     } else {
                         int i4 = i3 + 1;
                         for (int i5 = 0; i5 < i4; i5++) {
-                            this.f56421e.f56417f.append((CharSequence) GlideException.IndentedAppendable.INDENT);
+                            this.f50484e.f50478f.append((CharSequence) GlideException.IndentedAppendable.INDENT);
                         }
-                        this.f56421e.f56417f.append((CharSequence) spannableString2);
+                        this.f50484e.f50478f.append((CharSequence) spannableString2);
                     }
-                    ((h) this.f56421e.f56419h).a(R.color.transparent);
-                    this.f56421e.m.setOnTouchListener(this.f56421e.f56419h);
-                    this.f56421e.m.setText(this.f56421e.f56417f);
-                    this.f56421e.n.setVisibility(8);
+                    ((h) this.f50484e.f50480h).a(R.color.transparent);
+                    this.f50484e.m.setOnTouchListener(this.f50484e.f50480h);
+                    this.f50484e.m.setText(this.f50484e.f50478f);
+                    this.f50484e.n.setVisibility(8);
                     return;
                 }
                 int lineCount2 = layout.getLineCount();
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f56421e.n.getLayoutParams();
-                if (this.f56421e.n.getWidth() + layout.getLineWidth(lineCount2 - 1) > layout.getWidth()) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f50484e.n.getLayoutParams();
+                if (this.f50484e.n.getWidth() + layout.getLineWidth(lineCount2 - 1) > layout.getWidth()) {
                     layoutParams.addRule(3, R.id.expandable_view_title);
                     layoutParams.addRule(8, 0);
                 } else {
                     layoutParams.addRule(8, R.id.expandable_view_title);
                     layoutParams.addRule(3, 0);
                 }
-                this.f56421e.n.setLayoutParams(layoutParams);
+                this.f50484e.n.setLayoutParams(layoutParams);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +209,7 @@ public class ExpandableTextView extends RelativeLayout {
             this.l = expandableTextView;
         }
 
-        @Override // b.a.q0.e1.n.f, android.text.style.ClickableSpan
+        @Override // c.a.q0.f1.n.f, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
@@ -214,7 +218,7 @@ public class ExpandableTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,7 +246,7 @@ public class ExpandableTextView extends RelativeLayout {
             this.l = expandableTextView;
         }
 
-        @Override // b.a.q0.e1.n.f, android.text.style.ClickableSpan
+        @Override // c.a.q0.f1.n.f, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
@@ -251,13 +255,13 @@ public class ExpandableTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExpandableTextView f56422e;
+        public final /* synthetic */ ExpandableTextView f50485e;
 
         public d(ExpandableTextView expandableTextView) {
             Interceptable interceptable = $ic;
@@ -274,19 +278,19 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f56422e = expandableTextView;
+            this.f50485e = expandableTextView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f56422e.u();
+                this.f50485e.u();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface e {
         void a(boolean z);
     }
@@ -309,9 +313,9 @@ public class ExpandableTextView extends RelativeLayout {
                 return;
             }
         }
-        this.f56416e = 1;
-        this.j = true;
-        this.k = false;
+        this.f50477e = 1;
+        this.f50482j = true;
+        this.f50483k = false;
         this.l = false;
         this.o = 2;
         this.p = Integer.MAX_VALUE;
@@ -343,17 +347,17 @@ public class ExpandableTextView extends RelativeLayout {
                 charSequence = "";
             }
             this.s = z;
-            this.f56417f = new SpannableStringBuilder(charSequence);
+            this.f50478f = new SpannableStringBuilder(charSequence);
             if (worksInfoData != null && worksInfoData.isWorks) {
                 if (TextUtils.isEmpty(charSequence)) {
-                    this.f56417f = new SpannableStringBuilder(" ");
+                    this.f50478f = new SpannableStringBuilder(" ");
                 }
-                ThreadCardUtils.setWorksPrefix(this.f56417f);
+                ThreadCardUtils.setWorksPrefix(this.f50478f);
             }
-            this.f56419h = new h(this.f56417f);
-            this.m.setText(this.f56417f);
+            this.f50480h = new h(this.f50478f);
+            this.m.setText(this.f50478f);
             this.m.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
-            this.m.setOnTouchListener(this.f56419h);
+            this.m.setOnTouchListener(this.f50480h);
             SkinManager.setViewTextColor(this.m, this.q, 1);
         }
     }
@@ -361,14 +365,14 @@ public class ExpandableTextView extends RelativeLayout {
     public void setExpandType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f56416e = i2;
+            this.f50477e = i2;
         }
     }
 
     public void setExpandable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.j = z;
+            this.f50482j = z;
             if (!z) {
                 if (Build.VERSION.SDK_INT < 16) {
                     this.m.getViewTreeObserver().removeGlobalOnLayoutListener(this.t);
@@ -377,7 +381,7 @@ public class ExpandableTextView extends RelativeLayout {
                 }
                 this.m.setMaxLines(this.p);
                 this.m.setEllipsize(TextUtils.TruncateAt.END);
-                this.m.setText(this.f56417f);
+                this.m.setText(this.f50478f);
                 this.m.setOnTouchListener(null);
                 this.n.setVisibility(8);
                 return;
@@ -391,7 +395,7 @@ public class ExpandableTextView extends RelativeLayout {
     public void setHasDown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b.a.q0.s.u.c.d(this.m).y(R.array.S_O_X001);
+            c.a.q0.s.u.c.d(this.m).y(R.array.S_O_X001);
         }
     }
 
@@ -452,14 +456,14 @@ public class ExpandableTextView extends RelativeLayout {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.k = true;
+            this.f50483k = true;
             e eVar = this.r;
             if (eVar != null) {
                 eVar.a(true);
             }
-            this.m.setOnTouchListener(this.f56419h);
-            this.m.setText(this.f56417f);
-            if (this.f56416e == 1) {
+            this.m.setOnTouchListener(this.f50480h);
+            this.m.setText(this.f50478f);
+            if (this.f50477e == 1) {
                 this.n.setVisibility(0);
             }
         }
@@ -468,13 +472,13 @@ public class ExpandableTextView extends RelativeLayout {
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.k = false;
+            this.f50483k = false;
             e eVar = this.r;
             if (eVar != null) {
                 eVar.a(false);
             }
-            this.m.setOnTouchListener(this.f56420i);
-            this.m.setText(this.f56418g);
+            this.m.setOnTouchListener(this.f50481i);
+            this.m.setText(this.f50479g);
             this.n.setVisibility(8);
         }
     }
@@ -490,9 +494,9 @@ public class ExpandableTextView extends RelativeLayout {
             TextView textView = (TextView) findViewById(R.id.expandable_view_title_up);
             this.n = textView;
             textView.setOnClickListener(this.w);
-            l.g(context, R.dimen.tbfontsize42);
+            l.f(context, R.dimen.tbfontsize42);
             this.q = R.color.CAM_X0101;
-            l.g(context, R.dimen.tbds6);
+            l.f(context, R.dimen.tbds6);
         }
     }
 
@@ -515,9 +519,9 @@ public class ExpandableTextView extends RelativeLayout {
                 return;
             }
         }
-        this.f56416e = 1;
-        this.j = true;
-        this.k = false;
+        this.f50477e = 1;
+        this.f50482j = true;
+        this.f50483k = false;
         this.l = false;
         this.o = 2;
         this.p = Integer.MAX_VALUE;
@@ -548,9 +552,9 @@ public class ExpandableTextView extends RelativeLayout {
                 return;
             }
         }
-        this.f56416e = 1;
-        this.j = true;
-        this.k = false;
+        this.f50477e = 1;
+        this.f50482j = true;
+        this.f50483k = false;
         this.l = false;
         this.o = 2;
         this.p = Integer.MAX_VALUE;

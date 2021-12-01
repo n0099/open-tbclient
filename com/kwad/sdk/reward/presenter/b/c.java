@@ -1,0 +1,210 @@
+package com.kwad.sdk.reward.presenter.b;
+
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.R;
+import com.kwad.sdk.core.webview.jshandler.d;
+import com.kwad.sdk.core.webview.jshandler.j;
+import com.kwad.sdk.reward.a.f;
+import com.kwad.sdk.reward.g;
+import com.kwad.sdk.utils.av;
+import com.kwad.sdk.utils.bb;
+/* loaded from: classes2.dex */
+public class c extends a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f59095b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.kwad.sdk.reward.presenter.platdetail.actionbar.a f59096c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.reward.presenter.platdetail.actionbar.b f59097d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f59098e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f59099f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public f f59100g;
+
+    public c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f59100g = new f(this) { // from class: com.kwad.sdk.reward.presenter.b.c.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = r2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.a = this;
+            }
+
+            @Override // com.kwad.sdk.reward.a.f
+            public void a() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.a.v();
+                }
+            }
+        };
+        this.f59099f = z;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void v() {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (frameLayout = (FrameLayout) ((g) this).a.f58877j.findViewById(i())) == null) {
+            return;
+        }
+        frameLayout.setVisibility(8);
+    }
+
+    @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f59095b = m().findViewById(R.id.ksad_video_play_bar_h5).getVisibility();
+            m().findViewById(R.id.ksad_video_play_bar_h5).setVisibility(8);
+            super.a();
+            ((g) this).a.a(this.f59100g);
+        }
+    }
+
+    @Override // com.kwad.sdk.reward.presenter.b.a
+    public void a(d.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            float c2 = bb.c(q());
+            aVar.a = (int) ((av.n(q()) / c2) + 0.5f);
+            aVar.f57994b = (int) ((av.o(q()) / c2) + 0.5f);
+        }
+    }
+
+    @Override // com.kwad.sdk.reward.presenter.b.a
+    public void a(j.a aVar) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || (frameLayout = (FrameLayout) ((g) this).a.f58877j.findViewById(i())) == null) {
+            return;
+        }
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
+        layoutParams.height = bb.a(q(), aVar.a);
+        layoutParams.leftMargin = bb.a(q(), aVar.f58031b);
+        layoutParams.rightMargin = bb.a(q(), aVar.f58032c);
+        layoutParams.bottomMargin = bb.a(q(), aVar.f58033d);
+        layoutParams.width = -1;
+        frameLayout.setLayoutParams(layoutParams);
+    }
+
+    @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.mvp.Presenter
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.c();
+            ((g) this).a.b(this.f59100g);
+            if (this.f59098e) {
+                this.f59096c.j();
+                com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = this.f59097d;
+                if (bVar != null) {
+                    bVar.j();
+                }
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.mvp.Presenter
+    public void c_() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.c_();
+            this.f59096c = new com.kwad.sdk.reward.presenter.platdetail.actionbar.a();
+            if (this.f59099f) {
+                com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = new com.kwad.sdk.reward.presenter.platdetail.actionbar.b();
+                this.f59097d = bVar;
+                bVar.c(m());
+            }
+            this.f59096c.c(m());
+        }
+    }
+
+    @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.mvp.Presenter
+    public void d_() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.d_();
+            if (this.f59098e) {
+                com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = this.f59097d;
+                if (bVar != null) {
+                    bVar.k();
+                }
+                this.f59096c.k();
+            }
+        }
+    }
+
+    @Override // com.kwad.sdk.reward.presenter.b.a
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "ksad-video-bottom-card.js" : (String) invokeV.objValue;
+    }
+
+    @Override // com.kwad.sdk.reward.presenter.b.a
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.id.ksad_js_bottom : invokeV.intValue;
+    }
+
+    @Override // com.kwad.sdk.reward.presenter.b.a
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f59098e = true;
+            m().findViewById(R.id.ksad_video_play_bar_h5).setVisibility(this.f59095b);
+            this.f59096c.a(((g) this).a);
+            com.kwad.sdk.reward.presenter.platdetail.actionbar.b bVar = this.f59097d;
+            if (bVar != null) {
+                bVar.a(((g) this).a);
+            }
+        }
+    }
+}

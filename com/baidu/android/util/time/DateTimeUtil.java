@@ -2,7 +2,6 @@ package com.baidu.android.util.time;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class DateTimeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd";
@@ -80,13 +79,13 @@ public final class DateTimeUtil {
     public static Timestamp getCurrTimestamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? new Timestamp(System.currentTimeMillis()) : (Timestamp) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new Timestamp(System.currentTimeMillis()) : (Timestamp) invokeV.objValue;
     }
 
     public static long getDelta() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? mDelta : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? mDelta : invokeV.longValue;
     }
 
     public static String getFormatDate(Date date, String str) {
@@ -101,16 +100,16 @@ public final class DateTimeUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, date, str)) == null) ? DateTimeUtils.getFormatDateTime(date, str) : (String) invokeLL.objValue;
     }
 
-    public static String getFormatTeletextTime(Context context, long j) {
+    public static String getFormatTeletextTime(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, context, j)) == null) ? getFormatTeletextTime(context, j, true) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, context, j2)) == null) ? getFormatTeletextTime(context, j2, true) : (String) invokeLJ.objValue;
     }
 
-    public static long getNextDay(long j, int i2) {
+    public static long getNextDay(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? DateTimeUtils.getNextDayByMode(j, i2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? DateTimeUtils.getNextDayByMode(j2, i2) : invokeCommon.longValue;
     }
 
     public static String getWeek() {
@@ -180,10 +179,10 @@ public final class DateTimeUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) ? DateTimeUtils.getFormatDateTime(str, str2) : (Date) invokeLL.objValue;
     }
 
-    public static String getFormatTeletextTime(Context context, long j, boolean z) {
+    public static String getFormatTeletextTime(Context context, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z)})) == null) ? DateTimeUtils.getFormatTeletextTime(context, j, z) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? DateTimeUtils.getFormatTeletextTime(context, j2, z) : (String) invokeCommon.objValue;
     }
 
     public static Date getFormatDate(String str, String[] strArr) {

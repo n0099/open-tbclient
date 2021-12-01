@@ -18,12 +18,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends a<Object> {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Charset f38211a;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +37,7 @@ public class c extends a<Object> {
                 return;
             }
         }
-        f38211a = Charset.forName("UTF-8");
+        a = Charset.forName("UTF-8");
     }
 
     public c() {
@@ -59,7 +57,7 @@ public class c extends a<Object> {
     private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(aVar.g())) ? f38211a : Charset.forName(aVar.g()) : (Charset) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? (aVar == null || TextUtils.isEmpty(aVar.g())) ? a : Charset.forName(aVar.g()) : (Charset) invokeL.objValue;
     }
 
     @Override // com.baidu.fsg.base.restnet.a.a

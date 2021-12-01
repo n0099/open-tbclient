@@ -11,21 +11,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final b f70081a;
+    public static final b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f70082b;
+    public static final b f61656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f70083c;
+    public static final b f61657c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f70084d;
+    public static final b f61658d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ b[] f70085e;
+    public static final /* synthetic */ b[] f61659e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,12 +39,12 @@ public final class b {
                 return;
             }
         }
-        f70081a = new b("BYTE_INVALID_RETRY_STATUS_NONE", 0);
-        f70082b = new b("BYTE_INVALID_RETRY_STATUS_RESTART", 1);
-        f70083c = new b("BYTE_INVALID_RETRY_STATUS_DOWNLOADING", 2);
+        a = new b("BYTE_INVALID_RETRY_STATUS_NONE", 0);
+        f61656b = new b("BYTE_INVALID_RETRY_STATUS_RESTART", 1);
+        f61657c = new b("BYTE_INVALID_RETRY_STATUS_DOWNLOADING", 2);
         b bVar = new b("BYTE_INVALID_RETRY_STATUS_DOWNLOADED", 3);
-        f70084d = bVar;
-        f70085e = new b[]{f70081a, f70082b, f70083c, bVar};
+        f61658d = bVar;
+        f61659e = new b[]{a, f61656b, f61657c, bVar};
     }
 
     public b(String str, int i2) {
@@ -77,6 +75,6 @@ public final class b {
     public static b[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f70085e.clone() : (b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f61659e.clone() : (b[]) invokeV.objValue;
     }
 }

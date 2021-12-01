@@ -1,7 +1,6 @@
 package com.google.gson.internal.bind.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ISO8601Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TimeZone TIMEZONE_UTC;
@@ -69,7 +68,7 @@ public class ISO8601Utils {
     public static int indexOfNonDigit(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i2)) == null) {
             while (i2 < str.length()) {
                 char charAt = str.charAt(i2);
                 if (charAt < '0' || charAt > '9') {
@@ -281,7 +280,7 @@ public class ISO8601Utils {
     public static String format(Date date, boolean z, TimeZone timeZone) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{date, Boolean.valueOf(z), timeZone})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{date, Boolean.valueOf(z), timeZone})) == null) {
             GregorianCalendar gregorianCalendar = new GregorianCalendar(timeZone, Locale.US);
             gregorianCalendar.setTime(date);
             StringBuilder sb = new StringBuilder(19 + (z ? 4 : 0) + (timeZone.getRawOffset() == 0 ? 1 : 6));

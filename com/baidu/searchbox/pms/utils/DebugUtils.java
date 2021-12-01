@@ -3,7 +3,6 @@ package com.baidu.searchbox.pms.utils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DebugUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +52,7 @@ public class DebugUtils {
 
     public static void throwExceptionForDebug(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) && AppConfig.isDebug()) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && AppConfig.isDebug()) {
             throw new RuntimeException(str);
         }
     }
@@ -114,7 +113,7 @@ public class DebugUtils {
 
     public static void throwExceptionForDebug(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th) == null) && AppConfig.isDebug()) {
+        if ((interceptable == null || interceptable.invokeL(65542, null, th) == null) && AppConfig.isDebug()) {
             throw new RuntimeException(th);
         }
     }

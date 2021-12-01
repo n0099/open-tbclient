@@ -3,7 +3,6 @@ package com.facebook.imagepipeline.image;
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +16,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CloseableStaticBitmap extends CloseableBitmap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +66,7 @@ public class CloseableStaticBitmap extends CloseableBitmap {
     public static int getBitmapHeight(@Nullable Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bitmap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
             if (bitmap == null) {
                 return 0;
             }
@@ -79,7 +78,7 @@ public class CloseableStaticBitmap extends CloseableBitmap {
     public static int getBitmapWidth(@Nullable Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bitmap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bitmap)) == null) {
             if (bitmap == null) {
                 return 0;
             }

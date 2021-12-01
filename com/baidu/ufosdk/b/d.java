@@ -6,19 +6,18 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static TelephonyManager f57572a;
+    public static TelephonyManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConnectivityManager f57573b;
+    public static ConnectivityManager f51523b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -29,10 +28,10 @@ public final class d {
             String str = StringUtils.LF;
             StringBuilder sb = new StringBuilder();
             try {
-                if (f57573b == null) {
-                    f57573b = (ConnectivityManager) context.getSystemService("connectivity");
+                if (f51523b == null) {
+                    f51523b = (ConnectivityManager) context.getSystemService("connectivity");
                 }
-                activeNetworkInfo = f57573b.getActiveNetworkInfo();
+                activeNetworkInfo = f51523b.getActiveNetworkInfo();
             } catch (Exception e2) {
                 com.baidu.ufosdk.f.c.a("NetworkCollector: Couldn't get NetworkInfo : " + context.getPackageName(), e2);
             }
@@ -48,11 +47,11 @@ public final class d {
                     sb.append(" subType: ");
                     sb.append(activeNetworkInfo.getSubtypeName());
                     sb.append(StringUtils.LF);
-                    if (f57572a == null) {
-                        f57572a = (TelephonyManager) context.getSystemService("phone");
+                    if (a == null) {
+                        a = (TelephonyManager) context.getSystemService("phone");
                     }
                     sb.append(" isRoaming: ");
-                    sb.append(f57572a.isNetworkRoaming() ? "yes" : "no");
+                    sb.append(a.isNetworkRoaming() ? "yes" : "no");
                 }
                 return sb.toString();
             }
@@ -69,12 +68,12 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                if (f57573b == null) {
-                    f57573b = (ConnectivityManager) context.getSystemService("connectivity");
+                if (f51523b == null) {
+                    f51523b = (ConnectivityManager) context.getSystemService("connectivity");
                 }
-                NetworkInfo activeNetworkInfo = f57573b.getActiveNetworkInfo();
+                NetworkInfo activeNetworkInfo = f51523b.getActiveNetworkInfo();
                 if (activeNetworkInfo != null) {
-                    return !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
+                    return !activeNetworkInfo.isConnected() ? PolyActivity.NONE_PANEL_TYPE : activeNetworkInfo.getTypeName().toUpperCase();
                 }
                 com.baidu.ufosdk.f.c.d("getNetworkType fail, getActiveNetworkInfo() is null.");
                 return RomUtils.UNKNOWN;
@@ -91,7 +90,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             String b2 = b(context);
-            return (b2.contains(RomUtils.UNKNOWN) || b2.contains("NONE")) ? false : true;
+            return (b2.contains(RomUtils.UNKNOWN) || b2.contains(PolyActivity.NONE_PANEL_TYPE)) ? false : true;
         }
         return invokeL.booleanValue;
     }

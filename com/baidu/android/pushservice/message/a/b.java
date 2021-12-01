@@ -8,18 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.message.a.b$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36583a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -36,9 +34,9 @@ public class b extends d {
                 }
             }
             int[] iArr = new int[com.baidu.android.pushservice.a.c.a().length];
-            f36583a = iArr;
+            a = iArr;
             try {
-                iArr[com.baidu.android.pushservice.a.c.f35801a.ordinal()] = 1;
+                iArr[com.baidu.android.pushservice.a.c.a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
         }
@@ -70,19 +68,19 @@ public class b extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-            int a2 = kVar.a();
+            int a = kVar.a();
             int i2 = 12;
-            if (AnonymousClass1.f36583a[com.baidu.android.pushservice.a.d.a(this.f36585a, kVar.c()).a().ordinal()] != 1) {
+            if (AnonymousClass1.a[com.baidu.android.pushservice.a.d.a(this.a, kVar.c()).a().ordinal()] != 1) {
                 i2 = 7;
             } else {
-                if (kVar.g() == l.f36604h.b()) {
-                    if (kVar.a() != 0 && com.baidu.android.pushservice.c.c.a(this.f36585a, a2)) {
-                        com.baidu.android.pushservice.j.h.a(this.f36585a, a2);
-                        if (com.baidu.android.pushservice.c.c.b(this.f36585a, a2)) {
+                if (kVar.g() == l.f32827h.b()) {
+                    if (kVar.a() != 0 && com.baidu.android.pushservice.c.c.a(this.a, a)) {
+                        com.baidu.android.pushservice.j.h.a(this.a, a);
+                        if (com.baidu.android.pushservice.c.c.b(this.a, a)) {
                             i2 = 10;
                         }
                     } else {
-                        com.baidu.android.pushservice.j.h.a(this.f36585a);
+                        com.baidu.android.pushservice.j.h.a(this.a);
                     }
                 }
                 i2 = 1;

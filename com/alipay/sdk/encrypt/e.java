@@ -1,7 +1,6 @@
 package com.alipay.sdk.encrypt;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f34961a = "DESede/CBC/PKCS5Padding";
+    public static String a = "DESede/CBC/PKCS5Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,7 +52,7 @@ public class e {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, bArr, str2)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
-                Cipher cipher = Cipher.getInstance(f34961a);
+                Cipher cipher = Cipher.getInstance(a);
                 cipher.init(2, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {
@@ -68,10 +65,10 @@ public class e {
     public static byte[] b(String str, byte[] bArr, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, bArr, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, bArr, str2)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str.getBytes(), "DESede");
-                Cipher cipher = Cipher.getInstance(f34961a);
+                Cipher cipher = Cipher.getInstance(a);
                 cipher.init(1, secretKeySpec, new IvParameterSpec(c.a(cipher, str2)));
                 return cipher.doFinal(bArr);
             } catch (Exception unused) {

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GetShieldAndTopResult> CREATOR;
@@ -178,10 +178,10 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         }
     }
 
-    public void setContacter(long j) {
+    public void setContacter(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.mContacter = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.mContacter = j2;
         }
     }
 
@@ -192,10 +192,10 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         }
     }
 
-    public void setDisturbTime(long j) {
+    public void setDisturbTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.mDisturbTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.mDisturbTime = j2;
         }
     }
 
@@ -213,10 +213,10 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         }
     }
 
-    public void setMarkTopTime(long j) {
+    public void setMarkTopTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.mMarkTopTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.mMarkTopTime = j2;
         }
     }
 
@@ -227,10 +227,10 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         }
     }
 
-    public void setShieldTime(long j) {
+    public void setShieldTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.mShieldTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.mShieldTime = j2;
         }
     }
 

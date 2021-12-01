@@ -6,11 +6,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes2.dex */
-public class a {
+public final class a {
     public static /* synthetic */ Interceptable $ic;
+    public static final Boolean a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f64806a;
+    /* renamed from: b  reason: collision with root package name */
+    public static final Boolean f56963b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final Boolean f56964c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,6 +30,9 @@ public class a {
                 return;
             }
         }
-        f64806a = b.f64808b.booleanValue() ? 1 : 2;
+        Boolean bool = Boolean.TRUE;
+        a = bool;
+        f56963b = bool;
+        f56964c = Boolean.FALSE;
     }
 }

@@ -7,7 +7,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetworkUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -50,7 +50,7 @@ public class NetworkUtils {
                     return;
                 }
             }
-            NONE = new NetType("NONE", 0, "no");
+            NONE = new NetType(PolyActivity.NONE_PANEL_TYPE, 0, "no");
             WIFI = new NetType(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1, "wifi");
             _2G = new NetType("_2G", 2, "2g");
             _3G = new NetType("_3G", 3, "3g");
@@ -210,8 +210,8 @@ public class NetworkUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            NetworkInfo a2 = a(AppRuntime.getAppContext());
-            return (a2 == null || !a2.isConnected()) ? "no" : a2.getType() == 1 ? "wifi" : a2.getType() == 0 ? b(a2.getSubtype(), a2.getSubtypeName()) : "unknown";
+            NetworkInfo a = a(AppRuntime.getAppContext());
+            return (a == null || !a.isConnected()) ? "no" : a.getType() == 1 ? "wifi" : a.getType() == 0 ? b(a.getSubtype(), a.getSubtypeName()) : "unknown";
         }
         return (String) invokeV.objValue;
     }
@@ -235,9 +235,9 @@ public class NetworkUtils {
     public static boolean f(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            NetworkInfo a2 = a(AppRuntime.getAppContext());
-            return a2 != null && a2.isConnectedOrConnecting();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            NetworkInfo a = a(AppRuntime.getAppContext());
+            return a != null && a.isConnectedOrConnecting();
         }
         return invokeL.booleanValue;
     }
@@ -245,9 +245,9 @@ public class NetworkUtils {
     public static boolean g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            NetworkInfo a2 = a(AppRuntime.getAppContext());
-            return a2 != null && a2.isAvailable() && a2.getType() == 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            NetworkInfo a = a(AppRuntime.getAppContext());
+            return a != null && a.isAvailable() && a.getType() == 1;
         }
         return invokeL.booleanValue;
     }

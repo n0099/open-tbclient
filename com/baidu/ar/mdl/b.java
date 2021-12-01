@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class b {
                 int length2 = jSONArray2.length();
                 a aVar = new a();
                 aVar.type = i3;
-                aVar.f37295tv = z;
+                aVar.f33391tv = z;
                 aVar.tw = new String[length2];
                 for (int i4 = 0; i4 < length2; i4++) {
                     JSONObject jSONObject2 = jSONArray2.getJSONObject(i4);
@@ -176,7 +176,7 @@ public class b {
     }
 
     public void a(String str, Context context) {
-        String a2;
+        String a;
         boolean z;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, context) == null) || TextUtils.isEmpty(str)) {
@@ -187,13 +187,13 @@ public class b {
             if (!str.endsWith("/")) {
                 str = str + "/";
             }
-            a2 = d(context, str + "dl_config.json");
+            a = d(context, str + "dl_config.json");
             z = true;
         } else {
-            a2 = a(new File(str, "dl_config.json"));
+            a = a(new File(str, "dl_config.json"));
             z = false;
         }
-        a(a2, str, z);
+        a(a, str, z);
     }
 
     public SparseArray<a> fm() {

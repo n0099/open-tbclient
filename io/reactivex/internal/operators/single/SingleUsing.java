@@ -20,7 +20,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SingleUsing<T, U> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class SingleUsing<T, U> extends Single<T> {
     public final Callable<U> resourceSupplier;
     public final Function<? super U, ? extends SingleSource<? extends T>> singleFunction;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UsingSingleObserver<T, U> extends AtomicReference<Object> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5331524057054083935L;
@@ -37,7 +37,7 @@ public final class SingleUsing<T, U> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73474d;
+        public Disposable f64036d;
         public final Consumer<? super U> disposer;
         public final boolean eager;
 
@@ -68,8 +68,8 @@ public final class SingleUsing<T, U> extends Single<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73474d.dispose();
-                this.f73474d = DisposableHelper.DISPOSED;
+                this.f64036d.dispose();
+                this.f64036d = DisposableHelper.DISPOSED;
                 disposeAfter();
             }
         }
@@ -92,14 +92,14 @@ public final class SingleUsing<T, U> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73474d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64036d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f73474d = DisposableHelper.DISPOSED;
+                this.f64036d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -123,8 +123,8 @@ public final class SingleUsing<T, U> extends Single<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f73474d, disposable)) {
-                this.f73474d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f64036d, disposable)) {
+                this.f64036d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -133,7 +133,7 @@ public final class SingleUsing<T, U> extends Single<T> {
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.f73474d = DisposableHelper.DISPOSED;
+                this.f64036d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {

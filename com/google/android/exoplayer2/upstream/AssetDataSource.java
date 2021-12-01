@@ -3,9 +3,9 @@ package com.google.android.exoplayer2.upstream;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.net.Uri;
-import b.h.b.a.h0.e;
-import b.h.b.a.h0.g;
-import b.h.b.a.h0.p;
+import c.i.b.a.h0.e;
+import c.i.b.a.h0.g;
+import c.i.b.a.h0.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,30 +15,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class AssetDataSource implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final AssetManager f63948a;
+    public final AssetManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final p<? super AssetDataSource> f63949b;
+    public final p<? super AssetDataSource> f55904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Uri f63950c;
+    public Uri f55905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f63951d;
+    public InputStream f55906d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f63952e;
+    public long f55907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63953f;
+    public boolean f55908f;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class AssetDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,42 +77,42 @@ public final class AssetDataSource implements e {
                 return;
             }
         }
-        this.f63948a = context.getAssets();
-        this.f63949b = pVar;
+        this.a = context.getAssets();
+        this.f55904b = pVar;
     }
 
-    @Override // b.h.b.a.h0.e
+    @Override // c.i.b.a.h0.e
     public long a(g gVar) throws AssetDataSourceException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             try {
-                Uri uri = gVar.f33387a;
-                this.f63950c = uri;
+                Uri uri = gVar.a;
+                this.f55905c = uri;
                 String path = uri.getPath();
                 if (path.startsWith("/android_asset/")) {
                     path = path.substring(15);
                 } else if (path.startsWith("/")) {
                     path = path.substring(1);
                 }
-                InputStream open = this.f63948a.open(path, 1);
-                this.f63951d = open;
-                if (open.skip(gVar.f33390d) >= gVar.f33390d) {
-                    if (gVar.f33391e != -1) {
-                        this.f63952e = gVar.f33391e;
+                InputStream open = this.a.open(path, 1);
+                this.f55906d = open;
+                if (open.skip(gVar.f30141d) >= gVar.f30141d) {
+                    if (gVar.f30142e != -1) {
+                        this.f55907e = gVar.f30142e;
                     } else {
-                        long available = this.f63951d.available();
-                        this.f63952e = available;
+                        long available = this.f55906d.available();
+                        this.f55907e = available;
                         if (available == 2147483647L) {
-                            this.f63952e = -1L;
+                            this.f55907e = -1L;
                         }
                     }
-                    this.f63953f = true;
-                    p<? super AssetDataSource> pVar = this.f63949b;
+                    this.f55908f = true;
+                    p<? super AssetDataSource> pVar = this.f55904b;
                     if (pVar != null) {
                         pVar.d(this, gVar);
                     }
-                    return this.f63952e;
+                    return this.f55907e;
                 }
                 throw new EOFException();
             } catch (IOException e2) {
@@ -124,24 +122,24 @@ public final class AssetDataSource implements e {
         return invokeL.longValue;
     }
 
-    @Override // b.h.b.a.h0.e
+    @Override // c.i.b.a.h0.e
     public void close() throws AssetDataSourceException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f63950c = null;
+            this.f55905c = null;
             try {
                 try {
-                    if (this.f63951d != null) {
-                        this.f63951d.close();
+                    if (this.f55906d != null) {
+                        this.f55906d.close();
                     }
                 } catch (IOException e2) {
                     throw new AssetDataSourceException(e2);
                 }
             } finally {
-                this.f63951d = null;
-                if (this.f63953f) {
-                    this.f63953f = false;
-                    p<? super AssetDataSource> pVar = this.f63949b;
+                this.f55906d = null;
+                if (this.f55908f) {
+                    this.f55908f = false;
+                    p<? super AssetDataSource> pVar = this.f55904b;
                     if (pVar != null) {
                         pVar.b(this);
                     }
@@ -150,14 +148,14 @@ public final class AssetDataSource implements e {
         }
     }
 
-    @Override // b.h.b.a.h0.e
+    @Override // c.i.b.a.h0.e
     public Uri getUri() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63950c : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55905c : (Uri) invokeV.objValue;
     }
 
-    @Override // b.h.b.a.h0.e
+    @Override // c.i.b.a.h0.e
     public int read(byte[] bArr, int i2, int i3) throws AssetDataSourceException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -165,29 +163,29 @@ public final class AssetDataSource implements e {
             if (i3 == 0) {
                 return 0;
             }
-            long j = this.f63952e;
-            if (j == 0) {
+            long j2 = this.f55907e;
+            if (j2 == 0) {
                 return -1;
             }
-            if (j != -1) {
+            if (j2 != -1) {
                 try {
-                    i3 = (int) Math.min(j, i3);
+                    i3 = (int) Math.min(j2, i3);
                 } catch (IOException e2) {
                     throw new AssetDataSourceException(e2);
                 }
             }
-            int read = this.f63951d.read(bArr, i2, i3);
+            int read = this.f55906d.read(bArr, i2, i3);
             if (read == -1) {
-                if (this.f63952e == -1) {
+                if (this.f55907e == -1) {
                     return -1;
                 }
                 throw new AssetDataSourceException(new EOFException());
             }
-            long j2 = this.f63952e;
-            if (j2 != -1) {
-                this.f63952e = j2 - read;
+            long j3 = this.f55907e;
+            if (j3 != -1) {
+                this.f55907e = j3 - read;
             }
-            p<? super AssetDataSource> pVar = this.f63949b;
+            p<? super AssetDataSource> pVar = this.f55904b;
             if (pVar != null) {
                 pVar.a(this, read);
             }

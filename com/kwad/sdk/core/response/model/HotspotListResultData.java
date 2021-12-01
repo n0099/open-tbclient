@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.b.d;
-import com.kwad.sdk.core.b.e;
+import com.kwad.sdk.core.a.d;
+import com.kwad.sdk.core.a.e;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class HotspotListResultData extends BaseResultData implements com.kwad.sdk.core.b {
@@ -77,7 +77,7 @@ public class HotspotListResultData extends BaseResultData implements com.kwad.sd
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q.a(new JSONObject(), "data", this.hotspotListData);
+            t.a(new JSONObject(), "data", this.hotspotListData);
             return new JSONObject();
         }
         return (JSONObject) invokeV.objValue;

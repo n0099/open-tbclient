@@ -11,7 +11,7 @@ public class a extends c {
 
     public a(c.a aVar) {
         super(aVar);
-        b.a(this.k);
+        b.a(this.f60481k);
         c();
     }
 
@@ -26,9 +26,9 @@ public class a extends c {
     }
 
     public void c() {
-        if (o == null && this.f68489i) {
+        if (o == null && this.f60479i) {
             com.meizu.cloud.pushsdk.c.f.c.b(n, "Session checking has been resumed.", new Object[0]);
-            final com.meizu.cloud.pushsdk.c.e.a aVar = this.f68484d;
+            final com.meizu.cloud.pushsdk.c.e.a aVar = this.f60474d;
             ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
             o = newSingleThreadScheduledExecutor;
             Runnable runnable = new Runnable() { // from class: com.meizu.cloud.pushsdk.c.e.a.a.1
@@ -37,8 +37,8 @@ public class a extends c {
                     aVar.b();
                 }
             };
-            long j = this.j;
-            newSingleThreadScheduledExecutor.scheduleAtFixedRate(runnable, j, j, this.l);
+            long j2 = this.f60480j;
+            newSingleThreadScheduledExecutor.scheduleAtFixedRate(runnable, j2, j2, this.l);
         }
     }
 }

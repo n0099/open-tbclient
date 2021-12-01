@@ -2,7 +2,6 @@ package com.google.zxing.datamatrix.decoder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class BitMatrixParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +189,7 @@ public final class BitMatrixParser {
     private int readCorner4(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i2, i3)) == null) {
             int i4 = (readModule(i2 + (-3), 0, i2, i3) ? 1 : 0) << 1;
             if (readModule(i2 - 2, 0, i2, i3)) {
                 i4 |= 1;
@@ -225,7 +224,7 @@ public final class BitMatrixParser {
     private boolean readModule(int i2, int i3, int i4, int i5) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(AdIconUtil.BAIDU_LOGO_ID, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65542, this, i2, i3, i4, i5)) == null) {
             if (i2 < 0) {
                 i2 += i4;
                 i3 += 4 - ((i4 + 4) & 7);

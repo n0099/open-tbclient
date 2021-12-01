@@ -10,15 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class l<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f69102a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f69103b;
+    public T f60972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f69104c;
+    public final boolean f60973c;
 
     public l(int i2, T t, boolean z) {
         Interceptable interceptable = $ic;
@@ -35,28 +33,28 @@ public final class l<T> {
                 return;
             }
         }
-        this.f69102a = i2;
-        this.f69103b = t;
-        this.f69104c = z;
+        this.a = i2;
+        this.f60972b = t;
+        this.f60973c = z;
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69102a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
     public final T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f69103b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60972b : (T) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{code:" + this.f69102a + ", response:" + this.f69103b + ", resultFormCache:" + this.f69104c + "}";
+            return "{code:" + this.a + ", response:" + this.f60972b + ", resultFormCache:" + this.f60973c + "}";
         }
         return (String) invokeV.objValue;
     }

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Insets;
@@ -12,17 +11,23 @@ import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
 import android.os.Build;
 import android.os.Handler;
-import android.os.LocaleList;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
+import android.util.SparseArray;
+import android.view.DisplayCutout;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.PointerIcon;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewStructure;
 import android.view.WindowInsets;
+import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeProvider;
+import android.view.autofill.AutofillValue;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
@@ -31,7 +36,7 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,36 +44,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.Log;
 import io.flutter.app.FlutterPluginRegistry;
-import io.flutter.embedding.android.AndroidKeyProcessor;
 import io.flutter.embedding.android.AndroidTouchProcessor;
+import io.flutter.embedding.android.KeyChannelResponder;
+import io.flutter.embedding.android.KeyboardManager;
 import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
+import io.flutter.embedding.engine.renderer.SurfaceTextureWrapper;
 import io.flutter.embedding.engine.systemchannels.AccessibilityChannel;
 import io.flutter.embedding.engine.systemchannels.KeyEventChannel;
 import io.flutter.embedding.engine.systemchannels.LifecycleChannel;
 import io.flutter.embedding.engine.systemchannels.LocalizationChannel;
+import io.flutter.embedding.engine.systemchannels.MouseCursorChannel;
 import io.flutter.embedding.engine.systemchannels.NavigationChannel;
 import io.flutter.embedding.engine.systemchannels.PlatformChannel;
 import io.flutter.embedding.engine.systemchannels.SettingsChannel;
 import io.flutter.embedding.engine.systemchannels.SystemChannel;
+import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.common.ActivityLifecycleListener;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.editing.TextInputPlugin;
+import io.flutter.plugin.localization.LocalizationPlugin;
+import io.flutter.plugin.mouse.MouseCursorPlugin;
 import io.flutter.plugin.platform.PlatformPlugin;
+import io.flutter.plugin.platform.PlatformViewsController;
+import io.flutter.util.ViewUtils;
 import io.flutter.view.AccessibilityBridge;
 import io.flutter.view.TextureRegistry;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
-public class FlutterView extends SurfaceView implements BinaryMessenger, TextureRegistry {
+@Deprecated
+/* loaded from: classes3.dex */
+public class FlutterView extends SurfaceView implements BinaryMessenger, TextureRegistry, MouseCursorPlugin.MouseCursorViewDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterView";
     public transient /* synthetic */ FieldHolder $fh;
-    public final AndroidKeyProcessor androidKeyProcessor;
     public final AndroidTouchProcessor androidTouchProcessor;
     public final DartExecutor dartExecutor;
     public boolean didRenderFirstFrame;
@@ -81,7 +95,10 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public final List<FirstFrameListener> mFirstFrameListeners;
     public final InputMethodManager mImm;
     public boolean mIsSoftwareRenderingEnabled;
+    public final KeyboardManager mKeyboardManager;
+    public final LocalizationPlugin mLocalizationPlugin;
     public final ViewportMetrics mMetrics;
+    public final MouseCursorPlugin mMouseCursorPlugin;
     public FlutterNativeView mNativeView;
     public final SurfaceHolder.Callback mSurfaceCallback;
     public final TextInputPlugin mTextInputPlugin;
@@ -92,32 +109,32 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public final SettingsChannel settingsChannel;
     public final SystemChannel systemChannel;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface FirstFrameListener {
         void onFirstFrame();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Provider {
         FlutterView getFlutterView();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long id;
         public SurfaceTexture.OnFrameAvailableListener onFrameListener;
         public boolean released;
-        public final SurfaceTexture surfaceTexture;
+        public final SurfaceTextureWrapper textureWrapper;
         public final /* synthetic */ FlutterView this$0;
 
-        public SurfaceTextureRegistryEntry(FlutterView flutterView, long j, SurfaceTexture surfaceTexture) {
+        public SurfaceTextureRegistryEntry(FlutterView flutterView, long j2, SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {flutterView, Long.valueOf(j), surfaceTexture};
+                Object[] objArr = {flutterView, Long.valueOf(j2), surfaceTexture};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -128,7 +145,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
                 }
             }
             this.this$0 = flutterView;
-            SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener = new SurfaceTexture.OnFrameAvailableListener(this) { // from class: io.flutter.view.FlutterView.SurfaceTextureRegistryEntry.1
+            this.onFrameListener = new SurfaceTexture.OnFrameAvailableListener(this) { // from class: io.flutter.view.FlutterView.SurfaceTextureRegistryEntry.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SurfaceTextureRegistryEntry this$1;
@@ -160,13 +177,12 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
                     this.this$1.this$0.mNativeView.getFlutterJNI().markTextureFrameAvailable(this.this$1.id);
                 }
             };
-            this.onFrameListener = onFrameAvailableListener;
-            this.id = j;
-            this.surfaceTexture = surfaceTexture;
+            this.id = j2;
+            this.textureWrapper = new SurfaceTextureWrapper(surfaceTexture);
             if (Build.VERSION.SDK_INT >= 21) {
-                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener, new Handler());
+                surfaceTexture().setOnFrameAvailableListener(this.onFrameListener, new Handler());
             } else {
-                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
+                surfaceTexture().setOnFrameAvailableListener(this.onFrameListener);
             }
         }
 
@@ -184,8 +200,8 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
                 return;
             }
             this.released = true;
-            this.surfaceTexture.setOnFrameAvailableListener(null);
-            this.surfaceTexture.release();
+            surfaceTexture().setOnFrameAvailableListener(null);
+            this.textureWrapper.release();
             this.this$0.mNativeView.getFlutterJNI().unregisterTexture(this.id);
         }
 
@@ -193,24 +209,31 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         public SurfaceTexture surfaceTexture() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.surfaceTexture : (SurfaceTexture) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.textureWrapper.surfaceTexture() : (SurfaceTexture) invokeV.objValue;
+        }
+
+        public SurfaceTextureWrapper textureWrapper() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.textureWrapper : (SurfaceTextureWrapper) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ViewportMetrics {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float devicePixelRatio;
         public int physicalHeight;
-        public int physicalPaddingBottom;
-        public int physicalPaddingLeft;
-        public int physicalPaddingRight;
-        public int physicalPaddingTop;
+        public int physicalTouchSlop;
         public int physicalViewInsetBottom;
         public int physicalViewInsetLeft;
         public int physicalViewInsetRight;
         public int physicalViewInsetTop;
+        public int physicalViewPaddingBottom;
+        public int physicalViewPaddingLeft;
+        public int physicalViewPaddingRight;
+        public int physicalViewPaddingTop;
         public int physicalWidth;
         public int systemGestureInsetBottom;
         public int systemGestureInsetLeft;
@@ -233,10 +256,10 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
             this.devicePixelRatio = 1.0f;
             this.physicalWidth = 0;
             this.physicalHeight = 0;
-            this.physicalPaddingTop = 0;
-            this.physicalPaddingRight = 0;
-            this.physicalPaddingBottom = 0;
-            this.physicalPaddingLeft = 0;
+            this.physicalViewPaddingTop = 0;
+            this.physicalViewPaddingRight = 0;
+            this.physicalViewPaddingBottom = 0;
+            this.physicalViewPaddingLeft = 0;
             this.physicalViewInsetTop = 0;
             this.physicalViewInsetRight = 0;
             this.physicalViewInsetBottom = 0;
@@ -245,11 +268,12 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
             this.systemGestureInsetRight = 0;
             this.systemGestureInsetBottom = 0;
             this.systemGestureInsetLeft = 0;
+            this.physicalTouchSlop = -1;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ZeroSides {
         public static final /* synthetic */ ZeroSides[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -272,7 +296,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
                     return;
                 }
             }
-            NONE = new ZeroSides("NONE", 0);
+            NONE = new ZeroSides(PolyActivity.NONE_PANEL_TYPE, 0);
             LEFT = new ZeroSides("LEFT", 1);
             RIGHT = new ZeroSides("RIGHT", 2);
             ZeroSides zeroSides = new ZeroSides("BOTH", 3);
@@ -333,28 +357,46 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         }
     }
 
-    public static Activity getActivity(Context context) {
+    private ZeroSides calculateShouldZeroSides() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            Context context = getContext();
+            int i2 = context.getResources().getConfiguration().orientation;
+            int rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
+            if (i2 == 2) {
+                if (rotation == 1) {
+                    return ZeroSides.RIGHT;
+                }
+                if (rotation == 3) {
+                    return Build.VERSION.SDK_INT >= 23 ? ZeroSides.LEFT : ZeroSides.RIGHT;
+                } else if (rotation == 0 || rotation == 2) {
+                    return ZeroSides.BOTH;
+                }
+            }
+            return ZeroSides.NONE;
+        }
+        return (ZeroSides) invokeV.objValue;
+    }
+
+    @RequiresApi(20)
+    @TargetApi(20)
+    private int guessBottomKeyboardInset(WindowInsets windowInsets) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
-            if (context == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, windowInsets)) == null) {
+            if (windowInsets.getSystemWindowInsetBottom() < getRootView().getHeight() * 0.18d) {
+                return 0;
             }
-            if (context instanceof Activity) {
-                return (Activity) context;
-            }
-            if (context instanceof ContextWrapper) {
-                return getActivity(((ContextWrapper) context).getBaseContext());
-            }
-            return null;
+            return windowInsets.getSystemWindowInsetBottom();
         }
-        return (Activity) invokeL.objValue;
+        return invokeL.intValue;
     }
 
     private boolean isAttached() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             FlutterNativeView flutterNativeView = this.mNativeView;
             return flutterNativeView != null && flutterNativeView.isAttached();
         }
@@ -363,21 +405,31 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
 
     private void postRun() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
         }
     }
 
     private void preRun() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             resetAccessibilityTree();
         }
+    }
+
+    private void releaseAccessibilityNodeProvider() {
+        AccessibilityBridge accessibilityBridge;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (accessibilityBridge = this.mAccessibilityNodeProvider) == null) {
+            return;
+        }
+        accessibilityBridge.release();
+        this.mAccessibilityNodeProvider = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetWillNotDraw(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             boolean z3 = false;
             if (!this.mIsSoftwareRenderingEnabled) {
                 if (!z && !z2) {
@@ -390,36 +442,19 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         }
     }
 
-    private void sendLocalesToDart(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, configuration) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (Build.VERSION.SDK_INT >= 24) {
-                LocaleList locales = configuration.getLocales();
-                int size = locales.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    arrayList.add(locales.get(i2));
-                }
-            } else {
-                arrayList.add(configuration.locale);
-            }
-            this.localizationChannel.sendLocales(arrayList);
-        }
-    }
-
     private void sendUserPlatformSettingsToDart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             this.settingsChannel.startMessage().setTextScaleFactor(getResources().getConfiguration().fontScale).setUse24HourFormat(DateFormat.is24HourFormat(getContext())).setPlatformBrightness((getResources().getConfiguration().uiMode & 48) == 32 ? SettingsChannel.PlatformBrightness.dark : SettingsChannel.PlatformBrightness.light).send();
         }
     }
 
     private void updateViewportMetrics() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65548, this) == null) && isAttached()) {
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && isAttached()) {
             FlutterJNI flutterJNI = this.mNativeView.getFlutterJNI();
             ViewportMetrics viewportMetrics = this.mMetrics;
-            flutterJNI.setViewportMetrics(viewportMetrics.devicePixelRatio, viewportMetrics.physicalWidth, viewportMetrics.physicalHeight, viewportMetrics.physicalPaddingTop, viewportMetrics.physicalPaddingRight, viewportMetrics.physicalPaddingBottom, viewportMetrics.physicalPaddingLeft, viewportMetrics.physicalViewInsetTop, viewportMetrics.physicalViewInsetRight, viewportMetrics.physicalViewInsetBottom, viewportMetrics.physicalViewInsetLeft, viewportMetrics.systemGestureInsetTop, viewportMetrics.systemGestureInsetRight, viewportMetrics.systemGestureInsetBottom, viewportMetrics.systemGestureInsetLeft);
+            flutterJNI.setViewportMetrics(viewportMetrics.devicePixelRatio, viewportMetrics.physicalWidth, viewportMetrics.physicalHeight, viewportMetrics.physicalViewPaddingTop, viewportMetrics.physicalViewPaddingRight, viewportMetrics.physicalViewPaddingBottom, viewportMetrics.physicalViewPaddingLeft, viewportMetrics.physicalViewInsetTop, viewportMetrics.physicalViewInsetRight, viewportMetrics.physicalViewInsetBottom, viewportMetrics.physicalViewInsetLeft, viewportMetrics.systemGestureInsetTop, viewportMetrics.systemGestureInsetRight, viewportMetrics.systemGestureInsetBottom, viewportMetrics.systemGestureInsetLeft, viewportMetrics.physicalTouchSlop);
         }
     }
 
@@ -444,58 +479,30 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         }
     }
 
-    @RequiresApi(20)
-    @TargetApi(20)
-    public int calculateBottomKeyboardInset(WindowInsets windowInsets) {
-        InterceptResult invokeL;
+    @Override // android.view.View
+    public void autofill(SparseArray<AutofillValue> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, windowInsets)) == null) {
-            if (windowInsets.getSystemWindowInsetBottom() < getRootView().getHeight() * 0.18d) {
-                return 0;
-            }
-            return windowInsets.getSystemWindowInsetBottom();
+        if (interceptable == null || interceptable.invokeL(1048579, this, sparseArray) == null) {
+            this.mTextInputPlugin.autofill(sparseArray);
         }
-        return invokeL.intValue;
-    }
-
-    public ZeroSides calculateShouldZeroSides() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Activity activity = (Activity) getContext();
-            int i2 = activity.getResources().getConfiguration().orientation;
-            int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-            if (i2 == 2) {
-                if (rotation == 1) {
-                    return ZeroSides.RIGHT;
-                }
-                if (rotation == 3) {
-                    return Build.VERSION.SDK_INT >= 23 ? ZeroSides.LEFT : ZeroSides.RIGHT;
-                } else if (rotation == 0 || rotation == 2) {
-                    return ZeroSides.BOTH;
-                }
-            }
-            return ZeroSides.NONE;
-        }
-        return (ZeroSides) invokeV.objValue;
     }
 
     @Override // android.view.View
     public boolean checkInputConnectionProxy(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view)) == null) ? this.mNativeView.getPluginRegistry().getPlatformViewsController().checkInputConnectionProxy(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view)) == null) ? this.mNativeView.getPluginRegistry().getPlatformViewsController().checkInputConnectionProxy(view) : invokeL.booleanValue;
     }
 
     @Override // io.flutter.view.TextureRegistry
     public TextureRegistry.SurfaceTextureEntry createSurfaceTexture() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             SurfaceTexture surfaceTexture = new SurfaceTexture(0);
             surfaceTexture.detachFromGLContext();
             SurfaceTextureRegistryEntry surfaceTextureRegistryEntry = new SurfaceTextureRegistryEntry(this, this.nextTextureId.getAndIncrement(), surfaceTexture);
-            this.mNativeView.getFlutterJNI().registerTexture(surfaceTextureRegistryEntry.id(), surfaceTexture);
+            this.mNativeView.getFlutterJNI().registerTexture(surfaceTextureRegistryEntry.id(), surfaceTextureRegistryEntry.textureWrapper());
             return surfaceTextureRegistryEntry;
         }
         return (TextureRegistry.SurfaceTextureEntry) invokeV.objValue;
@@ -503,8 +510,9 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && isAttached()) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isAttached()) {
             getHolder().removeCallback(this.mSurfaceCallback);
+            releaseAccessibilityNodeProvider();
             this.mNativeView.destroy();
             this.mNativeView = null;
         }
@@ -513,7 +521,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public FlutterNativeView detach() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (isAttached()) {
                 getHolder().removeCallback(this.mSurfaceCallback);
                 this.mNativeView.detachFromFlutterView();
@@ -528,16 +536,33 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
 
     public void disableTransparentBackground() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             setZOrderOnTop(false);
             getHolder().setFormat(-1);
         }
+    }
+
+    @Override // android.view.View
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, keyEvent)) == null) {
+            Log.e("FlutterView", "dispatchKeyEvent: " + keyEvent.toString());
+            if (keyEvent.getAction() == 0 && keyEvent.getRepeatCount() == 0) {
+                getKeyDispatcherState().startTracking(keyEvent, this);
+            } else if (keyEvent.getAction() == 1) {
+                getKeyDispatcherState().handleUpEvent(keyEvent);
+            }
+            return (isAttached() && this.mKeyboardManager.handleEvent(keyEvent)) || super.dispatchKeyEvent(keyEvent);
+        }
+        return invokeL.booleanValue;
     }
 
     @Deprecated
     public void enableTransparentBackground() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            Log.w("FlutterView", "FlutterView in the v1 embedding is always a SurfaceView and will cover accessibility highlights when transparent. Consider migrating to the v2 Android embedding. https://github.com/flutter/flutter/wiki/Upgrading-pre-1.12-Android-projects");
             setZOrderOnTop(true);
             getHolder().setFormat(-2);
         }
@@ -550,10 +575,10 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, rect)) == null) {
             if (Build.VERSION.SDK_INT <= 19) {
                 ViewportMetrics viewportMetrics = this.mMetrics;
-                viewportMetrics.physicalPaddingTop = rect.top;
-                viewportMetrics.physicalPaddingRight = rect.right;
-                viewportMetrics.physicalPaddingBottom = 0;
-                viewportMetrics.physicalPaddingLeft = rect.left;
+                viewportMetrics.physicalViewPaddingTop = rect.top;
+                viewportMetrics.physicalViewPaddingRight = rect.right;
+                viewportMetrics.physicalViewPaddingBottom = 0;
+                viewportMetrics.physicalViewPaddingLeft = rect.left;
                 viewportMetrics.physicalViewInsetTop = 0;
                 viewportMetrics.physicalViewInsetRight = 0;
                 viewportMetrics.physicalViewInsetBottom = rect.bottom;
@@ -621,10 +646,20 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mNativeView.getPluginRegistry() : (FlutterPluginRegistry) invokeV.objValue;
     }
 
+    @Override // io.flutter.plugin.mouse.MouseCursorPlugin.MouseCursorViewDelegate
+    @NonNull
+    @RequiresApi(24)
+    @TargetApi(24)
+    public PointerIcon getSystemPointerIcon(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) ? PointerIcon.getSystemIcon(getContext(), i2) : (PointerIcon) invokeI.objValue;
+    }
+
     public boolean hasRenderedFirstFrame() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.didRenderFirstFrame : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.didRenderFirstFrame : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -633,37 +668,67 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     @TargetApi(20)
     public final WindowInsets onApplyWindowInsets(WindowInsets windowInsets) {
         InterceptResult invokeL;
-        int systemWindowInsetBottom;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, windowInsets)) == null) {
-            boolean z = (getWindowSystemUiVisibility() & 4) != 0;
-            boolean z2 = (getWindowSystemUiVisibility() & 2) != 0;
-            ZeroSides zeroSides = ZeroSides.NONE;
-            if (z2) {
-                zeroSides = calculateShouldZeroSides();
-            }
-            this.mMetrics.physicalPaddingTop = z ? 0 : windowInsets.getSystemWindowInsetTop();
-            this.mMetrics.physicalPaddingRight = (zeroSides == ZeroSides.RIGHT || zeroSides == ZeroSides.BOTH) ? 0 : windowInsets.getSystemWindowInsetRight();
-            ViewportMetrics viewportMetrics = this.mMetrics;
-            viewportMetrics.physicalPaddingBottom = 0;
-            viewportMetrics.physicalPaddingLeft = (zeroSides == ZeroSides.LEFT || zeroSides == ZeroSides.BOTH) ? 0 : windowInsets.getSystemWindowInsetLeft();
-            ViewportMetrics viewportMetrics2 = this.mMetrics;
-            viewportMetrics2.physicalViewInsetTop = 0;
-            viewportMetrics2.physicalViewInsetRight = 0;
-            if (z2) {
-                systemWindowInsetBottom = calculateBottomKeyboardInset(windowInsets);
-            } else {
-                systemWindowInsetBottom = windowInsets.getSystemWindowInsetBottom();
-            }
-            viewportMetrics2.physicalViewInsetBottom = systemWindowInsetBottom;
-            this.mMetrics.physicalViewInsetLeft = 0;
-            if (Build.VERSION.SDK_INT >= 29) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, windowInsets)) == null) {
+            if (Build.VERSION.SDK_INT == 29) {
                 Insets systemGestureInsets = windowInsets.getSystemGestureInsets();
+                ViewportMetrics viewportMetrics = this.mMetrics;
+                viewportMetrics.systemGestureInsetTop = systemGestureInsets.top;
+                viewportMetrics.systemGestureInsetRight = systemGestureInsets.right;
+                viewportMetrics.systemGestureInsetBottom = systemGestureInsets.bottom;
+                viewportMetrics.systemGestureInsetLeft = systemGestureInsets.left;
+            }
+            boolean z = (getWindowSystemUiVisibility() & 4) == 0;
+            boolean z2 = (getWindowSystemUiVisibility() & 2) == 0;
+            if (Build.VERSION.SDK_INT >= 30) {
+                int navigationBars = z2 ? 0 | WindowInsets.Type.navigationBars() : 0;
+                if (z) {
+                    navigationBars |= WindowInsets.Type.statusBars();
+                }
+                Insets insets = windowInsets.getInsets(navigationBars);
+                ViewportMetrics viewportMetrics2 = this.mMetrics;
+                viewportMetrics2.physicalViewPaddingTop = insets.top;
+                viewportMetrics2.physicalViewPaddingRight = insets.right;
+                viewportMetrics2.physicalViewPaddingBottom = insets.bottom;
+                viewportMetrics2.physicalViewPaddingLeft = insets.left;
+                Insets insets2 = windowInsets.getInsets(WindowInsets.Type.ime());
                 ViewportMetrics viewportMetrics3 = this.mMetrics;
-                viewportMetrics3.systemGestureInsetTop = systemGestureInsets.top;
-                viewportMetrics3.systemGestureInsetRight = systemGestureInsets.right;
-                viewportMetrics3.systemGestureInsetBottom = systemGestureInsets.bottom;
-                viewportMetrics3.systemGestureInsetLeft = systemGestureInsets.left;
+                viewportMetrics3.physicalViewInsetTop = insets2.top;
+                viewportMetrics3.physicalViewInsetRight = insets2.right;
+                viewportMetrics3.physicalViewInsetBottom = insets2.bottom;
+                viewportMetrics3.physicalViewInsetLeft = insets2.left;
+                Insets insets3 = windowInsets.getInsets(WindowInsets.Type.systemGestures());
+                ViewportMetrics viewportMetrics4 = this.mMetrics;
+                viewportMetrics4.systemGestureInsetTop = insets3.top;
+                viewportMetrics4.systemGestureInsetRight = insets3.right;
+                viewportMetrics4.systemGestureInsetBottom = insets3.bottom;
+                viewportMetrics4.systemGestureInsetLeft = insets3.left;
+                DisplayCutout displayCutout = windowInsets.getDisplayCutout();
+                if (displayCutout != null) {
+                    Insets waterfallInsets = displayCutout.getWaterfallInsets();
+                    ViewportMetrics viewportMetrics5 = this.mMetrics;
+                    viewportMetrics5.physicalViewPaddingTop = Math.max(Math.max(viewportMetrics5.physicalViewPaddingTop, waterfallInsets.top), displayCutout.getSafeInsetTop());
+                    ViewportMetrics viewportMetrics6 = this.mMetrics;
+                    viewportMetrics6.physicalViewPaddingRight = Math.max(Math.max(viewportMetrics6.physicalViewPaddingRight, waterfallInsets.right), displayCutout.getSafeInsetRight());
+                    ViewportMetrics viewportMetrics7 = this.mMetrics;
+                    viewportMetrics7.physicalViewPaddingBottom = Math.max(Math.max(viewportMetrics7.physicalViewPaddingBottom, waterfallInsets.bottom), displayCutout.getSafeInsetBottom());
+                    ViewportMetrics viewportMetrics8 = this.mMetrics;
+                    viewportMetrics8.physicalViewPaddingLeft = Math.max(Math.max(viewportMetrics8.physicalViewPaddingLeft, waterfallInsets.left), displayCutout.getSafeInsetLeft());
+                }
+            } else {
+                ZeroSides zeroSides = ZeroSides.NONE;
+                if (!z2) {
+                    zeroSides = calculateShouldZeroSides();
+                }
+                this.mMetrics.physicalViewPaddingTop = z ? windowInsets.getSystemWindowInsetTop() : 0;
+                this.mMetrics.physicalViewPaddingRight = (zeroSides == ZeroSides.RIGHT || zeroSides == ZeroSides.BOTH) ? 0 : windowInsets.getSystemWindowInsetRight();
+                this.mMetrics.physicalViewPaddingBottom = (z2 && guessBottomKeyboardInset(windowInsets) == 0) ? windowInsets.getSystemWindowInsetBottom() : 0;
+                this.mMetrics.physicalViewPaddingLeft = (zeroSides == ZeroSides.LEFT || zeroSides == ZeroSides.BOTH) ? 0 : windowInsets.getSystemWindowInsetLeft();
+                ViewportMetrics viewportMetrics9 = this.mMetrics;
+                viewportMetrics9.physicalViewInsetTop = 0;
+                viewportMetrics9.physicalViewInsetRight = 0;
+                viewportMetrics9.physicalViewInsetBottom = guessBottomKeyboardInset(windowInsets);
+                this.mMetrics.physicalViewInsetLeft = 0;
             }
             updateViewportMetrics();
             return super.onApplyWindowInsets(windowInsets);
@@ -674,7 +739,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     @Override // android.view.SurfaceView, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onAttachedToWindow();
             AccessibilityBridge accessibilityBridge = new AccessibilityBridge(this, new AccessibilityChannel(this.dartExecutor, getFlutterNativeView().getFlutterJNI()), (AccessibilityManager) getContext().getSystemService("accessibility"), getContext().getContentResolver(), getPluginRegistry().getPlatformViewsController());
             this.mAccessibilityNodeProvider = accessibilityBridge;
@@ -686,9 +751,9 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            sendLocalesToDart(configuration);
+            this.mLocalizationPlugin.sendLocalesToFlutter(configuration);
             sendUserPlatformSettingsToDart();
         }
     }
@@ -697,22 +762,21 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, editorInfo)) == null) ? this.mTextInputPlugin.createInputConnection(this, editorInfo) : (InputConnection) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, editorInfo)) == null) ? this.mTextInputPlugin.createInputConnection(this, this.mKeyboardManager, editorInfo) : (InputConnection) invokeL.objValue;
     }
 
     @Override // android.view.SurfaceView, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             super.onDetachedFromWindow();
-            this.mAccessibilityNodeProvider.release();
-            this.mAccessibilityNodeProvider = null;
+            releaseAccessibilityNodeProvider();
         }
     }
 
     public void onFirstFrame() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             this.didRenderFirstFrame = true;
             for (FirstFrameListener firstFrameListener : new ArrayList(this.mFirstFrameListeners)) {
                 firstFrameListener.onFirstFrame();
@@ -724,7 +788,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public boolean onGenericMotionEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, motionEvent)) == null) {
             if (isAttached() && this.androidTouchProcessor.onGenericMotionEvent(motionEvent)) {
                 return true;
             }
@@ -737,7 +801,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
     public boolean onHoverEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, motionEvent)) == null) {
             if (!isAttached()) {
                 return super.onHoverEvent(motionEvent);
             }
@@ -746,55 +810,37 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         return invokeL.booleanValue;
     }
 
-    @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048605, this, i2, keyEvent)) == null) {
-            if (!isAttached()) {
-                return super.onKeyDown(i2, keyEvent);
-            }
-            this.androidKeyProcessor.onKeyDown(keyEvent);
-            return super.onKeyDown(i2, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i2, keyEvent)) == null) {
-            if (!isAttached()) {
-                return super.onKeyUp(i2, keyEvent);
-            }
-            this.androidKeyProcessor.onKeyUp(keyEvent);
-            return super.onKeyUp(i2, keyEvent);
-        }
-        return invokeIL.booleanValue;
-    }
-
     public void onMemoryPressure() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+            this.mNativeView.getFlutterJNI().notifyLowMemoryWarning();
             this.systemChannel.sendMemoryPressureWarning();
         }
     }
 
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             this.lifecycleChannel.appIsInactive();
         }
     }
 
     public void onPostResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
             for (ActivityLifecycleListener activityLifecycleListener : this.mActivityLifecycleListeners) {
                 activityLifecycleListener.onPostResume();
             }
             this.lifecycleChannel.appIsResumed();
+        }
+    }
+
+    @Override // android.view.View
+    public void onProvideAutofillVirtualStructure(ViewStructure viewStructure, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048609, this, viewStructure, i2) == null) {
+            super.onProvideAutofillVirtualStructure(viewStructure, i2);
+            this.mTextInputPlugin.onProvideAutofillVirtualStructure(viewStructure, i2);
         }
     }
 
@@ -938,7 +984,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048620, this, str, byteBuffer, binaryReply) == null) {
             if (!isAttached()) {
-                String str2 = "FlutterView.send called on a detached view, channel=" + str;
+                Log.d("FlutterView", "FlutterView.send called on a detached view, channel=" + str);
                 return;
             }
             this.mNativeView.send(str, byteBuffer, binaryReply);
@@ -998,7 +1044,7 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
                 }
             }
         };
-        Activity activity = getActivity(getContext());
+        Activity activity = ViewUtils.getActivity(getContext());
         if (activity != null) {
             if (flutterNativeView == null) {
                 this.mNativeView = new FlutterNativeView(activity.getApplicationContext());
@@ -1007,10 +1053,11 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
             }
             this.dartExecutor = this.mNativeView.getDartExecutor();
             this.flutterRenderer = new FlutterRenderer(this.mNativeView.getFlutterJNI());
-            this.mIsSoftwareRenderingEnabled = this.mNativeView.getFlutterJNI().nativeGetIsSoftwareRenderingEnabled();
+            this.mIsSoftwareRenderingEnabled = this.mNativeView.getFlutterJNI().getIsSoftwareRenderingEnabled();
             ViewportMetrics viewportMetrics = new ViewportMetrics();
             this.mMetrics = viewportMetrics;
             viewportMetrics.devicePixelRatio = context.getResources().getDisplayMetrics().density;
+            this.mMetrics.physicalTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
             setFocusable(true);
             setFocusableInTouchMode(true);
             this.mNativeView.attachViewAndActivity(this, activity);
@@ -1108,12 +1155,21 @@ public class FlutterView extends SurfaceView implements BinaryMessenger, Texture
                 }
             });
             this.mImm = (InputMethodManager) getContext().getSystemService("input_method");
-            TextInputPlugin textInputPlugin = new TextInputPlugin(this, this.dartExecutor, this.mNativeView.getPluginRegistry().getPlatformViewsController());
+            PlatformViewsController platformViewsController = this.mNativeView.getPluginRegistry().getPlatformViewsController();
+            TextInputPlugin textInputPlugin = new TextInputPlugin(this, new TextInputChannel(this.dartExecutor), platformViewsController);
             this.mTextInputPlugin = textInputPlugin;
-            this.androidKeyProcessor = new AndroidKeyProcessor(this.keyEventChannel, textInputPlugin);
-            this.androidTouchProcessor = new AndroidTouchProcessor(this.flutterRenderer);
+            this.mKeyboardManager = new KeyboardManager(this, textInputPlugin, new KeyChannelResponder[]{new KeyChannelResponder(this.keyEventChannel)});
+            if (Build.VERSION.SDK_INT >= 24) {
+                this.mMouseCursorPlugin = new MouseCursorPlugin(this, new MouseCursorChannel(this.dartExecutor));
+            } else {
+                this.mMouseCursorPlugin = null;
+            }
+            this.mLocalizationPlugin = new LocalizationPlugin(context, this.localizationChannel);
+            this.androidTouchProcessor = new AndroidTouchProcessor(this.flutterRenderer, false);
+            platformViewsController.attachToFlutterRenderer(this.flutterRenderer);
             this.mNativeView.getPluginRegistry().getPlatformViewsController().attachTextInputPlugin(this.mTextInputPlugin);
-            sendLocalesToDart(getResources().getConfiguration());
+            this.mNativeView.getFlutterJNI().setLocalizationPlugin(this.mLocalizationPlugin);
+            this.mLocalizationPlugin.sendLocalesToFlutter(getResources().getConfiguration());
             sendUserPlatformSettingsToDart();
             return;
         }

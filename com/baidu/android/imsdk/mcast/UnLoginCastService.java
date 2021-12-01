@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class UnLoginCastService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKPLAY = 1;
@@ -55,7 +55,7 @@ public class UnLoginCastService {
     public long startSeekTime;
     public long startSeekTsTime;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class Uptask extends UpMessageManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -398,19 +398,19 @@ public class UnLoginCastService {
         }
     }
 
-    private boolean proofreadTimeAxis(long j) {
+    private boolean proofreadTimeAxis(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65555, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65555, this, j2)) == null) {
             if (this.mType == 1) {
-                long j2 = j - this.startSeekTsTime;
+                long j3 = j2 - this.startSeekTsTime;
                 long currentTimeMillis = (System.currentTimeMillis() / 1000) - this.startSeekTime;
                 if (this.mAxisTimer == null) {
                     this.mAxisTimer = new Timer(true);
                 }
-                if (j2 - currentTimeMillis > 5) {
+                if (j3 - currentTimeMillis > 5) {
                     String str = TAG;
-                    LogUtils.d(str, "startSeekTsTime = " + this.startSeekTsTime + "  currenttstime =  " + j + " past = " + j2);
+                    LogUtils.d(str, "startSeekTsTime = " + this.startSeekTsTime + "  currenttstime =  " + j2 + " past = " + j3);
                     String str2 = TAG;
                     StringBuilder sb = new StringBuilder();
                     sb.append("startSeekTime = ");

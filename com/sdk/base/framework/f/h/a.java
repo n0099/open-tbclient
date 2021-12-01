@@ -17,12 +17,10 @@ import java.security.spec.X509EncodedKeySpec;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69163a = "a";
+    public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f69164b;
+    public static Boolean f61015b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f69164b = Boolean.valueOf(f.f69125b);
+        f61015b = Boolean.valueOf(f.f60988b);
     }
 
     public a() {
@@ -68,7 +66,7 @@ public class a {
                 aVar.a(byteArrayInputStream, byteArrayOutputStream);
                 return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
             } catch (Exception e2) {
-                c.b(f69163a, e2.toString(), f69164b);
+                c.b(a, e2.toString(), f61015b);
                 return null;
             }
         }

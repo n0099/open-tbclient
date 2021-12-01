@@ -13,17 +13,15 @@ import com.duxiaoman.dxmpay.statistics.StatApi;
 import com.duxiaoman.dxmpay.statistics.internal.LogSender;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SensorStatisticApi extends StatisticDecorate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static SensorStatisticApi f63575a;
+        public static SensorStatisticApi a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,7 +37,7 @@ public class SensorStatisticApi extends StatisticDecorate {
                     return;
                 }
             }
-            f63575a = new SensorStatisticApi();
+            a = new SensorStatisticApi();
         }
     }
 
@@ -60,7 +58,7 @@ public class SensorStatisticApi extends StatisticDecorate {
     public static SensorStatisticApi getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f63575a : (SensorStatisticApi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (SensorStatisticApi) invokeV.objValue;
     }
 
     @Override // com.dxmpay.wallet.statistics.api.StatisticDecorate, com.dxmpay.wallet.statistics.api.IStatistic

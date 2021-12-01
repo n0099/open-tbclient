@@ -14,13 +14,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class ao implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f57731a;
+    public final /* synthetic */ FeedbackFacePageActivity a;
 
     public ao(FeedbackFacePageActivity feedbackFacePageActivity) {
         Interceptable interceptable = $ic;
@@ -37,7 +35,7 @@ public final class ao implements View.OnClickListener {
                 return;
             }
         }
-        this.f57731a = feedbackFacePageActivity;
+        this.a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -58,34 +56,34 @@ public final class ao implements View.OnClickListener {
             return;
         }
         try {
-            view2 = this.f57731a.n;
+            view2 = this.a.n;
             view2.setVisibility(0);
-            linearLayout = this.f57731a.f57666g;
+            linearLayout = this.a.f51588g;
             linearLayout.setVisibility(8);
-            webView = this.f57731a.o;
+            webView = this.a.o;
             webView.setVisibility(0);
-            if (!com.baidu.ufosdk.b.d.c(this.f57731a.getApplicationContext())) {
-                webView4 = this.f57731a.o;
+            if (!com.baidu.ufosdk.b.d.c(this.a.getApplicationContext())) {
+                webView4 = this.a.o;
                 webView4.setVisibility(8);
-                view3 = this.f57731a.n;
+                view3 = this.a.n;
                 view3.setVisibility(8);
-                Context applicationContext = this.f57731a.getApplicationContext();
-                textView = this.f57731a.q;
+                Context applicationContext = this.a.getApplicationContext();
+                textView = this.a.q;
                 com.baidu.ufosdk.f.i.a(applicationContext, textView);
-                linearLayout3 = this.f57731a.f57666g;
+                linearLayout3 = this.a.f51588g;
                 linearLayout3.setVisibility(0);
-                Toast.makeText(this.f57731a, com.baidu.ufosdk.f.s.a(WebKitFactory.OS_64), 1).show();
+                Toast.makeText(this.a, com.baidu.ufosdk.f.s.a(WebKitFactory.OS_64), 1).show();
             } else if (UfoSDK.clientid.length() == 0) {
-                Toast.makeText(this.f57731a, com.baidu.ufosdk.f.s.a("62"), 1).show();
+                Toast.makeText(this.a, com.baidu.ufosdk.f.s.a("62"), 1).show();
                 new Thread(new ap(this)).start();
             } else {
-                webView2 = this.f57731a.o;
+                webView2 = this.a.o;
                 webView2.loadDataWithBaseURL(null, null, SapiWebView.DATA_MIME_TYPE, "utf-8", null);
-                linearLayout2 = this.f57731a.f57666g;
+                linearLayout2 = this.a.f51588g;
                 linearLayout2.setVisibility(8);
-                webView3 = this.f57731a.o;
+                webView3 = this.a.o;
                 webView3.setVisibility(0);
-                handler = this.f57731a.v;
+                handler = this.a.v;
                 handler.obtainMessage(1, null).sendToTarget();
                 new Thread(new aq(this)).start();
             }

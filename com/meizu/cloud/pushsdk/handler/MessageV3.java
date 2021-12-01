@@ -98,7 +98,7 @@ public class MessageV3 implements Parcelable {
     }
 
     public static MessageV3 parse(String str, String str2, String str3, MPushMessage mPushMessage) {
-        b.j.a.a.a.b(TAG, "V2 message " + mPushMessage);
+        c.k.a.a.a.b(TAG, "V2 message " + mPushMessage);
         MessageV3 messageV3 = new MessageV3();
         messageV3.setPackageName(str);
         messageV3.setUploadDataPackageName(str);
@@ -117,7 +117,7 @@ public class MessageV3 implements Parcelable {
             if ("url".equals(key)) {
                 messageV3.setWebUrl(value);
             }
-            if ("pk".equals(key)) {
+            if (PushConstants.URI_PACKAGE_NAME.equals(key)) {
                 messageV3.setUriPackageName(value);
             }
             if (NotificationStyle.NOTIFICATION_STYLE.equals(key)) {
@@ -129,17 +129,17 @@ public class MessageV3 implements Parcelable {
             if ("is".equals(key)) {
                 messageV3.setmAppIconSetting(AppIconSetting.parse(value));
             }
-            if ("ts".equals(key)) {
+            if (TimeDisplaySetting.TIME_DISPLAY_SETTING.equals(key)) {
                 messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(value));
             }
         }
         messageV3.setParamsMap(mPushMessage.getParams());
         String jSONObject = e.a((Map) mPushMessage.getExtra()).toString();
-        b.j.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
+        c.k.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
         if (!TextUtils.isEmpty(jSONObject)) {
             messageV3.setNotificationMessage(jSONObject);
         }
-        b.j.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
+        c.k.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
         return messageV3;
     }
 
@@ -174,8 +174,8 @@ public class MessageV3 implements Parcelable {
                 if (!jSONObject2.isNull("as")) {
                     messageV3.setmAdvanceSetting(AdvanceSetting.parse(jSONObject2.getJSONObject("as")));
                 }
-                if (!jSONObject2.isNull("ts")) {
-                    messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(jSONObject2.getJSONObject("ts")));
+                if (!jSONObject2.isNull(TimeDisplaySetting.TIME_DISPLAY_SETTING)) {
+                    messageV3.setmTimeDisplaySetting(TimeDisplaySetting.parse(jSONObject2.getJSONObject(TimeDisplaySetting.TIME_DISPLAY_SETTING)));
                 }
                 if (!jSONObject2.isNull("activity")) {
                     messageV3.setActivity(jSONObject2.getString("activity"));
@@ -184,18 +184,18 @@ public class MessageV3 implements Parcelable {
                     messageV3.setWebUrl(jSONObject2.getString("url"));
                 }
                 if (!jSONObject2.isNull("task_id") && TextUtils.isEmpty(str3)) {
-                    b.j.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
+                    c.k.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
                     messageV3.setTaskId(jSONObject2.getString("task_id"));
                 }
-                if (!jSONObject2.isNull("pk")) {
-                    messageV3.setUriPackageName(jSONObject2.getString("pk"));
+                if (!jSONObject2.isNull(PushConstants.URI_PACKAGE_NAME)) {
+                    messageV3.setUriPackageName(jSONObject2.getString(PushConstants.URI_PACKAGE_NAME));
                 }
                 if (!jSONObject2.isNull(PushConstants.PARAMS)) {
                     messageV3.setParamsMap(getParamsMap(jSONObject2.getJSONObject(PushConstants.PARAMS)));
                 }
             }
         } catch (JSONException e2) {
-            b.j.a.a.a.b(TAG, "parse message error " + e2.getMessage());
+            c.k.a.a.a.b(TAG, "parse message error " + e2.getMessage());
         }
         return messageV3;
     }

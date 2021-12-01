@@ -9,7 +9,6 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -214,7 +213,7 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
     private boolean toGlobalMotionEvent(View view, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view, motionEvent)) == null) {
             int[] iArr = this.mTmpLocation;
             view.getLocationOnScreen(iArr);
             motionEvent.offsetLocation(iArr[0], iArr[1]);
@@ -226,7 +225,7 @@ public abstract class ForwardingListener implements View.OnTouchListener, View.O
     private boolean toLocalMotionEvent(View view, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, view, motionEvent)) == null) {
             int[] iArr = this.mTmpLocation;
             view.getLocationOnScreen(iArr);
             motionEvent.offsetLocation(-iArr[0], -iArr[1]);

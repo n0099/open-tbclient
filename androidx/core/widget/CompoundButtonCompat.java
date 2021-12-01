@@ -8,7 +8,6 @@ import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -112,7 +111,7 @@ public final class CompoundButtonCompat {
 
     public static void setButtonTintMode(@NonNull CompoundButton compoundButton, @Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, compoundButton, mode) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, compoundButton, mode) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 compoundButton.setButtonTintMode(mode);
             } else if (compoundButton instanceof TintableCompoundButton) {

@@ -1,7 +1,6 @@
 package androidx.core.view;
 
 import android.view.MotionEvent;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -165,7 +164,7 @@ public final class MotionEventCompat {
     public static int getButtonState(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, motionEvent)) == null) ? motionEvent.getButtonState() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, motionEvent)) == null) ? motionEvent.getButtonState() : invokeL.intValue;
     }
 
     @Deprecated
@@ -213,6 +212,6 @@ public final class MotionEventCompat {
     public static float getAxisValue(MotionEvent motionEvent, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, motionEvent, i2, i3)) == null) ? motionEvent.getAxisValue(i2, i3) : invokeLII.floatValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, motionEvent, i2, i3)) == null) ? motionEvent.getAxisValue(i2, i3) : invokeLII.floatValue;
     }
 }

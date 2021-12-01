@@ -1,0 +1,7 @@
+package c.a.r0.w0.a.f;
+/* loaded from: classes7.dex */
+public interface e {
+    void a(String str, c.a.r0.w0.a.g.a aVar);
+
+    void onError(String str, String str2);
+}

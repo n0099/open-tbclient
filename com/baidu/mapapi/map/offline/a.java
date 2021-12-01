@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MKOfflineMap f40426a;
+    public final /* synthetic */ MKOfflineMap a;
 
     public a(MKOfflineMap mKOfflineMap) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public class a implements v {
                 return;
             }
         }
-        this.f40426a = mKOfflineMap;
+        this.a = mKOfflineMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.v
@@ -42,11 +40,11 @@ public class a implements v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             if (i2 == 4) {
-                ArrayList<MKOLUpdateElement> allUpdateInfo = this.f40426a.getAllUpdateInfo();
+                ArrayList<MKOLUpdateElement> allUpdateInfo = this.a.getAllUpdateInfo();
                 if (allUpdateInfo != null) {
                     for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
                         if (mKOLUpdateElement.update) {
-                            mKOfflineMapListener = this.f40426a.f40425c;
+                            mKOfflineMapListener = this.a.f36034c;
                             mKOfflineMapListener.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
                         }
                     }
@@ -56,21 +54,21 @@ public class a implements v {
             }
             int i4 = 6;
             if (i2 == 6) {
-                mKOfflineMapListener2 = this.f40426a.f40425c;
+                mKOfflineMapListener2 = this.a.f36034c;
             } else if (i2 == 8) {
                 int i5 = i3 >> 8;
-                mKOfflineMapListener3 = this.f40426a.f40425c;
+                mKOfflineMapListener3 = this.a.f36034c;
                 mKOfflineMapListener3.onGetOfflineMapState(0, i5);
                 return;
             } else if (i2 != 10) {
                 if (i2 != 12) {
                     return;
                 }
-                rVar = this.f40426a.f40424b;
+                rVar = this.a.f36033b;
                 rVar.a(true, false);
                 return;
             } else {
-                mKOfflineMapListener2 = this.f40426a.f40425c;
+                mKOfflineMapListener2 = this.a.f36034c;
                 i4 = 2;
             }
             mKOfflineMapListener2.onGetOfflineMapState(i4, i3);

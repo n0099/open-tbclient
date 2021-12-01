@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DownloadDao {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS downloads (_id  INTEGER PRIMARY KEY AUTOINCREMENT ,URI  TEXT,_DATA  TEXT,SAVED_PATH_FOR_USER  TEXT,MIMETYPE  TEXT,ETAG  TEXT,STATUS  INTEGER,TOTAL_BYTES  INTEGER,CURRENT_BYTES  INTEGER,NOTIFICATIONNEEDED  INTEGER,FAILEDREASON  TEXT,PROGRESSMAP  TEXT,URI_HOST  TEXT,CONTROL_FLAG  INTEGER,FAILED_TYPE  INTEGER,DOWNLOAD_PRIORITY INTEGER, SAVED_SOURCE_KEY_USER TEXT,DOWN_DIR TEXT,FROM_PARAM TEXT,REAL_URI TEXT); ";
@@ -124,13 +124,13 @@ public final class DownloadDao {
         }
     }
 
-    public boolean deleteByKey(long j) {
+    public boolean deleteByKey(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
             try {
                 SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
-                writableDatabase.delete("downloads", "_id =? ", new String[]{j + ""});
+                writableDatabase.delete("downloads", "_id =? ", new String[]{j2 + ""});
                 return true;
             } catch (Exception e2) {
                 if (DEBUG) {
@@ -147,17 +147,17 @@ public final class DownloadDao {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, download)) == null) {
-            long j = -1;
+            long j2 = -1;
             try {
                 try {
-                    j = this.db.getWritableDatabase().insert("downloads", null, createContentValues(download, true));
+                    j2 = this.db.getWritableDatabase().insert("downloads", null, createContentValues(download, true));
                 } catch (Exception e2) {
                     if (DEBUG) {
                         e2.printStackTrace();
                         throw e2;
                     }
                 }
-                return j;
+                return j2;
             } finally {
                 download.setId(-1L);
             }

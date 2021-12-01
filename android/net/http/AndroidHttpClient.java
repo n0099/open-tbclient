@@ -4,7 +4,6 @@ import android.content.ContentResolver;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +82,7 @@ public final class AndroidHttpClient implements HttpClient {
     public static AndroidHttpClient newInstance(String str, Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, context)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (AndroidHttpClient) invokeLL.objValue;
@@ -159,7 +158,7 @@ public final class AndroidHttpClient implements HttpClient {
     public static AndroidHttpClient newInstance(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (AndroidHttpClient) invokeL.objValue;

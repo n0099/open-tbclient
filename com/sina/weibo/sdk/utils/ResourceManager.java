@@ -18,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,13 +107,13 @@ public class ResourceManager {
     public static int dp2px(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2)) == null) ? (int) ((i2 * context.getResources().getDisplayMetrics().density) + 0.5d) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) ? (int) ((i2 * context.getResources().getDisplayMetrics().density) + 0.5d) : invokeLI.intValue;
     }
 
     public static Drawable extractDrawable(Context context, String str) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             InputStream open = context.getAssets().open(str);
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             TypedValue typedValue = new TypedValue();

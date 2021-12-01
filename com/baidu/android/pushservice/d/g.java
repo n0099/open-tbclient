@@ -10,24 +10,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class g extends com.baidu.android.pushservice.h.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f36084a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f36085b;
+    public a f32407b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36086c;
+    public String f32408c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f36087d;
+    public List<String> f32409d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(List<String> list);
     }
@@ -47,10 +45,10 @@ public class g extends com.baidu.android.pushservice.h.c {
                 return;
             }
         }
-        this.f36087d = new ArrayList();
-        this.f36084a = context;
-        this.f36086c = str;
-        this.f36085b = aVar;
+        this.f32409d = new ArrayList();
+        this.a = context;
+        this.f32408c = str;
+        this.f32407b = aVar;
         c("PushService-PushService-SearchboxDNS");
         a((short) 100);
     }
@@ -76,16 +74,16 @@ public class g extends com.baidu.android.pushservice.h.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                DnsHelper dnsHelper = new DnsHelper(this.f36084a);
+                DnsHelper dnsHelper = new DnsHelper(this.a);
                 dnsHelper.setHttpDnsState(false, null, false, true);
-                List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(this.f36086c);
+                List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(this.f32408c);
                 if (ipListForceHttp != null && ipListForceHttp.size() > 0) {
-                    int b2 = com.baidu.android.pushservice.j.i.b(this.f36084a, "key_vip_type", 3);
+                    int b2 = com.baidu.android.pushservice.j.i.b(this.a, "key_vip_type", 3);
                     if (b2 != 1) {
                         if (b2 == 2) {
                             String str = com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(0)) ? null : ipListForceHttp.get(0);
                             if (!TextUtils.isEmpty(str)) {
-                                this.f36087d.add(str);
+                                this.f32409d.add(str);
                             }
                             r1 = com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(ipListForceHttp.size() - 1)) ? ipListForceHttp.get(ipListForceHttp.size() - 1) : null;
                             if (!TextUtils.isEmpty(r1)) {
@@ -93,7 +91,7 @@ public class g extends com.baidu.android.pushservice.h.c {
                         } else if (b2 != 4) {
                             String str2 = com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(ipListForceHttp.size() - 1)) ? ipListForceHttp.get(ipListForceHttp.size() - 1) : null;
                             if (!TextUtils.isEmpty(str2)) {
-                                this.f36087d.add(str2);
+                                this.f32409d.add(str2);
                             }
                             if (!com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(0))) {
                                 r1 = ipListForceHttp.get(0);
@@ -106,11 +104,11 @@ public class g extends com.baidu.android.pushservice.h.c {
                     } else if (!com.baidu.android.pushservice.j.m.d(ipListForceHttp.get(0))) {
                         r1 = ipListForceHttp.get(0);
                     }
-                    this.f36087d.add(r1);
+                    this.f32409d.add(r1);
                 }
             } catch (Throwable unused) {
             }
-            this.f36085b.a(this.f36087d);
+            this.f32407b.a(this.f32409d);
         }
     }
 }

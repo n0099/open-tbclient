@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.text;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +39,7 @@ public class FormattableUtils {
     public static String toString(Formattable formattable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, formattable)) == null) ? String.format(SIMPLEST_FORMAT, formattable) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, formattable)) == null) ? String.format(SIMPLEST_FORMAT, formattable) : (String) invokeL.objValue;
     }
 
     public static Formatter append(CharSequence charSequence, Formatter formatter, int i2, int i3, int i4, char c2) {

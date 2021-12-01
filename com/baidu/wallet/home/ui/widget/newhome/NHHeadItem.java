@@ -24,7 +24,7 @@ import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NHHeadItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -122,9 +122,7 @@ public class NHHeadItem extends BaseItemView {
         this.mLogin.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHHeadItem.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NHHeadItem f59436a;
+            public final /* synthetic */ NHHeadItem a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -141,7 +139,7 @@ public class NHHeadItem extends BaseItemView {
                         return;
                     }
                 }
-                this.f59436a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -151,16 +149,14 @@ public class NHHeadItem extends BaseItemView {
                     return;
                 }
                 DXMSdkSAUtils.onEventWithValues("clickHomePageItem", Arrays.asList("登录按钮"));
-                this.f59436a.getWalletInterface().login();
+                this.a.getWalletInterface().login();
             }
         });
         this.mEye.setImageResource(ResUtils.drawable(getContext(), com.baidu.wallet.home.storage.a.a(getContext()) ? "wallet_home_nh_new_eye_close" : "wallet_home_nh_new_eye_open"));
         this.mEye.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHHeadItem.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ NHHeadItem f59437a;
+            public final /* synthetic */ NHHeadItem a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -177,7 +173,7 @@ public class NHHeadItem extends BaseItemView {
                         return;
                     }
                 }
-                this.f59437a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -186,7 +182,7 @@ public class NHHeadItem extends BaseItemView {
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                     return;
                 }
-                this.f59437a.getWalletInterface().onEyeMaskBtnClick();
+                this.a.getWalletInterface().onEyeMaskBtnClick();
             }
         });
         boolean z = getWalletInterface() != null && getWalletInterface().isLoginData();
@@ -221,12 +217,10 @@ public class NHHeadItem extends BaseItemView {
                 this.mManScore.setOnClickListener(new View.OnClickListener(this, dataButton) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHHeadItem.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ HomeCfgResponse.DataButton f59438a;
+                    public final /* synthetic */ HomeCfgResponse.DataButton a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ NHHeadItem f59439b;
+                    public final /* synthetic */ NHHeadItem f52711b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -243,8 +237,8 @@ public class NHHeadItem extends BaseItemView {
                                 return;
                             }
                         }
-                        this.f59439b = this;
-                        this.f59438a = dataButton;
+                        this.f52711b = this;
+                        this.a = dataButton;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -253,8 +247,8 @@ public class NHHeadItem extends BaseItemView {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                             return;
                         }
-                        b walletInterface = this.f59439b.getWalletInterface();
-                        HomeCfgResponse.DataButton dataButton2 = this.f59438a;
+                        b walletInterface = this.f52711b.getWalletInterface();
+                        HomeCfgResponse.DataButton dataButton2 = this.a;
                         walletInterface.jump(dataButton2.name, dataButton2.type, dataButton2.link_addr, false);
                     }
                 });

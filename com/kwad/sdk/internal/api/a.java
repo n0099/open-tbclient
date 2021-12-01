@@ -7,66 +7,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsImage;
 /* loaded from: classes2.dex */
-public class a implements KsImage {
+public class a extends com.kwad.sdk.core.response.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f66757a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66758b;
+    public int f58643b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66759c;
+    public String f58644c;
 
-    public a(int i2, int i3, String str) {
+    /* renamed from: d  reason: collision with root package name */
+    public String f58645d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f58646e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f58647f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f58648g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f58649h;
+
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f66757a = i2;
-        this.f66758b = i3;
-        this.f66759c = str;
     }
 
-    @Override // com.kwad.sdk.api.KsImage
-    public int getHeight() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66758b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == 0 && this.f58643b == 0 && TextUtils.isEmpty(this.f58644c) : invokeV.booleanValue;
     }
 
-    @Override // com.kwad.sdk.api.KsImage
-    public String getImageUrl() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66759c : (String) invokeV.objValue;
-    }
-
-    @Override // com.kwad.sdk.api.KsImage
-    public int getWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f66757a : invokeV.intValue;
-    }
-
-    @Override // com.kwad.sdk.api.KsImage
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66757a > 0 && this.f66758b > 0 && !TextUtils.isEmpty(this.f66759c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.f58645d) && TextUtils.isEmpty(this.f58646e) && TextUtils.isEmpty(this.f58648g) && TextUtils.isEmpty(this.f58647f) : invokeV.booleanValue;
     }
 }

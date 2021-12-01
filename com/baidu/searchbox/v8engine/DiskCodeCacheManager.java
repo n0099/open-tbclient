@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.smallgame.sdk.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DiskCodeCacheManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DISK_CODE_CACHE_DIR_NAME_PREFIX = "v8_codecache_";
@@ -193,7 +192,7 @@ public class DiskCodeCacheManager {
         InterceptResult invokeL;
         int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
             String name = file.getName();
             if (!TextUtils.isEmpty(name) && name.length() >= 1 && name.startsWith(DISK_CODE_CACHE_NAME_PREFIX) && (lastIndexOf = name.lastIndexOf(".")) >= 0 && name.substring(lastIndexOf + 1).equals(DISK_CODE_CACHE_INDEX_SUFFIX)) {
                 return name.substring(9, lastIndexOf);
@@ -206,7 +205,7 @@ public class DiskCodeCacheManager {
     public static boolean isCodeCacheSettingValid(Context context, V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, codeCacheSetting)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, codeCacheSetting)) == null) {
             if (codeCacheSetting == null) {
                 Log.w(TAG, "[CodeCache] Code cache setting is null");
                 return false;

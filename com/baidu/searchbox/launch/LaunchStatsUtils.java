@@ -1,7 +1,6 @@
 package com.baidu.searchbox.launch;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LaunchStatsUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD = "ad";
@@ -86,13 +85,13 @@ public class LaunchStatsUtils {
     public static String getLaunchTypeDetail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? sLaunchTypeDetail : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? sLaunchTypeDetail : (String) invokeV.objValue;
     }
 
     public static boolean isAppCreateTimeValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? sAppCreateTimeStamp != -1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? sAppCreateTimeStamp != -1 : invokeV.booleanValue;
     }
 
     public static boolean isHomePageFirstRenderEndTimeValid() {
@@ -101,17 +100,17 @@ public class LaunchStatsUtils {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? sHomePageFirstRenderEndTimeStamp != -1 : invokeV.booleanValue;
     }
 
-    public static void setAppCreateTime(long j) {
+    public static void setAppCreateTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
-            sAppCreateTimeStamp = j;
+        if (interceptable == null || interceptable.invokeJ(65544, null, j2) == null) {
+            sAppCreateTimeStamp = j2;
         }
     }
 
-    public static void setHomePageFirstRenderEndTime(long j) {
+    public static void setHomePageFirstRenderEndTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, null, j) == null) {
-            sHomePageFirstRenderEndTimeStamp = j;
+        if (interceptable == null || interceptable.invokeJ(65545, null, j2) == null) {
+            sHomePageFirstRenderEndTimeStamp = j2;
         }
     }
 

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,14 +34,14 @@ public class c extends com.baidu.platform.base.e {
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
-            this.f42889a.a("qt", "ext");
-            this.f42889a.a("num", Constants.DEFAULT_UIN);
-            this.f42889a.a("l", "10");
-            this.f42889a.a("ie", "utf-8");
-            this.f42889a.a("oue", "1");
-            this.f42889a.a(UriUtil.LOCAL_RESOURCE_SCHEME, RetrieveTaskManager.KEY);
-            this.f42889a.a("fromproduct", "android_map_sdk");
-            this.f42889a.a("uid", str);
+            this.a.a("qt", "ext");
+            this.a.a("num", Constants.DEFAULT_UIN);
+            this.a.a("l", "10");
+            this.a.a("ie", "utf-8");
+            this.a.a("oue", "1");
+            this.a.a(UriUtil.LOCAL_RESOURCE_SCHEME, RetrieveTaskManager.KEY);
+            this.a.a("fromproduct", "android_map_sdk");
+            this.a.a("uid", str);
         }
     }
 

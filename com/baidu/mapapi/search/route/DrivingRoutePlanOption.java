@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DrivingRoutePlanOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class DrivingRoutePlanOption {
     public DrivingTrafficPolicy mtrafficPolicy;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class DrivingPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final DrivingPolicy ECAR_AVOID_JAM;
@@ -30,11 +30,9 @@ public class DrivingRoutePlanOption {
         public static final DrivingPolicy ECAR_TIME_FIRST;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ DrivingPolicy[] f40597b;
+        public static final /* synthetic */ DrivingPolicy[] f36158b;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f40598a;
+        public int a;
 
         static {
             InterceptResult invokeClinit;
@@ -54,7 +52,7 @@ public class DrivingRoutePlanOption {
             ECAR_DIS_FIRST = new DrivingPolicy("ECAR_DIS_FIRST", 2, 1);
             DrivingPolicy drivingPolicy = new DrivingPolicy("ECAR_FEE_FIRST", 3, 2);
             ECAR_FEE_FIRST = drivingPolicy;
-            f40597b = new DrivingPolicy[]{ECAR_AVOID_JAM, ECAR_TIME_FIRST, ECAR_DIS_FIRST, drivingPolicy};
+            f36158b = new DrivingPolicy[]{ECAR_AVOID_JAM, ECAR_TIME_FIRST, ECAR_DIS_FIRST, drivingPolicy};
         }
 
         public DrivingPolicy(String str, int i2, int i3) {
@@ -75,7 +73,7 @@ public class DrivingRoutePlanOption {
                     return;
                 }
             }
-            this.f40598a = i3;
+            this.a = i3;
         }
 
         public static DrivingPolicy valueOf(String str) {
@@ -87,29 +85,27 @@ public class DrivingRoutePlanOption {
         public static DrivingPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingPolicy[]) f40597b.clone() : (DrivingPolicy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingPolicy[]) f36158b.clone() : (DrivingPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40598a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class DrivingTrafficPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final DrivingTrafficPolicy ROUTE_PATH;
         public static final DrivingTrafficPolicy ROUTE_PATH_AND_TRAFFIC;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ DrivingTrafficPolicy[] f40599b;
+        public static final /* synthetic */ DrivingTrafficPolicy[] f36159b;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f40600a;
+        public int a;
 
         static {
             InterceptResult invokeClinit;
@@ -127,7 +123,7 @@ public class DrivingRoutePlanOption {
             ROUTE_PATH = new DrivingTrafficPolicy("ROUTE_PATH", 0, 0);
             DrivingTrafficPolicy drivingTrafficPolicy = new DrivingTrafficPolicy("ROUTE_PATH_AND_TRAFFIC", 1, 1);
             ROUTE_PATH_AND_TRAFFIC = drivingTrafficPolicy;
-            f40599b = new DrivingTrafficPolicy[]{ROUTE_PATH, drivingTrafficPolicy};
+            f36159b = new DrivingTrafficPolicy[]{ROUTE_PATH, drivingTrafficPolicy};
         }
 
         public DrivingTrafficPolicy(String str, int i2, int i3) {
@@ -148,7 +144,7 @@ public class DrivingRoutePlanOption {
                     return;
                 }
             }
-            this.f40600a = i3;
+            this.a = i3;
         }
 
         public static DrivingTrafficPolicy valueOf(String str) {
@@ -160,13 +156,13 @@ public class DrivingRoutePlanOption {
         public static DrivingTrafficPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingTrafficPolicy[]) f40599b.clone() : (DrivingTrafficPolicy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DrivingTrafficPolicy[]) f36159b.clone() : (DrivingTrafficPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40600a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
         }
     }
 

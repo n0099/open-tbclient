@@ -24,7 +24,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TiebaActiveService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVE_FAIL = 1;
@@ -35,13 +35,13 @@ public class TiebaActiveService extends BdBaseService {
     public int mHaveRetry;
     public Runnable mRunnable;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TiebaActiveService f54681e;
+        public final /* synthetic */ TiebaActiveService f48888e;
 
         public a(TiebaActiveService tiebaActiveService) {
             Interceptable interceptable = $ic;
@@ -58,28 +58,26 @@ public class TiebaActiveService extends BdBaseService {
                     return;
                 }
             }
-            this.f54681e = tiebaActiveService;
+            this.f48888e = tiebaActiveService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54681e.sendActive();
+                this.f48888e.sendActive();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public NetWork f54682a;
+        public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TiebaActiveService f54683b;
+        public final /* synthetic */ TiebaActiveService f48889b;
 
         public b(TiebaActiveService tiebaActiveService) {
             Interceptable interceptable = $ic;
@@ -96,16 +94,16 @@ public class TiebaActiveService extends BdBaseService {
                     return;
                 }
             }
-            this.f54683b = tiebaActiveService;
-            this.f54682a = null;
+            this.f48889b = tiebaActiveService;
+            this.a = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f54683b.mActiveTask = null;
-                NetWork netWork = this.f54682a;
+                this.f48889b.mActiveTask = null;
+                NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
@@ -121,20 +119,20 @@ public class TiebaActiveService extends BdBaseService {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
                 try {
                     NetWork netWork = new NetWork("http://114.113.149.3:8086/partnersService");
-                    this.f54682a = netWork;
+                    this.a = netWork;
                     netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                    this.f54682a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                    this.f54682a.addPostData("model", Build.MODEL);
-                    this.f54682a.addPostData("edition", TbConfig.getVersion());
-                    this.f54682a.addPostData(ConstantHelper.LOG_OS, Build.VERSION.SDK);
-                    this.f54682a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
-                    String postNetData = this.f54682a.postNetData();
-                    if (this.f54682a.isNetSuccess()) {
+                    this.a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
+                    this.a.addPostData("model", Build.MODEL);
+                    this.a.addPostData("edition", TbConfig.getVersion());
+                    this.a.addPostData(ConstantHelper.LOG_OS, Build.VERSION.SDK);
+                    this.a.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
+                    String postNetData = this.a.postNetData();
+                    if (this.a.isNetSuccess()) {
                         return postNetData;
                     }
                     return null;
                 } catch (Exception e2) {
-                    b.a.q0.s.e0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
+                    c.a.q0.s.e0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
                     BdLog.e(e2.getMessage());
                     return null;
                 }
@@ -148,19 +146,19 @@ public class TiebaActiveService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.f54683b.mActiveTask = null;
+                this.f48889b.mActiveTask = null;
                 if (str == null) {
-                    TiebaActiveService.access$308(this.f54683b);
-                    if (this.f54683b.mHaveRetry < 10) {
-                        this.f54683b.mHandler.removeCallbacks(this.f54683b.mRunnable);
-                        this.f54683b.mHandler.postDelayed(this.f54683b.mRunnable, 60000L);
+                    TiebaActiveService.access$308(this.f48889b);
+                    if (this.f48889b.mHaveRetry < 10) {
+                        this.f48889b.mHandler.removeCallbacks(this.f48889b.mRunnable);
+                        this.f48889b.mHandler.postDelayed(this.f48889b.mRunnable, 60000L);
                     } else {
-                        b.a.q0.s.e0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
-                        this.f54683b.stopSelf();
+                        c.a.q0.s.e0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 1);
+                        this.f48889b.stopSelf();
                     }
                 }
-                b.a.q0.s.e0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2);
-                this.f54683b.stopSelf();
+                c.a.q0.s.e0.b.j().v(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2);
+                this.f48889b.stopSelf();
             }
         }
 
@@ -197,7 +195,7 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelByShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? b.a.q0.s.e0.b.j().p("channel_id", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? c.a.q0.s.e0.b.j().p("channel_id", null) : (String) invokeV.objValue;
     }
 
     private String getChannelyFile() {
@@ -273,7 +271,7 @@ public class TiebaActiveService extends BdBaseService {
         if (!(interceptable == null || interceptable.invokeL(65547, this, str) == null) || str == null || str.length() <= 0) {
             return;
         }
-        b.a.q0.s.e0.b.j().x("channel_id", str);
+        c.a.q0.s.e0.b.j().x("channel_id", str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -319,7 +317,7 @@ public class TiebaActiveService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i2) == null) {
             super.onStart(intent, i2);
-            if (isActived() && b.a.q0.s.e0.b.j().k(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2) != 1) {
+            if (isActived() && c.a.q0.s.e0.b.j().k(GrowthConstant.UBC_VALUE_TYPE_DEFAULT, 2) != 1) {
                 stopSelf();
             } else {
                 sendActive();

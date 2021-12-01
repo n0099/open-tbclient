@@ -26,14 +26,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpstream<T, Flowable<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int capacityHint;
     public final Publisher<B> other;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WindowBoundaryInnerSubscriber<T, B> extends DisposableSubscriber<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class WindowBoundaryMainSubscriber<T, B> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Object NEXT_WINDOW;
@@ -171,7 +171,7 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
                 Subscriber<? super Flowable<T>> subscriber = this.downstream;
                 MpscLinkedQueue<Object> mpscLinkedQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.errors;
-                long j = this.emitted;
+                long j2 = this.emitted;
                 int i2 = 1;
                 while (this.windows.get() != 0) {
                     UnicastProcessor<T> unicastProcessor = this.window;
@@ -205,7 +205,7 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
                         subscriber.onError(terminate2);
                         return;
                     } else if (z2) {
-                        this.emitted = j;
+                        this.emitted = j2;
                         i2 = addAndGet(-i2);
                         if (i2 == 0) {
                             return;
@@ -221,8 +221,8 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
                             UnicastProcessor<T> create = UnicastProcessor.create(this.capacityHint, this);
                             this.window = create;
                             this.windows.getAndIncrement();
-                            if (j != this.requested.get()) {
-                                j++;
+                            if (j2 != this.requested.get()) {
+                                j2++;
                                 subscriber.onNext(create);
                             } else {
                                 SubscriptionHelper.cancel(this.upstream);
@@ -310,10 +310,10 @@ public final class FlowableWindowBoundary<T, B> extends AbstractFlowableWithUpst
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                BackpressureHelper.add(this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+                BackpressureHelper.add(this.requested, j2);
             }
         }
 

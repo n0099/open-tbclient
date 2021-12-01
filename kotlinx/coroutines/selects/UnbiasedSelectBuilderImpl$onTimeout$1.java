@@ -13,10 +13,10 @@ public final class UnbiasedSelectBuilderImpl$onTimeout$1 extends Lambda implemen
     public final /* synthetic */ UnbiasedSelectBuilderImpl this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UnbiasedSelectBuilderImpl$onTimeout$1(UnbiasedSelectBuilderImpl unbiasedSelectBuilderImpl, long j, Function1 function1) {
+    public UnbiasedSelectBuilderImpl$onTimeout$1(UnbiasedSelectBuilderImpl unbiasedSelectBuilderImpl, long j2, Function1 function1) {
         super(0);
         this.this$0 = unbiasedSelectBuilderImpl;
-        this.$timeMillis = j;
+        this.$timeMillis = j2;
         this.$block = function1;
     }
 

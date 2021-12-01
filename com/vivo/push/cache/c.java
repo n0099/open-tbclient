@@ -23,7 +23,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class c<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] CRPYT_IV_BYTE;
@@ -139,15 +139,15 @@ public abstract class c<T> {
             synchronized (sAppLock) {
                 h.a(generateStrByType());
                 this.mAppDatas.clear();
-                String a2 = this.mSharePreferenceManager.a(generateStrByType());
-                if (TextUtils.isEmpty(a2)) {
+                String a = this.mSharePreferenceManager.a(generateStrByType());
+                if (TextUtils.isEmpty(a)) {
                     p.d(TAG, "AppManager init strApps empty.");
-                } else if (a2.length() > MAX_CLIENT_SAVE_LENGTH) {
+                } else if (a.length() > MAX_CLIENT_SAVE_LENGTH) {
                     p.d(TAG, "sync  strApps lenght too large");
                     clearData();
                 } else {
                     try {
-                        String str = new String(g.a(g.a(CRPYT_IV_BYTE), g.a(CRPYT_KEY_BYTE), android.util.Base64.decode(a2, 2)), "utf-8");
+                        String str = new String(g.a(g.a(CRPYT_IV_BYTE), g.a(CRPYT_KEY_BYTE), android.util.Base64.decode(a, 2)), "utf-8");
                         p.d(TAG, "AppManager init strApps : " + str);
                         Set<T> parseAppStr = parseAppStr(str);
                         if (parseAppStr != null) {
@@ -210,12 +210,12 @@ public abstract class c<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, set)) == null) {
             String appStr = toAppStr(set);
             try {
-                String a2 = g.a(CRPYT_IV_BYTE);
-                String a3 = g.a(CRPYT_KEY_BYTE);
+                String a = g.a(CRPYT_IV_BYTE);
+                String a2 = g.a(CRPYT_KEY_BYTE);
                 byte[] bytes = appStr.getBytes("utf-8");
-                SecretKeySpec secretKeySpec = new SecretKeySpec(a3.getBytes("utf-8"), "AES");
+                SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes("utf-8"), "AES");
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(1, secretKeySpec, new IvParameterSpec(a2.getBytes("utf-8")));
+                cipher.init(1, secretKeySpec, new IvParameterSpec(a.getBytes("utf-8")));
                 String encodeToString = android.util.Base64.encodeToString(cipher.doFinal(bytes), 2);
                 if (!TextUtils.isEmpty(encodeToString) && encodeToString.length() > MAX_CLIENT_SAVE_LENGTH) {
                     p.d(TAG, "sync  strApps lenght too large");

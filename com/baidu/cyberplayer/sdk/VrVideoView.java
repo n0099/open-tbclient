@@ -19,13 +19,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VrVideoView extends MovieView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public CyberVRRenderProvider f37839a;
+    public CyberVRRenderProvider a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VrVideoView(Context context) {
@@ -105,13 +103,11 @@ public class VrVideoView extends MovieView {
         if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
             CyberVRRenderProvider cyberVRRenderProvider = null;
             try {
-                cyberVRRenderProvider = d.a(this.f38101b);
+                cyberVRRenderProvider = d.a(this.f34107b);
                 cyberVRRenderProvider.displayMode(i3).interactiveMode(i2).projectionMode(i4).asVideo(new CyberVRRenderProvider.IOnSurfaceReadyCallback(this) { // from class: com.baidu.cyberplayer.sdk.VrVideoView.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ VrVideoView f37841a;
+                    public final /* synthetic */ VrVideoView a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -128,32 +124,30 @@ public class VrVideoView extends MovieView {
                                 return;
                             }
                         }
-                        this.f37841a = this;
+                        this.a = this;
                     }
 
                     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider.IOnSurfaceReadyCallback
                     public void onSurfaceReady(Surface surface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, surface) == null) {
-                            this.f37841a.a(1, "surface ready");
-                            this.f37841a.f38102c = surface;
-                            if (this.f37841a.f38107h != null) {
-                                this.f37841a.f38107h.setSurface(surface);
+                            this.a.a(1, "surface ready");
+                            this.a.f34108c = surface;
+                            if (this.a.f34113h != null) {
+                                this.a.f34113h.setSurface(surface);
                             } else {
-                                this.f37841a.e();
+                                this.a.e();
                             }
-                            this.f37841a.onOrientationChanged();
-                            if (this.f37841a.A != null) {
-                                this.f37841a.A.a();
+                            this.a.onOrientationChanged();
+                            if (this.a.A != null) {
+                                this.a.A.a();
                             }
                         }
                     }
                 }).ifNotSupport(new CyberVRRenderProvider.INotSupportCallback(this) { // from class: com.baidu.cyberplayer.sdk.VrVideoView.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ VrVideoView f37840a;
+                    public final /* synthetic */ VrVideoView a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -170,16 +164,16 @@ public class VrVideoView extends MovieView {
                                 return;
                             }
                         }
-                        this.f37840a = this;
+                        this.a = this;
                     }
 
                     @Override // com.baidu.cyberplayer.sdk.CyberVRRenderProvider.INotSupportCallback
                     public void onNotSupport(int i5) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i5) == null) || this.f37840a.w == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeI(1048576, this, i5) == null) || this.a.w == null) {
                             return;
                         }
-                        this.f37840a.w.onInfo(1, i5, null);
+                        this.a.w.onInfo(1, i5, null);
                     }
                 }).pinchEnabled(false);
                 return cyberVRRenderProvider;
@@ -194,16 +188,16 @@ public class VrVideoView extends MovieView {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            CyberVRRenderProvider cyberVRRenderProvider = this.f37839a;
+            CyberVRRenderProvider cyberVRRenderProvider = this.a;
             if (cyberVRRenderProvider == null) {
                 CyberLog.e("VrVideoView", "initVRlLib failed, because BDVRRenderDelegate object is null");
                 return;
             }
             int i2 = this.P;
             if (i2 == 1) {
-                cyberVRRenderProvider.init((SurfaceView) this.f38103d);
+                cyberVRRenderProvider.init((SurfaceView) this.f34109d);
             } else if (i2 == 2) {
-                cyberVRRenderProvider.init((TextureView) this.f38103d);
+                cyberVRRenderProvider.init((TextureView) this.f34109d);
             } else {
                 a(4, "GLView invalid type");
             }
@@ -214,7 +208,7 @@ public class VrVideoView extends MovieView {
     public void a(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-            if (this.f37839a == null) {
+            if (this.a == null) {
                 super.a(i2, i3, i4, i5);
                 return;
             }
@@ -225,7 +219,7 @@ public class VrVideoView extends MovieView {
                     i3 = (i3 * i5) / i4;
                 }
             }
-            this.f37839a.onTextureResize(i2, i3);
+            this.a.onTextureResize(i2, i3);
             a(1, String.format("onTextureResize,w=%d,h=%d", Integer.valueOf(i2), Integer.valueOf(i3)));
             this.R = i2;
             this.S = i3;
@@ -244,7 +238,7 @@ public class VrVideoView extends MovieView {
             layoutParams.gravity = 17;
             if (i2 == 1) {
                 View gLSurfaceView = new GLSurfaceView(getContext());
-                this.f38103d = gLSurfaceView;
+                this.f34109d = gLSurfaceView;
                 addView(gLSurfaceView, 0, layoutParams);
                 return true;
             }
@@ -258,21 +252,21 @@ public class VrVideoView extends MovieView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
             a(1, String.format("playerType:" + i2 + " interactiveMode:" + i3 + " displayMode:" + i4 + " projectionMode:" + i5 + " viewType:" + i6, new Object[0]));
-            this.f38105f = false;
-            this.f38108i = i2;
+            this.f34111f = false;
+            this.f34114i = i2;
             this.M = i3;
             this.N = i4;
             this.O = i5;
             this.P = i6;
-            CyberVRRenderProvider a2 = a(i3, i4, i5);
-            this.f37839a = a2;
-            if (a2 == null) {
+            CyberVRRenderProvider a = a(i3, i4, i5);
+            this.a = a;
+            if (a == null) {
                 CyberLog.e("VrVideoView", "initVR failed. Please check the log.");
                 return false;
             }
             b(i6);
             a();
-            return b(this.f38101b);
+            return b(this.f34107b);
         }
         return invokeCommon.booleanValue;
     }
@@ -281,19 +275,19 @@ public class VrVideoView extends MovieView {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38105f || this.f37839a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34111f || this.a != null : invokeV.booleanValue;
     }
 
     @Override // com.baidu.cyberplayer.sdk.vrplayer.MovieView
     public void destroyRender() {
         CyberVRRenderProvider cyberVRRenderProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (cyberVRRenderProvider = this.f37839a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (cyberVRRenderProvider = this.a) == null) {
             return;
         }
         cyberVRRenderProvider.onDestroy();
-        this.f37839a = null;
-        this.T = MovieView.i.f38124a;
+        this.a = null;
+        this.T = MovieView.i.a;
     }
 
     public int getSourceType() {
@@ -306,8 +300,8 @@ public class VrVideoView extends MovieView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f38108i == 0) {
-                this.f38108i = 1;
+            if (this.f34114i == 0) {
+                this.f34114i = 1;
             }
             if (this.M == 0) {
                 this.M = 5;
@@ -321,8 +315,8 @@ public class VrVideoView extends MovieView {
             if (this.P == 0) {
                 this.P = 1;
             }
-            a(1, String.format("playerType:" + this.f38108i + " interactiveMode:" + this.M + " displayMode:" + this.N + " sourceType:" + this.Q + " viewType:" + this.P, new Object[0]));
-            return a(this.f38108i, this.M, this.N, this.O, this.P);
+            a(1, String.format("playerType:" + this.f34114i + " interactiveMode:" + this.M + " displayMode:" + this.N + " sourceType:" + this.Q + " viewType:" + this.P, new Object[0]));
+            return a(this.f34114i, this.M, this.N, this.O, this.P);
         }
         return invokeV.booleanValue;
     }
@@ -330,7 +324,7 @@ public class VrVideoView extends MovieView {
     public void onOrientationChanged() {
         CyberVRRenderProvider cyberVRRenderProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (cyberVRRenderProvider = this.f37839a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (cyberVRRenderProvider = this.a) == null) {
             return;
         }
         cyberVRRenderProvider.onOrientationChanged();
@@ -340,16 +334,16 @@ public class VrVideoView extends MovieView {
     public void pauseRender() {
         CyberVRRenderProvider cyberVRRenderProvider;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (cyberVRRenderProvider = this.f37839a) != null && this.T == MovieView.i.f38125b) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (cyberVRRenderProvider = this.a) != null && this.T == MovieView.i.f34124b) {
             cyberVRRenderProvider.onPause();
-            this.T = MovieView.i.f38124a;
+            this.T = MovieView.i.a;
         }
     }
 
     public void pinchEnabled(boolean z) {
         CyberVRRenderProvider cyberVRRenderProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (cyberVRRenderProvider = this.f37839a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (cyberVRRenderProvider = this.a) == null) {
             return;
         }
         cyberVRRenderProvider.pinchEnabled(z);
@@ -359,9 +353,9 @@ public class VrVideoView extends MovieView {
     public void resumeRender() {
         CyberVRRenderProvider cyberVRRenderProvider;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (cyberVRRenderProvider = this.f37839a) != null && this.T == MovieView.i.f38124a) {
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (cyberVRRenderProvider = this.a) != null && this.T == MovieView.i.a) {
             cyberVRRenderProvider.onResume();
-            this.T = MovieView.i.f38125b;
+            this.T = MovieView.i.f34124b;
         }
     }
 
@@ -376,7 +370,7 @@ public class VrVideoView extends MovieView {
     public void setFov(float f2, float f3, float f4) {
         CyberVRRenderProvider cyberVRRenderProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) || (cyberVRRenderProvider = this.f37839a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) || (cyberVRRenderProvider = this.a) == null) {
             return;
         }
         cyberVRRenderProvider.setFov(f2, f3, f4);
@@ -408,7 +402,7 @@ public class VrVideoView extends MovieView {
     public void switchDisplayMode(int i2) {
         CyberVRRenderProvider cyberVRRenderProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || (cyberVRRenderProvider = this.f37839a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || (cyberVRRenderProvider = this.a) == null) {
             return;
         }
         this.N = i2;
@@ -418,7 +412,7 @@ public class VrVideoView extends MovieView {
     public void switchInteractiveMode(int i2) {
         CyberVRRenderProvider cyberVRRenderProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (cyberVRRenderProvider = this.f37839a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || (cyberVRRenderProvider = this.a) == null) {
             return;
         }
         this.M = i2;
@@ -428,7 +422,7 @@ public class VrVideoView extends MovieView {
     public void switchProjectionMode(int i2) {
         CyberVRRenderProvider cyberVRRenderProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (cyberVRRenderProvider = this.f37839a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (cyberVRRenderProvider = this.a) == null) {
             return;
         }
         this.O = i2;

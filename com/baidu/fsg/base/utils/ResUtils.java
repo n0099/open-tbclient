@@ -9,7 +9,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.ApollonConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,39 +20,41 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ResUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANIM = "anim";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38434a = "id";
+    public static final String a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38435b = "string";
+    public static final String f34368b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38436c = "layout";
+    public static final String f34369c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38437d = "style";
+    public static final String f34370d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38438e = "drawable";
+    public static final String f34371e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38439f = "color";
+    public static final String f34372f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38440g = "array";
+    public static final String f34373g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38441h = "attr";
+    public static final String f34374h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38442i = "dimen";
-    public static final String j = "xml";
-    public static final String k = "integer";
+    public static final String f34375i = "dimen";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f34376j = "xml";
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final String f34377k = "integer";
     public static final String l = "raw";
     public static Context m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +167,7 @@ public final class ResUtils {
     public static byte[] a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             if (context == null) {
                 return null;
             }
@@ -205,7 +206,7 @@ public final class ResUtils {
     public static int anim(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) ? a(context, "anim", str) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? a(context, "anim", str) : invokeLL.intValue;
     }
 
     public static int anim(Context context, String str, String str2) {

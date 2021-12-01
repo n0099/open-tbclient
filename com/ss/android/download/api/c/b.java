@@ -3,7 +3,6 @@ package com.ss.android.download.api.c;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +33,7 @@ public class b {
     public static boolean a(com.ss.android.socialbase.downloader.g.a aVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, aVar, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, aVar, str)) == null) {
             if (aVar == null || aVar.a("apk_update_handler_enable", 1) != 1) {
                 return false;
             }

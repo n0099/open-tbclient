@@ -4,7 +4,6 @@ import android.os.Environment;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +21,7 @@ import java.io.StringWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_LIMETE = 10485760;
@@ -210,7 +209,7 @@ public final class Log {
 
     public static void e(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
             e(str, getStackTraceString(th));
         }
     }
@@ -238,7 +237,7 @@ public final class Log {
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
             e(str, str2 + '\n' + getStackTraceString(th));
         }
     }

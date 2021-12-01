@@ -11,7 +11,6 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -369,7 +368,7 @@ public class GridLayoutManager extends LinearLayoutManager {
 
     private void calculateItemBorders(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
             this.mCachedBorders = calculateItemBorders(this.mCachedBorders, this.mSpanCount, i2);
         }
     }
@@ -795,7 +794,7 @@ public class GridLayoutManager extends LinearLayoutManager {
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v0 */
-    /* JADX WARN: Type inference failed for: r5v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r5v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r5v19 */
     @Override // androidx.recyclerview.widget.LinearLayoutManager
     /*
@@ -1339,7 +1338,7 @@ public class GridLayoutManager extends LinearLayoutManager {
         InterceptResult invokeLII;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, iArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, iArr, i2, i3)) == null) {
             if (iArr == null || iArr.length != i2 + 1 || iArr[iArr.length - 1] != i3) {
                 iArr = new int[i2 + 1];
             }

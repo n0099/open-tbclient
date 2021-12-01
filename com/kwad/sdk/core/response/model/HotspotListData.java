@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class HotspotListData extends com.kwad.sdk.core.response.a.a implements Serializable {
+public class HotspotListData extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5720793773714140339L;
     public transient /* synthetic */ FieldHolder $fh;

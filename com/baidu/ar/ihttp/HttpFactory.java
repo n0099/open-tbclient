@@ -2,7 +2,6 @@ package com.baidu.ar.ihttp;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.h.n;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class HttpFactory {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b ry;
@@ -106,7 +105,7 @@ public final class HttpFactory {
 
     public static void release() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || ry == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || ry == null) {
             return;
         }
         ry.release();

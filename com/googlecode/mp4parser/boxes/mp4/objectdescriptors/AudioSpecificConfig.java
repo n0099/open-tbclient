@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.rtc.record.MediaEncodeParams;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,6 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeWriter;
+import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -95,7 +95,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
         samplingFrequencyIndexMap.put(8, 16000);
-        samplingFrequencyIndexMap.put(9, 12000);
+        samplingFrequencyIndexMap.put(9, Integer.valueOf((int) w0.X3));
         samplingFrequencyIndexMap.put(10, 11025);
         samplingFrequencyIndexMap.put(11, 8000);
         audioObjectTypeMap.put(1, "AAC main");
@@ -189,7 +189,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
 
     private void parseGaSpecificConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
             this.frameLengthFlag = bitReaderBuffer.readBits(1);
             int readBits = bitReaderBuffer.readBits(1);
             this.dependsOnCoreCoder = readBits;
@@ -222,7 +222,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
 
     private void parseHilnConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
             this.hilnQuantMode = bitReaderBuffer.readBits(1);
             this.hilnMaxNumLine = bitReaderBuffer.readBits(8);
             this.hilnSampleRateCode = bitReaderBuffer.readBits(4);

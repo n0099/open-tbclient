@@ -14,16 +14,14 @@ import com.dxmpay.wallet.core.beans.BaseBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class z extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f60548a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FeedbackDialog.c f60549b;
+    public FeedbackDialog.c f53433b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(Context context) {
@@ -48,8 +46,8 @@ public class z extends BaseBean<Object> {
     public void a(String str, FeedbackDialog.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f60548a = str;
-            this.f60549b = cVar;
+            this.a = str;
+            this.f53433b = cVar;
         }
     }
 
@@ -67,10 +65,10 @@ public class z extends BaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("trans_no", this.f60548a));
-            arrayList.add(new RestNameValuePair("score", "" + this.f60549b.f61372a));
-            FeedbackDialog.c cVar = this.f60549b;
-            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f61373b : null)));
+            arrayList.add(new RestNameValuePair("trans_no", this.a));
+            arrayList.add(new RestNameValuePair("score", "" + this.f53433b.a));
+            FeedbackDialog.c cVar = this.f53433b;
+            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f53929b : null)));
             return arrayList;
         }
         return (List) invokeV.objValue;

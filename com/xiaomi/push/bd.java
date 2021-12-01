@@ -6,16 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bd implements bf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f71628a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f71629b;
+    public final String f62744b;
 
     public bd(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -35,21 +33,21 @@ public class bd implements bf {
         if (str == null) {
             throw new IllegalArgumentException("Name may not be null");
         }
-        this.f71628a = str;
-        this.f71629b = str2;
+        this.a = str;
+        this.f62744b = str2;
     }
 
     @Override // com.xiaomi.push.bf
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71628a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.bf
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71629b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62744b : (String) invokeV.objValue;
     }
 }

@@ -19,7 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,12 +44,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f69843a;
+    public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f69844b;
+    public static NotificationChannel f61486b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -83,13 +81,13 @@ public class c {
         return invokeCommon.intValue;
     }
 
-    public static String a(long j, long j2, String str, boolean z) {
+    public static String a(long j2, long j3, String str, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Boolean.valueOf(z)})) == null) {
-            double d2 = j;
-            if (j2 > 1) {
-                d2 /= j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Boolean.valueOf(z)})) == null) {
+            double d2 = j2;
+            if (j3 > 1) {
+                d2 /= j3;
             }
             if (!z && !"GB".equals(str) && !"TB".equals(str)) {
                 return new DecimalFormat("#").format(d2) + " " + str;
@@ -99,19 +97,19 @@ public class c {
         return (String) invokeCommon.objValue;
     }
 
-    public static String b(long j) {
+    public static String b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65569, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65569, null, j2)) == null) {
             long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
             String[] strArr = {"TB", "GB", "MB", "KB", "B"};
-            if (j < 1) {
+            if (j2 < 1) {
                 return "0 " + strArr[4];
             }
             for (int i2 = 0; i2 < 5; i2++) {
-                long j2 = jArr[i2];
-                if (j >= j2) {
-                    return a(j, j2, strArr[i2]);
+                long j3 = jArr[i2];
+                if (j2 >= j3) {
+                    return a(j2, j3, strArr[i2]);
                 }
             }
             return null;
@@ -131,10 +129,10 @@ public class c {
         return invokeLL.booleanValue;
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j)) == null) ? a(j, true) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j2)) == null) ? a(j2, true) : (String) invokeJ.objValue;
     }
 
     public static boolean c(String str) {
@@ -143,19 +141,19 @@ public class c {
         return (interceptable == null || (invokeL = interceptable.invokeL(65577, null, str)) == null) ? !TextUtils.isEmpty(str) && str.equals("application/vnd.android.package-archive") : invokeL.booleanValue;
     }
 
-    public static String a(long j, boolean z) {
+    public static String a(long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
             String[] strArr = {"TB", "GB", "MB", "KB", "B"};
-            if (j < 1) {
+            if (j2 < 1) {
                 return "0 " + strArr[4];
             }
             for (int i2 = 0; i2 < 5; i2++) {
-                long j2 = jArr[i2];
-                if (j >= j2) {
-                    return a(j, j2, strArr[i2], z);
+                long j3 = jArr[i2];
+                if (j2 >= j3) {
+                    return a(j2, j3, strArr[i2], z);
                 }
             }
             return null;
@@ -186,21 +184,19 @@ public class c {
                     com.ss.android.socialbase.downloader.downloader.c.a(new Runnable(context, i2, z, downloadInfo, file) { // from class: com.ss.android.socialbase.appdownloader.c.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Context f69848a;
+                        public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f69849b;
+                        public final /* synthetic */ int f61489b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ boolean f69850c;
+                        public final /* synthetic */ boolean f61490c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ DownloadInfo f69851d;
+                        public final /* synthetic */ DownloadInfo f61491d;
 
                         /* renamed from: e  reason: collision with root package name */
-                        public final /* synthetic */ File f69852e;
+                        public final /* synthetic */ File f61492e;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -217,22 +213,22 @@ public class c {
                                     return;
                                 }
                             }
-                            this.f69848a = context;
-                            this.f69849b = i2;
-                            this.f69850c = z;
-                            this.f69851d = downloadInfo;
-                            this.f69852e = file;
+                            this.a = context;
+                            this.f61489b = i2;
+                            this.f61490c = z;
+                            this.f61491d = downloadInfo;
+                            this.f61492e = file;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                int a2 = c.a(this.f69848a, this.f69849b, this.f69850c, this.f69851d, this.f69852e);
+                                int a2 = c.a(this.a, this.f61489b, this.f61490c, this.f61491d, this.f61492e);
                                 if (a2 == 1 && d.j().o() != null) {
-                                    d.j().o().a(this.f69851d, null);
+                                    d.j().o().a(this.f61491d, null);
                                 }
-                                c.b(this.f69851d, this.f69850c, a2);
+                                c.b(this.f61491d, this.f61490c, a2);
                             }
                         }
                     });
@@ -261,13 +257,13 @@ public class c {
         return (JSONObject) invokeL.objValue;
     }
 
-    public static String a(long j, long j2, String str) {
+    public static String a(long j2, long j3, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
-            double d2 = j;
-            if (j2 > 1) {
-                d2 /= j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str})) == null) {
+            double d2 = j2;
+            if (j3 > 1) {
+                d2 /= j3;
             }
             if ("MB".equals(str)) {
                 return new DecimalFormat("#").format(d2) + str;
@@ -302,19 +298,17 @@ public class c {
                 return d(context, i2, z);
             }
             DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
-            f69843a = 1;
+            a = 1;
             g2.a(downloadInfo, new com.ss.android.socialbase.appdownloader.c.i(context, i2, z) { // from class: com.ss.android.socialbase.appdownloader.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f69845a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f69846b;
+                public final /* synthetic */ int f61487b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ boolean f69847c;
+                public final /* synthetic */ boolean f61488c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -331,20 +325,20 @@ public class c {
                             return;
                         }
                     }
-                    this.f69845a = context;
-                    this.f69846b = i2;
-                    this.f69847c = z;
+                    this.a = context;
+                    this.f61487b = i2;
+                    this.f61488c = z;
                 }
 
                 @Override // com.ss.android.socialbase.appdownloader.c.i
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int unused = c.f69843a = c.d(this.f69845a, this.f69846b, this.f69847c);
+                        int unused = c.a = c.d(this.a, this.f61487b, this.f61488c);
                     }
                 }
             });
-            return f69843a;
+            return a;
         }
         return invokeCommon.intValue;
     }
@@ -368,7 +362,7 @@ public class c {
         Intent a2;
         Process process;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z), downloadInfo, file})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z), downloadInfo, file})) == null) {
             if (file.getPath().startsWith(Environment.getDataDirectory().getAbsolutePath())) {
                 try {
                     process = Runtime.getRuntime().exec("chmod 555 " + file.getAbsolutePath());
@@ -501,12 +495,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
             try {
-                if (f69844b == null) {
+                if (f61486b == null) {
                     NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                    f69844b = notificationChannel;
+                    f61486b = notificationChannel;
                     notificationChannel.setSound(null, null);
-                    f69844b.setShowBadge(false);
-                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f69844b);
+                    f61486b.setShowBadge(false);
+                    ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f61486b);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -519,7 +513,7 @@ public class c {
     public static int a(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, intent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, intent)) == null) {
             try {
                 if (d.j().n() != null) {
                     if (d.j().n().a(intent)) {
@@ -825,8 +819,8 @@ public class c {
                 }
                 str2 = "default.apk";
             }
-            if (!c(str3) && !str2.endsWith(".apk")) {
-                return str2 + ".apk";
+            if (!c(str3) && !str2.endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
+                return str2 + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
             }
         }
         String lastPathSegment = parse.getLastPathSegment();

@@ -20,7 +20,6 @@ import com.baidu.ar.arplay.core.renderer.IARPRenderer;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.Size;
 import com.baidu.ar.libloader.ILibLoader;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +39,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
     public String aL;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.ar.lua.b f37272f;
+    public com.baidu.ar.lua.b f33366f;
     public com.baidu.ar.arplay.a.c hA;
     public com.baidu.ar.arplay.d.b hB;
     public boolean hC;
@@ -95,12 +94,12 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         com.baidu.ar.libloader.a.require("opencv_java3");
         com.baidu.ar.libloader.a.require("EglCore");
         this.mContext = context;
-        this.f37272f = bVar;
+        this.f33366f = bVar;
         this.hG = eGLContext;
         this.hA = new com.baidu.ar.arplay.a.c(context);
         this.hB = com.baidu.ar.arplay.d.b.bm();
         this.hz = new a(context);
-        com.baidu.ar.statistic.p.b(this.f37272f);
+        com.baidu.ar.statistic.p.b(this.f33366f);
         this.aL = str;
         ARPEngine aRPEngine = ARPEngine.getInstance();
         this.hx = aRPEngine;
@@ -219,27 +218,27 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
 
     private void b(DuMixInput duMixInput) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, duMixInput) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, duMixInput) == null) {
             this.hx.getARPRenderer().setUpEGLEnv(this.hG);
             this.hx.getARPRenderer().setCameraFace(duMixInput.isFrontCamera());
-            PixelRotation a2 = b.a(duMixInput.isFitCameraAuto(), duMixInput.getRotationType(), duMixInput.getMirriorType());
+            PixelRotation a = b.a(duMixInput.isFitCameraAuto(), duMixInput.getRotationType(), duMixInput.getMirriorType());
             com.baidu.ar.arplay.core.engine.e eVar = com.baidu.ar.arplay.core.engine.e.fH;
             if ((duMixInput.getInputTexture() != null && duMixInput.getInputTexture().getType() == 36197) || (duMixInput.getInputSurface() != null && duMixInput.isCameraInput())) {
                 eVar = com.baidu.ar.arplay.core.engine.e.fG;
             }
             if (duMixInput.isSyncInputContent()) {
-                this.hx.getARPRenderer().createSyncInputSource(a2, eVar);
+                this.hx.getARPRenderer().createSyncInputSource(a, eVar);
             } else {
-                this.hx.getARPRenderer().createInputSource(a2, eVar);
+                this.hx.getARPRenderer().createInputSource(a, eVar);
             }
-            Size a3 = a(this.V);
-            this.hx.setPreviewSize(a3.getWidth(), a3.getHeight());
+            Size a2 = a(this.V);
+            this.hx.setPreviewSize(a2.getWidth(), a2.getHeight());
         }
     }
 
     private void bH() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             this.hx.getARPRenderer().runSyncOnRenderContext(new Runnable(this) { // from class: com.baidu.ar.arrender.f.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -508,8 +507,8 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
             if (duMixOutput.isFitScreenAuto()) {
                 bO();
             }
-            Size a2 = a(a(this.V), this.W);
-            this.hx.setWindowSize(a2.getWidth(), a2.getHeight());
+            Size a = a(a(this.V), this.W);
+            this.hx.setWindowSize(a.getWidth(), a.getHeight());
         }
     }
 
@@ -594,13 +593,13 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                 this.hx = ARPEngine.getInstance();
             }
             if (this.hx != null && (duMixInput = this.V) != null && this.W != null) {
-                Size a2 = a(duMixInput);
-                Size a3 = a(a2, this.W);
+                Size a = a(duMixInput);
+                Size a2 = a(a, this.W);
                 ARPEngineParams aRPEngineParams = new ARPEngineParams();
-                aRPEngineParams.setInputWidth(a2.getWidth());
-                aRPEngineParams.setInputHeight(a2.getHeight());
-                aRPEngineParams.setOutputWidth(a3.getWidth());
-                aRPEngineParams.setOutputHeight(a3.getHeight());
+                aRPEngineParams.setInputWidth(a.getWidth());
+                aRPEngineParams.setInputHeight(a.getHeight());
+                aRPEngineParams.setOutputWidth(a2.getWidth());
+                aRPEngineParams.setOutputHeight(a2.getHeight());
                 aRPEngineParams.setDensity(com.baidu.ar.h.p.z(this.mContext));
                 if (this.V.isCameraInput()) {
                     aRPEngineParams.setIsFrontCamera(this.V.isFrontCamera());
@@ -631,7 +630,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             com.baidu.ar.h.b.c("AbstractRenderer", "stopARPEngine()");
             if (this.hx == null || !this.hy) {
-                com.baidu.ar.lua.b bVar = this.f37272f;
+                com.baidu.ar.lua.b bVar = this.f33366f;
                 if (bVar != null) {
                     bVar.handleMessage(7, 0, null);
                 }
@@ -771,8 +770,8 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
             this.hx.getARPRenderer().addOutputSurface(this.ht.getSurface(), i2, i3);
         }
         if (this.hx != null) {
-            Size a2 = a(a(this.V), this.W);
-            this.hx.setWindowSize(a2.getWidth(), a2.getHeight());
+            Size a = a(a(this.V), this.W);
+            this.hx.setWindowSize(a.getWidth(), a.getHeight());
         }
         if (this.W.isFitScreenAuto()) {
             bO();
@@ -809,17 +808,17 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             if (z) {
-                Size a2 = b.a(this.W.getOutputWidth(), this.W.getOutputHeight(), this.V.getInputHeight(), this.V.getInputWidth());
-                this.hF = a2;
-                this.hx.setPreviewSize(a2.getWidth(), this.hF.getHeight());
+                Size a = b.a(this.W.getOutputWidth(), this.W.getOutputHeight(), this.V.getInputHeight(), this.V.getInputWidth());
+                this.hF = a;
+                this.hx.setPreviewSize(a.getWidth(), this.hF.getHeight());
                 this.hx.setWindowSize(this.W.getOutputWidth(), this.W.getOutputHeight());
                 return;
             }
             this.hF = null;
-            Size a3 = a(this.V);
-            Size a4 = a(a3, this.W);
-            this.hx.setPreviewSize(a3.getWidth(), a3.getHeight());
-            this.hx.setWindowSize(a4.getWidth(), a4.getHeight());
+            Size a2 = a(this.V);
+            Size a3 = a(a2, this.W);
+            this.hx.setPreviewSize(a2.getWidth(), a2.getHeight());
+            this.hx.setWindowSize(a3.getWidth(), a3.getHeight());
         }
     }
 
@@ -856,7 +855,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                 bVar.release();
                 this.hB = null;
             }
-            com.baidu.ar.statistic.p.c(this.f37272f);
+            com.baidu.ar.statistic.p.c(this.f33366f);
             bD();
             this.hH = null;
             bM();

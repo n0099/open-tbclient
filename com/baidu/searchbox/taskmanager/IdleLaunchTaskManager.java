@@ -1,7 +1,7 @@
 package com.baidu.searchbox.taskmanager;
 
 import android.content.Context;
-import b.a.e.e.a;
+import c.a.d.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.IdleLaunchTask;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class IdleLaunchTaskManager implements a.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -115,7 +115,7 @@ public class IdleLaunchTaskManager implements a.b {
         }
     }
 
-    @Override // b.a.e.e.a.b
+    @Override // c.a.d.e.a.b
     public void scheduleIdleTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -123,7 +123,7 @@ public class IdleLaunchTaskManager implements a.b {
         }
     }
 
-    @Override // b.a.e.e.a.b
+    @Override // c.a.d.e.a.b
     public void registerIdleTask(String str, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, runnable) == null) {

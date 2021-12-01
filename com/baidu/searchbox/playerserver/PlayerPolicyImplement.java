@@ -7,7 +7,6 @@ import android.os.Looper;
 import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.param.CommonUrlParamManager;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +21,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PlayerPolicyImplement implements IPlayerPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADD_OBSERVER_WORK_MSG = 2;
@@ -123,7 +122,7 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
     public void onRegister(IPlayerConfig iPlayerConfig) {
         List<IPlayerConfig> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, iPlayerConfig) == null) || (list = this.list) == null || iPlayerConfig == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, iPlayerConfig) == null) || (list = this.list) == null || iPlayerConfig == null) {
             return;
         }
         list.add(iPlayerConfig);
@@ -269,8 +268,8 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                 this.mFirstUpdateTimeStamp = currentTimeMillis;
             }
             String str = "first period : " + (currentTimeMillis - this.mFirstUpdateTimeStamp < this.mUpdateInterval) + " second period : " + (currentTimeMillis - this.mLastUpdateTimeStamp > this.mUpdateInterval);
-            long j = this.mUpdateInterval;
-            if (currentTimeMillis - this.mFirstUpdateTimeStamp < j || currentTimeMillis - this.mLastUpdateTimeStamp > j) {
+            long j2 = this.mUpdateInterval;
+            if (currentTimeMillis - this.mFirstUpdateTimeStamp < j2 || currentTimeMillis - this.mLastUpdateTimeStamp > j2) {
                 this.mLastUpdateTimeStamp = currentTimeMillis;
                 this.mWorkHandler.sendEmptyMessage(1);
             }

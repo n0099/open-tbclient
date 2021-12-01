@@ -7,23 +7,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends HttpClient.ProtoResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a.InterfaceC1686a f42899a;
+    public final /* synthetic */ a.InterfaceC1757a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f42900b;
+    public final /* synthetic */ a f38359b;
 
-    public b(a aVar, a.InterfaceC1686a interfaceC1686a) {
+    public b(a aVar, a.InterfaceC1757a interfaceC1757a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, interfaceC1686a};
+            Object[] objArr = {aVar, interfaceC1757a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -33,26 +31,26 @@ public class b extends HttpClient.ProtoResultCallback {
                 return;
             }
         }
-        this.f42900b = aVar;
-        this.f42899a = interfaceC1686a;
+        this.f38359b = aVar;
+        this.a = interfaceC1757a;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            this.f42899a.a(httpStateError);
+            this.a.a(httpStateError);
         }
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onSuccess(String str) {
-        c a2;
+        c a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            a.InterfaceC1686a interfaceC1686a = this.f42899a;
-            a2 = this.f42900b.a(str);
-            interfaceC1686a.a((a.InterfaceC1686a) a2);
+            a.InterfaceC1757a interfaceC1757a = this.a;
+            a = this.f38359b.a(str);
+            interfaceC1757a.a((a.InterfaceC1757a) a);
         }
     }
 }

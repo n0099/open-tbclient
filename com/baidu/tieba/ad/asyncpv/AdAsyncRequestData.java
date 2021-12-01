@@ -3,12 +3,11 @@ package com.baidu.tieba.ad.asyncpv;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
-import b.a.e.f.p.j;
-import b.a.q0.c1.g;
-import b.a.r0.q1.o.k.a;
+import c.a.d.f.p.j;
+import c.a.q0.d1.g;
+import c.a.r0.w1.o.k.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.common.param.CommonUrlParamManager;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -26,7 +25,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AdAsyncRequestData extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,8 +52,8 @@ public class AdAsyncRequestData extends HttpMessage {
         addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
         addParam("is_https", 1);
         addParam("flr", 1);
-        addParam("sw", 0);
-        addParam(IAdRequestParam.SCREEN_HEIGHT, 0);
+        addParam(TbConfig.SW_APID, 0);
+        addParam("sh", 0);
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("fc", 1);
         addParam("ft", 3);
@@ -80,7 +79,7 @@ public class AdAsyncRequestData extends HttpMessage {
             addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
             addParam("net_type", String.valueOf(j.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-            addParam(IAdRequestParam.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
+            addParam("android_id", TbadkCoreApplication.getInst().getAndroidId());
             addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
             addParam("app_transmit_data", g.a());
         }

@@ -6,10 +6,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.f.p.l;
-import b.a.r0.k2.g;
-import b.a.r0.k2.i;
-import b.a.r0.k2.j;
+import c.a.d.f.p.l;
+import c.a.r0.q2.g;
+import c.a.r0.q2.i;
+import c.a.r0.q2.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,15 +49,15 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-            int g2 = l.g(getContext(), g.tbds126);
+            int f2 = l.f(getContext(), g.tbds126);
             if (z2 && z) {
-                g2 = l.g(getContext(), g.tbds210);
+                f2 = l.f(getContext(), g.tbds210);
             }
-            layoutParams.height = g2;
+            layoutParams.height = f2;
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.mTextViewCurTime.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.mTextViewDuration.getLayoutParams();
-            layoutParams2.leftMargin = l.g(getContext(), (!z2 || z) ? g.tbds44 : g.tbds78);
-            layoutParams3.rightMargin = l.g(getContext(), (!z2 || z) ? g.tbds150 : g.tbds184);
+            layoutParams2.leftMargin = l.f(getContext(), (!z2 || z) ? g.tbds44 : g.tbds78);
+            layoutParams3.rightMargin = l.f(getContext(), (!z2 || z) ? g.tbds150 : g.tbds184);
         }
     }
 

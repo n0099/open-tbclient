@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payapi.payproxy;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IDxmProxyCallback {
     void onFail(int i2, String str);
 

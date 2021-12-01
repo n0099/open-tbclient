@@ -15,33 +15,31 @@ import java.io.InputStream;
 public class c extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f65655a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65656b;
+    public int f57463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f65657c;
+    public long f57464c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f65658d;
+    public InputStream f57465d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f65659e;
+    public int f57466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f65660f;
+    public long f57467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile float f65661g;
+    public volatile float f57468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f65662h;
+    public volatile long f57469h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f65663i;
+    public int f57470i;
 
     public c(@NonNull InputStream inputStream, int i2) {
         Interceptable interceptable = $ic;
@@ -58,37 +56,37 @@ public class c extends InputStream {
                 return;
             }
         }
-        this.f65655a = -1;
-        this.f65656b = 10000;
-        this.f65657c = -1L;
-        this.f65660f = -1L;
-        this.f65663i = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA;
+        this.a = -1;
+        this.f57463b = 10000;
+        this.f57464c = -1L;
+        this.f57467f = -1L;
+        this.f57470i = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA;
         i2 = i2 < 20480 ? LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA : i2;
-        this.f65658d = inputStream;
-        this.f65661g = i2 / 1000.0f;
+        this.f57465d = inputStream;
+        this.f57468g = i2 / 1000.0f;
     }
 
-    private long a(long j, long j2) {
+    private long a(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            if (j2 <= 0) {
                 return 0L;
             }
-            if (j2 <= 0) {
+            if (j3 <= 0) {
                 return -1L;
             }
-            return j / j2;
+            return j2 / j3;
         }
         return invokeCommon.longValue;
     }
 
     @WorkerThread
-    private void a(long j) {
+    private void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
             try {
-                Thread.sleep(j);
+                Thread.sleep(j2);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
@@ -98,21 +96,21 @@ public class c extends InputStream {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f65655a = 0;
-            this.f65657c = System.currentTimeMillis();
+            this.a = 0;
+            this.f57464c = System.currentTimeMillis();
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f65655a < this.f65656b) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.a < this.f57463b) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - this.f65657c;
-        float f2 = this.f65655a / this.f65661g;
-        this.f65662h = a(this.f65659e, currentTimeMillis - this.f65660f);
-        float f3 = (float) j;
+        long j2 = currentTimeMillis - this.f57464c;
+        float f2 = this.a / this.f57468g;
+        this.f57469h = a(this.f57466e, currentTimeMillis - this.f57467f);
+        float f3 = (float) j2;
         if (f2 > f3) {
             a(f2 - f3);
         }
@@ -122,23 +120,23 @@ public class c extends InputStream {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65662h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57469h : invokeV.longValue;
     }
 
     @Override // java.io.InputStream
     public int available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65658d.available() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57465d.available() : invokeV.intValue;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f65658d.close();
+            this.f57465d.close();
             b.a(this);
-            this.f65660f = -1L;
+            this.f57467f = -1L;
         }
     }
 
@@ -147,7 +145,7 @@ public class c extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             synchronized (this) {
-                this.f65658d.mark(i2);
+                this.f57465d.mark(i2);
             }
         }
     }
@@ -156,7 +154,7 @@ public class c extends InputStream {
     public boolean markSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65658d.markSupported() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57465d.markSupported() : invokeV.booleanValue;
     }
 
     @Override // java.io.InputStream
@@ -164,20 +162,20 @@ public class c extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f65660f <= 0) {
-                this.f65660f = System.currentTimeMillis();
+            if (this.f57467f <= 0) {
+                this.f57467f = System.currentTimeMillis();
             }
-            this.f65659e++;
-            if (b.f65651b && b.f65650a) {
-                if (this.f65655a < 0) {
+            this.f57466e++;
+            if (b.f57459b && b.a) {
+                if (this.a < 0) {
                     b();
                 }
-                int read = this.f65658d.read();
-                this.f65655a++;
+                int read = this.f57465d.read();
+                this.a++;
                 c();
                 return read;
             }
-            return this.f65658d.read();
+            return this.f57465d.read();
         }
         return invokeV.intValue;
     }
@@ -187,15 +185,15 @@ public class c extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
-                this.f65658d.reset();
+                this.f57465d.reset();
             }
         }
     }
 
     @Override // java.io.InputStream
-    public long skip(long j) {
+    public long skip(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? this.f65658d.skip(j) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) ? this.f57465d.skip(j2) : invokeJ.longValue;
     }
 }

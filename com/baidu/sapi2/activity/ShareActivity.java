@@ -3,9 +3,8 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import b.a.c0.a.f;
+import c.a.d0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -21,6 +20,7 @@ import com.baidu.sapi2.share.ShareResult;
 import com.baidu.sapi2.share.ShareStatKey;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ShareActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String B = "ShareActivity";
@@ -99,9 +99,9 @@ public class ShareActivity extends BaseActivity {
                 }
                 init();
                 setupViews();
-                Map<String, String> a2 = a();
-                a2.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
-                StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_INVOKED, a2);
+                Map<String, String> a = a();
+                a.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
+                StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_INVOKED, a);
             } catch (Throwable th) {
                 reportWebviewError(th);
                 this.u.setResultCode(ShareResult.ERROR_CODE_SYS_ERROR);
@@ -127,9 +127,7 @@ public class ShareActivity extends BaseActivity {
             this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback(this) { // from class: com.baidu.sapi2.activity.ShareActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ShareActivity f43447a;
+                public final /* synthetic */ ShareActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -146,7 +144,7 @@ public class ShareActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43447a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -154,7 +152,7 @@ public class ShareActivity extends BaseActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        this.f43447a.d();
+                        this.a.d();
                         return false;
                     }
                     return invokeV.booleanValue;
@@ -196,9 +194,7 @@ public class ShareActivity extends BaseActivity {
             SapiJsCallBacks.ShareV2LoginParams shareV2LoginParams = new SapiJsCallBacks.ShareV2LoginParams(this) { // from class: com.baidu.sapi2.activity.ShareActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ShareActivity f43448a;
+                public final /* synthetic */ ShareActivity a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -215,18 +211,18 @@ public class ShareActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43448a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.ShareV2LoginParams
                 public void onError() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_EXPIRED, this.f43448a.a());
-                        if (!this.f43448a.t.equals("1")) {
-                            this.f43448a.t = "2";
+                        StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_EXPIRED, this.a.a());
+                        if (!this.a.t.equals("1")) {
+                            this.a.t = "2";
                         }
-                        this.f43448a.c();
+                        this.a.c();
                     }
                 }
 
@@ -234,7 +230,7 @@ public class ShareActivity extends BaseActivity {
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        this.f43448a.b();
+                        this.a.b();
                     }
                 }
             };
@@ -247,7 +243,7 @@ public class ShareActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             if (currentAccount == null) {
                 this.u.setResultCode(ShareResult.ERROR_CODE_RESULT_NULL);
@@ -255,9 +251,9 @@ public class ShareActivity extends BaseActivity {
                 return;
             }
             currentAccount.app = SapiUtils.getAppName(this);
-            Map<String, String> a2 = a();
-            a2.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
-            StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_SUCCESS, a2);
+            Map<String, String> a = a();
+            a.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
+            StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_SUCCESS, a);
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
             bundle.putParcelable("share_account", currentAccount);
@@ -293,12 +289,10 @@ public class ShareActivity extends BaseActivity {
             this.v = new WebAuthListener(this, z) { // from class: com.baidu.sapi2.activity.ShareActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f43449a;
+                public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ShareActivity f43450b;
+                public final /* synthetic */ ShareActivity f38689b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -315,8 +309,8 @@ public class ShareActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f43450b = this;
-                    this.f43449a = z;
+                    this.f38689b = this;
+                    this.a = z;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -324,14 +318,14 @@ public class ShareActivity extends BaseActivity {
                 public void onFailure(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                        Map a2 = this.f43450b.a();
-                        a2.put("code", "" + webAuthResult.getResultCode());
-                        StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_FAIL, a2);
+                        Map a = this.f38689b.a();
+                        a.put("code", "" + webAuthResult.getResultCode());
+                        StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_FAIL, a);
                         LoginActivity.supportShareLogin = true;
-                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f43449a;
-                        this.f43450b.u.setResultCode(ShareResult.ERROR_CODE_EXPIRED_LOGIN_FAIL);
-                        this.f43450b.u.setResultMsg(String.format(ShareResult.ERROR_MSG_EXPIRED_LOGIN_FAIL, this.f43450b.w));
-                        this.f43450b.a(true);
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
+                        this.f38689b.u.setResultCode(ShareResult.ERROR_CODE_EXPIRED_LOGIN_FAIL);
+                        this.f38689b.u.setResultMsg(String.format(ShareResult.ERROR_MSG_EXPIRED_LOGIN_FAIL, this.f38689b.w));
+                        this.f38689b.a(true);
                     }
                 }
 
@@ -340,10 +334,10 @@ public class ShareActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_SUCCESS, this.f43450b.a());
+                        StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_SUCCESS, this.f38689b.a());
                         LoginActivity.supportShareLogin = true;
-                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.f43449a;
-                        SapiWebView sapiWebView = this.f43450b.sapiWebView;
+                        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
+                        SapiWebView sapiWebView = this.f38689b.sapiWebView;
                         if (sapiWebView != null) {
                             sapiWebView.reload();
                         }
@@ -373,16 +367,16 @@ public class ShareActivity extends BaseActivity {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            Map<String, String> a2 = a();
-            a2.put("error_code", "" + this.u.getResultCode());
-            StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_FAIL, a2);
+            Map<String, String> a = a();
+            a.put("error_code", "" + this.u.getResultCode());
+            StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_FAIL, a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
             e();
             b(z);
         }
@@ -400,7 +394,7 @@ public class ShareActivity extends BaseActivity {
             } else {
                 hashMap.put("cur_tpl", "unknown");
             }
-            hashMap.put("from_tpl", this.y);
+            hashMap.put(ShareLoginStat.MakeShareLoginStat.KEY_FROM_TPL, this.y);
             hashMap.put(ShareCallPacking.StatModel.KEY_CALL_TYPE, this.A);
             hashMap.put("share_ver", this.z);
             return hashMap;

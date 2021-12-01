@@ -6,8 +6,9 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.h;
+import c.a.d.a.h;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -17,19 +18,19 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
+import com.baidu.tieba.flutter.base.view.splash.ViewSplashScreen;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
-import com.idlefish.flutterboost.containers.FlutterFragment;
-import com.idlefish.flutterboost.containers.ViewSplashScreen;
+import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
-public class TbFlutterFragment extends FlutterFragment {
+/* loaded from: classes10.dex */
+public class TbFlutterFragment extends FlutterBaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean autoPlayWhenInit;
@@ -87,20 +88,27 @@ public class TbFlutterFragment extends FlutterFragment {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
+            @RequiresApi(api = 19)
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
-                    this.this$0.getFlutterDelegate().getBoostFlutterView().showSplash(this.this$0.provideSplashScreen());
+                    this.this$0.delegate().getBoostFlutterView().showSplash(this.this$0.provideSplashScreen());
                 }
             }
         };
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    public FlutterActivityAndFragmentDelegate delegate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getFlutterDelegate() : (FlutterActivityAndFragmentDelegate) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.flutter.base.view.FlutterBaseFragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public Map getContainerUrlParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Map<String, Object> map = ((BoostFlutterActivity.SerializableMap) getArguments().getSerializable("params")).getMap();
             if (map == null) {
                 map = new HashMap<>();
@@ -117,16 +125,16 @@ public class TbFlutterFragment extends FlutterFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.creatTime = System.currentTimeMillis() - this.beginTime;
         }
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterFragment, androidx.fragment.app.Fragment
+    @Override // com.baidu.tieba.flutter.base.view.FlutterBaseFragment, androidx.fragment.app.Fragment
     public void onAttach(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.FLUTTER_FRAGMENT_ATTACH_START_KEY);
             super.onAttach(context);
             registerListener(this.skinTypeChangeListener);
@@ -137,7 +145,7 @@ public class TbFlutterFragment extends FlutterFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             this.beginTime = System.currentTimeMillis();
             super.onCreate(bundle);
         }
@@ -146,7 +154,7 @@ public class TbFlutterFragment extends FlutterFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPrimary();
             TbFlutterFragmentLifeCircleInterface tbFlutterFragmentLifeCircleInterface = this.mLifeCycleListener;
             if (tbFlutterFragmentLifeCircleInterface != null) {
@@ -155,12 +163,12 @@ public class TbFlutterFragment extends FlutterFragment {
         }
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    @Override // com.baidu.tieba.flutter.base.view.FlutterBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.removeDelay != 0 && getFlutterDelegate() != null && getFlutterDelegate().getBoostFlutterView() != null) {
-                getFlutterDelegate().getBoostFlutterView().removeSplashDelay(this.removeDelay);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.removeDelay != 0 && delegate() != null && delegate().getBoostFlutterView() != null) {
+                delegate().getBoostFlutterView().removeSplashDelay(this.removeDelay);
                 this.removeDelay = 0L;
             }
             this.flutterStartTime = System.currentTimeMillis();
@@ -168,12 +176,12 @@ public class TbFlutterFragment extends FlutterFragment {
         }
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
+    @Override // com.baidu.tieba.flutter.base.view.FlutterBaseFragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host, io.flutter.embedding.android.SplashScreenProvider
     @Nullable
     public SplashScreen provideSplashScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             FrameLayout frameLayout = new FrameLayout(getActivity());
             frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             this.loadingView = new ContinuousAnimationView(getActivity());
@@ -198,38 +206,38 @@ public class TbFlutterFragment extends FlutterFragment {
         return (SplashScreen) invokeV.objValue;
     }
 
-    public void removeSplashDelay(long j) {
+    public void removeSplashDelay(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.removeDelay = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.removeDelay = j2;
         }
     }
 
     public void setAutoPlayWhenInit(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.autoPlayWhenInit = z;
         }
     }
 
     public final void setOnPrimaryListener(TbFlutterFragmentLifeCircleInterface tbFlutterFragmentLifeCircleInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tbFlutterFragmentLifeCircleInterface) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, tbFlutterFragmentLifeCircleInterface) == null) {
             this.mLifeCycleListener = tbFlutterFragmentLifeCircleInterface;
         }
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
+    @Override // com.baidu.tieba.flutter.base.view.FlutterBaseFragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public void setSwipeBackEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
         }
     }
 
-    @Override // com.idlefish.flutterboost.containers.FlutterFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    @Override // com.baidu.tieba.flutter.base.view.FlutterBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.flutterStartTime = System.currentTimeMillis();
             ContinuousAnimationView continuousAnimationView = this.loadingView;
             if (continuousAnimationView != null) {

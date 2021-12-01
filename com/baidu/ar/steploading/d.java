@@ -11,7 +11,6 @@ import com.baidu.ar.callback.ICancellable;
 import com.baidu.ar.callback.IError;
 import com.baidu.ar.ihttp.IProgressCallback;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +21,7 @@ import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d implements com.baidu.ar.lua.c, IStepLoading {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +78,7 @@ public class d implements com.baidu.ar.lua.c, IStepLoading {
 
     private void r(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, hashMap) == null) {
             String str = (String) hashMap.get("res_path");
             String str2 = (String) hashMap.get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             boolean z = ((Integer) hashMap.get("need_progress")).intValue() != 0;

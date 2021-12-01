@@ -10,23 +10,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f69295a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f69296b;
+    public String f61117b;
 
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f69297a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f69298b;
+        public String f61118b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -46,7 +42,7 @@ public class d {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f69297a = str;
+                this.a = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -74,13 +70,13 @@ public class d {
                 return;
             }
         }
-        this.f69295a = aVar.f69297a;
-        this.f69296b = aVar.f69298b;
+        this.a = aVar.a;
+        this.f61117b = aVar.f61118b;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f69295a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

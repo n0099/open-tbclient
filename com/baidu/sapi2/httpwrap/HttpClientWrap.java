@@ -6,7 +6,6 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.http.HttpHashMap;
 import com.baidu.pass.http.HttpResponseHandler;
@@ -29,7 +28,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HttpClientWrap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +90,7 @@ public class HttpClientWrap {
     private boolean preHandle(HttpHandlerWrap httpHandlerWrap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, httpHandlerWrap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, httpHandlerWrap)) == null) {
             Context context = this.context;
             if (context == null) {
                 httpHandlerWrap.onFailure(null, -801, "服务异常，请稍后再试");
@@ -121,7 +120,7 @@ public class HttpClientWrap {
 
     public void post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, reqPriority, httpHashMap, httpHandlerWrap) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048585, this, str, reqPriority, httpHashMap, httpHandlerWrap) == null) {
             post(str, reqPriority, httpHashMap, null, null, httpHandlerWrap);
         }
     }
@@ -135,7 +134,7 @@ public class HttpClientWrap {
 
     public void post(String str, HttpHashMap httpHashMap, List<HttpCookie> list, String str2, HttpHandlerWrap httpHandlerWrap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, httpHashMap, list, str2, httpHandlerWrap) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, httpHashMap, list, str2, httpHandlerWrap) == null) {
             post(str, ReqPriority.IMMEDIATE, httpHashMap, null, list, str2, 0, httpHandlerWrap);
         }
     }
@@ -173,7 +172,7 @@ public class HttpClientWrap {
     public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, String str2, HttpHandlerWrap httpHandlerWrap) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, reqPriority, httpHashMap, list, str2, httpHandlerWrap})) == null) ? post(str, reqPriority, httpHashMap, null, list, str2, 0, httpHandlerWrap) : (PassHttpClientRequest) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, reqPriority, httpHashMap, list, str2, httpHandlerWrap})) == null) ? post(str, reqPriority, httpHashMap, null, list, str2, 0, httpHandlerWrap) : (PassHttpClientRequest) invokeCommon.objValue;
     }
 
     public PassHttpClientRequest get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, List<HttpCookie> list, String str2, int i2, HttpHandlerWrap httpHandlerWrap) {
@@ -182,11 +181,17 @@ public class HttpClientWrap {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, reqPriority, httpHashMap, list, str2, Integer.valueOf(i2), httpHandlerWrap})) == null) ? get(str, reqPriority, httpHashMap, null, list, str2, i2, httpHandlerWrap) : (PassHttpClientRequest) invokeCommon.objValue;
     }
 
-    public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i2, HttpHandlerWrap httpHandlerWrap) {
+    public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, HttpHandlerWrap httpHandlerWrap) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, reqPriority, httpHashMap, hashMap, list, str2, Integer.valueOf(i2), httpHandlerWrap})) == null) {
-            new Handler(Looper.getMainLooper()).post(new Runnable(this, httpHandlerWrap) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, reqPriority, httpHashMap, hashMap, list, str2, httpHandlerWrap})) == null) ? post(str, reqPriority, httpHashMap, null, list, null, 0, httpHandlerWrap) : (PassHttpClientRequest) invokeCommon.objValue;
+    }
+
+    public PassHttpClientRequest get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i2, HttpHandlerWrap httpHandlerWrap) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, reqPriority, httpHashMap, hashMap, list, str2, Integer.valueOf(i2), httpHandlerWrap})) == null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable(this, httpHandlerWrap) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ HttpClientWrap this$0;
@@ -220,7 +225,7 @@ public class HttpClientWrap {
                 }
             });
             if (preHandle(httpHandlerWrap)) {
-                return this.passHttpClient.post(this.context, buildParamDTO(str, reqPriority, httpHashMap, hashMap, list, str2, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap, str) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.4
+                return this.passHttpClient.get(this.context, buildParamDTO(str, reqPriority, httpHashMap, hashMap, list, str2, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap, str) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ HttpClientWrap this$0;
@@ -296,11 +301,11 @@ public class HttpClientWrap {
         return (PassHttpClientRequest) invokeCommon.objValue;
     }
 
-    public PassHttpClientRequest get(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i2, HttpHandlerWrap httpHandlerWrap) {
+    public PassHttpClientRequest post(String str, ReqPriority reqPriority, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i2, HttpHandlerWrap httpHandlerWrap) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, reqPriority, httpHashMap, hashMap, list, str2, Integer.valueOf(i2), httpHandlerWrap})) == null) {
-            new Handler(Looper.getMainLooper()).post(new Runnable(this, httpHandlerWrap) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.1
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, reqPriority, httpHashMap, hashMap, list, str2, Integer.valueOf(i2), httpHandlerWrap})) == null) {
+            new Handler(Looper.getMainLooper()).post(new Runnable(this, httpHandlerWrap) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ HttpClientWrap this$0;
@@ -334,7 +339,7 @@ public class HttpClientWrap {
                 }
             });
             if (preHandle(httpHandlerWrap)) {
-                return this.passHttpClient.get(this.context, buildParamDTO(str, reqPriority, httpHashMap, hashMap, list, str2, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap, str) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.2
+                return this.passHttpClient.post(this.context, buildParamDTO(str, reqPriority, httpHashMap, hashMap, list, str2, i2), new HttpResponseHandler(this, Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread(), httpHandlerWrap, str) { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ HttpClientWrap this$0;

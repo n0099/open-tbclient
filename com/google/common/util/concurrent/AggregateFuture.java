@@ -1,9 +1,8 @@
 package com.google.common.util.concurrent;
 
-import b.h.d.a.n;
-import b.h.d.c.o1;
+import c.i.d.a.n;
+import c.i.d.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,14 +18,14 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class AggregateFuture<InputT, OutputT> extends AbstractFuture.TrustedFuture<OutputT> {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
     public AggregateFuture<InputT, OutputT>.RunningState runningState;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public abstract class RunningState extends AggregateFutureState implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +62,7 @@ public abstract class AggregateFuture<InputT, OutputT> extends AbstractFuture.Tr
         /* JADX INFO: Access modifiers changed from: private */
         public void decrementCountAndMaybeComplete() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+            if (interceptable == null || interceptable.invokeV(65541, this) == null) {
                 int decrementRemainingAndGet = decrementRemainingAndGet();
                 n.x(decrementRemainingAndGet >= 0, "Less than 0 remaining futures");
                 if (decrementRemainingAndGet == 0) {
@@ -82,7 +81,7 @@ public abstract class AggregateFuture<InputT, OutputT> extends AbstractFuture.Tr
             boolean z2;
             boolean z3;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, th) != null) {
+            if (interceptable != null && interceptable.invokeL(65542, this, th) != null) {
                 return;
             }
             n.p(th);
@@ -281,7 +280,7 @@ public abstract class AggregateFuture<InputT, OutputT> extends AbstractFuture.Tr
     public static boolean addCausalChain(Set<Throwable> set, Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, set, th)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, set, th)) == null) {
             while (th != null) {
                 if (!set.add(th)) {
                     return false;

@@ -2,7 +2,6 @@ package com.baidu.wallet.base.camera.internal;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class Yuv implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +63,7 @@ public class Yuv implements NoProguard {
 
     public static void rotateCropLuminance(byte[] bArr, int i2, int i3, Rect rect, int i4, byte[] bArr2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), rect, Integer.valueOf(i4), bArr2}) == null) || bArr == null || rect == null || bArr2 == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), rect, Integer.valueOf(i4), bArr2}) == null) || bArr == null || rect == null || bArr2 == null) {
             return;
         }
         int i5 = i2 * i3;

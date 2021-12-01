@@ -15,7 +15,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DummyMap<K, V> implements Map<K, V> {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -132,11 +132,11 @@ public class DummyMap<K, V> implements Map<K, V> {
     }
 
     @Override // java.util.Map
-    public V put(K k, V v) {
+    public V put(K k2, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
-            this.keys.add(k);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k2, v)) == null) {
+            this.keys.add(k2);
             return this.value;
         }
         return (V) invokeLL.objValue;
@@ -146,8 +146,8 @@ public class DummyMap<K, V> implements Map<K, V> {
     public void putAll(Map<? extends K, ? extends V> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
-            for (K k : map.keySet()) {
-                this.keys.add(k);
+            for (K k2 : map.keySet()) {
+                this.keys.add(k2);
             }
         }
     }

@@ -2,7 +2,6 @@ package com.baidu.searchbox.v8engine.net;
 
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,12 +14,10 @@ import java.net.UnknownHostException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Charset f43791a;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +33,7 @@ public final class b {
                 return;
             }
         }
-        f43791a = Charset.forName("UTF-8");
+        a = Charset.forName("UTF-8");
     }
 
     public static int a(char c2) {
@@ -58,10 +55,10 @@ public final class b {
         return invokeCommon.intValue;
     }
 
-    public static void a(long j, long j2, long j3) {
+    public static void a(long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+            if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
                 throw new ArrayIndexOutOfBoundsException();
             }
         }
@@ -240,7 +237,7 @@ public final class b {
         InterceptResult invokeL;
         InetAddress c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (str.contains(":")) {
                 if (str.startsWith(PreferencesUtil.LEFT_MOUNT) && str.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                     c2 = c(str, 1, str.length() - 1);
@@ -314,7 +311,7 @@ public final class b {
     public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
             int i2 = 0;
             int i3 = -1;
             int i4 = 0;

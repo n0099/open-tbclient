@@ -8,13 +8,12 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VirtualBarAssist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +109,7 @@ public class VirtualBarAssist {
     /* JADX INFO: Access modifiers changed from: private */
     public void possiblyResizeChildOfContent() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.childOfContent == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.childOfContent == null) {
             return;
         }
         Rect rect = new Rect();
@@ -132,7 +131,7 @@ public class VirtualBarAssist {
 
     private void removeOnGlobalLayoutListener() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             measureIsAliveViewTreeObserver();
             ViewTreeObserver viewTreeObserver = this.viewTreeObserver;
             if (viewTreeObserver == null || !viewTreeObserver.isAlive()) {

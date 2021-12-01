@@ -3,8 +3,6 @@ package com.facebook.imageutils;
 import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.DownloadConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +12,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class JfifUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP1_EXIF_MAGIC = 1165519206;
@@ -64,10 +62,10 @@ public class JfifUtil {
                 case 192:
                 case 193:
                 case 194:
-                case DownloadConstants.STATUS_WAITING_FOR_NETWORK /* 195 */:
+                case 195:
                 case Constants.METHOD_IM_DELIVER_CONFIG_MSG /* 197 */:
                 case Opcodes.IFNULL /* 198 */:
-                case Opcodes.IFNONNULL /* 199 */:
+                case 199:
                 case 201:
                 case 202:
                 case 203:
@@ -89,7 +87,7 @@ public class JfifUtil {
         InterceptResult invokeL;
         int readPackedInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, inputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
             if (moveToMarker(inputStream, 225) && (readPackedInt = StreamProcessor.readPackedInt(inputStream, 2, false) - 2) > 6) {
                 int readPackedInt2 = StreamProcessor.readPackedInt(inputStream, 4, false);
                 int readPackedInt3 = StreamProcessor.readPackedInt(inputStream, 2, false);
@@ -106,7 +104,7 @@ public class JfifUtil {
     public static boolean moveToMarker(InputStream inputStream, int i2) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, inputStream, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, inputStream, i2)) == null) {
             Preconditions.checkNotNull(inputStream);
             while (StreamProcessor.readPackedInt(inputStream, 1, false) == 255) {
                 int i3 = 255;

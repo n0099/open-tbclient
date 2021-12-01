@@ -2,7 +2,6 @@ package com.facebook.animated.gif;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOOP_COUNT_FOREVER = 0;
@@ -59,7 +58,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
 
     public static synchronized void ensure() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             synchronized (GifImage.class) {
                 if (!sInitialized) {
                     sInitialized = true;
@@ -72,7 +71,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static AnimatedDrawableFrameInfo.DisposalMethod fromGifDisposalMethod(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
             if (i2 == 0) {
                 return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
             }
@@ -94,7 +93,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static native GifImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
 
     @DoNotStrip
-    public static native GifImage nativeCreateFromNativeMemory(long j, int i2);
+    public static native GifImage nativeCreateFromNativeMemory(long j2, int i2);
 
     @DoNotStrip
     private native void nativeDispose();
@@ -127,10 +126,10 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     private native int nativeGetWidth();
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
-    public AnimatedImage decode(long j, int i2) {
+    public AnimatedImage decode(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? create(j, i2) : (AnimatedImage) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? create(j2, i2) : (AnimatedImage) invokeCommon.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
@@ -233,12 +232,12 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     }
 
     @DoNotStrip
-    public GifImage(long j) {
+    public GifImage(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -248,7 +247,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
                 return;
             }
         }
-        this.mNativeContext = j;
+        this.mNativeContext = j2;
     }
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
@@ -277,13 +276,13 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         return (GifImage) invokeL.objValue;
     }
 
-    public static GifImage create(long j, int i2) {
+    public static GifImage create(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             ensure();
-            Preconditions.checkArgument(j != 0);
-            return nativeCreateFromNativeMemory(j, i2);
+            Preconditions.checkArgument(j2 != 0);
+            return nativeCreateFromNativeMemory(j2, i2);
         }
         return (GifImage) invokeCommon.objValue;
     }

@@ -1,11 +1,13 @@
 package okhttp3;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.io.IOException;
 import java.security.Principal;
 import java.security.cert.Certificate;
@@ -59,7 +61,7 @@ public final class Handshake {
                     CipherSuite forJavaName = CipherSuite.forJavaName(cipherSuite);
                     String protocol = sSLSession.getProtocol();
                     if (protocol != null) {
-                        if (!"NONE".equals(protocol)) {
+                        if (!PolyActivity.NONE_PANEL_TYPE.equals(protocol)) {
                             TlsVersion forJavaName2 = TlsVersion.forJavaName(protocol);
                             try {
                                 certificateArr = sSLSession.getPeerCertificates();
@@ -112,7 +114,7 @@ public final class Handshake {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((((527 + this.tlsVersion.hashCode()) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.tlsVersion.hashCode()) * 31) + this.cipherSuite.hashCode()) * 31) + this.peerCertificates.hashCode()) * 31) + this.localCertificates.hashCode() : invokeV.intValue;
     }
 
     public List<Certificate> localCertificates() {

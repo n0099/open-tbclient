@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,13 +68,13 @@ public class BooleanUtils {
     public static boolean isNotFalse(Boolean bool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bool)) == null) ? !isFalse(bool) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bool)) == null) ? !isFalse(bool) : invokeL.booleanValue;
     }
 
     public static boolean isNotTrue(Boolean bool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bool)) == null) ? !isTrue(bool) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bool)) == null) ? !isTrue(bool) : invokeL.booleanValue;
     }
 
     public static boolean isTrue(Boolean bool) {

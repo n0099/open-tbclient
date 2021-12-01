@@ -13,7 +13,6 @@ import com.baidu.fsg.base.restnet.rest.d;
 import com.baidu.fsg.base.restnet.rest.e;
 import com.baidu.fsg.base.restnet.rest.f;
 import com.baidu.fsg.base.utils.LogUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RestTemplate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RestTemplate";
@@ -37,13 +36,13 @@ public class RestTemplate {
     public List<RestHttpRequestInterceptor> requestInterceptors;
 
     /* renamed from: com.baidu.fsg.base.restnet.RestTemplate$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class AcceptHeaderRequestInterceptor implements RestHttpRequestInterceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,11 +181,11 @@ public class RestTemplate {
                 }
                 LogUtil.d("RestTemplate", sb.toString());
             }
-            d a2 = com.baidu.fsg.base.restnet.b.d.a().a(this.mContext, this.mRestType, this.mUserAgent, str, httpMethod, list, restMultipartEntity, str2, z);
+            d a = com.baidu.fsg.base.restnet.b.d.a().a(this.mContext, this.mRestType, this.mUserAgent, str, httpMethod, list, restMultipartEntity, str2, z);
             for (RestHttpRequestInterceptor restHttpRequestInterceptor : getRequestInterceptors()) {
-                restHttpRequestInterceptor.intercept(this.mContext, a2);
+                restHttpRequestInterceptor.intercept(this.mContext, a);
             }
-            return a2;
+            return a;
         }
         return (d) invokeCommon.objValue;
     }
@@ -238,7 +237,7 @@ public class RestTemplate {
     private <T> T handleAndCloseResponse(d dVar, e eVar, f<T> fVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, dVar, eVar, fVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, this, dVar, eVar, fVar)) == null) {
             if (fVar == null) {
                 return null;
             }
@@ -246,9 +245,9 @@ public class RestTemplate {
                 try {
                     try {
                         if (eVar.getStatusCode().series() != HttpStatus.Series.CLIENT_ERROR && eVar.getStatusCode().series() != HttpStatus.Series.SERVER_ERROR) {
-                            T a2 = fVar.a(eVar);
-                            if (a2 != null) {
-                                return a2;
+                            T a = fVar.a(eVar);
+                            if (a != null) {
+                                return a;
                             }
                             if (dVar != null) {
                                 dVar.close();
@@ -291,7 +290,7 @@ public class RestTemplate {
     private <T> RestResponseEntity<T> handleAndCloseResponseForEntity(d dVar, e eVar, f<T> fVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, dVar, eVar, fVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, dVar, eVar, fVar)) == null) {
             if (fVar == null) {
                 return null;
             }
@@ -299,9 +298,9 @@ public class RestTemplate {
                 if (eVar != null) {
                     try {
                         if (eVar.getStatusCode().series() != HttpStatus.Series.CLIENT_ERROR && eVar.getStatusCode().series() != HttpStatus.Series.SERVER_ERROR) {
-                            T a2 = fVar.a(eVar);
-                            if (a2 != null) {
-                                return new RestResponseEntity<>(a2, eVar.a(), eVar.getStatusCode());
+                            T a = fVar.a(eVar);
+                            if (a != null) {
+                                return new RestResponseEntity<>(a, eVar.a(), eVar.getStatusCode());
                             }
                             RestResponseEntity<T> restResponseEntity = new RestResponseEntity<>(eVar.a(), eVar.getStatusCode());
                             if (dVar != null) {

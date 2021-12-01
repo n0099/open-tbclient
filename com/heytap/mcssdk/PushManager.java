@@ -7,7 +7,6 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -145,7 +144,7 @@ public class PushManager implements b {
 
     private synchronized void addProcessor(com.heytap.mcssdk.b.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, cVar) == null) {
             synchronized (this) {
                 if (cVar != null) {
                     this.mProcessors.add(cVar);
@@ -156,7 +155,7 @@ public class PushManager implements b {
 
     private void checkAll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             checkContext();
             checkRegisterID();
         }
@@ -280,7 +279,7 @@ public class PushManager implements b {
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f64611f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? a.f56531f : (String) invokeV.objValue;
     }
 
     public static boolean isSupportPush(Context context) {

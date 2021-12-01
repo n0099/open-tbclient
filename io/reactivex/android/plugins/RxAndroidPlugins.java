@@ -1,7 +1,6 @@
 package io.reactivex.android.plugins;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +10,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Function;
 import java.util.concurrent.Callable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RxAndroidPlugins {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Function<Callable<Scheduler>, Scheduler> onInitMainThreadHandler;
@@ -86,13 +85,13 @@ public final class RxAndroidPlugins {
     public static Function<Scheduler, Scheduler> getOnMainThreadSchedulerHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? onMainThreadHandler : (Function) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? onMainThreadHandler : (Function) invokeV.objValue;
     }
 
     public static Scheduler initMainThreadScheduler(Callable<Scheduler> callable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, callable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, callable)) == null) {
             if (callable != null) {
                 Function<Callable<Scheduler>, Scheduler> function = onInitMainThreadHandler;
                 if (function == null) {

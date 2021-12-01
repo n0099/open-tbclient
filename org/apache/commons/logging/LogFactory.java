@@ -1,7 +1,6 @@
 package org.apache.commons.logging;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +78,7 @@ public abstract class LogFactory {
     public static LogFactory getFactory() throws LogConfigurationException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (LogFactory) invokeV.objValue;
@@ -88,7 +87,7 @@ public abstract class LogFactory {
     public static Log getLog(Class cls) throws LogConfigurationException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (Log) invokeL.objValue;

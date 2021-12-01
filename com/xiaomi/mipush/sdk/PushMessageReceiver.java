@@ -7,9 +7,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.w0;
 import com.xiaomi.mipush.sdk.MessageHandleService;
 import com.xiaomi.push.el;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +57,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 if (intExtra == 2000) {
                     el.a(context.getApplicationContext()).a(context.getPackageName(), intent, 2003, (String) null);
                 } else if (intExtra == 6000) {
-                    el.a(context.getApplicationContext()).a(context.getPackageName(), intent, 6005, (String) null);
+                    el.a(context.getApplicationContext()).a(context.getPackageName(), intent, w0.i3, (String) null);
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

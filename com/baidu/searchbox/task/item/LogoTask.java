@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.item;
 
-import b.a.e.b.a.b;
-import b.a.q0.q0.l;
+import c.a.d.b.a.b;
+import c.a.q0.r0.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LogoTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                b.a.q0.s.e0.b.j().t("frs_first_in", true);
+                c.a.q0.s.e0.b.j().t("frs_first_in", true);
             }
             NASLib.onAppStart(TbadkCoreApplication.getInst());
             l.b().A(this.mIsFirstUse);

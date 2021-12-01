@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TableLineGridView extends BdGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50225e;
+    public int f45028e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50226f;
+    public int f45029f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50227g;
+    public int f45030g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TableLineGridView(Context context) {
@@ -55,16 +55,16 @@ public class TableLineGridView extends BdGridView {
         }
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(this.f50227g);
-        int width = childAt.getWidth() * this.f50226f;
-        int height = childAt.getHeight() * this.f50225e;
+        paint.setColor(this.f45030g);
+        int width = childAt.getWidth() * this.f45029f;
+        int height = childAt.getHeight() * this.f45028e;
         int width2 = childAt.getWidth();
         int height2 = childAt.getHeight();
-        for (int i2 = 1; i2 < this.f50225e; i2++) {
+        for (int i2 = 1; i2 < this.f45028e; i2++) {
             float f2 = height2 * i2;
             canvas.drawLine(0.0f, f2, width, f2, paint);
         }
-        for (int i3 = 1; i3 < this.f50226f; i3++) {
+        for (int i3 = 1; i3 < this.f45029f; i3++) {
             float f3 = width2 * i3;
             canvas.drawLine(f3, 0.0f, f3, height, paint);
         }
@@ -74,39 +74,39 @@ public class TableLineGridView extends BdGridView {
     public int getBackgroundLineResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50227g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45030g : invokeV.intValue;
     }
 
     public int getColumnCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50226f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45029f : invokeV.intValue;
     }
 
     public int getRowCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50225e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45028e : invokeV.intValue;
     }
 
     public void setBackgroundLineResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f50227g = i2;
+            this.f45030g = i2;
         }
     }
 
     public void setColumnCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f50226f = i2;
+            this.f45029f = i2;
         }
     }
 
     public void setRowCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f50225e = i2;
+            this.f45028e = i2;
         }
     }
 

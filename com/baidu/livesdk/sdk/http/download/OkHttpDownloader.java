@@ -6,6 +6,7 @@ import com.baidu.livesdk.api.http.download.DownloadCallback;
 import com.baidu.livesdk.api.http.download.DownloadEntity;
 import com.baidu.livesdk.api.http.download.Downloader;
 import com.baidu.livesdk.sdk.http.OkHttpRequest;
+import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Call;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OkHttpDownloader extends OkHttpRequest implements Downloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +78,7 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
                 responseCallback.onFail(i2, exc);
                 return;
             }
-            this.mCallback.onFail(-1, new Exception("response is null"));
+            this.mCallback.onFail(-1, new Exception(ADConfigError.REASON_NULL_RESPONSE));
         } else if (!response.isSuccessful()) {
             this.mCallback.onFail(4, new Exception("http error code=" + response.code()));
         } else {

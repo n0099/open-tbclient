@@ -9,21 +9,19 @@ import com.bytedance.pangle.log.ZeusLogger;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Method f62134a;
+    public static Method a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f62135b;
+    public static Method f54456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f62136c;
+    public static Method f54457c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f62137d;
+    public static Method f54458d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,10 +38,10 @@ public final class a {
             }
         }
         try {
-            f62134a = Class.class.getDeclaredMethod("getDeclaredField", String.class);
-            f62135b = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
-            f62136c = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
-            f62137d = Class.class.getDeclaredMethod("forName", String.class);
+            a = Class.class.getDeclaredMethod("getDeclaredField", String.class);
+            f54456b = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+            f54457c = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
+            f54458d = Class.class.getDeclaredMethod("forName", String.class);
         } catch (Throwable th) {
             ZeusLogger.e(ZeusLogger.TAG_INIT, "DoubleReflectorinit failed", th);
         }
@@ -60,7 +58,7 @@ public final class a {
         Field field;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, str)) == null) {
-            Method method = f62134a;
+            Method method = a;
             Field field2 = null;
             if (method != null) {
                 try {
@@ -98,7 +96,7 @@ public final class a {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
-            Method method2 = f62135b;
+            Method method2 = f54456b;
             Method method3 = null;
             if (method2 != null) {
                 try {
@@ -137,7 +135,7 @@ public final class a {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) != null) {
             return (Constructor) invokeLL.objValue;
         }
-        Method method = f62136c;
+        Method method = f54457c;
         if (method != null) {
             try {
                 constructor = (Constructor) method.invoke(cls, clsArr);

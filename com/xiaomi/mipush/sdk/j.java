@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f71549a;
+    public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ e f98a;
@@ -36,7 +34,7 @@ public final class j implements Runnable {
             }
         }
         this.f99a = str;
-        this.f71549a = context;
+        this.a = context;
         this.f98a = eVar;
     }
 
@@ -63,11 +61,11 @@ public final class j implements Runnable {
             i2++;
         }
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : receive incorrect token");
+            com.xiaomi.channel.commonutils.logger.b.m122a("ASSEMBLE_PUSH : receive incorrect token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : receive correct token");
-        i.d(this.f71549a, this.f98a, str);
-        i.m133a(this.f71549a);
+        com.xiaomi.channel.commonutils.logger.b.m122a("ASSEMBLE_PUSH : receive correct token");
+        i.d(this.a, this.f98a, str);
+        i.m182a(this.a);
     }
 }

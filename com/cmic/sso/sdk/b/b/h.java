@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class h extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class h extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.f62800b + this.f62801c + this.f62802d + this.f62803e + this.f62804f + this.f62805g + this.f62806h + this.f62807i + this.j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.x + this.y + this.w;
+            return this.f54920b + this.f54921c + this.f54922d + this.f54923e + this.f54924f + this.f54925g + this.f54926h + this.f54927i + this.f54928j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.x + this.y + this.w;
         }
         return (String) invokeL.objValue;
     }
@@ -58,17 +58,17 @@ public class h extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ver", this.f62799a);
-                jSONObject.put(BaseStatisContent.SDKVER, this.f62800b);
-                jSONObject.put("appid", this.f62801c);
-                jSONObject.put(BaseStatisContent.IMSI, this.f62802d);
-                jSONObject.put("operatortype", this.f62803e);
-                jSONObject.put("networktype", this.f62804f);
-                jSONObject.put("mobilebrand", this.f62805g);
-                jSONObject.put("mobilemodel", this.f62806h);
-                jSONObject.put("mobilesystem", this.f62807i);
-                jSONObject.put("clienttype", this.j);
-                jSONObject.put("interfacever", this.k);
+                jSONObject.put("ver", this.a);
+                jSONObject.put(BaseStatisContent.SDKVER, this.f54920b);
+                jSONObject.put("appid", this.f54921c);
+                jSONObject.put(BaseStatisContent.IMSI, this.f54922d);
+                jSONObject.put("operatortype", this.f54923e);
+                jSONObject.put("networktype", this.f54924f);
+                jSONObject.put("mobilebrand", this.f54925g);
+                jSONObject.put("mobilemodel", this.f54926h);
+                jSONObject.put("mobilesystem", this.f54927i);
+                jSONObject.put("clienttype", this.f54928j);
+                jSONObject.put("interfacever", this.f54929k);
                 jSONObject.put("expandparams", this.l);
                 jSONObject.put("msgid", this.m);
                 jSONObject.put("timestamp", this.n);
@@ -95,7 +95,7 @@ public class h extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f62799a + "&" + this.f62800b + "&" + this.f62801c + "&" + this.f62802d + "&" + this.f62803e + "&" + this.f62804f + "&" + this.f62805g + "&" + this.f62806h + "&" + this.f62807i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.x + "&" + this.y + "&" + this.w;
+            return this.a + "&" + this.f54920b + "&" + this.f54921c + "&" + this.f54922d + "&" + this.f54923e + "&" + this.f54924f + "&" + this.f54925g + "&" + this.f54926h + "&" + this.f54927i + "&" + this.f54928j + "&" + this.f54929k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.x + "&" + this.y + "&" + this.w;
         }
         return (String) invokeV.objValue;
     }

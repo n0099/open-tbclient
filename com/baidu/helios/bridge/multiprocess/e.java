@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface e extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,36 +80,32 @@ public interface e extends IInterface {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class b extends Binder implements e {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final String f39279a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
+        public static final String a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f39280b = 1;
+        public static final int f35039b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f39281c = 2;
+        public static final int f35040c = 2;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f39282d = 3;
+        public static final int f35041d = 3;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final int f39283e = 4;
+        public static final int f35042e = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class a implements e {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static e f39284b;
+            public static e f35043b;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public IBinder f39285a;
+            public IBinder a;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -126,7 +122,7 @@ public interface e extends IInterface {
                         return;
                     }
                 }
-                this.f39285a = iBinder;
+                this.a = iBinder;
             }
 
             @Override // com.baidu.helios.bridge.multiprocess.e
@@ -138,7 +134,7 @@ public interface e extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(b.f39279a);
+                        obtain.writeInterfaceToken(b.a);
                         obtain.writeString(str);
                         if (bundle != null) {
                             obtain.writeInt(1);
@@ -146,7 +142,7 @@ public interface e extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (this.f39285a.transact(2, obtain, obtain2, 0) || b.b() == null) {
+                        if (this.a.transact(2, obtain, obtain2, 0) || b.b() == null) {
                             obtain2.readException();
                             bundle2 = obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
                         } else {
@@ -168,8 +164,8 @@ public interface e extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(b.f39279a);
-                        if (this.f39285a.transact(1, obtain, obtain2, 0) || b.b() == null) {
+                        obtain.writeInterfaceToken(b.a);
+                        if (this.a.transact(1, obtain, obtain2, 0) || b.b() == null) {
                             obtain2.readException();
                         } else {
                             b.b().a();
@@ -188,7 +184,7 @@ public interface e extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(b.f39279a);
+                        obtain.writeInterfaceToken(b.a);
                         obtain.writeString(str);
                         if (bundle != null) {
                             obtain.writeInt(1);
@@ -197,7 +193,7 @@ public interface e extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeStrongBinder(fVar != null ? fVar.asBinder() : null);
-                        if (this.f39285a.transact(3, obtain, obtain2, 0) || b.b() == null) {
+                        if (this.a.transact(3, obtain, obtain2, 0) || b.b() == null) {
                             obtain2.readException();
                         } else {
                             b.b().a(str, bundle, fVar);
@@ -217,9 +213,9 @@ public interface e extends IInterface {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
-                        obtain.writeInterfaceToken(b.f39279a);
+                        obtain.writeInterfaceToken(b.a);
                         obtain.writeString(str);
-                        if (this.f39285a.transact(4, obtain, obtain2, 0) || b.b() == null) {
+                        if (this.a.transact(4, obtain, obtain2, 0) || b.b() == null) {
                             obtain2.readException();
                             return obtain2.readInt() != 0;
                         }
@@ -236,13 +232,13 @@ public interface e extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39285a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (IBinder) invokeV.objValue;
             }
 
             public String b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b.f39279a : (String) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b.a : (String) invokeV.objValue;
             }
         }
 
@@ -259,7 +255,7 @@ public interface e extends IInterface {
                     return;
                 }
             }
-            attachInterface(this, f39279a);
+            attachInterface(this, a);
         }
 
         public static e a(IBinder iBinder) {
@@ -269,7 +265,7 @@ public interface e extends IInterface {
                 if (iBinder == null) {
                     return null;
                 }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface(f39279a);
+                IInterface queryLocalInterface = iBinder.queryLocalInterface(a);
                 return (queryLocalInterface == null || !(queryLocalInterface instanceof e)) ? new a(iBinder) : (e) queryLocalInterface;
             }
             return (e) invokeL.objValue;
@@ -279,10 +275,10 @@ public interface e extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-                if (a.f39284b != null || eVar == null) {
+                if (a.f35043b != null || eVar == null) {
                     return false;
                 }
-                a.f39284b = eVar;
+                a.f35043b = eVar;
                 return true;
             }
             return invokeL.booleanValue;
@@ -291,7 +287,7 @@ public interface e extends IInterface {
         public static e b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f39284b : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f35043b : (e) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -307,16 +303,16 @@ public interface e extends IInterface {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
                 if (i2 == 1598968902) {
-                    parcel2.writeString(f39279a);
+                    parcel2.writeString(a);
                     return true;
                 } else if (i2 == 1) {
-                    parcel.enforceInterface(f39279a);
+                    parcel.enforceInterface(a);
                     a();
                     parcel2.writeNoException();
                     return true;
                 } else {
                     if (i2 == 2) {
-                        parcel.enforceInterface(f39279a);
+                        parcel.enforceInterface(a);
                         Bundle a2 = a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                         parcel2.writeNoException();
                         if (a2 != null) {
@@ -327,14 +323,14 @@ public interface e extends IInterface {
                         }
                         return true;
                     } else if (i2 == 3) {
-                        parcel.enforceInterface(f39279a);
+                        parcel.enforceInterface(a);
                         a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null, f.b.a(parcel.readStrongBinder()));
                         parcel2.writeNoException();
                         return true;
                     } else if (i2 != 4) {
                         return super.onTransact(i2, parcel, parcel2, i3);
                     } else {
-                        parcel.enforceInterface(f39279a);
+                        parcel.enforceInterface(a);
                         boolean a3 = a(parcel.readString());
                         parcel2.writeNoException();
                         parcel2.writeInt(a3 ? 1 : 0);

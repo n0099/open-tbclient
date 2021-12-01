@@ -5,7 +5,6 @@ import android.media.AudioRecord;
 import android.media.AudioTrack;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -141,12 +140,12 @@ public class WebRtcAudioManager {
         }
     }
 
-    public WebRtcAudioManager(long j) {
+    public WebRtcAudioManager(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -157,12 +156,12 @@ public class WebRtcAudioManager {
             }
         }
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
-        this.nativeAudioManager = j;
+        this.nativeAudioManager = j2;
         AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         this.audioManager = audioManager;
         this.volumeLogger = new VolumeLogger(audioManager);
         storeAudioParameters();
-        nativeCacheAudioParameters(this.sampleRate, this.outputChannels, this.inputChannels, this.hardwareAEC, this.hardwareAGC, this.hardwareNS, this.lowLatencyOutput, this.lowLatencyInput, this.proAudio, this.aAudio, this.outputBufferSize, this.inputBufferSize, j);
+        nativeCacheAudioParameters(this.sampleRate, this.outputChannels, this.inputChannels, this.hardwareAEC, this.hardwareAGC, this.hardwareNS, this.lowLatencyOutput, this.lowLatencyInput, this.proAudio, this.aAudio, this.outputBufferSize, this.inputBufferSize, j2);
         WebRtcAudioUtils.logAudioState(TAG);
     }
 
@@ -210,7 +209,7 @@ public class WebRtcAudioManager {
     public static int getMinInputFrameSize(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
             return AudioRecord.getMinBufferSize(i2, i3 == 1 ? 16 : 12, 2) / (i3 * 2);
         }
         return invokeII.intValue;
@@ -219,7 +218,7 @@ public class WebRtcAudioManager {
     public static int getMinOutputFrameSize(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) {
             return AudioTrack.getMinBufferSize(i2, i3 == 1 ? 4 : 12, 2) / (i3 * 2);
         }
         return invokeII.intValue;
@@ -361,7 +360,7 @@ public class WebRtcAudioManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) ? Build.VERSION.SDK_INT >= 23 && ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.audio.pro") : invokeV.booleanValue;
     }
 
-    private native void nativeCacheAudioParameters(int i2, int i3, int i4, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i5, int i6, long j);
+    private native void nativeCacheAudioParameters(int i2, int i3, int i4, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i5, int i6, long j2);
 
     public static synchronized void setBlacklistDeviceForOpenSLESUsage(boolean z) {
         Interceptable interceptable = $ic;

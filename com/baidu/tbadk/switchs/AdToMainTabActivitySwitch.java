@@ -1,6 +1,9 @@
 package com.baidu.tbadk.switchs;
 
-import b.a.q0.s.e0.b;
+import c.a.q0.b.d;
+import c.a.q0.s.e0.b;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+@ModifyClass
+/* loaded from: classes9.dex */
 public class AdToMainTabActivitySwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String AD_TO_MAINATABACTIVITY_ENABLE = "ad_to_maintabactivity";
+    public static final String AD_TO_MAINATABACTIVITY_ENABLE = "ad_to_maintabactivity_grey";
     public static final int TYPE_OFF = 0;
     public static final int TYPE_ON = 1;
     public static final AdToMainTabActivitySwitch mInstance;
@@ -49,19 +53,28 @@ public class AdToMainTabActivitySwitch extends BaseNormalSwitch {
         }
     }
 
+    @Modify(description = "开屏广告优化的开关")
     public static boolean getIsOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = b.j().k("key_ad_to_maintabactivity", 1);
+                int k2 = b.j().k("key_ad_to_maintabactivity", 1);
+                type = k2;
+                if (k2 == 1) {
+                    if (d.G()) {
+                        type = 1;
+                    } else {
+                        type = 0;
+                    }
+                }
             }
             return type == 1;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, b.a.e.f.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.d.f.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

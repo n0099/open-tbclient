@@ -1,20 +1,13 @@
 package com.baidu.tbadk;
 
-import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.e0.b;
-import b.a.r0.l1.c;
-import b.a.r0.l1.v.a.d;
-import b.a.r0.l1.v.a.e;
-import b.a.r0.l1.v.a.f;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import c.a.r0.r1.c;
+import c.a.r0.r1.v.a.d;
+import c.a.r0.r1.v.a.e;
+import c.a.r0.r1.v.a.f;
 import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupMsgImageActivityConfig;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tieba.im.chat.GroupMsgImageActivity;
 import com.baidu.tieba.im.message.ResponseAddGroupUserMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
@@ -32,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TbLaunchStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Tag = "tag";
@@ -53,7 +46,6 @@ public class TbLaunchStatic {
         }
         initRegisterIntent();
         initRegisterTask();
-        initRegisterListeners();
     }
 
     public TbLaunchStatic() {
@@ -78,53 +70,9 @@ public class TbLaunchStatic {
         }
     }
 
-    public static void initRegisterListeners() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.TbLaunchStatic.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                {
-                    super(r7);
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {Integer.valueOf(r7)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            super(((Integer) newInitContext.callArgs[0]).intValue());
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.adp.framework.listener.MessageListener
-                public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        long l = b.j().l("clear_redundance_files_time", 0L);
-                        long currentTimeMillis = System.currentTimeMillis();
-                        if (currentTimeMillis - l > 86400000) {
-                            PluginPackageManager.O().C();
-                            b.j().w("clear_redundance_files_time", currentTimeMillis);
-                        }
-                    }
-                }
-            });
-        }
-    }
-
     public static void initRegisterTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             c.b(202004, ResponseDelSystemMessage.class, false);
             c.b(103112, ResponseRemoveMembersMessage.class, false);
             c.b(202001, ResponseCommitGroupMessage.class, false);

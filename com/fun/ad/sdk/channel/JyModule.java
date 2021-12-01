@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel;
 
-import b.f.a0.c.b;
+import c.g.a0.c.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.fun.ad.sdk.FunAdConfig;
 import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.win.opensdk.PBInitialize;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class JyModule implements Module {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

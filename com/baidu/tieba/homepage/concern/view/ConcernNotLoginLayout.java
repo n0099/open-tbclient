@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.f.p.l;
-import b.a.q0.s.g0.n.a;
+import c.a.d.f.p.l;
+import c.a.q0.s.g0.n.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
@@ -20,22 +20,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50349e;
+    public Context f45134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f50350f;
+    public ImageView f45135f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f50351g;
+    public TextView f45136g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f50352h;
+    public TBSpecificationBtn f45137h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernNotLoginLayout(Context context) {
@@ -62,27 +62,27 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.concern_not_login_layout, (ViewGroup) this, true);
-            this.f50349e = context;
-            this.f50350f = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
+            this.f45134e = context;
+            this.f45135f = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
             TextView textView = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
-            this.f50351g = textView;
-            textView.setTextSize(0, l.g(context, R.dimen.T_X06));
-            this.f50352h = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
+            this.f45136g = textView;
+            textView.setTextSize(0, l.f(context, R.dimen.T_X06));
+            this.f45137h = (TBSpecificationBtn) inflate.findViewById(R.id.tv_concern_login_and_see_more);
             a aVar = new a();
-            this.f50352h.setText(context.getResources().getString(R.string.concern_login_and_see_more));
-            this.f50352h.setTextSize(R.dimen.T_X05);
-            this.f50352h.setTextHorizontalCenter(true);
-            this.f50352h.setConfig(aVar);
-            this.f50352h.setOnClickListener(this);
+            this.f45137h.setText(context.getResources().getString(R.string.concern_login_and_see_more));
+            this.f45137h.setTextSize(R.dimen.T_X05);
+            this.f45137h.setTextHorizontalCenter(true);
+            this.f45137h.setConfig(aVar);
+            this.f45137h.setOnClickListener(this);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setImageResource(this.f50350f, R.drawable.new_pic_emotion_09);
-            SkinManager.setViewTextColor(this.f50351g, R.color.CAM_X0107);
-            TBSpecificationBtn tBSpecificationBtn = this.f50352h;
+            SkinManager.setImageResource(this.f45135f, R.drawable.new_pic_emotion_09);
+            SkinManager.setViewTextColor(this.f45136g, R.color.CAM_X0107);
+            TBSpecificationBtn tBSpecificationBtn = this.f45137h;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }
@@ -93,8 +93,8 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view.getId() == R.id.tv_concern_login_and_see_more) {
-            ViewHelper.checkUpIsLogin(this.f50349e);
-            HomePageStatic.f50278a = true;
+            ViewHelper.checkUpIsLogin(this.f45134e);
+            HomePageStatic.a = true;
         }
     }
 

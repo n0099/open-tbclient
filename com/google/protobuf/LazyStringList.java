@@ -1,7 +1,7 @@
 package com.google.protobuf;
 
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface LazyStringList extends List<String> {
     void add(ByteString byteString);
 

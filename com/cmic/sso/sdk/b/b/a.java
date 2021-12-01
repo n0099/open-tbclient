@@ -9,39 +9,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLEncoder;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class a extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f62799a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62800b;
+    public String f54920b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62801c;
+    public String f54921c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f62802d;
+    public String f54922d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f62803e;
+    public String f54923e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f62804f;
+    public String f54924f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f62805g;
+    public String f54925g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f62806h;
+    public String f54926h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f62807i;
-    public String j;
-    public String k;
+    public String f54927i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f54928j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public String f54929k;
     public String l;
     public String m;
     public String n;
@@ -68,17 +70,17 @@ public abstract class a extends g {
                 return;
             }
         }
-        this.f62799a = "";
-        this.f62800b = "";
-        this.f62801c = "";
-        this.f62802d = "";
-        this.f62803e = "";
-        this.f62804f = "";
-        this.f62805g = "";
-        this.f62806h = "";
-        this.f62807i = "";
-        this.j = "0";
-        this.k = "1.0";
+        this.a = "";
+        this.f54920b = "";
+        this.f54921c = "";
+        this.f54922d = "";
+        this.f54923e = "";
+        this.f54924f = "";
+        this.f54925g = "";
+        this.f54926h = "";
+        this.f54927i = "";
+        this.f54928j = "0";
+        this.f54929k = "1.0";
         this.l = "";
         this.m = "";
         this.n = "";
@@ -97,7 +99,7 @@ public abstract class a extends g {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62801c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54921c : (String) invokeV.objValue;
     }
 
     public void a_(String str) {
@@ -110,77 +112,77 @@ public abstract class a extends g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f62799a = v(str);
+            this.a = v(str);
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f62800b = v(str);
+            this.f54920b = v(str);
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f62801c = v(str);
+            this.f54921c = v(str);
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f62802d = v(str);
+            this.f54922d = v(str);
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f62803e = v(str);
+            this.f54923e = v(str);
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f62804f = v(str);
+            this.f54924f = v(str);
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f62805g = URLEncoder.encode(v(str));
+            this.f54925g = URLEncoder.encode(v(str));
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f62806h = URLEncoder.encode(v(str));
+            this.f54926h = URLEncoder.encode(v(str));
         }
     }
 
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f62807i = URLEncoder.encode(v(str));
+            this.f54927i = URLEncoder.encode(v(str));
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.j = v(str);
+            this.f54928j = v(str);
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.k = v(str);
+            this.f54929k = v(str);
         }
     }
 

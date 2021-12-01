@@ -22,7 +22,7 @@ import io.reactivex.internal.util.BackpressureHelper;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
     public final Action onOverflow;
     public final boolean unbounded;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BackpressureBufferSubscriber<T> extends BasicIntQueueSubscription<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2514538129242366402L;
@@ -142,10 +142,10 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
                 Subscriber<? super T> subscriber = this.actual;
                 int i3 = 1;
                 while (!checkTerminated(this.done, simplePlainQueue.isEmpty(), subscriber)) {
-                    long j = this.requested.get();
-                    long j2 = 0;
+                    long j2 = this.requested.get();
+                    long j3 = 0;
                     while (true) {
-                        i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                         if (i2 == 0) {
                             break;
                         }
@@ -159,13 +159,13 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
                             break;
                         }
                         subscriber.onNext(obj);
-                        j2++;
+                        j3++;
                     }
                     if (i2 == 0 && checkTerminated(this.done, simplePlainQueue.isEmpty(), subscriber)) {
                         return;
                     }
-                    if (j2 != 0 && j != Long.MAX_VALUE) {
-                        this.requested.addAndGet(-j2);
+                    if (j3 != 0 && j2 != Long.MAX_VALUE) {
+                        this.requested.addAndGet(-j3);
                     }
                     i3 = addAndGet(-i3);
                     if (i3 == 0) {
@@ -250,10 +250,10 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && !this.outputFused && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) && !this.outputFused && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }

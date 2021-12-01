@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +76,7 @@ public class CharSequenceUtils {
     public static boolean regionMatches(CharSequence charSequence, boolean z, int i2, CharSequence charSequence2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{charSequence, Boolean.valueOf(z), Integer.valueOf(i2), charSequence2, Integer.valueOf(i3), Integer.valueOf(i4)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{charSequence, Boolean.valueOf(z), Integer.valueOf(i2), charSequence2, Integer.valueOf(i3), Integer.valueOf(i4)})) != null) {
             return invokeCommon.booleanValue;
         }
         if ((charSequence instanceof String) && (charSequence2 instanceof String)) {
@@ -114,7 +113,7 @@ public class CharSequenceUtils {
     public static CharSequence subSequence(CharSequence charSequence, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, charSequence, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, charSequence, i2)) == null) {
             if (charSequence == null) {
                 return null;
             }

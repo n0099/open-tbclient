@@ -2,13 +2,13 @@ package com.airbnb.lottie.parser;
 
 import com.airbnb.lottie.model.DocumentData;
 import com.airbnb.lottie.parser.moshi.JsonReader;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.wallet.paysdk.b.j;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DocumentDataParser implements ValueParser<DocumentData> {
     public static final DocumentDataParser INSTANCE = new DocumentDataParser();
-    public static final JsonReader.Options NAMES = JsonReader.Options.of("t", "f", "s", j.q, "tr", IAdRequestParam.QUERY_HEIGHT, "ls", "fc", "sc", "sw", "of");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of("t", "f", "s", j.q, "tr", "lh", "ls", "fc", "sc", TbConfig.SW_APID, "of");
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */

@@ -28,11 +28,11 @@ public final class FlowKt__ErrorsKt$retry$6 extends SuspendLambda implements Fun
         this.$predicate = function1;
     }
 
-    public final Continuation<Unit> create(FlowCollector<? super T> flowCollector, Throwable th, long j, Continuation<? super Boolean> continuation) {
+    public final Continuation<Unit> create(FlowCollector<? super T> flowCollector, Throwable th, long j2, Continuation<? super Boolean> continuation) {
         FlowKt__ErrorsKt$retry$6 flowKt__ErrorsKt$retry$6 = new FlowKt__ErrorsKt$retry$6(this.$retries, this.$predicate, continuation);
         flowKt__ErrorsKt$retry$6.p$ = flowCollector;
         flowKt__ErrorsKt$retry$6.p$0 = th;
-        flowKt__ErrorsKt$retry$6.p$1 = j;
+        flowKt__ErrorsKt$retry$6.p$1 = j2;
         return flowKt__ErrorsKt$retry$6;
     }
 

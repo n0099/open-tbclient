@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class TbAdvertStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,14 +37,14 @@ public class TbAdvertStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<b.a.q0.z0.a> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<c.a.q0.a1.a> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage.getData() != null) {
-                    b.a.r0.n3.a j = b.a.r0.n3.a.j();
-                    j.n(customMessage.getData());
-                    return new CustomResponsedMessage<>(2921390, j);
+                    c.a.r0.u3.a j2 = c.a.r0.u3.a.j();
+                    j2.n(customMessage.getData());
+                    return new CustomResponsedMessage<>(2921390, j2);
                 }
                 return null;
             }
@@ -52,7 +52,7 @@ public class TbAdvertStatic {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class b implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class TbAdvertStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                b.a.r0.n3.a.j().m();
+                c.a.r0.u3.a.j().m();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;

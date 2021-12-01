@@ -14,14 +14,14 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import b.a.e.f.p.l;
-import b.a.l.q;
-import b.a.q0.k0.b.a;
-import b.a.q0.n.f;
-import b.a.q0.s.q.o;
-import b.a.q0.s.q.q1;
-import b.a.q0.s.q.r1;
-import b.a.q0.s.u.c;
+import c.a.d.f.p.l;
+import c.a.k.q;
+import c.a.q0.l0.b.a;
+import c.a.q0.n.f;
+import c.a.q0.s.q.o;
+import c.a.q0.s.q.q1;
+import c.a.q0.s.q.r1;
+import c.a.q0.s.u.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.adapter.HorizontalRecommendForumAdapter;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RecommendForumLayout extends LinearLayout implements q {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_MY_BAR_TAB = 0;
@@ -44,21 +44,25 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f37633e;
+    public TbPageContext<?> f33732e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PullLeftRefreshLayout f37634f;
+    public PullLeftRefreshLayout f33733f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RecyclerView f37635g;
+    public RecyclerView f33734g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HorizontalRecommendForumAdapter f37636h;
+    public HorizontalRecommendForumAdapter f33735h;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f37637i;
-    public TextView j;
-    public ImageView k;
+    public FrameLayout f33736i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f33737j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public ImageView f33738k;
     public boolean l;
     public boolean m;
     public int mFrom;
@@ -96,68 +100,68 @@ public class RecommendForumLayout extends LinearLayout implements q {
             LayoutInflater.from(getContext()).inflate(R.layout.recommend_forum_horizontal_view, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f37637i = (FrameLayout) findViewById(R.id.title_view);
+            this.f33736i = (FrameLayout) findViewById(R.id.title_view);
             TextView textView = (TextView) findViewById(R.id.tv_title);
-            this.j = textView;
+            this.f33737j = textView;
             c.d(textView).z(R.dimen.T_X07);
-            this.k = (ImageView) findViewById(R.id.img_arrow);
-            this.f37634f = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
-            this.f37635g = (RecyclerView) findViewById(R.id.recycler_view);
-            HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.f37633e, this.mFrom);
-            this.f37636h = horizontalRecommendForumAdapter;
+            this.f33738k = (ImageView) findViewById(R.id.img_arrow);
+            this.f33733f = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);
+            this.f33734g = (RecyclerView) findViewById(R.id.recycler_view);
+            HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.f33732e, this.mFrom);
+            this.f33735h = horizontalRecommendForumAdapter;
             int i2 = this.mFrom;
             if (i2 == 0) {
                 horizontalRecommendForumAdapter.setHasLikeForum(this.mHasLikeForum);
             } else if (i2 == 1) {
                 horizontalRecommendForumAdapter.setTabName(this.p);
             }
-            this.f37635g.setLayoutManager(new LinearLayoutManager(this.f37633e.getPageActivity(), 0, false));
-            this.f37635g.setAdapter(this.f37636h);
-            this.f37635g.setClipChildren(false);
-            this.f37636h.notifyDataSetChanged();
-            this.j.setText(this.f37633e.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
+            this.f33734g.setLayoutManager(new LinearLayoutManager(this.f33732e.getPageActivity(), 0, false));
+            this.f33734g.setAdapter(this.f33735h);
+            this.f33734g.setClipChildren(false);
+            this.f33735h.notifyDataSetChanged();
+            this.f33737j.setText(this.f33732e.getPageActivity().getString(R.string.recommend_forum_title_horizontal));
             RefreshView refreshView = new RefreshView(getContext());
             this.o = refreshView;
-            this.f37634f.setRefreshViewAndListener(refreshView);
-            this.f37634f.setCallback(this.r);
+            this.f33733f.setRefreshViewAndListener(refreshView);
+            this.f33733f.setCallback(this.r);
         }
     }
 
     public void bindData(r1 r1Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r1Var) == null) {
-            this.k.setOnClickListener(this.q);
-            if (!TextUtils.isEmpty(r1Var.f14215h) && r1Var.f14216i != 0) {
-                this.j.setText(r1Var.f14215h);
+            this.f33738k.setOnClickListener(this.q);
+            if (!TextUtils.isEmpty(r1Var.f13043h) && r1Var.f13044i != 0) {
+                this.f33737j.setText(r1Var.f13043h);
             } else {
-                this.j.setText(R.string.recommend_forum_title_horizontal);
-                if (this.f37637i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.f37637i.getLayoutParams()).topMargin = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds38);
-                    this.f37637i.requestLayout();
+                this.f33737j.setText(R.string.recommend_forum_title_horizontal);
+                if (this.f33736i.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ((ViewGroup.MarginLayoutParams) this.f33736i.getLayoutParams()).topMargin = l.f(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                    this.f33736i.requestLayout();
                 }
             }
             if (!this.n) {
-                this.k.setVisibility(8);
+                this.f33738k.setVisibility(8);
             }
             if (r1Var != null && r1Var.k() != null && r1Var.k().size() > 0) {
                 ArrayList<? extends a> arrayList = new ArrayList<>();
-                ArrayList<q1> k = r1Var.k();
+                ArrayList<q1> k2 = r1Var.k();
                 if (this.l) {
                     if (this.m) {
                         arrayList.add(new o());
                     }
-                    if (k != null) {
-                        arrayList.addAll(k);
+                    if (k2 != null) {
+                        arrayList.addAll(k2);
                     }
                 } else {
-                    if (k != null) {
-                        arrayList.addAll(k);
+                    if (k2 != null) {
+                        arrayList.addAll(k2);
                     }
                     if (this.m) {
                         arrayList.add(new o());
                     }
                 }
-                this.f37636h.setData(arrayList);
+                this.f33735h.setData(arrayList);
             }
             onChangeSkinType();
         }
@@ -169,10 +173,10 @@ public class RecommendForumLayout extends LinearLayout implements q {
             c d2 = c.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            c.d(this.j).v(R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            c.d(this.f33737j).v(R.color.CAM_X0105);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f33738k, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             this.o.onChangeSkinType();
-            this.f37636h.notifyDataSetChanged();
+            this.f33735h.notifyDataSetChanged();
         }
     }
 
@@ -214,7 +218,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public void setOnItemCoverListener(f<q1> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, fVar) == null) {
-            this.f37636h.setOnItemCoverListener(fVar);
+            this.f33735h.setOnItemCoverListener(fVar);
         }
     }
 
@@ -222,7 +226,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
             this.r = fVar;
-            this.f37634f.setCallback(fVar);
+            this.f33733f.setCallback(fVar);
         }
     }
 
@@ -235,7 +239,7 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public void setShowMore(boolean z) {
         PullLeftRefreshLayout pullLeftRefreshLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (pullLeftRefreshLayout = this.f37634f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (pullLeftRefreshLayout = this.f33733f) == null) {
             return;
         }
         pullLeftRefreshLayout.setEnablePull(z);
@@ -285,11 +289,11 @@ public class RecommendForumLayout extends LinearLayout implements q {
         this.m = true;
         this.n = true;
         this.mFrom = 0;
-        this.f37633e = tbPageContext;
+        this.f33732e = tbPageContext;
         a();
     }
 
-    @Override // b.a.l.q
+    @Override // c.a.k.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {

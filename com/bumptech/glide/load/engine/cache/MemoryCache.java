@@ -4,10 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface MemoryCache {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface ResourceRemovedListener {
         void onResourceRemoved(@NonNull Resource<?> resource);
     }

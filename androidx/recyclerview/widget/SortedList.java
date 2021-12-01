@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -245,7 +244,7 @@ public class SortedList<T> {
     private T[] copyArray(T[] tArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, tArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, tArr)) == null) {
             T[] tArr2 = (T[]) ((Object[]) Array.newInstance((Class<?>) this.mTClass, tArr.length));
             System.arraycopy(tArr, 0, tArr2, 0, tArr.length);
             return tArr2;
@@ -256,7 +255,7 @@ public class SortedList<T> {
     private int findIndexOf(T t, T[] tArr, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{t, tArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{t, tArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             while (i2 < i3) {
                 int i5 = (i2 + i3) / 2;
                 T t2 = tArr[i5];

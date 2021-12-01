@@ -2,7 +2,6 @@ package com.google.gson;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +48,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Gson {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEFAULT_COMPLEX_MAP_KEYS = false;
@@ -84,7 +83,7 @@ public final class Gson {
     public final int timeStyle;
     public final Map<TypeToken<?>, TypeAdapter<?>> typeTokenCache;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class FutureTypeAdapter<T> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +242,7 @@ public final class Gson {
     public static TypeAdapter<AtomicLongArray> atomicLongArrayAdapter(TypeAdapter<Number> typeAdapter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, typeAdapter)) == null) ? new TypeAdapter<AtomicLongArray>(typeAdapter) { // from class: com.google.gson.Gson.5
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, typeAdapter)) == null) ? new TypeAdapter<AtomicLongArray>(typeAdapter) { // from class: com.google.gson.Gson.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TypeAdapter val$longAdapter;
@@ -306,7 +305,7 @@ public final class Gson {
 
     public static void checkValidFloatingPoint(double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2)}) == null) {
             if (Double.isNaN(d2) || Double.isInfinite(d2)) {
                 throw new IllegalArgumentException(d2 + " is not a valid double value as per JSON specification. To override this behavior, use GsonBuilder.serializeSpecialFloatingPointValues() method.");
             }

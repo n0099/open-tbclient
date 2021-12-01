@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,7 @@ import com.facebook.drawee.drawable.VisibilityCallback;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.interfaces.DraweeHierarchy;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DraweeHolder<DH extends DraweeHierarchy> implements VisibilityCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +104,7 @@ public class DraweeHolder<DH extends DraweeHierarchy> implements VisibilityCallb
 
     private void setVisibilityCallback(@Nullable VisibilityCallback visibilityCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, visibilityCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, visibilityCallback) == null) {
             Drawable topLevelDrawable = getTopLevelDrawable();
             if (topLevelDrawable instanceof VisibilityAwareDrawable) {
                 ((VisibilityAwareDrawable) topLevelDrawable).setVisibilityCallback(visibilityCallback);

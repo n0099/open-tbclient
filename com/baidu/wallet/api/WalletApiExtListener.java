@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface WalletApiExtListener {
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface LoginstatuSyncListener {
         void onHandleWalletError(int i2);
 
@@ -23,16 +23,16 @@ public interface WalletApiExtListener {
         void syncLoginStatus(Context context, String str, SyncLoginStatusCb syncLoginStatusCb);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface SensorsAdapter {
         void sendPerformanceInfo(Map<String, String> map);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface SyncLoginStatusCb {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes10.dex */
+        /* loaded from: classes11.dex */
         public static final class SyncResult {
             public static final /* synthetic */ SyncResult[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -107,14 +107,14 @@ public interface WalletApiExtListener {
         void onResult(SyncResult syncResult);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface ThirdPartyLoginInterface {
         void callBindPhone(Activity activity, ThirdPartyLoginListener thirdPartyLoginListener);
 
         void callTuristNormalize(Activity activity, ThirdPartyLoginListener thirdPartyLoginListener);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface ThirdPartyLoginListener {
         void onCallFail(int i2, String str);
 

@@ -11,20 +11,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import b.a.e.f.m.h;
-import b.a.e.f.p.l;
-import b.a.q0.s.l.a;
-import b.a.q0.t.i.b;
+import c.a.d.f.m.h;
+import c.a.d.f.p.l;
+import c.a.q0.s.l.a;
+import c.a.q0.t.i.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
@@ -41,7 +39,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_LOGIN = 1;
@@ -55,20 +53,18 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public Bitmap mBitmap;
     public String mFrom;
     public ImageView mImage;
-    public b.a.q0.t.i.b mInputUserNameDialog;
+    public c.a.q0.t.i.b mInputUserNameDialog;
     public Button mLoginBtn;
     public Button mQuickRegistBtn;
-    public final a.InterfaceC0720a mReLoginCallback;
+    public final a.InterfaceC0804a mReLoginCallback;
     public boolean toLogin;
     public View unlogin_see;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NotLoginGuideActivity f47495a;
+        public final /* synthetic */ NotLoginGuideActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(NotLoginGuideActivity notLoginGuideActivity, int i2) {
@@ -88,7 +84,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                     return;
                 }
             }
-            this.f47495a = notLoginGuideActivity;
+            this.a = notLoginGuideActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,25 +94,23 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001385 || customResponsedMessage.getData() == null) {
                 return;
             }
-            this.f47495a.finish();
+            this.a.finish();
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements a.InterfaceC0720a {
+    /* loaded from: classes10.dex */
+    public class b implements a.InterfaceC0804a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NotLoginGuideActivity a;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NotLoginGuideActivity f47496a;
-
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public class a implements DialogInterface.OnCancelListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f47497e;
+            public final /* synthetic */ b f42544e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -133,14 +127,14 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                         return;
                     }
                 }
-                this.f47497e = bVar;
+                this.f42544e = bVar;
             }
 
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    this.f47497e.f47496a.destroyWaitingDialog();
+                    this.f42544e.a.destroyWaitingDialog();
                 }
             }
         }
@@ -160,56 +154,54 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                     return;
                 }
             }
-            this.f47496a = notLoginGuideActivity;
+            this.a = notLoginGuideActivity;
         }
 
-        @Override // b.a.q0.s.l.a.InterfaceC0720a
+        @Override // c.a.q0.s.l.a.InterfaceC0804a
         public void onBeforeLogin(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (this.f47496a.getLoadingDialog() == null || !this.f47496a.getLoadingDialog().c()) {
-                    NotLoginGuideActivity notLoginGuideActivity = this.f47496a;
+                if (this.a.getLoadingDialog() == null || !this.a.getLoadingDialog().c()) {
+                    NotLoginGuideActivity notLoginGuideActivity = this.a;
                     notLoginGuideActivity.showLoadingDialog(notLoginGuideActivity.getPageContext().getString(R.string.sapi_logining), new a(this));
                 }
             }
         }
 
-        @Override // b.a.q0.s.l.a.InterfaceC0720a
+        @Override // c.a.q0.s.l.a.InterfaceC0804a
         public void onFailure(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, str2) == null) {
-                b.a.q0.s.a0.a.a("account", -1L, 0, "login_silent_fail", i2, str2, new Object[0]);
-                this.f47496a.closeLoadingDialog();
-                if (this.f47496a.currAction == 1) {
-                    this.f47496a.goToLogin();
-                } else if (this.f47496a.currAction == 2) {
-                    this.f47496a.goToRegist();
+                c.a.q0.s.a0.a.a("account", -1L, 0, "login_silent_fail", i2, str2, new Object[0]);
+                this.a.closeLoadingDialog();
+                if (this.a.currAction == 1) {
+                    this.a.goToLogin();
+                } else if (this.a.currAction == 2) {
+                    this.a.goToRegist();
                 }
             }
         }
 
-        @Override // b.a.q0.s.l.a.InterfaceC0720a
+        @Override // c.a.q0.s.l.a.InterfaceC0804a
         public void onSuccess(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                b.a.q0.s.a0.a.a("account", -1L, 0, "login_silent_success", 0, "", new Object[0]);
-                this.f47496a.closeLoadingDialog();
+                c.a.q0.s.a0.a.a("account", -1L, 0, "login_silent_success", 0, "", new Object[0]);
+                this.a.closeLoadingDialog();
                 if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
-                    this.f47496a.loginSuccess(accountData);
+                    this.a.loginSuccess(accountData);
                 } else {
-                    this.f47496a.showInputDialog(accountData);
+                    this.a.showInputDialog(accountData);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c implements b.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NotLoginGuideActivity f47498a;
+        public final /* synthetic */ NotLoginGuideActivity a;
 
         public c(NotLoginGuideActivity notLoginGuideActivity) {
             Interceptable interceptable = $ic;
@@ -226,28 +218,28 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                     return;
                 }
             }
-            this.f47498a = notLoginGuideActivity;
+            this.a = notLoginGuideActivity;
         }
 
-        @Override // b.a.q0.t.i.b.e
+        @Override // c.a.q0.t.i.b.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
-                this.f47498a.loginSuccess(accountData);
+                this.a.loginSuccess(accountData);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f47499e;
+        public final /* synthetic */ AccountData f42545e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NotLoginGuideActivity f47500f;
+        public final /* synthetic */ NotLoginGuideActivity f42546f;
 
         public d(NotLoginGuideActivity notLoginGuideActivity, AccountData accountData) {
             Interceptable interceptable = $ic;
@@ -264,15 +256,15 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                     return;
                 }
             }
-            this.f47500f = notLoginGuideActivity;
-            this.f47499e = accountData;
+            this.f42546f = notLoginGuideActivity;
+            this.f42545e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.q0.s.l.c.g(this.f47499e);
+                c.a.q0.s.l.c.g(this.f42545e);
             }
         }
     }
@@ -306,7 +298,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void goToLogin() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || this.toLogin) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.toLogin) {
             return;
         }
         this.toLogin = true;
@@ -346,7 +338,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             layoutParams.addRule(12);
             layoutParams.addRule(14);
             float i2 = l.i(getPageContext().getPageActivity()) * 0.2631579f;
-            layoutParams.bottomMargin = (int) ((i2 - ((i2 - l.g(getPageContext().getPageActivity(), R.dimen.ds190)) / 2.0f)) - l.g(getPageContext().getPageActivity(), R.dimen.ds16));
+            layoutParams.bottomMargin = (int) ((i2 - ((i2 - l.f(getPageContext().getPageActivity(), R.dimen.ds190)) / 2.0f)) - l.f(getPageContext().getPageActivity(), R.dimen.ds16));
             this.unlogin_see.setLayoutParams(layoutParams);
             Bitmap logoBitmap = BitmapHelper.getLogoBitmap(getPageContext().getPageActivity(), R.drawable.not_login_guide_bg);
             this.mBitmap = logoBitmap;
@@ -364,9 +356,9 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, accountData) == null) {
             h.a().c(new d(this, accountData));
-            b.a.q0.s.a0.a.a("account", -1L, 0, "not_login_guide_activity", 0, "", new Object[0]);
+            c.a.q0.s.a0.a.a("account", -1L, 0, "not_login_guide_activity", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-            b.a.q0.m.a.f(TbadkCoreApplication.getInst());
+            c.a.q0.m.a.f(TbadkCoreApplication.getInst());
             startApp();
         }
     }
@@ -392,7 +384,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, accountData) == null) {
             if (this.mInputUserNameDialog == null) {
-                b.a.q0.t.i.b bVar = new b.a.q0.t.i.b(this);
+                c.a.q0.t.i.b bVar = new c.a.q0.t.i.b(this);
                 this.mInputUserNameDialog = bVar;
                 bVar.w(new c(this));
             }
@@ -405,7 +397,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     private void startApp() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            b.a.q0.s.a0.a.a("account", -1L, 0, "login_silent_startapp", 0, "", new Object[0]);
+            c.a.q0.s.a0.a.a("account", -1L, 0, "login_silent_startapp", 0, "", new Object[0]);
             if (TbadkCoreApplication.getInst().getIsFirstUse()) {
                 if (MessageManager.getInstance().findTask(2015001) != null) {
                     sendMessage(new CustomMessage(2015001, new GuildActivityConfig(getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, false)));
@@ -415,10 +407,10 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             } else if (!this.firstRegist && !TbadkCoreApplication.getInst().getIsFirstUse() && MessageManager.getInstance().findTask(2015001) != null) {
                 sendMessage(new CustomMessage(2015001, new GuildActivityConfig(getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, true)));
             } else {
-                b.a.q0.s.e0.b j = b.a.q0.s.e0.b.j();
-                if (j.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                    b.a.q0.s.e0.b j2 = b.a.q0.s.e0.b.j();
-                    j2.t("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+                c.a.q0.s.e0.b j2 = c.a.q0.s.e0.b.j();
+                if (j2.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                    c.a.q0.s.e0.b j3 = c.a.q0.s.e0.b.j();
+                    j3.t("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
                 }
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
             }
@@ -432,12 +424,12 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             SapiAccount session = SapiAccountManager.getInstance().getSession();
             if (session != null) {
-                b.a.q0.s.a0.a.a("account", -1L, 0, "login_silent_start", 0, "", new Object[0]);
+                c.a.q0.s.a0.a.a("account", -1L, 0, "login_silent_start", 0, "", new Object[0]);
                 BdAsyncTask<?, ?, ?> bdAsyncTask = this.mAccountLoginTask;
                 if (bdAsyncTask != null) {
                     bdAsyncTask.cancel();
                 }
-                this.mAccountLoginTask = b.a.q0.s.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+                this.mAccountLoginTask = c.a.q0.s.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
                 return true;
             }
             return false;
@@ -472,7 +464,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
                 goToLogin();
             } else if (view == this.unlogin_see) {
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
-                TiebaStatic.eventStat(getPageContext().getPageActivity(), "notlogin_1", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
+                TiebaStatic.eventStat(getPageContext().getPageActivity(), "notlogin_1", "click", 1, new Object[0]);
                 finish();
             }
         }
@@ -499,7 +491,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
             releaseResource();
-            b.a.q0.t.i.b bVar = this.mInputUserNameDialog;
+            c.a.q0.t.i.b bVar = this.mInputUserNameDialog;
             if (bVar != null) {
                 bVar.s();
             }
@@ -520,7 +512,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
             closeActivity();
             if (NotLoginGuideActivityConfig.FROM_ACCOUNT.equals(this.mFrom)) {
-                b.a.q0.s.b0.b.e(getPageContext().getPageActivity(), 200);
+                c.a.q0.s.b0.b.e(getPageContext().getPageActivity(), 200);
                 return true;
             }
             return true;

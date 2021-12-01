@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
     public final boolean delayErrors;
     public final Function<? super T, ? extends Publisher<? extends R>> mapper;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SwitchMapInnerSubscriber<T, R> extends AtomicReference<Subscription> implements FlowableSubscriber<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3837284832786408377L;
@@ -47,12 +47,12 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
         public final SwitchMapSubscriber<T, R> parent;
         public volatile SimpleQueue<R> queue;
 
-        public SwitchMapInnerSubscriber(SwitchMapSubscriber<T, R> switchMapSubscriber, long j, int i2) {
+        public SwitchMapInnerSubscriber(SwitchMapSubscriber<T, R> switchMapSubscriber, long j2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {switchMapSubscriber, Long.valueOf(j), Integer.valueOf(i2)};
+                Object[] objArr = {switchMapSubscriber, Long.valueOf(j2), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -63,7 +63,7 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
                 }
             }
             this.parent = switchMapSubscriber;
-            this.index = j;
+            this.index = j2;
             this.bufferSize = i2;
         }
 
@@ -144,7 +144,7 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SwitchMapSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final SwitchMapInnerSubscriber<Object, Object> CANCELLED;
@@ -280,11 +280,11 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
                                 this.active.compareAndSet(switchMapInnerSubscriber, null);
                             }
                         }
-                        long j = this.requested.get();
-                        long j2 = 0;
+                        long j2 = this.requested.get();
+                        long j3 = 0;
                         while (true) {
                             z = false;
-                            if (j2 != j) {
+                            if (j3 != j2) {
                                 if (!this.cancelled) {
                                     boolean z2 = switchMapInnerSubscriber.done;
                                     try {
@@ -320,7 +320,7 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
                                         break;
                                     }
                                     subscriber.onNext(r);
-                                    j2++;
+                                    j3++;
                                 } else {
                                     return;
                                 }
@@ -328,11 +328,11 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
                                 break;
                             }
                         }
-                        if (j2 != 0 && !this.cancelled) {
-                            if (j != Long.MAX_VALUE) {
-                                this.requested.addAndGet(-j2);
+                        if (j3 != 0 && !this.cancelled) {
+                            if (j2 != Long.MAX_VALUE) {
+                                this.requested.addAndGet(-j3);
                             }
-                            switchMapInnerSubscriber.get().request(j2);
+                            switchMapInnerSubscriber.get().request(j3);
                         }
                         if (z) {
                             continue;
@@ -380,15 +380,15 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
             if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || this.done) {
                 return;
             }
-            long j = this.unique + 1;
-            this.unique = j;
+            long j2 = this.unique + 1;
+            this.unique = j2;
             SwitchMapInnerSubscriber<T, R> switchMapInnerSubscriber2 = this.active.get();
             if (switchMapInnerSubscriber2 != null) {
                 switchMapInnerSubscriber2.cancel();
             }
             try {
                 Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.mapper.apply(t), "The publisher returned is null");
-                SwitchMapInnerSubscriber<T, R> switchMapInnerSubscriber3 = new SwitchMapInnerSubscriber<>(this, j, this.bufferSize);
+                SwitchMapInnerSubscriber<T, R> switchMapInnerSubscriber3 = new SwitchMapInnerSubscriber<>(this, j2, this.bufferSize);
                 do {
                     switchMapInnerSubscriber = this.active.get();
                     if (switchMapInnerSubscriber == CANCELLED) {
@@ -413,10 +413,10 @@ public final class FlowableSwitchMap<T, R> extends AbstractFlowableWithUpstream<
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 if (this.unique == 0) {
                     this.s.request(Long.MAX_VALUE);
                 } else {

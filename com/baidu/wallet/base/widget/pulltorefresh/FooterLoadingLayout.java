@@ -18,22 +18,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ProgressBar f58736a;
+    public ProgressBar a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f58737b;
+    public TextView f52272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CharSequence f58738c;
+    public CharSequence f52273c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f58739d;
+    public CharSequence f52274d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FooterLoadingLayout(Context context) {
@@ -59,8 +57,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-            this.f58736a = (ProgressBar) findViewById(ResUtils.id(getContext(), "bd_wallet_progress_footer"));
-            this.f58737b = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_loadmore_text"));
+            this.a = (ProgressBar) findViewById(ResUtils.id(getContext(), "bd_wallet_progress_footer"));
+            this.f52272b = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_loadmore_text"));
             setState(LoadingLayout.State.RESET);
         }
     }
@@ -84,11 +82,11 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onNoMoreData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f58737b.setVisibility(0);
-            if (TextUtils.isEmpty(this.f58739d)) {
-                this.f58737b.setText(ResUtils.getString(getContext(), "wallet_base_no_more"));
+            this.f52272b.setVisibility(0);
+            if (TextUtils.isEmpty(this.f52274d)) {
+                this.f52272b.setText(ResUtils.getString(getContext(), "wallet_base_no_more"));
             } else {
-                this.f58737b.setText(this.f58739d);
+                this.f52272b.setText(this.f52274d);
             }
         }
     }
@@ -97,12 +95,12 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f58736a.setVisibility(0);
-            this.f58737b.setVisibility(0);
-            if (TextUtils.isEmpty(this.f58738c)) {
-                this.f58737b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
+            this.a.setVisibility(0);
+            this.f52272b.setVisibility(0);
+            if (TextUtils.isEmpty(this.f52273c)) {
+                this.f52272b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
             } else {
-                this.f58737b.setText(this.f58738c);
+                this.f52272b.setText(this.f52273c);
             }
         }
     }
@@ -111,10 +109,10 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (TextUtils.isEmpty(this.f58738c)) {
-                this.f58737b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
+            if (TextUtils.isEmpty(this.f52273c)) {
+                this.f52272b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
             } else {
-                this.f58737b.setText(this.f58738c);
+                this.f52272b.setText(this.f52273c);
             }
         }
     }
@@ -123,8 +121,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onStateChanged(LoadingLayout.State state, LoadingLayout.State state2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, state, state2) == null) {
-            this.f58736a.setVisibility(8);
-            this.f58737b.setVisibility(4);
+            this.a.setVisibility(8);
+            this.f52272b.setVisibility(4);
             super.onStateChanged(state, state2);
         }
     }
@@ -142,8 +140,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f58739d = charSequence;
-        TextView textView = this.f58737b;
+        this.f52274d = charSequence;
+        TextView textView = this.f52272b;
         if (textView != null) {
             textView.setText(charSequence);
         }
@@ -155,8 +153,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f58738c = charSequence;
-        TextView textView = this.f58737b;
+        this.f52273c = charSequence;
+        TextView textView = this.f52272b;
         if (textView != null) {
             textView.setText(charSequence);
         }

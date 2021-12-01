@@ -2,7 +2,6 @@ package com.google.zxing.client.result;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.sailor.BdSailorConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class VCardResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern BEGIN_VCARD;
@@ -143,7 +142,7 @@ public final class VCardResultParser extends ResultParser {
     public static List<String> matchSingleVCardPrefixedField(CharSequence charSequence, String str, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{charSequence, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{charSequence, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             List<List<String>> matchVCardPrefixedField = matchVCardPrefixedField(charSequence, str, z, z2);
             if (matchVCardPrefixedField == null || matchVCardPrefixedField.isEmpty()) {
                 return null;
@@ -167,7 +166,7 @@ public final class VCardResultParser extends ResultParser {
         int indexOf;
         String replaceAll;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{charSequence, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{charSequence, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             int length = str.length();
             int i2 = 0;
             int i3 = 0;

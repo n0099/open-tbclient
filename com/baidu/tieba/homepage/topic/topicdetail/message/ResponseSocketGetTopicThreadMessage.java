@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
-import b.a.e.m.e.n;
-import b.a.r0.h1.k.a.c.c;
+import c.a.d.m.e.n;
+import c.a.r0.n1.k.a.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.NewTopicThread.DataRes;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

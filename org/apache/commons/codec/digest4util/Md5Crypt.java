@@ -1,7 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +47,7 @@ public class Md5Crypt {
     public static String md5Crypt(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             return md5Crypt(bArr, MD5_PREFIX + B64.getRandomSalt(8));
         }
         return (String) invokeL.objValue;
@@ -69,7 +68,7 @@ public class Md5Crypt {
     public static String md5Crypt(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, str)) == null) ? md5Crypt(bArr, str, MD5_PREFIX) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, str)) == null) ? md5Crypt(bArr, str, MD5_PREFIX) : (String) invokeLL.objValue;
     }
 
     public static String md5Crypt(byte[] bArr, String str, String str2) {

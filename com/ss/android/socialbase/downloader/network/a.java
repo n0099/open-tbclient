@@ -26,9 +26,9 @@ public abstract class a implements i {
         }
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
         }
     }
 

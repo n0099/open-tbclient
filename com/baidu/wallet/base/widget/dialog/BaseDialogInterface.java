@@ -2,7 +2,7 @@ package com.baidu.wallet.base.widget.dialog;
 
 import android.text.SpannableString;
 import android.view.View;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface BaseDialogInterface {
     void hideButtons();
 

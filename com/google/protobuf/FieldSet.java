@@ -2,7 +2,6 @@ package com.google.protobuf;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<FieldDescriptorType>> {
     public static /* synthetic */ Interceptable $ic;
     public static final FieldSet DEFAULT_INSTANCE;
@@ -31,7 +30,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     public boolean isImmutable;
 
     /* renamed from: com.google.protobuf.FieldSet$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$FieldType;
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$JavaType;
@@ -166,7 +165,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface FieldDescriptorLite<T extends FieldDescriptorLite<T>> extends Comparable<T> {
         Internal.EnumLiteMap<?> getEnumType();
 
@@ -245,7 +244,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     public static int computeElementSizeNoTag(WireFormat.FieldType fieldType, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, fieldType, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, fieldType, obj)) == null) {
             switch (AnonymousClass1.$SwitchMap$com$google$protobuf$WireFormat$FieldType[fieldType.ordinal()]) {
                 case 1:
                     return CodedOutputStream.computeDoubleSizeNoTag(((Double) obj).doubleValue());
@@ -296,7 +295,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     public static int computeFieldSize(FieldDescriptorLite<?> fieldDescriptorLite, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, fieldDescriptorLite, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, fieldDescriptorLite, obj)) == null) {
             WireFormat.FieldType liteType = fieldDescriptorLite.getLiteType();
             int number = fieldDescriptorLite.getNumber();
             if (fieldDescriptorLite.isRepeated()) {
@@ -841,7 +840,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m59clone() {
+    public FieldSet<FieldDescriptorType> m107clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

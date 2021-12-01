@@ -11,35 +11,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ga extends gc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public a f71901a;
+    public a a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Map<String, String> f428a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f71902a;
+        public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f71903b;
+        public static final a f62908b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f71904c;
+        public static final a f62909c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f71905d;
+        public static final a f62910d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f71906e;
+        public static final a f62911e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -58,11 +54,11 @@ public class ga extends gc {
                     return;
                 }
             }
-            f71902a = new a("get");
-            f71903b = new a("set");
-            f71904c = new a("result");
-            f71905d = new a("error");
-            f71906e = new a("command");
+            a = new a("get");
+            f62908b = new a("set");
+            f62909c = new a("result");
+            f62910d = new a("error");
+            f62911e = new a("command");
         }
 
         public a(String str) {
@@ -91,20 +87,20 @@ public class ga extends gc {
                     return null;
                 }
                 String lowerCase = str.toLowerCase();
-                if (f71902a.toString().equals(lowerCase)) {
-                    return f71902a;
+                if (a.toString().equals(lowerCase)) {
+                    return a;
                 }
-                if (f71903b.toString().equals(lowerCase)) {
-                    return f71903b;
+                if (f62908b.toString().equals(lowerCase)) {
+                    return f62908b;
                 }
-                if (f71905d.toString().equals(lowerCase)) {
-                    return f71905d;
+                if (f62910d.toString().equals(lowerCase)) {
+                    return f62910d;
                 }
-                if (f71904c.toString().equals(lowerCase)) {
-                    return f71904c;
+                if (f62909c.toString().equals(lowerCase)) {
+                    return f62909c;
                 }
-                if (f71906e.toString().equals(lowerCase)) {
-                    return f71906e;
+                if (f62911e.toString().equals(lowerCase)) {
+                    return f62911e;
                 }
                 return null;
             }
@@ -131,7 +127,7 @@ public class ga extends gc {
                 return;
             }
         }
-        this.f71901a = a.f71902a;
+        this.a = a.a;
         this.f428a = new HashMap();
     }
 
@@ -153,10 +149,10 @@ public class ga extends gc {
                 return;
             }
         }
-        this.f71901a = a.f71902a;
+        this.a = a.a;
         this.f428a = new HashMap();
         if (bundle.containsKey("ext_iq_type")) {
-            this.f71901a = a.a(bundle.getString("ext_iq_type"));
+            this.a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
@@ -166,7 +162,7 @@ public class ga extends gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle a2 = super.a();
-            a aVar = this.f71901a;
+            a aVar = this.a;
             if (aVar != null) {
                 a2.putString("ext_iq_type", aVar.toString());
             }
@@ -179,7 +175,7 @@ public class ga extends gc {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71901a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (a) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.gc
@@ -214,7 +210,7 @@ public class ga extends gc {
                 sb.append(gn.a(entry.getValue()));
                 sb.append("\" ");
             }
-            if (this.f71901a == null) {
+            if (this.a == null) {
                 str = "type=\"get\">";
             } else {
                 sb.append("type=\"");
@@ -227,9 +223,9 @@ public class ga extends gc {
                 sb.append(b2);
             }
             sb.append(o());
-            gg m346a = m346a();
-            if (m346a != null) {
-                sb.append(m346a.m350a());
+            gg m395a = m395a();
+            if (m395a != null) {
+                sb.append(m395a.m399a());
             }
             sb.append("</iq>");
             return sb.toString();
@@ -241,9 +237,9 @@ public class ga extends gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (aVar == null) {
-                aVar = a.f71902a;
+                aVar = a.a;
             }
-            this.f71901a = aVar;
+            this.a = aVar;
         }
     }
 

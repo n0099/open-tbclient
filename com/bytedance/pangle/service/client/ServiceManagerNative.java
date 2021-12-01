@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ServiceManagerNative {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ServiceManagerNative sInstance;
@@ -79,12 +79,10 @@ public class ServiceManagerNative {
                 this.serviceConn2ServiceConn.put(serviceConnection, new g.a(this, serviceConnection) { // from class: com.bytedance.pangle.service.client.ServiceManagerNative.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ ServiceConnection f62412a;
+                    public final /* synthetic */ ServiceConnection a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ServiceManagerNative f62413b;
+                    public final /* synthetic */ ServiceManagerNative f54647b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -101,15 +99,15 @@ public class ServiceManagerNative {
                                 return;
                             }
                         }
-                        this.f62413b = this;
-                        this.f62412a = serviceConnection;
+                        this.f54647b = this;
+                        this.a = serviceConnection;
                     }
 
                     @Override // com.bytedance.pangle.g
                     public final void a(ComponentName componentName, IBinder iBinder) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
-                            this.f62412a.onServiceConnected(componentName, iBinder);
+                            this.a.onServiceConnected(componentName, iBinder);
                         }
                     }
 
@@ -117,7 +115,7 @@ public class ServiceManagerNative {
                     public final int a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f62412a.hashCode() : invokeV.intValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.a.hashCode() : invokeV.intValue;
                     }
                 });
             }
@@ -125,8 +123,8 @@ public class ServiceManagerNative {
                 this.conn2Service.put(serviceConnection, new HashSet<>());
             }
             this.conn2Service.get(serviceConnection).add(queryServiceFromPlugin);
-            e a2 = b.a(queryServiceFromPlugin.processName);
-            IBinder asBinder = a2.asBinder();
+            e a = b.a(queryServiceFromPlugin.processName);
+            IBinder asBinder = a.asBinder();
             HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = this.process2ConnAndService.get(asBinder);
             if (hashMap == null) {
                 hashMap = new HashMap<>();
@@ -139,7 +137,7 @@ public class ServiceManagerNative {
             }
             hashSet.add(intent.getComponent());
             try {
-                return a2.a(intent, this.serviceConn2ServiceConn.get(serviceConnection), i2, str);
+                return a.a(intent, this.serviceConn2ServiceConn.get(serviceConnection), i2, str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 ZeusLogger.e(ZeusLogger.TAG_SERVICE, "bindService failed!", e2);

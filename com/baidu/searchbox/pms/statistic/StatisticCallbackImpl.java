@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class StatisticCallbackImpl implements StatisticCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,10 +27,10 @@ public class StatisticCallbackImpl implements StatisticCallback {
     }
 
     @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
-    public boolean addDownloadStatistic2(int i2, String str, String str2, String str3, long j, String str4, String str5, int i3, int i4) {
+    public boolean addDownloadStatistic2(int i2, String str, String str2, String str3, long j2, String str4, String str5, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3, Long.valueOf(j), str4, str5, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3, Long.valueOf(j2), str4, str5, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             return false;
         }
         return invokeCommon.booleanValue;

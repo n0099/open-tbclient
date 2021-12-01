@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocationClient f39926a;
+    public final /* synthetic */ LocationClient a;
 
     public c(LocationClient locationClient) {
         Interceptable interceptable = $ic;
@@ -28,7 +26,7 @@ public class c extends Thread {
                 return;
             }
         }
-        this.f39926a = locationClient;
+        this.a = locationClient;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -40,16 +38,16 @@ public class c extends Thread {
         LocationClientOption locationClientOption;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cVar = this.f39926a.C;
+            cVar = this.a.C;
             if (cVar == null) {
-                LocationClient locationClient = this.f39926a;
-                context = this.f39926a.f39745f;
-                locationClientOption = this.f39926a.f39743d;
-                locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.f39926a);
+                LocationClient locationClient = this.a;
+                context = this.a.f35461f;
+                locationClientOption = this.a.f35459d;
+                locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.a);
             }
-            cVar2 = this.f39926a.C;
+            cVar2 = this.a.C;
             if (cVar2 != null) {
-                cVar3 = this.f39926a.C;
+                cVar3 = this.a.C;
                 cVar3.c();
             }
         }

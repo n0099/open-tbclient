@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMUnBindPushRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,12 +30,12 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
     public String mDeviceId;
     public Long mUk;
 
-    public IMUnBindPushRequest(Context context, long j, String str, String str2, Long l) {
+    public IMUnBindPushRequest(Context context, long j2, String str, String str2, Long l) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, str2, l};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2, l};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -46,7 +46,7 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = Long.valueOf(j);
+        this.mAppid = Long.valueOf(j2);
         this.mBduss = str;
         this.mDeviceId = str2;
         this.mUk = l;
@@ -116,10 +116,10 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d("IMUnBindPushRequest", str2);
-            long j = 0;
+            long j2 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                j = jSONObject.optLong(BaseJsonData.TAG_REQUESTID);
+                j2 = jSONObject.optLong(BaseJsonData.TAG_REQUESTID);
                 i3 = jSONObject.optInt("error_code", 0);
                 str = i3 != 0 ? jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG) : Constants.ERROR_MSG_SUCCESS;
                 if (i3 == 0) {
@@ -131,7 +131,7 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i3 = 1010;
             }
-            LogUtils.d("IMUnBindPushRequest", "requestid : " + j + " , resultCode: " + i3 + " , resultMsg : " + str);
+            LogUtils.d("IMUnBindPushRequest", "requestid : " + j2 + " , resultCode: " + i3 + " , resultMsg : " + str);
         }
     }
 

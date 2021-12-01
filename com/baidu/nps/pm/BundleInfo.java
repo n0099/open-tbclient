@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.TKBase;
 import com.tencent.open.SocialOperation;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BundleInfo implements IBundleInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public class BundleInfo implements IBundleInfo {
             ArrayList arrayList3 = arrayList2;
             int columnIndex15 = cursor.getColumnIndex("icon_url");
             int columnIndex16 = cursor.getColumnIndex("dependence");
-            int columnIndex17 = cursor.getColumnIndex("visible");
+            int columnIndex17 = cursor.getColumnIndex(TKBase.VISIBILITY_VISIBLE);
             int columnIndex18 = cursor.getColumnIndex("removalbe");
             int columnIndex19 = cursor.getColumnIndex("size");
             int columnIndex20 = cursor.getColumnIndex("need_remove");
@@ -254,7 +254,7 @@ public class BundleInfo implements IBundleInfo {
     public static ContentValues toContentValues(BundleInfo bundleInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bundleInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundleInfo)) == null) {
             ContentValues contentValues = new ContentValues();
             String packageName = bundleInfo.getPackageName();
             if (TextUtils.isEmpty(packageName)) {
@@ -276,7 +276,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("download_url", bundleInfo.getDownloadUrl());
             contentValues.put("icon_url", bundleInfo.getIconUrl());
             contentValues.put("dependence", bundleInfo.getDependence());
-            contentValues.put("visible", Boolean.valueOf(bundleInfo.isVisible()));
+            contentValues.put(TKBase.VISIBILITY_VISIBLE, Boolean.valueOf(bundleInfo.isVisible()));
             contentValues.put("removalbe", Boolean.valueOf(bundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(bundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(bundleInfo.isNeedRemove()));
@@ -640,10 +640,10 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSize(long j) {
+    public void setSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            this.size = j;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
+            this.size = j2;
         }
     }
 
@@ -656,10 +656,10 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setUpdateV(long j) {
+    public void setUpdateV(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
-            this.updateV = j;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
+            this.updateV = j2;
         }
     }
 
@@ -687,10 +687,10 @@ public class BundleInfo implements IBundleInfo {
         }
     }
 
-    public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
+    public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048626, this, list, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048626, this, list, j2)) == null) {
             HashMap hashMap = new HashMap();
             if (list == null) {
                 return null;
@@ -698,7 +698,7 @@ public class BundleInfo implements IBundleInfo {
             for (BundleInfo bundleInfo : list) {
                 BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
                 if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j);
+                    bundleInfoGroup = new BundleInfoGroup(j2);
                     hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
                 }
                 bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);
@@ -772,7 +772,7 @@ public class BundleInfo implements IBundleInfo {
             bundleInfo.setDownloadUrl(contentValues.getAsString("download_url"));
             bundleInfo.setIconUrl(contentValues.getAsString("icon_url"));
             bundleInfo.setDependence(contentValues.getAsString("dependence"));
-            bundleInfo.setVisible(contentValues.getAsBoolean("visible").booleanValue());
+            bundleInfo.setVisible(contentValues.getAsBoolean(TKBase.VISIBILITY_VISIBLE).booleanValue());
             bundleInfo.setRemovable(contentValues.getAsBoolean("removalbe").booleanValue());
             bundleInfo.setSize(contentValues.getAsLong("size").longValue());
             bundleInfo.setNeedRemove(contentValues.getAsBoolean("need_remove").booleanValue());
@@ -789,7 +789,7 @@ public class BundleInfo implements IBundleInfo {
     public static ContentValues toContentValues(IBundleInfo iBundleInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, iBundleInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, iBundleInfo)) == null) {
             ContentValues contentValues = new ContentValues();
             String packageName = iBundleInfo.getPackageName();
             if (TextUtils.isEmpty(packageName)) {
@@ -811,7 +811,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("download_url", iBundleInfo.getDownloadUrl());
             contentValues.put("icon_url", iBundleInfo.getIconUrl());
             contentValues.put("dependence", iBundleInfo.getDependence());
-            contentValues.put("visible", Boolean.valueOf(iBundleInfo.isVisible()));
+            contentValues.put(TKBase.VISIBILITY_VISIBLE, Boolean.valueOf(iBundleInfo.isVisible()));
             contentValues.put("removalbe", Boolean.valueOf(iBundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(iBundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(iBundleInfo.isNeedRemove()));

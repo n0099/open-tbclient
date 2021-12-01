@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.chatmessage;
 
 import com.baidu.android.imsdk.IMListener;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface IMediaGetChatSessionListener extends IMListener {
     void onMediaGetChatSessionResult(int i2, int i3, int i4, boolean z, List<ChatSession> list);
 }

@@ -36,7 +36,6 @@ import androidx.core.graphics.PathParser;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,6 +43,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -460,7 +460,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     public static VectorDrawableCompat createFromXmlInner(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, resources, xmlPullParser, attributeSet, theme)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, resources, xmlPullParser, attributeSet, theme)) == null) {
             VectorDrawableCompat vectorDrawableCompat = new VectorDrawableCompat();
             vectorDrawableCompat.inflate(resources, xmlPullParser, attributeSet, theme);
             return vectorDrawableCompat;
@@ -470,7 +470,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     private void inflateInternal(Resources resources, XmlPullParser xmlPullParser, AttributeSet attributeSet, Resources.Theme theme) throws XmlPullParserException, IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, this, resources, xmlPullParser, attributeSet, theme) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65542, this, resources, xmlPullParser, attributeSet, theme) == null) {
             VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
             VPathRenderer vPathRenderer = vectorDrawableCompatState.mVPathRenderer;
             ArrayDeque arrayDeque = new ArrayDeque();
@@ -596,7 +596,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 if (vPathRenderer.mBaseWidth <= 0.0f) {
                     throw new XmlPullParserException(typedArray.getPositionDescription() + "<vector> tag requires width > 0");
                 } else if (dimension > 0.0f) {
-                    vPathRenderer.setAlpha(TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "alpha", 4, vPathRenderer.getAlpha()));
+                    vPathRenderer.setAlpha(TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, AnimationProperty.OPACITY, 4, vPathRenderer.getAlpha()));
                     String string = typedArray.getString(0);
                     if (string != null) {
                         vPathRenderer.mRootName = string;
@@ -971,14 +971,14 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void scheduleSelf(Runnable runnable, long j) {
+    public void scheduleSelf(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048604, this, runnable, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048604, this, runnable, j2) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                drawable.scheduleSelf(runnable, j);
+                drawable.scheduleSelf(runnable, j2);
             } else {
-                super.scheduleSelf(runnable, j);
+                super.scheduleSelf(runnable, j2);
             }
         }
     }
@@ -1788,7 +1788,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
         private void drawPath(VGroup vGroup, VPath vPath, Canvas canvas, int i2, int i3, ColorFilter colorFilter) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{vGroup, vPath, canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{vGroup, vPath, canvas, Integer.valueOf(i2), Integer.valueOf(i3), colorFilter}) == null) {
                 float f2 = i2 / this.mViewportWidth;
                 float f3 = i3 / this.mViewportHeight;
                 float min = Math.min(f2, f3);
@@ -1890,7 +1890,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         private float getMatrixScale(Matrix matrix) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, matrix)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, matrix)) == null) {
                 float[] fArr = {0.0f, 1.0f, 1.0f, 0.0f};
                 matrix.mapVectors(fArr);
                 float cross = cross(fArr[0], fArr[1], fArr[2], fArr[3]);
@@ -2100,8 +2100,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 this.mRotate = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "rotation", 5, this.mRotate);
                 this.mPivotX = typedArray.getFloat(1, this.mPivotX);
                 this.mPivotY = typedArray.getFloat(2, this.mPivotY);
-                this.mScaleX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "scaleX", 3, this.mScaleX);
-                this.mScaleY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "scaleY", 4, this.mScaleY);
+                this.mScaleX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, AnimationProperty.SCALE_X, 3, this.mScaleX);
+                this.mScaleY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, AnimationProperty.SCALE_Y, 4, this.mScaleY);
                 this.mTranslateX = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "translateX", 6, this.mTranslateX);
                 this.mTranslateY = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "translateY", 7, this.mTranslateY);
                 String string = typedArray.getString(0);

@@ -10,7 +10,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.bumptech.glide.RequestManager;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SupportRequestManagerFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SupportRMFragment";
@@ -36,7 +35,7 @@ public class SupportRequestManagerFragment extends Fragment {
     @Nullable
     public SupportRequestManagerFragment rootRequestManagerFragment;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class SupportFragmentRequestManagerTreeNode implements RequestManagerTreeNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +144,7 @@ public class SupportRequestManagerFragment extends Fragment {
 
     private void registerFragmentWithRoot(@NonNull FragmentActivity fragmentActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, fragmentActivity) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, fragmentActivity) == null) {
             unregisterFragmentWithRoot();
             SupportRequestManagerFragment supportRequestManagerFragment = Glide.get(fragmentActivity).getRequestManagerRetriever().getSupportRequestManagerFragment(fragmentActivity);
             this.rootRequestManagerFragment = supportRequestManagerFragment;
@@ -158,7 +157,7 @@ public class SupportRequestManagerFragment extends Fragment {
 
     private void removeChildRequestManagerFragment(SupportRequestManagerFragment supportRequestManagerFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, supportRequestManagerFragment) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, supportRequestManagerFragment) == null) {
             this.childRequestManagerFragments.remove(supportRequestManagerFragment);
         }
     }

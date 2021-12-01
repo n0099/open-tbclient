@@ -6,7 +6,6 @@ import android.icu.text.DateFormat;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class UtcDates {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UTC = "UTC";
@@ -57,12 +56,12 @@ public class UtcDates {
         }
     }
 
-    public static long canonicalYearMonthDay(long j) {
+    public static long canonicalYearMonthDay(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
             Calendar utcCalendar = getUtcCalendar();
-            utcCalendar.setTimeInMillis(j);
+            utcCalendar.setTimeInMillis(j2);
             return getDayCopy(utcCalendar).getTimeInMillis();
         }
         return invokeJ.longValue;
@@ -98,14 +97,14 @@ public class UtcDates {
     public static DateFormat getAbbrMonthWeekdayDayFormat(Locale locale) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, locale)) == null) ? getAndroidFormat("MMMEd", locale) : (DateFormat) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, locale)) == null) ? getAndroidFormat("MMMEd", locale) : (DateFormat) invokeL.objValue;
     }
 
     @TargetApi(24)
     public static DateFormat getAndroidFormat(String str, Locale locale) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, locale)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, locale)) == null) {
             DateFormat instanceForSkeleton = DateFormat.getInstanceForSkeleton(str, locale);
             instanceForSkeleton.setTimeZone(getUtcAndroidTimeZone());
             return instanceForSkeleton;

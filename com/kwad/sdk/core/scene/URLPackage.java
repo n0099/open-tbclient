@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serializable {
+public class URLPackage extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AUTHOR_ID = "authorId";
     public static final String KEY_TREND_ID = "trendId";
@@ -57,7 +57,7 @@ public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serial
         this.identity = str;
     }
 
-    @Override // com.kwad.sdk.core.response.a.a
+    @Override // com.kwad.sdk.core.response.kwai.a
     public void afterParseJson(@Nullable JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -77,25 +77,25 @@ public class URLPackage extends com.kwad.sdk.core.response.a.a implements Serial
         }
     }
 
-    @Override // com.kwad.sdk.core.response.a.a
+    @Override // com.kwad.sdk.core.response.kwai.a
     public void afterToJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             super.afterToJson(jSONObject);
             JSONObject jSONObject2 = this.mJsonObjectParams;
             if (jSONObject2 != null) {
-                q.a(jSONObject, "params", jSONObject2.toString());
+                t.a(jSONObject, "params", jSONObject2.toString());
             }
         }
     }
 
-    public void putParams(String str, long j) {
+    public void putParams(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2) == null) {
             if (this.mJsonObjectParams == null) {
                 this.mJsonObjectParams = new JSONObject();
             }
-            q.a(this.mJsonObjectParams, str, j);
+            t.a(this.mJsonObjectParams, str, j2);
         }
     }
 }

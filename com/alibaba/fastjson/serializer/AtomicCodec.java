@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AtomicCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicCodec instance;
@@ -130,11 +130,11 @@ public class AtomicCodec implements ObjectSerializer, ObjectDeserializer {
                 int length2 = atomicLongArray.length();
                 serializeWriter.write(91);
                 while (i3 < length2) {
-                    long j = atomicLongArray.get(i3);
+                    long j2 = atomicLongArray.get(i3);
                     if (i3 != 0) {
                         serializeWriter.write(44);
                     }
-                    serializeWriter.writeLong(j);
+                    serializeWriter.writeLong(j2);
                     i3++;
                 }
                 serializeWriter.write(93);

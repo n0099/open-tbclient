@@ -12,11 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_ARRIVED = 2;
@@ -90,7 +91,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
             String content = miPushMessage.getContent();
             com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
             if (msgFromXMConsole(context, content)) {
-                iVar.k = l.f36598b.b();
+                iVar.f32855k = l.f32821b.b();
             } else {
                 content = iVar.b(context, content);
             }
@@ -117,7 +118,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                     String command = miPushCommandMessage.getCommand();
                     List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                     String str = (commandArguments == null || commandArguments.size() <= 0) ? null : commandArguments.get(0);
-                    if ("register".equals(command)) {
+                    if (MiPushClient.COMMAND_REGISTER.equals(command)) {
                         Intent intent = new Intent("com.xiaomi.mipush.REGISTER");
                         intent.putExtra(REGID, str);
                         intent.putExtra(REGISTER_ERRORCODE, miPushCommandMessage.getResultCode());

@@ -15,19 +15,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class BCouponPagerAdapter extends PagerAdapter implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f61668a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<View> f61669b;
+    public List<View> f54135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f61670c;
+    public int f54136c;
 
     public BCouponPagerAdapter(Context context, List<View> list) {
         Interceptable interceptable = $ic;
@@ -44,17 +42,17 @@ public class BCouponPagerAdapter extends PagerAdapter implements NoProguard {
                 return;
             }
         }
-        this.f61669b = new ArrayList();
-        this.f61670c = 0;
-        this.f61668a = context;
-        this.f61669b = list;
+        this.f54135b = new ArrayList();
+        this.f54136c = 0;
+        this.a = context;
+        this.f54135b = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(View view, int i2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, obj) == null) {
-            List<View> list = this.f61669b;
+            List<View> list = this.f54135b;
             View view2 = list.get(i2 % list.size());
             if (view2.getParent() == null) {
                 ((ViewPager) view).removeView(view2);
@@ -66,7 +64,7 @@ public class BCouponPagerAdapter extends PagerAdapter implements NoProguard {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61669b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54135b.size() : invokeV.intValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -74,9 +72,9 @@ public class BCouponPagerAdapter extends PagerAdapter implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            int i2 = this.f61670c;
+            int i2 = this.f54136c;
             if (i2 > 0) {
-                this.f61670c = i2 - 1;
+                this.f54136c = i2 - 1;
                 return -2;
             }
             return super.getItemPosition(obj);
@@ -89,7 +87,7 @@ public class BCouponPagerAdapter extends PagerAdapter implements NoProguard {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, view, i2)) == null) {
-            List<View> list = this.f61669b;
+            List<View> list = this.f54135b;
             View view2 = list.get(i2 % list.size());
             ViewParent parent = view2.getParent();
             if (parent != null) {
@@ -112,7 +110,7 @@ public class BCouponPagerAdapter extends PagerAdapter implements NoProguard {
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f61670c = getCount();
+            this.f54136c = getCount();
             super.notifyDataSetChanged();
         }
     }

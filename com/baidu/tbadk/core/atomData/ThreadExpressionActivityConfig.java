@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ThreadExpressionActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_HOST = "is_host";
@@ -15,13 +15,13 @@ public class ThreadExpressionActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThreadExpressionActivityConfig(Context context, String str, boolean z, int i2, boolean z2, String str2, String str3, long j) {
+    public ThreadExpressionActivityConfig(Context context, String str, boolean z, int i2, boolean z2, String str2, String str3, long j2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), str2, str3, Long.valueOf(j)};
+            Object[] objArr = {context, str, Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), str2, str3, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -39,6 +39,6 @@ public class ThreadExpressionActivityConfig extends IntentConfig {
         getIntent().putExtra(IS_LIKED, z2);
         getIntent().putExtra("portrait", str3);
         getIntent().putExtra("user_id", str2);
-        getIntent().putExtra("forum_id", j);
+        getIntent().putExtra("forum_id", j2);
     }
 }

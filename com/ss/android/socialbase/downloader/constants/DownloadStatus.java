@@ -1,7 +1,6 @@
 package com.ss.android.socialbase.downloader.constants;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,13 +71,13 @@ public class DownloadStatus {
     public static boolean isRealTimeUploadStatus(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? i2 == -3 || i2 == -1 || i2 == -4 || i2 == -2 || i2 == 5 || i2 == 7 || i2 == 8 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? i2 == -3 || i2 == -1 || i2 == -4 || i2 == -2 || i2 == 5 || i2 == 7 || i2 == 8 : invokeI.booleanValue;
     }
 
     public static boolean isTimeUploadStatus(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? i2 == -3 || i2 == -1 || i2 == -4 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? i2 == -3 || i2 == -1 || i2 == -4 : invokeI.booleanValue;
     }
 
     public static boolean isUnCompletedStatus(int i2) {

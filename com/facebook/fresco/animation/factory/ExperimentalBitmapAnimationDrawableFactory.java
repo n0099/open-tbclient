@@ -5,7 +5,6 @@ import android.graphics.Rect;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +39,7 @@ import com.facebook.imagepipeline.image.CloseableAnimatedImage;
 import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHING_STRATEGY_FRESCO_CACHE = 1;
@@ -57,7 +56,7 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
     public final PlatformBitmapFactory mPlatformBitmapFactory;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class AnimationFrameCacheKey implements CacheKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String URI_PREFIX = "anim://";
@@ -183,7 +182,7 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
     private BitmapFramePreparer createBitmapFramePreparer(BitmapFrameRenderer bitmapFrameRenderer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bitmapFrameRenderer)) == null) ? new DefaultBitmapFramePreparer(this.mPlatformBitmapFactory, bitmapFrameRenderer, Bitmap.Config.ARGB_8888, this.mExecutorServiceForFramePreparing) : (BitmapFramePreparer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, this, bitmapFrameRenderer)) == null) ? new DefaultBitmapFramePreparer(this.mPlatformBitmapFactory, bitmapFrameRenderer, Bitmap.Config.ARGB_8888, this.mExecutorServiceForFramePreparing) : (BitmapFramePreparer) invokeL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.drawable.DrawableFactory

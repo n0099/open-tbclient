@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.systrace;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FrescoSystrace {
     public static /* synthetic */ Interceptable $ic;
     public static final ArgsBuilder NO_OP_ARGS_BUILDER;
@@ -20,26 +19,26 @@ public class FrescoSystrace {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.systrace.FrescoSystrace$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface ArgsBuilder {
         ArgsBuilder arg(String str, double d2);
 
         ArgsBuilder arg(String str, int i2);
 
-        ArgsBuilder arg(String str, long j);
+        ArgsBuilder arg(String str, long j2);
 
         ArgsBuilder arg(String str, Object obj);
 
         void flush();
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class NoOpArgsBuilder implements ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,10 +72,10 @@ public class FrescoSystrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public ArgsBuilder arg(String str, long j) {
+        public ArgsBuilder arg(String str, long j2) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (ArgsBuilder) invokeLJ.objValue;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) ? this : (ArgsBuilder) invokeLJ.objValue;
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
@@ -98,7 +97,7 @@ public class FrescoSystrace {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface Systrace {
         void beginSection(String str);
 
@@ -163,7 +162,7 @@ public class FrescoSystrace {
     public static Systrace getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (sInstance == null) {
                 synchronized (FrescoSystrace.class) {
                     if (sInstance == null) {
@@ -179,7 +178,7 @@ public class FrescoSystrace {
     public static boolean isTracing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? getInstance().isTracing() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? getInstance().isTracing() : invokeV.booleanValue;
     }
 
     public static void provide(Systrace systrace) {

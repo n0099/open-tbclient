@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import cn.com.chinatelecom.gateway.lib.a.f;
 import cn.com.chinatelecom.gateway.lib.c.i;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,15 +17,13 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f34598a = "d";
+    public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f34599b;
+    public static final byte[] f31072b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +39,7 @@ public class d {
                 return;
             }
         }
-        f34599b = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
+        f31072b = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
     }
 
     public d() {
@@ -61,7 +58,7 @@ public class d {
 
     public static void a(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65541, null, context, i2) == null) {
             try {
                 cn.com.chinatelecom.gateway.lib.c.b.a(context, "key_c_l_l_v", i2);
             } catch (Exception e2) {
@@ -73,7 +70,7 @@ public class d {
     public static void a(Context context, String str) {
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
             int hashCode = str.hashCode();
             int i2 = 0;
             if (hashCode == 64897) {
@@ -154,7 +151,7 @@ public class d {
             String jSONArray3 = jSONArray.toString();
             if (!TextUtils.isEmpty(jSONArray3)) {
                 try {
-                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f34599b)));
+                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f31072b)));
                 } catch (Exception e3) {
                     e = e3;
                 }
@@ -178,15 +175,13 @@ public class d {
             i.a(new Runnable(context, list, i2) { // from class: cn.com.chinatelecom.gateway.lib.b.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f34600a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ List f34601b;
+                public final /* synthetic */ List f31073b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f34602c;
+                public final /* synthetic */ int f31074c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -203,9 +198,9 @@ public class d {
                             return;
                         }
                     }
-                    this.f34600a = context;
-                    this.f34601b = list;
-                    this.f34602c = i2;
+                    this.a = context;
+                    this.f31073b = list;
+                    this.f31074c = i2;
                 }
 
                 @Override // java.lang.Runnable
@@ -213,11 +208,11 @@ public class d {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            Queue c2 = d.c(this.f34600a, this.f34601b, this.f34602c);
+                            Queue c2 = d.c(this.a, this.f31073b, this.f31074c);
                             if (c2.isEmpty()) {
                                 return;
                             }
-                            String b2 = d.b(this.f34600a, c2);
+                            String b2 = d.b(this.a, c2);
                             JSONObject jSONObject = null;
                             int i3 = -1;
                             try {
@@ -232,7 +227,7 @@ public class d {
                                         e.printStackTrace();
                                         if (jSONObject != null) {
                                         }
-                                        d.b(this.f34600a, c2, this.f34602c);
+                                        d.b(this.a, c2, this.f31074c);
                                         return;
                                     }
                                 }
@@ -240,10 +235,10 @@ public class d {
                                 e = e3;
                             }
                             if (jSONObject != null || i3 != 0) {
-                                d.b(this.f34600a, c2, this.f34602c);
+                                d.b(this.a, c2, this.f31074c);
                                 return;
                             }
-                            d.c(this.f34600a);
+                            d.c(this.a);
                             c2.clear();
                         } catch (Throwable th) {
                             th.printStackTrace();
@@ -279,7 +274,7 @@ public class d {
             }
             if (jSONArray.length() > 0) {
                 try {
-                    str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f34599b));
+                    str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f31072b));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                     str = null;
@@ -304,7 +299,7 @@ public class d {
                 String a2 = c.a(context);
                 if (!TextUtils.isEmpty(a2)) {
                     try {
-                        JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f34599b)));
+                        JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f31072b)));
                         int length = jSONArray.length();
                         for (int i3 = 0; i3 < length && i3 <= 10; i3++) {
                             JSONObject jSONObject = jSONArray.getJSONObject(i3);

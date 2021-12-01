@@ -26,7 +26,6 @@ import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.b;
+import com.kwad.sdk.api.a;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import com.kwad.sdk.api.core.lifecycle.KsLifecycle;
 import com.kwad.sdk.api.loader.Loader;
@@ -142,7 +141,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     private boolean isKsAdParentFragment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             Fragment parentFragment = this.mBase.getParentFragment();
             return parentFragment != null && (parentFragment instanceof IDelegateFragment);
         }
@@ -357,7 +356,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (b.f64809c.booleanValue()) {
+            if (a.f56964c.booleanValue()) {
                 throw new RuntimeException("please use getContext().getResources()");
             }
             return this.mBase.getContext().getResources();
@@ -582,6 +581,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
+    @Deprecated
     public /* bridge */ /* synthetic */ void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
     }

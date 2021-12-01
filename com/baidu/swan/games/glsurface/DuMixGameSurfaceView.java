@@ -9,9 +9,9 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.k;
-import b.a.p0.j.e0.g;
-import b.a.p0.j.g0.h;
+import c.a.p0.a.k;
+import c.a.p0.j.e0.g;
+import c.a.p0.j.g0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
@@ -32,37 +32,39 @@ import com.faceunity.gles.GeneratedTexture;
 import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.Callback2, ArBridge.FirstFrameListener {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean m;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AREngineDelegate f45470e;
+    public AREngineDelegate f40509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.p0.a.l0.a f45471f;
+    public c.a.p0.a.l0.a f40510f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.p0.j.q.c.a f45472g;
+    public c.a.p0.j.q.c.a f40511g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45473h;
+    public int f40512h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45474i;
-    public volatile f j;
-    public boolean k;
+    public int f40513i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public volatile f f40514j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public boolean f40515k;
     public GameRecorderController l;
 
-    /* loaded from: classes8.dex */
-    public class a implements b.a.k0.a.d.a {
+    /* loaded from: classes9.dex */
+    public class a implements c.a.l0.a.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DuMixGameSurfaceView f45475a;
+        public final /* synthetic */ DuMixGameSurfaceView a;
 
         public a(DuMixGameSurfaceView duMixGameSurfaceView) {
             Interceptable interceptable = $ic;
@@ -79,33 +81,33 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
                     return;
                 }
             }
-            this.f45475a = duMixGameSurfaceView;
+            this.a = duMixGameSurfaceView;
         }
 
-        @Override // b.a.k0.a.d.a
+        @Override // c.a.l0.a.d.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.a.p0.j.q.c.b.k();
+                c.a.p0.j.q.c.b.k();
             }
         }
 
-        @Override // b.a.k0.a.d.a
-        public void b(b.a.k0.a.d.b bVar) {
+        @Override // c.a.l0.a.d.a
+        public void b(c.a.l0.a.d.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                b.a.p0.j.i0.b.c(bVar);
+                c.a.p0.j.i0.b.c(bVar);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuMixGameSurfaceView f45476e;
+        public final /* synthetic */ DuMixGameSurfaceView f40516e;
 
         public b(DuMixGameSurfaceView duMixGameSurfaceView) {
             Interceptable interceptable = $ic;
@@ -122,29 +124,29 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
                     return;
                 }
             }
-            this.f45476e = duMixGameSurfaceView;
+            this.f40516e = duMixGameSurfaceView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45476e.f45470e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40516e.f40509e == null) {
                 return;
             }
-            this.f45476e.f45470e.smallGameOnPause();
+            this.f40516e.f40509e.smallGameOnPause();
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f45477e;
+        public final /* synthetic */ f f40517e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DuMixGameSurfaceView f45478f;
+        public final /* synthetic */ DuMixGameSurfaceView f40518f;
 
         public c(DuMixGameSurfaceView duMixGameSurfaceView, f fVar) {
             Interceptable interceptable = $ic;
@@ -161,26 +163,26 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
                     return;
                 }
             }
-            this.f45478f = duMixGameSurfaceView;
-            this.f45477e = fVar;
+            this.f40518f = duMixGameSurfaceView;
+            this.f40517e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45478f.j = this.f45477e;
+                this.f40518f.f40514j = this.f40517e;
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuMixGameSurfaceView f45479e;
+        public final /* synthetic */ DuMixGameSurfaceView f40519e;
 
         public d(DuMixGameSurfaceView duMixGameSurfaceView) {
             Interceptable interceptable = $ic;
@@ -197,29 +199,29 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
                     return;
                 }
             }
-            this.f45479e = duMixGameSurfaceView;
+            this.f40519e = duMixGameSurfaceView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f45479e.k && this.f45479e.f45470e != null) {
-                    this.f45479e.f45470e.setScreenShotStatus(false);
+                if (this.f40519e.f40515k && this.f40519e.f40509e != null) {
+                    this.f40519e.f40509e.setScreenShotStatus(false);
                 }
-                this.f45479e.j = null;
-                this.f45479e.k = false;
+                this.f40519e.f40514j = null;
+                this.f40519e.f40515k = false;
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class e implements GLSurfaceView.Renderer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuMixGameSurfaceView f45480e;
+        public final /* synthetic */ DuMixGameSurfaceView f40520e;
 
         public e(DuMixGameSurfaceView duMixGameSurfaceView) {
             Interceptable interceptable = $ic;
@@ -236,7 +238,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
                     return;
                 }
             }
-            this.f45480e = duMixGameSurfaceView;
+            this.f40520e = duMixGameSurfaceView;
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
@@ -244,20 +246,20 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gl10) == null) {
                 boolean unused = DuMixGameSurfaceView.m;
-                if (this.f45480e.f45470e == null) {
+                if (this.f40520e.f40509e == null) {
                     return;
                 }
-                this.f45480e.f45470e.smallGameUpdate();
-                if (this.f45480e.j != null) {
-                    if (this.f45480e.k) {
-                        this.f45480e.j.a(this.f45480e.getScreenShot(), this.f45480e.f45473h, this.f45480e.f45474i);
-                        this.f45480e.f45470e.setScreenShotStatus(false);
-                        this.f45480e.k = false;
-                        this.f45480e.j = null;
+                this.f40520e.f40509e.smallGameUpdate();
+                if (this.f40520e.f40514j != null) {
+                    if (this.f40520e.f40515k) {
+                        this.f40520e.f40514j.a(this.f40520e.getScreenShot(), this.f40520e.f40512h, this.f40520e.f40513i);
+                        this.f40520e.f40509e.setScreenShotStatus(false);
+                        this.f40520e.f40515k = false;
+                        this.f40520e.f40514j = null;
                     }
-                    if (this.f45480e.j != null) {
-                        this.f45480e.f45470e.setScreenShotStatus(true);
-                        this.f45480e.k = true;
+                    if (this.f40520e.f40514j != null) {
+                        this.f40520e.f40509e.setScreenShotStatus(true);
+                        this.f40520e.f40515k = true;
                     }
                 }
             }
@@ -267,8 +269,8 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gl10, i2, i3) == null) {
-                this.f45480e.f45473h = i2;
-                this.f45480e.f45474i = i3;
+                this.f40520e.f40512h = i2;
+                this.f40520e.f40513i = i3;
                 if (DuMixGameSurfaceView.m) {
                     String str = "AiWebRender onSurfaceChanged width * height = " + i2 + " * " + i3;
                 }
@@ -284,7 +286,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface f {
         void a(int[] iArr, int i2, int i3);
     }
@@ -302,8 +304,8 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
                 return;
             }
         }
-        m = k.f6863a;
-        b.a.p0.a.k2.d.c();
+        m = k.a;
+        c.a.p0.a.k2.d.c();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -333,13 +335,13 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            int i3 = this.f45473h;
-            if (i3 > 0 && (i2 = this.f45474i) > 0) {
+            int i3 = this.f40512h;
+            if (i3 > 0 && (i2 = this.f40513i) > 0) {
                 try {
                     int[] iArr = new int[i3 * i2];
                     IntBuffer wrap = IntBuffer.wrap(iArr);
                     wrap.position(0);
-                    GLES20.glReadPixels(0, 0, this.f45473h, this.f45474i, GeneratedTexture.FORMAT, 5121, wrap);
+                    GLES20.glReadPixels(0, 0, this.f40512h, this.f40513i, GeneratedTexture.FORMAT, 5121, wrap);
                     return iArr;
                 } catch (OutOfMemoryError unused) {
                 }
@@ -352,7 +354,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     private void setRenderer(GLSurfaceView.Renderer renderer) {
         AREngineDelegate aREngineDelegate;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65551, this, renderer) == null) || (aREngineDelegate = this.f45470e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65551, this, renderer) == null) || (aREngineDelegate = this.f40509e) == null) {
             return;
         }
         aREngineDelegate.setRenderer(renderer);
@@ -371,7 +373,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             boolean z = m;
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.clearOldEvents();
             }
@@ -381,11 +383,11 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     public void doEnginePerformanceUBC() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.a.p0.a.l0.a aVar = this.f45471f;
+            c.a.p0.a.l0.a aVar = this.f40510f;
             if (aVar != null) {
                 h.b(aVar.q0());
             }
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 h.b(aREngineDelegate.getPerformanceJson());
             }
@@ -396,7 +398,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate == null) {
                 return 0;
             }
@@ -409,7 +411,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 return aREngineDelegate.getRenderMode();
             }
@@ -422,7 +424,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 return aREngineDelegate.getGLThread();
             }
@@ -431,10 +433,10 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         return (Thread) invokeV.objValue;
     }
 
-    public b.a.p0.a.l0.a getV8Engine() {
+    public c.a.p0.a.l0.a getV8Engine() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f45471f : (b.a.p0.a.l0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40510f : (c.a.p0.a.l0.a) invokeV.objValue;
     }
 
     public final void l() {
@@ -448,16 +450,16 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
             aVar.i(this);
             aVar.j(new e(this));
             aVar.h(AppRuntime.getAppContext());
-            aVar.f(new b.a.p0.j.q.a());
-            b.a.p0.a.u1.h.p("preload").F(new UbcFlowEvent("na_game_engine_start"));
+            aVar.f(new c.a.p0.j.q.a());
+            c.a.p0.a.u1.h.p("preload").F(new UbcFlowEvent("na_game_engine_start"));
             AREngineDelegate createAREngine = MarioSDK.createAREngine(aVar);
-            this.f45470e = createAREngine;
-            createAREngine.setPermissionProxy(new b.a.p0.a.l0.n.e());
-            this.f45470e.setOnStuckScreenListener(new a(this));
-            this.f45470e.startEngine();
-            b.a.p0.a.u1.h.p("preload").F(new UbcFlowEvent("na_game_engine_end"));
-            this.f45472g = new b.a.p0.j.q.c.a();
-            this.l = new GameRecorderController(this.f45470e);
+            this.f40509e = createAREngine;
+            createAREngine.setPermissionProxy(new c.a.p0.a.l0.n.e());
+            this.f40509e.setOnStuckScreenListener(new a(this));
+            this.f40509e.startEngine();
+            c.a.p0.a.u1.h.p("preload").F(new UbcFlowEvent("na_game_engine_end"));
+            this.f40511g = new c.a.p0.j.q.c.a();
+            this.l = new GameRecorderController(this.f40509e);
             g.a().g(this.l);
         }
     }
@@ -465,8 +467,8 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f45474i = 0;
-            this.f45473h = 0;
+            this.f40513i = 0;
+            this.f40512h = 0;
         }
     }
 
@@ -482,7 +484,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onAttachedToWindow();
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.onAttachedToWindow();
             }
@@ -495,16 +497,16 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
             boolean z = m;
             m();
             g.a().f(this.l);
-            if (this.f45470e != null) {
-                b.a.p0.a.l0.a aVar = this.f45471f;
+            if (this.f40509e != null) {
+                c.a.p0.a.l0.a aVar = this.f40510f;
                 if (aVar != null) {
                     aVar.m0();
                 }
-                this.f45470e.setFirstFrameListener(null);
-                this.f45470e.setOnStuckScreenListener(null);
-                this.f45470e.smallGameDestroy();
-                this.f45470e.exitGLThread();
-                this.f45470e = null;
+                this.f40509e.setFirstFrameListener(null);
+                this.f40509e.setOnStuckScreenListener(null);
+                this.f40509e.smallGameDestroy();
+                this.f40509e.exitGLThread();
+                this.f40509e = null;
             }
         }
     }
@@ -514,7 +516,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             boolean z = m;
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.onDetachedFromWindow();
             }
@@ -527,11 +529,11 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             doEnginePerformanceUBC();
-            SwanAppActivity activity = b.a.p0.a.g1.f.U().getActivity();
+            SwanAppActivity activity = c.a.p0.a.g1.f.U().getActivity();
             if (activity != null) {
-                b.a.p0.a.t0.c frame = activity.getFrame();
-                if (frame instanceof b.a.p0.j.o.d) {
-                    ((b.a.p0.j.o.d) frame).k1();
+                c.a.p0.a.t0.c frame = activity.getFrame();
+                if (frame instanceof c.a.p0.j.o.d) {
+                    ((c.a.p0.j.o.d) frame).k1();
                 }
             }
         }
@@ -540,10 +542,10 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     public void onJSError(V8ExceptionInfo v8ExceptionInfo) {
         AREngineDelegate aREngineDelegate;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, v8ExceptionInfo) == null) || (aREngineDelegate = this.f45470e) == null || aREngineDelegate.getStuckScreenHandler() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, v8ExceptionInfo) == null) || (aREngineDelegate = this.f40509e) == null || aREngineDelegate.getStuckScreenHandler() == null) {
             return;
         }
-        this.f45470e.getStuckScreenHandler().a(0, v8ExceptionInfo);
+        this.f40509e.getStuckScreenHandler().a(0, v8ExceptionInfo);
     }
 
     public void onPause() {
@@ -551,7 +553,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             boolean z = m;
             queueEvent(new b(this));
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.onPause();
             }
@@ -563,7 +565,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             boolean z = m;
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.onResume();
             }
@@ -576,7 +578,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, motionEvent)) == null) {
-            if (this.f45472g.a(motionEvent)) {
+            if (this.f40511g.a(motionEvent)) {
                 return true;
             }
             return super.onTouchEvent(motionEvent);
@@ -588,7 +590,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, runnable) == null) {
             boolean z = m;
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.queueEvent(runnable);
             }
@@ -598,7 +600,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     public void requestRender() {
         AREngineDelegate aREngineDelegate;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (aREngineDelegate = this.f45470e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (aREngineDelegate = this.f40509e) == null) {
             return;
         }
         aREngineDelegate.requestRender();
@@ -617,7 +619,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, runnable) == null) {
             boolean z = m;
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.runOnGLThread(runnable);
             }
@@ -627,17 +629,17 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     public void setRenderMode(int i2) {
         AREngineDelegate aREngineDelegate;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (aREngineDelegate = this.f45470e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (aREngineDelegate = this.f40509e) == null) {
             return;
         }
         aREngineDelegate.setRenderMode(i2);
     }
 
-    public void setV8Engine(b.a.p0.a.l0.a aVar) {
+    public void setV8Engine(c.a.p0.a.l0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, aVar) == null) {
-            this.f45471f = aVar;
-            this.f45472g.c(aVar);
+            this.f40510f = aVar;
+            this.f40511g.c(aVar);
         }
     }
 
@@ -648,11 +650,11 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
             if (m) {
                 String str = "surfaceChanged width: " + i3 + ", height: " + i4;
             }
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.surfaceChanged(i3, i4);
             }
-            b.a.p0.j.q.c.a aVar = this.f45472g;
+            c.a.p0.j.q.c.a aVar = this.f40511g;
             if (aVar != null) {
                 aVar.b(i3, i4);
             }
@@ -664,7 +666,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, surfaceHolder) == null) {
             boolean z = m;
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.surfaceCreated();
             }
@@ -677,7 +679,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (interceptable == null || interceptable.invokeL(1048603, this, surfaceHolder) == null) {
             boolean z = m;
             m();
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.surfaceDestroyed();
             }
@@ -688,7 +690,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     public void surfaceRedrawNeeded(SurfaceHolder surfaceHolder) {
         AREngineDelegate aREngineDelegate;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, surfaceHolder) == null) || (aREngineDelegate = this.f45470e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, surfaceHolder) == null) || (aREngineDelegate = this.f40509e) == null) {
             return;
         }
         aREngineDelegate.requestRenderAndWait();
@@ -697,13 +699,13 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     public void updateGameCanvasSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            Pair<Integer, Integer> x = b.a.p0.a.g1.f.U().x();
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            Pair<Integer, Integer> x = c.a.p0.a.g1.f.U().x();
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
                 aREngineDelegate.updateSurfaceViewSize(((Integer) x.first).intValue(), ((Integer) x.second).intValue());
-                this.f45470e.initDisplayMetrics();
+                this.f40509e.initDisplayMetrics();
             }
-            b.a.p0.j.q.c.a aVar = this.f45472g;
+            c.a.p0.j.q.c.a aVar = this.f40511g;
             if (aVar != null) {
                 aVar.d(((Integer) x.first).intValue(), ((Integer) x.second).intValue());
             }
@@ -732,13 +734,13 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         l();
     }
 
-    public void queueEvent(Runnable runnable, long j) {
+    public void queueEvent(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048595, this, runnable, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048595, this, runnable, j2) == null) {
             boolean z = m;
-            AREngineDelegate aREngineDelegate = this.f45470e;
+            AREngineDelegate aREngineDelegate = this.f40509e;
             if (aREngineDelegate != null) {
-                aREngineDelegate.queueEvent(runnable, j);
+                aREngineDelegate.queueEvent(runnable, j2);
             }
         }
     }

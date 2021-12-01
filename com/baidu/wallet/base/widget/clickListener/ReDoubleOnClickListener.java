@@ -9,15 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class ReDoubleOnClickListener implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f58670a = true;
+    public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Runnable f58671b;
+    public static final Runnable f52246b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +31,7 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
                 return;
             }
         }
-        f58671b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
+        f52246b = new Runnable() { // from class: com.baidu.wallet.base.widget.clickListener.ReDoubleOnClickListener.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +53,7 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    boolean unused = ReDoubleOnClickListener.f58670a = true;
+                    boolean unused = ReDoubleOnClickListener.a = true;
                 }
             }
         };
@@ -80,9 +78,9 @@ public abstract class ReDoubleOnClickListener implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && f58670a) {
-            f58670a = false;
-            view.post(f58671b);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && a) {
+            a = false;
+            view.post(f52246b);
             doClick(view);
         }
     }

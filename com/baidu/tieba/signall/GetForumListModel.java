@@ -1,7 +1,7 @@
 package com.baidu.tieba.signall;
 
-import b.a.e.a.f;
-import b.a.r0.h3.c;
+import c.a.d.a.f;
+import c.a.r0.o3.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -28,36 +28,38 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
     public static /* synthetic */ Interceptable $ic;
     public static final String l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f54885e;
+    public c f49029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f54886f;
+    public b f49030f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessage f54887g;
+    public HttpMessage f49031g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f54888h;
+    public boolean f49032h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final BdUniqueId f54889i;
-    public ResponsedMessage<?> j;
-    public final HttpMessageListener k;
+    public final BdUniqueId f49033i;
 
-    /* loaded from: classes9.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public ResponsedMessage<?> f49034j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public final HttpMessageListener f49035k;
+
+    /* loaded from: classes11.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GetForumListModel f54890a;
+        public final /* synthetic */ GetForumListModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GetForumListModel getForumListModel, int i2) {
@@ -77,7 +79,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                     return;
                 }
             }
-            this.f54890a = getForumListModel;
+            this.a = getForumListModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,34 +88,34 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001201) {
                 int error = httpResponsedMessage.getError();
-                this.f54890a.j = httpResponsedMessage;
+                this.a.f49034j = httpResponsedMessage;
                 if (!httpResponsedMessage.isSuccess()) {
                     if (error == 110001) {
-                        this.f54890a.C(httpResponsedMessage);
+                        this.a.C(httpResponsedMessage);
                     }
-                    this.f54890a.f54886f.onNetError(httpResponsedMessage.getErrorString());
+                    this.a.f49030f.onNetError(httpResponsedMessage.getErrorString());
                 } else if (error == 0) {
-                    this.f54890a.f54885e = ((GetForumResponsed) httpResponsedMessage).listData;
-                    if (this.f54890a.f54886f != null) {
-                        if (this.f54890a.f54885e != null) {
-                            this.f54890a.f54886f.a(this.f54890a.f54885e);
+                    this.a.f49029e = ((GetForumResponsed) httpResponsedMessage).listData;
+                    if (this.a.f49030f != null) {
+                        if (this.a.f49029e != null) {
+                            this.a.f49030f.a(this.a.f49029e);
                         } else {
                             String errorString = httpResponsedMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
                                 errorString = TbadkCoreApplication.getInst().getContext().getString(R.string.neterror);
                             }
-                            this.f54890a.f54886f.onNetError(errorString);
+                            this.a.f49030f.onNetError(errorString);
                         }
                     }
                 } else {
-                    this.f54890a.f54886f.onNetError(httpResponsedMessage.getErrorString());
+                    this.a.f49030f.onNetError(httpResponsedMessage.getErrorString());
                 }
-                this.f54890a.f54887g = null;
+                this.a.f49031g = null;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void a(c cVar);
 
@@ -154,18 +156,18 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                 return;
             }
         }
-        this.f54885e = null;
-        this.f54886f = null;
-        this.f54889i = BdUniqueId.gen();
-        this.k = new a(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
-        this.f54888h = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.f49029e = null;
+        this.f49030f = null;
+        this.f49033i = BdUniqueId.gen();
+        this.f49035k = new a(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
+        this.f49032h = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.f54885e = new c();
+        this.f49029e = new c();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, l);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.k);
+        registerListener(this.f49035k);
     }
 
     public final void C(HttpResponsedMessage httpResponsedMessage) {
@@ -185,7 +187,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         sb.append(value.toString());
                         sb.append("&");
                     }
-                    b.a.q0.s.a0.a.a("sign_all", httpMessage.getClientLogID(), 0, "sign_getforumlist_error", 110001, sb.toString(), new Object[0]);
+                    c.a.q0.s.a0.a.a("sign_all", httpMessage.getClientLogID(), 0, "sign_getforumlist_error", 110001, sb.toString(), new Object[0]);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -196,13 +198,13 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54888h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49032h : invokeV.booleanValue;
     }
 
     public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f54886f = bVar;
+            this.f49030f = bVar;
         }
     }
 
@@ -211,9 +213,9 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f54887g != null) {
-                MessageManager.getInstance().removeHttpMessage(this.f54889i);
-                this.f54887g = null;
+            if (this.f49031g != null) {
+                MessageManager.getInstance().removeHttpMessage(this.f49033i);
+                this.f49031g = null;
             }
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.SIGNALL_GET_FOURMS);
             return true;
@@ -224,7 +226,7 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
     public ResponsedMessage<?> getResponsedMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : (ResponsedMessage) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49034j : (ResponsedMessage) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -232,14 +234,14 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f54887g != null) {
+            if (this.f49031g != null) {
                 return false;
             }
-            this.f54887g = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
+            this.f49031g = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            this.f54887g.addParam("user_id", currentAccountObj != null ? currentAccountObj.getID() : null);
-            this.f54887g.setTag(this.f54889i);
-            MessageManager.getInstance().sendMessage(this.f54887g);
+            this.f49031g.addParam("user_id", currentAccountObj != null ? currentAccountObj.getID() : null);
+            this.f49031g.setTag(this.f49033i);
+            MessageManager.getInstance().sendMessage(this.f49031g);
             return true;
         }
         return invokeV.booleanValue;

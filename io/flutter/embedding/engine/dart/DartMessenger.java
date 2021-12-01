@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DartMessenger";
@@ -29,7 +29,7 @@ public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
     @NonNull
     public final Map<Integer, BinaryMessenger.BinaryReply> pendingReplies;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Reply implements BinaryMessenger.BinaryReply {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,6 +95,18 @@ public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
         this.pendingReplies = new HashMap();
     }
 
+    public static void handleError(Error error) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, error) == null) {
+            Thread currentThread = Thread.currentThread();
+            if (currentThread.getUncaughtExceptionHandler() != null) {
+                currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, error);
+                return;
+            }
+            throw error;
+        }
+    }
+
     @UiThread
     public int getPendingChannelResponseCount() {
         InterceptResult invokeV;
@@ -103,18 +115,25 @@ public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
     }
 
     @Override // io.flutter.embedding.engine.dart.PlatformMessageHandler
-    public void handleMessageFromDart(@NonNull String str, @Nullable byte[] bArr, int i2) {
+    public void handleMessageFromDart(@NonNull String str, @Nullable ByteBuffer byteBuffer, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, byteBuffer, i2) == null) {
             Log.v(TAG, "Received message from Dart over channel '" + str + "'");
             BinaryMessenger.BinaryMessageHandler binaryMessageHandler = this.messageHandlers.get(str);
             if (binaryMessageHandler != null) {
                 try {
                     Log.v(TAG, "Deferring to registered handler to process message.");
-                    binaryMessageHandler.onMessage(bArr == null ? null : ByteBuffer.wrap(bArr), new Reply(this.flutterJNI, i2));
+                    binaryMessageHandler.onMessage(byteBuffer, new Reply(this.flutterJNI, i2));
+                    if (byteBuffer == null || !byteBuffer.isDirect()) {
+                        return;
+                    }
+                    byteBuffer.limit(0);
                     return;
-                } catch (Exception e2) {
-                    Log.e(TAG, "Uncaught exception in binary message listener", e2);
+                } catch (Error e2) {
+                    handleError(e2);
+                    return;
+                } catch (Exception e3) {
+                    Log.e(TAG, "Uncaught exception in binary message listener", e3);
                     this.flutterJNI.invokePlatformMessageEmptyResponseCallback(i2);
                     return;
                 }
@@ -125,17 +144,23 @@ public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
     }
 
     @Override // io.flutter.embedding.engine.dart.PlatformMessageHandler
-    public void handlePlatformMessageResponse(int i2, @Nullable byte[] bArr) {
+    public void handlePlatformMessageResponse(int i2, @Nullable ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, byteBuffer) == null) {
             Log.v(TAG, "Received message reply from Dart.");
             BinaryMessenger.BinaryReply remove = this.pendingReplies.remove(Integer.valueOf(i2));
             if (remove != null) {
                 try {
                     Log.v(TAG, "Invoking registered callback for reply from Dart.");
-                    remove.reply(bArr == null ? null : ByteBuffer.wrap(bArr));
-                } catch (Exception e2) {
-                    Log.e(TAG, "Uncaught exception in binary message reply handler", e2);
+                    remove.reply(byteBuffer);
+                    if (byteBuffer == null || !byteBuffer.isDirect()) {
+                        return;
+                    }
+                    byteBuffer.limit(0);
+                } catch (Error e2) {
+                    handleError(e2);
+                } catch (Exception e3) {
+                    Log.e(TAG, "Uncaught exception in binary message reply handler", e3);
                 }
             }
         }

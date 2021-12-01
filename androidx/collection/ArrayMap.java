@@ -105,10 +105,10 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public void colPut(K k, V v) {
+                    public void colPut(K k2, V v) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(1048582, this, k, v) == null) {
-                            this.this$0.put(k, v);
+                        if (interceptable2 == null || interceptable2.invokeLL(1048582, this, k2, v) == null) {
+                            this.this$0.put(k2, v);
                         }
                     }
 

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Media;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MediaData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXT_TYPE_XIAOYING = 12;
@@ -276,10 +276,10 @@ public class MediaData extends OrmObject implements Serializable {
         }
     }
 
-    public void setOriginalSize(long j) {
+    public void setOriginalSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.original_size = j;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            this.original_size = j2;
         }
     }
 

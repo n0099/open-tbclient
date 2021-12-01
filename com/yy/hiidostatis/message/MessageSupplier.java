@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.message;
 
 import com.yy.hiidostatis.message.bean.Message;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface MessageSupplier {
     Message fetchMessage(int i2);
 

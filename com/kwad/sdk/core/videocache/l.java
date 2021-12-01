@@ -3,7 +3,6 @@ package com.kwad.sdk.core.videocache;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -59,12 +58,12 @@ public class l {
         }
     }
 
-    public static void a(byte[] bArr, long j, int i2) {
+    public static void a(byte[] bArr, long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bArr, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bArr, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             j.a(bArr, "Buffer must be not null!");
             boolean z = true;
-            j.a(j >= 0, "Data offset must be positive!");
+            j.a(j2 >= 0, "Data offset must be positive!");
             j.a((i2 < 0 || i2 > bArr.length) ? false : false, "Length must be in range [0..buffer.length]");
         }
     }
@@ -85,7 +84,7 @@ public class l {
     public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
                 return URLDecoder.decode(str, "utf-8");
             } catch (UnsupportedEncodingException e2) {
@@ -98,7 +97,7 @@ public class l {
     public static String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
                 return a(MessageDigest.getInstance("MD5").digest(str.getBytes()));
             } catch (NoSuchAlgorithmException e2) {

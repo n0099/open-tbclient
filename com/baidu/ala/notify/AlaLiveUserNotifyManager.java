@@ -8,7 +8,6 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AlaLiveUserNotifyManager {
     public static /* synthetic */ Interceptable $ic;
     public static AlaLiveUserNotifyManager mInstance;
@@ -29,7 +28,7 @@ public class AlaLiveUserNotifyManager {
     public BdUniqueId mCurTag;
     public HttpMessageListener mGetUserNotifyListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface AlaLiveNotifyListener {
         void onCallBack();
     }
@@ -100,7 +99,7 @@ public class AlaLiveUserNotifyManager {
     public static AlaLiveUserNotifyManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (mInstance == null) {
                 synchronized (AlaLiveUserNotifyManager.class) {
                     if (mInstance == null) {
@@ -116,7 +115,7 @@ public class AlaLiveUserNotifyManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyMsg() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || ListUtils.isEmpty(this.listeners)) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || ListUtils.isEmpty(this.listeners)) {
             return;
         }
         Iterator<AlaLiveNotifyListener> it = this.listeners.iterator();

@@ -10,7 +10,6 @@ import com.baidu.ar.d.b;
 import com.baidu.ar.d.e;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GestureAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MDL_GESTURE_STATUS_DETECTED = 5002;
@@ -100,7 +99,7 @@ public class GestureAR extends c {
     public HashMap f(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, fArr)) == null) {
             HashMap hashMap = new HashMap();
             int length = fArr.length / 13;
             hashMap.put("id", 5002);

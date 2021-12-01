@@ -2,7 +2,6 @@ package com.google.zxing.oned;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class UPCEANReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] END_PATTERN;
@@ -148,7 +147,7 @@ public abstract class UPCEANReader extends OneDReader {
     public static int[] findStartGuardPattern(BitArray bitArray) throws NotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bitArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bitArray)) == null) {
             int[] iArr = new int[START_END_PATTERN.length];
             int[] iArr2 = null;
             boolean z = false;
@@ -195,7 +194,7 @@ public abstract class UPCEANReader extends OneDReader {
     public static int[] findGuardPattern(BitArray bitArray, int i2, boolean z, int[] iArr, int[] iArr2) throws NotFoundException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{bitArray, Integer.valueOf(i2), Boolean.valueOf(z), iArr, iArr2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{bitArray, Integer.valueOf(i2), Boolean.valueOf(z), iArr, iArr2})) == null) {
             int size = bitArray.getSize();
             int nextUnset = z ? bitArray.getNextUnset(i2) : bitArray.getNextSet(i2);
             int length = iArr.length;

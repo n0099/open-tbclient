@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.k;
+import c.a.d.f.p.k;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OldUserData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4483304441506804594L;
@@ -35,7 +35,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
     public long userId;
     public String userName;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;
@@ -201,24 +201,24 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.userName : (String) invokeV.objValue;
     }
 
-    public void setId(long j) {
+    public void setId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.id = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.id = j2;
         }
     }
 
-    public void setInTime(long j) {
+    public void setInTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.inTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.inTime = j2;
         }
     }
 
-    public void setLastReplyTime(long j) {
+    public void setLastReplyTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.lastReplyTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.lastReplyTime = j2;
         }
     }
 
@@ -236,10 +236,10 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         }
     }
 
-    public void setLoginTime(long j) {
+    public void setLoginTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.loginTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.loginTime = j2;
         }
     }
 
@@ -303,10 +303,10 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         userData.setTShowInfo(this.mTShowIconInfo);
     }
 
-    public void setUserId(long j) {
+    public void setUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
-            this.userId = j;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
+            this.userId = j2;
         }
     }
 

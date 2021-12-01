@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a extends j {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -85,9 +85,9 @@ public class a extends j {
     public void onSensorChanged(SensorEvent sensorEvent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 4) {
-            long j = this.timestamp;
-            if (j != 0) {
-                float f2 = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
+            long j2 = this.timestamp;
+            if (j2 != 0) {
+                float f2 = ((float) (sensorEvent.timestamp - j2)) * 1.0E-9f;
                 float[] fArr = sensorEvent.values;
                 float f3 = fArr[0];
                 float f4 = fArr[1];
@@ -109,10 +109,10 @@ public class a extends j {
                 synchronized (this.sy) {
                     this.rA.multiplyByQuat(this.sB, this.sB);
                 }
-                Quaternion m13clone = this.sB.m13clone();
-                m13clone.w(-m13clone.w());
+                Quaternion m33clone = this.sB.m33clone();
+                m33clone.w(-m33clone.w());
                 synchronized (this.sy) {
-                    SensorManager.getRotationMatrixFromVector(this.sA.matrix, m13clone.toArray());
+                    SensorManager.getRotationMatrixFromVector(this.sA.matrix, m33clone.toArray());
                 }
             }
             this.timestamp = sensorEvent.timestamp;

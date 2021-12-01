@@ -41,7 +41,6 @@ import androidx.core.internal.view.SupportMenu;
 import androidx.core.text.BidiFormatter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -62,7 +61,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDrawable, Drawable.Callback, TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -164,7 +163,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     public TextUtils.TruncateAt truncateAt;
     public boolean useCompatRipple;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public interface Delegate {
         void onChipDrawableSizeChange();
     }
@@ -299,7 +298,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
 
     private void calculateCloseIconBounds(@NonNull Rect rect, @NonNull RectF rectF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, rect, rectF) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, rect, rectF) == null) {
             rectF.setEmpty();
             if (showsCloseIcon()) {
                 float f2 = this.chipEndPadding + this.closeIconEndPadding;
@@ -323,7 +322,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
 
     private void calculateCloseIconTouchBounds(@NonNull Rect rect, @NonNull RectF rectF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, rect, rectF) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, rect, rectF) == null) {
             rectF.setEmpty();
             if (showsCloseIcon()) {
                 float f2 = this.chipEndPadding + this.closeIconEndPadding + this.closeIconSize + this.closeIconStartPadding + this.textEndPadding;
@@ -1227,13 +1226,13 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
         Drawable.Callback callback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) || (callback = getCallback()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) || (callback = getCallback()) == null) {
             return;
         }
-        callback.scheduleDrawable(this, runnable, j);
+        callback.scheduleDrawable(this, runnable, j2);
     }
 
     @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable

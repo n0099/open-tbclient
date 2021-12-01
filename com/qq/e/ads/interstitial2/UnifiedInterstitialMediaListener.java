@@ -17,7 +17,7 @@ public interface UnifiedInterstitialMediaListener {
 
     void onVideoPause();
 
-    void onVideoReady(long j);
+    void onVideoReady(long j2);
 
     void onVideoStart();
 }

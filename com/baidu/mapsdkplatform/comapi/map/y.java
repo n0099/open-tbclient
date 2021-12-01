@@ -8,25 +8,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class y {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final y f41018a;
+    public static final y a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final y f41019b;
+    public static final y f36499b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final y f41020c;
+    public static final y f36500c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ y[] f41021e;
+    public static final /* synthetic */ y[] f36501e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f41022d;
+    public final int f36502d;
 
     static {
         InterceptResult invokeClinit;
@@ -41,11 +39,11 @@ public final class y {
                 return;
             }
         }
-        f41018a = new y("DEFAULT", 0, 1);
-        f41019b = new y("INDOOR", 1, 2);
+        a = new y("DEFAULT", 0, 1);
+        f36499b = new y("INDOOR", 1, 2);
         y yVar = new y("STREET", 2, 3);
-        f41020c = yVar;
-        f41021e = new y[]{f41018a, f41019b, yVar};
+        f36500c = yVar;
+        f36501e = new y[]{a, f36499b, yVar};
     }
 
     public y(String str, int i2, int i3) {
@@ -66,7 +64,7 @@ public final class y {
                 return;
             }
         }
-        this.f41022d = i3;
+        this.f36502d = i3;
     }
 
     public static y valueOf(String str) {
@@ -78,6 +76,6 @@ public final class y {
     public static y[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f41021e.clone() : (y[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f36501e.clone() : (y[]) invokeV.objValue;
     }
 }

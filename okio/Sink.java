@@ -12,5 +12,5 @@ public interface Sink extends Closeable, Flushable {
 
     Timeout timeout();
 
-    void write(Buffer buffer, long j) throws IOException;
+    void write(Buffer buffer, long j2) throws IOException;
 }

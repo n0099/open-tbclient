@@ -38,7 +38,6 @@ import android.webkit.CookieSyncManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
@@ -59,6 +58,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import com.kuaishou.weapon.un.s;
+import com.kuaishou.weapon.un.w0;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -89,7 +91,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SapiUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COOKIE_EXPIRES_DATE_FORMAT = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
@@ -192,7 +194,7 @@ public class SapiUtils implements NoProguard {
     public static String buildCuidCookie(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             return "cuid=" + str2 + ";domain=" + str + ";path=/;httponly";
         }
         return (String) invokeLL.objValue;
@@ -201,7 +203,7 @@ public class SapiUtils implements NoProguard {
     public static String buildDarkModeCookie(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
             calendar.add(5, TextUtils.isEmpty(str2) ? -1 : 1);
@@ -270,7 +272,7 @@ public class SapiUtils implements NoProguard {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, map, str)) == null) {
-            map.remove("sig");
+            map.remove(FunAdSdk.PLATFORM_SIG);
             ArrayList arrayList = new ArrayList();
             for (String str2 : map.keySet()) {
                 arrayList.add(str2);
@@ -900,7 +902,7 @@ public class SapiUtils implements NoProguard {
                         str2 = str;
                         i2 = 0;
                     }
-                    List<ScanResult> scanResults = checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) ? wifiManager.getScanResults() : null;
+                    List<ScanResult> scanResults = checkRequestPermission(s.f56842g, context) ? wifiManager.getScanResults() : null;
                     if (scanResults != null) {
                         for (ScanResult scanResult : scanResults) {
                             String str4 = scanResult.BSSID;
@@ -1006,7 +1008,7 @@ public class SapiUtils implements NoProguard {
         }
         if (!SapiDeviceUtils.isForbidDangerousPermissionApp(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
-                if (checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
+                if (checkRequestPermission(s.f56838c, context)) {
                     try {
                         str = Build.getSerial();
                     } catch (Throwable unused) {
@@ -1148,10 +1150,11 @@ public class SapiUtils implements NoProguard {
     }
 
     @TargetApi(4)
-    public static boolean isOnline(Context context) {
+    public static boolean isOnline(SapiConfiguration sapiConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, sapiConfiguration)) == null) {
+            Context context = sapiConfiguration.context;
             String packageName = context.getPackageName();
             if (TextUtils.isEmpty(packageName)) {
                 return false;
@@ -1160,8 +1163,8 @@ public class SapiUtils implements NoProguard {
                 return true;
             }
             if (isDebug(context)) {
-                Log.e(ShareUtils.TAG, "isDebug=true");
-                return false;
+                Log.e(ShareUtils.TAG, "isDebug=true  isSupportDebugShareLogin=" + sapiConfiguration.isSupportDebugShareLogin);
+                return sapiConfiguration.isSupportDebugShareLogin;
             }
             Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
             String packageSign = getPackageSign(context, packageName);
@@ -1381,7 +1384,7 @@ public class SapiUtils implements NoProguard {
         String defaultSmsPackage;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65605, null, context, str, list) == null) {
-            String join = (list == null || list.isEmpty()) ? "" : TextUtils.join("Samsung".equalsIgnoreCase(Build.MANUFACTURER) ? "," : ";", list);
+            String join = (list == null || list.isEmpty()) ? "" : TextUtils.join(w0.w1.equalsIgnoreCase(Build.MANUFACTURER) ? "," : ";", list);
             Uri parse = Uri.parse("smsto:" + join);
             Intent intent = new Intent();
             intent.setData(parse);

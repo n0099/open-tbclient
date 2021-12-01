@@ -2,7 +2,6 @@ package io.reactivex.internal.disposables;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DisposableHelper implements Disposable {
     public static final /* synthetic */ DisposableHelper[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -107,7 +106,7 @@ public final class DisposableHelper implements Disposable {
 
     public static void reportDisposableSet() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             RxJavaPlugins.onError(new ProtocolViolationException("Disposable already set!"));
         }
     }
@@ -116,7 +115,7 @@ public final class DisposableHelper implements Disposable {
         Disposable disposable2;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, atomicReference, disposable)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, atomicReference, disposable)) == null) {
             do {
                 disposable2 = atomicReference.get();
                 if (disposable2 == DISPOSED) {

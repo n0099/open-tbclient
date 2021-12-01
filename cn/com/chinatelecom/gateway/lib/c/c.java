@@ -4,8 +4,6 @@ import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,15 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f34639a = "cn.com.chinatelecom.gateway.lib.c.c";
+    public static final String a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f34640b = "";
+    public static String f31104b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -74,16 +70,16 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(f34640b)) {
+            if (TextUtils.isEmpty(f31104b)) {
                 String b2 = b(context);
-                f34640b = b2;
+                f31104b = b2;
                 if (TextUtils.isEmpty(b2)) {
                     String c2 = c(context);
-                    f34640b = c2;
+                    f31104b = c2;
                     a(context, c2);
                 }
             }
-            return f34640b;
+            return f31104b;
         }
         return (String) invokeL.objValue;
     }
@@ -116,7 +112,7 @@ public class c {
 
     public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) || TextUtils.isEmpty(str) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) || TextUtils.isEmpty(str) || context == null) {
             return;
         }
         b.a(context, "key_d_i_u", str);
@@ -125,7 +121,7 @@ public class c {
     public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? b.b(context, "key_d_i_u", "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? b.b(context, "key_d_i_u", "") : (String) invokeL.objValue;
     }
 
     public static String c(Context context) {
@@ -133,7 +129,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
-                String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+                String string = Settings.Secure.getString(context.getContentResolver(), "android_id");
                 String lowerCase = !TextUtils.isEmpty(string) ? string.toLowerCase() : UUID.randomUUID().toString();
                 return TextUtils.isEmpty(lowerCase) ? "default" : a(lowerCase + "default");
             }

@@ -25,17 +25,17 @@ public final class FlowKt__ErrorsKt$retry$3 extends SuspendLambda implements Fun
     public long p$1;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowKt__ErrorsKt$retry$3(long j, Function2 function2, Continuation continuation) {
+    public FlowKt__ErrorsKt$retry$3(long j2, Function2 function2, Continuation continuation) {
         super(4, continuation);
-        this.$retries = j;
+        this.$retries = j2;
         this.$predicate = function2;
     }
 
-    public final Continuation<Unit> create(FlowCollector<? super T> flowCollector, Throwable th, long j, Continuation<? super Boolean> continuation) {
+    public final Continuation<Unit> create(FlowCollector<? super T> flowCollector, Throwable th, long j2, Continuation<? super Boolean> continuation) {
         FlowKt__ErrorsKt$retry$3 flowKt__ErrorsKt$retry$3 = new FlowKt__ErrorsKt$retry$3(this.$retries, this.$predicate, continuation);
         flowKt__ErrorsKt$retry$3.p$ = flowCollector;
         flowKt__ErrorsKt$retry$3.p$0 = th;
-        flowKt__ErrorsKt$retry$3.p$1 = j;
+        flowKt__ErrorsKt$retry$3.p$1 = j2;
         return flowKt__ErrorsKt$retry$3;
     }
 
@@ -60,12 +60,12 @@ public final class FlowKt__ErrorsKt$retry$3 extends SuspendLambda implements Fun
             ResultKt.throwOnFailure(obj);
             FlowCollector flowCollector = this.p$;
             Throwable th = this.p$0;
-            long j = this.p$1;
-            if (j < this.$retries) {
+            long j2 = this.p$1;
+            if (j2 < this.$retries) {
                 Function2 function2 = this.$predicate;
                 this.L$0 = flowCollector;
                 this.L$1 = th;
-                this.J$0 = j;
+                this.J$0 = j2;
                 this.label = 1;
                 obj = function2.invoke(th, this);
                 if (obj == coroutine_suspended) {

@@ -21,9 +21,7 @@ import com.kwad.sdk.api.loader.Wrapper;
 public class b extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public a f65849a;
+    public a a;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -55,7 +53,7 @@ public class b extends Dialog {
         if (context instanceof Activity) {
             setOwnerActivity((Activity) context);
         }
-        this.f65849a = aVar;
+        this.a = aVar;
     }
 
     private View a() {
@@ -66,9 +64,7 @@ public class b extends Dialog {
             inflate.findViewById(R.id.ksad_exit_intercept_dialog_layout).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.page.widget.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f65850a;
+                public final /* synthetic */ b a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -85,23 +81,21 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f65850a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f65850a.f65849a.c(this.f65850a);
+                        this.a.a.c(this.a);
                     }
                 }
             });
             inflate.findViewById(R.id.ksad_exit_intercept_content_layout).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.page.widget.b.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f65851a;
+                public final /* synthetic */ b a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -118,7 +112,7 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f65851a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -131,9 +125,7 @@ public class b extends Dialog {
             inflate.findViewById(R.id.ksad_web_exit_intercept_positive_btn).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.page.widget.b.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f65852a;
+                public final /* synthetic */ b a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -150,23 +142,21 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f65852a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f65852a.f65849a.a(this.f65852a);
+                        this.a.a.a(this.a);
                     }
                 }
             });
             inflate.findViewById(R.id.ksad_web_exit_intercept_negative_btn).setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.core.page.widget.b.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f65853a;
+                public final /* synthetic */ b a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,14 +173,14 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f65853a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f65853a.f65849a.b(this.f65853a);
+                        this.a.a.b(this.a);
                     }
                 }
             });

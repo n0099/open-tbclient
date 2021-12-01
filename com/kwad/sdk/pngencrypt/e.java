@@ -11,35 +11,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final k f66876a;
+    public final k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f66877b;
+    public int f58779b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f66878c;
+    public int f58780c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f66879d;
+    public int f58781d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66880e;
+    public int f58782e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f66881f;
+    public int f58783f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f66882g;
+    public int f58784g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66883h;
+    public int f58785h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f66884i;
-    public int j;
-    public int k;
+    public int f58786i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f58787j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f58788k;
     public int l;
     public int m;
     public int n;
@@ -61,13 +63,13 @@ public class e {
             }
         }
         this.o = false;
-        this.f66876a = kVar;
-        this.f66884i = 0;
+        this.a = kVar;
+        this.f58786i = 0;
         this.l = -1;
         this.m = -1;
         this.n = 0;
         this.o = false;
-        this.f66883h = 0;
+        this.f58785h = 0;
         a(1);
         c(0);
     }
@@ -102,9 +104,9 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
             this.l = i2;
-            int i3 = (i2 * this.f66877b) + this.f66879d;
+            int i3 = (i2 * this.f58779b) + this.f58781d;
             this.m = i3;
-            if (i3 < 0 || i3 >= this.f66876a.f66890b) {
+            if (i3 < 0 || i3 >= this.a.f58794b) {
                 throw new PngjException("bad row - this should not happen");
             }
         }
@@ -113,35 +115,35 @@ public class e {
     public void a(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f66884i == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f58786i == i2) {
             return;
         }
-        this.f66884i = i2;
+        this.f58786i = i2;
         byte[] b2 = b(i2);
-        this.f66878c = b2[0];
+        this.f58780c = b2[0];
         byte b3 = b2[1];
-        this.f66877b = b3;
-        this.f66880e = b2[2];
+        this.f58779b = b3;
+        this.f58782e = b2[2];
         byte b4 = b2[3];
-        this.f66879d = b4;
-        int i4 = this.f66876a.f66890b;
-        this.j = i4 > b4 ? (((i4 + b3) - 1) - b4) / b3 : 0;
-        int i5 = this.f66876a.f66889a;
-        int i6 = this.f66880e;
+        this.f58781d = b4;
+        int i4 = this.a.f58794b;
+        this.f58787j = i4 > b4 ? (((i4 + b3) - 1) - b4) / b3 : 0;
+        int i5 = this.a.a;
+        int i6 = this.f58782e;
         if (i5 > i6) {
-            int i7 = this.f66878c;
+            int i7 = this.f58780c;
             i3 = (((i5 + i7) - 1) - i6) / i7;
         } else {
             i3 = 0;
         }
-        this.k = i3;
+        this.f58788k = i3;
         if (i3 == 0) {
-            this.j = 0;
+            this.f58787j = 0;
         }
-        int i8 = this.f66878c;
-        int i9 = this.f66876a.f66892d;
-        this.f66882g = i8 * i9;
-        this.f66881f = this.f66880e * i9;
+        int i8 = this.f58780c;
+        int i9 = this.a.f58796d;
+        this.f58784g = i8 * i9;
+        this.f58783f = this.f58782e * i9;
     }
 
     public boolean a() {
@@ -150,15 +152,15 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             this.n++;
-            int i3 = this.j;
+            int i3 = this.f58787j;
             if (i3 == 0 || (i2 = this.l) >= i3 - 1) {
-                int i4 = this.f66884i;
+                int i4 = this.f58786i;
                 if (i4 == 7) {
                     this.o = true;
                     return false;
                 }
                 a(i4 + 1);
-                if (this.j == 0) {
+                if (this.f58787j == 0) {
                     this.n--;
                     return a();
                 }
@@ -186,19 +188,19 @@ public class e {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f66884i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58786i : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f58787j : invokeV.intValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f58788k : invokeV.intValue;
     }
 
     public int g() {
@@ -210,6 +212,6 @@ public class e {
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ((this.f66876a.f66897i * g()) + 7) / 8 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? ((this.a.f58801i * g()) + 7) / 8 : invokeV.intValue;
     }
 }

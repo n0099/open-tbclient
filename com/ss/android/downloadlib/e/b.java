@@ -50,9 +50,7 @@ public class b {
             a(new a<Void>(runnable) { // from class: com.ss.android.downloadlib.e.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Runnable f69693a;
+                public final /* synthetic */ Runnable a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -69,7 +67,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f69693a = runnable;
+                    this.a = runnable;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -79,7 +77,7 @@ public class b {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        this.f69693a.run();
+                        this.a.run();
                         return null;
                     }
                     return (Void) invokeV.objValue;

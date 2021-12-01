@@ -6,33 +6,33 @@ import android.content.res.Resources;
 import android.graphics.drawable.Animatable;
 import android.view.View;
 import android.view.animation.Animation;
-import b.a.e.a.f;
-import b.a.e.c.g.a;
-import b.a.q0.s.c;
+import c.a.d.a.f;
+import c.a.d.c.g.a;
+import c.a.q0.s.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface TbPageContext<T> extends f<T> {
-    @Override // b.a.e.a.f
+    @Override // c.a.d.a.f
     /* synthetic */ Context getContext();
 
     c getLayoutMode();
 
-    @Override // b.a.e.a.f
+    @Override // c.a.d.a.f
     /* synthetic */ T getOrignalPage();
 
-    @Override // b.a.e.a.f
+    @Override // c.a.d.a.f
     /* synthetic */ Activity getPageActivity();
 
-    @Override // b.a.e.a.f
+    @Override // c.a.d.a.f
     /* synthetic */ Resources getResources();
 
-    @Override // b.a.e.a.f
+    @Override // c.a.d.a.f
     /* synthetic */ String getString(int i2);
 
-    @Override // b.a.e.a.f
+    @Override // c.a.d.a.f
     /* synthetic */ BdUniqueId getUniqueId();
 
     /* synthetic */ void registerListener(int i2, a aVar);
@@ -41,10 +41,10 @@ public interface TbPageContext<T> extends f<T> {
 
     /* synthetic */ void registerListener(a aVar);
 
-    @Override // b.a.e.a.f
+    @Override // c.a.d.a.f
     /* synthetic */ void registerListener(MessageListener<?> messageListener);
 
-    @Override // b.a.e.a.f
+    @Override // c.a.d.a.f
     /* synthetic */ void sendMessage(Message<?> message);
 
     /* synthetic */ void sendMessage(NetMessage netMessage);

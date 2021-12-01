@@ -14,12 +14,12 @@ public class ContentLengthOutputStream extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ContentLengthOutputStream(SessionOutputBuffer sessionOutputBuffer, long j) {
+    public ContentLengthOutputStream(SessionOutputBuffer sessionOutputBuffer, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sessionOutputBuffer, Long.valueOf(j)};
+            Object[] objArr = {sessionOutputBuffer, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

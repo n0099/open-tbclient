@@ -7,12 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class e extends Tracer {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final e f71030a;
+    public static final e a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,7 +26,7 @@ public final class e extends Tracer {
                 return;
             }
         }
-        f71030a = new e();
+        a = new e();
     }
 
     public e() {
@@ -46,9 +44,9 @@ public final class e extends Tracer {
     }
 
     @Override // com.tencent.open.log.Tracer
-    public void doTrace(int i2, Thread thread, long j, String str, String str2, Throwable th) {
+    public void doTrace(int i2, Thread thread, long j2, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j), str, str2, th}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), thread, Long.valueOf(j2), str, str2, th}) == null) {
         }
     }
 }

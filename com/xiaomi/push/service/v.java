@@ -10,13 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class v extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f72449a;
+    public final /* synthetic */ ib a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ XMPushService f983a;
@@ -43,7 +41,7 @@ public final class v extends XMPushService.i {
             }
         }
         this.f983a = xMPushService;
-        this.f72449a = ibVar;
+        this.a = ibVar;
         this.f984a = str;
     }
 
@@ -59,9 +57,9 @@ public final class v extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ib a2 = q.a((Context) this.f983a, this.f72449a);
-                a2.m453a().a("absent_target_package", this.f984a);
-                y.a(this.f983a, a2);
+                ib a = q.a((Context) this.f983a, this.a);
+                a.m502a().a("absent_target_package", this.f984a);
+                y.a(this.f983a, a);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
                 this.f983a.a(10, e2);

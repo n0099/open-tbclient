@@ -10,7 +10,7 @@ public interface HttpParams {
 
     int getIntParameter(String str, int i2);
 
-    long getLongParameter(String str, long j);
+    long getLongParameter(String str, long j2);
 
     Object getParameter(String str);
 
@@ -26,7 +26,7 @@ public interface HttpParams {
 
     HttpParams setIntParameter(String str, int i2);
 
-    HttpParams setLongParameter(String str, long j);
+    HttpParams setLongParameter(String str, long j2);
 
     HttpParams setParameter(String str, Object obj);
 }

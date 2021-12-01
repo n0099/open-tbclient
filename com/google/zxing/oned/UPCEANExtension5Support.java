@@ -1,7 +1,6 @@
 package com.google.zxing.oned;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class UPCEANExtension5Support {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECK_DIGIT_ENCODINGS;
@@ -130,7 +129,7 @@ public final class UPCEANExtension5Support {
         InterceptResult invokeL;
         String valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             char charAt = str.charAt(0);
             String str2 = "";
             if (charAt == '0') {
@@ -165,7 +164,7 @@ public final class UPCEANExtension5Support {
         InterceptResult invokeL;
         String parseExtension5String;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (str.length() == 5 && (parseExtension5String = parseExtension5String(str)) != null) {
                 EnumMap enumMap = new EnumMap(ResultMetadataType.class);
                 enumMap.put((EnumMap) ResultMetadataType.SUGGESTED_PRICE, (ResultMetadataType) parseExtension5String);

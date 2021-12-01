@@ -15,7 +15,6 @@ import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.NamingThreadFactory;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +36,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class StatisticPoster {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -91,7 +90,7 @@ public final class StatisticPoster {
         InterceptResult invokeL;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
                 bArr = str.getBytes("UTF-8");
             } catch (UnsupportedEncodingException e2) {
@@ -180,19 +179,19 @@ public final class StatisticPoster {
     }
 
     public void statisticDownload(AbstractTask abstractTask, int i2) {
-        long j;
-        String str;
         long j2;
+        String str;
+        long j3;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractTask, i2) == null) {
             MultiSrcBinaryTaskHandler multiSrcBinaryTaskHandler = (MultiSrcBinaryTaskHandler) abstractTask.mTaskHandler;
             long elapsedRealtime = SystemClock.elapsedRealtime() - abstractTask.mStartTime;
             long currentLength = abstractTask.mProgressInfo.getCurrentLength() - abstractTask.mCurLength;
-            long j3 = abstractTask.mTotalLength;
+            long j4 = abstractTask.mTotalLength;
             TreeSet<HttpDNSInfo> priorityDownloadIpInfoSet = ((MultiSrcBinaryReqTask) abstractTask).getPriorityDownloadIpInfoSet();
             if (priorityDownloadIpInfoSet == null || priorityDownloadIpInfoSet.isEmpty()) {
-                j = j3;
+                j2 = j4;
                 str = "";
             } else {
                 Iterator<HttpDNSInfo> it = priorityDownloadIpInfoSet.iterator();
@@ -208,26 +207,26 @@ public final class StatisticPoster {
                     int i3 = next.mStatus;
                     if (i3 != 2) {
                         str2 = i3 != 3 ? str3 + "2@-1@-1" : str3 + "1@-1@-1";
-                        j2 = j3;
+                        j3 = j4;
                     } else {
                         String str4 = str3 + "0@";
-                        j2 = j3;
-                        long j4 = 0;
+                        j3 = j4;
+                        long j5 = 0;
                         String str5 = next.mDownloadTimes == 0 ? str4 + "0@" : str4 + next.getTestAverageSpeed() + "@";
                         List<Long> list = next.mHttpConnectTime;
                         if (list != null && list.size() > 0) {
                             for (int i4 = 0; i4 < next.mHttpConnectTime.size(); i4++) {
-                                j4 += next.mHttpConnectTime.get(i4).longValue();
+                                j5 += next.mHttpConnectTime.get(i4).longValue();
                             }
-                            str2 = str5 + (j4 / next.mHttpConnectTime.size());
+                            str2 = str5 + (j5 / next.mHttpConnectTime.size());
                         } else {
                             str2 = str5 + "-1";
                         }
                     }
                     str = str + str2 + ",";
-                    j3 = j2;
+                    j4 = j3;
                 }
-                j = j3;
+                j2 = j4;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -242,7 +241,7 @@ public final class StatisticPoster {
                 jSONObject.put("tnum", multiSrcBinaryTaskHandler.mMultiSrcStatData.tnum + "");
                 jSONObject.put("dcost", elapsedRealtime + "");
                 jSONObject.put("dnowsize", currentLength + "");
-                jSONObject.put("dallsize", j + "");
+                jSONObject.put("dallsize", j2 + "");
                 jSONObject.put("network", multiSrcBinaryTaskHandler.mMultiSrcStatData.network);
                 jSONObject.put("dtest", multiSrcBinaryTaskHandler.mMultiSrcStatData.dtest + "");
                 jSONObject.put("dbtype", multiSrcBinaryTaskHandler.mMultiSrcStatData.dbtype + "");

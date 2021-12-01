@@ -9,7 +9,7 @@ import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.download.DownloadStatusChangeListener;
 /* loaded from: classes2.dex */
 public interface f {
-    f a(long j);
+    f a(long j2);
 
     f a(IDownloadButtonClickListener iDownloadButtonClickListener);
 

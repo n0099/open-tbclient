@@ -33,7 +33,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.au;
 import com.baidu.mobstat.bt;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -52,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +73,9 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, activity)) == null) {
-            View a2 = a(activity);
-            if (a2 != null) {
-                return a2.getRootView();
+            View a = a(activity);
+            if (a != null) {
+                return a.getRootView();
             }
             return null;
         }
@@ -247,12 +246,12 @@ public class bj {
                 int childCount = viewGroup.getChildCount();
                 boolean z = false;
                 for (int i2 = 0; i2 < childCount && sb.length() < 128; i2++) {
-                    String k = k(viewGroup.getChildAt(i2));
-                    if (k != null && k.length() > 0) {
+                    String k2 = k(viewGroup.getChildAt(i2));
+                    if (k2 != null && k2.length() > 0) {
                         if (z) {
                             sb.append("| ");
                         }
-                        sb.append(k);
+                        sb.append(k2);
                         z = true;
                     }
                 }
@@ -294,8 +293,8 @@ public class bj {
             if ((view instanceof ListView) || (view instanceof GridView)) {
                 return true;
             }
-            String a2 = a(view.getClass());
-            if ("android.widget".equals(a2) || "android.view".equals(a2)) {
+            String a = a(view.getClass());
+            if ("android.widget".equals(a) || "android.view".equals(a)) {
                 return false;
             }
             Class<?> cls = null;
@@ -356,8 +355,8 @@ public class bj {
             if (view == null) {
                 return false;
             }
-            String a2 = a(view.getClass());
-            if ("android.widget".equals(a2) || "android.view".equals(a2)) {
+            String a = a(view.getClass());
+            if ("android.widget".equals(a) || "android.view".equals(a)) {
                 return false;
             }
             Class<?> cls = null;
@@ -475,7 +474,7 @@ public class bj {
         CharSequence textOff;
         CharSequence text;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) {
             if (view == null) {
                 return "";
             }
@@ -520,8 +519,8 @@ public class bj {
                 simpleName = view instanceof WebView ? WebView.class.getSimpleName() : "";
             }
             if (TextUtils.isEmpty(simpleName)) {
-                String a2 = a(view.getClass());
-                if (!"android.widget".equals(a2) && !"android.view".equals(a2)) {
+                String a = a(view.getClass());
+                if (!"android.widget".equals(a) && !"android.view".equals(a)) {
                     Class<?> cls = null;
                     try {
                         cls = Class.forName("androidx.recyclerview.widget.RecyclerView");
@@ -547,8 +546,8 @@ public class bj {
             if (cls == null) {
                 return "";
             }
-            String a2 = a(cls);
-            if (!"android.widget".equals(a2) && !"android.view".equals(a2)) {
+            String a = a(cls);
+            if (!"android.widget".equals(a) && !"android.view".equals(a)) {
                 return c(cls.getSuperclass());
             }
             return d(cls);
@@ -677,8 +676,8 @@ public class bj {
             if (view == null || (parent = view.getParent()) == null || !(parent instanceof ViewGroup)) {
                 return "";
             }
-            String a2 = a(parent.getClass());
-            if ("android.widget".equals(a2) || "android.view".equals(a2)) {
+            String a = a(parent.getClass());
+            if ("android.widget".equals(a) || "android.view".equals(a)) {
                 return "";
             }
             ViewGroup viewGroup = (ViewGroup) parent;
@@ -862,11 +861,11 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
-            String a2 = ay.a().a(str);
-            if (TextUtils.isEmpty(a2)) {
-                a2 = au.a().a(str, au.a.f41909a);
+            String a = ay.a().a(str);
+            if (TextUtils.isEmpty(a)) {
+                a = au.a().a(str, au.a.a);
             }
-            return a2 == null ? "" : a2;
+            return a == null ? "" : a;
         }
         return (String) invokeL.objValue;
     }
@@ -926,11 +925,11 @@ public class bj {
             if (cls == null) {
                 return "";
             }
-            String a2 = a(cls, false);
-            if (!TextUtils.isEmpty(a2) && cls.isAnonymousClass()) {
-                a2 = a2 + "$";
+            String a = a(cls, false);
+            if (!TextUtils.isEmpty(a) && cls.isAnonymousClass()) {
+                a = a + "$";
             }
-            return a2 == null ? "" : a2;
+            return a == null ? "" : a;
         }
         return (String) invokeL.objValue;
     }
@@ -1077,15 +1076,15 @@ public class bj {
 
     public static boolean c(Activity activity, View view) {
         InterceptResult invokeLL;
-        View a2;
+        View a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, activity, view)) == null) ? (activity == null || view == null || (a2 = a(activity)) == null || !x(view) || a2 == view) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, activity, view)) == null) ? (activity == null || view == null || (a = a(activity)) == null || !x(view) || a == view) ? false : true : invokeLL.booleanValue;
     }
 
     public static String a(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bitmap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
             byte[] c2 = c(bitmap);
             if (c2 != null) {
                 try {
@@ -1130,7 +1129,7 @@ public class bj {
         return invokeL.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x008c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x008b */
     public static JSONArray a(Activity activity, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -1233,8 +1232,8 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            String a2 = au.a().a(str, au.a.f41910b);
-            return a2 == null ? "" : a2;
+            String a = au.a().a(str, au.a.f37056b);
+            return a == null ? "" : a;
         }
         return (String) invokeL.objValue;
     }

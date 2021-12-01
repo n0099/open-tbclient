@@ -17,13 +17,11 @@ import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public PublicKey f62562a;
+    public PublicKey a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,9 +37,9 @@ public final class c {
             }
         }
         try {
-            this.f62562a = a(new String(Base64.decode("TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF5ZXRudE1CRzJuU1JRb1lpT1NLegpCdkZ5cmdwQ1dlT1lnRVZxbG5rNWhLMGlydnNKdVhrZ2paVnFDc0VBRFVQQ0w5K2NlZng1NHoyRGw5dmpEemlwCjVYSGluRUdnZkR1ZzBkcmZyOHRKTElySHlnQlY5M2FTWFg5endBVGlnRnY0dzNrN1RuMStxS01CdUxhbkptSFMKQUttRGMrRCtZSmpYSGF0dWY3YlVhbXlEdDBOZ2pYM0F5d1JUSkErcldPR3RjMHRTWDdaNmlKd3o2bXdzTmZQYQpka3NwVEpmcjVja2dRdVlvWDQybGxteGhRTCtLK2F3NHE1SDgxZTFZUjN4TGhQaVdBTFNXVWlhYk5OQ3dyTGQvCk5uRVNaa0gzQVJqazVtYnhzU1lKcU8yUTRTL2lmNXl3WXYycG51ZW50d2ZQa3p3b0NkcFA3VVZ0MHhNNFgvZEcKYXdJREFRQUI=", 0)));
+            this.a = a(new String(Base64.decode("TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF5ZXRudE1CRzJuU1JRb1lpT1NLegpCdkZ5cmdwQ1dlT1lnRVZxbG5rNWhLMGlydnNKdVhrZ2paVnFDc0VBRFVQQ0w5K2NlZng1NHoyRGw5dmpEemlwCjVYSGluRUdnZkR1ZzBkcmZyOHRKTElySHlnQlY5M2FTWFg5endBVGlnRnY0dzNrN1RuMStxS01CdUxhbkptSFMKQUttRGMrRCtZSmpYSGF0dWY3YlVhbXlEdDBOZ2pYM0F5d1JUSkErcldPR3RjMHRTWDdaNmlKd3o2bXdzTmZQYQpka3NwVEpmcjVja2dRdVlvWDQybGxteGhRTCtLK2F3NHE1SDgxZTFZUjN4TGhQaVdBTFNXVWlhYk5OQ3dyTGQvCk5uRVNaa0gzQVJqazVtYnhzU1lKcU8yUTRTL2lmNXl3WXYycG51ZW50d2ZQa3p3b0NkcFA3VVZ0MHhNNFgvZEcKYXdJREFRQUI=", 0)));
         } catch (Exception unused) {
-            this.f62562a = null;
+            this.a = null;
         }
     }
 
@@ -53,7 +51,7 @@ public final class c {
                 com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginChecker", "Verify false, empty sign: ");
                 return false;
             } else if (file != null && file.exists()) {
-                if (this.f62562a == null) {
+                if (this.a == null) {
                     com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginChecker", "Verify false, no key ");
                     return false;
                 }
@@ -81,13 +79,13 @@ public final class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, bArr)) == null) {
-            if (this.f62562a == null) {
+            if (this.a == null) {
                 return false;
             }
             byte[] decode = Base64.decode(str, 0);
             try {
                 Signature signature = Signature.getInstance("MD5withRSA");
-                signature.initVerify(this.f62562a);
+                signature.initVerify(this.a);
                 signature.update(bArr);
                 return signature.verify(decode);
             } catch (Throwable th) {

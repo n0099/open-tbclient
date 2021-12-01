@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import java.security.MessageDigest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class BitmapPreFillRunner implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKOFF_RATIO = 4;
@@ -47,7 +46,7 @@ public final class BitmapPreFillRunner implements Runnable {
     public final PreFillQueue toPrefill;
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Clock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +72,7 @@ public final class BitmapPreFillRunner implements Runnable {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class UniqueKey implements Key {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,17 +148,17 @@ public final class BitmapPreFillRunner implements Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            long j = this.currentDelay;
-            this.currentDelay = Math.min(4 * j, MAX_BACKOFF_MS);
-            return j;
+            long j2 = this.currentDelay;
+            this.currentDelay = Math.min(4 * j2, MAX_BACKOFF_MS);
+            return j2;
         }
         return invokeV.longValue;
     }
 
-    private boolean isGcDetected(long j) {
+    private boolean isGcDetected(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j)) == null) ? this.clock.now() - j >= 32 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j2)) == null) ? this.clock.now() - j2 >= 32 : invokeJ.booleanValue;
     }
 
     @VisibleForTesting

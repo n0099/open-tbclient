@@ -1,79 +1,69 @@
 package com.kwad.sdk.utils;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ar {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Handler f67558a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "plugin.signature";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(408734545, "Lcom/kwad/sdk/utils/ar;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(408734545, "Lcom/kwad/sdk/utils/ar;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(408734545, "Lcom/kwad/sdk/utils/ar;")) == null) {
+            return;
         }
-        f67558a = new Handler(Looper.getMainLooper());
-    }
-
-    public static void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            if (Looper.getMainLooper() == Looper.myLooper()) {
-                runnable.run();
-            } else {
-                f67558a.post(runnable);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(408734545, "Lcom/kwad/sdk/utils/ar;");
         }
     }
 
-    public static void a(Runnable runnable, Object obj, long j) {
+    @Nullable
+    @SuppressLint({"PackageManagerGetSignatures"})
+    public static Signature[] a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, obj, Long.valueOf(j)}) == null) {
-            Message obtain = Message.obtain(f67558a, runnable);
-            obtain.obj = obj;
-            f67558a.sendMessageDelayed(obtain, j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
+            } catch (PackageManager.NameNotFoundException e2) {
+                String str = a;
+                com.kwad.sdk.core.d.a.d(str, "Can not get signature, error = " + e2.getLocalizedMessage());
+                com.kwad.sdk.core.d.a.a(a, e2);
+                return null;
+            }
         }
+        return (Signature[]) invokeL.objValue;
     }
 
-    public static boolean a(JSONObject jSONObject, JSONObject jSONObject2) {
-        InterceptResult invokeLL;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, jSONObject2)) == null) {
-            boolean z = false;
-            if (jSONObject != null && jSONObject2 != null) {
-                Iterator<String> keys = jSONObject2.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    try {
-                        jSONObject.put(next, jSONObject2.opt(next));
-                    } catch (JSONException e2) {
-                        com.kwad.sdk.core.d.a.b(e2);
-                    }
-                    z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Signature[] a2 = a(context);
+                if (a2 != null && a2.length >= 1) {
+                    return aa.a(a2[0].toByteArray());
                 }
+                return "";
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(a, e2);
+                return "";
             }
-            return z;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

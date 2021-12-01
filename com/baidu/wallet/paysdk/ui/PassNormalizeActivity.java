@@ -36,6 +36,7 @@ import com.baidu.wallet.core.utils.NFCUtil;
 import com.baidu.wallet.core.utils.PassUtil;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
+import com.tachikoma.core.component.input.InputType;
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -43,7 +44,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PassNormalizeActivity extends BeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_PAY_SKD = 1;
@@ -54,13 +55,13 @@ public class PassNormalizeActivity extends BeanActivity {
     public String url;
 
     /* renamed from: com.baidu.wallet.paysdk.ui.PassNormalizeActivity$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public class JavascriptInterfaceImpl implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,13 +111,11 @@ public class PassNormalizeActivity extends BeanActivity {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public final class a extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PassNormalizeActivity f61104a;
+        public final /* synthetic */ PassNormalizeActivity a;
 
         public /* synthetic */ a(PassNormalizeActivity passNormalizeActivity, AnonymousClass1 anonymousClass1) {
             this(passNormalizeActivity);
@@ -134,12 +133,12 @@ public class PassNormalizeActivity extends BeanActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
                 LogUtil.logd("onPageFinished url=" + str);
-                if (this.f61104a.mContent != null) {
-                    WalletGlobalUtils.safeDismissDialog(this.f61104a, -1);
+                if (this.a.mContent != null) {
+                    WalletGlobalUtils.safeDismissDialog(this.a, -1);
                 }
-                String property = DebugConfig.getInstance(this.f61104a.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
+                String property = DebugConfig.getInstance(this.a.mContent).getProperty("pass_complete_verify", "http://wappass.baidu.com/v2/?bindingret");
                 if (str != null && str.startsWith(property)) {
-                    this.f61104a.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
+                    this.a.mWebView.loadUrl("javascript:window.sapi_obj.authorized_response(document.body.innerHTML);");
                 }
                 super.onPageFinished(webView, str);
             }
@@ -151,16 +150,16 @@ public class PassNormalizeActivity extends BeanActivity {
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
                 LogUtil.logd("url=" + str);
                 if (str == null || !str.equals(TbDomainConfig.DOMAIN_HTTPS_BAIDU)) {
-                    if (this.f61104a.mContent != null) {
-                        PassNormalizeActivity passNormalizeActivity = this.f61104a;
+                    if (this.a.mContent != null) {
+                        PassNormalizeActivity passNormalizeActivity = this.a;
                         WalletGlobalUtils.safeShowDialog(passNormalizeActivity, -1, ResUtils.getString(passNormalizeActivity.mContent, "ebpay_loading"));
                     }
                     super.onPageStarted(webView, str, bitmap);
                     return;
                 }
-                PassUtil.backNormalized(this.f61104a.mContent, this.f61104a.type, null);
+                PassUtil.backNormalized(this.a.mContent, this.a.type, null);
                 DXMSdkSAUtils.onEventWithValues("normalizeVerify", Arrays.asList(QueryResponse.Options.CANCEL));
-                this.f61104a.finish();
+                this.a.finish();
             }
         }
 
@@ -177,9 +176,9 @@ public class PassNormalizeActivity extends BeanActivity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str != null && (str.startsWith("sms") || str.startsWith("tel") || str.startsWith("bdscenter"))) {
+                if (str != null && (str.startsWith("sms") || str.startsWith(InputType.TEL) || str.startsWith("bdscenter"))) {
                     try {
-                        this.f61104a.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                        this.a.mContent.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                         return true;
                     } catch (Throwable th) {
                         LogUtil.logd(th.getMessage());
@@ -207,7 +206,7 @@ public class PassNormalizeActivity extends BeanActivity {
                     return;
                 }
             }
-            this.f61104a = passNormalizeActivity;
+            this.a = passNormalizeActivity;
         }
     }
 

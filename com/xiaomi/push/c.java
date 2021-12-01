@@ -3,7 +3,6 @@ package com.xiaomi.push;
 import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,13 +12,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final int f71656a;
+    public final int a;
 
     /* renamed from: a  reason: collision with other field name */
     public final OutputStream f175a;
@@ -28,9 +25,9 @@ public final class c {
     public final byte[] f176a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f71657b;
+    public int f62752b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +68,8 @@ public final class c {
         }
         this.f175a = outputStream;
         this.f176a = bArr;
-        this.f71657b = 0;
-        this.f71656a = bArr.length;
+        this.f62752b = 0;
+        this.a = bArr.length;
     }
 
     public c(byte[] bArr, int i2, int i3) {
@@ -92,8 +89,8 @@ public final class c {
         }
         this.f175a = null;
         this.f176a = bArr;
-        this.f71657b = i2;
-        this.f71656a = i2 + i3;
+        this.f62752b = i2;
+        this.a = i2 + i3;
     }
 
     public static int a(int i2) {
@@ -114,22 +111,22 @@ public final class c {
         return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) ? c(i2) + a(i3) : invokeII.intValue;
     }
 
-    public static int a(int i2, long j) {
+    public static int a(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? c(i2) + a(j) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? c(i2) + a(j2) : invokeCommon.intValue;
     }
 
     public static int a(int i2, com.xiaomi.push.a aVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, aVar)) == null) ? c(i2) + a(aVar) : invokeIL.intValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, aVar)) == null) ? c(i2) + a(aVar) : invokeIL.intValue;
     }
 
     public static int a(int i2, e eVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.BAIDU_LOGO_ID, null, i2, eVar)) == null) ? c(i2) + a(eVar) : invokeIL.intValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, eVar)) == null) ? c(i2) + a(eVar) : invokeIL.intValue;
     }
 
     public static int a(int i2, String str) {
@@ -144,10 +141,10 @@ public final class c {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? c(i2) + a(z) : invokeCommon.intValue;
     }
 
-    public static int a(long j) {
+    public static int a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) ? c(j) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) ? c(j2) : invokeJ.intValue;
     }
 
     public static int a(com.xiaomi.push.a aVar) {
@@ -219,16 +216,16 @@ public final class c {
         return (interceptable == null || (invokeII = interceptable.invokeII(65554, null, i2, i3)) == null) ? c(i2) + b(i3) : invokeII.intValue;
     }
 
-    public static int b(int i2, long j) {
+    public static int b(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? c(i2) + b(j) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? c(i2) + b(j2) : invokeCommon.intValue;
     }
 
-    public static int b(long j) {
+    public static int b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j)) == null) ? c(j) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65556, null, j2)) == null) ? c(j2) : invokeJ.intValue;
     }
 
     public static int c(int i2) {
@@ -237,35 +234,35 @@ public final class c {
         return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) ? d(f.a(i2, 0)) : invokeI.intValue;
     }
 
-    public static int c(long j) {
+    public static int c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j)) == null) {
-            if (((-128) & j) == 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j2)) == null) {
+            if (((-128) & j2) == 0) {
                 return 1;
             }
-            if (((-16384) & j) == 0) {
+            if (((-16384) & j2) == 0) {
                 return 2;
             }
-            if ((CoroutineScheduler.PARKED_VERSION_MASK & j) == 0) {
+            if ((CoroutineScheduler.PARKED_VERSION_MASK & j2) == 0) {
                 return 3;
             }
-            if (((-268435456) & j) == 0) {
+            if (((-268435456) & j2) == 0) {
                 return 4;
             }
-            if (((-34359738368L) & j) == 0) {
+            if (((-34359738368L) & j2) == 0) {
                 return 5;
             }
-            if (((-4398046511104L) & j) == 0) {
+            if (((-4398046511104L) & j2) == 0) {
                 return 6;
             }
-            if (((-562949953421312L) & j) == 0) {
+            if (((-562949953421312L) & j2) == 0) {
                 return 7;
             }
-            if (((-72057594037927936L) & j) == 0) {
+            if (((-72057594037927936L) & j2) == 0) {
                 return 8;
             }
-            return (j & Long.MIN_VALUE) == 0 ? 9 : 10;
+            return (j2 & Long.MIN_VALUE) == 0 ? 9 : 10;
         }
         return invokeJ.intValue;
     }
@@ -277,8 +274,8 @@ public final class c {
             if (outputStream == null) {
                 throw new a();
             }
-            outputStream.write(this.f176a, 0, this.f71657b);
-            this.f71657b = 0;
+            outputStream.write(this.f176a, 0, this.f62752b);
+            this.f62752b = 0;
         }
     }
 
@@ -286,7 +283,7 @@ public final class c {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
-            if ((i2 & com.alipay.sdk.encrypt.a.f34957g) == 0) {
+            if ((i2 & com.alipay.sdk.encrypt.a.f31350g) == 0) {
                 return 1;
             }
             if ((i2 & (-16384)) == 0) {
@@ -305,7 +302,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.f175a == null) {
-                return this.f71656a - this.f71657b;
+                return this.a - this.f62752b;
             }
             throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
         }
@@ -313,7 +310,7 @@ public final class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m196a() {
+    public void m245a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f175a == null) {
             return;
@@ -324,157 +321,157 @@ public final class c {
     public void a(byte b2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2) == null) {
-            if (this.f71657b == this.f71656a) {
+            if (this.f62752b == this.a) {
                 c();
             }
             byte[] bArr = this.f176a;
-            int i2 = this.f71657b;
-            this.f71657b = i2 + 1;
+            int i2 = this.f62752b;
+            this.f62752b = i2 + 1;
             bArr[i2] = b2;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m197a(int i2) {
+    public void m246a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             if (i2 >= 0) {
-                m216d(i2);
+                m265d(i2);
             } else {
-                m215c(i2);
+                m264c(i2);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m198a(int i2, int i3) {
+    public void m247a(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             c(i2, 0);
-            m197a(i3);
+            m246a(i3);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m199a(int i2, long j) {
+    public void m248a(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             c(i2, 0);
-            m204a(j);
+            m253a(j2);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m200a(int i2, com.xiaomi.push.a aVar) {
+    public void m249a(int i2, com.xiaomi.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, aVar) == null) {
             c(i2, 2);
-            m205a(aVar);
+            m254a(aVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m201a(int i2, e eVar) {
+    public void m250a(int i2, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048583, this, i2, eVar) == null) {
             c(i2, 2);
-            m206a(eVar);
+            m255a(eVar);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m202a(int i2, String str) {
+    public void m251a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) {
             c(i2, 2);
-            m207a(str);
+            m256a(str);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m203a(int i2, boolean z) {
+    public void m252a(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             c(i2, 0);
-            m208a(z);
+            m257a(z);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m204a(long j) {
+    public void m253a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            m215c(j);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            m264c(j2);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m205a(com.xiaomi.push.a aVar) {
+    public void m254a(com.xiaomi.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            byte[] m140a = aVar.m140a();
-            m216d(m140a.length);
-            a(m140a);
+            byte[] m189a = aVar.m189a();
+            m265d(m189a.length);
+            a(m189a);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m206a(e eVar) {
+    public void m255a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, eVar) == null) {
-            m216d(eVar.a());
+            m265d(eVar.a());
             eVar.a(this);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m207a(String str) {
+    public void m256a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             byte[] bytes = str.getBytes("UTF-8");
-            m216d(bytes.length);
+            m265d(bytes.length);
             a(bytes);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m208a(boolean z) {
+    public void m257a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            m214c(z ? 1 : 0);
+            m263c(z ? 1 : 0);
         }
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bArr) == null) {
-            m209a(bArr, 0, bArr.length);
+            m258a(bArr, 0, bArr.length);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m209a(byte[] bArr, int i2, int i3) {
+    public void m258a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048592, this, bArr, i2, i3) == null) {
-            int i4 = this.f71656a;
-            int i5 = this.f71657b;
+            int i4 = this.a;
+            int i5 = this.f62752b;
             if (i4 - i5 >= i3) {
                 System.arraycopy(bArr, i2, this.f176a, i5, i3);
-                this.f71657b += i3;
+                this.f62752b += i3;
                 return;
             }
             int i6 = i4 - i5;
             System.arraycopy(bArr, i2, this.f176a, i5, i6);
             int i7 = i2 + i6;
             int i8 = i3 - i6;
-            this.f71657b = this.f71656a;
+            this.f62752b = this.a;
             c();
-            if (i8 > this.f71656a) {
+            if (i8 > this.a) {
                 this.f175a.write(bArr, i7, i8);
                 return;
             }
             System.arraycopy(bArr, i7, this.f176a, 0, i8);
-            this.f71657b = i8;
+            this.f62752b = i8;
         }
     }
 
@@ -486,41 +483,41 @@ public final class c {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m210b(int i2) {
+    public void m259b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            m216d(i2);
+            m265d(i2);
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m211b(int i2, int i3) {
+    public void m260b(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048595, this, i2, i3) == null) {
             c(i2, 0);
-            m210b(i3);
+            m259b(i3);
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m212b(int i2, long j) {
+    public void m261b(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             c(i2, 0);
-            m213b(j);
+            m262b(j2);
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m213b(long j) {
+    public void m262b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            m215c(j);
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            m264c(j2);
         }
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m214c(int i2) {
+    public void m263c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
             a((byte) i2);
@@ -530,31 +527,31 @@ public final class c {
     public void c(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
-            m216d(f.a(i2, i3));
+            m265d(f.a(i2, i3));
         }
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m215c(long j) {
+    public void m264c(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            while (((-128) & j) != 0) {
-                m214c((((int) j) & 127) | 128);
-                j >>>= 7;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
+            while (((-128) & j2) != 0) {
+                m263c((((int) j2) & 127) | 128);
+                j2 >>>= 7;
             }
-            m214c((int) j);
+            m263c((int) j2);
         }
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m216d(int i2) {
+    public void m265d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            while ((i2 & com.alipay.sdk.encrypt.a.f34957g) != 0) {
-                m214c((i2 & 127) | 128);
+            while ((i2 & com.alipay.sdk.encrypt.a.f31350g) != 0) {
+                m263c((i2 & 127) | 128);
                 i2 >>>= 7;
             }
-            m214c(i2);
+            m263c(i2);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tbadk;
 
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import b.a.q0.s.e0.b;
+import c.a.q0.s.e0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TbadkSettings {
     public static /* synthetic */ Interceptable $ic;
     public static TbadkSettings mSettings;
@@ -72,10 +72,10 @@ public class TbadkSettings {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? b.j().k(str, i2) : invokeLI.intValue;
     }
 
-    public long loadLong(String str, long j) {
+    public long loadLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) ? b.j().l(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) ? b.j().l(str, j2) : invokeLJ.longValue;
     }
 
     public String loadString(String str, String str2) {
@@ -98,10 +98,10 @@ public class TbadkSettings {
         }
     }
 
-    public void saveLong(String str, long j) {
+    public void saveLong(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
-            b.j().w(str, j);
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j2) == null) {
+            b.j().w(str, j2);
         }
     }
 

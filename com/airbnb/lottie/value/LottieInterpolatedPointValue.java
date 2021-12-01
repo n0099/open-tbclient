@@ -3,7 +3,7 @@ package com.airbnb.lottie.value;
 import android.graphics.PointF;
 import android.view.animation.Interpolator;
 import com.airbnb.lottie.utils.MiscUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LottieInterpolatedPointValue extends LottieInterpolatedValue<PointF> {
     public final PointF point;
 

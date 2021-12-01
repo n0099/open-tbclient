@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.common;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.HashCodeUtil;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class RotationOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISABLE_ROTATION = -2;
@@ -30,7 +29,7 @@ public class RotationOptions {
     public final int mRotation;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public @interface RotationAngle {
     }
 
@@ -92,7 +91,7 @@ public class RotationOptions {
     public static RotationOptions forceRotation(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? new RotationOptions(i2, false) : (RotationOptions) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new RotationOptions(i2, false) : (RotationOptions) invokeI.objValue;
     }
 
     public boolean canDeferUntilRendered() {

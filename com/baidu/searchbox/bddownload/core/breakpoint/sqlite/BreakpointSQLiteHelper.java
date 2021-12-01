@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BLOCK_TABLE_NAME = "block";
@@ -65,7 +65,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
             contentValues.put("etag", breakpointInfo.getEtag());
             contentValues.put(BreakpointSQLiteKey.MIME_TYPE, breakpointInfo.getMimeType());
             contentValues.put(BreakpointSQLiteKey.PARENT_PATH, breakpointInfo.getParentFile().getAbsolutePath());
-            contentValues.put("filename", breakpointInfo.getFilename());
+            contentValues.put(BreakpointSQLiteKey.FILENAME, breakpointInfo.getFilename());
             contentValues.put(BreakpointSQLiteKey.TASK_ONLY_PARENT_PATH, Integer.valueOf(breakpointInfo.isTaskOnlyProvidedParentPath() ? 1 : 0));
             contentValues.put("chunked", Integer.valueOf(breakpointInfo.isChunked() ? 1 : 0));
             return contentValues;
@@ -73,18 +73,17 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         return (ContentValues) invokeL.objValue;
     }
 
-    public void insert(@NonNull BreakpointInfo breakpointInfo) throws IOException {
+    public void insert(SQLiteDatabase sQLiteDatabase, @NonNull BreakpointInfo breakpointInfo) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, breakpointInfo) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, sQLiteDatabase, breakpointInfo) == null) {
             int blockCount = breakpointInfo.getBlockCount();
-            SQLiteDatabase writableDatabase = getWritableDatabase();
             for (int i2 = 0; i2 < blockCount; i2++) {
                 BlockInfo block = breakpointInfo.getBlock(i2);
-                if (writableDatabase.insert(BLOCK_TABLE_NAME, null, toValues(breakpointInfo.getId(), i2, block)) == -1) {
+                if (sQLiteDatabase.insert(BLOCK_TABLE_NAME, null, toValues(breakpointInfo.getId(), i2, block)) == -1) {
                     throw new SQLiteException("insert block " + block + " failed!");
                 }
             }
-            if (writableDatabase.insert(BREAKPOINT_TABLE_NAME, null, toValues(breakpointInfo)) != -1) {
+            if (sQLiteDatabase.insert(BREAKPOINT_TABLE_NAME, null, toValues(breakpointInfo)) != -1) {
                 return;
             }
             throw new SQLiteException("insert info " + breakpointInfo + " failed!");
@@ -94,7 +93,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     public List<Integer> loadDirtyFileList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
             Cursor cursor = null;
             try {
@@ -115,14 +114,14 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     public HashMap<String, String> loadResponseFilenameToMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             HashMap<String, String> hashMap = new HashMap<>();
             Cursor cursor = null;
             try {
                 cursor = writableDatabase.rawQuery("SELECT * FROM bddownloadResponseFilename", null);
                 while (cursor.moveToNext()) {
-                    hashMap.put(cursor.getString(cursor.getColumnIndex("url")), cursor.getString(cursor.getColumnIndex("filename")));
+                    hashMap.put(cursor.getString(cursor.getColumnIndex("url")), cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.FILENAME)));
                 }
                 return hashMap;
             } finally {
@@ -138,7 +137,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         InterceptResult invokeV;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048580, this)) != null) {
             return (SparseArray) invokeV.objValue;
         }
         SQLiteDatabase writableDatabase = getWritableDatabase();
@@ -195,14 +194,14 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
 
     public void markFileClear(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             getWritableDatabase().delete(TASK_FILE_DIRTY_TABLE_NAME, "id = ?", new String[]{String.valueOf(i2)});
         }
     }
 
     public void markFileDirty(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             ContentValues contentValues = new ContentValues(1);
             contentValues.put("id", Integer.valueOf(i2));
@@ -213,7 +212,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sQLiteDatabase) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS breakpoint( id INTEGER PRIMARY KEY, url VARCHAR NOT NULL, etag VARCHAR, MIME_type VARCHAR, parent_path VARCHAR NOT NULL, filename VARCHAR, task_only_parent_path TINYINT(1) DEFAULT 0, chunked TINYINT(1) DEFAULT 0)");
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS block( id INTEGER PRIMARY KEY AUTOINCREMENT, breakpoint_id INTEGER, block_index INTEGER, start_offset INTEGER, content_length INTEGER, current_offset INTEGER)");
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS bddownloadResponseFilename( url VARCHAR NOT NULL PRIMARY KEY, filename VARCHAR NOT NULL)");
@@ -224,14 +223,14 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, sQLiteDatabase, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i2, i3) == null) {
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onOpen(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
             super.onOpen(sQLiteDatabase);
             if (Build.VERSION.SDK_INT >= 16) {
                 setWriteAheadLoggingEnabled(true);
@@ -244,7 +243,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048586, this, sQLiteDatabase, i2, i3) == null) {
             if (i2 == 1 && i3 == 2) {
                 sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS bddownloadResponseFilename( url VARCHAR NOT NULL PRIMARY KEY, filename VARCHAR NOT NULL)");
             }
@@ -254,26 +253,26 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void removeBlock(int i2) {
+    public void removeBlock(SQLiteDatabase sQLiteDatabase, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            getWritableDatabase().delete(BLOCK_TABLE_NAME, "breakpoint_id = ?", new String[]{String.valueOf(i2)});
+        if (interceptable == null || interceptable.invokeLI(1048588, this, sQLiteDatabase, i2) == null) {
+            sQLiteDatabase.delete(BLOCK_TABLE_NAME, "breakpoint_id = ?", new String[]{String.valueOf(i2)});
         }
     }
 
     public void removeInfo(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             getWritableDatabase().delete(BREAKPOINT_TABLE_NAME, "id = ?", new String[]{String.valueOf(i2)});
             removeBlock(i2);
         }
     }
 
-    public void updateBlockIncrease(@NonNull BreakpointInfo breakpointInfo, int i2, long j) {
+    public void updateBlockIncrease(@NonNull BreakpointInfo breakpointInfo, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put(BreakpointSQLiteKey.CURRENT_OFFSET, Long.valueOf(j));
+            contentValues.put(BreakpointSQLiteKey.CURRENT_OFFSET, Long.valueOf(j2));
             getWritableDatabase().update(BLOCK_TABLE_NAME, contentValues, "breakpoint_id = ? AND block_index = ?", new String[]{Integer.toString(breakpointInfo.getId()), Integer.toString(i2)});
         }
     }
@@ -281,12 +280,12 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     public synchronized void updateFilename(@NonNull String str, @NonNull String str2) {
         Cursor rawQuery;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
             synchronized (this) {
                 SQLiteDatabase writableDatabase = getWritableDatabase();
                 ContentValues contentValues = new ContentValues(2);
                 contentValues.put("url", str);
-                contentValues.put("filename", str2);
+                contentValues.put(BreakpointSQLiteKey.FILENAME, str2);
                 Cursor cursor = null;
                 try {
                     rawQuery = writableDatabase.rawQuery("SELECT filename FROM bddownloadResponseFilename WHERE url = ?", new String[]{str});
@@ -295,7 +294,7 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
                 }
                 try {
                     if (rawQuery.moveToFirst()) {
-                        if (!str2.equals(rawQuery.getString(rawQuery.getColumnIndex("filename")))) {
+                        if (!str2.equals(rawQuery.getString(rawQuery.getColumnIndex(BreakpointSQLiteKey.FILENAME)))) {
                             writableDatabase.replace(RESPONSE_FILENAME_TABLE_NAME, null, contentValues);
                         }
                     } else {
@@ -319,16 +318,15 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE] complete} */
     public void updateInfo(@NonNull BreakpointInfo breakpointInfo) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, breakpointInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, breakpointInfo) == null) {
             SQLiteDatabase writableDatabase = getWritableDatabase();
             writableDatabase.beginTransaction();
             Cursor cursor = null;
             try {
-                SQLiteDatabase writableDatabase2 = getWritableDatabase();
-                cursor = writableDatabase2.rawQuery("SELECT id FROM breakpoint WHERE id =" + breakpointInfo.getId() + " LIMIT 1", null);
+                cursor = writableDatabase.rawQuery("SELECT id FROM breakpoint WHERE id =" + breakpointInfo.getId() + " LIMIT 1", null);
                 if (cursor.moveToNext()) {
-                    removeInfo(breakpointInfo.getId());
-                    insert(breakpointInfo);
+                    removeInfo(writableDatabase, breakpointInfo.getId());
+                    insert(writableDatabase, breakpointInfo);
                     writableDatabase.setTransactionSuccessful();
                     if (cursor != null) {
                         cursor.close();
@@ -341,6 +339,39 @@ public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
                 }
                 writableDatabase.endTransaction();
             }
+        }
+    }
+
+    public void removeBlock(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            getWritableDatabase().delete(BLOCK_TABLE_NAME, "breakpoint_id = ?", new String[]{String.valueOf(i2)});
+        }
+    }
+
+    public void removeInfo(SQLiteDatabase sQLiteDatabase, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048590, this, sQLiteDatabase, i2) == null) {
+            sQLiteDatabase.delete(BREAKPOINT_TABLE_NAME, "id = ?", new String[]{String.valueOf(i2)});
+            removeBlock(sQLiteDatabase, i2);
+        }
+    }
+
+    public void insert(@NonNull BreakpointInfo breakpointInfo) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, breakpointInfo) == null) {
+            int blockCount = breakpointInfo.getBlockCount();
+            SQLiteDatabase writableDatabase = getWritableDatabase();
+            for (int i2 = 0; i2 < blockCount; i2++) {
+                BlockInfo block = breakpointInfo.getBlock(i2);
+                if (writableDatabase.insert(BLOCK_TABLE_NAME, null, toValues(breakpointInfo.getId(), i2, block)) == -1) {
+                    throw new SQLiteException("insert block " + block + " failed!");
+                }
+            }
+            if (writableDatabase.insert(BREAKPOINT_TABLE_NAME, null, toValues(breakpointInfo)) != -1) {
+                return;
+            }
+            throw new SQLiteException("insert info " + breakpointInfo + " failed!");
         }
     }
 

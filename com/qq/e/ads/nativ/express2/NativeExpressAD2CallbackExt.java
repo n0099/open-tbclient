@@ -6,14 +6,4 @@ public interface NativeExpressAD2CallbackExt {
     public static final int EVENT_OPEN_OVERLAY = 304;
     public static final int EVENT_VIDEO_PAGE_CLOSE = 302;
     public static final int EVENT_VIDEO_PAGE_OPEN = 301;
-
-    void onADCloseOverlay();
-
-    void onADLeftApplication();
-
-    void onADOpenOverlay();
-
-    void onVideoPageClose();
-
-    void onVideoPageOpen();
 }

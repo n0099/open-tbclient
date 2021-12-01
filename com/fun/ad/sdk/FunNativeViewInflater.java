@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class FunNativeViewInflater extends CustomInflater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public FunNativeView f63643b;
+    public FunNativeView f55631b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunNativeViewInflater(FunNativeAd2 funNativeAd2) {
@@ -40,9 +40,9 @@ public abstract class FunNativeViewInflater extends CustomInflater {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FunNativeView funNativeView = this.f63643b;
+            FunNativeView funNativeView = this.f55631b;
             if (funNativeView != null) {
-                return funNativeView.f63641a;
+                return funNativeView.a;
             }
             throw new IllegalStateException("Please call setFunNativeView(FunNativeView) with a valid FunNativeView");
         }
@@ -55,7 +55,7 @@ public abstract class FunNativeViewInflater extends CustomInflater {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            FunNativeView funNativeView = this.f63643b;
+            FunNativeView funNativeView = this.f55631b;
             if (funNativeView != null) {
                 return funNativeView;
             }
@@ -67,7 +67,7 @@ public abstract class FunNativeViewInflater extends CustomInflater {
     public void setFunNativeView(FunNativeView funNativeView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, funNativeView) == null) {
-            this.f63643b = funNativeView;
+            this.f55631b = funNativeView;
         }
     }
 }

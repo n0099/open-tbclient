@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bo extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f71642a;
+    public Context a;
 
     public bo(Context context) {
         Interceptable interceptable = $ic;
@@ -31,18 +29,18 @@ public class bo extends ai.a {
                 return;
             }
         }
-        this.f71642a = context;
+        this.a = context;
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.f71642a).m78a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? com.xiaomi.clientreport.manager.a.a(this.a).m127a().isPerfUploadSwitchOpen() : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo187a() {
+    public String mo236a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "100887" : (String) invokeV.objValue;
@@ -54,8 +52,8 @@ public class bo extends ai.a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (a()) {
-                    com.xiaomi.clientreport.manager.a.a(this.f71642a).c();
-                    com.xiaomi.channel.commonutils.logger.b.c(this.f71642a.getPackageName() + "perf  begin upload");
+                    com.xiaomi.clientreport.manager.a.a(this.a).c();
+                    com.xiaomi.channel.commonutils.logger.b.c(this.a.getPackageName() + "perf  begin upload");
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("fail to send perf data. " + e2);

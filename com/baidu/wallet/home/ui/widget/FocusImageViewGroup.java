@@ -12,7 +12,7 @@ import com.baidu.wallet.base.widget.banner.BannerBaseItemInfo;
 import com.baidu.wallet.base.widget.banner.BannerFocusImageViewGroup;
 import com.baidu.wallet.home.beans.HomeCfgBean;
 import java.util.Arrays;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FocusImageViewGroup extends BannerFocusImageViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

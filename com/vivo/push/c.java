@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f71162a;
+    public final /* synthetic */ b a;
 
     public c(b bVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +30,7 @@ public final class c implements Handler.Callback {
                 return;
             }
         }
-        this.f71162a = bVar;
+        this.a = bVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -49,16 +47,16 @@ public final class c implements Handler.Callback {
             int i2 = message.what;
             if (i2 == 1) {
                 com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
-                atomicInteger = this.f71162a.f71115f;
+                atomicInteger = this.a.f62424f;
                 if (atomicInteger.get() == 2) {
-                    this.f71162a.a(1);
+                    this.a.a(1);
                 }
             } else if (i2 == 2) {
-                atomicInteger2 = this.f71162a.f71115f;
+                atomicInteger2 = this.a.f62424f;
                 if (atomicInteger2.get() == 4) {
-                    this.f71162a.e();
+                    this.a.e();
                 }
-                this.f71162a.a(1);
+                this.a.a(1);
             } else {
                 com.vivo.push.util.p.b("AidlManager", "unknow msg what [" + message.what + PreferencesUtil.RIGHT_MOUNT);
             }

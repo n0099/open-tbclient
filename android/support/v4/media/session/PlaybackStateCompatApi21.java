@@ -4,7 +4,6 @@ import android.media.session.PlaybackState;
 import android.os.Bundle;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +63,7 @@ public class PlaybackStateCompatApi21 {
         public static Object newInstance(String str, CharSequence charSequence, int i2, Bundle bundle) {
             InterceptResult invokeLLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(AdIconUtil.AD_TEXT_ID, null, str, charSequence, i2, bundle)) == null) {
+            if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65541, null, str, charSequence, i2, bundle)) == null) {
                 PlaybackState.CustomAction.Builder builder = new PlaybackState.CustomAction.Builder(str, charSequence, i2);
                 builder.setExtras(bundle);
                 return builder.build();
@@ -114,13 +113,13 @@ public class PlaybackStateCompatApi21 {
     public static CharSequence getErrorMessage(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? ((PlaybackState) obj).getErrorMessage() : (CharSequence) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? ((PlaybackState) obj).getErrorMessage() : (CharSequence) invokeL.objValue;
     }
 
     public static long getLastPositionUpdateTime(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((PlaybackState) obj).getLastPositionUpdateTime() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? ((PlaybackState) obj).getLastPositionUpdateTime() : invokeL.longValue;
     }
 
     public static float getPlaybackSpeed(Object obj) {
@@ -141,20 +140,20 @@ public class PlaybackStateCompatApi21 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? ((PlaybackState) obj).getState() : invokeL.intValue;
     }
 
-    public static Object newInstance(int i2, long j, long j2, float f2, long j3, CharSequence charSequence, long j4, List<Object> list, long j5) {
+    public static Object newInstance(int i2, long j2, long j3, float f2, long j4, CharSequence charSequence, long j5, List<Object> list, long j6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Float.valueOf(f2), Long.valueOf(j3), charSequence, Long.valueOf(j4), list, Long.valueOf(j5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Float.valueOf(f2), Long.valueOf(j4), charSequence, Long.valueOf(j5), list, Long.valueOf(j6)})) == null) {
             PlaybackState.Builder builder = new PlaybackState.Builder();
-            builder.setState(i2, j, f2, j4);
-            builder.setBufferedPosition(j2);
-            builder.setActions(j3);
+            builder.setState(i2, j2, f2, j5);
+            builder.setBufferedPosition(j3);
+            builder.setActions(j4);
             builder.setErrorMessage(charSequence);
             Iterator<Object> it = list.iterator();
             while (it.hasNext()) {
                 builder.addCustomAction((PlaybackState.CustomAction) it.next());
             }
-            builder.setActiveQueueItemId(j5);
+            builder.setActiveQueueItemId(j6);
             return builder.build();
         }
         return invokeCommon.objValue;

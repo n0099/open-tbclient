@@ -7,7 +7,7 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COOKIE = "Cookie";
@@ -34,7 +34,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public String mUserAgent;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class SORT {
         public static final /* synthetic */ SORT[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -58,7 +58,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             }
             ASCEND = new SORT("ASCEND", 0);
             DESCEND = new SORT("DESCEND", 1);
-            SORT sort = new SORT("NONE", 2);
+            SORT sort = new SORT(PolyActivity.NONE_PANEL_TYPE, 2);
             NONE = sort;
             $VALUES = new SORT[]{ASCEND, DESCEND, sort};
         }
@@ -95,13 +95,13 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public SORT f35202e;
+        public SORT f31652e;
 
         public a(SORT sort) {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     return;
                 }
             }
-            this.f35202e = null;
-            this.f35202e = sort;
+            this.f31652e = null;
+            this.f31652e = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,7 +129,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
-                if (this.f35202e == SORT.ASCEND) {
+                if (this.f31652e == SORT.ASCEND) {
                     return entry.getKey().compareTo(entry2.getKey());
                 }
                 return entry2.getKey().compareTo(entry.getKey());
@@ -201,7 +201,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     Object value = entry.getValue();
                     String str2 = StringUtil.NULL_STRING;
                     sb.append(key == null ? StringUtil.NULL_STRING : key.toString());
-                    sb.append(com.alipay.sdk.encrypt.a.f34958h);
+                    sb.append(com.alipay.sdk.encrypt.a.f31351h);
                     if (value != null) {
                         str2 = value.toString();
                     }
@@ -218,7 +218,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         InterceptResult invokeLL;
         String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, str, str2)) == null) {
             HashMap hashMap = new HashMap();
             if (str != null && str2 != null) {
                 for (String str3 : str.split(str2)) {
@@ -249,7 +249,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     addHeader("Cookie", map2KVString(";", parseKVString));
                     return str3;
                 }
-                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f34958h + str2 + ';');
+                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f31351h + str2 + ';');
             }
             return null;
         }
@@ -335,10 +335,10 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public void setClientLogID(long j) {
+    public void setClientLogID(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            super.setClientLogID(j);
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            super.setClientLogID(j2);
         }
     }
 
@@ -433,14 +433,14 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return invokeLI.objValue;
     }
 
-    public Object addParam(String str, long j) {
+    public Object addParam(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) {
             if (str == null) {
                 return null;
             }
-            return this.mParams.put(str, String.valueOf(j));
+            return this.mParams.put(str, String.valueOf(j2));
         }
         return invokeLJ.objValue;
     }

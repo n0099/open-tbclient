@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RenderMode {
     public static final /* synthetic */ RenderMode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
+    public static final RenderMode image;
     public static final RenderMode surface;
     public static final RenderMode texture;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +31,10 @@ public final class RenderMode {
             }
         }
         surface = new RenderMode("surface", 0);
-        RenderMode renderMode = new RenderMode("texture", 1);
-        texture = renderMode;
-        $VALUES = new RenderMode[]{surface, renderMode};
+        texture = new RenderMode("texture", 1);
+        RenderMode renderMode = new RenderMode("image", 2);
+        image = renderMode;
+        $VALUES = new RenderMode[]{surface, texture, renderMode};
     }
 
     public RenderMode(String str, int i2) {

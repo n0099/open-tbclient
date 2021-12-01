@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.util.Preconditions;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -125,7 +124,7 @@ public final class DisplayCompat {
     public static boolean isTv(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             UiModeManager uiModeManager = (UiModeManager) context.getSystemService("uimode");
             return uiModeManager != null && uiModeManager.getCurrentModeType() == 4;
         }
@@ -135,7 +134,7 @@ public final class DisplayCompat {
     public static Point parseDisplaySize(@NonNull String str) throws NumberFormatException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             String[] split = str.trim().split("x", -1);
             if (split.length == 2) {
                 int parseInt = Integer.parseInt(split[0]);

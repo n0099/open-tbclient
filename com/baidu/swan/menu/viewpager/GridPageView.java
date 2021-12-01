@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ListAdapter;
-import b.a.p0.n.g;
+import c.a.p0.n.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,27 +20,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GridPageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AutoGridView f45645e;
+    public AutoGridView f40681e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SlideableGridView.a f45646f;
+    public SlideableGridView.a f40682f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45647g;
+    public int f40683g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GridPageView f45651e;
+        public final /* synthetic */ GridPageView f40687e;
 
         public a(GridPageView gridPageView) {
             Interceptable interceptable = $ic;
@@ -57,31 +57,31 @@ public class GridPageView extends FrameLayout {
                     return;
                 }
             }
-            this.f45651e = gridPageView;
+            this.f40687e = gridPageView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             GridPageView gridPageView;
             SlideableGridView.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (aVar = (gridPageView = this.f45651e).f45646f) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (aVar = (gridPageView = this.f40687e).f40682f) == null) {
                 return;
             }
-            aVar.e(gridPageView.f45647g, i2, view);
+            aVar.e(gridPageView.f40683g, i2, view);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f45652e;
+        public Context f40688e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GridPageView f45653f;
+        public final /* synthetic */ GridPageView f40689f;
 
         public b(GridPageView gridPageView, Context context) {
             Interceptable interceptable = $ic;
@@ -98,8 +98,8 @@ public class GridPageView extends FrameLayout {
                     return;
                 }
             }
-            this.f45653f = gridPageView;
-            this.f45652e = context;
+            this.f40689f = gridPageView;
+            this.f40688e = context;
         }
 
         @Override // android.widget.Adapter
@@ -107,12 +107,12 @@ public class GridPageView extends FrameLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                GridPageView gridPageView = this.f45653f;
-                SlideableGridView.a aVar = gridPageView.f45646f;
+                GridPageView gridPageView = this.f40689f;
+                SlideableGridView.a aVar = gridPageView.f40682f;
                 if (aVar == null) {
                     return 0;
                 }
-                return aVar.d(gridPageView.f45647g);
+                return aVar.d(gridPageView.f40683g);
             }
             return invokeV.intValue;
         }
@@ -142,8 +142,8 @@ public class GridPageView extends FrameLayout {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
-                GridPageView gridPageView = this.f45653f;
-                return gridPageView.f45646f.b(gridPageView.f45647g, i2, view, viewGroup);
+                GridPageView gridPageView = this.f40689f;
+                return gridPageView.f40682f.b(gridPageView.f40683g, i2, view, viewGroup);
             }
             return (View) invokeILL.objValue;
         }
@@ -176,7 +176,7 @@ public class GridPageView extends FrameLayout {
                 return;
             }
         }
-        this.f45645e = null;
+        this.f40681e = null;
         a(context);
     }
 
@@ -184,24 +184,24 @@ public class GridPageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             AutoGridView autoGridView = new AutoGridView(this, context);
-            this.f45645e = autoGridView;
+            this.f40681e = autoGridView;
             autoGridView.setNumColumns(5);
-            this.f45645e.setFocusableInTouchMode(false);
-            this.f45645e.setStretchMode(2);
-            this.f45645e.setVerticalSpacing((int) getResources().getDimension(g.common_grid_row_margin));
-            this.f45645e.setSelector(new ColorDrawable(0));
-            this.f45645e.setAdapter((ListAdapter) new b(this, context));
-            this.f45645e.setOnItemClickListener(new a(this));
-            addView(this.f45645e);
+            this.f40681e.setFocusableInTouchMode(false);
+            this.f40681e.setStretchMode(2);
+            this.f40681e.setVerticalSpacing((int) getResources().getDimension(g.common_grid_row_margin));
+            this.f40681e.setSelector(new ColorDrawable(0));
+            this.f40681e.setAdapter((ListAdapter) new b(this, context));
+            this.f40681e.setOnItemClickListener(new a(this));
+            addView(this.f40681e);
         }
     }
 
     public void configItem(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f45645e.setNumColumns(i2);
-            this.f45647g = i3;
-            ((b) this.f45645e.getAdapter()).notifyDataSetChanged();
+            this.f40681e.setNumColumns(i2);
+            this.f40683g = i3;
+            ((b) this.f40681e.getAdapter()).notifyDataSetChanged();
         }
     }
 
@@ -216,23 +216,23 @@ public class GridPageView extends FrameLayout {
     public void setGridItemAdapter(SlideableGridView.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f45646f = aVar;
+            this.f40682f = aVar;
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class AutoGridView extends GridView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f45648e;
+        public int f40684e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f45649f;
+        public int f40685f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ GridPageView f45650g;
+        public final /* synthetic */ GridPageView f40686g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public AutoGridView(GridPageView gridPageView, Context context, AttributeSet attributeSet, int i2) {
@@ -253,8 +253,8 @@ public class GridPageView extends FrameLayout {
                     return;
                 }
             }
-            this.f45650g = gridPageView;
-            this.f45649f = 5;
+            this.f40686g = gridPageView;
+            this.f40685f = 5;
         }
 
         public final void a() {
@@ -268,14 +268,14 @@ public class GridPageView extends FrameLayout {
             int i4 = 0;
             while (i3 < getChildCount()) {
                 int i5 = 0;
-                for (int i6 = i3; i6 < this.f45649f + i3; i6++) {
+                for (int i6 = i3; i6 < this.f40685f + i3; i6++) {
                     View childAt = getChildAt(i6);
                     if (childAt != null && childAt.getHeight() > i5) {
                         i5 = childAt.getHeight();
                     }
                 }
                 if (i5 > 0) {
-                    for (int i7 = i3; i7 < this.f45649f + i3; i7++) {
+                    for (int i7 = i3; i7 < this.f40685f + i3; i7++) {
                         View childAt2 = getChildAt(i7);
                         if (childAt2 != null && childAt2.getHeight() != i5) {
                             childAt2.setMinimumHeight(i5);
@@ -284,7 +284,7 @@ public class GridPageView extends FrameLayout {
                     arrayList.add(Integer.valueOf(i5));
                 }
                 i4++;
-                i3 += this.f45649f;
+                i3 += this.f40685f;
             }
             for (Integer num : arrayList) {
                 i2 += num.intValue();
@@ -306,8 +306,8 @@ public class GridPageView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
                 int firstVisiblePosition = getFirstVisiblePosition();
-                if (this.f45648e != firstVisiblePosition) {
-                    this.f45648e = firstVisiblePosition;
+                if (this.f40684e != firstVisiblePosition) {
+                    this.f40684e = firstVisiblePosition;
                     a();
                 }
                 super.onScrollChanged(i2, i3, i4, i5);
@@ -318,9 +318,9 @@ public class GridPageView extends FrameLayout {
         public void setNumColumns(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.f45649f = i2;
+                this.f40685f = i2;
                 super.setNumColumns(i2);
-                setSelection(this.f45648e);
+                setSelection(this.f40684e);
             }
         }
 
@@ -343,8 +343,8 @@ public class GridPageView extends FrameLayout {
                     return;
                 }
             }
-            this.f45650g = gridPageView;
-            this.f45649f = 5;
+            this.f40686g = gridPageView;
+            this.f40685f = 5;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -365,8 +365,8 @@ public class GridPageView extends FrameLayout {
                     return;
                 }
             }
-            this.f45650g = gridPageView;
-            this.f45649f = 5;
+            this.f40686g = gridPageView;
+            this.f40685f = 5;
         }
     }
 
@@ -389,7 +389,7 @@ public class GridPageView extends FrameLayout {
                 return;
             }
         }
-        this.f45645e = null;
+        this.f40681e = null;
         a(context);
     }
 
@@ -412,7 +412,7 @@ public class GridPageView extends FrameLayout {
                 return;
             }
         }
-        this.f45645e = null;
+        this.f40681e = null;
         a(context);
     }
 }

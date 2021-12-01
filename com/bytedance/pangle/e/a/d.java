@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public final class d {
                     InputStream inputStream = zipFile2.getInputStream(entry);
                     aVar.close();
                     if (inputStream != null) {
-                        aVar.f62261a = new c(inputStream);
+                        aVar.a = new c(inputStream);
                     }
                     do {
                         next = aVar.next();
@@ -143,12 +143,12 @@ public final class d {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, aVar, i2)) == null) {
-            int a2 = aVar.a(i2);
+            int a = aVar.a(i2);
             int b2 = aVar.b(i2);
-            if (a2 == 3) {
+            if (a == 3) {
                 return aVar.getAttributeValue(i2);
             }
-            return a2 == 2 ? String.format("?%s%08X", a(b2), Integer.valueOf(b2)) : (a2 < 16 || a2 > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(b2), Integer.valueOf(a2)) : String.valueOf(b2);
+            return a == 2 ? String.format("?%s%08X", a(b2), Integer.valueOf(b2)) : (a < 16 || a > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(b2), Integer.valueOf(a)) : String.valueOf(b2);
         }
         return (String) invokeLI.objValue;
     }

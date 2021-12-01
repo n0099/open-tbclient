@@ -2,7 +2,6 @@ package com.baidu.searchbox.aperf.param;
 
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ThreadCollector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +112,7 @@ public class ThreadCollector {
                     StackTraceElement[] stackTrace = thread.getStackTrace();
                     if (stackTrace != null && stackTrace.length >= 1) {
                         for (StackTraceElement stackTraceElement : stackTrace) {
-                            sb.append(stackTraceElement.toString() + Part.CRLF);
+                            sb.append(stackTraceElement.toString() + "\r\n");
                         }
                     }
                 } catch (Exception unused) {

@@ -11,20 +11,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface FunNativeAd {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class InteractionType {
         public static /* synthetic */ Interceptable $ic;
         public static final InteractionType TYPE_BROWSE;
         public static final InteractionType TYPE_DIAL;
         public static final InteractionType TYPE_DOWNLOAD;
         public static final InteractionType TYPE_UNKNOW;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ InteractionType[] f63637a;
+        public static final /* synthetic */ InteractionType[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,7 +46,7 @@ public interface FunNativeAd {
             TYPE_DIAL = interactionType3;
             InteractionType interactionType4 = new InteractionType("TYPE_BROWSE", 3);
             TYPE_BROWSE = interactionType4;
-            f63637a = new InteractionType[]{interactionType, interactionType2, interactionType3, interactionType4};
+            a = new InteractionType[]{interactionType, interactionType2, interactionType3, interactionType4};
         }
 
         public InteractionType(String str, int i2) {
@@ -79,7 +77,7 @@ public interface FunNativeAd {
         public static InteractionType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (InteractionType[]) f63637a.clone() : (InteractionType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (InteractionType[]) a.clone() : (InteractionType[]) invokeV.objValue;
         }
     }
 

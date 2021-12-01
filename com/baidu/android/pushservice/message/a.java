@@ -8,21 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f36580a;
+    public Context a;
 
     /* renamed from: com.baidu.android.pushservice.message.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f36581a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -39,29 +35,29 @@ public class a {
                 }
             }
             int[] iArr = new int[h.a().length];
-            f36581a = iArr;
+            a = iArr;
             try {
-                iArr[h.f36618b.ordinal()] = 1;
+                iArr[h.f32838b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f36581a[h.f36619c.ordinal()] = 2;
+                a[h.f32839c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f36581a[h.f36623g.ordinal()] = 3;
+                a[h.f32843g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f36581a[h.f36620d.ordinal()] = 4;
+                a[h.f32840d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f36581a[h.f36622f.ordinal()] = 5;
+                a[h.f32842f.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f36581a[h.f36621e.ordinal()] = 6;
+                a[h.f32841e.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -82,24 +78,24 @@ public class a {
                 return;
             }
         }
-        this.f36580a = context;
+        this.a = context;
     }
 
     public c a(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
-            int i2 = AnonymousClass1.f36581a[hVar.ordinal()];
+            int i2 = AnonymousClass1.a[hVar.ordinal()];
             if (i2 != 1) {
                 if (i2 == 2 || i2 == 3) {
-                    return new l(this.f36580a);
+                    return new l(this.a);
                 }
                 if (i2 != 6) {
                     return null;
                 }
-                return new j(this.f36580a);
+                return new j(this.a);
             }
-            return new b(this.f36580a);
+            return new b(this.a);
         }
         return (c) invokeL.objValue;
     }

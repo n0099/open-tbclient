@@ -9,12 +9,11 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.NativeEmotionManagerActivityConfig;
@@ -33,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EmotionCenterActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LOAD_URL = "key_load_url";
@@ -51,13 +50,11 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     public List<String> mTitles;
     public BdBaseViewPager mViewPager;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionCenterActivity f48874a;
+        public final /* synthetic */ EmotionCenterActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EmotionCenterActivity emotionCenterActivity, int i2) {
@@ -77,7 +74,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f48874a = emotionCenterActivity;
+            this.a = emotionCenterActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,22 +83,20 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (TextUtils.isEmpty(str) || str.equals(this.f48874a.mSingleForumTabUrl)) {
+                if (TextUtils.isEmpty(str) || str.equals(this.a.mSingleForumTabUrl)) {
                     return;
                 }
-                this.f48874a.mSingleForumTabUrl = str;
-                this.f48874a.updataTab();
+                this.a.mSingleForumTabUrl = str;
+                this.a.updataTab();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionCenterActivity f48875a;
+        public final /* synthetic */ EmotionCenterActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(EmotionCenterActivity emotionCenterActivity, FragmentManager fragmentManager) {
@@ -121,7 +116,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f48875a = emotionCenterActivity;
+            this.a = emotionCenterActivity;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -129,10 +124,10 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (ListUtils.isEmpty(this.f48875a.fragments)) {
+                if (ListUtils.isEmpty(this.a.fragments)) {
                     return 0;
                 }
-                return this.f48875a.fragments.size();
+                return this.a.fragments.size();
             }
             return invokeV.intValue;
         }
@@ -142,10 +137,10 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (ListUtils.isEmpty(this.f48875a.fragments) || this.f48875a.fragments.size() <= i2) {
+                if (ListUtils.isEmpty(this.a.fragments) || this.a.fragments.size() <= i2) {
                     return null;
                 }
-                return (Fragment) this.f48875a.fragments.get(i2);
+                return (Fragment) this.a.fragments.get(i2);
             }
             return (Fragment) invokeI.objValue;
         }
@@ -154,7 +149,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         public CharSequence getPageTitle(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.f48875a.mTitles) ? "" : (CharSequence) this.f48875a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.a.mTitles) ? "" : (CharSequence) this.a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
         }
     }
 
@@ -178,7 +173,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
 
     private void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             this.mViewPager.setAdapter(this.mAdapter);
             this.mTabStrip.setViewPager(this.mViewPager);
         }
@@ -203,17 +198,17 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             this.mNavigationBar = navigationBar;
             TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.cancel));
             this.mBackBtn = addTextButtonByDefTextColor;
-            addTextButtonByDefTextColor.setTextSize(0, l.g(this, R.dimen.ds34));
+            addTextButtonByDefTextColor.setTextSize(0, l.f(this, R.dimen.ds34));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             ImageView imageView = new ImageView(getPageContext().getPageActivity());
             this.mSettingImg = imageView;
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, imageView, (View.OnClickListener) null);
-            this.mSettingImg.setPadding(0, l.g(this, R.dimen.ds20), l.g(this, R.dimen.ds31), l.g(this, R.dimen.ds20));
+            this.mSettingImg.setPadding(0, l.f(this, R.dimen.ds20), l.f(this, R.dimen.ds31), l.f(this, R.dimen.ds20));
             this.mSettingImg.setLayoutParams(layoutParams);
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.emotion_navigation_bar, (View.OnClickListener) null);
             CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.emotion_center_nav);
             this.mTabStrip = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.build(l.g(this, R.dimen.ds32), l.g(this, R.dimen.ds24), l.g(this, R.dimen.ds24), l.g(this, R.dimen.ds24), l.g(this, R.dimen.ds24), l.g(this, R.dimen.ds4), l.g(this, R.dimen.ds64), R.color.CAM_X0107, R.color.CAM_X0105);
+            commonPagerSlidingTabStrip.build(l.f(this, R.dimen.ds32), l.f(this, R.dimen.ds24), l.f(this, R.dimen.ds24), l.f(this, R.dimen.ds24), l.f(this, R.dimen.ds24), l.f(this, R.dimen.ds4), l.f(this, R.dimen.ds64), R.color.CAM_X0107, R.color.CAM_X0105);
             this.mBackBtn.setOnClickListener(this);
             this.mSettingImg.setOnClickListener(this);
             this.mEmotionRootView = (LinearLayout) findViewById(R.id.emotion_root_view);

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
 /* loaded from: classes2.dex */
-public class g extends com.kwai.sodler.lib.a.a {
+public class g extends com.kwai.sodler.lib.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class g extends com.kwai.sodler.lib.a.a {
         }
     }
 
-    @Override // com.kwai.sodler.lib.a.a
+    @Override // com.kwai.sodler.lib.kwai.a
     public void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {

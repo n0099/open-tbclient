@@ -1,6 +1,7 @@
 package com.dxmpay.wallet.core;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Permission {
     public static final /* synthetic */ Permission[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +35,7 @@ public final class Permission {
                 return;
             }
         }
-        NONE = new Permission("NONE", 0, 0);
+        NONE = new Permission(PolyActivity.NONE_PANEL_TYPE, 0, 0);
         READ_NORMAL = new Permission("READ_NORMAL", 1, 1);
         READ_PRIVATE = new Permission("READ_PRIVATE", 2, 2);
         WRITE = new Permission("WRITE", 3, 4);

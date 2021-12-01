@@ -3,7 +3,6 @@ package com.alipay.sdk.protocol;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,19 +11,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public a f34995a;
+    public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34996b;
+    public String f31380b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String[] f34997c;
+    public String[] f31381c;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -41,7 +38,7 @@ public class b {
                 return;
             }
         }
-        this.f34996b = str;
+        this.f31380b = str;
     }
 
     public static void a(b bVar) {
@@ -49,11 +46,11 @@ public class b {
         if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
             String[] c2 = bVar.c();
             if (c2.length == 3 && TextUtils.equals("tid", c2[0])) {
-                com.alipay.sdk.tid.a a2 = com.alipay.sdk.tid.a.a(com.alipay.sdk.sys.b.d().b());
+                com.alipay.sdk.tid.a a = com.alipay.sdk.tid.a.a(com.alipay.sdk.sys.b.d().b());
                 if (TextUtils.isEmpty(c2[1]) || TextUtils.isEmpty(c2[2])) {
                     return;
                 }
-                a2.a(c2[1], c2[2]);
+                a.a(c2[1], c2[2]);
             }
         }
     }
@@ -61,7 +58,7 @@ public class b {
     public static String[] b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             ArrayList arrayList = new ArrayList();
             int indexOf = str.indexOf(40);
             int lastIndexOf = str.lastIndexOf(41);
@@ -79,7 +76,7 @@ public class b {
     public String[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34997c : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31381c : (String[]) invokeV.objValue;
     }
 
     public b(String str, a aVar) {
@@ -97,8 +94,8 @@ public class b {
                 return;
             }
         }
-        this.f34996b = str;
-        this.f34995a = aVar;
+        this.f31380b = str;
+        this.a = aVar;
     }
 
     public static List<b> a(JSONObject jSONObject) {
@@ -109,12 +106,12 @@ public class b {
             if (jSONObject == null) {
                 return arrayList;
             }
-            String[] a2 = a(jSONObject.optString("name", ""));
-            for (int i2 = 0; i2 < a2.length; i2++) {
-                a a3 = a.a(a2[i2]);
-                if (a3 != a.f34987b) {
-                    b bVar = new b(a2[i2], a3);
-                    bVar.f34997c = b(a2[i2]);
+            String[] a = a(jSONObject.optString("name", ""));
+            for (int i2 = 0; i2 < a.length; i2++) {
+                a a2 = a.a(a[i2]);
+                if (a2 != a.f31373b) {
+                    b bVar = new b(a[i2], a2);
+                    bVar.f31381c = b(a[i2]);
                     arrayList.add(bVar);
                 }
             }
@@ -126,7 +123,7 @@ public class b {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34996b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31380b : (String) invokeV.objValue;
     }
 
     public static String[] a(String str) {
@@ -144,6 +141,6 @@ public class b {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34995a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (a) invokeV.objValue;
     }
 }

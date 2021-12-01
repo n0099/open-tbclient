@@ -10,30 +10,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ExecutorService f39902a;
+    public ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f39903b;
+    public ExecutorService f35590b;
 
     /* renamed from: com.baidu.location.b.v$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static v f39904a;
+        public static v a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +45,7 @@ public class v {
                     return;
                 }
             }
-            f39904a = new v(null);
+            a = new v(null);
         }
     }
 
@@ -74,7 +70,7 @@ public class v {
     public static v a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f39904a : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (v) invokeV.objValue;
     }
 
     public synchronized ExecutorService b() {
@@ -83,11 +79,11 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f39902a == null || this.f39902a.isShutdown()) {
-                    this.f39902a = null;
-                    this.f39902a = Executors.newSingleThreadExecutor();
+                if (this.a == null || this.a.isShutdown()) {
+                    this.a = null;
+                    this.a = Executors.newSingleThreadExecutor();
                 }
-                executorService = this.f39902a;
+                executorService = this.a;
             }
             return executorService;
         }
@@ -100,11 +96,11 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f39903b == null || this.f39903b.isShutdown()) {
-                    this.f39903b = null;
-                    this.f39903b = Executors.newFixedThreadPool(2);
+                if (this.f35590b == null || this.f35590b.isShutdown()) {
+                    this.f35590b = null;
+                    this.f35590b = Executors.newFixedThreadPool(2);
                 }
-                executorService = this.f39903b;
+                executorService = this.f35590b;
             }
             return executorService;
         }
@@ -114,11 +110,11 @@ public class v {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ExecutorService executorService = this.f39902a;
+            ExecutorService executorService = this.a;
             if (executorService != null) {
                 executorService.shutdown();
             }
-            ExecutorService executorService2 = this.f39903b;
+            ExecutorService executorService2 = this.f35590b;
             if (executorService2 != null) {
                 executorService2.shutdown();
             }

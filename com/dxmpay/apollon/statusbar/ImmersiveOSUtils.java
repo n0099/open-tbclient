@@ -3,13 +3,13 @@ package com.dxmpay.apollon.statusbar;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+import com.baidu.wallet.base.iddetect.UrlOcrConfig;
+/* loaded from: classes12.dex */
 public class ImmersiveOSUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FLYME = "flyme";
@@ -64,7 +64,7 @@ public class ImmersiveOSUtils {
     public static String getSystemProperty(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
                 return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
@@ -79,7 +79,7 @@ public class ImmersiveOSUtils {
     public static boolean isEMUI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? !TextUtils.isEmpty(getSystemProperty("ro.build.version.emui", "")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? !TextUtils.isEmpty(getSystemProperty("ro.build.version.emui", "")) : invokeV.booleanValue;
     }
 
     public static boolean isEMUI3_0() {
@@ -114,7 +114,7 @@ public class ImmersiveOSUtils {
                 return false;
             }
             try {
-                if (flymeOSVersion.toLowerCase().contains("os")) {
+                if (flymeOSVersion.toLowerCase().contains(UrlOcrConfig.IdCardKey.OS)) {
                     intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
                 } else {
                     intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();
@@ -137,7 +137,7 @@ public class ImmersiveOSUtils {
                 return false;
             }
             try {
-                if (flymeOSVersion.toLowerCase().contains("os")) {
+                if (flymeOSVersion.toLowerCase().contains(UrlOcrConfig.IdCardKey.OS)) {
                     intValue = Integer.valueOf(flymeOSVersion.substring(9, 10)).intValue();
                 } else {
                     intValue = Integer.valueOf(flymeOSVersion.substring(6, 7)).intValue();

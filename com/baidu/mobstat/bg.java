@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.bt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,18 +15,16 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bg {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f41992a;
+    public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f41993b;
+    public static volatile boolean f37130b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f41994c;
+    public static volatile boolean f37131c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -39,17 +36,17 @@ public class bg {
     public static boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             if (i2 != 0) {
                 if (i2 != 1) {
                     if (i2 != 2) {
                         return false;
                     }
-                    return f41994c;
+                    return f37131c;
                 }
-                return f41993b;
+                return f37130b;
             }
-            return f41992a;
+            return a;
         }
         return invokeI.booleanValue;
     }
@@ -64,12 +61,12 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 0) {
-                f41992a = z;
+                a = z;
             } else if (i2 == 1) {
-                f41993b = z;
+                f37130b = z;
             } else if (i2 != 2) {
             } else {
-                f41994c = z;
+                f37131c = z;
             }
         }
     }
@@ -92,7 +89,7 @@ public class bg {
     public static synchronized boolean a(Context context, String str, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{context, str, Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
             return invokeCommon.booleanValue;
         }
         synchronized (bg.class) {
@@ -123,10 +120,10 @@ public class bg {
             try {
                 httpURLConnection = bo.d(context, a2);
                 httpURLConnection.connect();
-                long j = 0;
+                long j2 = 0;
                 if (i2 == 1) {
                     try {
-                        j = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
+                        j2 = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
                     } catch (Exception unused) {
                     }
                 }
@@ -143,7 +140,7 @@ public class bg {
                 if (responseCode == 200) {
                     if (i2 == 1) {
                         bq.a().a(context, System.currentTimeMillis());
-                        bq.a().b(context, j);
+                        bq.a().b(context, j2);
                     } else if (i2 == 2) {
                         bq.a().c(context, System.currentTimeMillis());
                     }

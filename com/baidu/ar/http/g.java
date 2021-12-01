@@ -1,6 +1,5 @@
 package com.baidu.ar.http;
 
-import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +41,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             StringBuilder sb = this.rf;
-            sb.append(str + Part.CRLF);
+            sb.append(str + "\r\n");
         }
     }
 

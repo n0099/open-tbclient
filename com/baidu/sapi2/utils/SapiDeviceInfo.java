@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.pm.provider.BundleOpProvider;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
@@ -29,7 +28,7 @@ import java.util.Map;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SapiDeviceInfo implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY;
@@ -38,7 +37,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static final int VERSION = 11;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DeviceInfoCookieManager {
         public static /* synthetic */ Interceptable $ic;
         public static Map<String, String> cookiesMap;
@@ -216,7 +215,8 @@ public class SapiDeviceInfo implements NoProguard {
                 str6 = Constant.KEY_EMULATOR;
             }
             arrayList.add(str6);
-            arrayList.add(diExceptIndex.contains(18) ? "" : SapiDeviceUtils.getMac(context));
+            diExceptIndex.contains(18);
+            arrayList.add("");
             arrayList.add((diExceptIndex.contains(19) || SapiUtils.getCpuName() == null) ? "" : SapiUtils.getCpuName());
             arrayList.add(diExceptIndex.contains(20) ? "" : SapiUtils.getRamMemorySize());
             if (diExceptIndex.contains(21)) {
@@ -264,7 +264,7 @@ public class SapiDeviceInfo implements NoProguard {
             diExceptIndex.contains(35);
             arrayList.add("");
             arrayList.add(diExceptIndex.contains(36) ? "" : SapiUtils.getIccid(context));
-            arrayList.add(diExceptIndex.contains(37) ? "" : "9.4.3");
+            arrayList.add(diExceptIndex.contains(37) ? "" : "9.4.7.5");
             return arrayList;
         }
         return (List) invokeL.objValue;
@@ -298,7 +298,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static String getDeviceInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             List<String> buildDeviceTokens = buildDeviceTokens(str);
             DeviceInfoCookieManager.updateCookiesMap(buildDeviceTokens);
             return encryptDeviceInfo(TextUtils.join(DELIMITER, buildDeviceTokens));
@@ -309,7 +309,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static String getDiCookieInfo(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, list)) == null) ? getDiCookieInfo(list, true) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) ? getDiCookieInfo(list, true) : (String) invokeL.objValue;
     }
 
     public static String getOSModel() {

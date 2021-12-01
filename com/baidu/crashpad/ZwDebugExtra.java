@@ -3,13 +3,12 @@ package com.baidu.crashpad;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ZwDebugExtra {
     public static /* synthetic */ Interceptable $ic;
     public static boolean debugModel;
@@ -66,7 +65,7 @@ public class ZwDebugExtra {
 
     public static void setCrashKeyValue(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
             ZwCrashpad.setCrashKeyValue(str, str2);
         }
     }

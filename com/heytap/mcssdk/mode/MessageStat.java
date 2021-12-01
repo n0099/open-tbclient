@@ -3,7 +3,6 @@ package com.heytap.mcssdk.mode;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -137,7 +136,7 @@ public class MessageStat {
     public static MessageStat parse(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             MessageStat messageStat = new MessageStat();
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -213,10 +212,10 @@ public class MessageStat {
         }
     }
 
-    public void setEventTime(long j) {
+    public void setEventTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.mEventTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.mEventTime = j2;
         }
     }
 

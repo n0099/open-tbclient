@@ -1,8 +1,6 @@
 package com.qq.e.comm.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.XAdSimpleImageLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,7 +79,7 @@ public class FileUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return Md5Util.encode(str) + XAdSimpleImageLoader.TEMP_SUFFIX;
+            return Md5Util.encode(str) + ".temp";
         }
         return (String) invokeL.objValue;
     }
@@ -103,7 +101,7 @@ public class FileUtil {
 
     public static void tryClose(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, inputStream) == null) || inputStream == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, inputStream) == null) || inputStream == null) {
             return;
         }
         try {
@@ -114,7 +112,7 @@ public class FileUtil {
 
     public static void tryClose(OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, outputStream) == null) || outputStream == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, outputStream) == null) || outputStream == null) {
             return;
         }
         try {

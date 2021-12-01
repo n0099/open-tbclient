@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public abstract class FormItemBaseView extends RelativeLayout implements FormCardView.d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String defaultContent = "NEGLIGIBLE";
@@ -49,7 +49,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     public String mTag;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class DrawableType {
         public static final /* synthetic */ DrawableType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -108,12 +108,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f54522a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -130,13 +128,13 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
                 }
             }
             int[] iArr = new int[DrawableType.values().length];
-            f54522a = iArr;
+            a = iArr;
             try {
                 iArr[DrawableType.ERROR_FRAME.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f54522a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
+                a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -217,7 +215,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, drawableType) == null) {
             this.mFrameView = view;
-            int i2 = a.f54522a[drawableType.ordinal()];
+            int i2 = a.a[drawableType.ordinal()];
             if (i2 == 1) {
                 this.mFrameView.setBackgroundResource(R.drawable.form_frame_red);
             } else if (i2 != 2) {
@@ -275,10 +273,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bVar)) == null) {
-            if (bVar != null && bVar.f54418a != -1 && !TextUtils.isEmpty(bVar.f54419b)) {
+            if (bVar != null && bVar.a != -1 && !TextUtils.isEmpty(bVar.f48632b)) {
                 setVisibility(0);
                 reset();
-                this.mTag = bVar.f54420c;
+                this.mTag = bVar.f48633c;
                 return true;
             }
             setVisibility(8);

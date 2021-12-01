@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.UnvarnishedMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class q extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public UnvarnishedMessage f71147a;
+    public UnvarnishedMessage a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q() {
@@ -39,7 +37,7 @@ public final class q extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("msg_v1", this.f71147a.unpackToJson());
+            aVar.a("msg_v1", this.a.unpackToJson());
         }
     }
 
@@ -48,12 +46,12 @@ public final class q extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            String a2 = aVar.a("msg_v1");
-            if (TextUtils.isEmpty(a2)) {
+            String a = aVar.a("msg_v1");
+            if (TextUtils.isEmpty(a)) {
                 return;
             }
-            UnvarnishedMessage unvarnishedMessage = new UnvarnishedMessage(a2);
-            this.f71147a = unvarnishedMessage;
+            UnvarnishedMessage unvarnishedMessage = new UnvarnishedMessage(a);
+            this.a = unvarnishedMessage;
             unvarnishedMessage.setMsgId(f());
         }
     }
@@ -61,7 +59,7 @@ public final class q extends x {
     public final UnvarnishedMessage e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f71147a : (UnvarnishedMessage) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (UnvarnishedMessage) invokeV.objValue;
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
@@ -75,7 +73,7 @@ public final class q extends x {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            UnvarnishedMessage unvarnishedMessage = this.f71147a;
+            UnvarnishedMessage unvarnishedMessage = this.a;
             if (unvarnishedMessage == null) {
                 return null;
             }

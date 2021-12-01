@@ -28,7 +28,7 @@ public final class RequestParamsUtils {
                 return;
             }
         }
-        USER_AGENT = getUserAgentParams() + "ksad-android-3.3.11.4";
+        USER_AGENT = getUserAgentParams() + "ksad-android-3.3.17.4";
     }
 
     public RequestParamsUtils() {

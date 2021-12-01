@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.video.message;
 
-import b.a.e.f.p.l;
-import b.a.q0.c1.z;
+import c.a.d.f.p.l;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecomVideo.DataReq;
 import tbclient.RecomVideo.RecomVideoReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoTabRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

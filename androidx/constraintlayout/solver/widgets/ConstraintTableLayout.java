@@ -5,7 +5,6 @@ import androidx.constraintlayout.solver.widgets.ConstraintAnchor;
 import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -185,7 +184,7 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
 
     private void setVerticalSlices() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.mVerticalSlices.clear();
             float f2 = 100.0f / this.mNumCols;
             ConstraintWidget constraintWidget = this;
@@ -213,7 +212,7 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
 
     private void updateDebugSolverNames() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || this.system == null) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || this.system == null) {
             return;
         }
         int size = this.mVerticalGuidelines.size();

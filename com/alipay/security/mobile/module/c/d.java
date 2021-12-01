@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,9 +16,9 @@ public final class d {
                 if (!com.alipay.security.mobile.module.a.a.a(str)) {
                     if (!com.alipay.security.mobile.module.a.a.a(str2) && context != null) {
                         try {
-                            String a2 = com.alipay.security.mobile.module.a.a.c.a(com.alipay.security.mobile.module.a.a.c.a(), str3);
+                            String a = com.alipay.security.mobile.module.a.a.c.a(com.alipay.security.mobile.module.a.a.c.a(), str3);
                             HashMap hashMap = new HashMap();
-                            hashMap.put(str2, a2);
+                            hashMap.put(str2, a);
                             e.a(context, str, hashMap);
                         } catch (Throwable unused) {
                         }

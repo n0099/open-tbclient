@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +15,7 @@ public class s {
             try {
                 return (String) t.a(null, "android.os.SystemProperties").getMethod("get", String.class, String.class).invoke(null, str, str2);
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m73a("SystemProperties.get: " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m122a("SystemProperties.get: " + e2);
                 return str2;
             }
         }

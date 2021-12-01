@@ -1,7 +1,7 @@
 package com.baidu.tieba.gift.send;
 
-import b.a.e.a.f;
-import b.a.q0.s.q.j0;
+import c.a.d.a.f;
+import c.a.q0.s.q.j0;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,27 +13,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f50240e;
+    public c f45042e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b.a.e.c.g.a f50241f;
+    public c.a.d.c.g.a f45043f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a.e.c.g.a f50242g;
+    public c.a.d.c.g.a f45044g;
 
-    /* loaded from: classes9.dex */
-    public class a extends b.a.e.c.g.a {
+    /* loaded from: classes10.dex */
+    public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SendGiftModel f50243a;
+        public final /* synthetic */ SendGiftModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SendGiftModel sendGiftModel, int i2, int i3) {
@@ -54,10 +52,10 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f50243a = sendGiftModel;
+            this.a = sendGiftModel;
         }
 
-        @Override // b.a.e.c.g.a
+        @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -71,20 +69,18 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                 } else if (responsedMessage instanceof SendFreeGiftSocketResponse) {
                     i2 = ((SendFreeGiftSocketResponse) responsedMessage).getFreeChance();
                 }
-                if (this.f50243a.f50240e != null) {
-                    this.f50243a.f50240e.c(responsedMessage.getError(), responsedMessage.getErrorString(), i2);
+                if (this.a.f45042e != null) {
+                    this.a.f45042e.c(responsedMessage.getError(), responsedMessage.getErrorString(), i2);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b extends b.a.e.c.g.a {
+    /* loaded from: classes10.dex */
+    public class b extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SendGiftModel f50244a;
+        public final /* synthetic */ SendGiftModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(SendGiftModel sendGiftModel, int i2, int i3) {
@@ -105,10 +101,10 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f50244a = sendGiftModel;
+            this.a = sendGiftModel;
         }
 
-        @Override // b.a.e.c.g.a
+        @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -116,22 +112,22 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             }
             boolean z = responsedMessage instanceof PlaceOrderHttpResponse;
             if (z || (responsedMessage instanceof PlaceOrderSocketResponse)) {
-                b.a.r0.b1.d.a aVar = null;
+                c.a.r0.h1.d.a aVar = null;
                 if (z) {
                     aVar = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
                 } else if (responsedMessage instanceof PlaceOrderSocketResponse) {
                     aVar = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
                 }
-                if (this.f50244a.f50240e != null) {
-                    this.f50244a.f50240e.a(responsedMessage.getError(), responsedMessage.getErrorString(), aVar);
+                if (this.a.f45042e != null) {
+                    this.a.f45042e.a(responsedMessage.getError(), responsedMessage.getErrorString(), aVar);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface c {
-        void a(int i2, String str, b.a.r0.b1.d.a aVar);
+        void a(int i2, String str, c.a.r0.h1.d.a aVar);
 
         void b();
 
@@ -156,14 +152,14 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f50241f = new a(this, CmdConfigHttp.CMD_SEND_FREE_GIFT, 309050);
-        this.f50242g = new b(this, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
-        b.a.r0.m3.f0.a.h(309050, SendFreeGiftSocketResponse.class, false, false);
-        b.a.r0.m3.f0.a.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
-        b.a.r0.m3.f0.a.h(309051, PlaceOrderSocketResponse.class, false, false);
-        b.a.r0.m3.f0.a.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
-        registerListener(this.f50241f);
-        registerListener(this.f50242g);
+        this.f45043f = new a(this, CmdConfigHttp.CMD_SEND_FREE_GIFT, 309050);
+        this.f45044g = new b(this, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
+        c.a.r0.t3.f0.a.h(309050, SendFreeGiftSocketResponse.class, false, false);
+        c.a.r0.t3.f0.a.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
+        c.a.r0.t3.f0.a.h(309051, PlaceOrderSocketResponse.class, false, false);
+        c.a.r0.t3.f0.a.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
+        registerListener(this.f45043f);
+        registerListener(this.f45044g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -186,37 +182,37 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
         return invokeV.booleanValue;
     }
 
-    public void x(j0 j0Var, int i2, String str, long j, String str2, long j2, long j3) {
+    public void x(j0 j0Var, int i2, String str, long j2, String str2, long j3, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{j0Var, Integer.valueOf(i2), str, Long.valueOf(j), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (i2 > 0 && j0Var != null && j > 0) {
-                if (j0Var.f14143f == 5) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{j0Var, Integer.valueOf(i2), str, Long.valueOf(j2), str2, Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+            if (i2 > 0 && j0Var != null && j2 > 0) {
+                if (j0Var.f12982f == 5) {
                     SendFreeGiftRequest sendFreeGiftRequest = new SendFreeGiftRequest();
-                    sendFreeGiftRequest.setGiftId(j0Var.f14138a);
-                    sendFreeGiftRequest.setToUserId(j);
+                    sendFreeGiftRequest.setGiftId(j0Var.a);
+                    sendFreeGiftRequest.setToUserId(j2);
                     sendFreeGiftRequest.setToUserName(str2);
                     sendFreeGiftRequest.setSceneFrom(str);
                     sendFreeGiftRequest.setSendCount(i2);
-                    sendFreeGiftRequest.setThreadId(j2);
-                    sendFreeGiftRequest.setPostId(j3);
+                    sendFreeGiftRequest.setThreadId(j3);
+                    sendFreeGiftRequest.setPostId(j4);
                     sendMessage(sendFreeGiftRequest);
                     return;
                 }
                 PlaceOrderRequest placeOrderRequest = new PlaceOrderRequest();
-                placeOrderRequest.setGiftId(j0Var.f14138a);
-                placeOrderRequest.setToUserId(j);
+                placeOrderRequest.setGiftId(j0Var.a);
+                placeOrderRequest.setToUserId(j2);
                 placeOrderRequest.setToUserName(str2);
                 placeOrderRequest.setSceneFrom(str);
                 placeOrderRequest.setSendCount(i2);
-                placeOrderRequest.setThreadId(j2);
-                placeOrderRequest.setPostId(j3);
-                placeOrderRequest.accountId = j;
+                placeOrderRequest.setThreadId(j3);
+                placeOrderRequest.setPostId(j4);
+                placeOrderRequest.accountId = j2;
                 placeOrderRequest.accountType = j0Var.r;
                 placeOrderRequest.currency = j0Var.s;
                 sendMessage(placeOrderRequest);
                 return;
             }
-            c cVar = this.f50240e;
+            c cVar = this.f45042e;
             if (cVar != null) {
                 cVar.b();
             }
@@ -226,7 +222,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
     public void y(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f50240e = cVar;
+            this.f45042e = cVar;
         }
     }
 }

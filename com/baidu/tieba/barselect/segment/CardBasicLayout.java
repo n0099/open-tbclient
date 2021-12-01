@@ -3,11 +3,11 @@ package com.baidu.tieba.barselect.segment;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import b.a.r0.y.b.d;
-import b.a.r0.y.b.e;
-import b.a.r0.y.b.f;
-import b.a.r0.y.e.a;
-import b.a.r0.y.e.c;
+import c.a.r0.c0.b.d;
+import c.a.r0.c0.b.e;
+import c.a.r0.c0.b.f;
+import c.a.r0.c0.e.a;
+import c.a.r0.c0.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CardBasicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,29 +60,29 @@ public class CardBasicLayout extends LinearLayout {
     }
 
     public void setData(int i2, f fVar) {
-        e a2;
+        e a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, fVar) == null) {
             this.mData = fVar;
-            if (fVar == null || fVar.a() == null || (a2 = this.mData.a()) == null) {
+            if (fVar == null || fVar.a() == null || (a = this.mData.a()) == null) {
                 return;
             }
-            int g2 = a2.g();
-            if (g2 == c.f28728b) {
+            int g2 = a.g();
+            if (g2 == c.f15019b) {
                 if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f28726d;
+                    this.status = a.f15018d;
                     this.mElectionData = this.mData.f();
                     return;
                 }
-                this.status = a.f28723a;
+                this.status = a.a;
                 List<d> b2 = this.mData.b();
                 if (b2 == null || b2.size() <= i2) {
                     return;
                 }
                 this.mElectionData = b2.get(i2);
-            } else if (g2 == c.f28729c) {
+            } else if (g2 == c.f15020c) {
                 if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f28725c;
+                    this.status = a.f15017c;
                     List<d> b3 = this.mData.b();
                     if (b3 == null || b3.size() <= 0) {
                         return;
@@ -95,7 +95,7 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.f28724b;
+                this.status = a.f15016b;
                 List<d> b4 = this.mData.b();
                 if (b4 == null || b4.size() <= i2) {
                     return;
@@ -103,7 +103,7 @@ public class CardBasicLayout extends LinearLayout {
                 d dVar2 = b4.get(i2);
                 this.mElectionData = dVar2;
                 if (dVar2.i() == 1 && i2 == 0) {
-                    this.status = a.f28725c;
+                    this.status = a.f15017c;
                 }
             }
         }

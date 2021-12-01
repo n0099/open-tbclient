@@ -15,7 +15,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CompletableTimeout extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class CompletableTimeout extends Completable {
     public final long timeout;
     public final TimeUnit unit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class DisposeTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class CompletableTimeout extends Completable {
         public final CompositeDisposable set;
         public final /* synthetic */ CompletableTimeout this$0;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public final class DisposeObserver implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public final class CompletableTimeout extends Completable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TimeOutObserver implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,12 +180,12 @@ public final class CompletableTimeout extends Completable {
         }
     }
 
-    public CompletableTimeout(CompletableSource completableSource, long j, TimeUnit timeUnit, Scheduler scheduler, CompletableSource completableSource2) {
+    public CompletableTimeout(CompletableSource completableSource, long j2, TimeUnit timeUnit, Scheduler scheduler, CompletableSource completableSource2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {completableSource, Long.valueOf(j), timeUnit, scheduler, completableSource2};
+            Object[] objArr = {completableSource, Long.valueOf(j2), timeUnit, scheduler, completableSource2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -196,7 +196,7 @@ public final class CompletableTimeout extends Completable {
             }
         }
         this.source = completableSource;
-        this.timeout = j;
+        this.timeout = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.other = completableSource2;

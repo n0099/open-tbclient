@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CyberVersion {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +50,8 @@ public class CyberVersion {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a2 = d.a();
-            return TextUtils.isEmpty(a2) ? "0.0.0.0" : a2;
+            String a = d.a();
+            return TextUtils.isEmpty(a) ? "0.0.0.0" : a;
         }
         return (String) invokeV.objValue;
     }

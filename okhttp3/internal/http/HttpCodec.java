@@ -11,7 +11,7 @@ public interface HttpCodec {
 
     void cancel();
 
-    Sink createRequestBody(Request request, long j);
+    Sink createRequestBody(Request request, long j2);
 
     void finishRequest() throws IOException;
 

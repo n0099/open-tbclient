@@ -4,12 +4,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import b.a.r0.k2.f;
-import b.a.r0.k2.i;
-import b.a.r0.k2.j;
-import b.a.r0.k2.l;
-import b.a.r0.k2.u.h.f.a;
-import b.a.r0.k2.u.h.g.b;
+import c.a.r0.q2.f;
+import c.a.r0.q2.i;
+import c.a.r0.q2.j;
+import c.a.r0.q2.l;
+import c.a.r0.q2.u.h.f.a;
+import c.a.r0.q2.u.h.g.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,25 +20,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean o;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static class SubPbReplyViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f53580a;
+        public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f53581b;
+        public View f47880b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53582c;
+        public int f47881c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SubPbReplyViewHolder(View view) {
@@ -58,27 +56,27 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
                     return;
                 }
             }
-            this.f53582c = 3;
-            this.f53580a = (TextView) view.findViewById(i.floor_reply_text);
-            this.f53581b = view.findViewById(i.floor_reply_top_line);
+            this.f47881c = 3;
+            this.a = (TextView) view.findViewById(i.floor_reply_text);
+            this.f47880b = view.findViewById(i.floor_reply_top_line);
         }
 
         public void onChangeSkinType() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f53582c != TbadkApplication.getInst().getSkinType()) {
-                    SkinManager.setViewTextColor(this.f53580a, f.CAM_X0105);
-                    SkinManager.setBackgroundColor(this.f53581b, f.CAM_X0204);
-                    SkinManager.setBackgroundColor(this.f53580a, f.CAM_X0201);
+                if (this.f47881c != TbadkApplication.getInst().getSkinType()) {
+                    SkinManager.setViewTextColor(this.a, f.CAM_X0105);
+                    SkinManager.setBackgroundColor(this.f47880b, f.CAM_X0204);
+                    SkinManager.setBackgroundColor(this.a, f.CAM_X0201);
                 }
-                this.f53582c = TbadkApplication.getInst().getSkinType();
+                this.f47881c = TbadkApplication.getInst().getSkinType();
             }
         }
 
         public void showTopLine(boolean z) {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (view = this.f53581b) == null) {
+            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (view = this.f47880b) == null) {
                 return;
             }
             view.setVisibility(z ? 0 : 8);
@@ -86,7 +84,7 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbReplyAdapter(b.a.r0.k2.u.a aVar, BdUniqueId bdUniqueId) {
+    public SubPbReplyAdapter(c.a.r0.q2.u.a aVar, BdUniqueId bdUniqueId) {
         super(aVar, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -98,7 +96,7 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((b.a.r0.k2.u.a) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((c.a.r0.q2.u.a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -108,16 +106,16 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.e.m.e.a
+    @Override // c.a.d.m.e.a
     /* renamed from: g0 */
-    public SubPbReplyViewHolder T(ViewGroup viewGroup) {
+    public SubPbReplyViewHolder S(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.f2421e).inflate(j.sub_pb_reply_num_layout, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new SubPbReplyViewHolder(LayoutInflater.from(this.f2907e).inflate(j.sub_pb_reply_num_layout, viewGroup, false)) : (SubPbReplyViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.r0.k2.u.h.f.a, b.a.e.m.e.a
+    @Override // c.a.r0.q2.u.h.f.a, c.a.d.m.e.a
     /* renamed from: h0 */
     public View Z(int i2, View view, ViewGroup viewGroup, b bVar, SubPbReplyViewHolder subPbReplyViewHolder) {
         InterceptResult invokeCommon;
@@ -125,8 +123,8 @@ public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, subPbReplyViewHolder})) == null) {
             String format = String.format(TbadkApplication.getInst().getString(l.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.a()));
             subPbReplyViewHolder.showTopLine(this.o);
-            ((SubPbReplyViewHolder) this.k).f53580a.setText(format);
-            ((SubPbReplyViewHolder) this.k).onChangeSkinType();
+            ((SubPbReplyViewHolder) this.f2913k).a.setText(format);
+            ((SubPbReplyViewHolder) this.f2913k).onChangeSkinType();
             return subPbReplyViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

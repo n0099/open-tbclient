@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.log;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudLogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static int LOG_LOOP_TIME_INTERVAL = 0;
@@ -113,7 +113,7 @@ public class CloudLogUtil {
                                 jSONObject.put("uid", CloudLogUtil.mUid);
                                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, CloudLogUtil.mAppId);
                                 jSONObject.put("device", CloudLogUtil.mDevice);
-                                jSONObject.put("os", CloudLogUtil.mOS);
+                                jSONObject.put(UrlOcrConfig.IdCardKey.OS, CloudLogUtil.mOS);
                                 jSONObject.put("appName", CloudLogUtil.mAppName);
                                 jSONObject.put("clientVer", CloudLogUtil.mClientVer);
                                 jSONObject.put(CommandMessage.SDK_VERSION, CloudLogUtil.mSdkVersion);
@@ -148,7 +148,7 @@ public class CloudLogUtil {
 
     public static synchronized void retrySendLog(LogContent logContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, logContent) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, logContent) == null) {
             synchronized (CloudLogUtil.class) {
                 if (logContent != null) {
                     if (logContent.copyWaitingJsonList != null && logContent.content != null) {
@@ -191,7 +191,7 @@ public class CloudLogUtil {
 
     public static synchronized void sendLog(LogContent logContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, logContent) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, logContent) == null) {
             synchronized (CloudLogUtil.class) {
                 ThreadPool.getDefault().scheduledIO().execute(new Runnable(logContent) { // from class: com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil.3
                     public static /* synthetic */ Interceptable $ic;

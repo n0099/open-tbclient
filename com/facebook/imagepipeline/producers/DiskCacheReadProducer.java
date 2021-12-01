@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.producers;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,13 +14,13 @@ import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
-import d.d;
-import d.e;
+import e.d;
+import e.e;
 import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DiskCacheReadProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -79,7 +78,7 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
 
     private void maybeStartInputProducer(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, consumer, producerContext) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, consumer, producerContext) == null) {
             if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
                 consumer.onNewResult(null, 1);
             } else {
@@ -91,7 +90,7 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
     private d<EncodedImage, Void> onFinishDiskReads(Consumer<EncodedImage> consumer, ProducerContext producerContext) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, consumer, producerContext)) == null) ? new d<EncodedImage, Void>(this, producerContext.getListener(), producerContext.getId(), consumer, producerContext) { // from class: com.facebook.imagepipeline.producers.DiskCacheReadProducer.1
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, consumer, producerContext)) == null) ? new d<EncodedImage, Void>(this, producerContext.getListener(), producerContext.getId(), consumer, producerContext) { // from class: com.facebook.imagepipeline.producers.DiskCacheReadProducer.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DiskCacheReadProducer this$0;
@@ -123,7 +122,7 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.d
+            @Override // e.d
             public Void then(e<EncodedImage> eVar) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;

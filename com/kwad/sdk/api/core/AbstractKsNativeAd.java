@@ -1,6 +1,7 @@
 package com.kwad.sdk.api.core;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.View;
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
@@ -34,6 +35,10 @@ public abstract class AbstractKsNativeAd implements KsNativeAd {
         }
     }
 
+    @KsAdSdkDynamicApi
+    @Keep
+    public abstract Bitmap getSdkLogo();
+
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     @KsAdSdkDynamicApi
@@ -41,7 +46,7 @@ public abstract class AbstractKsNativeAd implements KsNativeAd {
     public final View getVideoView(Context context, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, ksAdVideoPlayConfig)) == null) ? getVideoView2(Wrapper.wrapContextIfNeed(context), ksAdVideoPlayConfig) : (View) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ksAdVideoPlayConfig)) == null) ? getVideoView2(Wrapper.wrapContextIfNeed(context), ksAdVideoPlayConfig) : (View) invokeLL.objValue;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -51,7 +56,7 @@ public abstract class AbstractKsNativeAd implements KsNativeAd {
     public final View getVideoView(Context context, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z)) == null) ? getVideoView2(Wrapper.wrapContextIfNeed(context), z) : (View) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z)) == null) ? getVideoView2(Wrapper.wrapContextIfNeed(context), z) : (View) invokeLZ.objValue;
     }
 
     @KsAdSdkDynamicApi

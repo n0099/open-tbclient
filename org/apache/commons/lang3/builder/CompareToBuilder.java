@@ -2,7 +2,6 @@ package org.apache.commons.lang3.builder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +112,7 @@ public class CompareToBuilder implements Builder<Integer> {
     public static int reflectionCompare(Object obj, Object obj2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, null, obj, obj2, z)) == null) ? reflectionCompare(obj, obj2, z, null, new String[0]) : invokeLLZ.intValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, obj, obj2, z)) == null) ? reflectionCompare(obj, obj2, z, null, new String[0]) : invokeLLZ.intValue;
     }
 
     public CompareToBuilder append(Object obj, Object obj2, Comparator<?> comparator) {
@@ -167,7 +166,7 @@ public class CompareToBuilder implements Builder<Integer> {
     public static int reflectionCompare(Object obj, Object obj2, boolean z, Class<?> cls, String... strArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{obj, obj2, Boolean.valueOf(z), cls, strArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{obj, obj2, Boolean.valueOf(z), cls, strArr})) == null) {
             if (obj == obj2) {
                 return 0;
             }
@@ -189,14 +188,14 @@ public class CompareToBuilder implements Builder<Integer> {
         return invokeCommon.intValue;
     }
 
-    public CompareToBuilder append(long j, long j2) {
+    public CompareToBuilder append(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             if (this.comparison != 0) {
                 return this;
             }
-            int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+            int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
             this.comparison = i2 < 0 ? -1 : i2 > 0 ? 1 : 0;
             return this;
         }

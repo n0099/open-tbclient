@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class bt implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f57766a;
+    public final /* synthetic */ FeedbackInputActivity a;
 
     public bt(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -31,7 +29,7 @@ public final class bt implements TextWatcher {
                 return;
             }
         }
-        this.f57766a = feedbackInputActivity;
+        this.a = feedbackInputActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -39,20 +37,20 @@ public final class bt implements TextWatcher {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            z = this.f57766a.au;
+            z = this.a.au;
             if (!z) {
-                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f57766a);
+                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.a);
                 dVar.b(dVar.b() + 1);
-                this.f57766a.au = true;
+                this.a.au = true;
             }
-            FeedbackInputActivity feedbackInputActivity = this.f57766a;
+            FeedbackInputActivity feedbackInputActivity = this.a;
             int i2 = feedbackInputActivity.I;
             if (i2 != 0) {
                 if (i2 == 1 && feedbackInputActivity.E.getText().toString().trim().length() <= 0) {
-                    this.f57766a.J.setTextColor(com.baidu.ufosdk.b.y);
+                    this.a.J.setTextColor(com.baidu.ufosdk.b.y);
                 }
             } else if (feedbackInputActivity.E.getText().toString().trim().length() > 0) {
-                TextView textView = this.f57766a.J;
+                TextView textView = this.a.J;
                 int i3 = com.baidu.ufosdk.b.v;
                 int i4 = com.baidu.ufosdk.b.y;
                 int i5 = com.baidu.ufosdk.b.v;
@@ -67,11 +65,11 @@ public final class bt implements TextWatcher {
         int i5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-            if (this.f57766a.E.getText().toString().trim().length() <= 0) {
-                feedbackInputActivity = this.f57766a;
+            if (this.a.E.getText().toString().trim().length() <= 0) {
+                feedbackInputActivity = this.a;
                 i5 = 0;
             } else {
-                feedbackInputActivity = this.f57766a;
+                feedbackInputActivity = this.a;
                 i5 = 1;
             }
             feedbackInputActivity.I = i5;

@@ -3,7 +3,6 @@ package com.yy.gslbsdk.network;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +24,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HTTPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HTTPMgr";
@@ -306,13 +305,13 @@ public class HTTPMgr {
     public static String[] headHttp(String str, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, hashMap)) == null) ? doHttpURLConnection(str, null, hashMap, "HEAD") : (String[]) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, hashMap)) == null) ? doHttpURLConnection(str, null, hashMap, "HEAD") : (String[]) invokeLL.objValue;
     }
 
     public static String inputStreamToString(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) {
             String str = "";
             try {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));

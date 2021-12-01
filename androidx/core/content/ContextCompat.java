@@ -69,7 +69,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -301,7 +300,7 @@ public class ContextCompat {
     public static File getCodeCacheDir(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 return context.getCodeCacheDir();
             }
@@ -314,7 +313,7 @@ public class ContextCompat {
     public static int getColor(@NonNull Context context, @ColorRes int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 return context.getColor(i2);
             }

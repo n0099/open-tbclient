@@ -45,5 +45,5 @@ public interface EglBase {
 
     void swapBuffers();
 
-    void swapBuffers(long j);
+    void swapBuffers(long j2);
 }

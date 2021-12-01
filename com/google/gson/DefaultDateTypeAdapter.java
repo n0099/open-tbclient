@@ -3,7 +3,6 @@ package com.google.gson;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SIMPLE_NAME = "DefaultDateTypeAdapter";
@@ -62,7 +61,7 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     private Date deserializeToDate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             synchronized (this.dateFormats) {
                 for (DateFormat dateFormat : this.dateFormats) {
                     try {
@@ -83,7 +82,7 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     public static Class<? extends Date> verifyDateType(Class<? extends Date> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
             if (cls == Date.class || cls == java.sql.Date.class || cls == Timestamp.class) {
                 return cls;
             }

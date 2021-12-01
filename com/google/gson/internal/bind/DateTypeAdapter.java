@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class DateTypeAdapter extends TypeAdapter<Date> {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapterFactory FACTORY;

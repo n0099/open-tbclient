@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class AggregateException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_MESSAGE = "There were multiple errors.";

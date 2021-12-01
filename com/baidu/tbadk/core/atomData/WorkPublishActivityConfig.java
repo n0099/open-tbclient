@@ -14,22 +14,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\u0018\u0000 \"2\u00020\u0001:\u0001\"B\u001b\b\u0016\u0012\b\u0010\u001c\u001a\u0004\u0018\u00010\u001b\u0012\u0006\u0010\u001e\u001a\u00020\u001d¢\u0006\u0004\b\u001f\u0010 B\u0013\b\u0016\u0012\b\u0010\u001c\u001a\u0004\u0018\u00010\u001b¢\u0006\u0004\b\u001f\u0010!J\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0015\u0010\b\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u0002¢\u0006\u0004\b\b\u0010\u0006J\u0015\u0010\u000b\u001a\u00020\u00042\u0006\u0010\n\u001a\u00020\t¢\u0006\u0004\b\u000b\u0010\fJ\u0015\u0010\u000e\u001a\u00020\u00042\u0006\u0010\r\u001a\u00020\t¢\u0006\u0004\b\u000e\u0010\fJ\u0017\u0010\u0010\u001a\u00020\u00042\b\u0010\u000f\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0010\u0010\u0006J\u0017\u0010\u0012\u001a\u00020\u00042\b\u0010\u0011\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0012\u0010\u0006J\u0015\u0010\u0015\u001a\u00020\u00042\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u0015\u0010\u0016J\u0015\u0010\u0019\u001a\u00020\u00042\u0006\u0010\u0018\u001a\u00020\u0017¢\u0006\u0004\b\u0019\u0010\u001a¨\u0006#"}, d2 = {"Lcom/baidu/tbadk/core/atomData/WorkPublishActivityConfig;", "Lcom/baidu/tbadk/core/frameworkData/IntentConfig;", "", "barId", "", "setBarId", "(Ljava/lang/String;)V", "barName", "setBarName", "", "canChangeBar", "setCanChangeBar", "(Z)V", "needClose", "setNeedClosePrePage", "topic", "setTopic", "topicId", "setTopicId", "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", TbPreviewVideoActivityConfig.KEY_VIDEO_INFO, "setVideoInfo", "(Lcom/baidu/tbadk/coreExtra/data/VideoInfo;)V", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writeData", "setWriteData", "(Lcom/baidu/tbadk/coreExtra/data/WriteData;)V", "Landroid/content/Context;", "context", "", "draftType", "<init>", "(Landroid/content/Context;I)V", "(Landroid/content/Context;)V", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+import kotlin.jvm.internal.Intrinsics;
+@Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u0000 \u001d2\u00020\u0001:\u0001\u001dB\u0019\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0007J\u000e\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bJ\u000e\u0010\f\u001a\u00020\t2\u0006\u0010\r\u001a\u00020\u000bJ\u000e\u0010\u000e\u001a\u00020\t2\u0006\u0010\u000f\u001a\u00020\u0010J\u000e\u0010\u0011\u001a\u00020\t2\u0006\u0010\u0012\u001a\u00020\u0010J\u0010\u0010\u0013\u001a\u00020\t2\b\u0010\u0014\u001a\u0004\u0018\u00010\u000bJ\u0010\u0010\u0015\u001a\u00020\t2\b\u0010\u0016\u001a\u0004\u0018\u00010\u000bJ\u000e\u0010\u0017\u001a\u00020\t2\u0006\u0010\u0018\u001a\u00020\u0019J\u000e\u0010\u001a\u001a\u00020\t2\u0006\u0010\u001b\u001a\u00020\u001c¨\u0006\u001e"}, d2 = {"Lcom/baidu/tbadk/core/atomData/WorkPublishActivityConfig;", "Lcom/baidu/tbadk/core/frameworkData/IntentConfig;", "context", "Landroid/content/Context;", "draftType", "", "(Landroid/content/Context;I)V", "(Landroid/content/Context;)V", "setBarId", "", "barId", "", "setBarName", "barName", "setCanChangeBar", "canChangeBar", "", "setNeedClosePrePage", "needClose", "setTopic", "topic", "setTopicId", "topicId", "setVideoInfo", TbPreviewVideoActivityConfig.KEY_VIDEO_INFO, "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", "setWriteData", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes9.dex */
 public final class WorkPublishActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAR_ID = "bar_id";
     public static final String BAR_NAME = "bar_name";
     public static final String CAN_CHANGE_SELECT_BAR = "can_change_select_bar";
     public static final a Companion;
+    public static final String IS_VIDEO_TOPIC = "is_video_topic";
+    public static final String NEED_PUBLISH_END_JUMP_HOME = "need_publish_end_jump_home";
     public static final String PARAM_SHOW_DRAFT = "PARAM_DRAFT_TYPE";
     public static final String PARAM_VIDEO_INFO = "PARAM_VIDEOINFO";
     public static final String PARAM_WRITE_DATA = "PARAM_WRITE_DATA";
     public static final String TOPIC = "topic";
     public static final String TOPICID = "topicId";
+    public static final String VIDEO_MIXING = "video_mixing";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,17 +95,19 @@ public final class WorkPublishActivityConfig extends IntentConfig {
         getIntent().putExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, true);
     }
 
-    public final void setBarId(String str) {
+    public final void setBarId(String barId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            getIntent().putExtra("bar_id", str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, barId) == null) {
+            Intrinsics.checkNotNullParameter(barId, "barId");
+            getIntent().putExtra("bar_id", barId);
         }
     }
 
-    public final void setBarName(String str) {
+    public final void setBarName(String barName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            getIntent().putExtra("bar_name", str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, barName) == null) {
+            Intrinsics.checkNotNullParameter(barName, "barName");
+            getIntent().putExtra("bar_name", barName);
         }
     }
 
@@ -136,6 +142,7 @@ public final class WorkPublishActivityConfig extends IntentConfig {
     public final void setVideoInfo(VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, videoInfo) == null) {
+            Intrinsics.checkNotNullParameter(videoInfo, "videoInfo");
             getIntent().putExtra(PARAM_VIDEO_INFO, videoInfo);
         }
     }
@@ -143,6 +150,7 @@ public final class WorkPublishActivityConfig extends IntentConfig {
     public final void setWriteData(WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
+            Intrinsics.checkNotNullParameter(writeData, "writeData");
             getIntent().putExtra(PARAM_WRITE_DATA, writeData);
         }
     }

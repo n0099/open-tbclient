@@ -14,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ActionJsonData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_DEFAULT = -1;
@@ -35,7 +35,7 @@ public class ActionJsonData {
     public int mStatus;
     public int mVersion;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class Link {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class ActionJsonData {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class Notification {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class ActionJsonData {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class SignIn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

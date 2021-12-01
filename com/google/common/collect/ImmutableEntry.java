@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import b.h.d.c.b;
+import c.i.d.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class ImmutableEntry<K, V> extends b<K, V> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -16,12 +16,12 @@ public class ImmutableEntry<K, V> extends b<K, V> implements Serializable {
     public final K key;
     public final V value;
 
-    public ImmutableEntry(K k, V v) {
+    public ImmutableEntry(K k2, V v) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k, v};
+            Object[] objArr = {k2, v};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,25 +31,25 @@ public class ImmutableEntry<K, V> extends b<K, V> implements Serializable {
                 return;
             }
         }
-        this.key = k;
+        this.key = k2;
         this.value = v;
     }
 
-    @Override // b.h.d.c.b, java.util.Map.Entry
+    @Override // c.i.d.c.b, java.util.Map.Entry
     public final K getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.key : (K) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.b, java.util.Map.Entry
+    @Override // c.i.d.c.b, java.util.Map.Entry
     public final V getValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.value : (V) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.b, java.util.Map.Entry
+    @Override // c.i.d.c.b, java.util.Map.Entry
     public final V setValue(V v) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

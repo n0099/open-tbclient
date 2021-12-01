@@ -1,17 +1,17 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
-import b.a.a0.b.a.e;
+import c.a.a0.b.a.e;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IMediaRenderer extends IMediaLifeCycleIncludeGlThread {
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public @interface TextureMode {
         public static final int TEXTURE_MODE_2D = 1;
         public static final int TEXTURE_MODE_EXT = 0;

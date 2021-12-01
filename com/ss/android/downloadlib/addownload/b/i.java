@@ -26,9 +26,7 @@ public class i {
     /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static i f69452a;
+        public static i a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +42,7 @@ public class i {
                     return;
                 }
             }
-            f69452a = new i();
+            a = new i();
         }
     }
 
@@ -100,7 +98,7 @@ public class i {
     public static i a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f69452a : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (i) invokeV.objValue;
     }
 
     public void a(com.ss.android.downloadad.api.a.b bVar) {
@@ -121,12 +119,10 @@ public class i {
                         com.ss.android.downloadlib.d.a().a(new Runnable(this, collection) { // from class: com.ss.android.downloadlib.addownload.b.i.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ Collection f69448a;
+                            public final /* synthetic */ Collection a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ i f69449b;
+                            public final /* synthetic */ i f61232b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -143,16 +139,16 @@ public class i {
                                         return;
                                     }
                                 }
-                                this.f69449b = this;
-                                this.f69448a = collection;
+                                this.f61232b = this;
+                                this.a = collection;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    SharedPreferences.Editor edit = this.f69449b.c().edit();
-                                    for (com.ss.android.downloadad.api.a.b bVar : this.f69448a) {
+                                    SharedPreferences.Editor edit = this.f61232b.c().edit();
+                                    for (com.ss.android.downloadad.api.a.b bVar : this.a) {
                                         if (bVar != null && bVar.b() != 0) {
                                             edit.putString(String.valueOf(bVar.b()), bVar.ae().toString());
                                         }
@@ -175,12 +171,10 @@ public class i {
         com.ss.android.downloadlib.d.a().a(new Runnable(this, list) { // from class: com.ss.android.downloadlib.addownload.b.i.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f69450a;
+            public final /* synthetic */ List a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ i f69451b;
+            public final /* synthetic */ i f61233b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -197,16 +191,16 @@ public class i {
                         return;
                     }
                 }
-                this.f69451b = this;
-                this.f69450a = list;
+                this.f61233b = this;
+                this.a = list;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    SharedPreferences.Editor edit = this.f69451b.c().edit();
-                    for (String str : this.f69450a) {
+                    SharedPreferences.Editor edit = this.f61233b.c().edit();
+                    for (String str : this.a) {
                         edit.remove(str);
                     }
                     edit.apply();

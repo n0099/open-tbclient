@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class PointCloud implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f64001e;
+    public long f55944e;
 
     public PointCloud() {
         Interceptable interceptable = $ic;
@@ -28,42 +28,42 @@ public class PointCloud implements Closeable {
                 return;
             }
         }
-        this.f64001e = 0L;
-        this.f64001e = 0L;
+        this.f55944e = 0L;
+        this.f55944e = 0L;
     }
 
-    private native ByteBuffer nativeGetData(long j, long j2);
+    private native ByteBuffer nativeGetData(long j2, long j3);
 
-    private native ByteBuffer nativeGetIds(long j, long j2);
+    private native ByteBuffer nativeGetIds(long j2, long j3);
 
-    private native long nativeGetTimestamp(long j, long j2);
+    private native long nativeGetTimestamp(long j2, long j3);
 
-    private native void nativeReleasePointCloud(long j);
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nativeReleasePointCloud(this.f64001e);
-            this.f64001e = 0L;
-        }
-    }
+    private native void nativeReleasePointCloud(long j2);
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            release();
         }
     }
 
     public void finalize() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long j = this.f64001e;
-            if (j != 0) {
-                nativeReleasePointCloud(j);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            long j2 = this.f55944e;
+            if (j2 != 0) {
+                nativeReleasePointCloud(j2);
             }
             super.finalize();
+        }
+    }
+
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            nativeReleasePointCloud(this.f55944e);
+            this.f55944e = 0L;
         }
     }
 }

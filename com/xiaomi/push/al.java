@@ -3,20 +3,17 @@ package com.xiaomi.push;
 import android.os.Handler;
 import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class al {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f71580a;
+    public int a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f117a;
@@ -31,15 +28,13 @@ public class al {
     public volatile boolean f120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f71581b;
+    public final boolean f62714b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ al f71582a;
+        public final /* synthetic */ al a;
 
         /* renamed from: a  reason: collision with other field name */
         public final LinkedBlockingQueue<b> f121a;
@@ -62,7 +57,7 @@ public class al {
                     return;
                 }
             }
-            this.f71582a = alVar;
+            this.a = alVar;
             this.f121a = new LinkedBlockingQueue<>();
         }
 
@@ -70,7 +65,7 @@ public class al {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(65537, this, i2, bVar) == null) {
                 try {
-                    this.f71582a.f117a.sendMessage(this.f71582a.f117a.obtainMessage(i2, bVar));
+                    this.a.f117a.sendMessage(this.a.f117a.obtainMessage(i2, bVar));
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
@@ -92,17 +87,17 @@ public class al {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                long j = this.f71582a.f71580a > 0 ? this.f71582a.f71580a : Long.MAX_VALUE;
-                while (!this.f71582a.f120a) {
+                long j2 = this.a.a > 0 ? this.a.a : Long.MAX_VALUE;
+                while (!this.a.f120a) {
                     try {
-                        b poll = this.f121a.poll(j, TimeUnit.SECONDS);
-                        this.f71582a.f119a = poll;
+                        b poll = this.f121a.poll(j2, TimeUnit.SECONDS);
+                        this.a.f119a = poll;
                         if (poll != null) {
                             a(0, poll);
                             poll.b();
                             a(1, poll);
-                        } else if (this.f71582a.f71580a > 0) {
-                            this.f71582a.a();
+                        } else if (this.a.a > 0) {
+                            this.a.a();
                         }
                     } catch (InterruptedException e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
@@ -112,7 +107,7 @@ public class al {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +135,7 @@ public class al {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo245c() {
+        public void mo294c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
@@ -203,16 +198,16 @@ public class al {
         }
         this.f117a = null;
         this.f120a = false;
-        this.f71580a = 0;
+        this.a = 0;
         this.f117a = new am(this, Looper.getMainLooper());
-        this.f71581b = z;
-        this.f71580a = i2;
+        this.f62714b = z;
+        this.a = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             synchronized (this) {
                 this.f118a = null;
                 this.f120a = true;
@@ -227,7 +222,7 @@ public class al {
                 if (this.f118a == null) {
                     a aVar = new a(this);
                     this.f118a = aVar;
-                    aVar.setDaemon(this.f71581b);
+                    aVar.setDaemon(this.f62714b);
                     this.f120a = false;
                     this.f118a.start();
                 }
@@ -236,10 +231,10 @@ public class al {
         }
     }
 
-    public void a(b bVar, long j) {
+    public void a(b bVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, j) == null) {
-            this.f117a.postDelayed(new an(this, bVar), j);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, j2) == null) {
+            this.f117a.postDelayed(new an(this, bVar), j2);
         }
     }
 }

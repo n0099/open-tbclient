@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -237,7 +236,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
 
     private void checkViewReused() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && isViewReused()) {
+        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && isViewReused()) {
             throw new TaskCancelledException(this);
         }
     }
@@ -245,7 +244,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     private DecodedResult decodeImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) ? this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, str, this.uri, this.targetSize, this.imageAware.getScaleType(), getDownloader(), this.options, this.listener)) : (DecodedResult) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) ? this.decoder.decode(new ImageDecodingInfo(this.memoryCacheKey, str, this.uri, this.targetSize, this.imageAware.getScaleType(), getDownloader(), this.options, this.listener)) : (DecodedResult) invokeL.objValue;
     }
 
     private boolean delayIfNeed() {

@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.math;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +63,7 @@ public class IEEE754rUtils {
     public static float max(float... fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, fArr)) == null) {
             if (fArr != null) {
                 Validate.isTrue(fArr.length != 0, "Array cannot be empty.", new Object[0]);
                 float f2 = fArr[0];
@@ -122,7 +121,7 @@ public class IEEE754rUtils {
     public static float max(float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? max(max(f2, f3), f4) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? max(max(f2, f3), f4) : invokeCommon.floatValue;
     }
 
     public static float min(float f2, float f3, float f4) {

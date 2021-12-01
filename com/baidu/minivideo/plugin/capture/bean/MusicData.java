@@ -3,7 +3,6 @@ package com.baidu.minivideo.plugin.capture.bean;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MusicData extends MusicBaseBean implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CATEGORY_RECOMMEND = 1;
@@ -215,7 +214,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
     public static String toJSON(MusicData musicData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, musicData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, musicData)) == null) {
             if (musicData == null) {
                 return null;
             }

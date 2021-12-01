@@ -1,7 +1,6 @@
 package com.ss.android.socialbase.downloader.i;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,7 +39,7 @@ public class i {
     public static StringBuilder a(StringBuilder sb, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, sb, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, sb, str, str2)) == null) {
             sb.append(str);
             sb.append(".\"");
             sb.append(str2);
@@ -103,7 +102,7 @@ public class i {
     public static StringBuilder a(StringBuilder sb, String str, String[] strArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, sb, str, strArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, sb, str, strArr)) == null) {
             for (int i2 = 0; i2 < strArr.length; i2++) {
                 a(sb, str, strArr[i2]).append("=?");
                 if (i2 < strArr.length - 1) {

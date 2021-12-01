@@ -1,8 +1,8 @@
 package com.dxmpay.apollon.restnet.rest;
 
 import android.content.Context;
-import b.e.a.g.d.d;
-/* loaded from: classes11.dex */
+import c.f.a.g.d.d;
+/* loaded from: classes12.dex */
 public interface RestHttpRequestInterceptor {
     void a(Context context, d dVar);
 }

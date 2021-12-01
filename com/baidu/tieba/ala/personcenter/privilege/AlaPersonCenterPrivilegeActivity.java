@@ -20,20 +20,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaPrivilegeFragmentAdapter mFragmentAdapter;
     public LinkedList<AbsFragment> mFragmentList;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaPersonCenterPrivilegeActivity f48039e;
+        public final /* synthetic */ AlaPersonCenterPrivilegeActivity f43004e;
 
         public a(AlaPersonCenterPrivilegeActivity alaPersonCenterPrivilegeActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
                     return;
                 }
             }
-            this.f48039e = alaPersonCenterPrivilegeActivity;
+            this.f43004e = alaPersonCenterPrivilegeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48039e.finish();
+                this.f43004e.finish();
             }
         }
     }

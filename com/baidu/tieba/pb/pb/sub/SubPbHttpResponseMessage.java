@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.content.Context;
-import b.a.r0.k2.r.t;
+import c.a.r0.q2.r.t;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,23 +50,18 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
-        Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
             super.decodeInBackGround(i2, bArr);
             Object extra = getOrginalMessage().getExtra();
-            t tVar = null;
-            if (extra == null || !(extra instanceof SubPbRequestMessage)) {
-                context = null;
-            } else {
-                SubPbRequestMessage subPbRequestMessage = (SubPbRequestMessage) extra;
-                context = subPbRequestMessage.getRichTextClickListener();
-                this.treatDelPage = subPbRequestMessage.isTreatDelPage();
+            if (extra != null && (extra instanceof SubPbRequestMessage)) {
+                this.treatDelPage = ((SubPbRequestMessage) extra).isTreatDelPage();
             }
+            t tVar = null;
             try {
                 PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
                 if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                    tVar = t.w(pbFloorResIdl.data, context);
+                    tVar = t.w(pbFloorResIdl.data);
                     if (tVar != null) {
                         tVar.m = pbFloorResIdl.error;
                     } else if (pbFloorResIdl.error != null) {

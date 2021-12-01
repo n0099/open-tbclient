@@ -2,8 +2,6 @@ package com.baidu.clientupdate.download;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.info.XDeviceInfo;
-import com.baidu.mobads.container.util.AdDownloadApkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DownloadState {
     public static final /* synthetic */ DownloadState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -41,8 +39,8 @@ public final class DownloadState {
             }
         }
         WAITING = new DownloadState("WAITING", 0);
-        DOWNLOADING = new DownloadState(AdDownloadApkUtils.DL_STATUS_DOWNLOADING, 1);
-        PAUSE = new DownloadState(XDeviceInfo.ABILITY_PAUSE, 2);
+        DOWNLOADING = new DownloadState("DOWNLOADING", 1);
+        PAUSE = new DownloadState("PAUSE", 2);
         FAILED = new DownloadState("FAILED", 3);
         CANCEL = new DownloadState("CANCEL", 4);
         FINISH = new DownloadState("FINISH", 5);

@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import b.a.e.f.p.l;
-import b.a.q0.c1.m0;
-import b.a.r0.k2.s.c;
+import c.a.d.f.p.l;
+import c.a.q0.d1.m0;
+import c.a.r0.q2.s.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int BOTTOM;
@@ -35,18 +35,16 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a f46547e;
+    public c.a f41586e;
     public ImageUrlData mAssistUrlData;
     public c mTbGestureDetector;
     public String mUserId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f46548a;
+        public final /* synthetic */ AbsFloorImageTextView a;
 
         public a(AbsFloorImageTextView absFloorImageTextView) {
             Interceptable interceptable = $ic;
@@ -63,10 +61,10 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f46548a = absFloorImageTextView;
+            this.a = absFloorImageTextView;
         }
 
-        @Override // b.a.r0.k2.s.c.a
+        @Override // c.a.r0.q2.s.c.a
         public boolean a(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -76,18 +74,18 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // b.a.r0.k2.s.c.a
+        @Override // c.a.r0.q2.s.c.a
         public boolean b(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                this.f46548a.jumpToPB();
+                this.a.jumpToPB();
                 return true;
             }
             return invokeLL.booleanValue;
         }
 
-        @Override // b.a.r0.k2.s.c.a
+        @Override // c.a.r0.q2.s.c.a
         public boolean c(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -98,13 +96,13 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f46549h;
+        public final /* synthetic */ AbsFloorImageTextView f41587h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AbsFloorImageTextView absFloorImageTextView, c.a aVar) {
@@ -124,10 +122,10 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f46549h = absFloorImageTextView;
+            this.f41587h = absFloorImageTextView;
         }
 
-        @Override // b.a.r0.k2.s.c, android.view.GestureDetector.OnGestureListener
+        @Override // c.a.r0.q2.s.c, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -137,7 +135,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeCommon.booleanValue;
         }
 
-        @Override // b.a.r0.k2.s.c, android.view.GestureDetector.OnGestureListener
+        @Override // c.a.r0.q2.s.c, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -161,12 +159,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 return;
             }
         }
-        TOP = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
-        BOTTOM = l.g(TbadkApplication.getInst(), R.dimen.tbds28);
-        LEFT = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        RIGHT = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        TOP = l.f(TbadkApplication.getInst(), R.dimen.tbds34);
+        BOTTOM = l.f(TbadkApplication.getInst(), R.dimen.tbds28);
+        LEFT = l.f(TbadkApplication.getInst(), R.dimen.tbds44);
+        RIGHT = l.f(TbadkApplication.getInst(), R.dimen.tbds44);
         WIDTCH = (l.k(TbadkApplication.getInst()) - LEFT) - RIGHT;
-        TEXT_SIZE = l.g(TbadkApplication.getInst(), R.dimen.tbds42);
+        TEXT_SIZE = l.f(TbadkApplication.getInst(), R.dimen.tbds42);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -188,7 +186,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             }
         }
         a aVar = new a(this);
-        this.f46547e = aVar;
+        this.f41586e = aVar;
         this.mTbGestureDetector = new b(this, aVar);
     }
 

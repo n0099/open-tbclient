@@ -48,7 +48,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -716,7 +715,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
 
     private void cleanupTabs() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             if (this.mSelectedTab != null) {
                 selectTab(null);
             }
@@ -731,7 +730,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
 
     private void configureTab(ActionBar.Tab tab, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, this, tab, i2) != null) {
+        if (interceptable != null && interceptable.invokeLI(65542, this, tab, i2) != null) {
             return;
         }
         TabImpl tabImpl = (TabImpl) tab;

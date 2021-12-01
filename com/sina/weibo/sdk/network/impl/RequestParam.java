@@ -221,24 +221,24 @@ public class RequestParam implements IRequestParam {
             }
         }
 
-        public void addExtParam(String str, long j) {
+        public void addExtParam(String str, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
-                this.extraBundle.putLong(str, j);
+            if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j2) == null) {
+                this.extraBundle.putLong(str, j2);
             }
         }
 
-        public void addGetParam(String str, long j) {
+        public void addGetParam(String str, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j) == null) {
-                this.getBundle.putLong(str, j);
+            if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j2) == null) {
+                this.getBundle.putLong(str, j2);
             }
         }
 
-        public void addPostParam(String str, long j) {
+        public void addPostParam(String str, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048591, this, str, j) == null) {
-                this.postBundle.putLong(str, j);
+            if (interceptable == null || interceptable.invokeLJ(1048591, this, str, j2) == null) {
+                this.postBundle.putLong(str, j2);
             }
         }
 

@@ -18,7 +18,6 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,15 +29,13 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VDeviceAPI {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static PowerManager.WakeLock f41271a;
+    public static PowerManager.WakeLock a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f41272b;
+    public static BroadcastReceiver f36700b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -104,7 +101,7 @@ public class VDeviceAPI {
         InterceptResult invokeV;
         NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             try {
                 networkInfo = ((ConnectivityManager) b.a().getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Exception unused) {
@@ -125,7 +122,7 @@ public class VDeviceAPI {
     public static long getFreeSpace() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             StatFs statFs = new StatFs(Environment.getRootDirectory().getPath());
             return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
         }
@@ -390,8 +387,8 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             unsetNetworkChangedCallback();
-            f41272b = new a();
-            b.a().registerReceiver(f41272b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            f36700b = new a();
+            b.a().registerReceiver(f36700b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
     }
 
@@ -399,18 +396,18 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65563, null, z) == null) {
             if (z) {
-                if (f41271a == null) {
-                    f41271a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
+                if (a == null) {
+                    a = ((PowerManager) b.a().getSystemService("power")).newWakeLock(10, "VDeviceAPI");
                 }
-                f41271a.acquire();
+                a.acquire();
                 return;
             }
-            PowerManager.WakeLock wakeLock = f41271a;
+            PowerManager.WakeLock wakeLock = a;
             if (wakeLock == null || !wakeLock.isHeld()) {
                 return;
             }
-            f41271a.release();
-            f41271a = null;
+            a.release();
+            a = null;
         }
     }
 
@@ -425,10 +422,10 @@ public class VDeviceAPI {
 
     public static void unsetNetworkChangedCallback() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f41272b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f36700b == null) {
             return;
         }
-        b.a().unregisterReceiver(f41272b);
-        f41272b = null;
+        b.a().unregisterReceiver(f36700b);
+        f36700b = null;
     }
 }

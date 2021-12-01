@@ -10,12 +10,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class af {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Object f72322a;
+    public static Object a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, Queue<String>> f889a;
@@ -34,7 +32,7 @@ public class af {
                 return;
             }
         }
-        f72322a = new Object();
+        a = new Object();
         f889a = new HashMap();
     }
 
@@ -42,7 +40,7 @@ public class af {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, xMPushService, str, str2)) == null) {
-            synchronized (f72322a) {
+            synchronized (a) {
                 SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
                 Queue<String> queue = f889a.get(str);
                 if (queue == null) {

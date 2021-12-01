@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.c0.a.f;
+import c.a.d0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.SlideActiviy;
@@ -26,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_PARAMS_ISCHECK = "isCheck";
@@ -70,7 +69,7 @@ public class InvoiceBuildActivity extends SlideActiviy {
     /* JADX INFO: Access modifiers changed from: private */
     public void finishActivity() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             if (EcommerceRouter.getInstance().getInvoiceBuildCallback() != null) {
                 EcommerceRouter.getInstance().getInvoiceBuildCallback().onFinish(this.invoiceBuildResult);
             }

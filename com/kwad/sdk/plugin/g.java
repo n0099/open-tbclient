@@ -1,8 +1,10 @@
 package com.kwad.sdk.plugin;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
@@ -24,9 +26,16 @@ public abstract class g implements d {
         }
     }
 
-    public abstract h a(Context context);
+    public abstract h a(Context context, String str);
 
-    public abstract String b(Context context);
+    @Override // com.kwad.sdk.plugin.d
+    public Class a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? g.class : (Class) invokeV.objValue;
+    }
+
+    public abstract String a(Context context);
 
     public abstract boolean b();
 

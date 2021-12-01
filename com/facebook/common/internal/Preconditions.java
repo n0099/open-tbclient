@@ -2,7 +2,6 @@ package com.facebook.common.internal;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import org.apache.commons.lang3.text.FormattableUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Preconditions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +149,7 @@ public final class Preconditions {
 
     public static void checkArgument(boolean z, @Nullable Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(AdIconUtil.AD_TEXT_ID, null, z, obj) == null) && !z) {
+        if ((interceptable == null || interceptable.invokeZL(65541, null, z, obj) == null) && !z) {
             throw new IllegalArgumentException(String.valueOf(obj));
         }
     }
@@ -200,7 +199,7 @@ public final class Preconditions {
 
     public static void checkArgument(boolean z, @Nullable String str, @Nullable Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
+        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), str, objArr}) == null) && !z) {
             throw new IllegalArgumentException(format(str, objArr));
         }
     }

@@ -4,8 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.d.f.p.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CustomToast2 {
     public static /* synthetic */ Interceptable $ic;
     public static Handler mHandler;
@@ -82,7 +81,7 @@ public class CustomToast2 {
 
     public static void showToast(Context context, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, context, str, i2) == null) || str == null || str.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLI(65542, null, context, str, i2) == null) || str == null || str.length() <= 0) {
             return;
         }
         mHandler.removeCallbacks(r);
@@ -94,7 +93,7 @@ public class CustomToast2 {
         } else {
             mText = str;
             mToast = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
-            mToast.setGravity(17, 0, l.e(context, 100.0f));
+            mToast.setGravity(17, 0, l.d(context, 100.0f));
         }
         mHandler.postDelayed(r, i2);
         mToast.show();
@@ -102,7 +101,7 @@ public class CustomToast2 {
 
     public static void showToast(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {
             showToast(context, str, 2000);
         }
     }

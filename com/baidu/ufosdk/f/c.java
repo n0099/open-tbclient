@@ -3,19 +3,16 @@ package com.baidu.ufosdk.f;
 import android.annotation.SuppressLint;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f57606a = "UFO";
+    public static String a = "UFO";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +35,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 1) {
-                return Log.d(f57606a, str);
+                return Log.d(a, str);
             }
             return 0;
         }
@@ -50,7 +47,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, th)) == null) {
             if (com.baidu.ufosdk.b.o <= 4) {
-                return Log.w(f57606a, str, th);
+                return Log.w(a, str, th);
             }
             return 0;
         }
@@ -62,7 +59,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 2) {
-                return Log.i(f57606a, str);
+                return Log.i(a, str);
             }
             return 0;
         }
@@ -74,7 +71,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 3) {
-                return Log.w(f57606a, str);
+                return Log.w(a, str);
             }
             return 0;
         }
@@ -84,9 +81,9 @@ public final class c {
     public static int d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 4) {
-                return Log.e(f57606a, str);
+                return Log.e(a, str);
             }
             return 0;
         }

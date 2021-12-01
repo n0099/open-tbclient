@@ -48,9 +48,9 @@ public class ConnManagerParamBean extends HttpAbstractParamBean {
         }
     }
 
-    public void setTimeout(long j) {
+    public void setTimeout(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

@@ -11,7 +11,7 @@ import com.google.zxing.Binarizer;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.NotFoundException;
 import java.lang.reflect.Array;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class HybridBinarizer extends GlobalHistogramBinarizer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLOCK_SIZE = 8;

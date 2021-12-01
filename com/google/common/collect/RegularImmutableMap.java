@@ -1,12 +1,11 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
-import b.h.d.c.m;
-import b.h.d.c.n0;
-import b.h.d.c.o1;
+import c.i.d.a.n;
+import c.i.d.c.m;
+import c.i.d.c.n0;
+import c.i.d.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Map;
 import kotlin.UShort;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte ABSENT = -1;
@@ -33,7 +32,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public final transient Object hashTable;
     public final transient int size;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +170,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class KeySet<K> extends ImmutableSet<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +243,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class KeysOrValuesAsList extends ImmutableList<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -507,7 +506,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public static Object get(Object obj, Object[] objArr, int i2, int i3, Object obj2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{obj, objArr, Integer.valueOf(i2), Integer.valueOf(i3), obj2})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{obj, objArr, Integer.valueOf(i2), Integer.valueOf(i3), obj2})) != null) {
             return invokeCommon.objValue;
         }
         if (obj2 == null) {

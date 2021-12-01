@@ -3,8 +3,6 @@ package com.baidu.wallet.lightapp.multipage;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,30 +16,26 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f60170a;
+    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Map<String, String>> f60171b;
+    public Map<String, Map<String, String>> f53196b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.h$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static h f60172a;
+        public static h a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -57,7 +51,7 @@ public class h {
                     return;
                 }
             }
-            f60172a = new h(null);
+            a = new h(null);
         }
     }
 
@@ -75,13 +69,13 @@ public class h {
             }
         }
         HashSet hashSet = new HashSet();
-        f60170a = hashSet;
+        a = hashSet;
         hashSet.add("getItem");
-        f60170a.add("setItem");
-        f60170a.add("clear");
-        f60170a.add("key");
-        f60170a.add(CloudStabilityUBCUtils.KEY_LENGTH);
-        f60170a.add("removeItem");
+        a.add("setItem");
+        a.add("clear");
+        a.add("key");
+        a.add("length");
+        a.add("removeItem");
     }
 
     public /* synthetic */ h(AnonymousClass1 anonymousClass1) {
@@ -91,28 +85,28 @@ public class h {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f60170a.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? a.contains(str) : invokeL.booleanValue;
     }
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f60171b.remove(str);
+            this.f53196b.remove(str);
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            for (Map.Entry<String, Map<String, String>> entry : this.f60171b.entrySet()) {
+            for (Map.Entry<String, Map<String, String>> entry : this.f53196b.entrySet()) {
                 if (entry.getKey().startsWith(str)) {
-                    this.f60171b.remove(entry.getKey());
+                    this.f53196b.remove(entry.getKey());
                 }
             }
         }
@@ -122,8 +116,8 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (this.f60171b.containsKey(str)) {
-                return this.f60171b.get(str).size();
+            if (this.f53196b.containsKey(str)) {
+                return this.f53196b.get(str).size();
             }
             return 0;
         }
@@ -143,19 +137,19 @@ public class h {
                 return;
             }
         }
-        this.f60171b = new ConcurrentHashMap();
+        this.f53196b = new ConcurrentHashMap();
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f60172a : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.a : (h) invokeV.objValue;
     }
 
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.f60171b.containsKey(str2) && this.f60171b.get(str2).containsKey(str)) {
-            this.f60171b.get(str2).remove(str);
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.f53196b.containsKey(str2) && this.f53196b.get(str2).containsKey(str)) {
+            this.f53196b.get(str2).remove(str);
         }
     }
 
@@ -163,8 +157,8 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.f60171b.containsKey(str2) && this.f60171b.get(str2).containsKey(str)) {
-                return this.f60171b.get(str2).get(str);
+            if (this.f53196b.containsKey(str2) && this.f53196b.get(str2).containsKey(str)) {
+                return this.f53196b.get(str2).get(str);
             }
             return null;
         }
@@ -179,29 +173,29 @@ public class h {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
             ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
             ConcurrentHashMap concurrentHashMap2 = new ConcurrentHashMap();
-            for (String str3 : this.f60171b.keySet()) {
+            for (String str3 : this.f53196b.keySet()) {
                 if (!TextUtils.isEmpty(str3) && str3.startsWith(str)) {
-                    concurrentHashMap2.put(str3, this.f60171b.get(str3));
-                    concurrentHashMap.put(str2 + str3.substring(str3.indexOf(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + 1, str3.length()), this.f60171b.get(str3));
+                    concurrentHashMap2.put(str3, this.f53196b.get(str3));
+                    concurrentHashMap.put(str2 + str3.substring(str3.indexOf(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + 1, str3.length()), this.f53196b.get(str3));
                 }
             }
             for (String str4 : concurrentHashMap2.keySet()) {
-                this.f60171b.remove(str4);
+                this.f53196b.remove(str4);
             }
             Iterator it = concurrentHashMap.keySet().iterator();
             while (it.hasNext()) {
                 String str5 = (String) it.next();
-                if (this.f60171b.containsKey(str5)) {
+                if (this.f53196b.containsKey(str5)) {
                     Map map = (Map) concurrentHashMap.get(str5);
                     Iterator it2 = map.keySet().iterator();
                     while (it.hasNext()) {
                         String str6 = (String) it2.next();
-                        if (!this.f60171b.get(str5).containsKey(str6)) {
-                            this.f60171b.get(str5).put(str6, map.get(str6));
+                        if (!this.f53196b.get(str5).containsKey(str6)) {
+                            this.f53196b.get(str5).put(str6, map.get(str6));
                         }
                     }
                 } else {
-                    this.f60171b.put(str5, concurrentHashMap.get(str5));
+                    this.f53196b.put(str5, concurrentHashMap.get(str5));
                 }
             }
         }
@@ -210,13 +204,13 @@ public class h {
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            if (this.f60171b.containsKey(str3)) {
-                this.f60171b.get(str3).put(str, str2);
+            if (this.f53196b.containsKey(str3)) {
+                this.f53196b.get(str3).put(str, str2);
                 return;
             }
             ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
             concurrentHashMap.put(str, str2);
-            this.f60171b.put(str3, concurrentHashMap);
+            this.f53196b.put(str3, concurrentHashMap);
         }
     }
 
@@ -230,8 +224,8 @@ public class h {
             } catch (Exception unused) {
                 i2 = -1;
             }
-            if (this.f60171b.containsKey(str2)) {
-                Map<String, String> map = this.f60171b.get(str2);
+            if (this.f53196b.containsKey(str2)) {
+                Map<String, String> map = this.f53196b.get(str2);
                 String[] strArr = (String[]) map.keySet().toArray(new String[map.keySet().size()]);
                 if (i2 < 0 || i2 >= strArr.length) {
                     return null;
@@ -253,7 +247,7 @@ public class h {
             b();
             switch (str.hashCode()) {
                 case -1106363674:
-                    if (str.equals(CloudStabilityUBCUtils.KEY_LENGTH)) {
+                    if (str.equals("length")) {
                         c2 = 7;
                         break;
                     }

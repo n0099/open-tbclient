@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ji extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public InputStream f72265a;
+    public InputStream a;
 
     /* renamed from: a  reason: collision with other field name */
     public OutputStream f821a;
@@ -33,7 +31,7 @@ public class ji extends jl {
                 return;
             }
         }
-        this.f72265a = null;
+        this.a = null;
         this.f821a = null;
     }
 
@@ -52,7 +50,7 @@ public class ji extends jl {
                 return;
             }
         }
-        this.f72265a = null;
+        this.a = null;
         this.f821a = null;
         this.f821a = outputStream;
     }
@@ -62,7 +60,7 @@ public class ji extends jl {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            InputStream inputStream = this.f72265a;
+            InputStream inputStream = this.a;
             if (inputStream != null) {
                 try {
                     int read = inputStream.read(bArr, i2, i3);

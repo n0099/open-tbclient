@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.data;
 
-import b.a.e.f.m.b;
+import c.a.d.f.m.b;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
@@ -23,7 +23,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ItemData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSOCIATED_ITEM_DATA_FORMAT = "#(item,%d,%s)";

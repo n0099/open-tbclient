@@ -2,14 +2,13 @@ package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class CompactLinkedHashMap<K, V> extends CompactHashMap<K, V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENDPOINT = -2;
@@ -52,12 +51,12 @@ public class CompactLinkedHashMap<K, V> extends CompactHashMap<K, V> {
     private int getPredecessor(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) ? (int) (this.links[i2] >>> 32) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) ? (int) (this.links[i2] >>> 32) : invokeI.intValue;
     }
 
     private void setPredecessor(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(65542, this, i2, i3) == null) {
             long[] jArr = this.links;
             jArr[i2] = (jArr[i2] & 4294967295L) | (i3 << 32);
         }
@@ -153,10 +152,10 @@ public class CompactLinkedHashMap<K, V> extends CompactHashMap<K, V> {
     }
 
     @Override // com.google.common.collect.CompactHashMap
-    public void insertEntry(int i2, K k, V v, int i3) {
+    public void insertEntry(int i2, K k2, V v, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), k, v, Integer.valueOf(i3)}) == null) {
-            super.insertEntry(i2, k, v, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), k2, v, Integer.valueOf(i3)}) == null) {
+            super.insertEntry(i2, k2, v, i3);
             setSucceeds(this.lastEntry, i2);
             setSucceeds(i2, -2);
         }

@@ -25,13 +25,11 @@ import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NHAssetGroup extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public List<BaseItemView> f59396a;
+    public List<BaseItemView> a;
     public ImageView mEye;
     public NetImageView mGroupCorner;
     public MaskTextView mGroupDesc;
@@ -61,14 +59,14 @@ public class NHAssetGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f59396a = new ArrayList();
+        this.a = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59396a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
     public void initItems() {
@@ -91,7 +89,7 @@ public class NHAssetGroup extends BaseItemLayout {
                         LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, -1);
                         layoutParams4.setMargins(dip2px, 0, dip2px2, 0);
                         this.mItemPanel.addView(nHAssetItem, layoutParams4);
-                        this.f59396a.add(nHAssetItem);
+                        this.a.add(nHAssetItem);
                         return;
                     }
                     this.mItemPanel.setVisibility(0);
@@ -100,12 +98,12 @@ public class NHAssetGroup extends BaseItemLayout {
                     NHAssetItem nHAssetItem3 = new NHAssetItem(getContext());
                     nHAssetItem3.setData(dataItemArr[1], getWalletInterface());
                     int displayWidth = DisplayUtils.getDisplayWidth(getContext());
-                    int a2 = a(nHAssetItem2);
-                    int a3 = a(nHAssetItem3);
+                    int a = a(nHAssetItem2);
+                    int a2 = a(nHAssetItem3);
                     int i2 = ((displayWidth - dip2px) - dip2px3) - dip2px2;
                     int i3 = i2 / 2;
-                    boolean z = a2 > i3;
-                    boolean z2 = a3 > i3;
+                    boolean z = a > i3;
+                    boolean z2 = a2 > i3;
                     LinearLayout.LayoutParams layoutParams5 = null;
                     if (z == z2) {
                         layoutParams5 = new LinearLayout.LayoutParams(0, -1);
@@ -113,7 +111,7 @@ public class NHAssetGroup extends BaseItemLayout {
                         layoutParams = new LinearLayout.LayoutParams(0, -1);
                         layoutParams.weight = 1.0f;
                     } else if (z) {
-                        if ((i2 - a2) - a3 <= 0) {
+                        if ((i2 - a) - a2 <= 0) {
                             layoutParams2 = new LinearLayout.LayoutParams(0, -1);
                             layoutParams2.weight = 1.0f;
                             layoutParams3 = new LinearLayout.LayoutParams(-2, -1);
@@ -126,7 +124,7 @@ public class NHAssetGroup extends BaseItemLayout {
                         layoutParams = layoutParams3;
                     } else if (!z2) {
                         layoutParams = null;
-                    } else if ((i2 - a2) - a3 <= 0) {
+                    } else if ((i2 - a) - a2 <= 0) {
                         layoutParams5 = new LinearLayout.LayoutParams(-2, -1);
                         layoutParams = new LinearLayout.LayoutParams(0, -1);
                         layoutParams.weight = 1.0f;
@@ -139,8 +137,8 @@ public class NHAssetGroup extends BaseItemLayout {
                     layoutParams.setMargins(dip2px3, 0, dip2px2, 0);
                     this.mItemPanel.addView(nHAssetItem2, layoutParams5);
                     this.mItemPanel.addView(nHAssetItem3, layoutParams);
-                    this.f59396a.add(nHAssetItem2);
-                    this.f59396a.add(nHAssetItem3);
+                    this.a.add(nHAssetItem2);
+                    this.a.add(nHAssetItem3);
                     return;
                 }
             }
@@ -219,9 +217,7 @@ public class NHAssetGroup extends BaseItemLayout {
                 this.mEye.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHAssetGroup.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NHAssetGroup f59397a;
+                    public final /* synthetic */ NHAssetGroup a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -238,7 +234,7 @@ public class NHAssetGroup extends BaseItemLayout {
                                 return;
                             }
                         }
-                        this.f59397a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -247,15 +243,13 @@ public class NHAssetGroup extends BaseItemLayout {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                             return;
                         }
-                        this.f59397a.getWalletInterface().onEyeMaskBtnClick();
+                        this.a.getWalletInterface().onEyeMaskBtnClick();
                     }
                 });
                 this.mMainPanel.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHAssetGroup.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ NHAssetGroup f59398a;
+                    public final /* synthetic */ NHAssetGroup a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -272,14 +266,14 @@ public class NHAssetGroup extends BaseItemLayout {
                                 return;
                             }
                         }
-                        this.f59398a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f59398a.getWalletInterface().jump(this.f59398a.mConfigData.getGroup_name(), this.f59398a.mConfigData.getGroup_type(), this.f59398a.mConfigData.getGroup_link(), this.f59398a.mConfigData.getGroup_prevlogin());
+                            this.a.getWalletInterface().jump(this.a.mConfigData.getGroup_name(), this.a.mConfigData.getGroup_type(), this.a.mConfigData.getGroup_link(), this.a.mConfigData.getGroup_prevlogin());
                         }
                     }
                 });
@@ -299,9 +293,7 @@ public class NHAssetGroup extends BaseItemLayout {
             this.mLoginButton.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHAssetGroup.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NHAssetGroup f59399a;
+                public final /* synthetic */ NHAssetGroup a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -318,7 +310,7 @@ public class NHAssetGroup extends BaseItemLayout {
                             return;
                         }
                     }
-                    this.f59399a = this;
+                    this.a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -327,7 +319,7 @@ public class NHAssetGroup extends BaseItemLayout {
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || CheckUtils.isFastDoubleClick()) {
                         return;
                     }
-                    this.f59399a.getWalletInterface().login();
+                    this.a.getWalletInterface().login();
                 }
             });
         }
@@ -361,6 +353,6 @@ public class NHAssetGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f59396a = new ArrayList();
+        this.a = new ArrayList();
     }
 }

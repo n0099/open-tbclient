@@ -1,0 +1,278 @@
+package c.a.b0.s.k0;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import c.a.b0.s.c0.p;
+import c.a.b0.s.f0.j;
+import c.a.b0.s.f0.k;
+import c.a.b0.s.f0.m;
+import c.a.b0.s.v0.h;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+/* loaded from: classes.dex */
+public abstract class a implements c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentHashMap<Integer, CopyOnWriteArrayList<j>> a;
+    @Nullable
+
+    /* renamed from: b  reason: collision with root package name */
+    public k f2004b;
+    @Nullable
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<k> f2005c;
+    @Nullable
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<m> f2006d;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap<>();
+    }
+
+    @Override // c.a.b0.s.k0.c
+    @Deprecated
+    public void a(@Nullable k kVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
+            this.f2004b = kVar;
+        }
+    }
+
+    @Override // c.a.b0.s.k0.c
+    public void b(@NonNull m mVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
+            j(mVar);
+        }
+    }
+
+    @Override // c.a.b0.s.k0.c
+    public void c(int i2, @NonNull j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, jVar) == null) {
+            CopyOnWriteArrayList<j> copyOnWriteArrayList = this.a.get(Integer.valueOf(i2));
+            if (copyOnWriteArrayList == null) {
+                copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+            }
+            if (!copyOnWriteArrayList.contains(jVar)) {
+                int a = jVar.a();
+                if (a == 0) {
+                    copyOnWriteArrayList.add(jVar);
+                } else if (a == 1) {
+                    copyOnWriteArrayList.add(0, jVar);
+                } else if (a == 2) {
+                    copyOnWriteArrayList.add(copyOnWriteArrayList.size(), jVar);
+                }
+            }
+            this.a.put(Integer.valueOf(i2), copyOnWriteArrayList);
+        }
+    }
+
+    @Override // c.a.b0.s.k0.c
+    public void d(@NonNull p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pVar) == null) {
+            String type = getType();
+            h.i(type, System.identityHashCode(this) + " notifyEvent " + pVar);
+            if (pVar.j() == 1) {
+                if (i(pVar)) {
+                    return;
+                }
+                g(pVar);
+                pVar.o();
+                return;
+            }
+            l(pVar);
+        }
+    }
+
+    @Override // c.a.b0.s.k0.c
+    public void e(j jVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jVar) == null) {
+            for (CopyOnWriteArrayList<j> copyOnWriteArrayList : this.a.values()) {
+                copyOnWriteArrayList.remove(jVar);
+            }
+        }
+    }
+
+    @Override // c.a.b0.s.k0.c
+    public void f(@NonNull m mVar) {
+        List<m> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, mVar) == null) || (list = this.f2006d) == null) {
+            return;
+        }
+        list.remove(mVar);
+    }
+
+    public void g(p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, pVar) == null) {
+            k(pVar);
+            h(pVar);
+            CopyOnWriteArrayList<j> copyOnWriteArrayList = this.a.get(Integer.valueOf(pVar.getType()));
+            if (copyOnWriteArrayList == null || copyOnWriteArrayList.isEmpty()) {
+                return;
+            }
+            Iterator<j> it = copyOnWriteArrayList.iterator();
+            while (it.hasNext()) {
+                j next = it.next();
+                if (!pVar.b(next)) {
+                    switch (pVar.getType()) {
+                        case -1:
+                        case 6:
+                            next.b(pVar);
+                            continue;
+                        case 1:
+                            next.o(pVar);
+                            continue;
+                        case 2:
+                            next.r(pVar);
+                            continue;
+                        case 3:
+                            next.l(pVar);
+                            continue;
+                        case 4:
+                            next.e(pVar);
+                            continue;
+                        case 5:
+                            next.i((PlayerStatus) pVar.f(2), (PlayerStatus) pVar.f(1));
+                            continue;
+                        case 7:
+                            if (next instanceof c.a.b0.s.o0.c) {
+                                ((c.a.b0.s.o0.c) next).h(pVar);
+                                break;
+                            } else {
+                                next.b(pVar);
+                                continue;
+                            }
+                        case 8:
+                            next.k(pVar);
+                            continue;
+                    }
+                }
+            }
+        }
+    }
+
+    public abstract /* synthetic */ String getType();
+
+    public final void h(p pVar) {
+        List<m> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pVar) == null) || (list = this.f2006d) == null) {
+            return;
+        }
+        for (m mVar : list) {
+            mVar.b(pVar);
+        }
+    }
+
+    public boolean i(p pVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, pVar)) == null) {
+            k kVar = this.f2004b;
+            if (kVar != null && kVar.getInterceptorLayer() != pVar.k() && this.f2004b.f(pVar)) {
+                h.b("AbsMessenger", "isNeedIntercept() = true, event = " + pVar);
+                pVar.o();
+                return true;
+            }
+            List<k> list = this.f2005c;
+            if (list != null) {
+                for (k kVar2 : list) {
+                    if (kVar2.getInterceptorLayer() != pVar.k() && kVar2.f(pVar)) {
+                        h.b("AbsMessenger", "isNeedIntercept() = true, event = " + pVar);
+                        pVar.o();
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void j(m mVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, mVar) == null) {
+            if (this.f2006d == null) {
+                this.f2006d = new ArrayList();
+            }
+            if (this.f2006d.contains(mVar)) {
+                return;
+            }
+            int a = mVar.a();
+            if (a == 0) {
+                this.f2006d.add(mVar);
+            } else if (a == 1) {
+                this.f2006d.add(0, mVar);
+            } else if (a != 2) {
+            } else {
+                List<m> list = this.f2006d;
+                list.add(list.size(), mVar);
+            }
+        }
+    }
+
+    public final void k(p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, pVar) == null) {
+            if (pVar.i() == 0) {
+                String type = getType();
+                h.b(type, System.identityHashCode(this) + ": dispatch event :" + pVar);
+                return;
+            }
+            String type2 = getType();
+            h.i(type2, System.identityHashCode(this) + ": dispatch event :" + pVar);
+        }
+    }
+
+    public abstract void l(@NonNull p pVar);
+
+    @Override // c.a.b0.s.k0.c
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            List<m> list = this.f2006d;
+            if (list != null) {
+                list.clear();
+                this.f2006d = null;
+            }
+            this.a.clear();
+            this.f2004b = null;
+            List<k> list2 = this.f2005c;
+            if (list2 != null) {
+                list2.clear();
+                this.f2005c = null;
+            }
+        }
+    }
+}

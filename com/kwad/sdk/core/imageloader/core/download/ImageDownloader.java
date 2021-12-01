@@ -3,7 +3,6 @@ package com.kwad.sdk.core.imageloader.core.download;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -111,7 +110,7 @@ public interface ImageDownloader {
         public static Scheme[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (Scheme[]) $VALUES.clone() : (Scheme[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (Scheme[]) $VALUES.clone() : (Scheme[]) invokeV.objValue;
         }
 
         public String crop(String str) {

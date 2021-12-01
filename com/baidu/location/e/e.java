@@ -7,7 +7,6 @@ import android.net.Proxy;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,28 +17,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f40032a;
+    public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f40033b;
+    public static int f35702b;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f40034g;
+    public static int f35703g;
     public static int p;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f40035h;
+    public String f35704h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f40036i;
-    public String j;
-    public Map<String, Object> k;
+    public int f35705i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f35706j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public Map<String, Object> f35707k;
     public String l;
     public byte[] m;
     public byte[] n;
@@ -58,9 +59,9 @@ public abstract class e {
                 return;
             }
         }
-        f40034g = a.f40001g;
-        f40032a = "10.0.0.172";
-        f40033b = 80;
+        f35703g = a.f35672g;
+        a = "10.0.0.172";
+        f35702b = 80;
         p = 0;
     }
 
@@ -77,17 +78,17 @@ public abstract class e {
                 return;
             }
         }
-        this.f40035h = null;
-        this.f40036i = 1;
-        this.j = null;
-        this.k = null;
+        this.f35704h = null;
+        this.f35705i = 1;
+        this.f35706j = null;
+        this.f35707k = null;
         this.l = null;
         this.m = null;
         this.n = null;
         this.o = null;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00b1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00af, code lost:
         if ("10.0.0.200".equals(r5.trim()) != false) goto L24;
      */
     /*
@@ -106,27 +107,27 @@ public abstract class e {
                     if (defaultHost != null && !defaultHost.equals("") && !defaultHost.equals(StringUtil.NULL_STRING)) {
                         str2 = defaultHost;
                     }
-                    f40032a = str2;
-                    return a.f39998d;
+                    a = str2;
+                    return a.f35669d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
                     String defaultHost2 = Proxy.getDefaultHost();
                     if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
                         str = defaultHost2;
                     }
-                    f40032a = str;
-                    return a.f39998d;
+                    a = str;
+                    return a.f35669d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                    return a.f39999e;
+                    return a.f35670e;
                 }
             }
             String defaultHost3 = Proxy.getDefaultHost();
             if (defaultHost3 != null && defaultHost3.length() > 0) {
                 if (!"10.0.0.172".equals(defaultHost3.trim())) {
                 }
-                f40032a = str2;
-                return a.f39998d;
+                a = str2;
+                return a.f35669d;
             }
-            return a.f39999e;
+            return a.f35670e;
         }
         return invokeLL.intValue;
     }
@@ -135,31 +136,31 @@ public abstract class e {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            f40034g = c();
+            f35703g = c();
         }
     }
 
     private int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             Context serviceContext = com.baidu.location.f.getServiceContext();
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
                 if (connectivityManager == null) {
-                    return a.f40001g;
+                    return a.f35672g;
                 }
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     if (activeNetworkInfo.getType() == 1) {
                         String defaultHost = Proxy.getDefaultHost();
-                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f40000f : a.f40002h;
+                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f35671f : a.f35673h;
                     }
                     return a(serviceContext, activeNetworkInfo);
                 }
-                return a.f40001g;
+                return a.f35672g;
             } catch (Exception unused) {
-                return a.f40001g;
+                return a.f35672g;
             }
         }
         return invokeV.intValue;

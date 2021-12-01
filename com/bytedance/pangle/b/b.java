@@ -10,71 +10,73 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f62142b = "request_finish";
+    public static String f54462b = "request_finish";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f62143c = "download_start";
+    public static String f54463c = "download_start";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f62144d = "download_finish";
+    public static String f54464d = "download_finish";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f62145e = "install_start";
+    public static String f54465e = "install_start";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f62146f = "install_finish";
+    public static String f54466f = "install_finish";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f62147g = "load_start";
+    public static String f54467g = "load_start";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f62148h = "load_finish";
+    public static String f54468h = "load_finish";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f62149i = "zeus_error";
-    public static volatile b j;
+    public static String f54469i = "zeus_error";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static volatile b f54470j;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<com.bytedance.pangle.b.a> a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public final List<com.bytedance.pangle.b.a> f62150a;
-
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static int f62151a = 11000;
+        public static int a = 11000;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f62152b = 12000;
+        public static int f54471b = 12000;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f62153c = 12001;
+        public static int f54472c = 12001;
 
         /* renamed from: d  reason: collision with root package name */
-        public static int f62154d = 20000;
+        public static int f54473d = 20000;
 
         /* renamed from: e  reason: collision with root package name */
-        public static int f62155e = 21000;
+        public static int f54474e = 21000;
 
         /* renamed from: f  reason: collision with root package name */
-        public static int f62156f = 21001;
+        public static int f54475f = 21001;
 
         /* renamed from: g  reason: collision with root package name */
-        public static int f62157g = 21002;
+        public static int f54476g = 21002;
 
         /* renamed from: h  reason: collision with root package name */
-        public static int f62158h = 22000;
+        public static int f54477h = 22000;
 
         /* renamed from: i  reason: collision with root package name */
-        public static int f62159i = 22001;
-        public static int j = 22002;
-        public static int k = 22999;
+        public static int f54478i = 22001;
+
+        /* renamed from: j  reason: collision with root package name */
+        public static int f54479j = 22002;
+
+        /* renamed from: k  reason: collision with root package name */
+        public static int f54480k = 22999;
         public static int l = 30000;
         public static int m = 31000;
         public static int n = 32000;
@@ -135,19 +137,19 @@ public class b {
                 return;
             }
         }
-        this.f62150a = new ArrayList();
+        this.a = new ArrayList();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (j == null) {
+            if (f54470j == null) {
                 synchronized (b.class) {
-                    j = new b();
+                    f54470j = new b();
                 }
             }
-            return j;
+            return f54470j;
         }
         return (b) invokeV.objValue;
     }
@@ -155,8 +157,8 @@ public class b {
     public final void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, jSONObject, jSONObject2, jSONObject3) == null) {
-            synchronized (this.f62150a) {
-                for (com.bytedance.pangle.b.a aVar : this.f62150a) {
+            synchronized (this.a) {
+                for (com.bytedance.pangle.b.a aVar : this.a) {
                     aVar.a(str, jSONObject, jSONObject2, jSONObject3);
                 }
             }

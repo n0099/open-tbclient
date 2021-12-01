@@ -7,21 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OfficialFeedHeadResponsedMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public List<b.a.r0.l1.h.o.a> f51415a;
+        public List<c.a.r0.r1.h.o.a> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<ChatMessage> f51416b;
+        public List<ChatMessage> f46080b;
 
         public a() {
             Interceptable interceptable = $ic;

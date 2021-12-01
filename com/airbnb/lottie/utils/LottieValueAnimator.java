@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieComposition;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LottieValueAnimator extends BaseLottieAnimator implements Choreographer.FrameCallback {
     @Nullable
     public LottieComposition composition;
@@ -57,14 +57,14 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
     }
 
     @Override // android.view.Choreographer.FrameCallback
-    public void doFrame(long j) {
+    public void doFrame(long j2) {
         postFrameCallback();
         if (this.composition == null || !isRunning()) {
             return;
         }
         L.beginSection("LottieValueAnimator#doFrame");
-        long j2 = this.lastFrameTimeNs;
-        float frameDurationNs = ((float) (j2 != 0 ? j - j2 : 0L)) / getFrameDurationNs();
+        long j3 = this.lastFrameTimeNs;
+        float frameDurationNs = ((float) (j3 != 0 ? j2 - j3 : 0L)) / getFrameDurationNs();
         float f2 = this.frame;
         if (isReversed()) {
             frameDurationNs = -frameDurationNs;
@@ -73,7 +73,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
         this.frame = f3;
         boolean z = !MiscUtils.contains(f3, getMinFrame(), getMaxFrame());
         this.frame = MiscUtils.clamp(this.frame, getMinFrame(), getMaxFrame());
-        this.lastFrameTimeNs = j;
+        this.lastFrameTimeNs = j2;
         notifyUpdate();
         if (z) {
             if (getRepeatCount() != -1 && this.repeatCount >= getRepeatCount()) {
@@ -89,7 +89,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
                 } else {
                     this.frame = isReversed() ? getMaxFrame() : getMinFrame();
                 }
-                this.lastFrameTimeNs = j;
+                this.lastFrameTimeNs = j2;
             }
         }
         verifyFrame();

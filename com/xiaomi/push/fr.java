@@ -1,7 +1,6 @@
 package com.xiaomi.push;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,24 +17,22 @@ import java.util.Enumeration;
 import java.util.Vector;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class fr {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f71879a = 5000;
+    public static int a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
     public static Vector<String> f415a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f71880b = 330000;
+    public static int f62894b = 330000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f71881c = 600000;
+    public static int f62895c = 600000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f71882d = 330000;
+    public static int f62896d = 330000;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,7 +50,7 @@ public final class fr {
         }
         f415a = new Vector<>();
         try {
-            for (ClassLoader classLoader : m335a()) {
+            for (ClassLoader classLoader : m384a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -68,9 +65,9 @@ public final class fr {
                                 if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
-                                    f71879a = a(newPullParser, f71879a);
+                                    a = a(newPullParser, a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f71880b = a(newPullParser, f71880b);
+                                    f62894b = a(newPullParser, f62894b);
                                 } else if (newPullParser.getName().equals("mechName")) {
                                     f415a.add(newPullParser.nextText());
                                 }
@@ -108,7 +105,7 @@ public final class fr {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f71880b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f62894b : invokeV.intValue;
     }
 
     public static int a(XmlPullParser xmlPullParser, int i2) {
@@ -126,7 +123,7 @@ public final class fr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m334a() {
+    public static String m383a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "3.1.0" : (String) invokeV.objValue;
@@ -134,7 +131,7 @@ public final class fr {
 
     public static void a(XmlPullParser xmlPullParser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, xmlPullParser) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, xmlPullParser) == null) {
             String nextText = xmlPullParser.nextText();
             try {
                 Class.forName(nextText);
@@ -146,10 +143,10 @@ public final class fr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ClassLoader[] m335a() {
+    public static ClassLoader[] m384a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             ClassLoader[] classLoaderArr = {fr.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < 2; i2++) {
@@ -166,6 +163,6 @@ public final class fr {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f71881c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f62895c : invokeV.intValue;
     }
 }

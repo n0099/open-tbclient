@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -322,7 +321,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     private TabInfo getTabInfoForTag(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             int size = this.mTabs.size();
             for (int i2 = 0; i2 < size; i2++) {
                 TabInfo tabInfo = this.mTabs.get(i2);
@@ -337,7 +336,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     private void initFragmentTabHost(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, context, attributeSet) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842995}, 0, 0);
             this.mContainerId = obtainStyledAttributes.getResourceId(0, 0);
             obtainStyledAttributes.recycle();

@@ -4,7 +4,6 @@ import android.os.Build;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityRecord;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,7 +103,7 @@ public final class AccessibilityEventCompat {
     public static int getMovementGranularity(AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, accessibilityEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, accessibilityEvent)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 return accessibilityEvent.getMovementGranularity();
             }
@@ -117,7 +116,7 @@ public final class AccessibilityEventCompat {
     public static AccessibilityRecordCompat getRecord(AccessibilityEvent accessibilityEvent, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, accessibilityEvent, i2)) == null) ? new AccessibilityRecordCompat(accessibilityEvent.getRecord(i2)) : (AccessibilityRecordCompat) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, accessibilityEvent, i2)) == null) ? new AccessibilityRecordCompat(accessibilityEvent.getRecord(i2)) : (AccessibilityRecordCompat) invokeLI.objValue;
     }
 
     @Deprecated

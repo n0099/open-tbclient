@@ -1,9 +1,9 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.text.TextUtils;
-import b.a.e.f.p.k;
-import b.a.r0.b3.a;
-import b.a.r0.l1.t.d;
+import c.a.d.f.p.k;
+import c.a.r0.i3.a;
+import c.a.r0.r1.t.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,9 +72,9 @@ public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, messageStringParam, result) == null) {
             TiebaUtilityMessageAuto.MessageBoolResult messageBoolResult = new TiebaUtilityMessageAuto.MessageBoolResult();
-            OfficialSettingItemData a2 = d.j().a(TbadkCoreApplication.getCurrentAccount(), messageStringParam.getResult());
-            if (a2 != null) {
-                messageBoolResult.setResult(Boolean.valueOf(a2.isAcceptNotify()));
+            OfficialSettingItemData a = d.j().a(TbadkCoreApplication.getCurrentAccount(), messageStringParam.getResult());
+            if (a != null) {
+                messageBoolResult.setResult(Boolean.valueOf(a.isAcceptNotify()));
             } else {
                 messageBoolResult.setResult(Boolean.TRUE);
             }

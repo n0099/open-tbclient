@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaDeleteSessionRequest";
@@ -32,12 +32,12 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
     public String mKey;
     public long mLastTime;
 
-    public IMMediaDeleteSessionRequest(Context context, long j, long j2, String str) {
+    public IMMediaDeleteSessionRequest(Context context, long j2, long j3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -50,8 +50,8 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j;
-        this.mLastTime = j2;
+        this.mContacter = j2;
+        this.mLastTime = j3;
         this.mKey = str;
     }
 
@@ -165,12 +165,12 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaDeleteSessionRequest(Context context, long j, int i2, long j2, String str, long j3, String str2) {
+    public IMMediaDeleteSessionRequest(Context context, long j2, int i2, long j3, String str, long j4, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), str, Long.valueOf(j3), str2};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -183,11 +183,11 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j;
-        this.mLastTime = j3;
+        this.mContacter = j2;
+        this.mLastTime = j4;
         this.mKey = str2;
         this.mContactorType = i2;
-        this.mContactorPauid = j2;
+        this.mContactorPauid = j3;
         this.mContactorThirdid = str;
     }
 }

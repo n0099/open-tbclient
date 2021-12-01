@@ -35,7 +35,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMFetchMsgByIdMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgByIdMsg";
@@ -52,7 +52,7 @@ public class IMFetchMsgByIdMsg extends Message {
     public JSONObject mMessageExt;
     public long mTriggerReason;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class FetchTask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,12 +257,12 @@ public class IMFetchMsgByIdMsg extends Message {
         reliableListFirst = new ConcurrentHashMap();
     }
 
-    public IMFetchMsgByIdMsg(Context context, long j, long j2, int i2, int i3, long j3, int i4, int i5) {
+    public IMFetchMsgByIdMsg(Context context, long j2, long j3, int i2, int i3, long j4, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j4), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
@@ -275,11 +275,11 @@ public class IMFetchMsgByIdMsg extends Message {
         this.mJumpToRecent = -1;
         this.mFetchNum = 0;
         initCommonParameter(context);
-        this.mBeginId = j;
-        this.mEndId = j2;
+        this.mBeginId = j2;
+        this.mEndId = j3;
         this.mCount = i2;
         this.mCategory = i3;
-        this.mContacter = j3;
+        this.mContacter = j4;
         this.mTriggerReason = i4;
         this.mFetchNum = i5;
         this.mContext = context;

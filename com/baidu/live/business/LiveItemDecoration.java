@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LiveItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f39520a;
+    public int a;
 
     public LiveItemDecoration(int i2) {
         Interceptable interceptable = $ic;
@@ -31,8 +29,8 @@ public class LiveItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.f39520a = 0;
-        this.f39520a = i2;
+        this.a = 0;
+        this.a = i2;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -40,7 +38,7 @@ public class LiveItemDecoration extends RecyclerView.ItemDecoration {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
             rect.top = 0;
-            int i2 = this.f39520a;
+            int i2 = this.a;
             rect.right = i2 >> 1;
             rect.left = i2 >> 1;
             rect.bottom = i2;
@@ -50,7 +48,7 @@ public class LiveItemDecoration extends RecyclerView.ItemDecoration {
     public void setSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f39520a = i2;
+            this.a = i2;
         }
     }
 }

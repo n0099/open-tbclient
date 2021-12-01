@@ -11,7 +11,6 @@ import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.h.r;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARAuthFacade implements j {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_TYPE_AIP = 1;
@@ -142,10 +141,10 @@ public class ARAuthFacade implements j {
     private boolean a(Context context, IAuthCallback iAuthCallback, f fVar, ICallbackWith<List<Integer>> iCallbackWith) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, this, context, iAuthCallback, fVar, iCallbackWith)) == null) {
-            k a2 = a(fVar);
-            if (a2 != null) {
-                a2.a(new k.a(this, iCallbackWith) { // from class: com.baidu.ar.auth.ARAuthFacade.7
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, this, context, iAuthCallback, fVar, iCallbackWith)) == null) {
+            k a = a(fVar);
+            if (a != null) {
+                a.a(new k.a(this, iCallbackWith) { // from class: com.baidu.ar.auth.ARAuthFacade.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ARAuthFacade jj;
@@ -188,7 +187,7 @@ public class ARAuthFacade implements j {
                     this.je = dVar;
                     dVar.start();
                 }
-                this.je.execute(new Runnable(this, a2, context, iAuthCallback, fVar) { // from class: com.baidu.ar.auth.ARAuthFacade.8
+                this.je.execute(new Runnable(this, a, context, iAuthCallback, fVar) { // from class: com.baidu.ar.auth.ARAuthFacade.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ARAuthFacade jj;
@@ -202,7 +201,7 @@ public class ARAuthFacade implements j {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, a2, context, iAuthCallback, fVar};
+                            Object[] objArr = {this, a, context, iAuthCallback, fVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -213,7 +212,7 @@ public class ARAuthFacade implements j {
                             }
                         }
                         this.jj = this;
-                        this.jo = a2;
+                        this.jo = a;
                         this.val$context = context;
                         this.jl = iAuthCallback;
                         this.jp = fVar;
@@ -643,20 +642,20 @@ public class ARAuthFacade implements j {
                     this.iZ.U("invalid license data");
                     return false;
                 }
-                k a2 = a(d2);
-                if (a2 instanceof l) {
+                k a = a(d2);
+                if (a instanceof l) {
                     f fVar = this.iX;
                     this.iZ = new i(fVar != null ? fVar.jN : null);
                     String[] strArr = new String[1];
-                    boolean a3 = ((l) a2).a(context, strArr);
+                    boolean a2 = ((l) a).a(context, strArr);
                     i iVar = this.iZ;
-                    if (a3) {
+                    if (a2) {
                         iVar.cA();
                     } else {
                         iVar.U(strArr[0]);
                         com.baidu.ar.h.b.b("ARAuth", strArr[0]);
                     }
-                    return a3;
+                    return a2;
                 }
             }
             return false;

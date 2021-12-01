@@ -3,7 +3,7 @@ package com.baidu.tieba.wxapi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import b.a.q0.p0.e;
+import c.a.q0.q0.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.channelpay.wxpay.ChannelWXPay;
 import com.baidu.mytransformapp.util.LogUtil;
@@ -21,7 +21,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,9 +88,9 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
                 e2.printStackTrace();
             }
             e eVar = new e();
-            eVar.f13552g = true;
-            eVar.f13547b = baseResp.getType();
-            eVar.f13548c = str;
+            eVar.f12486g = true;
+            eVar.f12481b = baseResp.getType();
+            eVar.f12482c = str;
             Intent intent = new Intent("WXPayResult");
             intent.putExtra("errorCode", baseResp.errCode);
             intent.putExtra("errorMsg", baseResp.errStr);

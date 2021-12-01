@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMUserSetRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,12 +28,12 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
     public String mKey;
     public long mUserUk;
 
-    public IMUserSetRequest(Context context, String str, long j, long j2, int i2, int i3) {
+    public IMUserSetRequest(Context context, String str, long j2, long j3, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -44,11 +44,11 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mUserUk = j;
+        this.mUserUk = j2;
         this.mKey = str;
         this.mDisturb = i2;
         this.mBlack = i3;
-        this.mAppid = j2;
+        this.mAppid = j3;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

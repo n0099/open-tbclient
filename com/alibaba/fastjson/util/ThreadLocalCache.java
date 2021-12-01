@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.nio.charset.CharsetDecoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ThreadLocalCache {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -97,7 +96,7 @@ public class ThreadLocalCache {
 
     public static void clearChars() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             charsBufLocal.set(null);
         }
     }
@@ -105,7 +104,7 @@ public class ThreadLocalCache {
     public static int getAllocateLengthExp(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3, i4)) == null) ? (i4 >>> i2) <= 0 ? 1 << i2 : 1 << (32 - Integer.numberOfLeadingZeros(i4 - 1)) : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i2, i3, i4)) == null) ? (i4 >>> i2) <= 0 ? 1 << i2 : 1 << (32 - Integer.numberOfLeadingZeros(i4 - 1)) : invokeIII.intValue;
     }
 
     public static byte[] getBytes(int i2) {

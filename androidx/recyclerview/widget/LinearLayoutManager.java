@@ -15,7 +15,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -541,7 +540,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     private int computeScrollRange(RecyclerView.State state) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, state)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, state)) == null) {
             if (getChildCount() == 0) {
                 return 0;
             }
@@ -554,7 +553,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     private View findFirstPartiallyOrCompletelyInvisibleChild() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? findOnePartiallyOrCompletelyInvisibleChild(0, getChildCount()) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? findOnePartiallyOrCompletelyInvisibleChild(0, getChildCount()) : (View) invokeV.objValue;
     }
 
     private View findFirstReferenceChild(RecyclerView.Recycler recycler, RecyclerView.State state) {

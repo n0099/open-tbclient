@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PreAllocateException extends IOException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,13 +15,13 @@ public class PreAllocateException extends IOException {
     public final long requireSpace;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PreAllocateException(long j, long j2) {
-        super("There is Free space less than Require space: " + j2 + " < " + j);
+    public PreAllocateException(long j2, long j3) {
+        super("There is Free space less than Require space: " + j3 + " < " + j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,8 +32,8 @@ public class PreAllocateException extends IOException {
                 return;
             }
         }
-        this.requireSpace = j;
-        this.freeSpace = j2;
+        this.requireSpace = j2;
+        this.freeSpace = j3;
     }
 
     public long getFreeSpace() {

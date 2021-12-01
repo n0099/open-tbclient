@@ -3,7 +3,6 @@ package com.ss.android.downloadlib.g;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,12 +21,12 @@ public class f {
         if (interceptable == null || interceptable.invokeLL(65538, null, downloadInfo, jSONObject) == null) {
             try {
                 c(downloadInfo, jSONObject);
-                com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
-                if (a2 == null) {
+                com.ss.android.downloadad.api.a.b a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
+                if (a == null) {
                     return;
                 }
-                jSONObject.put("is_update_download", a2.V() ? 1 : 2);
-                a(a2, jSONObject);
+                jSONObject.put("is_update_download", a.V() ? 1 : 2);
+                a(a, jSONObject);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -35,36 +34,36 @@ public class f {
     }
 
     public static void b(DownloadInfo downloadInfo, JSONObject jSONObject) {
-        com.ss.android.downloadad.api.a.b a2;
+        com.ss.android.downloadad.api.a.b a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, downloadInfo, jSONObject) == null) || jSONObject == null || (a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, downloadInfo, jSONObject) == null) || jSONObject == null || (a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo)) == null) {
             return;
         }
         try {
             c(downloadInfo, jSONObject);
-            jSONObject.putOpt("time_after_click", Long.valueOf(System.currentTimeMillis() - a2.T()));
-            jSONObject.putOpt("click_download_size", Long.valueOf(a2.U()));
+            jSONObject.putOpt("time_after_click", Long.valueOf(System.currentTimeMillis() - a.T()));
+            jSONObject.putOpt("click_download_size", Long.valueOf(a.U()));
             jSONObject.putOpt("download_length", Long.valueOf(downloadInfo.getCurBytes()));
             jSONObject.putOpt("download_apk_size", Long.valueOf(downloadInfo.getTotalBytes()));
-            a2.A();
-            com.ss.android.downloadlib.addownload.b.i.a().a(a2);
-            jSONObject.put("click_pause_times", a2.z());
+            a.A();
+            com.ss.android.downloadlib.addownload.b.i.a().a(a);
+            jSONObject.put("click_pause_times", a.z());
             long totalBytes = downloadInfo.getTotalBytes();
             long curBytes = downloadInfo.getCurBytes();
             jSONObject.put("download_percent", (curBytes < 0 || totalBytes <= 0) ? 0.0d : curBytes / totalBytes);
             jSONObject.put("download_status", downloadInfo.getRealStatus());
             long currentTimeMillis = System.currentTimeMillis();
-            long H = a2.H();
+            long H = a.H();
             if (H > 0) {
                 jSONObject.put("time_from_start_download", currentTimeMillis - H);
             }
-            long B = a2.B();
+            long B = a.B();
             if (B > 0) {
                 jSONObject.put("time_from_download_resume", currentTimeMillis - B);
             }
-            jSONObject.putOpt("fail_status", Integer.valueOf(a2.E()));
-            jSONObject.putOpt("fail_msg", a2.F());
-            jSONObject.put("download_failed_times", a2.x());
+            jSONObject.putOpt("fail_status", Integer.valueOf(a.E()));
+            jSONObject.putOpt("fail_msg", a.F());
+            jSONObject.put("download_failed_times", a.x());
             jSONObject.put("can_show_notification", com.ss.android.socialbase.appdownloader.e.d.a() ? 1 : 2);
             jSONObject.put("first_speed_time", downloadInfo.getFirstSpeedTime());
             jSONObject.put("all_connect_time", downloadInfo.getAllConnectTime());
@@ -77,7 +76,7 @@ public class f {
 
     public static void c(DownloadInfo downloadInfo, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, downloadInfo, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, downloadInfo, jSONObject) == null) {
             if (downloadInfo != null) {
                 try {
                     jSONObject.putOpt(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, Long.valueOf(downloadInfo.getTotalBytes()));
@@ -88,10 +87,10 @@ public class f {
                     jSONObject.putOpt("save_path", downloadInfo.getSavePath());
                     jSONObject.putOpt("file_name", downloadInfo.getName());
                     jSONObject.putOpt("download_status", Integer.valueOf(downloadInfo.getRealStatus()));
-                    com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo.getId());
-                    if (a2 != null) {
-                        jSONObject.putOpt("click_download_time", Long.valueOf(a2.T()));
-                        jSONObject.putOpt("click_download_size", Long.valueOf(a2.U()));
+                    com.ss.android.downloadad.api.a.b a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo.getId());
+                    if (a != null) {
+                        jSONObject.putOpt("click_download_time", Long.valueOf(a.T()));
+                        jSONObject.putOpt("click_download_size", Long.valueOf(a.U()));
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -131,10 +130,10 @@ public class f {
             for (int i3 = 0; i3 < e2.length(); i3++) {
                 try {
                     String string = e2.getString(i3);
-                    g.a a2 = com.ss.android.socialbase.appdownloader.f.a.a(string);
-                    if (a2 != null) {
+                    g.a a = com.ss.android.socialbase.appdownloader.f.a.a(string);
+                    if (a != null) {
                         String replaceAll = string.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_");
-                        jSONObject.put(replaceAll, a2.f() + "_" + a2.g());
+                        jSONObject.put(replaceAll, a.f() + "_" + a.g());
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();

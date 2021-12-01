@@ -20,17 +20,17 @@ public final class EventLoop_commonKt {
     public static /* synthetic */ void DISPOSED_TASK$annotations() {
     }
 
-    public static final long delayNanosToMillis(long j) {
-        return j / 1000000;
+    public static final long delayNanosToMillis(long j2) {
+        return j2 / 1000000;
     }
 
-    public static final long delayToNanos(long j) {
-        if (j <= 0) {
+    public static final long delayToNanos(long j2) {
+        if (j2 <= 0) {
             return 0L;
         }
-        if (j >= MAX_MS) {
+        if (j2 >= MAX_MS) {
             return Long.MAX_VALUE;
         }
-        return 1000000 * j;
+        return 1000000 * j2;
     }
 }

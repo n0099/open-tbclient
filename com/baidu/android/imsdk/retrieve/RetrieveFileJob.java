@@ -18,7 +18,6 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +32,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RetrieveFileJob extends IRetrieveJob {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FETCH_FILE_ZIP = ".im_fetch_file_zip";
@@ -43,7 +42,7 @@ public class RetrieveFileJob extends IRetrieveJob {
     public final AtomicInteger mRetryCount;
 
     /* renamed from: com.baidu.android.imsdk.retrieve.RetrieveFileJob$2  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass2 implements IGenBosObjectUrlListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -238,7 +237,7 @@ public class RetrieveFileJob extends IRetrieveJob {
 
     private void genBosObjectUrl(Context context, String str, String str2, String str3, int i2, int i3, int i4, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{context, str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iGenBosObjectUrlListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iGenBosObjectUrlListener}) == null) {
             LogUtils.d(TAG, "filePath=" + str);
             IMGenBosObjectUrlRequest iMGenBosObjectUrlRequest = new IMGenBosObjectUrlRequest(context, str, str2, str3, i2, i3, i4, ListenerManager.getInstance().addListener(iGenBosObjectUrlListener));
             HttpHelper.executor(context, iMGenBosObjectUrlRequest, iMGenBosObjectUrlRequest);
@@ -247,7 +246,7 @@ public class RetrieveFileJob extends IRetrieveJob {
 
     private void generateMetaInfo(String str, String str2, String str3, File file, String str4, boolean z, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{str, str2, str3, file, str4, Boolean.valueOf(z), jSONObject}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{str, str2, str3, file, str4, Boolean.valueOf(z), jSONObject}) == null) {
             try {
                 JSONObject makeFileMeta = FileMetaUtil.makeFileMeta(file, str4, str2, str3, z);
                 jSONObject.put(str, makeFileMeta);
@@ -267,7 +266,7 @@ public class RetrieveFileJob extends IRetrieveJob {
         String replace;
         File[] listFiles;
         File[] fileArr;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, this, list, jSONObject, retrieveFileBean, context)) == null) {
             String str3 = Constants.PATH_INTERNAL;
@@ -275,8 +274,8 @@ public class RetrieveFileJob extends IRetrieveJob {
             String str5 = null;
             try {
                 ArrayList arrayList = new ArrayList(list.size());
-                long j2 = 0;
-                long j3 = retrieveFileBean.mMaxFileSize * 1000;
+                long j3 = 0;
+                long j4 = retrieveFileBean.mMaxFileSize * 1000;
                 Iterator<String> it2 = list.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
@@ -313,8 +312,8 @@ public class RetrieveFileJob extends IRetrieveJob {
                                 generateMetaInfo(replace, "1", replace + " not exist", null, null, true, jSONObject);
                             } else {
                                 if (file.isFile()) {
-                                    j2 += file.length();
-                                    if (j2 > j3) {
+                                    j3 += file.length();
+                                    if (j3 > j4) {
                                         generateMetaInfo(replace, "3", replace + " size exceed maxFileSize ", null, null, true, jSONObject);
                                         break;
                                     }
@@ -335,20 +334,20 @@ public class RetrieveFileJob extends IRetrieveJob {
                                     int i2 = 0;
                                     while (i2 < length) {
                                         File file2 = listFiles[i2];
-                                        long length2 = j2 + file2.length();
+                                        long length2 = j3 + file2.length();
                                         if (file2.exists()) {
                                             fileArr = listFiles;
-                                            j = length2;
+                                            j2 = length2;
                                             arrayList2.add(new FileZipUtil.ZipSrc(file2, file2.getName()));
                                         } else {
                                             fileArr = listFiles;
-                                            j = length2;
+                                            j2 = length2;
                                         }
                                         i2++;
                                         listFiles = fileArr;
-                                        j2 = j;
+                                        j3 = j2;
                                     }
-                                    if (j2 > j3) {
+                                    if (j3 > j4) {
                                         generateMetaInfo(replace, "3", file.getPath() + "size exceed maxFileSize ", null, null, true, jSONObject);
                                         break;
                                     }

@@ -2,12 +2,11 @@ package com.baidu.searchbox.ubcprocessor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.t0.s;
-import b.a.t0.w;
+import c.a.t0.s;
+import c.a.t0.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
@@ -23,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
@@ -89,7 +88,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static SharedPrefsWrapper sharedPrefsWrapper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? new SharedPrefsWrapper(KVStorageFactory.getSharedPreferences(SP_UBC_FILE_NAME)) : (SharedPrefsWrapper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new SharedPrefsWrapper(KVStorageFactory.getSharedPreferences(SP_UBC_FILE_NAME)) : (SharedPrefsWrapper) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
@@ -142,7 +141,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             this.val$step = r8;
                         }
 
-                        @Override // b.a.t0.s
+                        @Override // c.a.t0.s
                         public void setUBCConfigStatisticData(JSONObject jSONObject) {
                             ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                             Interceptable interceptable2 = $ic;

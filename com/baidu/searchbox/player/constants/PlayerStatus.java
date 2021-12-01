@@ -1,6 +1,5 @@
 package com.baidu.searchbox.player.constants;
 
-import com.baidu.mobads.container.info.XDeviceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class PlayerStatus {
     public static final /* synthetic */ PlayerStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -40,7 +39,7 @@ public final class PlayerStatus {
         PREPARING = new PlayerStatus("PREPARING", 1);
         PREPARED = new PlayerStatus("PREPARED", 2);
         PLAYING = new PlayerStatus("PLAYING", 3);
-        PAUSE = new PlayerStatus(XDeviceInfo.ABILITY_PAUSE, 4);
+        PAUSE = new PlayerStatus("PAUSE", 4);
         STOP = new PlayerStatus("STOP", 5);
         COMPLETE = new PlayerStatus("COMPLETE", 6);
         PlayerStatus playerStatus = new PlayerStatus("ERROR", 7);

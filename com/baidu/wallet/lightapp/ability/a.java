@@ -2,7 +2,7 @@ package com.baidu.wallet.lightapp.ability;
 
 import android.app.Activity;
 import com.baidu.wallet.api.ILightappInvokerCallback;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a {
     String a();
 

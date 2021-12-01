@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMInviteRtcInfo";
@@ -151,10 +151,10 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
         }
     }
 
-    public void setRtcUserId(long j) {
+    public void setRtcUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.mRtcUserId = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.mRtcUserId = j2;
         }
     }
 

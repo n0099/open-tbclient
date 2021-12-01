@@ -1,13 +1,13 @@
 package com.baidu.tbadk.switchs;
 
-import b.a.e.f.n.c;
-import b.a.e.f.o.a;
+import c.a.d.f.n.c;
+import c.a.d.f.o.a;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SyncSwitch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

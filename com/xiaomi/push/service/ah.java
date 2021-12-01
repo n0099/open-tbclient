@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gz;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ah implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ List f72324a;
+    public final /* synthetic */ List a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ boolean f892a;
@@ -33,7 +31,7 @@ public final class ah implements Runnable {
                 return;
             }
         }
-        this.f72324a = list;
+        this.a = list;
         this.f892a = z;
     }
 
@@ -44,7 +42,7 @@ public final class ah implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             b2 = ag.b("www.baidu.com:80");
-            Iterator it = this.f72324a.iterator();
+            Iterator it = this.a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

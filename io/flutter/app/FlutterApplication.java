@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.flutter.view.FlutterMain;
-/* loaded from: classes2.dex */
+import io.flutter.FlutterInjector;
+/* loaded from: classes3.dex */
 public class FlutterApplication extends Application {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class FlutterApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            FlutterMain.startInitialization(this);
+            FlutterInjector.instance().flutterLoader().startInitialization(this);
         }
     }
 

@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MsgRecord {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long msgId;
     public long msgTime;
 
-    public MsgRecord(long j, long j2) {
+    public MsgRecord(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,8 +28,8 @@ public class MsgRecord {
                 return;
             }
         }
-        this.msgId = j;
-        this.msgTime = j2;
+        this.msgId = j2;
+        this.msgTime = j3;
     }
 
     public long getMsgId() {
@@ -44,17 +44,17 @@ public class MsgRecord {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msgTime : invokeV.longValue;
     }
 
-    public void setMsgId(long j) {
+    public void setMsgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.msgId = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.msgId = j2;
         }
     }
 
-    public void setMsgTime(long j) {
+    public void setMsgTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.msgTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.msgTime = j2;
         }
     }
 }

@@ -6,14 +6,13 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CoordUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +43,8 @@ public class CoordUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             CoordType coordType = SDKInitializer.getCoordType();
             CoordType coordType2 = CoordType.GCJ02;
-            LatLng a2 = com.baidu.mapsdkplatform.comapi.util.b.a(str);
-            return coordType == coordType2 ? CoordTrans.baiduToGcj(a2) : a2;
+            LatLng a = com.baidu.mapsdkplatform.comapi.util.b.a(str);
+            return coordType == coordType2 ? CoordTrans.baiduToGcj(a) : a;
         }
         return (LatLng) invokeL.objValue;
     }
@@ -65,7 +64,7 @@ public class CoordUtil {
     public static LatLng decodeNodeLocation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             CoordType coordType = SDKInitializer.getCoordType();
             CoordType coordType2 = CoordType.GCJ02;
             LatLng b2 = com.baidu.mapsdkplatform.comapi.util.b.b(str);
@@ -77,7 +76,7 @@ public class CoordUtil {
     public static double getDistance(Point point, Point point2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, point, point2)) == null) ? com.baidu.mapsdkplatform.comjni.tools.a.a(point, point2) : invokeLL.doubleValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, point, point2)) == null) ? com.baidu.mapsdkplatform.comjni.tools.a.a(point, point2) : invokeLL.doubleValue;
     }
 
     public static int getMCDistanceByOneLatLngAndRadius(LatLng latLng, int i2) {
@@ -104,8 +103,8 @@ public class CoordUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, geoPoint)) == null) {
             CoordType coordType = SDKInitializer.getCoordType();
             CoordType coordType2 = CoordType.GCJ02;
-            LatLng a2 = com.baidu.mapsdkplatform.comapi.util.b.a(geoPoint);
-            return coordType == coordType2 ? CoordTrans.baiduToGcj(a2) : a2;
+            LatLng a = com.baidu.mapsdkplatform.comapi.util.b.a(geoPoint);
+            return coordType == coordType2 ? CoordTrans.baiduToGcj(a) : a;
         }
         return (LatLng) invokeL.objValue;
     }

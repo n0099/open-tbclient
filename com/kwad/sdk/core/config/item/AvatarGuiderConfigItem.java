@@ -16,7 +16,7 @@ public class AvatarGuiderConfigItem extends b<AvatarGuiderConfig> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
-    public static class AvatarGuiderConfig extends com.kwad.sdk.core.response.a.a implements Serializable {
+    public static class AvatarGuiderConfig extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int showByPlayRate;
@@ -78,9 +78,9 @@ public class AvatarGuiderConfigItem extends b<AvatarGuiderConfig> {
     public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            AvatarGuiderConfig a2 = a();
-            if (a2 == null) {
-                a2 = new AvatarGuiderConfig();
+            AvatarGuiderConfig a = a();
+            if (a == null) {
+                a = new AvatarGuiderConfig();
             }
             JSONObject jSONObject = null;
             try {
@@ -89,9 +89,9 @@ public class AvatarGuiderConfigItem extends b<AvatarGuiderConfig> {
                 com.kwad.sdk.core.d.a.b(e2);
             }
             if (jSONObject != null) {
-                a2.parseJson(jSONObject);
+                a.parseJson(jSONObject);
             }
-            a((AvatarGuiderConfigItem) a2);
+            a((AvatarGuiderConfigItem) a);
         }
     }
 

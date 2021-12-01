@@ -2,7 +2,6 @@ package androidx.core.database;
 
 import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -76,7 +75,7 @@ public final class CursorKt {
     public static final Short getShortOrNull(Cursor cursor, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, cursor, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, cursor, i2)) == null) {
             if (cursor.isNull(i2)) {
                 return null;
             }
@@ -88,7 +87,7 @@ public final class CursorKt {
     public static final String getStringOrNull(Cursor cursor, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, cursor, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, cursor, i2)) == null) {
             if (cursor.isNull(i2)) {
                 return null;
             }

@@ -1,0 +1,54 @@
+package j.a.a.e;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
+public final class f {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_action_bar_home_description = 2131689529;
+    public static final int abc_action_bar_up_description = 2131689530;
+    public static final int abc_action_menu_overflow_description = 2131689531;
+    public static final int abc_action_mode_done = 2131689532;
+    public static final int abc_activity_chooser_view_see_all = 2131689533;
+    public static final int abc_activitychooserview_choose_application = 2131689534;
+    public static final int abc_capital_off = 2131689535;
+    public static final int abc_capital_on = 2131689536;
+    public static final int abc_search_hint = 2131689547;
+    public static final int abc_searchview_description_clear = 2131689548;
+    public static final int abc_searchview_description_query = 2131689549;
+    public static final int abc_searchview_description_search = 2131689550;
+    public static final int abc_searchview_description_submit = 2131689551;
+    public static final int abc_searchview_description_voice = 2131689552;
+    public static final int abc_shareactionprovider_share_with = 2131689553;
+    public static final int abc_shareactionprovider_share_with_application = 2131689554;
+    public static final int abc_toolbar_collapse_description = 2131689555;
+    public static final int app_name = 2131690142;
+    public static final int cancel = 2131690422;
+    public static final int ok = 2131693096;
+    public static final int pay_ui_dialog_pay_title = 2131693261;
+    public static final int pay_ui_dialog_title = 2131693262;
+    public static final int pay_ui_my_wallet = 2131693263;
+    public static final int pay_ui_pay_remind_msg = 2131693264;
+    public static final int pay_ui_recharge = 2131693265;
+    public static final int pay_ui_str_pay_amount_text_yuan = 2131693266;
+    public static final int pay_ui_str_wallet_amount = 2131693267;
+    public static final int pay_ui_str_wallet_amount_not_enough = 2131693268;
+    public static final int pay_ui_str_wallet_amount_not_enough_other = 2131693269;
+    public static final int pay_ui_str_wallet_amount_other = 2131693270;
+    public static final int pay_ui_str_wallet_balance = 2131693271;
+    public static final int pay_ui_string_choose_recharge_amount = 2131693272;
+    public static final int pay_ui_string_choose_recharge_way = 2131693273;
+    public static final int pay_ui_string_confirm_recharge = 2131693274;
+    public static final int pay_ui_string_custom_amount = 2131693275;
+    public static final int pay_ui_string_pay_error_oversize = 2131693276;
+    public static final int pay_ui_string_pls_input_correct_recharge_amount = 2131693277;
+    public static final int pay_ui_string_query = 2131693278;
+    public static final int pay_ui_string_recharge_max_amount_hint = 2131693279;
+    public static final int pay_ui_string_want_recharge = 2131693280;
+    public static final int pay_ui_y_coin_pay_agreement = 2131693281;
+    public static final int pay_ui_y_coin_use_item = 2131693282;
+    public static final int pay_ui_yy_number = 2131693283;
+    public static final int search_menu_title = 2131694268;
+    public static final int status_bar_notification_info_overflow = 2131694557;
+    public transient /* synthetic */ FieldHolder $fh;
+}

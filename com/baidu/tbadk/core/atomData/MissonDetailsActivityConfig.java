@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MissonDetailsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANTI_DATA = "anti_data";
@@ -23,13 +23,13 @@ public class MissonDetailsActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MissonDetailsActivityConfig(Context context, int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6, long j, int i4, int i5, AntiData antiData, String str7) {
+    public MissonDetailsActivityConfig(Context context, int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6, long j2, int i4, int i5, AntiData antiData, String str7) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, str4, str5, str6, Long.valueOf(j), Integer.valueOf(i4), Integer.valueOf(i5), antiData, str7};
+            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, str4, str5, str6, Long.valueOf(j2), Integer.valueOf(i4), Integer.valueOf(i5), antiData, str7};
             interceptable.invokeUnInit(65538, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {
@@ -49,7 +49,7 @@ public class MissonDetailsActivityConfig extends IntentConfig {
         getIntent().putExtra("thread_id", str4);
         getIntent().putExtra(THREAD_TITLE, str5);
         getIntent().putExtra("forum_name", str6);
-        getIntent().putExtra("forum_id", j);
+        getIntent().putExtra("forum_id", j2);
         getIntent().putExtra("floor_num", i4);
         getIntent().putExtra(IS_MEMBER, i5);
         getIntent().putExtra("anti_data", antiData);

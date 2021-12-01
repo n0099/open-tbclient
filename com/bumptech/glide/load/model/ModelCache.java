@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.util.Queue;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ModelCache<A, B> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 250;
@@ -22,7 +22,7 @@ public class ModelCache<A, B> {
     public final LruCache<ModelKey<A>, B> cache;
 
     @VisibleForTesting
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class ModelKey<A> {
         public static /* synthetic */ Interceptable $ic;
         public static final Queue<ModelKey<?>> KEY_QUEUE;
@@ -61,27 +61,27 @@ public class ModelCache<A, B> {
             }
         }
 
-        public static <A> ModelKey<A> get(A a2, int i2, int i3) {
+        public static <A> ModelKey<A> get(A a, int i2, int i3) {
             InterceptResult invokeLII;
             ModelKey<A> modelKey;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, a2, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, a, i2, i3)) == null) {
                 synchronized (KEY_QUEUE) {
                     modelKey = (ModelKey<A>) KEY_QUEUE.poll();
                 }
                 if (modelKey == null) {
                     modelKey = new ModelKey<>();
                 }
-                modelKey.init(a2, i2, i3);
+                modelKey.init(a, i2, i3);
                 return modelKey;
             }
             return (ModelKey) invokeLII.objValue;
         }
 
-        private void init(A a2, int i2, int i3) {
+        private void init(A a, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(65539, this, a2, i2, i3) == null) {
-                this.model = a2;
+            if (interceptable == null || interceptable.invokeLII(65539, this, a, i2, i3) == null) {
+                this.model = a;
                 this.width = i2;
                 this.height = i3;
             }
@@ -142,11 +142,11 @@ public class ModelCache<A, B> {
     }
 
     @Nullable
-    public B get(A a2, int i2, int i3) {
+    public B get(A a, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a2, i2, i3)) == null) {
-            ModelKey<A> modelKey = ModelKey.get(a2, i2, i3);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a, i2, i3)) == null) {
+            ModelKey<A> modelKey = ModelKey.get(a, i2, i3);
             B b2 = this.cache.get(modelKey);
             modelKey.release();
             return b2;
@@ -154,19 +154,19 @@ public class ModelCache<A, B> {
         return (B) invokeLII.objValue;
     }
 
-    public void put(A a2, int i2, int i3, B b2) {
+    public void put(A a, int i2, int i3, B b2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{a2, Integer.valueOf(i2), Integer.valueOf(i3), b2}) == null) {
-            this.cache.put(ModelKey.get(a2, i2, i3), b2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{a, Integer.valueOf(i2), Integer.valueOf(i3), b2}) == null) {
+            this.cache.put(ModelKey.get(a, i2, i3), b2);
         }
     }
 
-    public ModelCache(long j) {
+    public ModelCache(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -176,19 +176,19 @@ public class ModelCache<A, B> {
                 return;
             }
         }
-        this.cache = new LruCache<ModelKey<A>, B>(this, j) { // from class: com.bumptech.glide.load.model.ModelCache.1
+        this.cache = new LruCache<ModelKey<A>, B>(this, j2) { // from class: com.bumptech.glide.load.model.ModelCache.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ModelCache this$0;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
-                super(j);
+                super(j2);
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null) {
                     InitContext newInitContext2 = TitanRuntime.newInitContext();
                     newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this, Long.valueOf(j)};
+                    Object[] objArr2 = {this, Long.valueOf(j2)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
                     int i4 = newInitContext2.flag;
                     if ((i4 & 1) != 0) {

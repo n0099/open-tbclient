@@ -1,10 +1,10 @@
 package com.baidu.tieba.ala.alasquare.special_forum.model;
 
-import b.a.e.m.e.n;
-import b.a.r0.w.f.g.c.d;
-import b.a.r0.w.f.g.c.e;
-import b.a.r0.w.f.g.c.f;
-import b.a.r0.w.f.g.c.g;
+import c.a.d.m.e.n;
+import c.a.r0.a0.f.g.c.d;
+import c.a.r0.a0.f.g.c.e;
+import c.a.r0.a0.f.g.c.f;
+import c.a.r0.a0.f.g.c.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -22,30 +22,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SpecialConcernTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47881e;
+    public int f42869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f47882f;
+    public b f42870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f47883g;
+    public List<n> f42871g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f47884h;
+    public HttpMessageListener f42872h;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SpecialConcernTabModel f47885a;
+        public final /* synthetic */ SpecialConcernTabModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SpecialConcernTabModel specialConcernTabModel, int i2) {
@@ -65,7 +63,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47885a = specialConcernTabModel;
+            this.a = specialConcernTabModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,51 +73,51 @@ public class SpecialConcernTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021094 && (httpResponsedMessage instanceof AlaSpecialConcernResponse)) {
                 AlaSpecialConcernResponse alaSpecialConcernResponse = (AlaSpecialConcernResponse) httpResponsedMessage;
                 if (alaSpecialConcernResponse.isSuccess()) {
-                    if (this.f47885a.f47881e == 1) {
-                        this.f47885a.f47883g.clear();
+                    if (this.a.f42869e == 1) {
+                        this.a.f42871g.clear();
                     }
                     boolean z = alaSpecialConcernResponse.hasMore;
                     if (ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                        if (this.f47885a.f47881e == 1) {
-                            this.f47885a.f47883g.add(new e());
+                        if (this.a.f42869e == 1) {
+                            this.a.f42871g.add(new e());
                         }
                     } else {
                         for (d dVar : alaSpecialConcernResponse.followList) {
                             f fVar = new f();
-                            fVar.f26347e = dVar.f26342a;
-                            fVar.f26348f = dVar.f26343b;
-                            fVar.f26349g = false;
-                            this.f47885a.f47883g.add(fVar);
+                            fVar.f14135e = dVar.a;
+                            fVar.f14136f = dVar.f14131b;
+                            fVar.f14137g = false;
+                            this.a.f42871g.add(fVar);
                         }
                     }
                     if (!ListUtils.isEmpty(alaSpecialConcernResponse.recommendList)) {
                         g gVar = new g();
                         if (!ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                            gVar.f26351e = false;
+                            gVar.f14139e = false;
                         } else {
-                            gVar.f26351e = true;
+                            gVar.f14139e = true;
                         }
-                        this.f47885a.f47883g.add(gVar);
+                        this.a.f42871g.add(gVar);
                         for (d dVar2 : alaSpecialConcernResponse.recommendList) {
                             f fVar2 = new f();
-                            fVar2.f26347e = dVar2.f26342a;
-                            fVar2.f26348f = dVar2.f26343b;
-                            fVar2.f26349g = true;
-                            this.f47885a.f47883g.add(fVar2);
+                            fVar2.f14135e = dVar2.a;
+                            fVar2.f14136f = dVar2.f14131b;
+                            fVar2.f14137g = true;
+                            this.a.f42871g.add(fVar2);
                         }
                     }
-                    SpecialConcernTabModel.x(this.f47885a);
-                    if (this.f47885a.f47882f != null) {
-                        this.f47885a.f47882f.b(this.f47885a.f47883g, z, alaSpecialConcernResponse.totalFollowCount);
+                    SpecialConcernTabModel.x(this.a);
+                    if (this.a.f42870f != null) {
+                        this.a.f42870f.b(this.a.f42871g, z, alaSpecialConcernResponse.totalFollowCount);
                     }
-                } else if (this.f47885a.f47882f != null) {
-                    this.f47885a.f47882f.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (this.a.f42870f != null) {
+                    this.a.f42870f.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a(int i2, String str);
 
@@ -141,15 +139,15 @@ public class SpecialConcernTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47881e = 1;
-        this.f47884h = new a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
-        this.f47883g = new ArrayList();
-        MessageManager.getInstance().registerListener(this.f47884h);
+        this.f42869e = 1;
+        this.f42872h = new a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
+        this.f42871g = new ArrayList();
+        MessageManager.getInstance().registerListener(this.f42872h);
     }
 
     public static /* synthetic */ int x(SpecialConcernTabModel specialConcernTabModel) {
-        int i2 = specialConcernTabModel.f47881e;
-        specialConcernTabModel.f47881e = i2 + 1;
+        int i2 = specialConcernTabModel.f42869e;
+        specialConcernTabModel.f42869e = i2 + 1;
         return i2;
     }
 
@@ -165,14 +163,14 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            A(this.f47881e + 1);
+            A(this.f42869e + 1);
         }
     }
 
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47881e = 1;
+            this.f42869e = 1;
             A(1);
         }
     }
@@ -180,7 +178,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public void D(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f47882f = bVar;
+            this.f42870f = bVar;
         }
     }
 
@@ -207,7 +205,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f47884h);
+            MessageManager.getInstance().unRegisterListener(this.f42872h);
         }
     }
 }

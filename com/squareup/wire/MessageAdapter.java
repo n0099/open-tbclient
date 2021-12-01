@@ -3,7 +3,6 @@ package com.squareup.wire;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -217,7 +216,7 @@ public final class MessageAdapter<M extends Message> {
         InterceptResult invokeI;
         Extension<ExtendableMessage<?>, ?> extension;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
             FieldInfo fieldInfo = this.fieldInfoMap.get(Integer.valueOf(i2));
             Class<? extends ProtoEnum> cls = fieldInfo == null ? null : fieldInfo.enumType;
             return (cls != null || (extension = getExtension(i2)) == null) ? cls : extension.getEnumType();
@@ -228,7 +227,7 @@ public final class MessageAdapter<M extends Message> {
     private <E extends ProtoEnum> int getEnumSize(E e2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, e2)) == null) ? WireOutput.varint32Size(this.wire.enumAdapter(e2.getClass()).toInt(e2)) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, e2)) == null) ? WireOutput.varint32Size(this.wire.enumAdapter(e2.getClass()).toInt(e2)) : invokeL.intValue;
     }
 
     private Class<Enum> getEnumType(Field field) {
@@ -773,7 +772,7 @@ public final class MessageAdapter<M extends Message> {
         Message.Label label;
         Message.Datatype datatype;
         Extension<ExtendableMessage<?>, ?> extension;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, wireInput)) != null) {
             return (M) invokeL.objValue;
@@ -818,8 +817,8 @@ public final class MessageAdapter<M extends Message> {
                     long position = wireInput.getPosition();
                     int pushLimit = wireInput.pushLimit(readVarint32);
                     while (true) {
-                        j = readVarint32 + position;
-                        if (wireInput.getPosition() >= j) {
+                        j2 = readVarint32 + position;
+                        if (wireInput.getPosition() >= j2) {
                             break;
                         }
                         Object readValue = readValue(wireInput, i2, datatype);
@@ -830,7 +829,7 @@ public final class MessageAdapter<M extends Message> {
                         }
                     }
                     wireInput.popLimit(pushLimit);
-                    if (wireInput.getPosition() != j) {
+                    if (wireInput.getPosition() != j2) {
                         throw new IOException("Packed data had wrong length!");
                     }
                 } else {

@@ -17,13 +17,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class ah extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f57724a;
+    public final /* synthetic */ FeedbackFacePageActivity a;
 
     public ah(FeedbackFacePageActivity feedbackFacePageActivity) {
         Interceptable interceptable = $ic;
@@ -40,7 +38,7 @@ public final class ah extends Handler {
                 return;
             }
         }
-        this.f57724a = feedbackFacePageActivity;
+        this.a = feedbackFacePageActivity;
     }
 
     @Override // android.os.Handler
@@ -81,74 +79,74 @@ public final class ah extends Handler {
             super.handleMessage(message);
             if (message.what == 0) {
                 if (Integer.parseInt((String) message.obj) > 0) {
-                    textView4 = this.f57724a.l;
+                    textView4 = this.a.l;
                     textView4.setVisibility(0);
                 } else {
-                    textView3 = this.f57724a.l;
+                    textView3 = this.a.l;
                     textView3.setVisibility(8);
                 }
             }
             if (message.what == 1) {
-                this.f57724a.b();
+                this.a.b();
             }
             if (message.what == 2) {
-                String format = String.format("os=android&appid=%s&devid=%s&clientid=%s&appvn=%s&sdkvn=%s&baiducuid=%s&nettype=%s&model=%s&osvn=%s&channel_id=%s", UfoSDK.appid, UfoSDK.devid, UfoSDK.clientid, com.baidu.ufosdk.b.e.b(), "2.9.10", com.baidu.ufosdk.b.f57564c, com.baidu.ufosdk.b.d.a(this.f57724a.getApplicationContext()), Build.MODEL, Build.VERSION.RELEASE, String.valueOf(com.baidu.ufosdk.b.j));
+                String format = String.format("os=android&appid=%s&devid=%s&clientid=%s&appvn=%s&sdkvn=%s&baiducuid=%s&nettype=%s&model=%s&osvn=%s&channel_id=%s", UfoSDK.appid, UfoSDK.devid, UfoSDK.clientid, com.baidu.ufosdk.b.e.b(), "2.9.10", com.baidu.ufosdk.b.f51514c, com.baidu.ufosdk.b.d.a(this.a.getApplicationContext()), Build.MODEL, Build.VERSION.RELEASE, String.valueOf(com.baidu.ufosdk.b.f51521j));
                 StringBuilder sb = new StringBuilder("https://ufosdk.baidu.com/?m=Web&a=getnfaqlist&");
                 sb.append(format);
                 String sb2 = sb.toString();
                 com.baidu.ufosdk.f.c.c("webview postString is " + sb2);
-                webView5 = this.f57724a.o;
+                webView5 = this.a.o;
                 webView5.loadUrl(sb2);
             }
             if (message.what == 3) {
-                webView2 = this.f57724a.o;
+                webView2 = this.a.o;
                 if (webView2.getProgress() < 100) {
-                    webView3 = this.f57724a.o;
+                    webView3 = this.a.o;
                     webView3.stopLoading();
-                    view2 = this.f57724a.n;
+                    view2 = this.a.n;
                     view2.setVisibility(8);
-                    Context applicationContext = this.f57724a.getApplicationContext();
-                    textView2 = this.f57724a.q;
+                    Context applicationContext = this.a.getApplicationContext();
+                    textView2 = this.a.q;
                     com.baidu.ufosdk.f.i.a(applicationContext, textView2);
-                    linearLayout2 = this.f57724a.f57666g;
+                    linearLayout2 = this.a.f51588g;
                     linearLayout2.setVisibility(0);
-                    webView4 = this.f57724a.o;
+                    webView4 = this.a.o;
                     webView4.setVisibility(8);
                 }
             }
             int i2 = message.what;
             if (i2 == 4) {
-                view = this.f57724a.n;
+                view = this.a.n;
                 view.setVisibility(8);
-                Context applicationContext2 = this.f57724a.getApplicationContext();
-                textView = this.f57724a.q;
+                Context applicationContext2 = this.a.getApplicationContext();
+                textView = this.a.q;
                 com.baidu.ufosdk.f.i.a(applicationContext2, textView);
-                linearLayout = this.f57724a.f57666g;
+                linearLayout = this.a.f51588g;
                 linearLayout.setVisibility(0);
-                webView = this.f57724a.o;
+                webView = this.a.o;
                 webView.setVisibility(8);
             } else if (i2 == 12) {
-                z2 = this.f57724a.u;
+                z2 = this.a.u;
                 if (z2) {
-                    this.f57724a.u = false;
+                    this.a.u = false;
                     return;
                 }
-                str6 = this.f57724a.t;
+                str6 = this.a.t;
                 if (!TextUtils.isEmpty(str6)) {
-                    str9 = this.f57724a.f57664e;
+                    str9 = this.a.f51586e;
                     if (TextUtils.isEmpty(str9)) {
-                        editor6 = this.f57724a.f57660a;
-                        str10 = this.f57724a.t;
+                        editor6 = this.a.a;
+                        str10 = this.a.t;
                         editor6.putString(str10, "");
                     }
                 }
-                str7 = this.f57724a.f57664e;
+                str7 = this.a.f51586e;
                 if (!TextUtils.isEmpty(str7)) {
-                    editor5 = this.f57724a.f57660a;
-                    str8 = this.f57724a.f57664e;
+                    editor5 = this.a.a;
+                    str8 = this.a.f51586e;
                     editor5.putString(str8, "");
                 }
-                editor4 = this.f57724a.f57660a;
+                editor4 = this.a.a;
                 editor4.commit();
             } else if (i2 != 14) {
                 if (i2 == 15) {
@@ -156,38 +154,38 @@ public final class ah extends Handler {
                 } else if (i2 != 16) {
                     if (i2 == 17) {
                     }
-                } else if (this.f57724a.getCurrentFocus() == null || this.f57724a.getCurrentFocus().getWindowToken() == null) {
+                } else if (this.a.getCurrentFocus() == null || this.a.getCurrentFocus().getWindowToken() == null) {
                 } else {
-                    ((InputMethodManager) this.f57724a.getSystemService("input_method")).hideSoftInputFromWindow(this.f57724a.getCurrentFocus().getWindowToken(), 2);
+                    ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getCurrentFocus().getWindowToken(), 2);
                 }
             } else {
-                z = this.f57724a.u;
+                z = this.a.u;
                 if (z) {
-                    this.f57724a.u = false;
+                    this.a.u = false;
                     return;
                 }
-                str = this.f57724a.t;
+                str = this.a.t;
                 if (!TextUtils.isEmpty(str)) {
-                    str4 = this.f57724a.f57664e;
+                    str4 = this.a.f51586e;
                     if (TextUtils.isEmpty(str4)) {
-                        editor3 = this.f57724a.f57660a;
-                        str5 = this.f57724a.t;
+                        editor3 = this.a.a;
+                        str5 = this.a.t;
                         editor3.putString(str5, "");
                     }
                 }
-                str2 = this.f57724a.f57664e;
+                str2 = this.a.f51586e;
                 if (!TextUtils.isEmpty(str2)) {
-                    editor2 = this.f57724a.f57660a;
-                    str3 = this.f57724a.f57664e;
+                    editor2 = this.a.a;
+                    str3 = this.a.f51586e;
                     editor2.putString(str3, "");
                 }
-                editor = this.f57724a.f57660a;
+                editor = this.a.a;
                 editor.commit();
                 Intent intent = new Intent();
-                intent.setClass(this.f57724a, FeedbackInputActivity.class);
+                intent.setClass(this.a, FeedbackInputActivity.class);
                 intent.putExtra("msgid", (String) message.obj);
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-                this.f57724a.startActivity(intent);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f51521j);
+                this.a.startActivity(intent);
             }
         }
     }

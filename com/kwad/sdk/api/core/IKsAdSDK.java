@@ -13,6 +13,9 @@ import org.json.JSONObject;
 @Keep
 /* loaded from: classes2.dex */
 public interface IKsAdSDK {
+    @Keep
+    void addHp(@NonNull Map<String, String> map);
+
     @KsAdSdkDynamicApi
     @Keep
     void deleteCache();
@@ -59,6 +62,12 @@ public interface IKsAdSDK {
     @Keep
     JSONObject getNetworkInfo();
 
+    @Keep
+    String getRD(String str);
+
+    @Keep
+    String getRM(String str);
+
     @KsAdSdkDynamicApi
     @Keep
     int getSDKType();
@@ -91,6 +100,9 @@ public interface IKsAdSDK {
     @Keep
     void pauseCurrentPlayer();
 
+    @Keep
+    void re(Object obj);
+
     @KsAdSdkDynamicApi
     @Keep
     void reportBatchEvent(int i2, Map<String, Object> map);
@@ -98,6 +110,9 @@ public interface IKsAdSDK {
     @KsAdSdkDynamicApi
     @Keep
     void resumeCurrentPlayer();
+
+    @Keep
+    void sR(String str, Map<String, String> map, String str2);
 
     @KsAdSdkDynamicApi
     @Keep
@@ -118,6 +133,10 @@ public interface IKsAdSDK {
     @KsAdSdkDynamicApi
     @Keep
     void setPersonalRecommend(boolean z);
+
+    @KsAdSdkDynamicApi
+    @Keep
+    void setProgrammaticRecommend(boolean z);
 
     @KsAdSdkDynamicApi
     @Keep

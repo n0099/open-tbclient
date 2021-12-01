@@ -1,8 +1,8 @@
 package com.google.common.base;
 
-import b.h.d.a.g;
-import b.h.d.a.k;
-import b.h.d.a.n;
+import c.i.d.a.g;
+import c.i.d.a.k;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class Functions$ForMapWithDefault<K, V> implements g<K, V>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -40,18 +40,18 @@ public class Functions$ForMapWithDefault<K, V> implements g<K, V>, Serializable 
         this.defaultValue = v;
     }
 
-    @Override // b.h.d.a.g
-    public V apply(K k) {
+    @Override // c.i.d.a.g
+    public V apply(K k2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
-            V v = this.map.get(k);
-            return (v != null || this.map.containsKey(k)) ? v : this.defaultValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k2)) == null) {
+            V v = this.map.get(k2);
+            return (v != null || this.map.containsKey(k2)) ? v : this.defaultValue;
         }
         return (V) invokeL.objValue;
     }
 
-    @Override // b.h.d.a.g
+    @Override // c.i.d.a.g
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

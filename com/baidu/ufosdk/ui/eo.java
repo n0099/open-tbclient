@@ -6,19 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class eo implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f57895a;
+    public final /* synthetic */ FeedbackInputActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f57896b;
+    public final /* synthetic */ String f51701b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ej f57897c;
+    public final /* synthetic */ ej f51702c;
 
     public eo(ej ejVar, FeedbackInputActivity feedbackInputActivity, String str) {
         Interceptable interceptable = $ic;
@@ -35,18 +33,18 @@ public final class eo implements Runnable {
                 return;
             }
         }
-        this.f57897c = ejVar;
-        this.f57895a = feedbackInputActivity;
-        this.f57896b = str;
+        this.f51702c = ejVar;
+        this.a = feedbackInputActivity;
+        this.f51701b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context applicationContext = this.f57895a.getApplicationContext();
+            Context applicationContext = this.a.getApplicationContext();
             String str = UfoSDK.clientid;
-            com.baidu.ufosdk.e.a.b(applicationContext, this.f57895a.f57685f, this.f57896b);
+            com.baidu.ufosdk.e.a.b(applicationContext, this.a.f51608f, this.f51701b);
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.share;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface OnGetShareUrlResultListener {
     void onGetLocationShareUrlResult(ShareUrlResult shareUrlResult);
 

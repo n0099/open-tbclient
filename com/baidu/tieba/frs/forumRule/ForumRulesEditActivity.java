@@ -8,13 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.x0.a1;
-import b.a.r0.x0.b2.b.b;
-import b.a.r0.x0.b2.f.a;
-import b.a.r0.x0.c1;
-import b.a.r0.x0.f1;
-import b.a.r0.x0.g1;
-import b.a.r0.x0.i1;
+import c.a.r0.d1.a1;
+import c.a.r0.d1.b2.b.b;
+import c.a.r0.d1.b2.f.a;
+import c.a.r0.d1.c1;
+import c.a.r0.d1.f1;
+import c.a.r0.d1.g1;
+import c.a.r0.d1.i1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity> implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // b.a.r0.x0.b2.b.b
+    @Override // c.a.r0.d1.b2.b.b
     public void commitCallback(int i2, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
@@ -107,7 +107,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // b.a.r0.x0.b2.b.b
+    @Override // c.a.r0.d1.b2.b.b
     public void commitData(ForumRuleBaseData forumRuleBaseData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, forumRuleBaseData, z) == null) {
@@ -119,7 +119,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // b.a.r0.x0.b2.b.b
+    @Override // c.a.r0.d1.b2.b.b
     public void draftCallback(int i2, ForumRuleBaseData forumRuleBaseData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, forumRuleBaseData, str) == null) {
@@ -128,18 +128,18 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             }
             if (i2 != 0) {
                 if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
-                    this.mView.U(this.mBaseData, false);
+                    this.mView.T(this.mBaseData, false);
                 }
                 new BdTopToast(this, 2000).setIcon(false).setContent(str).show((ViewGroup) this.rootView.findViewById(f1.ll_forum_rule_all));
             } else if (forumRuleBaseData != null) {
-                this.mView.U(forumRuleBaseData, true);
+                this.mView.T(forumRuleBaseData, true);
             } else if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
-                this.mView.U(this.mBaseData, false);
+                this.mView.T(this.mBaseData, false);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            this.mView.M();
+            this.mView.F();
         }
     }
 
@@ -197,7 +197,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                this.mView.N();
+                this.mView.G();
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);

@@ -12,7 +12,6 @@ import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.platform.base.SearchType;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,16 +24,16 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class k extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f42919b;
+    public SuggestAddrInfo f38376b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42920c;
+    public boolean f38377c;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -49,7 +48,7 @@ public class k extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f42919b = null;
+        this.f38376b = null;
     }
 
     private SuggestAddrInfo a(JSONObject jSONObject) {
@@ -173,9 +172,9 @@ public class k extends com.baidu.platform.base.d {
                 return null;
             }
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                List<CityInfo> a2 = a((JSONArray) optJSONArray.opt(i2));
-                if (a2 != null) {
-                    arrayList.add(a2);
+                List<CityInfo> a = a((JSONArray) optJSONArray.opt(i2));
+                if (a != null) {
+                    arrayList.add(a);
                 }
             }
             return arrayList;
@@ -187,15 +186,15 @@ public class k extends com.baidu.platform.base.d {
         InterceptResult invokeLL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, jSONObject, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, jSONObject, str)) == null) {
             ArrayList arrayList = new ArrayList();
             if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray(str)) == null) {
                 return null;
             }
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                List<PoiInfo> a2 = a(((JSONObject) optJSONArray.opt(i2)).optJSONArray("way_ponits"), "");
-                if (a2 != null) {
-                    arrayList.add(a2);
+                List<PoiInfo> a = a(((JSONObject) optJSONArray.opt(i2)).optJSONArray("way_ponits"), "");
+                if (a != null) {
+                    arrayList.add(a);
                 }
             }
             return arrayList;
@@ -206,15 +205,15 @@ public class k extends com.baidu.platform.base.d {
     private boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             if (str != null && str.length() > 0) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     JSONObject optJSONObject = jSONObject.optJSONObject("result");
                     if (optJSONObject != null && optJSONObject.optInt("type") == 23 && optJSONObject.optInt("error") == 0) {
-                        SuggestAddrInfo a2 = a(jSONObject);
-                        this.f42919b = a2;
-                        return a2 != null;
+                        SuggestAddrInfo a = a(jSONObject);
+                        this.f38376b = a;
+                        return a != null;
                     }
                     return false;
                 } catch (JSONException e2) {
@@ -236,17 +235,17 @@ public class k extends com.baidu.platform.base.d {
         WalkingRouteResult walkingRouteResult2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SearchType a2 = a();
+            SearchType a = a();
             if (b(str)) {
-                this.f42920c = true;
+                this.f38377c = true;
             } else {
-                this.f42920c = false;
+                this.f38377c = false;
             }
-            int i2 = l.f42921a[a2.ordinal()];
+            int i2 = l.a[a.ordinal()];
             if (i2 == 1) {
                 TransitRouteResult transitRouteResult = new TransitRouteResult();
-                if (this.f42920c) {
-                    transitRouteResult.setSuggestAddrInfo(this.f42919b);
+                if (this.f38377c) {
+                    transitRouteResult.setSuggestAddrInfo(this.f38376b);
                     walkingRouteResult = transitRouteResult;
                     walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                     walkingRouteResult2 = walkingRouteResult;
@@ -256,8 +255,8 @@ public class k extends com.baidu.platform.base.d {
                 }
             } else if (i2 == 2) {
                 DrivingRouteResult drivingRouteResult = new DrivingRouteResult();
-                if (this.f42920c) {
-                    drivingRouteResult.setSuggestAddrInfo(this.f42919b);
+                if (this.f38377c) {
+                    drivingRouteResult.setSuggestAddrInfo(this.f38376b);
                     walkingRouteResult = drivingRouteResult;
                     walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                     walkingRouteResult2 = walkingRouteResult;
@@ -269,8 +268,8 @@ public class k extends com.baidu.platform.base.d {
                 return null;
             } else {
                 WalkingRouteResult walkingRouteResult3 = new WalkingRouteResult();
-                if (this.f42920c) {
-                    walkingRouteResult3.setSuggestAddrInfo(this.f42919b);
+                if (this.f38377c) {
+                    walkingRouteResult3.setSuggestAddrInfo(this.f38376b);
                     walkingRouteResult = walkingRouteResult3;
                     walkingRouteResult.error = SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR;
                     walkingRouteResult2 = walkingRouteResult;
@@ -289,7 +288,7 @@ public class k extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetRoutePlanResultListener)) {
             OnGetRoutePlanResultListener onGetRoutePlanResultListener = (OnGetRoutePlanResultListener) obj;
-            int i2 = l.f42921a[a().ordinal()];
+            int i2 = l.a[a().ordinal()];
             if (i2 == 1) {
                 onGetRoutePlanResultListener.onGetTransitRouteResult((TransitRouteResult) searchResult);
             } else if (i2 == 2) {

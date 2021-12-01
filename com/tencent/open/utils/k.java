@@ -23,15 +23,13 @@ import org.apache.http.conn.scheme.LayeredSocketFactory;
 import org.apache.http.conn.ssl.StrictHostnameVerifier;
 import org.apache.http.params.HttpParams;
 @TargetApi(17)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k implements LayeredSocketFactory {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final HostnameVerifier f71079a;
+    public static final HostnameVerifier a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SSLCertificateSocketFactory f71080b;
+    public static final SSLCertificateSocketFactory f62402b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,8 +45,8 @@ public class k implements LayeredSocketFactory {
                 return;
             }
         }
-        f71079a = new StrictHostnameVerifier();
-        f71080b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
+        a = new StrictHostnameVerifier();
+        f62402b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
     }
 
     public k() {
@@ -106,11 +104,11 @@ public class k implements LayeredSocketFactory {
             if (z) {
                 socket.close();
             }
-            SSLSocket sSLSocket = (SSLSocket) f71080b.createSocket(inetAddress, i2);
+            SSLSocket sSLSocket = (SSLSocket) f62402b.createSocket(inetAddress, i2);
             sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
             if (Build.VERSION.SDK_INT >= 17) {
                 SLog.v("openSDK_LOG.SNISocketFactory", "Setting SNI hostname");
-                f71080b.setHostname(sSLSocket, str);
+                f62402b.setHostname(sSLSocket, str);
             } else {
                 SLog.v("openSDK_LOG.SNISocketFactory", "No documented SNI support on Android <4.2, trying with reflection");
                 try {
@@ -119,7 +117,7 @@ public class k implements LayeredSocketFactory {
                     SLog.v("openSDK_LOG.SNISocketFactory", "SNI not useable");
                 }
             }
-            if (f71079a.verify(str, sSLSocket.getSession())) {
+            if (a.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);

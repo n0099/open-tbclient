@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class bq implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f57763a;
+    public final /* synthetic */ FeedbackInputActivity a;
 
     public bq(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public final class bq implements View.OnClickListener {
                 return;
             }
         }
-        this.f57763a = feedbackInputActivity;
+        this.a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,22 +37,22 @@ public final class bq implements View.OnClickListener {
         List list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            FeedbackInputActivity feedbackInputActivity = this.f57763a;
+            FeedbackInputActivity feedbackInputActivity = this.a;
             if (feedbackInputActivity.D) {
                 return;
             }
             list = feedbackInputActivity.at;
             list.remove(((Integer) view.getTag()).intValue());
-            list2 = this.f57763a.at;
+            list2 = this.a.at;
             if (list2.size() == 1) {
-                byte[] a2 = com.baidu.ufosdk.f.m.a(this.f57763a.getApplicationContext());
-                if (a2 == null) {
+                byte[] a = com.baidu.ufosdk.f.m.a(this.a.getApplicationContext());
+                if (a == null) {
                     return;
                 }
-                list3 = this.f57763a.at;
-                list3.set(0, a2);
+                list3 = this.a.at;
+                list3.set(0, a);
             }
-            this.f57763a.a(false);
+            this.a.a(false);
         }
     }
 }

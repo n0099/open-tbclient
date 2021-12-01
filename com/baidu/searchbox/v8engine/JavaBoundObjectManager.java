@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class JavaBoundObjectManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "JavaBoundObjectManager";
@@ -41,33 +41,33 @@ public class JavaBoundObjectManager {
         }
     }
 
-    public synchronized Object getJavaBoundObject(long j) {
+    public synchronized Object getJavaBoundObject(long j2) {
         InterceptResult invokeJ;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
             synchronized (this) {
-                obj = this.mJavaBoundObjectMap.get(Long.valueOf(j));
+                obj = this.mJavaBoundObjectMap.get(Long.valueOf(j2));
             }
             return obj;
         }
         return invokeJ.objValue;
     }
 
-    public synchronized void putJavaBoundObject(long j, Object obj) {
+    public synchronized void putJavaBoundObject(long j2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, obj) == null) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, obj) == null) {
             synchronized (this) {
-                this.mJavaBoundObjectMap.put(Long.valueOf(j), obj);
+                this.mJavaBoundObjectMap.put(Long.valueOf(j2), obj);
             }
         }
     }
 
-    public synchronized void removeJavaBoundObject(long j) {
+    public synchronized void removeJavaBoundObject(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             synchronized (this) {
-                this.mJavaBoundObjectMap.remove(Long.valueOf(j));
+                this.mJavaBoundObjectMap.remove(Long.valueOf(j2));
             }
         }
     }

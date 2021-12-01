@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 @Service
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ANRPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ACTIVE_ANR_UPLOAD_TYPE = "1";

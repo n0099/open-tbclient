@@ -19,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface IFragmentLifecycle {
+    @Deprecated
     void onActivityCreated(@Nullable Bundle bundle);
 
     void onActivityResult(int i2, int i3, Intent intent);

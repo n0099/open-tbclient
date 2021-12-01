@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.e.a;
-import b.a.q0.s.e0.b;
+import c.a.d.e.a;
+import c.a.q0.s.e0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
@@ -43,7 +43,7 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TO_ACTIVITY_DELAY = 300;
@@ -458,7 +458,7 @@ public class SpeedStats {
                     }
                     return "skin";
                 }
-                return "banner";
+                return SpeedStatsUtils.UBC_VALUE_BANNER;
             } else if (i2 == 0) {
                 if (this.mHasBanner && this.mHasSkin) {
                     return SpeedStatsUtils.UBC_VALUE_INTRO_BANNER_SKIN;
@@ -704,9 +704,9 @@ public class SpeedStats {
             if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
                 SmartLaunchStats.tryToFindFirstIdleTimeStamp();
             }
-            int k = b.j().k("app_start_time", 0);
-            if (k > 0) {
-                for (int i2 = 0; i2 < k; i2++) {
+            int k2 = b.j().k("app_start_time", 0);
+            if (k2 > 0) {
+                for (int i2 = 0; i2 < k2; i2++) {
                     TiebaStatic.log(new StatisticItem("app_start"));
                 }
                 b.j().v("app_start_time", 0);

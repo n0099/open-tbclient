@@ -6,17 +6,18 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.b;
-import b.a.x0.t.g;
+import c.a.x0.b;
+import c.a.x0.t.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SubTitleConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CENTER = 0;
@@ -65,7 +66,7 @@ public class SubTitleConfig {
     public int maxEngLineNum;
     public Paint.Align textGravity;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class ShadowConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +93,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class StrokeConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +118,7 @@ public class SubTitleConfig {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class TypefaceConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CREATE_FROM_ASSET = 1;
@@ -283,19 +284,19 @@ public class SubTitleConfig {
                 if (subTitleConfig.mTextColorEntity != null) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("color", subTitleConfig.mTextColorEntity.mColor);
-                    jSONObject2.put("alpha", subTitleConfig.mTextColorEntity.mAlpha);
+                    jSONObject2.put(AnimationProperty.OPACITY, subTitleConfig.mTextColorEntity.mAlpha);
                     jSONObject.put("textColor", jSONObject2);
                 }
                 if (subTitleConfig.chineseShadowConfig != null) {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("shadowRadius", String.valueOf(subTitleConfig.chineseShadowConfig.shadowRadius));
+                    jSONObject3.put(AnimationProperty.SHADOW_RADIUS, String.valueOf(subTitleConfig.chineseShadowConfig.shadowRadius));
                     jSONObject3.put("shadowDx", String.valueOf(subTitleConfig.chineseShadowConfig.shadowDx));
                     jSONObject3.put("shadowDy", String.valueOf(subTitleConfig.chineseShadowConfig.shadowDy));
                     jSONObject.put("chinese_shadow_config", jSONObject3);
                 }
                 if (subTitleConfig.engShadowConfig != null) {
                     JSONObject jSONObject4 = new JSONObject();
-                    jSONObject4.put("shadowRadius", String.valueOf(subTitleConfig.engShadowConfig.shadowRadius));
+                    jSONObject4.put(AnimationProperty.SHADOW_RADIUS, String.valueOf(subTitleConfig.engShadowConfig.shadowRadius));
                     jSONObject4.put("shadowDx", String.valueOf(subTitleConfig.engShadowConfig.shadowDx));
                     jSONObject4.put("shadowDy", String.valueOf(subTitleConfig.engShadowConfig.shadowDy));
                     jSONObject.put("eng_shadow_config", jSONObject4);
@@ -375,7 +376,7 @@ public class SubTitleConfig {
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("chinese_shadow_config");
                 if (optJSONObject2 != null) {
                     ShadowConfig shadowConfig = new ShadowConfig();
-                    shadowConfig.shadowRadius = g.a(optJSONObject2.optString("shadowRadius"), 2.0f);
+                    shadowConfig.shadowRadius = g.a(optJSONObject2.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
                     shadowConfig.shadowDx = g.a(optJSONObject2.optString("shadowDx"), 0.0f);
                     shadowConfig.shadowDy = g.a(optJSONObject2.optString("shadowDy"), 2.0f);
                     subTitleConfig.chineseShadowConfig = shadowConfig;
@@ -383,7 +384,7 @@ public class SubTitleConfig {
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("eng_shadow_config");
                 if (optJSONObject3 != null) {
                     ShadowConfig shadowConfig2 = new ShadowConfig();
-                    shadowConfig2.shadowRadius = g.a(optJSONObject3.optString("shadowRadius"), 2.0f);
+                    shadowConfig2.shadowRadius = g.a(optJSONObject3.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
                     shadowConfig2.shadowDx = g.a(optJSONObject3.optString("shadowDx"), 0.0f);
                     shadowConfig2.shadowDy = g.a(optJSONObject3.optString("shadowDy"), 2.0f);
                     subTitleConfig.engShadowConfig = shadowConfig2;
@@ -416,10 +417,10 @@ public class SubTitleConfig {
                     subTitleConfig.engTypefaceConfig = parseJson2;
                     subTitleConfig.engTypeface = TypefaceConfig.toTypeFace(parseJson2);
                 }
-                float a2 = g.a(jSONObject.optString("centerPointerX"), -2.1474836E9f);
-                float a3 = g.a(jSONObject.optString("centerPointerY"), -2.1474836E9f);
-                if (a2 != -2.1474836E9f && a3 != -2.1474836E9f) {
-                    subTitleConfig.mCenterPoint = new PointF(a2, a3);
+                float a = g.a(jSONObject.optString("centerPointerX"), -2.1474836E9f);
+                float a2 = g.a(jSONObject.optString("centerPointerY"), -2.1474836E9f);
+                if (a != -2.1474836E9f && a2 != -2.1474836E9f) {
+                    subTitleConfig.mCenterPoint = new PointF(a, a2);
                 }
                 JSONObject optJSONObject6 = jSONObject.optJSONObject("textStyleEntity");
                 if (optJSONObject6 != null) {

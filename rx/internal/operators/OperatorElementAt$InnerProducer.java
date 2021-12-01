@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
+import i.f;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class OperatorElementAt$InnerProducer extends AtomicBoolean implements f {
@@ -31,11 +31,11 @@ public class OperatorElementAt$InnerProducer extends AtomicBoolean implements f 
         this.actual = fVar;
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 >= 0) {
                 if (i2 <= 0 || !compareAndSet(false, true)) {
                     return;

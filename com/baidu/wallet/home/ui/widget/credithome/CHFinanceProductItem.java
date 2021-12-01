@@ -18,7 +18,7 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CHFinanceProductItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float TAG_HEIGHT_DP = 24.0f;
@@ -27,33 +27,31 @@ public class CHFinanceProductItem extends BaseItemView {
     public static final float TAG_MAX_WIDTH_DP = 108.5f;
     public static final float TAG_PADDING_DP = 7.5f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f59344a;
+    public MaskTextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f59345b;
+    public MaskTextView f52653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f59346c;
+    public MaskTextView f52654c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f59347d;
+    public MaskTextView f52655d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f59348e;
+    public MaskTextView f52656e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskTextView f59349f;
+    public MaskTextView f52657f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MaskTextView f59350g;
+    public MaskTextView f52658g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MaskTextView f59351h;
+    public MaskTextView f52659h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f59352i;
+    public LinearLayout f52660i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHFinanceProductItem(Context context) {
@@ -103,16 +101,16 @@ public class CHFinanceProductItem extends BaseItemView {
         }
         if (getData().icons != null && getData().icons.length > 0) {
             int i2 = 0;
-            this.f59352i.setVisibility(0);
+            this.f52660i.setVisibility(0);
             while (true) {
                 if (i2 >= (3 >= getData().icons.length ? getData().icons.length : 3)) {
                     return;
                 }
-                a(this.f59352i, getData().icons[i2].name);
+                a(this.f52660i, getData().icons[i2].name);
                 i2++;
             }
         } else {
-            this.f59352i.setVisibility(8);
+            this.f52660i.setVisibility(8);
         }
     }
 
@@ -130,15 +128,15 @@ public class CHFinanceProductItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_finance_product_item"), this);
-            this.f59344a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_title"));
-            this.f59345b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_rate"));
-            this.f59346c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_percent"));
-            this.f59347d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_desc"));
-            this.f59348e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date"));
-            this.f59349f = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date_unit"));
-            this.f59350g = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount"));
-            this.f59351h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount_unit"));
-            this.f59352i = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_fp_tags"));
+            this.a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_title"));
+            this.f52653b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_rate"));
+            this.f52654c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_percent"));
+            this.f52655d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_desc"));
+            this.f52656e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date"));
+            this.f52657f = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date_unit"));
+            this.f52658g = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount"));
+            this.f52659h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount_unit"));
+            this.f52660i = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_fp_tags"));
         }
     }
 
@@ -147,14 +145,14 @@ public class CHFinanceProductItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || getData() == null) {
             return;
         }
-        this.f59344a.setMaskText(getData().name);
-        this.f59345b.setMaskText(getData().value1);
-        this.f59346c.setVisibility(TextUtils.isEmpty(getData().value1) ? 8 : 0);
-        this.f59347d.setMaskText(getData().desc);
-        this.f59348e.setMaskText(getData().value2);
-        this.f59349f.setMaskText(getData().unit);
-        this.f59350g.setMaskText(getData().value3);
-        this.f59351h.setMaskText(getData().detail);
+        this.a.setMaskText(getData().name);
+        this.f52653b.setMaskText(getData().value1);
+        this.f52654c.setVisibility(TextUtils.isEmpty(getData().value1) ? 8 : 0);
+        this.f52655d.setMaskText(getData().desc);
+        this.f52656e.setMaskText(getData().value2);
+        this.f52657f.setMaskText(getData().unit);
+        this.f52658g.setMaskText(getData().value3);
+        this.f52659h.setMaskText(getData().detail);
         addTags();
         handlePoint();
     }

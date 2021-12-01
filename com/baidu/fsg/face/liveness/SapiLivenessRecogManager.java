@@ -18,30 +18,27 @@ import com.baidu.fsg.face.liveness.callback.LivenessRecogCallback;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.result.LivenessRecogResult;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_CALL_INTERNAL_TIME = 300;
     public static final String TAG = "SapiLivenessRecog";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static SapiLivenessRecogManager f38708a;
+    public static SapiLivenessRecogManager a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LivenessRecogCallback f38709b;
+    public LivenessRecogCallback f34599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f38710c;
+    public long f34600c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f38711d;
+    public long f34601d;
 
     public SapiLivenessRecogManager() {
         Interceptable interceptable = $ic;
@@ -120,7 +117,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-            this.f38709b = livenessRecogCallback;
+            this.f34599b = livenessRecogCallback;
             if (livenessRecogDTO.livenessType == LivenessRecogType.RECOG_TYPE_FACEDETECT) {
                 if (livenessRecogDTO.showGuidePage) {
                     Intent intent = new Intent(context, LivenessRecogGuidActivity.class);
@@ -133,7 +130,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 context.startActivity(intent2);
                 return;
             }
-            this.f38711d = System.currentTimeMillis();
+            this.f34601d = System.currentTimeMillis();
             Intent intent3 = new Intent(context, LivenessLoadingActivity.class);
             intent3.setFlags(268435456);
             context.startActivity(intent3);
@@ -149,8 +146,8 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
 
     private void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, context) == null) {
-            this.f38710c = System.currentTimeMillis();
+        if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
+            this.f34600c = System.currentTimeMillis();
         }
     }
 
@@ -160,10 +157,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             synchronized (SapiLivenessRecogManager.class) {
-                if (f38708a == null) {
-                    f38708a = new SapiLivenessRecogManager();
+                if (a == null) {
+                    a = new SapiLivenessRecogManager();
                 }
-                sapiLivenessRecogManager = f38708a;
+                sapiLivenessRecogManager = a;
             }
             return sapiLivenessRecogManager;
         }
@@ -180,7 +177,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public void cleanLivenessRecogCallback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f38709b = null;
+            this.f34599b = null;
         }
     }
 
@@ -215,12 +212,12 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
     public LivenessRecogCallback getLivenessRecogCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38709b : (LivenessRecogCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34599b : (LivenessRecogCallback) invokeV.objValue;
     }
 
     private void b(LivenessRecogCallback livenessRecogCallback, LivenessRecogDTO livenessRecogDTO, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, livenessRecogCallback, livenessRecogDTO, context) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, this, livenessRecogCallback, livenessRecogDTO, context) == null) {
             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
             if (livenessRecogDTO == null) {
                 livenessRecogResult.setResultCode(-205);
@@ -271,7 +268,7 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                 }
                 return;
             }
-            this.f38709b = livenessRecogCallback;
+            this.f34599b = livenessRecogCallback;
             Intent intent = new Intent(context, LivenessVideoLoadingActivity.class);
             intent.setFlags(268435456);
             context.startActivity(intent);
@@ -284,12 +281,10 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this, context) { // from class: com.baidu.fsg.face.liveness.SapiLivenessRecogManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f38712a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SapiLivenessRecogManager f38713b;
+                public final /* synthetic */ SapiLivenessRecogManager f34602b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -306,8 +301,8 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                             return;
                         }
                     }
-                    this.f38713b = this;
-                    this.f38712a = context;
+                    this.f34602b = this;
+                    this.a = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -316,16 +311,16 @@ public class SapiLivenessRecogManager implements com.baidu.fsg.face.base.b {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         Intent intent = new Intent();
                         intent.setAction(LivenessLoadingActivity.CLOSE_LOADING_ACTION);
-                        this.f38712a.sendBroadcast(intent);
+                        this.a.sendBroadcast(intent);
                     }
                 }
-            }, System.currentTimeMillis() - this.f38711d >= 1000 ? 0L : 1000L);
+            }, System.currentTimeMillis() - this.f34601d >= 1000 ? 0L : 1000L);
         }
     }
 
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? System.currentTimeMillis() - this.f38710c < 300 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? System.currentTimeMillis() - this.f34600c < 300 : invokeV.booleanValue;
     }
 }

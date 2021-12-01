@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.n.f;
+import i.n.f;
 /* loaded from: classes3.dex */
 public final class UtilityFunctions {
     public static /* synthetic */ Interceptable $ic;
@@ -72,7 +72,7 @@ public final class UtilityFunctions {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // h.n.f
+        @Override // i.n.f
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -139,7 +139,7 @@ public final class UtilityFunctions {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // h.n.f
+        @Override // i.n.f
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -204,7 +204,7 @@ public final class UtilityFunctions {
             return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Identity[]) $VALUES.clone() : (Identity[]) invokeV.objValue;
         }
 
-        @Override // h.n.f
+        @Override // i.n.f
         public Object call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

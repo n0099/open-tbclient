@@ -2,8 +2,6 @@ package com.yy.hiidostatis.inner.util.http;
 
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.android.internal.http.multipart.Part;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,13 +27,13 @@ import java.net.URL;
 import java.util.Map;
 import java.util.regex.Pattern;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern ipv4Pattern;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HttpResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,13 +257,13 @@ public class HttpUtil {
     public static String getContentType(File file) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) ? "application/octet-stream" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) ? "application/octet-stream" : (String) invokeL.objValue;
     }
 
     public static boolean isIpAddress(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? ipv4Pattern.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? ipv4Pattern.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static String post(String str, String str2) throws IOException {
@@ -430,10 +428,10 @@ public class HttpUtil {
                             String key = entry.getKey();
                             String value = entry.getValue();
                             if (value != null) {
-                                stringBuffer.append(Part.CRLF);
+                                stringBuffer.append("\r\n");
                                 stringBuffer.append("--");
                                 stringBuffer.append(format);
-                                stringBuffer.append(Part.CRLF);
+                                stringBuffer.append("\r\n");
                                 stringBuffer.append("Content-Disposition: form-data; name=\"");
                                 stringBuffer.append(key);
                                 stringBuffer.append("\"\r\n\r\n");
@@ -462,10 +460,10 @@ public class HttpUtil {
                         if (value2 != null) {
                             File file = new File(value2);
                             stringBuffer2.setLength(0);
-                            stringBuffer2.append(Part.CRLF);
+                            stringBuffer2.append("\r\n");
                             stringBuffer2.append("--");
                             stringBuffer2.append(format);
-                            stringBuffer2.append(Part.CRLF);
+                            stringBuffer2.append("\r\n");
                             stringBuffer2.append("Content-Disposition: form-data; name=\"");
                             stringBuffer2.append(key2);
                             stringBuffer2.append("\"; filename=\"");

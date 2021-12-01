@@ -11,7 +11,6 @@ import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -22,7 +21,7 @@ import javax.net.ssl.HttpsURLConnection;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +31,7 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                String string = y.a(context).f44161a.getString("lt_sha", "");
+                String string = y.a(context).a.getString("lt_sha", "");
                 if (TextUtils.isEmpty(string)) {
                     com.baidu.sofire.b.a();
                     return new JSONArray();
@@ -41,10 +40,10 @@ public final class n {
                 JSONArray jSONArray2 = new JSONArray(string);
                 for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                     String optString = jSONArray2.optString(i2);
-                    String a2 = a(context, optString);
+                    String a = a(context, optString);
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("url", optString);
-                    jSONObject.put("mp", a2);
+                    jSONObject.put("mp", a);
                     jSONArray.put(jSONObject);
                 }
                 return jSONArray;
@@ -61,7 +60,7 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                if (t.a(context, new String[]{DefaultConnectivityMonitorFactory.NETWORK_PERMISSION})) {
+                if (t.a(context, new String[]{"android.permission.ACCESS_NETWORK_STATE"})) {
                     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                     if (Build.VERSION.SDK_INT > 20) {
                         for (Network network : connectivityManager.getAllNetworks()) {

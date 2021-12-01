@@ -2,7 +2,6 @@ package org.apache.commons.lang3.text;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -188,7 +187,7 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
 
     private void replaceImpl(int i2, int i3, int i4, String str, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5)}) == null) {
             int i6 = (this.size - i4) + i5;
             if (i5 != i4) {
                 ensureCapacity(i6);
@@ -1138,18 +1137,18 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         }
 
         @Override // java.io.Reader
-        public long skip(long j) {
+        public long skip(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-                if (this.pos + j > this.this$0.size()) {
-                    j = this.this$0.size() - this.pos;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
+                if (this.pos + j2 > this.this$0.size()) {
+                    j2 = this.this$0.size() - this.pos;
                 }
-                if (j < 0) {
+                if (j2 < 0) {
                     return 0L;
                 }
-                this.pos = (int) (this.pos + j);
-                return j;
+                this.pos = (int) (this.pos + j2);
+                return j2;
             }
             return invokeJ.longValue;
         }
@@ -1908,10 +1907,10 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         return (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i2)) == null) ? append(i2).appendNewLine() : (StrBuilder) invokeI.objValue;
     }
 
-    public StrBuilder appendln(long j) {
+    public StrBuilder appendln(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j)) == null) ? append(j).appendNewLine() : (StrBuilder) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j2)) == null) ? append(j2).appendNewLine() : (StrBuilder) invokeJ.objValue;
     }
 
     public StrBuilder appendln(float f2) {
@@ -2123,10 +2122,10 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         return (interceptable == null || (invokeII = interceptable.invokeII(1048677, this, i2, i3)) == null) ? insert(i2, String.valueOf(i3)) : (StrBuilder) invokeII.objValue;
     }
 
-    public StrBuilder insert(int i2, long j) {
+    public StrBuilder insert(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048678, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? insert(i2, String.valueOf(j)) : (StrBuilder) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048678, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? insert(i2, String.valueOf(j2)) : (StrBuilder) invokeCommon.objValue;
     }
 
     public StrBuilder insert(int i2, float f2) {
@@ -2381,10 +2380,10 @@ public class StrBuilder implements CharSequence, Appendable, Serializable, Build
         return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? append(String.valueOf(i2)) : (StrBuilder) invokeI.objValue;
     }
 
-    public StrBuilder append(long j) {
+    public StrBuilder append(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? append(String.valueOf(j)) : (StrBuilder) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) ? append(String.valueOf(j2)) : (StrBuilder) invokeJ.objValue;
     }
 
     public StrBuilder append(float f2) {

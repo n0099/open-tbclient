@@ -91,22 +91,22 @@ public final class b {
                 file.createNewFile();
             }
         }
-        long j = 0;
+        long j2 = 0;
         try {
             if (z) {
-                j = file.length();
+                j2 = file.length();
                 fileOutputStream = new FileOutputStream(str, true);
             } else {
                 fileOutputStream = new FileOutputStream(str);
             }
-            long j2 = j;
-            long contentLength = httpURLConnection.getContentLength() + j2;
+            long j3 = j2;
+            long contentLength = httpURLConnection.getContentLength() + j3;
             BufferedInputStream bufferedInputStream2 = new BufferedInputStream(httpURLConnection.getInputStream());
             try {
                 bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
                 if (cVar != null) {
                     try {
-                        if (!cVar.a(contentLength, j2, true)) {
+                        if (!cVar.a(contentLength, j3, true)) {
                             try {
                                 bufferedInputStream2.close();
                             } catch (Throwable unused) {
@@ -147,14 +147,14 @@ public final class b {
                 }
                 byte[] bArr = new byte[4096];
                 while (true) {
-                    long j3 = j2;
+                    long j4 = j3;
                     int read = bufferedInputStream2.read(bArr);
                     if (read == -1) {
                         break;
                     }
                     bufferedOutputStream.write(bArr, 0, read);
-                    j2 = j3 + read;
-                    if (cVar != null && !cVar.a(contentLength, j2, false)) {
+                    j3 = j4 + read;
+                    if (cVar != null && !cVar.a(contentLength, j3, false)) {
                         try {
                             bufferedInputStream2.close();
                         } catch (Throwable unused6) {

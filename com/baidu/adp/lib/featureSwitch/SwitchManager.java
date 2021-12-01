@@ -2,8 +2,8 @@ package com.baidu.adp.lib.featureSwitch;
 
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.f.b;
-import b.a.e.f.f.c;
+import c.a.d.f.f.b;
+import c.a.d.f.f.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SwitchManager {
     public static /* synthetic */ Interceptable $ic;
     public static SwitchManager sSwitchManager;
@@ -91,8 +91,8 @@ public class SwitchManager {
         for (c cVar : this.mSwitchs.values()) {
             if (cVar != null) {
                 cVar.h(0);
-                edit.putInt(cVar.d() + c.f1737d, 0);
-                edit.putInt(cVar.d() + c.f1738e, cVar.c());
+                edit.putInt(cVar.d() + c.f2382d, 0);
+                edit.putInt(cVar.d() + c.f2383e, cVar.c());
             }
         }
         edit.commit();

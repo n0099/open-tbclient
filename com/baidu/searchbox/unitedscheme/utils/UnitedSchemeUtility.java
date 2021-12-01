@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.InvokeSchemeInfo;
 import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
@@ -33,7 +32,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class UnitedSchemeUtility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -76,7 +75,7 @@ public final class UnitedSchemeUtility {
     public static JSONObject callCallback(CallbackHandler callbackHandler, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, callbackHandler, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, callbackHandler, str, i2)) == null) {
             JSONObject wrapCallbackParams = wrapCallbackParams(i2);
             return TextUtils.isEmpty(str) ? wrapCallbackParams : callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), wrapCallbackParams);
         }
@@ -531,7 +530,7 @@ public final class UnitedSchemeUtility {
     public static JSONObject callCallback(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, callbackHandler, str, jSONObject)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, callbackHandler, str, jSONObject)) == null) {
             if (callbackHandler != null && !TextUtils.isEmpty(str) && jSONObject != null) {
                 return callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), jSONObject);
             }

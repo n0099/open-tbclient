@@ -9,16 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.Vector;
 import org.json.JSONArray;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f61989a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector<String> f61990b;
+    public Vector<String> f54337b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -35,8 +33,8 @@ public final class a {
                 return;
             }
         }
-        this.f61989a = str;
-        this.f61990b = new Vector<>();
+        this.a = str;
+        this.f54337b = new Vector<>();
     }
 
     public final int a(String str) {
@@ -44,9 +42,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
-                this.f61990b.add(str);
+                this.f54337b.add(str);
             }
-            return this.f61990b.size();
+            return this.f54337b.size();
         }
         return invokeL.intValue;
     }
@@ -54,6 +52,6 @@ public final class a {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new JSONArray((Collection) this.f61990b).toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new JSONArray((Collection) this.f54337b).toString() : (String) invokeV.objValue;
     }
 }

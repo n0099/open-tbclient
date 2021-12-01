@@ -4,8 +4,6 @@ import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.AdParamInfo;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class QueuedMuxer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 65536;
@@ -31,7 +29,7 @@ public class QueuedMuxer {
     public int mVideoTrackIndex;
 
     /* renamed from: com.baidu.searchbox.afx.recode.QueuedMuxer$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$recode$QueuedMuxer$SampleType;
         public static /* synthetic */ Interceptable $ic;
@@ -59,7 +57,7 @@ public class QueuedMuxer {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SampleInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +73,7 @@ public class QueuedMuxer {
         /* JADX INFO: Access modifiers changed from: private */
         public void writeToBufferInfo(MediaCodec.BufferInfo bufferInfo, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, this, bufferInfo, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(65541, this, bufferInfo, i2) == null) {
                 bufferInfo.set(i2, this.mSize, this.mPresentationTimeUs, this.mFlags);
             }
         }
@@ -103,7 +101,7 @@ public class QueuedMuxer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SampleType {
         public static final /* synthetic */ SampleType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,7 +121,7 @@ public class QueuedMuxer {
                     return;
                 }
             }
-            SampleType sampleType = new SampleType(AdParamInfo.AdClickActionString.AD_CLICK_ACTION_VIDEO, 0);
+            SampleType sampleType = new SampleType("VIDEO", 0);
             VIDEO = sampleType;
             $VALUES = new SampleType[]{sampleType};
         }

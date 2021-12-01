@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<UserAccountActionItem> CREATOR;
@@ -33,7 +32,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     public String mType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class UserAccountAction {
         public static final /* synthetic */ UserAccountAction[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,7 +103,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class UserAccountType {
         public static final /* synthetic */ UserAccountType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -349,12 +348,12 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
+            interceptable.invokeUnInit(65541, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.AD_TEXT_ID, newInitContext);
+                interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
@@ -369,12 +368,12 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+            interceptable.invokeUnInit(65542, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(AdIconUtil.BAIDU_LOGO_ID, newInitContext);
+                interceptable.invokeInitBody(65542, newInitContext);
                 return;
             }
         }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.pb.godreply;
 
-import b.a.e.f.p.l;
-import b.a.q0.c1.z;
+import c.a.d.f.p.l;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GetPostList.DataReq;
 import tbclient.GetPostList.GetPostListReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LookMoreReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,13 +52,13 @@ public class LookMoreReqMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
-                int k = l.k(TbadkCoreApplication.getInst());
+                int k2 = l.k(TbadkCoreApplication.getInst());
                 int i2 = l.i(TbadkCoreApplication.getInst());
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.kz = this.kz;
                 builder.with_floor = Integer.valueOf(this.with_floor);
                 builder.post_id = this.post_id;
-                builder.scr_w = Integer.valueOf(k);
+                builder.scr_w = Integer.valueOf(k2);
                 builder.scr_h = Integer.valueOf(i2);
                 builder.st_type = Integer.valueOf(this.st_type);
                 builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);

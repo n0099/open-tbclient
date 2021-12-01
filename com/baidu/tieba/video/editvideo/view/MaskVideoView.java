@@ -13,8 +13,8 @@ import android.view.Surface;
 import android.view.View;
 import android.widget.MediaController;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.a2.g;
-import b.a.r0.a4.i.d.c;
+import c.a.r0.g2.g;
+import c.a.r0.h4.i.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,27 +30,31 @@ import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class MaskVideoView extends GLSurfaceView implements MediaController.MediaPlayerControl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaPlayer f55635e;
+    public MediaPlayer f49720e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f55636f;
+    public e f49721f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55637g;
+    public int f49722g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55638h;
+    public int f49723h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f55639i;
-    public int j;
-    public g k;
+    public int f49724i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f49725j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public g f49726k;
     public MediaPlayer.OnVideoSizeChangedListener l;
     public MediaPlayer.OnPreparedListener m;
     public f mMaskCoverListener;
@@ -58,13 +62,13 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public int o;
     public f p;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements MediaPlayer.OnVideoSizeChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MaskVideoView f55640e;
+        public final /* synthetic */ MaskVideoView f49727e;
 
         public a(MaskVideoView maskVideoView) {
             Interceptable interceptable = $ic;
@@ -81,31 +85,31 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                     return;
                 }
             }
-            this.f55640e = maskVideoView;
+            this.f49727e = maskVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
         public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3) == null) {
-                this.f55640e.f55637g = mediaPlayer.getVideoWidth();
-                this.f55640e.f55638h = mediaPlayer.getVideoHeight();
-                if (this.f55640e.f55637g == 0 || this.f55640e.f55638h == 0) {
+                this.f49727e.f49722g = mediaPlayer.getVideoWidth();
+                this.f49727e.f49723h = mediaPlayer.getVideoHeight();
+                if (this.f49727e.f49722g == 0 || this.f49727e.f49723h == 0) {
                     return;
                 }
-                this.f55640e.getHolder().setFixedSize(this.f55640e.f55637g, this.f55640e.f55638h);
-                this.f55640e.requestLayout();
+                this.f49727e.getHolder().setFixedSize(this.f49727e.f49722g, this.f49727e.f49723h);
+                this.f49727e.requestLayout();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MaskVideoView f55641e;
+        public final /* synthetic */ MaskVideoView f49728e;
 
         public b(MaskVideoView maskVideoView) {
             Interceptable interceptable = $ic;
@@ -122,37 +126,37 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                     return;
                 }
             }
-            this.f55641e = maskVideoView;
+            this.f49728e = maskVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                MediaPlayer.OnPreparedListener onPreparedListener = this.f55641e.m;
+                MediaPlayer.OnPreparedListener onPreparedListener = this.f49728e.m;
                 if (onPreparedListener != null) {
                     onPreparedListener.onPrepared(mediaPlayer);
                 }
-                this.f55641e.f55637g = mediaPlayer.getVideoWidth();
-                this.f55641e.f55638h = mediaPlayer.getVideoHeight();
-                if (this.f55641e.f55637g == 0 || this.f55641e.f55638h == 0) {
+                this.f49728e.f49722g = mediaPlayer.getVideoWidth();
+                this.f49728e.f49723h = mediaPlayer.getVideoHeight();
+                if (this.f49728e.f49722g == 0 || this.f49728e.f49723h == 0) {
                     return;
                 }
-                this.f55641e.getHolder().setFixedSize(this.f55641e.f55637g, this.f55641e.f55638h);
+                this.f49728e.getHolder().setFixedSize(this.f49728e.f49722g, this.f49728e.f49723h);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f55642e;
+        public final /* synthetic */ int f49729e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MaskVideoView f55643f;
+        public final /* synthetic */ MaskVideoView f49730f;
 
         public c(MaskVideoView maskVideoView, int i2) {
             Interceptable interceptable = $ic;
@@ -169,52 +173,52 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                     return;
                 }
             }
-            this.f55643f = maskVideoView;
-            this.f55642e = i2;
+            this.f49730f = maskVideoView;
+            this.f49729e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if ((this.f55643f.f55636f == null || !this.f55643f.f55636f.u) && this.f55643f.o <= 10) {
-                    if (this.f55643f.f55635e != null) {
+                if ((this.f49730f.f49721f == null || !this.f49730f.f49721f.u) && this.f49730f.o <= 10) {
+                    if (this.f49730f.f49720e != null) {
                         try {
-                            this.f55643f.f55635e.seekTo(this.f55642e);
+                            this.f49730f.f49720e.seekTo(this.f49729e);
                         } catch (Exception unused) {
                         }
                     }
-                    this.f55643f.requestRender();
-                    MaskVideoView.i(this.f55643f);
-                    this.f55643f.n(this.f55642e);
+                    this.f49730f.requestRender();
+                    MaskVideoView.i(this.f49730f);
+                    this.f49730f.n(this.f49729e);
                     return;
                 }
-                this.f55643f.o = 0;
+                this.f49730f.o = 0;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MaskVideoView f55644e;
+        public final /* synthetic */ MaskVideoView f49731e;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f55645e;
+            public final /* synthetic */ Bitmap f49732e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ boolean f55646f;
+            public final /* synthetic */ boolean f49733f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ d f55647g;
+            public final /* synthetic */ d f49734g;
 
             public a(d dVar, Bitmap bitmap, boolean z) {
                 Interceptable interceptable = $ic;
@@ -231,16 +235,16 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                         return;
                     }
                 }
-                this.f55647g = dVar;
-                this.f55645e = bitmap;
-                this.f55646f = z;
+                this.f49734g = dVar;
+                this.f49732e = bitmap;
+                this.f49733f = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f55647g.f55644e.mMaskCoverListener.onGenMaskCoverFinish(this.f55645e, this.f55646f);
+                    this.f49734g.f49731e.mMaskCoverListener.onGenMaskCoverFinish(this.f49732e, this.f49733f);
                 }
             }
         }
@@ -260,40 +264,44 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                     return;
                 }
             }
-            this.f55644e = maskVideoView;
+            this.f49731e = maskVideoView;
         }
 
         @Override // com.baidu.tieba.video.editvideo.view.MaskVideoView.f
         public void onGenMaskCoverFinish(Bitmap bitmap, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, bitmap, z) == null) || this.f55644e.mMaskCoverListener == null) {
+            if (!(interceptable == null || interceptable.invokeLZ(1048576, this, bitmap, z) == null) || this.f49731e.mMaskCoverListener == null) {
                 return;
             }
-            b.a.e.f.m.e.a().post(new a(this, bitmap, z));
+            c.a.d.f.m.e.a().post(new a(this, bitmap, z));
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class e implements GLSurfaceView.Renderer, SurfaceTexture.OnFrameAvailableListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Context f55648e;
+        public Context f49735e;
 
         /* renamed from: f  reason: collision with root package name */
-        public GLSurfaceView f55649f;
+        public GLSurfaceView f49736f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Surface f55650g;
+        public Surface f49737g;
 
         /* renamed from: h  reason: collision with root package name */
-        public MediaPlayer f55651h;
+        public MediaPlayer f49738h;
 
         /* renamed from: i  reason: collision with root package name */
-        public FullFrameRect f55652i;
-        public FullFrameRect j;
-        public SurfaceTexture k;
+        public FullFrameRect f49739i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public FullFrameRect f49740j;
+
+        /* renamed from: k  reason: collision with root package name */
+        public SurfaceTexture f49741k;
         public final float[] l;
         public int m;
         public int n;
@@ -306,16 +314,16 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         public volatile boolean u;
         public final /* synthetic */ MaskVideoView v;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f55653e;
+            public final /* synthetic */ Bitmap f49742e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ e f55654f;
+            public final /* synthetic */ e f49743f;
 
             public a(e eVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
@@ -332,36 +340,36 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                         return;
                     }
                 }
-                this.f55654f = eVar;
-                this.f55653e = bitmap;
+                this.f49743f = eVar;
+                this.f49742e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ArrayList<c.a> f2 = b.a.r0.a4.i.d.c.f(this.f55653e);
-                    byte[] e2 = b.a.r0.a4.i.d.c.e(this.f55653e);
+                    ArrayList<c.a> f2 = c.a.r0.h4.i.d.c.f(this.f49742e);
+                    byte[] e2 = c.a.r0.h4.i.d.c.e(this.f49742e);
                     for (int i2 = 0; i2 < 3; i2++) {
                         int length = e2.length;
                         byte[] bArr = new byte[length];
                         System.arraycopy(e2, 0, bArr, 0, e2.length);
                         if (length == 0) {
-                            this.f55654f.v.p.onGenMaskCoverFinish(this.f55653e, false);
+                            this.f49743f.v.p.onGenMaskCoverFinish(this.f49742e, false);
                         }
-                        int width = this.f55653e.getWidth();
-                        int height = this.f55653e.getHeight();
-                        faceunity.fuRenderToNV21Image(bArr, width, height, 0, this.f55654f.r, 0);
-                        Bitmap b2 = b.a.r0.a4.i.d.c.b(bArr, width, height);
-                        boolean a2 = b.a.r0.a4.i.d.c.a(b2, f2);
-                        if (a2) {
-                            this.f55654f.v.p.onGenMaskCoverFinish(b2, true);
-                            this.f55653e.recycle();
+                        int width = this.f49742e.getWidth();
+                        int height = this.f49742e.getHeight();
+                        faceunity.fuRenderToNV21Image(bArr, width, height, 0, this.f49743f.r, 0);
+                        Bitmap b2 = c.a.r0.h4.i.d.c.b(bArr, width, height);
+                        boolean a = c.a.r0.h4.i.d.c.a(b2, f2);
+                        if (a) {
+                            this.f49743f.v.p.onGenMaskCoverFinish(b2, true);
+                            this.f49742e.recycle();
                             return;
                         }
-                        if (a2 || i2 >= 2) {
-                            if (!a2 && i2 == 2) {
-                                this.f55654f.v.p.onGenMaskCoverFinish(this.f55653e, false);
+                        if (a || i2 >= 2) {
+                            if (!a && i2 == 2) {
+                                this.f49743f.v.p.onGenMaskCoverFinish(this.f49742e, false);
                             }
                         } else if (b2 != null && !b2.isRecycled()) {
                             b2.recycle();
@@ -371,13 +379,13 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f55655e;
+            public final /* synthetic */ e f49744e;
 
             public b(e eVar) {
                 Interceptable interceptable = $ic;
@@ -394,24 +402,24 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                         return;
                     }
                 }
-                this.f55655e = eVar;
+                this.f49744e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.f55655e.f55652i != null) {
-                        this.f55655e.f55652i.release(false);
-                        this.f55655e.f55652i = null;
+                    if (this.f49744e.f49739i != null) {
+                        this.f49744e.f49739i.release(false);
+                        this.f49744e.f49739i = null;
                     }
-                    faceunity.fuDestroyItem(this.f55655e.p);
-                    int[] iArr = this.f55655e.r;
-                    this.f55655e.p = 0;
+                    faceunity.fuDestroyItem(this.f49744e.p);
+                    int[] iArr = this.f49744e.r;
+                    this.f49744e.p = 0;
                     iArr[1] = 0;
-                    faceunity.fuDestroyItem(this.f55655e.o);
-                    int[] iArr2 = this.f55655e.r;
-                    this.f55655e.o = 0;
+                    faceunity.fuDestroyItem(this.f49744e.o);
+                    int[] iArr2 = this.f49744e.r;
+                    this.f49744e.o = 0;
                     iArr2[0] = 0;
                     faceunity.fuOnDeviceLost();
                 }
@@ -440,24 +448,24 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             this.q = 0;
             this.r = new int[]{0, 0, 0};
             this.s = "normal";
-            this.f55648e = context;
-            this.f55649f = gLSurfaceView;
-            this.f55651h = mediaPlayer;
+            this.f49735e = context;
+            this.f49736f = gLSurfaceView;
+            this.f49738h = mediaPlayer;
         }
 
         public final void k() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55652i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+                this.f49739i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
                 FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-                this.j = fullFrameRect;
+                this.f49740j = fullFrameRect;
                 this.m = fullFrameRect.createTextureObject();
-                this.k = new SurfaceTexture(this.m);
-                this.f55650g = new Surface(this.k);
-                int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.f55648e);
+                this.f49741k = new SurfaceTexture(this.m);
+                this.f49737g = new Surface(this.f49741k);
+                int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.f49735e);
                 this.o = upFaceUnity;
                 this.r[0] = upFaceUnity;
-                this.k.setOnFrameAvailableListener(this);
+                this.f49741k.setOnFrameAvailableListener(this);
             }
         }
 
@@ -478,17 +486,17 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.t = true;
-                this.f55649f.queueEvent(new b(this));
+                this.f49736f.queueEvent(new b(this));
             }
         }
 
-        public void n(b.a.r0.a4.i.e.a aVar) {
+        public void n(c.a.r0.h4.i.e.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
                 return;
             }
-            this.s = aVar.f16016c;
-            this.f55649f.requestRender();
+            this.s = aVar.f17997c;
+            this.f49736f.requestRender();
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
@@ -497,12 +505,12 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             if (!(interceptable == null || interceptable.invokeL(1048580, this, gl10) == null) || this.t) {
                 return;
             }
-            if (this.f55652i == null) {
+            if (this.f49739i == null) {
                 k();
-                this.f55651h.setSurface(this.f55650g);
+                this.f49738h.setSurface(this.f49737g);
             }
-            this.k.updateTexImage();
-            this.k.getTransformMatrix(this.l);
+            this.f49741k.updateTexImage();
+            this.f49741k.getTransformMatrix(this.l);
             if (!TextUtils.isEmpty(this.s) && !this.s.equals("normal")) {
                 faceunity.fuItemSetParam(this.o, TbFileVideoActivityConfig.FILTER_NAME, this.s);
             }
@@ -516,11 +524,11 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             faceunity.fuItemSetParam(this.o, "eye_bright", 0.0d);
             faceunity.fuItemSetParam(this.o, "tooth_whiten", 0.0d);
             int i2 = this.m;
-            int i3 = this.v.f55637g;
-            int i4 = this.v.f55638h;
+            int i3 = this.v.f49722g;
+            int i4 = this.v.f49723h;
             int i5 = this.n;
             this.n = i5 + 1;
-            this.f55652i.drawFrame(faceunity.fuBeautifyImage(i2, 1, i3, i4, i5, this.r), this.l);
+            this.f49739i.drawFrame(faceunity.fuBeautifyImage(i2, 1, i3, i4, i5, this.r), this.l);
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
@@ -528,7 +536,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, surfaceTexture) == null) {
                 this.u = true;
-                this.f55649f.requestRender();
+                this.f49736f.requestRender();
             }
         }
 
@@ -537,9 +545,9 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048582, this, gl10, i2, i3) == null) {
                 GLES20.glViewport(0, 0, i2, i3);
-                this.v.f55639i = i2;
-                this.v.j = i3;
-                this.f55651h.setSurface(this.f55650g);
+                this.v.f49724i = i2;
+                this.v.f49725j = i3;
+                this.f49738h.setSurface(this.f49737g);
             }
         }
 
@@ -552,7 +560,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public interface f {
         void onGenMaskCoverFinish(Bitmap bitmap, boolean z);
     }
@@ -576,18 +584,18 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                 return;
             }
         }
-        this.f55636f = null;
+        this.f49721f = null;
         this.l = new a(this);
         this.n = new b(this);
         this.o = 0;
         this.p = new d(this);
         setEGLContextClientVersion(2);
         MediaPlayer mediaPlayer = new MediaPlayer();
-        this.f55635e = mediaPlayer;
+        this.f49720e = mediaPlayer;
         mediaPlayer.setOnPreparedListener(this.n);
-        this.f55635e.setOnVideoSizeChangedListener(this.l);
-        e eVar = new e(this, getContext(), this, this.f55635e);
-        this.f55636f = eVar;
+        this.f49720e.setOnVideoSizeChangedListener(this.l);
+        e eVar = new e(this, getContext(), this, this.f49720e);
+        this.f49721f = eVar;
         setRenderer(eVar);
         setRenderMode(0);
     }
@@ -631,7 +639,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public void doLoopSeek(int i2) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (mediaPlayer = this.f55635e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (mediaPlayer = this.f49720e) == null) {
             return;
         }
         mediaPlayer.seekTo(i2);
@@ -642,7 +650,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public int getAudioSessionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f55635e.getAudioSessionId() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49720e.getAudioSessionId() : invokeV.intValue;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -660,27 +668,27 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f55635e.getCurrentPosition() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f49720e.getCurrentPosition() : invokeV.intValue;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f55635e.getDuration() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f49720e.getDuration() : invokeV.intValue;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f55635e.isPlaying() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f49720e.isPlaying() : invokeV.booleanValue;
     }
 
     public void makeMaskBitmap(Bitmap bitmap) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) || (eVar = this.f55636f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) || (eVar = this.f49721f) == null) {
             return;
         }
         eVar.l(bitmap);
@@ -689,7 +697,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public final void n(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            b.a.e.f.m.e.a().postDelayed(new c(this, i2), 500L);
+            c.a.d.f.m.e.a().postDelayed(new c(this, i2), 500L);
         }
     }
 
@@ -697,17 +705,17 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
-            int defaultSize = GLSurfaceView.getDefaultSize(this.f55637g, i2);
-            int defaultSize2 = GLSurfaceView.getDefaultSize(this.f55638h, i3);
-            if (this.f55637g > 0 && this.f55638h > 0) {
+            int defaultSize = GLSurfaceView.getDefaultSize(this.f49722g, i2);
+            int defaultSize2 = GLSurfaceView.getDefaultSize(this.f49723h, i3);
+            if (this.f49722g > 0 && this.f49723h > 0) {
                 int mode = View.MeasureSpec.getMode(i2);
                 int size = View.MeasureSpec.getSize(i2);
                 int mode2 = View.MeasureSpec.getMode(i3);
                 int size2 = View.MeasureSpec.getSize(i3);
                 if (mode == 1073741824 && mode2 == 1073741824) {
-                    int i4 = this.f55637g;
+                    int i4 = this.f49722g;
                     int i5 = i4 * size2;
-                    int i6 = this.f55638h;
+                    int i6 = this.f49723h;
                     if (i5 < size * i6) {
                         defaultSize = (i4 * size2) / i6;
                         defaultSize2 = size2;
@@ -720,7 +728,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                         defaultSize2 = size2;
                     }
                 } else if (mode == 1073741824) {
-                    int i7 = (this.f55638h * size) / this.f55637g;
+                    int i7 = (this.f49723h * size) / this.f49722g;
                     if (mode2 != Integer.MIN_VALUE || i7 <= size2) {
                         defaultSize2 = i7;
                         defaultSize = size;
@@ -728,7 +736,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                     defaultSize = size;
                     defaultSize2 = size2;
                 } else if (mode2 == 1073741824) {
-                    int i8 = (this.f55637g * size2) / this.f55638h;
+                    int i8 = (this.f49722g * size2) / this.f49723h;
                     if (mode != Integer.MIN_VALUE || i8 <= size) {
                         defaultSize = i8;
                         defaultSize2 = size2;
@@ -736,8 +744,8 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                     defaultSize = size;
                     defaultSize2 = size2;
                 } else {
-                    int i9 = this.f55637g;
-                    int i10 = this.f55638h;
+                    int i9 = this.f49722g;
+                    int i10 = this.f49723h;
                     if (mode2 != Integer.MIN_VALUE || i10 <= size2) {
                         defaultSize2 = i10;
                     } else {
@@ -747,7 +755,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                     if (mode != Integer.MIN_VALUE || i9 <= size) {
                         defaultSize = i9;
                     } else {
-                        defaultSize2 = (this.f55638h * size) / this.f55637g;
+                        defaultSize2 = (this.f49723h * size) / this.f49722g;
                         defaultSize = size;
                     }
                 }
@@ -759,21 +767,21 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     @Override // android.opengl.GLSurfaceView
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f55636f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f49721f == null) {
             return;
         }
         super.onPause();
-        this.f55636f.u = false;
+        this.f49721f.u = false;
     }
 
     @Override // android.opengl.GLSurfaceView
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f55636f == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f49721f == null) {
             return;
         }
         super.onResume();
-        this.f55636f.t = false;
+        this.f49721f.t = false;
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -786,15 +794,15 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
 
     public void pauseMediaPlayer() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.f55635e.isPlaying()) {
-            this.f55635e.pause();
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && this.f49720e.isPlaying()) {
+            this.f49720e.pause();
         }
     }
 
     public void releaseSource() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (eVar = this.f55636f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (eVar = this.f49721f) == null) {
             return;
         }
         eVar.m();
@@ -803,25 +811,25 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public void resumeMedia() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (mediaPlayer = this.f55635e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (mediaPlayer = this.f49720e) == null) {
             return;
         }
         mediaPlayer.start();
-        this.f55635e.seekTo(0);
+        this.f49720e.seekTo(0);
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public void seekTo(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f55635e.seekTo(i2);
+            this.f49720e.seekTo(i2);
         }
     }
 
-    public void setFilter(b.a.r0.a4.i.e.a aVar) {
+    public void setFilter(c.a.r0.h4.i.e.a aVar) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) || (eVar = this.f55636f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, aVar) == null) || (eVar = this.f49721f) == null) {
             return;
         }
         eVar.n(aVar);
@@ -838,7 +846,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, onCompletionListener) == null) {
-            this.f55635e.setOnCompletionListener(onCompletionListener);
+            this.f49720e.setOnCompletionListener(onCompletionListener);
         }
     }
 
@@ -852,7 +860,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public void setPostMonitorManager(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, gVar) == null) {
-            this.k = gVar;
+            this.f49726k = gVar;
         }
     }
 
@@ -860,13 +868,13 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
             try {
-                this.f55635e.setDataSource(str);
-                this.f55635e.prepare();
+                this.f49720e.setDataSource(str);
+                this.f49720e.prepare();
             } catch (Exception e2) {
                 e2.printStackTrace();
-                g gVar = this.k;
+                g gVar = this.f49726k;
                 if (gVar != null) {
-                    gVar.a(204, b.a.r0.a2.a.a(e2));
+                    gVar.a(204, c.a.r0.g2.a.a(e2));
                 }
             }
         }
@@ -876,26 +884,26 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f55635e.start();
+            this.f49720e.start();
         }
     }
 
     public void stopPlayback() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (mediaPlayer = this.f55635e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (mediaPlayer = this.f49720e) == null) {
             return;
         }
         try {
             mediaPlayer.stop();
-            this.f55635e.release();
+            this.f49720e.release();
         } catch (Throwable th) {
-            g gVar = this.k;
+            g gVar = this.f49726k;
             if (gVar != null) {
-                gVar.a(205, b.a.r0.a2.a.a(th));
+                gVar.a(205, c.a.r0.g2.a.a(th));
             }
         }
-        this.f55635e = null;
+        this.f49720e = null;
         ((AudioManager) getContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND)).abandonAudioFocus(null);
     }
 }

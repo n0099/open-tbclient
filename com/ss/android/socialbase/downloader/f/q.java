@@ -17,34 +17,34 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final String f70293a;
+    public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f70294b;
+    public final String f61825b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f70295c;
+    public final String f61826c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f70296d;
+    public final boolean f61827d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<m> f70297e;
+    public final List<m> f61828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f70298f;
+    public int f61829f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f70299g;
+    public boolean f61830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f70300h;
+    public int f61831h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f70301i;
-    public final AtomicLong j;
+    public String f61832i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final AtomicLong f61833j;
 
     public q(String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -61,12 +61,12 @@ public class q {
                 return;
             }
         }
-        this.f70297e = new ArrayList();
-        this.j = new AtomicLong();
-        this.f70293a = str;
-        this.f70296d = z;
-        this.f70294b = null;
-        this.f70295c = null;
+        this.f61828e = new ArrayList();
+        this.f61833j = new AtomicLong();
+        this.a = str;
+        this.f61827d = z;
+        this.f61825b = null;
+        this.f61826c = null;
     }
 
     private String a(String str) {
@@ -94,20 +94,20 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            if (this.f70301i == null) {
+            if (this.f61832i == null) {
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f70293a);
+                sb.append(this.a);
                 sb.append("_");
-                String str = this.f70294b;
+                String str = this.f61825b;
                 if (str == null) {
                     str = "";
                 }
                 sb.append(str);
                 sb.append("_");
-                sb.append(this.f70296d);
-                this.f70301i = sb.toString();
+                sb.append(this.f61827d);
+                this.f61832i = sb.toString();
             }
-            return this.f70301i;
+            return this.f61832i;
         }
         return (String) invokeV.objValue;
     }
@@ -117,7 +117,7 @@ public class q {
         if (interceptable == null || interceptable.invokeL(1048580, this, mVar) == null) {
             synchronized (this) {
                 try {
-                    this.f70297e.remove(mVar);
+                    this.f61828e.remove(mVar);
                 } catch (Throwable unused) {
                 }
             }
@@ -128,7 +128,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                this.f70299g = false;
+                this.f61830g = false;
             }
         }
     }
@@ -139,7 +139,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.f70299g;
+                z = this.f61830g;
             }
             return z;
         }
@@ -165,10 +165,10 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f70300h == 0) {
-                this.f70300h = e().hashCode();
+            if (this.f61831h == 0) {
+                this.f61831h = e().hashCode();
             }
-            return this.f70300h;
+            return this.f61831h;
         }
         return invokeV.intValue;
     }
@@ -177,7 +177,7 @@ public class q {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "UrlRecord{url='" + this.f70293a + ExtendedMessageFormat.QUOTE + ", ip='" + this.f70294b + ExtendedMessageFormat.QUOTE + ", ipFamily='" + this.f70295c + ExtendedMessageFormat.QUOTE + ", isMainUrl=" + this.f70296d + ", failedTimes=" + this.f70298f + ", isCurrentFailed=" + this.f70299g + ExtendedMessageFormat.END_FE;
+            return "UrlRecord{url='" + this.a + ExtendedMessageFormat.QUOTE + ", ip='" + this.f61825b + ExtendedMessageFormat.QUOTE + ", ipFamily='" + this.f61826c + ExtendedMessageFormat.QUOTE + ", isMainUrl=" + this.f61827d + ", failedTimes=" + this.f61829f + ", isCurrentFailed=" + this.f61830g + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -186,8 +186,8 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                this.f70298f++;
-                this.f70299g = true;
+                this.f61829f++;
+                this.f61830g = true;
             }
         }
     }
@@ -196,7 +196,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) {
             synchronized (this) {
-                this.f70297e.add(mVar);
+                this.f61828e.add(mVar);
             }
         }
     }
@@ -216,12 +216,12 @@ public class q {
                 return;
             }
         }
-        this.f70297e = new ArrayList();
-        this.j = new AtomicLong();
-        this.f70293a = str;
-        this.f70296d = false;
-        this.f70294b = str2;
-        this.f70295c = a(str2);
+        this.f61828e = new ArrayList();
+        this.f61833j = new AtomicLong();
+        this.a = str;
+        this.f61827d = false;
+        this.f61825b = str2;
+        this.f61826c = a(str2);
     }
 
     public synchronized int a() {
@@ -230,17 +230,17 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                size = this.f70297e.size();
+                size = this.f61828e.size();
             }
             return size;
         }
         return invokeV.intValue;
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.j.addAndGet(j);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.f61833j.addAndGet(j2);
         }
     }
 }

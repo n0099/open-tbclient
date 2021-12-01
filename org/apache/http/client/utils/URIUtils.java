@@ -1,7 +1,6 @@
 package org.apache.http.client.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +52,7 @@ public class URIUtils {
     public static URI rewriteURI(URI uri, HttpHost httpHost, boolean z) throws URISyntaxException {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.AD_TEXT_ID, null, uri, httpHost, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, uri, httpHost, z)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (URI) invokeLLZ.objValue;

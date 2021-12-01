@@ -8,27 +8,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes2.dex */
 public final class b extends Enum<b> {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f69022a = 4;
+    public static final int a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f69023b = 1;
+    public static int f60903b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f69024c = 2;
+    public static int f60904c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f69025d = 3;
+    public static int f60905d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f69026e = 5;
+    public static int f60906e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f69027f = 6;
+    public static int f60907f = 6;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f69028g = 7;
+    public static int f60908g = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

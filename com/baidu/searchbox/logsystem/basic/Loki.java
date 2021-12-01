@@ -5,11 +5,10 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.h0.b.a.a;
-import b.a.o.a.b;
+import c.a.i0.b.a.a;
+import c.a.n.a.b;
 import com.baidu.crashpad.ZwCrashpad;
 import com.baidu.disasterrecovery.jnicrash.NativeCrashCapture;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.searchbox.aop.annotation.TimeSpendTrace;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -25,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Loki {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CRASH_PAD_PROCESS_NAME = ":crashpad";
@@ -153,7 +152,7 @@ public class Loki {
 
     public static void initNative(@NonNull Context context, @NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, bVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) {
             initNative(context, bVar, true);
         }
     }
@@ -175,7 +174,7 @@ public class Loki {
 
     public static void initNative(@NonNull Context context, @NonNull b bVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, context, bVar, z) == null) || isLokiService(a.b())) {
+        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, context, bVar, z) == null) || isLokiService(a.b())) {
             return;
         }
         NativeCrashCapture.init(context, bVar, z);

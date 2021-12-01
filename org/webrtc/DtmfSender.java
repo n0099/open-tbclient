@@ -12,12 +12,12 @@ public class DtmfSender {
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeDtmfSender;
 
-    public DtmfSender(long j) {
+    public DtmfSender(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -27,7 +27,7 @@ public class DtmfSender {
                 return;
             }
         }
-        this.nativeDtmfSender = j;
+        this.nativeDtmfSender = j2;
     }
 
     private void checkDtmfSenderExists() {
@@ -37,15 +37,15 @@ public class DtmfSender {
         }
     }
 
-    public static native boolean nativeCanInsertDtmf(long j);
+    public static native boolean nativeCanInsertDtmf(long j2);
 
-    public static native int nativeDuration(long j);
+    public static native int nativeDuration(long j2);
 
-    public static native boolean nativeInsertDtmf(long j, String str, int i2, int i3);
+    public static native boolean nativeInsertDtmf(long j2, String str, int i2, int i3);
 
-    public static native int nativeInterToneGap(long j);
+    public static native int nativeInterToneGap(long j2);
 
-    public static native String nativeTones(long j);
+    public static native String nativeTones(long j2);
 
     public boolean canInsertDtmf() {
         InterceptResult invokeV;

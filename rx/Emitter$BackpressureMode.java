@@ -1,5 +1,6 @@
 package rx;
 
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +33,7 @@ public final class Emitter$BackpressureMode {
                 return;
             }
         }
-        NONE = new Emitter$BackpressureMode("NONE", 0);
+        NONE = new Emitter$BackpressureMode(PolyActivity.NONE_PANEL_TYPE, 0);
         ERROR = new Emitter$BackpressureMode("ERROR", 1);
         BUFFER = new Emitter$BackpressureMode("BUFFER", 2);
         DROP = new Emitter$BackpressureMode("DROP", 3);

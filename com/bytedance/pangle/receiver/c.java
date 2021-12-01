@@ -16,22 +16,20 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f62371d;
+    public static c f54621d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f62372a;
+    public final Map<String, a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<PluginBroadcastReceiver, BroadcastReceiver> f62373b;
+    public final Map<PluginBroadcastReceiver, BroadcastReceiver> f54622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Set<Integer> f62374c;
+    public final Set<Integer> f54623c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -46,37 +44,35 @@ public final class c {
                 return;
             }
         }
-        this.f62372a = new ConcurrentHashMap();
-        this.f62373b = new ConcurrentHashMap();
-        this.f62374c = new CopyOnWriteArraySet();
+        this.a = new ConcurrentHashMap();
+        this.f54622b = new ConcurrentHashMap();
+        this.f54623c = new CopyOnWriteArraySet();
     }
 
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f62371d == null) {
+            if (f54621d == null) {
                 synchronized (com.bytedance.pangle.service.a.a.class) {
-                    if (f62371d == null) {
-                        f62371d = new c();
+                    if (f54621d == null) {
+                        f54621d = new c();
                     }
                 }
             }
-            return f62371d;
+            return f54621d;
         }
         return (c) invokeV.objValue;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f62375a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Set<PluginBroadcastReceiver> f62376b;
+        public final Set<PluginBroadcastReceiver> f54624b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -91,7 +87,7 @@ public final class c {
                     return;
                 }
             }
-            this.f62376b = new CopyOnWriteArraySet();
+            this.f54624b = new CopyOnWriteArraySet();
         }
 
         public final void a(PluginBroadcastReceiver pluginBroadcastReceiver) {
@@ -99,17 +95,17 @@ public final class c {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pluginBroadcastReceiver) == null) || pluginBroadcastReceiver == null) {
                 return;
             }
-            ZeusLogger.i(ZeusLogger.TAG_RECEIVER, "plugin-receiver:" + pluginBroadcastReceiver.getClass().getSimpleName() + ",action=" + this.f62375a + "[注册完成]");
-            this.f62376b.add(pluginBroadcastReceiver);
+            ZeusLogger.i(ZeusLogger.TAG_RECEIVER, "plugin-receiver:" + pluginBroadcastReceiver.getClass().getSimpleName() + ",action=" + this.a + "[注册完成]");
+            this.f54624b.add(pluginBroadcastReceiver);
         }
 
         public final void a(Context context, Intent intent) {
             Set<PluginBroadcastReceiver> set;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || (set = this.f62376b) == null || set.size() <= 0) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || (set = this.f54624b) == null || set.size() <= 0) {
                 return;
             }
-            for (PluginBroadcastReceiver pluginBroadcastReceiver : this.f62376b) {
+            for (PluginBroadcastReceiver pluginBroadcastReceiver : this.f54624b) {
                 if (pluginBroadcastReceiver != null) {
                     try {
                         pluginBroadcastReceiver.onReceive(context, intent);
@@ -131,14 +127,14 @@ public final class c {
         while (actionsIterator.hasNext()) {
             String next = actionsIterator.next();
             if (next != null) {
-                a aVar = this.f62372a.get(next);
+                a aVar = this.a.get(next);
                 if (aVar != null) {
                     aVar.a(pluginBroadcastReceiver);
                 } else {
                     a aVar2 = new a();
-                    aVar2.f62375a = next;
+                    aVar2.a = next;
                     aVar2.a(pluginBroadcastReceiver);
-                    this.f62372a.put(next, aVar2);
+                    this.a.put(next, aVar2);
                 }
             }
         }
@@ -151,11 +147,11 @@ public final class c {
             return;
         }
         String action = intent.getAction();
-        Map<String, a> map = this.f62372a;
+        Map<String, a> map = this.a;
         if (map == null || map.size() <= 0) {
             return;
         }
-        for (Map.Entry<String, a> entry : this.f62372a.entrySet()) {
+        for (Map.Entry<String, a> entry : this.a.entrySet()) {
             if (action.equals(entry.getKey()) && (value = entry.getValue()) != null) {
                 ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "action[" + action + "] match success ！ invoke onReceiver");
                 value.a(context, intent);

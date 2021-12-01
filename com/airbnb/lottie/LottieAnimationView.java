@@ -34,7 +34,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LottieAnimationView extends AppCompatImageView {
     public String animationName;
     @RawRes
@@ -73,7 +73,7 @@ public class LottieAnimationView extends AppCompatImageView {
     };
 
     /* renamed from: com.airbnb.lottie.LottieAnimationView$7  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass7 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$RenderMode;
 
@@ -95,7 +95,7 @@ public class LottieAnimationView extends AppCompatImageView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

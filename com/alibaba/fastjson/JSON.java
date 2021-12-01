@@ -21,7 +21,6 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +50,7 @@ import java.util.Properties;
 import java.util.TimeZone;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class JSON implements JSONStreamAware, JSONAware {
     public static /* synthetic */ Interceptable $ic = null;
     public static int DEFAULT_GENERATE_FEATURE = 0;
@@ -153,14 +152,14 @@ public abstract class JSON implements JSONStreamAware, JSONAware {
 
     public static void clearMixInAnnotations() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             mixInsMapper.clear();
         }
     }
 
     public static void config(Properties properties) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, properties) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, properties) == null) {
             String property = properties.getProperty("fastjson.serializerFeatures.MapSortField");
             int mask = SerializerFeature.MapSortField.getMask();
             if ("true".equals(property)) {

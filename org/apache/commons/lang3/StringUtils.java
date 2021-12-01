@@ -1,7 +1,6 @@
 package org.apache.commons.lang3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +87,7 @@ public class StringUtils {
     public static String appendIfMissingIgnoreCase(String str, CharSequence charSequence, CharSequence... charSequenceArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, charSequence, charSequenceArr)) == null) ? appendIfMissing(str, charSequence, true, charSequenceArr) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, charSequence, charSequenceArr)) == null) ? appendIfMissing(str, charSequence, true, charSequenceArr) : (String) invokeLLL.objValue;
     }
 
     public static String capitalize(String str) {
@@ -2860,7 +2859,7 @@ public class StringUtils {
     public static String appendIfMissing(String str, CharSequence charSequence, CharSequence... charSequenceArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, charSequence, charSequenceArr)) == null) ? appendIfMissing(str, charSequence, false, charSequenceArr) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, charSequence, charSequenceArr)) == null) ? appendIfMissing(str, charSequence, false, charSequenceArr) : (String) invokeLLL.objValue;
     }
 
     public static int indexOf(CharSequence charSequence, CharSequence charSequence2, int i2) {

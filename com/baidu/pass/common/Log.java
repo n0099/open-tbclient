@@ -1,7 +1,6 @@
 package com.baidu.pass.common;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Log implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PASSPORT";
@@ -120,7 +119,7 @@ public class Log implements com.baidu.pass.a {
 
     public static void e(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, th) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, th) == null) {
             e(str, th);
         }
     }
@@ -134,7 +133,7 @@ public class Log implements com.baidu.pass.a {
 
     public static void e(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) && enabled) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, objArr) == null) && enabled) {
             a(str, objArr);
         }
     }

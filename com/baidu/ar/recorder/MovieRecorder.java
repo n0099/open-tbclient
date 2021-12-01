@@ -9,7 +9,6 @@ import android.os.Message;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.record.EncoderParams;
 import com.baidu.ar.record.MovieRecorderCallback;
 import com.baidu.ar.record.b;
@@ -23,8 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MovieRecorder implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_ON_START = 4001;
@@ -53,7 +53,7 @@ public class MovieRecorder implements b {
     public c uu;
     public volatile boolean uv;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,40 +85,40 @@ public class MovieRecorder implements b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
-                    case 7000:
+                    case w0.Y3 /* 7000 */:
                         if (this.ux.tX != null) {
                             this.ux.tX.onRecorderInit((Surface) message.obj);
                             break;
                         }
                         break;
-                    case ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE /* 7001 */:
+                    case 7001:
                         if (this.ux.tX != null) {
                             this.ux.tX.onRecorderStart(((Boolean) message.obj).booleanValue());
                         }
                         this.ux.uj = false;
                         break;
-                    case 7002:
+                    case w0.Y5 /* 7002 */:
                         if (this.ux.tX != null) {
                             this.ux.tX.onRecorderProcess(((Integer) message.obj).intValue());
                             break;
                         }
                         break;
-                    case 7003:
+                    case w0.S5 /* 7003 */:
                         if (this.ux.tX != null) {
                             this.ux.tX.onRecorderComplete(((Boolean) message.obj).booleanValue(), this.ux.tW != null ? this.ux.tW.getOutputFile() : null);
                             break;
                         }
                         break;
-                    case 7004:
+                    case w0.T5 /* 7004 */:
                         if (this.ux.tX != null) {
                             this.ux.tX.onRecorderError(((Integer) message.obj).intValue());
                             break;
                         }
                         break;
-                    case 7005:
+                    case w0.U5 /* 7005 */:
                         this.ux.fw();
                         break;
-                    case 7006:
+                    case w0.V5 /* 7006 */:
                         this.ux.uj = false;
                         this.ux.stopRecorder();
                         break;
@@ -189,7 +189,7 @@ public class MovieRecorder implements b {
                 String str2 = TAG;
                 com.baidu.ar.h.b.k(str2, "checkMovieRecordStartState sMovieRecordState = " + uf);
                 if (fE()) {
-                    this.ul.sendMessage(this.ul.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, Boolean.valueOf(fF())));
+                    this.ul.sendMessage(this.ul.obtainMessage(7001, Boolean.valueOf(fF())));
                 }
             }
         }
@@ -260,7 +260,7 @@ public class MovieRecorder implements b {
             a aVar = this.ul;
             if (aVar != null) {
                 this.uk = true;
-                aVar.sendMessageDelayed(aVar.obtainMessage(7005), 500L);
+                aVar.sendMessageDelayed(aVar.obtainMessage(w0.U5), 500L);
             }
         }
     }
@@ -348,7 +348,7 @@ public class MovieRecorder implements b {
         if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || (aVar = this.ul) == null) {
             return;
         }
-        aVar.sendMessageDelayed(aVar.obtainMessage(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, Boolean.FALSE), 500L);
+        aVar.sendMessageDelayed(aVar.obtainMessage(7001, Boolean.FALSE), 500L);
     }
 
     private void fy() {
@@ -439,7 +439,7 @@ public class MovieRecorder implements b {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeZL(1048579, this, z, obj) == null) && z) {
                         if (this.ux.ul != null) {
-                            this.ux.ul.sendMessage(this.ux.ul.obtainMessage(7000, obj));
+                            this.ux.ul.sendMessage(this.ux.ul.obtainMessage(w0.Y3, obj));
                         }
                         if (this.ux.ut != null) {
                             this.ux.ut.startRecording();
@@ -564,7 +564,7 @@ public class MovieRecorder implements b {
                 String str2 = TAG;
                 com.baidu.ar.h.b.k(str2, "checkMovieRecordStopState sMovieRecordState = " + uf);
                 if (fG() && this.ul != null) {
-                    this.ul.sendMessage(this.ul.obtainMessage(7003, Boolean.valueOf(fH())));
+                    this.ul.sendMessage(this.ul.obtainMessage(w0.S5, Boolean.valueOf(fH())));
                 }
             }
         }
@@ -603,28 +603,28 @@ public class MovieRecorder implements b {
         }
     }
 
-    private void s(long j) {
+    private void s(long j2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65577, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65577, this, j2) == null) {
             if (!this.um.fI()) {
-                this.um.t(j);
+                this.um.t(j2);
                 return;
             }
-            int u = this.um.u(j);
+            int u = this.um.u(j2);
             if (u <= 0 || (aVar = this.ul) == null) {
                 return;
             }
-            aVar.sendMessage(aVar.obtainMessage(7002, Integer.valueOf(u)));
+            aVar.sendMessage(aVar.obtainMessage(w0.Y5, Integer.valueOf(u)));
         }
     }
 
     @Override // com.baidu.ar.record.b
-    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j) {
+    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j2) {
         com.baidu.ar.recorder.a.a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j)}) == null) && this.us && (aVar = this.uq) != null && aVar.isRunning()) {
-            this.uq.a(byteBuffer, i2, j);
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && this.us && (aVar = this.uq) != null && aVar.isRunning()) {
+            this.uq.a(byteBuffer, i2, j2);
         }
     }
 
@@ -651,12 +651,12 @@ public class MovieRecorder implements b {
     }
 
     @Override // com.baidu.ar.record.b
-    public void onVideoFrameAvailable(long j) {
+    public void onVideoFrameAvailable(long j2) {
         com.baidu.ar.recorder.a.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && (bVar = this.ut) != null && bVar.isRunning() && this.uv && up) {
-            this.ut.v(j);
-            s(j / 1000000);
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) && (bVar = this.ut) != null && bVar.isRunning() && this.uv && up) {
+            this.ut.v(j2);
+            s(j2 / 1000000);
         }
     }
 
@@ -687,12 +687,12 @@ public class MovieRecorder implements b {
             com.baidu.ar.h.b.k(str, "stopRecorder mStarting = " + this.uj);
             if (this.uj) {
                 if (!fF() && (aVar = this.ul) != null) {
-                    aVar.sendMessage(aVar.obtainMessage(7004, 4002));
+                    aVar.sendMessage(aVar.obtainMessage(w0.T5, 4002));
                 }
                 com.baidu.ar.h.b.c(TAG, "stopRecorder() MovieRecorder is starting, we will try to stop 500ms later!!!");
                 a aVar2 = this.ul;
                 if (aVar2 != null) {
-                    aVar2.sendMessageDelayed(aVar2.obtainMessage(7006), 500L);
+                    aVar2.sendMessageDelayed(aVar2.obtainMessage(w0.V5), 500L);
                     return;
                 }
                 return;

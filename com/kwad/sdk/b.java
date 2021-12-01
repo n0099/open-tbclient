@@ -8,15 +8,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes2.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f64911a;
+    public static final Boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f64912b;
+    public static final Boolean f57043b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Boolean f64913c;
+    public static final Boolean f57044c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Boolean f57045d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final Boolean f57046e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final Boolean f57047f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,9 +39,13 @@ public final class b {
                 return;
             }
         }
-        f64911a = Boolean.TRUE;
-        Boolean bool = Boolean.FALSE;
-        f64912b = bool;
-        f64913c = bool;
+        Boolean bool = Boolean.TRUE;
+        a = bool;
+        f57043b = bool;
+        Boolean bool2 = Boolean.FALSE;
+        f57044c = bool2;
+        f57045d = bool2;
+        f57046e = bool2;
+        f57047f = bool2;
     }
 }

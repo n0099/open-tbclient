@@ -2,7 +2,6 @@ package com.tencent.open.utils;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,19 +19,17 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.zip.ZipException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final m f71044a;
+    public static final m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final n f71045b;
+    public static final n f62380b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.open.utils.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,20 +48,18 @@ public final class b {
                 return;
             }
         }
-        f71044a = new m(101010256L);
-        f71045b = new n(38651);
+        a = new m(101010256L);
+        f62380b = new n(38651);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public Properties f71046a;
+        public Properties a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f71047b;
+        public byte[] f62381b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -79,7 +74,7 @@ public final class b {
                     return;
                 }
             }
-            this.f71046a = new Properties();
+            this.a = new Properties();
         }
 
         public void a(byte[] bArr) throws IOException {
@@ -88,10 +83,10 @@ public final class b {
                 return;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            int length = b.f71045b.a().length;
+            int length = b.f62380b.a().length;
             byte[] bArr2 = new byte[length];
             wrap.get(bArr2);
-            if (b.f71045b.equals(new n(bArr2))) {
+            if (b.f62380b.equals(new n(bArr2))) {
                 if (bArr.length - length <= 2) {
                     return;
                 }
@@ -103,11 +98,11 @@ public final class b {
                 }
                 byte[] bArr4 = new byte[b2];
                 wrap.get(bArr4);
-                this.f71046a.load(new ByteArrayInputStream(bArr4));
+                this.a.load(new ByteArrayInputStream(bArr4));
                 int length2 = ((bArr.length - length) - b2) - 2;
                 if (length2 > 0) {
                     byte[] bArr5 = new byte[length2];
-                    this.f71047b = bArr5;
+                    this.f62381b = bArr5;
                     wrap.get(bArr5);
                     return;
                 }
@@ -120,7 +115,7 @@ public final class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "ApkExternalInfo [p=" + this.f71046a + ", otherData=" + Arrays.toString(this.f71047b) + PreferencesUtil.RIGHT_MOUNT;
+                return "ApkExternalInfo [p=" + this.a + ", otherData=" + Arrays.toString(this.f62381b) + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }
@@ -138,7 +133,7 @@ public final class b {
         }
         RandomAccessFile randomAccessFile = null;
         try {
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, r.f41000a);
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "r");
             try {
                 byte[] a2 = a(randomAccessFile2);
                 if (a2 == null) {
@@ -147,7 +142,7 @@ public final class b {
                 }
                 a aVar = new a(null);
                 aVar.a(a2);
-                String property = aVar.f71046a.getProperty(str);
+                String property = aVar.a.getProperty(str);
                 randomAccessFile2.close();
                 return property;
             } catch (Throwable th) {
@@ -176,7 +171,7 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, randomAccessFile)) == null) {
             long length = randomAccessFile.length() - 22;
             randomAccessFile.seek(length);
-            byte[] a2 = f71044a.a();
+            byte[] a2 = a.a();
             int read = randomAccessFile.read();
             while (true) {
                 z = true;

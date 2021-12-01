@@ -5,19 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OfficialMsgImageActivityConfig extends AbsMsgImageActivityConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OfficialMsgImageActivityConfig(Context context, String str, long j, String str2) {
+    public OfficialMsgImageActivityConfig(Context context, String str, long j2, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), str2};
+            Object[] objArr = {context, str, Long.valueOf(j2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,7 +29,7 @@ public class OfficialMsgImageActivityConfig extends AbsMsgImageActivityConfig {
             }
         }
         getIntent().putExtra("current_url", str);
-        getIntent().putExtra("id", String.valueOf(j));
+        getIntent().putExtra("id", String.valueOf(j2));
         getIntent().putExtra("uniqueid", str2);
     }
 }

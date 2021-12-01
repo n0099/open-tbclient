@@ -1,7 +1,6 @@
 package com.yy.hiidostatis.message.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NoNull {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +45,7 @@ public class NoNull {
     public static <T> List<T> noNull(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, list)) == null) ? list == null ? new ArrayList() : list : (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) ? list == null ? new ArrayList() : list : (List) invokeL.objValue;
     }
 
     public static boolean isEmpty(Collection collection) {
@@ -58,7 +57,7 @@ public class NoNull {
     public static <K, V> Map<K, V> noNull(Map<K, V> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, map)) == null) ? map == null ? new HashMap() : map : (Map) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) ? map == null ? new HashMap() : map : (Map) invokeL.objValue;
     }
 
     public static boolean isEmpty(Map map) {

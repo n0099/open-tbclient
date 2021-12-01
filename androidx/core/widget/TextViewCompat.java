@@ -33,7 +33,6 @@ import androidx.core.text.PrecomputedTextCompat;
 import androidx.core.util.Preconditions;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -146,7 +145,7 @@ public final class TextViewCompat {
         private boolean isSupportedActivity(ResolveInfo resolveInfo, Context context) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, resolveInfo, context)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, resolveInfo, context)) == null) {
                 if (context.getPackageName().equals(resolveInfo.activityInfo.packageName)) {
                     return true;
                 }
@@ -163,7 +162,7 @@ public final class TextViewCompat {
         private void recomputeProcessTextMenuItems(Menu menu) {
             Method declaredMethod;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, menu) == null) {
+            if (interceptable == null || interceptable.invokeL(65542, this, menu) == null) {
                 Context context = this.mTextView.getContext();
                 PackageManager packageManager = context.getPackageManager();
                 if (!this.mInitializedMenuBuilderReferences) {
@@ -310,7 +309,7 @@ public final class TextViewCompat {
     public static int getAutoSizeTextType(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, textView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, textView)) == null) {
             if (Build.VERSION.SDK_INT >= 27) {
                 return textView.getAutoSizeTextType();
             }
@@ -326,7 +325,7 @@ public final class TextViewCompat {
     public static ColorStateList getCompoundDrawableTintList(@NonNull TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, textView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, textView)) == null) {
             Preconditions.checkNotNull(textView);
             if (Build.VERSION.SDK_INT >= 24) {
                 return textView.getCompoundDrawableTintList();

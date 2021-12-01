@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import b.a.r0.b0.b;
-import b.a.r0.w.f.g.c.g;
+import c.a.r0.a0.f.g.c.g;
+import c.a.r0.g0.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LiveTabConcernTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class LiveTabConcernTitleView extends b<g> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(LiveTabConcernTitleView liveTabConcernTitleView) {
-            super(liveTabConcernTitleView.i());
+            super(liveTabConcernTitleView.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,9 +50,9 @@ public class LiveTabConcernTitleView extends b<g> {
                 }
             }
             this.liveTabConcernTitleView = liveTabConcernTitleView;
-            View i4 = liveTabConcernTitleView.i();
-            this.root = i4;
-            this.mTitle = (TextView) i4.findViewById(R.id.tab_sub_rec_title_tv);
+            View j2 = liveTabConcernTitleView.j();
+            this.root = j2;
+            this.mTitle = (TextView) j2.findViewById(R.id.tab_sub_rec_title_tv);
         }
     }
 
@@ -76,18 +76,18 @@ public class LiveTabConcernTitleView extends b<g> {
             }
         }
         this.m = new ViewHolder(this);
-        k(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // b.a.r0.b0.b
-    public int e() {
+    @Override // c.a.r0.g0.b
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.tab_sub_title_view : invokeV.intValue;
     }
 
-    @Override // b.a.r0.b0.b
-    public void k(TbPageContext<?> tbPageContext, int i2) {
+    @Override // c.a.r0.g0.b
+    public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
             SkinManager.setBackgroundColor(this.m.root, R.color.CAM_X0201);
@@ -95,22 +95,22 @@ public class LiveTabConcernTitleView extends b<g> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.a.r0.b0.b
-    /* renamed from: o */
-    public void j(g gVar) {
-        ViewHolder viewHolder;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f26352f) || (viewHolder = this.m) == null) {
-            return;
-        }
-        viewHolder.mTitle.setText(gVar.f26352f);
-    }
-
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.r0.g0.b
+    /* renamed from: p */
+    public void k(g gVar) {
+        ViewHolder viewHolder;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || gVar == null || StringUtils.isNull(gVar.f14140f) || (viewHolder = this.m) == null) {
+            return;
+        }
+        viewHolder.mTitle.setText(gVar.f14140f);
     }
 }

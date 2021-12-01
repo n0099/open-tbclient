@@ -6,13 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class cr implements View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f57800a;
+    public final /* synthetic */ cg a;
 
     public cr(cg cgVar) {
         Interceptable interceptable = $ic;
@@ -29,7 +27,7 @@ public final class cr implements View.OnLongClickListener {
                 return;
             }
         }
-        this.f57800a = cgVar;
+        this.a = cgVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -37,7 +35,7 @@ public final class cr implements View.OnLongClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-            this.f57800a.f57783a.a(view);
+            this.a.a.a(view);
             return false;
         }
         return invokeL.booleanValue;

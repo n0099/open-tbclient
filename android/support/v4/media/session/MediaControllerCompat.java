@@ -841,7 +841,7 @@ public final class MediaControllerCompat {
 
         public abstract void rewind();
 
-        public abstract void seekTo(long j);
+        public abstract void seekTo(long j2);
 
         public abstract void sendCustomAction(PlaybackStateCompat.CustomAction customAction, Bundle bundle);
 
@@ -861,7 +861,7 @@ public final class MediaControllerCompat {
 
         public abstract void skipToPrevious();
 
-        public abstract void skipToQueueItem(long j);
+        public abstract void skipToQueueItem(long j2);
 
         public abstract void stop();
     }
@@ -1106,11 +1106,11 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void seekTo(long j) {
+        public void seekTo(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
                 try {
-                    this.mBinder.seekTo(j);
+                    this.mBinder.seekTo(j2);
                 } catch (RemoteException unused) {
                 }
             }
@@ -1191,11 +1191,11 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void skipToQueueItem(long j) {
+        public void skipToQueueItem(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
                 try {
-                    this.mBinder.skipToQueueItem(j);
+                    this.mBinder.skipToQueueItem(j2);
                 } catch (RemoteException unused) {
                 }
             }
@@ -2047,10 +2047,10 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void seekTo(long j) {
+        public void seekTo(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-                MediaControllerCompatApi21.TransportControls.seekTo(this.mControlsObj, j);
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+                MediaControllerCompatApi21.TransportControls.seekTo(this.mControlsObj, j2);
             }
         }
 
@@ -2118,10 +2118,10 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void skipToQueueItem(long j) {
+        public void skipToQueueItem(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-                MediaControllerCompatApi21.TransportControls.skipToQueueItem(this.mControlsObj, j);
+            if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+                MediaControllerCompatApi21.TransportControls.skipToQueueItem(this.mControlsObj, j2);
             }
         }
 

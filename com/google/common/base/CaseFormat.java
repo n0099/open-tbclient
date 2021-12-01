@@ -1,11 +1,10 @@
 package com.google.common.base;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.a;
-import b.h.d.a.b;
-import b.h.d.a.n;
+import c.i.d.a.a;
+import c.i.d.a.b;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class CaseFormat {
     public static final /* synthetic */ CaseFormat[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +29,7 @@ public abstract class CaseFormat {
     public final b wordBoundary;
     public final String wordSeparator;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class StringConverter extends Converter<String, String> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -59,7 +58,7 @@ public abstract class CaseFormat {
             this.targetFormat = caseFormat2;
         }
 
-        @Override // com.google.common.base.Converter, b.h.d.a.g
+        @Override // com.google.common.base.Converter, c.i.d.a.g
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -352,13 +351,13 @@ public abstract class CaseFormat {
     public static CaseFormat valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? (CaseFormat) Enum.valueOf(CaseFormat.class, str) : (CaseFormat) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (CaseFormat) Enum.valueOf(CaseFormat.class, str) : (CaseFormat) invokeL.objValue;
     }
 
     public static CaseFormat[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (CaseFormat[]) $VALUES.clone() : (CaseFormat[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (CaseFormat[]) $VALUES.clone() : (CaseFormat[]) invokeV.objValue;
     }
 
     public String convert(CaseFormat caseFormat, String str) {

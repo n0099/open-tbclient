@@ -10,8 +10,8 @@ public abstract class Task implements Runnable {
     @JvmField
     public TaskContext taskContext;
 
-    public Task(long j, TaskContext taskContext) {
-        this.submissionTime = j;
+    public Task(long j2, TaskContext taskContext) {
+        this.submissionTime = j2;
         this.taskContext = taskContext;
     }
 

@@ -26,7 +26,6 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +38,7 @@ import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import com.google.android.material.resources.CancelableFontCallback;
 import com.google.android.material.resources.TextAppearance;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class CollapsingTextHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_DRAW = false;
@@ -241,7 +240,7 @@ public final class CollapsingTextHelper {
     private boolean calculateIsRtl(@NonNull CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, charSequence)) == null) {
             return (isDefaultIsRtl() ? TextDirectionHeuristicsCompat.FIRSTSTRONG_RTL : TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR).isRtl(charSequence, 0, charSequence.length());
         }
         return invokeL.booleanValue;
@@ -249,7 +248,7 @@ public final class CollapsingTextHelper {
 
     private void calculateOffsets(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(AdIconUtil.BAIDU_LOGO_ID, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65542, this, f2) == null) {
             interpolateBounds(f2);
             this.currentDrawX = lerp(this.expandedDrawX, this.collapsedDrawX, f2, this.positionInterpolator);
             this.currentDrawY = lerp(this.expandedDrawY, this.collapsedDrawY, f2, this.positionInterpolator);

@@ -9,8 +9,6 @@ import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +19,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class SysUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte APK_SIGNATURE_VERSION = 1;
@@ -29,7 +27,7 @@ public final class SysUtil {
 
     @DoNotOptimize
     @TargetApi(21)
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class LollipopSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,11 +47,11 @@ public final class SysUtil {
         }
 
         @DoNotOptimize
-        public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j) throws IOException {
+        public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j2) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65537, null, fileDescriptor, j) == null) {
+            if (interceptable == null || interceptable.invokeLJ(65537, null, fileDescriptor, j2) == null) {
                 try {
-                    Os.posix_fallocate(fileDescriptor, 0L, j);
+                    Os.posix_fallocate(fileDescriptor, 0L, j2);
                 } catch (ErrnoException e2) {
                     int i2 = e2.errno;
                     if (i2 != OsConstants.EOPNOTSUPP && i2 != OsConstants.ENOSYS && i2 != OsConstants.EINVAL) {
@@ -130,18 +128,18 @@ public final class SysUtil {
         }
     }
 
-    public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j) throws IOException {
+    public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, fileDescriptor, j) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, fileDescriptor, j2) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        LollipopSysdeps.fallocateIfSupported(fileDescriptor, j);
+        LollipopSysdeps.fallocateIfSupported(fileDescriptor, j2);
     }
 
     public static int findAbiScore(String[] strArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, strArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, strArr, str)) == null) {
             for (int i2 = 0; i2 < strArr.length; i2++) {
                 if (strArr[i2] != null && str.equals(strArr[i2])) {
                     return i2;
@@ -156,7 +154,7 @@ public final class SysUtil {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static void fsyncRecursive(File file) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, file) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, file) == null) {
             if (file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 if (listFiles != null) {
@@ -167,7 +165,7 @@ public final class SysUtil {
                 }
                 throw new IOException("cannot list directory " + file);
             } else if (!file.getPath().endsWith("_lock")) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f41000a);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
                 try {
                     randomAccessFile.getFD().sync();
                     randomAccessFile.close();

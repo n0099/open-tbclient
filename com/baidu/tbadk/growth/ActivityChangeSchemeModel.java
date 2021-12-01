@@ -2,7 +2,7 @@ package com.baidu.tbadk.growth;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import b.a.q0.b0.b;
+import c.a.q0.b0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -23,21 +23,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ActivityChangeSchemeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f46793e;
+    public final HttpMessageListener f41842e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ActivityChangeSchemeModel f46794a;
+        public final /* synthetic */ ActivityChangeSchemeModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ActivityChangeSchemeModel activityChangeSchemeModel, int i2) {
@@ -57,7 +55,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f46794a = activityChangeSchemeModel;
+            this.a = activityChangeSchemeModel;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -83,11 +81,11 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
                     b.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
-                    this.f46794a.y();
+                    this.a.y();
                 } else {
-                    int a2 = b.a.q0.s.b0.b.a();
-                    if (a2 != 2) {
-                        this.f46794a.z(a2);
+                    int a = c.a.q0.s.b0.b.a();
+                    if (a != 2) {
+                        this.a.z(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
@@ -110,12 +108,12 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f46793e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
+        this.f41842e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
         A();
-        this.f46793e.setTag(getUniqueId());
-        this.f46793e.setSelfListener(true);
-        registerListener(this.f46793e);
+        this.f41842e.setTag(getUniqueId());
+        this.f41842e.setSelfListener(true);
+        registerListener(this.f41842e);
     }
 
     public static void A() {
@@ -160,7 +158,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                Object invoke = b.a.e.a.b.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(b.a.e.a.b.g().b(), new Object[0]);
+                Object invoke = c.a.d.a.b.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c.a.d.a.b.g().b(), new Object[0]);
                 b.b(invoke != null ? (String) invoke : null);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();

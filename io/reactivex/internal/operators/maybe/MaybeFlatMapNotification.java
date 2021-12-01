@@ -16,7 +16,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
     public final Function<? super Throwable, ? extends MaybeSource<? extends R>> onErrorMapper;
     public final Function<? super T, ? extends MaybeSource<? extends R>> onSuccessMapper;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FlatMapMaybeObserver<T, R> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4375739915521278546L;
@@ -32,12 +32,12 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
         public final MaybeObserver<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73424d;
+        public Disposable f63985d;
         public final Callable<? extends MaybeSource<? extends R>> onCompleteSupplier;
         public final Function<? super Throwable, ? extends MaybeSource<? extends R>> onErrorMapper;
         public final Function<? super T, ? extends MaybeSource<? extends R>> onSuccessMapper;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public final class InnerObserver implements MaybeObserver<R> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 DisposableHelper.dispose(this);
-                this.f73424d.dispose();
+                this.f63985d.dispose();
             }
         }
 
@@ -160,8 +160,8 @@ public final class MaybeFlatMapNotification<T, R> extends AbstractMaybeWithUpstr
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f73424d, disposable)) {
-                this.f73424d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f63985d, disposable)) {
+                this.f63985d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

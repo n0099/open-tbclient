@@ -10,16 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class c implements com.baidu.sofire.k.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public b f44071a;
+    public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f44072b;
+    public String f39161b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public final class c implements com.baidu.sofire.k.b {
                 return;
             }
         }
-        this.f44071a = null;
+        this.a = null;
     }
 
     @Override // com.baidu.sofire.k.b
@@ -42,11 +40,11 @@ public final class c implements com.baidu.sofire.k.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
             b bVar = new b(context, cVar);
-            this.f44071a = bVar;
+            this.a = bVar;
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            bVar.f44066b.bindService(intent, bVar.f44068d, 1);
+            bVar.f39156b.bindService(intent, bVar.f39158d, 1);
         }
     }
 
@@ -55,13 +53,13 @@ public final class c implements com.baidu.sofire.k.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f44072b)) {
-                b bVar = this.f44071a;
-                String a2 = bVar.f44065a == null ? "" : bVar.a("OUID");
-                this.f44072b = a2;
-                return a2;
+            if (TextUtils.isEmpty(this.f39161b)) {
+                b bVar = this.a;
+                String a = bVar.a == null ? "" : bVar.a("OUID");
+                this.f39161b = a;
+                return a;
             }
-            return this.f44072b;
+            return this.f39161b;
         }
         return (String) invokeV.objValue;
     }

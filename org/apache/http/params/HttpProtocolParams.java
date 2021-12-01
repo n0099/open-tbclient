@@ -1,7 +1,6 @@
 package org.apache.http.params;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,14 +67,14 @@ public final class HttpProtocolParams implements CoreProtocolPNames {
 
     public static void setContentCharset(HttpParams httpParams, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, httpParams, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, httpParams, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
     public static void setHttpElementCharset(HttpParams httpParams, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, httpParams, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, httpParams, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }

@@ -19,12 +19,12 @@ public interface VideoDecoder {
         public final boolean isMissingFrames;
         public final long renderTimeMs;
 
-        public DecodeInfo(boolean z, long j) {
+        public DecodeInfo(boolean z, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j)};
+                Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -35,7 +35,7 @@ public interface VideoDecoder {
                 }
             }
             this.isMissingFrames = z;
-            this.renderTimeMs = j;
+            this.renderTimeMs = j2;
         }
     }
 

@@ -13,13 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
-import b.a.p0.a.c;
-import b.a.p0.a.c2.b.e.a;
-import b.a.p0.a.c2.b.e.b;
-import b.a.p0.a.d;
-import b.a.p0.a.e;
-import b.a.p0.a.f;
-import b.a.p0.a.g;
+import c.a.p0.a.c;
+import c.a.p0.a.c2.b.e.a;
+import c.a.p0.a.c2.b.e.b;
+import c.a.p0.a.d;
+import c.a.p0.a.e;
+import c.a.p0.a.f;
+import c.a.p0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,27 +30,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44759e;
+    public int f39761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f44760f;
+    public int f39762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f44761g;
+    public int f39763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ColorStateList f44762h;
+    public ColorStateList f39764h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<ImageView> f44763i;
-    public List<TextView> j;
-    public HashMap<b.a.p0.a.c2.b.e.b, ImageView> k;
+    public List<ImageView> f39765i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public List<TextView> f39766j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public HashMap<c.a.p0.a.c2.b.e.b, ImageView> f39767k;
     public boolean l;
     public View m;
     public LinearLayout n;
@@ -58,18 +62,18 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public SparseArray<View> p;
     public Object q;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a.p0.a.c2.b.e.b f44764e;
+        public final /* synthetic */ c.a.p0.a.c2.b.e.b f39768e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CommonOverflowMenuView f44765f;
+        public final /* synthetic */ CommonOverflowMenuView f39769f;
 
-        public a(CommonOverflowMenuView commonOverflowMenuView, b.a.p0.a.c2.b.e.b bVar) {
+        public a(CommonOverflowMenuView commonOverflowMenuView, c.a.p0.a.c2.b.e.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,26 +88,24 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
                     return;
                 }
             }
-            this.f44765f = commonOverflowMenuView;
-            this.f44764e = bVar;
+            this.f39769f = commonOverflowMenuView;
+            this.f39768e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44765f.c(this.f44764e);
+                this.f39769f.c(this.f39768e);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements b.a.p0.a.j2.a {
+    /* loaded from: classes9.dex */
+    public class b implements c.a.p0.a.j2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonOverflowMenuView f44766a;
+        public final /* synthetic */ CommonOverflowMenuView a;
 
         public b(CommonOverflowMenuView commonOverflowMenuView) {
             Interceptable interceptable = $ic;
@@ -120,7 +122,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
                     return;
                 }
             }
-            this.f44766a = commonOverflowMenuView;
+            this.a = commonOverflowMenuView;
         }
     }
 
@@ -142,12 +144,12 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
                 return;
             }
         }
-        this.f44759e = e.aiapps_discovery_home_menu_item_selector;
-        this.f44760f = c.aiapps_home_menu_separator_color;
-        this.f44761g = 1;
-        this.f44763i = new ArrayList();
-        this.j = new ArrayList();
-        this.k = new HashMap<>();
+        this.f39761e = e.aiapps_discovery_home_menu_item_selector;
+        this.f39762f = c.aiapps_home_menu_separator_color;
+        this.f39763g = 1;
+        this.f39765i = new ArrayList();
+        this.f39766j = new ArrayList();
+        this.f39767k = new HashMap<>();
         this.l = false;
         this.p = new SparseArray<>();
         this.q = new Object();
@@ -167,7 +169,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
         }
     }
 
-    public final void c(b.a.p0.a.c2.b.e.b bVar) {
+    public final void c(c.a.p0.a.c2.b.e.b bVar) {
         b.a d2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || (d2 = bVar.d()) == null) {
@@ -179,15 +181,15 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f44762h = AppCompatResources.getColorStateList(getContext(), c.aiapps_discovery_home_menu_text_color);
+            this.f39764h = AppCompatResources.getColorStateList(getContext(), c.aiapps_discovery_home_menu_text_color);
             setBackground(getResources().getDrawable(e.aiapps_discovery_feedback_menu_bg));
-            for (ImageView imageView : this.f44763i) {
-                imageView.setBackgroundColor(getResources().getColor(this.f44760f));
+            for (ImageView imageView : this.f39765i) {
+                imageView.setBackgroundColor(getResources().getColor(this.f39762f));
             }
-            for (TextView textView : this.j) {
-                textView.setTextColor(this.f44762h);
+            for (TextView textView : this.f39766j) {
+                textView.setTextColor(this.f39764h);
             }
-            for (Map.Entry<b.a.p0.a.c2.b.e.b, ImageView> entry : this.k.entrySet()) {
+            for (Map.Entry<c.a.p0.a.c2.b.e.b, ImageView> entry : this.f39767k.entrySet()) {
                 entry.getValue().setImageDrawable(entry.getKey().b());
             }
         }
@@ -196,7 +198,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public int getItemBgRes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44759e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39761e : invokeV.intValue;
     }
 
     public LinearLayout getLinearContent() {
@@ -205,19 +207,19 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : (LinearLayout) invokeV.objValue;
     }
 
-    public View getMenuItemView(Context context, b.a.p0.a.c2.b.e.b bVar) {
+    public View getMenuItemView(Context context, c.a.p0.a.c2.b.e.b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, context, bVar)) == null) {
             View inflate = LayoutInflater.from(context).inflate(g.aiapps_pulldown_item, (ViewGroup) this.n, false);
-            inflate.findViewById(f.item).setBackgroundResource(this.f44759e);
+            inflate.findViewById(f.item).setBackgroundResource(this.f39761e);
             ImageView imageView = (ImageView) inflate.findViewById(f.left_img);
-            this.k.put(bVar, imageView);
+            this.f39767k.put(bVar, imageView);
             imageView.setImageDrawable(bVar.b());
             TextView textView = (TextView) inflate.findViewById(f.right_txt);
-            this.j.add(textView);
+            this.f39766j.add(textView);
             textView.setText(bVar.e());
-            textView.setTextColor(this.f44762h);
+            textView.setTextColor(this.f39764h);
             inflate.setEnabled(bVar.g());
             imageView.setEnabled(bVar.g());
             textView.setEnabled(bVar.g());
@@ -229,10 +231,10 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public ColorStateList getTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44762h : (ColorStateList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f39764h : (ColorStateList) invokeV.objValue;
     }
 
-    public void layoutMenu(List<b.a.p0.a.c2.b.e.b> list) {
+    public void layoutMenu(List<c.a.p0.a.c2.b.e.b> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || this.l) {
             return;
@@ -240,12 +242,12 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
         this.n.removeAllViews();
         this.p.clear();
         Context context = getContext();
-        if (this.f44761g < 0) {
-            this.f44761g = context.getResources().getDimensionPixelSize(d.aiapps_pulldown_divider_height);
+        if (this.f39763g < 0) {
+            this.f39763g = context.getResources().getDimensionPixelSize(d.aiapps_pulldown_divider_height);
         }
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.f44761g);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, this.f39763g);
         int i2 = 0;
-        for (b.a.p0.a.c2.b.e.b bVar : list) {
+        for (c.a.p0.a.c2.b.e.b bVar : list) {
             View menuItemView = getMenuItemView(context, bVar);
             if (bVar.g()) {
                 menuItemView.setOnClickListener(new a(this, bVar));
@@ -254,8 +256,8 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
             this.p.append(bVar.c(), menuItemView);
             if (i2 < list.size() - 1) {
                 ImageView imageView = new ImageView(context);
-                this.f44763i.add(imageView);
-                imageView.setBackgroundColor(getResources().getColor(this.f44760f));
+                this.f39765i.add(imageView);
+                imageView.setBackgroundColor(getResources().getColor(this.f39762f));
                 this.n.addView(imageView, layoutParams);
             }
             i2++;
@@ -268,7 +270,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
-            b.a.p0.a.c1.a.M().f(this.q, new b(this));
+            c.a.p0.a.c1.a.M().f(this.q, new b(this));
             d();
         }
     }
@@ -278,11 +280,11 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDetachedFromWindow();
-            b.a.p0.a.c1.a.M().g(this.q);
+            c.a.p0.a.c1.a.M().g(this.q);
         }
     }
 
-    public void onMenuItemUpdated(b.a.p0.a.c2.b.e.b bVar) {
+    public void onMenuItemUpdated(c.a.p0.a.c2.b.e.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
         }
@@ -298,22 +300,22 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public void setItemBackground(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f44759e = i2;
+            this.f39761e = i2;
         }
     }
 
     public void setItemDivider(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) {
-            this.f44760f = i2;
-            this.f44761g = i3;
+            this.f39762f = i2;
+            this.f39763g = i3;
         }
     }
 
     public void setItemTextColor(@ColorRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f44762h = AppCompatResources.getColorStateList(getContext(), i2);
+            this.f39764h = AppCompatResources.getColorStateList(getContext(), i2);
         }
     }
 
@@ -350,12 +352,12 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
                 return;
             }
         }
-        this.f44759e = e.aiapps_discovery_home_menu_item_selector;
-        this.f44760f = c.aiapps_home_menu_separator_color;
-        this.f44761g = 1;
-        this.f44763i = new ArrayList();
-        this.j = new ArrayList();
-        this.k = new HashMap<>();
+        this.f39761e = e.aiapps_discovery_home_menu_item_selector;
+        this.f39762f = c.aiapps_home_menu_separator_color;
+        this.f39763g = 1;
+        this.f39765i = new ArrayList();
+        this.f39766j = new ArrayList();
+        this.f39767k = new HashMap<>();
         this.l = false;
         this.p = new SparseArray<>();
         this.q = new Object();

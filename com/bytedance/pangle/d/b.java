@@ -6,23 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.util.MethodUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static int f62178a = 0;
+        public static int a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f62179b = 1;
+        public static int f54489b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f62180c = 3;
+        public static int f54490c = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {

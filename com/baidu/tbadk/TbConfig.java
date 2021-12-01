@@ -4,10 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.q0.c0.c;
+import c.a.d.f.p.l;
+import c.a.q0.c0.c;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TbConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSTRACT_AUTO = 0;
@@ -720,7 +719,7 @@ public class TbConfig {
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
         public static HashSet<Integer> sInterruptCMDs;
@@ -794,7 +793,7 @@ public class TbConfig {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
@@ -958,13 +957,13 @@ public class TbConfig {
     public static int getBigImageSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? BIG_IMAGE_SIZE : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? BIG_IMAGE_SIZE : invokeV.intValue;
     }
 
     public static String getBigPhotoAdress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? PHOTO_BIG_ADDRESS : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? PHOTO_BIG_ADDRESS : (String) invokeV.objValue;
     }
 
     public static final String getBroadcastActionChangeSharedPref() {
@@ -1124,7 +1123,7 @@ public class TbConfig {
     public static final int getDimens(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) ? l.g(TbadkCoreApplication.getInst().getContext(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) ? l.f(TbadkCoreApplication.getInst().getContext(), i2) : invokeI.intValue;
     }
 
     public static int getEmotionContentSize() {
@@ -1401,11 +1400,11 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, context)) == null) {
-            int e2 = l.e(context, 427.0f);
-            if (e2 > 640) {
-                e2 = 640;
+            int d2 = l.d(context, 427.0f);
+            if (d2 > 640) {
+                d2 = 640;
             }
-            int i2 = (int) (e2 * e2 * 1.6f * 2.0f);
+            int i2 = (int) (d2 * d2 * 1.6f * 2.0f);
             BIG_IMAGE_SIZE = i2;
             return i2;
         }

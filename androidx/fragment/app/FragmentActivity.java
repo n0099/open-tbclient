@@ -33,7 +33,6 @@ import androidx.lifecycle.ViewModelStore;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.loader.app.LoaderManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -296,7 +295,7 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     public static boolean markState(FragmentManager fragmentManager, Lifecycle.State state) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, fragmentManager, state)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, fragmentManager, state)) == null) {
             boolean z = false;
             for (Fragment fragment : fragmentManager.getFragments()) {
                 if (fragment != null) {

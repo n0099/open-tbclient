@@ -1,7 +1,6 @@
 package org.apache.http.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +58,7 @@ public final class EncodingUtils {
     public static String getString(byte[] bArr, int i2, int i3, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), str})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeCommon.objValue;
@@ -77,7 +76,7 @@ public final class EncodingUtils {
     public static String getString(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, str)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeLL.objValue;

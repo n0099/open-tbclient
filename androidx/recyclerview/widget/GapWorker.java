@@ -6,7 +6,6 @@ import androidx.core.os.TraceCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -302,26 +301,26 @@ public final class GapWorker implements Runnable {
         }
     }
 
-    private void flushTaskWithDeadline(Task task, long j) {
+    private void flushTaskWithDeadline(Task task, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, this, task, j) == null) {
-            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.view, task.position, task.immediate ? Long.MAX_VALUE : j);
+        if (interceptable == null || interceptable.invokeLJ(65539, this, task, j2) == null) {
+            RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.view, task.position, task.immediate ? Long.MAX_VALUE : j2);
             if (prefetchPositionWithDeadline == null || prefetchPositionWithDeadline.mNestedRecyclerView == null || !prefetchPositionWithDeadline.isBound() || prefetchPositionWithDeadline.isInvalid()) {
                 return;
             }
-            prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j);
+            prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j2);
         }
     }
 
-    private void flushTasksWithDeadline(long j) {
+    private void flushTasksWithDeadline(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
             for (int i2 = 0; i2 < this.mTasks.size(); i2++) {
                 Task task = this.mTasks.get(i2);
                 if (task.view == null) {
                     return;
                 }
-                flushTaskWithDeadline(task, j);
+                flushTaskWithDeadline(task, j2);
                 task.clear();
             }
         }
@@ -330,7 +329,7 @@ public final class GapWorker implements Runnable {
     public static boolean isPrefetchPositionAttached(RecyclerView recyclerView, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, recyclerView, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, recyclerView, i2)) == null) {
             int unfilteredChildCount = recyclerView.mChildHelper.getUnfilteredChildCount();
             for (int i3 = 0; i3 < unfilteredChildCount; i3++) {
                 RecyclerView.ViewHolder childViewHolderInt = RecyclerView.getChildViewHolderInt(recyclerView.mChildHelper.getUnfilteredChildAt(i3));
@@ -343,9 +342,9 @@ public final class GapWorker implements Runnable {
         return invokeLI.booleanValue;
     }
 
-    private void prefetchInnerRecyclerViewWithDeadline(@Nullable RecyclerView recyclerView, long j) {
+    private void prefetchInnerRecyclerViewWithDeadline(@Nullable RecyclerView recyclerView, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, this, recyclerView, j) == null) || recyclerView == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(65542, this, recyclerView, j2) == null) || recyclerView == null) {
             return;
         }
         if (recyclerView.mDataSetHasChangedAfterLayout && recyclerView.mChildHelper.getUnfilteredChildCount() != 0) {
@@ -358,7 +357,7 @@ public final class GapWorker implements Runnable {
                 TraceCompat.beginSection(RecyclerView.TRACE_NESTED_PREFETCH_TAG);
                 recyclerView.mState.prepareForNestedPrefetch(recyclerView.mAdapter);
                 for (int i2 = 0; i2 < layoutPrefetchRegistryImpl.mCount * 2; i2 += 2) {
-                    prefetchPositionWithDeadline(recyclerView, layoutPrefetchRegistryImpl.mPrefetchArray[i2], j);
+                    prefetchPositionWithDeadline(recyclerView, layoutPrefetchRegistryImpl.mPrefetchArray[i2], j2);
                 }
             } finally {
                 TraceCompat.endSection();
@@ -366,17 +365,17 @@ public final class GapWorker implements Runnable {
         }
     }
 
-    private RecyclerView.ViewHolder prefetchPositionWithDeadline(RecyclerView recyclerView, int i2, long j) {
+    private RecyclerView.ViewHolder prefetchPositionWithDeadline(RecyclerView recyclerView, int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{recyclerView, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{recyclerView, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
             if (isPrefetchPositionAttached(recyclerView, i2)) {
                 return null;
             }
             RecyclerView.Recycler recycler = recyclerView.mRecycler;
             try {
                 recyclerView.onEnterLayoutOrScroll();
-                RecyclerView.ViewHolder tryGetViewHolderForPositionByDeadline = recycler.tryGetViewHolderForPositionByDeadline(i2, false, j);
+                RecyclerView.ViewHolder tryGetViewHolderForPositionByDeadline = recycler.tryGetViewHolderForPositionByDeadline(i2, false, j2);
                 if (tryGetViewHolderForPositionByDeadline != null) {
                     if (tryGetViewHolderForPositionByDeadline.isBound() && !tryGetViewHolderForPositionByDeadline.isInvalid()) {
                         recycler.recycleView(tryGetViewHolderForPositionByDeadline.itemView);
@@ -410,11 +409,11 @@ public final class GapWorker implements Runnable {
         }
     }
 
-    public void prefetch(long j) {
+    public void prefetch(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
             buildTaskList();
-            flushTasksWithDeadline(j);
+            flushTasksWithDeadline(j2);
         }
     }
 
@@ -433,15 +432,15 @@ public final class GapWorker implements Runnable {
                 TraceCompat.beginSection(RecyclerView.TRACE_PREFETCH_TAG);
                 if (!this.mRecyclerViews.isEmpty()) {
                     int size = this.mRecyclerViews.size();
-                    long j = 0;
+                    long j2 = 0;
                     for (int i2 = 0; i2 < size; i2++) {
                         RecyclerView recyclerView = this.mRecyclerViews.get(i2);
                         if (recyclerView.getWindowVisibility() == 0) {
-                            j = Math.max(recyclerView.getDrawingTime(), j);
+                            j2 = Math.max(recyclerView.getDrawingTime(), j2);
                         }
                     }
-                    if (j != 0) {
-                        prefetch(TimeUnit.MILLISECONDS.toNanos(j) + this.mFrameIntervalNs);
+                    if (j2 != 0) {
+                        prefetch(TimeUnit.MILLISECONDS.toNanos(j2) + this.mFrameIntervalNs);
                     }
                 }
             } finally {

@@ -1,6 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetUserAccountHistoryResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +89,7 @@ public class GetUserAccountHistoryResponse implements IBaseJsonResponse {
                     int optInt = jSONObject.optInt("cmd");
                     if (this.cmd == optInt) {
                         this.uid = jSONObject.optLong("uid");
-                        this.seq = jSONObject.optString(IAdRequestParam.SEQ);
+                        this.seq = jSONObject.optString("seq");
                         this.appId = jSONObject.optInt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
                         this.result = jSONObject.optInt("result");
                         this.message = jSONObject.optString("message");

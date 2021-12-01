@@ -5,19 +5,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class b extends a.AbstractRunnableC1668a {
+/* loaded from: classes8.dex */
+public class b extends a.AbstractRunnableC1745a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f41073a;
+    public final /* synthetic */ e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f41074b;
+    public final /* synthetic */ String f36547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f41075c;
+    public final /* synthetic */ a f36548c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, e eVar, String str) {
@@ -37,23 +35,23 @@ public class b extends a.AbstractRunnableC1668a {
                 return;
             }
         }
-        this.f41075c = aVar;
-        this.f41073a = eVar;
-        this.f41074b = str;
+        this.f36548c = aVar;
+        this.a = eVar;
+        this.f36547b = str;
     }
 
-    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC1668a
+    @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.a.AbstractRunnableC1745a
     public void a() {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c cVar = new c("GET", this.f41073a);
-            i2 = this.f41075c.f41070a;
+            c cVar = new c("GET", this.a);
+            i2 = this.f36548c.a;
             cVar.b(i2);
-            i3 = this.f41075c.f41071b;
+            i3 = this.f36548c.f36545b;
             cVar.a(i3);
-            cVar.a(this.f41074b);
+            cVar.a(this.f36547b);
         }
     }
 }

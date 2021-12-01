@@ -1,7 +1,6 @@
 package com.baidu.android.common.security;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +25,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.Cipher;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class RSAUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM_RSA = "RSA";
@@ -115,7 +114,7 @@ public final class RSAUtil {
     public static byte[] encryptByPublicKey(byte[] bArr, String str) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, str)) == null) {
             PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
@@ -127,7 +126,7 @@ public final class RSAUtil {
     public static byte[] encryptLongByPublicKey(byte[] bArr, String str, int i2) throws Exception {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, bArr, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bArr, str, i2)) == null) {
             PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes())));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);

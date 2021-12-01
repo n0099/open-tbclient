@@ -14,7 +14,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -328,7 +327,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
 
     private void drawVerticalScrollbar(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, canvas) == null) {
             int i2 = this.mRecyclerViewWidth;
             int i3 = this.mVerticalThumbWidth;
             int i4 = i2 - i3;
@@ -357,7 +356,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
     private int[] getHorizontalRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             int[] iArr = this.mHorizontalRange;
             int i2 = this.mMargin;
             iArr[0] = i2;

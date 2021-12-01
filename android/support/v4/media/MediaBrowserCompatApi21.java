@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -201,7 +200,7 @@ public class MediaBrowserCompatApi21 {
 
     public static void disconnect(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
             ((MediaBrowser) obj).disconnect();
         }
     }
@@ -209,7 +208,7 @@ public class MediaBrowserCompatApi21 {
     public static Bundle getExtras(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((MediaBrowser) obj).getExtras() : (Bundle) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? ((MediaBrowser) obj).getExtras() : (Bundle) invokeL.objValue;
     }
 
     public static String getRoot(Object obj) {

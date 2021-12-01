@@ -7,7 +7,6 @@ import android.graphics.Matrix;
 import android.media.ExifInterface;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BitmapUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGEBOUND = 128;
@@ -161,7 +160,7 @@ public final class BitmapUtils {
     public static Bitmap calculateInSampleSize(Bitmap bitmap, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.AD_TEXT_ID, null, bitmap, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, bitmap, i2, i3)) == null) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             if (height > i3 || width > i2) {
@@ -181,7 +180,7 @@ public final class BitmapUtils {
         InterceptResult invokeLII;
         int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, options, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, options, i2, i3)) == null) {
             double d2 = options.outWidth;
             double d3 = options.outHeight;
             int ceil = i3 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i3));
@@ -400,9 +399,9 @@ public final class BitmapUtils {
                         i9 = 16;
                     }
                     float f2 = (i9 - 16) * 1.164f;
-                    float f3 = i12 + a.f34957g;
+                    float f3 = i12 + a.f31350g;
                     int round = Math.round((1.596f * f3) + f2);
-                    float f4 = i11 + a.f34957g;
+                    float f4 = i11 + a.f31350g;
                     int round2 = Math.round((f2 - (f3 * 0.813f)) - (0.391f * f4));
                     int round3 = Math.round(f2 + (f4 * 2.018f));
                     if (round < 0) {

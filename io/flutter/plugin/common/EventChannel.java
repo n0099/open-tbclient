@@ -7,11 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
+import io.flutter.Log;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EventChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "EventChannel#";
@@ -21,13 +22,13 @@ public final class EventChannel {
     public final String name;
 
     /* renamed from: io.flutter.plugin.common.EventChannel$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface EventSink {
         void endOfStream();
 
@@ -36,7 +37,7 @@ public final class EventChannel {
         void success(Object obj);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class IncomingStreamRequestHandler implements BinaryMessenger.BinaryMessageHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +76,7 @@ public final class EventChannel {
                     this.handler.onCancel(obj);
                     binaryReply.reply(this.this$0.codec.encodeSuccessEnvelope(null));
                 } catch (RuntimeException e2) {
-                    String str = EventChannel.TAG + this.this$0.name;
+                    Log.e(EventChannel.TAG + this.this$0.name, "Failed to close event stream", e2);
                     binaryReply.reply(this.this$0.codec.encodeErrorEnvelope("error", e2.getMessage(), null));
                 }
             }
@@ -88,17 +89,17 @@ public final class EventChannel {
                 if (this.activeSink.getAndSet(eventSinkImplementation) != null) {
                     try {
                         this.handler.onCancel(null);
-                    } catch (RuntimeException unused) {
-                        String str = EventChannel.TAG + this.this$0.name;
+                    } catch (RuntimeException e2) {
+                        Log.e(EventChannel.TAG + this.this$0.name, "Failed to close existing event stream", e2);
                     }
                 }
                 try {
                     this.handler.onListen(obj, eventSinkImplementation);
                     binaryReply.reply(this.this$0.codec.encodeSuccessEnvelope(null));
-                } catch (RuntimeException e2) {
+                } catch (RuntimeException e3) {
                     this.activeSink.set(null);
-                    String str2 = EventChannel.TAG + this.this$0.name;
-                    binaryReply.reply(this.this$0.codec.encodeErrorEnvelope("error", e2.getMessage(), null));
+                    Log.e(EventChannel.TAG + this.this$0.name, "Failed to open event stream", e3);
+                    binaryReply.reply(this.this$0.codec.encodeErrorEnvelope("error", e3.getMessage(), null));
                 }
             }
         }
@@ -118,7 +119,7 @@ public final class EventChannel {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public final class EventSinkImplementation implements EventSink {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +178,7 @@ public final class EventChannel {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface StreamHandler {
         void onCancel(Object obj);
 

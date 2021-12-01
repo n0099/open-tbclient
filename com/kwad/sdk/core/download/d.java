@@ -1,31 +1,442 @@
 package com.kwad.sdk.core.download;
+
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.core.network.k;
+import com.kwad.sdk.core.network.m;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.export.proxy.AdDownloadProxy;
+import com.kwad.sdk.utils.aq;
+import java.io.BufferedInputStream;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
-public interface d {
-    String a();
+public class d {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String a;
 
-    void a(String str);
+    /* renamed from: b  reason: collision with root package name */
+    public static ExecutorService f57392b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, int i2, int i3, int i4);
+    /* loaded from: classes2.dex */
+    public static class a implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final OutputStream a;
 
-    void a(String str, int i2, g gVar);
+        public a(File file, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new FileOutputStream(file, z);
+        }
 
-    void a(String str, int i2, String str2, g gVar);
+        @Override // com.kwad.sdk.core.download.d.c
+        public void a(int i2, Map<String, List<String>> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, map) == null) {
+            }
+        }
 
-    void a(String str, g gVar);
+        @Override // com.kwad.sdk.core.download.d.c
+        public void a(long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            }
+        }
 
-    void a(String str, String str2, g gVar);
+        @Override // com.kwad.sdk.core.download.d.c
+        public void a(byte[] bArr, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
+                this.a.write(bArr, i2, i3);
+            }
+        }
 
-    String b();
+        @Override // java.io.Closeable, java.lang.AutoCloseable
+        public void close() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.close();
+            }
+        }
+    }
 
-    void b(String str);
+    /* loaded from: classes2.dex */
+    public interface b {
+        boolean a(int i2, int i3, Object obj);
+    }
 
-    void b(String str, g gVar);
+    /* loaded from: classes2.dex */
+    public interface c extends Closeable {
+        void a(int i2, Map<String, List<String>> map);
 
-    void c(String str, g gVar);
+        void a(long j2);
 
-    void d(String str, g gVar);
+        void a(byte[] bArr, int i2, int i3);
+    }
 
-    void e(String str, g gVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(303278505, "Lcom/kwad/sdk/core/download/d;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(303278505, "Lcom/kwad/sdk/core/download/d;");
+                return;
+            }
+        }
+        a = aq.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
+        f57392b = com.kwad.sdk.core.i.b.i();
+    }
 
-    void f(String str, g gVar);
+    public static URLConnection a(String str, int i2, int i3, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            try {
+                URLConnection openConnection = new URL(str).openConnection();
+                m.a(openConnection);
+                openConnection.setRequestProperty("Accept-Language", "zh-CN");
+                if (i2 > 0) {
+                    openConnection.setConnectTimeout(i2);
+                }
+                if (i3 > 0) {
+                    openConnection.setReadTimeout(i3);
+                }
+                openConnection.setUseCaches(z);
+                openConnection.setDoInput(true);
+                openConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                openConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                return openConnection;
+            } catch (MalformedURLException e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                return null;
+            }
+        }
+        return (URLConnection) invokeCommon.objValue;
+    }
+
+    public static void a(Context context, AdInfo adInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, adInfo) == null) {
+            a(context, adInfo, false);
+        }
+    }
+
+    public static void a(Context context, AdInfo adInfo, boolean z) {
+        AdDownloadProxy proxyForDownload;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, context, adInfo, z) == null) || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
+            return;
+        }
+        DownloadParams transform = DownloadParams.transform(adInfo);
+        transform.requestInstallPermission = z;
+        proxyForDownload.startDownload(context, transform.mDownloadid, transform);
+    }
+
+    public static void a(Context context, String str) {
+        AdDownloadProxy proxyForDownload;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
+            return;
+        }
+        proxyForDownload.pauseDownload(context, str, null);
+    }
+
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException unused) {
+        }
+    }
+
+    public static boolean a(String str, File file, b bVar, int i2) {
+        InterceptResult invokeLLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLLI = interceptable.invokeLLLI(65542, null, str, file, bVar, i2)) != null) {
+            return invokeLLLI.booleanValue;
+        }
+        a aVar = null;
+        try {
+            a aVar2 = new a(file, false);
+            try {
+                boolean a2 = a(str, (String) null, aVar2, bVar, i2);
+                a(aVar2);
+                return a2;
+            } catch (Throwable th) {
+                th = th;
+                aVar = aVar2;
+                a(aVar);
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static boolean a(String str, String str2, c cVar, b bVar, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, cVar, bVar, Integer.valueOf(i2)})) == null) ? a(str, str2, cVar, bVar, i2, -1L, -1L, false) : invokeCommon.booleanValue;
+    }
+
+    public static boolean a(String str, String str2, c cVar, b bVar, int i2, long j2, long j3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, cVar, bVar, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) != null) {
+            return invokeCommon.booleanValue;
+        }
+        HttpURLConnection httpURLConnection = null;
+        try {
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) a(str, 10000, i2 > 0 ? i2 : 120000, false, true);
+            try {
+                if (httpURLConnection2 != null) {
+                    boolean a2 = a(httpURLConnection2, str2, cVar, bVar, i2, j2, j3, z);
+                    a(cVar);
+                    if (httpURLConnection2 != null) {
+                        httpURLConnection2.disconnect();
+                    }
+                    return a2;
+                }
+                throw new IOException("Fail to createUrlConnection");
+            } catch (Throwable th) {
+                th = th;
+                httpURLConnection = httpURLConnection2;
+                a(cVar);
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:86:0x0180 A[Catch: all -> 0x01aa, TryCatch #4 {all -> 0x01aa, blocks: (B:84:0x017c, B:86:0x0180, B:88:0x01a9, B:87:0x0183), top: B:109:0x017c }] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x0183 A[Catch: all -> 0x01aa, TryCatch #4 {all -> 0x01aa, blocks: (B:84:0x017c, B:86:0x0180, B:88:0x01a9, B:87:0x0183), top: B:109:0x017c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean a(HttpURLConnection httpURLConnection, String str, c cVar, b bVar, int i2, long j2, long j3, boolean z) {
+        InterceptResult invokeCommon;
+        Object valueOf;
+        File file;
+        FileOutputStream fileOutputStream;
+        File file2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{httpURLConnection, str, cVar, bVar, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) != null) {
+            return invokeCommon.booleanValue;
+        }
+        BufferedInputStream bufferedInputStream = null;
+        int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+        if (i3 > 0 || j3 > 0) {
+            try {
+                Object[] objArr = new Object[2];
+                objArr[0] = Long.valueOf(j2);
+                if (j3 > 0) {
+                    try {
+                        valueOf = Long.valueOf(j3);
+                    } catch (Throwable th) {
+                        th = th;
+                        file = null;
+                        fileOutputStream = null;
+                        try {
+                            if (th instanceof IOException) {
+                            }
+                        } catch (Throwable th2) {
+                            a(cVar);
+                            a(bufferedInputStream);
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                            a(fileOutputStream);
+                            if (file != null) {
+                                file.delete();
+                            }
+                            throw th2;
+                        }
+                    }
+                } else {
+                    valueOf = "";
+                }
+                objArr[1] = valueOf;
+                httpURLConnection.setRequestProperty("Range", String.format("bytes=%s-%s", objArr));
+            } catch (Throwable th3) {
+                th = th3;
+                file = null;
+                fileOutputStream = null;
+                bufferedInputStream = null;
+                if (th instanceof IOException) {
+                }
+            }
+        }
+        if (!TextUtils.isEmpty(str)) {
+            httpURLConnection.setRequestProperty("Host", str);
+            httpURLConnection.setInstanceFollowRedirects(false);
+            if (httpURLConnection.getResponseCode() == 302) {
+                boolean a2 = a(httpURLConnection.getHeaderField("Location"), (String) null, cVar, bVar, i2);
+                a(cVar);
+                a(null);
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                a(null);
+                return a2;
+            }
+        }
+        httpURLConnection.setRequestProperty("User-Agent", k.c());
+        httpURLConnection.setRequestProperty("BrowserUa", k.d());
+        httpURLConnection.setRequestProperty("SystemUa", k.a());
+        BufferedInputStream bufferedInputStream2 = new BufferedInputStream(httpURLConnection.getInputStream());
+        try {
+            int contentLength = httpURLConnection.getContentLength();
+            HashMap hashMap = httpURLConnection.getHeaderFields() == null ? new HashMap() : new HashMap(httpURLConnection.getHeaderFields());
+            BufferedInputStream bufferedInputStream3 = new BufferedInputStream(httpURLConnection.getInputStream());
+            if (contentLength <= 0) {
+                try {
+                    Random random = new Random(System.currentTimeMillis());
+                    file2 = new File(a, random.nextInt() + ".tmp");
+                    try {
+                        fileOutputStream = new FileOutputStream(file2);
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                        bufferedInputStream = bufferedInputStream3;
+                        file = file2;
+                        if (th instanceof IOException) {
+                        }
+                    }
+                } catch (Throwable th5) {
+                    th = th5;
+                    file = null;
+                    fileOutputStream = null;
+                    bufferedInputStream = bufferedInputStream3;
+                    if (th instanceof IOException) {
+                    }
+                }
+                try {
+                    byte[] bArr = new byte[10240];
+                    int i4 = 0;
+                    while (true) {
+                        int read = bufferedInputStream3.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        i4 += read;
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    a(bufferedInputStream3);
+                    a(fileOutputStream);
+                    BufferedInputStream bufferedInputStream4 = new BufferedInputStream(new FileInputStream(file2));
+                    try {
+                        hashMap.put("Content-Length", Collections.singletonList(String.valueOf(i4)));
+                        bufferedInputStream3 = bufferedInputStream4;
+                        contentLength = i4;
+                    } catch (Throwable th6) {
+                        th = th6;
+                        bufferedInputStream = bufferedInputStream4;
+                        file = file2;
+                        if (th instanceof IOException) {
+                            throw new IOException(th.getClass().getName() + ":" + th.getMessage(), th);
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th7) {
+                    th = th7;
+                    bufferedInputStream = bufferedInputStream3;
+                    file = file2;
+                    if (th instanceof IOException) {
+                    }
+                }
+            } else {
+                fileOutputStream = null;
+                file2 = null;
+            }
+            int i5 = (i3 <= 0 || !z) ? 0 : (int) j2;
+            int i6 = contentLength + i5;
+            cVar.a(i6);
+            cVar.a(httpURLConnection.getResponseCode(), hashMap);
+            if (bVar != null) {
+                bVar.a(i5, i6, null);
+            }
+            byte[] bArr2 = new byte[10240];
+            while (true) {
+                int read2 = bufferedInputStream3.read(bArr2);
+                if (read2 == -1) {
+                    break;
+                }
+                i5 += read2;
+                cVar.a(bArr2, 0, read2);
+                if (bVar != null) {
+                    bVar.a(i5, i6, null);
+                }
+            }
+            if (bVar != null) {
+                bVar.a(i6, i6, null);
+            }
+            a(cVar);
+            a(bufferedInputStream3);
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+            a(fileOutputStream);
+            if (file2 != null) {
+                file2.delete();
+                return true;
+            }
+            return true;
+        } catch (Throwable th8) {
+            th = th8;
+            file = null;
+            fileOutputStream = null;
+            bufferedInputStream = bufferedInputStream2;
+        }
+    }
 }

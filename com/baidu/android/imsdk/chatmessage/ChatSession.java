@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ChatSession> CREATOR;
@@ -111,12 +111,12 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         };
     }
 
-    public ChatSession(int i2, long j, long j2, String str) {
+    public ChatSession(int i2, long j2, long j3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), str};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), str};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -160,10 +160,10 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mLastMsgUid = 0L;
         this.mLastMsgName = "";
         this.mNewFansAtMsgSum = 0;
-        this.mContacter = j;
+        this.mContacter = j2;
         this.mName = str;
         this.mCategory = i2;
-        this.mContacterId = j2;
+        this.mContacterId = j3;
     }
 
     public void addExt(String str, String str2) {
@@ -489,10 +489,10 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     }
 
-    public void setContacter(long j) {
+    public void setContacter(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
-            this.mContacter = j;
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j2) == null) {
+            this.mContacter = j2;
         }
     }
 
@@ -538,24 +538,24 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     }
 
-    public void setLastMsgTime(long j) {
+    public void setLastMsgTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048634, this, j) == null) {
-            this.mLastMsgTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048634, this, j2) == null) {
+            this.mLastMsgTime = j2;
         }
     }
 
-    public void setLastMsgUid(long j) {
+    public void setLastMsgUid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
-            this.mLastMsgUid = j;
+        if (interceptable == null || interceptable.invokeJ(1048635, this, j2) == null) {
+            this.mLastMsgUid = j2;
         }
     }
 
-    public void setLastOpenTime(long j) {
+    public void setLastOpenTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048636, this, j) == null) {
-            this.mLastOpenTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048636, this, j2) == null) {
+            this.mLastOpenTime = j2;
         }
     }
 
@@ -566,10 +566,10 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     }
 
-    public void setMarkTopTime(long j) {
+    public void setMarkTopTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048638, this, j) == null) {
-            this.mMarkTopTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048638, this, j2) == null) {
+            this.mMarkTopTime = j2;
         }
     }
 
@@ -587,10 +587,10 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     }
 
-    public void setNewMsgSum(long j) {
+    public void setNewMsgSum(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048641, this, j) == null) {
-            this.mNewMsgSum = j;
+        if (interceptable == null || interceptable.invokeJ(1048641, this, j2) == null) {
+            this.mNewMsgSum = j2;
         }
     }
 
@@ -601,10 +601,10 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     }
 
-    public void setPaid(long j) {
+    public void setPaid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048643, this, j) == null) {
-            this.mPaid = j;
+        if (interceptable == null || interceptable.invokeJ(1048643, this, j2) == null) {
+            this.mPaid = j2;
         }
     }
 
@@ -622,10 +622,10 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         }
     }
 
-    public void setShieldTime(long j) {
+    public void setShieldTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048646, this, j) == null) {
-            this.mShieldTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048646, this, j2) == null) {
+            this.mShieldTime = j2;
         }
     }
 
@@ -797,7 +797,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ChatSession m11clone() throws CloneNotSupportedException {
+    public ChatSession m31clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (ChatSession) super.clone() : (ChatSession) invokeV.objValue;

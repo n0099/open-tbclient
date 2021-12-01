@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.internal.utils.UtilsBlink;
+import com.kwad.yoga.YogaNodeJNIBase;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.Charset;
@@ -14,12 +15,10 @@ import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes2.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static char[] f69172a;
+    public static char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f69173b;
+    public static byte[] f61019b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +34,8 @@ public final class d {
                 return;
             }
         }
-        f69172a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
-        f69173b = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
+        a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        f61019b = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
     }
 
     public static String a(String str) {
@@ -58,7 +57,7 @@ public final class d {
             loop0: while (i6 < length) {
                 while (true) {
                     i2 = i6 + 1;
-                    b2 = f69173b[bytes[i6]];
+                    b2 = f61019b[bytes[i6]];
                     if (i2 >= length || b2 != -1) {
                         break;
                     }
@@ -69,7 +68,7 @@ public final class d {
                 }
                 while (true) {
                     i3 = i2 + 1;
-                    b3 = f69173b[bytes[i2]];
+                    b3 = f61019b[bytes[i2]];
                     if (i3 >= length || b3 != -1) {
                         break;
                     }
@@ -85,7 +84,7 @@ public final class d {
                     if (b6 == 61) {
                         break loop0;
                     }
-                    b4 = f69173b[b6];
+                    b4 = f61019b[b6];
                     if (i4 >= length || b4 != -1) {
                         break;
                     }
@@ -101,7 +100,7 @@ public final class d {
                     if (b7 == 61) {
                         break loop0;
                     }
-                    b5 = f69173b[b7];
+                    b5 = f61019b[b7];
                     if (i5 >= length || b5 != -1) {
                         break;
                     }

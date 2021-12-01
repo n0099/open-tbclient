@@ -17,7 +17,6 @@ import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,23 +26,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.R;
-import com.kwad.sdk.core.imageloader.core.DisplayImageOptions;
+import com.kwad.sdk.core.d.a;
+import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.imageloader.core.assist.FailReason;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
-import com.kwad.sdk.core.imageloader.core.display.CircleBitmapDisplayer;
-import com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.core.report.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.av;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class KSImageLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static DisplayImageOptions IMGOPTION_ENTRY;
-    public static DisplayImageOptions IMGOPTION_NORMAL;
-    public static DisplayImageOptions IMGOPTION_TREND;
-    public static DisplayImageOptions IMGOPTION_TUBE;
+    public static DisplayImageOptionsCompat IMGOPTION_ENTRY;
+    public static DisplayImageOptionsCompat IMGOPTION_NORMAL;
+    public static DisplayImageOptionsCompat IMGOPTION_TREND;
+    public static DisplayImageOptionsCompat IMGOPTION_TUBE;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.imageloader.KSImageLoader$1  reason: invalid class name */
@@ -97,6 +94,7 @@ public class KSImageLoader {
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public AdTemplate adTemplate;
+        @Nullable
         public ImageLoadingListener loadingListener;
 
         public InnerImageLoadingListener(@Nullable AdTemplate adTemplate, ImageLoadingListener imageLoadingListener) {
@@ -215,7 +213,7 @@ public class KSImageLoader {
                 return;
             }
         }
-        IMGOPTION_NORMAL = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).build();
+        IMGOPTION_NORMAL = new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).build();
     }
 
     public KSImageLoader() {
@@ -232,10 +230,10 @@ public class KSImageLoader {
         }
     }
 
-    public static DisplayImageOptions IMGOPTION_ENTRY_FS() {
+    public static DisplayImageOptionsCompat IMGOPTION_ENTRY_FS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? IMGOPTION_ENTRY : (DisplayImageOptions) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? IMGOPTION_ENTRY : (DisplayImageOptionsCompat) invokeV.objValue;
     }
 
     @RequiresApi(api = 17)
@@ -243,15 +241,26 @@ public class KSImageLoader {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, bitmap, i2)) == null) {
-            RenderScript create = RenderScript.create(context);
-            Allocation createFromBitmap = Allocation.createFromBitmap(create, bitmap);
-            ScriptIntrinsicBlur create2 = ScriptIntrinsicBlur.create(create, createFromBitmap.getElement());
-            create2.setInput(createFromBitmap);
-            create2.setRadius(i2);
-            create2.forEach(createFromBitmap);
-            createFromBitmap.copyTo(bitmap);
-            create.destroy();
-            return bitmap;
+            Bitmap.Config config = bitmap.getConfig();
+            Bitmap.Config config2 = Bitmap.Config.ARGB_8888;
+            Bitmap copy = config == config2 ? bitmap : bitmap.copy(config2, true);
+            if (copy == null) {
+                copy = bitmap.copy(bitmap.getConfig(), true);
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(copy.getWidth(), copy.getHeight(), copy.getConfig());
+            try {
+                RenderScript create = RenderScript.create(context);
+                Allocation createFromBitmap = Allocation.createFromBitmap(create, createBitmap);
+                ScriptIntrinsicBlur create2 = ScriptIntrinsicBlur.create(create, createFromBitmap.getElement());
+                create2.setInput(createFromBitmap);
+                create2.setRadius(i2);
+                create2.forEach(createFromBitmap);
+                createFromBitmap.copyTo(createBitmap);
+                create.destroy();
+            } catch (Exception e2) {
+                a.b(e2);
+            }
+            return createBitmap;
         }
         return (Bitmap) invokeLLI.objValue;
     }
@@ -266,22 +275,22 @@ public class KSImageLoader {
 
     public static void init(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, context) == null) || context == null) {
             return;
         }
-        IMGOPTION_ENTRY = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(R.drawable.ksad_loading_entry).showImageForEmptyUri(R.drawable.ksad_loading_entry).showImageOnFail(R.drawable.ksad_loading_entry).build();
-        IMGOPTION_TUBE = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(R.drawable.ksad_tube_episode_cover_bg).showImageForEmptyUri(R.drawable.ksad_tube_episode_cover_bg).showImageOnFail(R.drawable.ksad_tube_episode_cover_bg).build();
-        IMGOPTION_TREND = new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(R.drawable.ksad_trend_panel_item_cover_bg).showImageForEmptyUri(R.drawable.ksad_trend_panel_item_cover_bg).showImageOnFail(R.drawable.ksad_trend_panel_item_cover_bg).build();
-        ImageLoaderProxy.INSTANCE.init(context);
+        IMGOPTION_ENTRY = new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(R.drawable.ksad_loading_entry).showImageForEmptyUri(R.drawable.ksad_loading_entry).showImageOnFail(R.drawable.ksad_loading_entry).build();
+        IMGOPTION_TUBE = new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.RGB_565).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(R.drawable.ksad_tube_episode_cover_bg).showImageForEmptyUri(R.drawable.ksad_tube_episode_cover_bg).showImageOnFail(R.drawable.ksad_tube_episode_cover_bg).build();
+        IMGOPTION_TREND = new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.RGB_565).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(R.drawable.ksad_trend_panel_item_cover_bg).showImageForEmptyUri(R.drawable.ksad_trend_panel_item_cover_bg).showImageOnFail(R.drawable.ksad_trend_panel_item_cover_bg).build();
+        ImageLoaderProxy.INSTANCE.init(context, ImageLoadFactory.create());
     }
 
     public static void loadAppIcon(ImageView imageView, @Nullable String str, AdTemplate adTemplate, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(AdIconUtil.BAIDU_LOGO_ID, null, imageView, str, adTemplate, i2) == null) || imageView == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLI(65542, null, imageView, str, adTemplate, i2) == null) || imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageForEmptyUri(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageOnFail(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new RoundedBitmapDisplayer(av.a(imageView.getContext(), i2))).build(), new InnerImageLoadingListener(adTemplate, null));
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptionsCompat.Builder().showImageOnLoading(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageForEmptyUri(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageOnFail(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).setCornerRound(i2).build(), new InnerImageLoadingListener(adTemplate, null));
     }
 
     public static void loadAuthorCircleIcon(ImageView imageView, String str) {
@@ -297,7 +306,7 @@ public class KSImageLoader {
             return;
         }
         checkInit();
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new CircleBitmapDisplayer(Integer.valueOf(Color.argb(255, 255, 255, 255)), av.a(imageView.getContext(), 1.0f))).build(), (ImageLoadingListener) null);
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptionsCompat.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).setStrokeColor(Color.argb(255, 255, 255, 255)).setStrokeWidth(1.0f).build(), (ImageLoadingListener) null);
     }
 
     public static void loadCircleIcon(ImageView imageView, String str, Drawable drawable, @ColorInt int i2) {
@@ -306,7 +315,7 @@ public class KSImageLoader {
             return;
         }
         checkInit();
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new CircleBitmapDisplayer(Integer.valueOf(i2), av.a(imageView.getContext(), 1.0f))).build(), (ImageLoadingListener) null);
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptionsCompat.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).setCornerRound(1).build(), (ImageLoadingListener) null);
     }
 
     public static void loadCircleIconWithBorder(ImageView imageView, String str, Drawable drawable, Integer num, float f2) {
@@ -315,7 +324,7 @@ public class KSImageLoader {
             return;
         }
         checkInit();
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new CircleBitmapDisplayer(num, f2)).build(), (ImageLoadingListener) null);
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptionsCompat.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).setStrokeColor(num.intValue()).setStrokeWidth(f2).build(), (ImageLoadingListener) null);
     }
 
     public static void loadCircleIconWithoutStroke(ImageView imageView, String str, Drawable drawable) {
@@ -324,70 +333,86 @@ public class KSImageLoader {
             return;
         }
         checkInit();
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new CircleBitmapDisplayer()).build(), (ImageLoadingListener) null);
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptionsCompat.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).setCircle(true).build(), (ImageLoadingListener) null);
     }
 
     public static void loadFeeImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65548, null, imageView, str, adTemplate) == null) || imageView == null || TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeLLL(65548, null, imageView, str, adTemplate) == null) {
+            loadFeeImage(imageView, str, adTemplate, null);
+        }
+    }
+
+    public static void loadFeeImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, ImageLoadingListener imageLoadingListener) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65549, null, imageView, str, adTemplate, imageLoadingListener) == null) || imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).cacheInMemory(true).cacheOnDisk(true).displayer(new RoundedBitmapDisplayer(av.a(imageView.getContext(), 1.0f))).build(), new InnerImageLoadingListener(adTemplate, null));
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.RGB_565).cacheInMemory(true).cacheOnDisk(true).setCornerRound(1).build(), new InnerImageLoadingListener(adTemplate, imageLoadingListener));
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, imageView, str, adTemplate) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65550, null, imageView, str, adTemplate) == null) {
             loadImage(imageView, str, adTemplate, IMGOPTION_NORMAL);
         }
     }
 
-    public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, DisplayImageOptions displayImageOptions) {
+    public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, DisplayImageOptionsCompat displayImageOptionsCompat) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65550, null, imageView, str, adTemplate, displayImageOptions) == null) || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65551, null, imageView, str, adTemplate, displayImageOptionsCompat) == null) || imageView == null) {
             return;
         }
         checkInit();
-        if (displayImageOptions == null) {
-            displayImageOptions = IMGOPTION_NORMAL;
+        if (displayImageOptionsCompat == null) {
+            displayImageOptionsCompat = IMGOPTION_NORMAL;
         }
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, displayImageOptions, new InnerImageLoadingListener(adTemplate, null));
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, displayImageOptionsCompat, new InnerImageLoadingListener(adTemplate, null));
     }
 
-    public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener) {
+    public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65551, null, imageView, str, adTemplate, displayImageOptions, imageLoadingListener) == null) || imageView == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65552, null, imageView, str, adTemplate, displayImageOptionsCompat, imageLoadingListener) == null) || imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
-        if (displayImageOptions == null) {
-            displayImageOptions = IMGOPTION_NORMAL;
+        if (displayImageOptionsCompat == null) {
+            displayImageOptionsCompat = IMGOPTION_NORMAL;
         }
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, displayImageOptions, new InnerImageLoadingListener(adTemplate, imageLoadingListener));
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, displayImageOptionsCompat, new InnerImageLoadingListener(adTemplate, imageLoadingListener));
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, ImageLoadingListener imageLoadingListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65552, null, imageView, str, adTemplate, imageLoadingListener) == null) || imageView == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65553, null, imageView, str, adTemplate, imageLoadingListener) == null) || imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
         ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, IMGOPTION_NORMAL, new InnerImageLoadingListener(adTemplate, imageLoadingListener));
     }
 
-    public static void loadImage(String str, AdTemplate adTemplate, DisplayImageOptions displayImageOptions, ImageLoadingListener imageLoadingListener) {
+    public static void loadImage(String str, AdTemplate adTemplate, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65553, null, str, adTemplate, displayImageOptions, imageLoadingListener) == null) || TextUtils.isEmpty(str) || KsAdSDKImpl.get().getContext() == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65554, null, str, adTemplate, displayImageOptionsCompat, imageLoadingListener) == null) || TextUtils.isEmpty(str) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
         checkInit();
-        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, displayImageOptions, new InnerImageLoadingListener(adTemplate, imageLoadingListener));
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, displayImageOptionsCompat, new InnerImageLoadingListener(adTemplate, imageLoadingListener));
+    }
+
+    public static void loadWithRadius(ImageView imageView, @Nullable String str, AdTemplate adTemplate, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(65555, null, imageView, str, adTemplate, i2) == null) || imageView == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        checkInit();
+        ImageLoaderProxy.INSTANCE.load(KsAdSDKImpl.get().getContext(), str, imageView, new DisplayImageOptionsCompat.Builder().showImageOnLoading(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageForEmptyUri(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageOnFail(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).setCornerRound(i2).build(), new InnerImageLoadingListener(adTemplate, null));
     }
 
     public static void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
             checkInit();
             ImageLoaderProxy.INSTANCE.pause();
         }
@@ -395,14 +420,14 @@ public class KSImageLoader {
 
     public static void preloadImage(String str, AdTemplate adTemplate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65555, null, str, adTemplate) == null) {
+        if (interceptable == null || interceptable.invokeLL(65557, null, str, adTemplate) == null) {
             loadImage(str, adTemplate, IMGOPTION_NORMAL, (ImageLoadingListener) null);
         }
     }
 
     public static void resume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
             checkInit();
             ImageLoaderProxy.INSTANCE.resume();
         }

@@ -16,9 +16,7 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f64845a;
+    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -89,12 +87,12 @@ public class d {
             }
         }
         ArrayList arrayList = new ArrayList();
-        f64845a = arrayList;
+        a = arrayList;
         arrayList.add("com.kwad.sdk");
-        f64845a.add("com.ksad");
-        f64845a.add("com.kwai");
-        f64845a.add("kwad.support");
-        f64845a.add("android.support.rastermill");
+        a.add("com.ksad");
+        a.add("com.kwai");
+        a.add("kwad.support");
+        a.add("android.support.rastermill");
     }
 
     @NonNull

@@ -1,7 +1,6 @@
 package com.yxcorp.kuaishou.addfp.android;
 
 import android.content.Context;
-import b.p.a.a.c.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,15 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Orange {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f72496a = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile Orange f72497b;
+    public static final int JNI_CONTROL_COMMAND_DIR_DETECT = 1114128;
+    public static final int JNI_CONTROL_COMMAND_GK_DETECT = 1114132;
+    public static final int JNI_CONTROL_COMMAND_MACS_DETECT = 1179653;
+    public static final int JNI_CONTROL_COMMAND_PROPS_DETECT = 1114131;
+    public static final int JNI_CONTROL_COMMAND_SERIAL_DETECT = 1179649;
+    public static boolean sLibLoadFail = true;
+    public static volatile Orange singleton;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,130 +49,142 @@ public class Orange {
                 return;
             }
         }
-        h();
-    }
-
-    public static Orange a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f72497b == null) {
-                synchronized (Orange.class) {
-                    if (f72497b == null) {
-                        f72497b = new Orange();
-                    }
-                }
-            }
-            return f72497b;
-        }
-        return (Orange) invokeV.objValue;
+        loadSoLib();
     }
 
     public static native String getClock(Context context, byte[] bArr, int i2);
 
+    public static Orange getInstance() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (singleton == null) {
+                synchronized (Orange.class) {
+                    if (singleton == null) {
+                        singleton = new Orange();
+                    }
+                }
+            }
+            return singleton;
+        }
+        return (Orange) invokeV.objValue;
+    }
+
     public static native byte[] getMagic(Context context, byte[] bArr, int i2);
+
+    private boolean isReject() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? sLibLoadFail : invokeV.booleanValue;
+    }
 
     public static native Object jniCommand(int i2, Object obj, Object obj2, Object obj3);
 
-    public synchronized String b(Context context, byte[] bArr, int i2) {
-        InterceptResult invokeLLI;
+    private void loadSoLib() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, context, bArr, i2)) == null) {
-            synchronized (this) {
-                return i() ? "" : getClock(context, bArr, i2);
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            try {
+                System.loadLibrary("sgcore");
+                sLibLoadFail = false;
+            } catch (Throwable th) {
+                sLibLoadFail = true;
+                th.printStackTrace();
             }
         }
-        return (String) invokeLLI.objValue;
     }
 
-    public String c() {
+    public String gKpsd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return i() ? "" : (String) jniCommand(1114128, null, null, null);
+                return isReject() ? "" : (String) jniCommand(JNI_CONTROL_COMMAND_GK_DETECT, null, null, null);
             } catch (Throwable th) {
-                c.c(th);
+                th.printStackTrace();
                 return "";
             }
         }
         return (String) invokeV.objValue;
     }
 
-    public synchronized byte[] d(Context context, byte[] bArr, int i2) {
+    public String gMas() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                return isReject() ? "" : (String) jniCommand(JNI_CONTROL_COMMAND_MACS_DETECT, null, null, null);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String gProps() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                return isReject() ? "" : (String) jniCommand(JNI_CONTROL_COMMAND_PROPS_DETECT, null, null, null);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String gRdi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                return isReject() ? "" : (String) jniCommand(JNI_CONTROL_COMMAND_DIR_DETECT, null, null, null);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String gSer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return isReject() ? "" : (String) jniCommand(JNI_CONTROL_COMMAND_SERIAL_DETECT, null, null, null);
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public synchronized String getClockWrapper(Context context, byte[] bArr, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, context, bArr, i2)) == null) {
             synchronized (this) {
-                if (i()) {
+                return isReject() ? "" : getClock(context, bArr, i2);
+            }
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public synchronized byte[] getMagicWrapper(Context context, byte[] bArr, int i2) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, context, bArr, i2)) == null) {
+            synchronized (this) {
+                if (isReject()) {
                     return null;
                 }
                 return getMagic(context, bArr, i2);
             }
         }
         return (byte[]) invokeLLI.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                return i() ? "" : (String) jniCommand(1179649, null, null, null);
-            } catch (Throwable th) {
-                c.c(th);
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                return i() ? "" : (String) jniCommand(1179653, null, null, null);
-            } catch (Throwable th) {
-                c.c(th);
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return i() ? "" : (String) jniCommand(1114131, null, null, null);
-            } catch (Throwable th) {
-                c.c(th);
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            try {
-                System.loadLibrary("sgcore");
-                f72496a = false;
-                c.f("so loaded");
-            } catch (Throwable th) {
-                c.f("so load failed");
-                f72496a = true;
-                c.c(th);
-            }
-        }
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f72496a : invokeV.booleanValue;
     }
 }

@@ -20,19 +20,17 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class a extends BaseBean<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f58211a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f58212b;
+    public byte[] f51896b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f58213c;
+    public byte[] f51897c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context, String str, byte[] bArr, byte[] bArr2) {
@@ -52,9 +50,9 @@ public class a extends BaseBean<String> {
                 return;
             }
         }
-        this.f58211a = str;
-        this.f58212b = bArr;
-        this.f58213c = bArr2;
+        this.a = str;
+        this.f51896b = bArr;
+        this.f51897c = bArr2;
     }
 
     private String a(byte[] bArr, String str) {
@@ -85,18 +83,18 @@ public class a extends BaseBean<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            String a2 = a(516);
-            arrayList.add(new RestNameValuePair("ik", SecurePay.getInstance().encryptProxy(a2)));
-            if (!TextUtils.isEmpty(this.f58211a)) {
-                arrayList.add(new RestNameValuePair(AdvanceSetting.CLEAR_NOTIFICATION, SecurePay.getInstance().encryptProxy(this.f58211a)));
+            String a = a(516);
+            arrayList.add(new RestNameValuePair("ik", SecurePay.getInstance().encryptProxy(a)));
+            if (!TextUtils.isEmpty(this.a)) {
+                arrayList.add(new RestNameValuePair(AdvanceSetting.CLEAR_NOTIFICATION, SecurePay.getInstance().encryptProxy(this.a)));
             }
-            byte[] bArr = this.f58212b;
+            byte[] bArr = this.f51896b;
             if (bArr != null && bArr.length > 0) {
-                arrayList.add(new RestNameValuePair("cni", a(bArr, a2)));
+                arrayList.add(new RestNameValuePair("cni", a(bArr, a)));
             }
-            byte[] bArr2 = this.f58213c;
+            byte[] bArr2 = this.f51897c;
             if (bArr2 != null && bArr2.length > 0) {
-                arrayList.add(new RestNameValuePair("ci", a(bArr2, a2)));
+                arrayList.add(new RestNameValuePair("ci", a(bArr2, a)));
             }
             return arrayList;
         }

@@ -3,13 +3,12 @@ package com.baidu.searchbox.feed.util;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Preconditions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +44,7 @@ public final class Preconditions {
     public static boolean isIllegalArgument(boolean z, @NonNull String str, @Nullable Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Boolean.valueOf(z), str, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Boolean.valueOf(z), str, objArr})) == null) {
             if (z) {
                 throw new IllegalArgumentException(String.format(str, objArr));
             }
@@ -83,7 +82,7 @@ public final class Preconditions {
     public static boolean isIllegalArgument(boolean z, @NonNull Throwable th) {
         InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(AdIconUtil.BAIDU_LOGO_ID, null, z, th)) == null) {
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(65542, null, z, th)) == null) {
             if (z) {
                 throw new IllegalArgumentException(th);
             }

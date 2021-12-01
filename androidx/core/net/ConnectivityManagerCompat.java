@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes.dex */
@@ -46,7 +45,7 @@ public final class ConnectivityManagerCompat {
     }
 
     @Nullable
-    @RequiresPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)
+    @RequiresPermission("android.permission.ACCESS_NETWORK_STATE")
     @SuppressLint({"ReferencesDeprecated"})
     public static NetworkInfo getNetworkInfoFromBroadcast(@NonNull ConnectivityManager connectivityManager, @NonNull Intent intent) {
         InterceptResult invokeLL;
@@ -73,7 +72,7 @@ public final class ConnectivityManagerCompat {
         return invokeL.intValue;
     }
 
-    @RequiresPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)
+    @RequiresPermission("android.permission.ACCESS_NETWORK_STATE")
     public static boolean isActiveNetworkMetered(@NonNull ConnectivityManager connectivityManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -17,41 +17,43 @@ import java.nio.ByteBuffer;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ie implements iq<ie, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final iy f72140a;
+    public static final iy a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f649a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f72141b;
+    public static final iy f63111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f72142c;
+    public static final iy f63112c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f72143d;
+    public static final iy f63113d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f72144e;
+    public static final iy f63114e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f72145f;
+    public static final iy f63115f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f72146g;
+    public static final iy f63116g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f72147h;
+    public static final iy f63117h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f72148i;
-    public static final iy j;
-    public static final iy k;
+    public static final iy f63118i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final iy f63119j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final iy f63120k;
     public static final iy l;
     public static final iy m;
     public static final iy n;
@@ -120,17 +122,17 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
             }
         }
         f649a = new jg("XmPushActionNotification");
-        f72140a = new iy("", (byte) 11, (short) 1);
-        f72141b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f72142c = new iy("", (byte) 11, (short) 3);
-        f72143d = new iy("", (byte) 11, (short) 4);
-        f72144e = new iy("", (byte) 11, (short) 5);
-        f72145f = new iy("", (byte) 2, (short) 6);
-        f72146g = new iy("", (byte) 11, (short) 7);
-        f72147h = new iy("", (byte) 13, (short) 8);
-        f72148i = new iy("", (byte) 11, (short) 9);
-        j = new iy("", (byte) 11, (short) 10);
-        k = new iy("", (byte) 11, (short) 12);
+        a = new iy("", (byte) 11, (short) 1);
+        f63111b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f63112c = new iy("", (byte) 11, (short) 3);
+        f63113d = new iy("", (byte) 11, (short) 4);
+        f63114e = new iy("", (byte) 11, (short) 5);
+        f63115f = new iy("", (byte) 2, (short) 6);
+        f63116g = new iy("", (byte) 11, (short) 7);
+        f63117h = new iy("", (byte) 13, (short) 8);
+        f63118i = new iy("", (byte) 11, (short) 9);
+        f63119j = new iy("", (byte) 11, (short) 10);
+        f63120k = new iy("", (byte) 11, (short) 12);
         l = new iy("", (byte) 11, (short) 13);
         m = new iy("", (byte) 11, (short) 14);
         n = new iy("", (byte) 10, (short) 15);
@@ -175,7 +177,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         }
         this.f657b = str;
         this.f656a = z;
-        m471a(true);
+        m520a(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -201,21 +203,21 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ieVar)) == null) {
             if (ie.class.equals(ieVar.getClass())) {
-                int compareTo = Boolean.valueOf(m472a()).compareTo(Boolean.valueOf(ieVar.m472a()));
+                int compareTo = Boolean.valueOf(m521a()).compareTo(Boolean.valueOf(ieVar.m521a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m472a() || (a16 = ir.a(this.f652a, ieVar.f652a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(m475b()).compareTo(Boolean.valueOf(ieVar.m475b()));
+                if (!m521a() || (a16 = ir.a(this.f652a, ieVar.f652a)) == 0) {
+                    int compareTo2 = Boolean.valueOf(m524b()).compareTo(Boolean.valueOf(ieVar.m524b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
                     }
-                    if (!m475b() || (a15 = ir.a(this.f651a, ieVar.f651a)) == 0) {
-                        int compareTo3 = Boolean.valueOf(m476c()).compareTo(Boolean.valueOf(ieVar.m476c()));
+                    if (!m524b() || (a15 = ir.a(this.f651a, ieVar.f651a)) == 0) {
+                        int compareTo3 = Boolean.valueOf(m525c()).compareTo(Boolean.valueOf(ieVar.m525c()));
                         if (compareTo3 != 0) {
                             return compareTo3;
                         }
-                        if (!m476c() || (a14 = ir.a(this.f657b, ieVar.f657b)) == 0) {
+                        if (!m525c() || (a14 = ir.a(this.f657b, ieVar.f657b)) == 0) {
                             int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(ieVar.d()));
                             if (compareTo4 != 0) {
                                 return compareTo4;
@@ -354,7 +356,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
             this.f656a = z;
-            m471a(true);
+            m520a(true);
             return this;
         }
         return (ie) invokeZ.objValue;
@@ -371,21 +373,21 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m468a() {
+    public String m517a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f657b : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, String> m469a() {
+    public Map<String, String> m518a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f655a : (Map) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m470a() {
+    public void m519a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f657b == null) {
             throw new jc("Required field 'id' was not present! Struct: " + toString());
@@ -398,22 +400,22 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048586, this, jbVar) != null) {
             return;
         }
-        jbVar.m527a();
+        jbVar.m576a();
         while (true) {
-            iy m523a = jbVar.m523a();
-            byte b2 = m523a.f72248a;
+            iy m572a = jbVar.m572a();
+            byte b2 = m572a.a;
             if (b2 == 0) {
                 jbVar.f();
                 if (f()) {
-                    m470a();
+                    m519a();
                     return;
                 }
                 throw new jc("Required field 'requireAck' was not found in serialized data! Struct: " + toString());
             }
-            switch (m523a.f815a) {
+            switch (m572a.f815a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f652a = jbVar.m528a();
+                        this.f652a = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
@@ -429,46 +431,46 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f657b = jbVar.m528a();
+                        this.f657b = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f659c = jbVar.m528a();
+                        this.f659c = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f660d = jbVar.m528a();
+                        this.f660d = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 2) {
-                        this.f656a = jbVar.m532a();
-                        m471a(true);
+                        this.f656a = jbVar.m581a();
+                        m520a(true);
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f661e = jbVar.m528a();
+                        this.f661e = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 13) {
-                        ja m525a = jbVar.m525a();
-                        this.f655a = new HashMap(m525a.f819a * 2);
-                        for (int i2 = 0; i2 < m525a.f819a; i2++) {
-                            this.f655a.put(jbVar.m528a(), jbVar.m528a());
+                        ja m574a = jbVar.m574a();
+                        this.f655a = new HashMap(m574a.f819a * 2);
+                        for (int i2 = 0; i2 < m574a.f819a; i2++) {
+                            this.f655a.put(jbVar.m577a(), jbVar.m577a());
                         }
                         jbVar.h();
                         continue;
@@ -477,42 +479,42 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
                     break;
                 case 9:
                     if (b2 == 11) {
-                        this.f662f = jbVar.m528a();
+                        this.f662f = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 10:
                     if (b2 == 11) {
-                        this.f663g = jbVar.m528a();
+                        this.f663g = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 12:
                     if (b2 == 11) {
-                        this.f664h = jbVar.m528a();
+                        this.f664h = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 13:
                     if (b2 == 11) {
-                        this.f665i = jbVar.m528a();
+                        this.f665i = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 14:
                     if (b2 == 11) {
-                        this.f653a = jbVar.m529a();
+                        this.f653a = jbVar.m578a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 15:
                     if (b2 == 10) {
-                        this.f650a = jbVar.m522a();
+                        this.f650a = jbVar.m571a();
                         b(true);
                         continue;
                         jbVar.g();
@@ -520,7 +522,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
                     break;
                 case 20:
                     if (b2 == 2) {
-                        this.f658b = jbVar.m532a();
+                        this.f658b = jbVar.m581a();
                         c(true);
                         continue;
                         jbVar.g();
@@ -543,7 +545,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m471a(boolean z) {
+    public void m520a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.f654a.set(0, z);
@@ -551,33 +553,33 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m472a() {
+    public boolean m521a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f652a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m473a(ie ieVar) {
+    public boolean m522a(ie ieVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, ieVar)) == null) {
             if (ieVar == null) {
                 return false;
             }
-            boolean m472a = m472a();
-            boolean m472a2 = ieVar.m472a();
-            if ((m472a || m472a2) && !(m472a && m472a2 && this.f652a.equals(ieVar.f652a))) {
+            boolean m521a = m521a();
+            boolean m521a2 = ieVar.m521a();
+            if ((m521a || m521a2) && !(m521a && m521a2 && this.f652a.equals(ieVar.f652a))) {
                 return false;
             }
-            boolean m475b = m475b();
-            boolean m475b2 = ieVar.m475b();
-            if ((m475b || m475b2) && !(m475b && m475b2 && this.f651a.m422a(ieVar.f651a))) {
+            boolean m524b = m524b();
+            boolean m524b2 = ieVar.m524b();
+            if ((m524b || m524b2) && !(m524b && m524b2 && this.f651a.m471a(ieVar.f651a))) {
                 return false;
             }
-            boolean m476c = m476c();
-            boolean m476c2 = ieVar.m476c();
-            if ((m476c || m476c2) && !(m476c && m476c2 && this.f657b.equals(ieVar.f657b))) {
+            boolean m525c = m525c();
+            boolean m525c2 = ieVar.m525c();
+            if ((m525c || m525c2) && !(m525c && m525c2 && this.f657b.equals(ieVar.f657b))) {
                 return false;
             }
             boolean d2 = d();
@@ -641,7 +643,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m474a() {
+    public byte[] m523a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -671,43 +673,43 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, jbVar) == null) {
-            m470a();
+            m519a();
             jbVar.a(f649a);
-            if (this.f652a != null && m472a()) {
-                jbVar.a(f72140a);
+            if (this.f652a != null && m521a()) {
+                jbVar.a(a);
                 jbVar.a(this.f652a);
                 jbVar.b();
             }
-            if (this.f651a != null && m475b()) {
-                jbVar.a(f72141b);
+            if (this.f651a != null && m524b()) {
+                jbVar.a(f63111b);
                 this.f651a.b(jbVar);
                 jbVar.b();
             }
             if (this.f657b != null) {
-                jbVar.a(f72142c);
+                jbVar.a(f63112c);
                 jbVar.a(this.f657b);
                 jbVar.b();
             }
             if (this.f659c != null && d()) {
-                jbVar.a(f72143d);
+                jbVar.a(f63113d);
                 jbVar.a(this.f659c);
                 jbVar.b();
             }
             if (this.f660d != null && e()) {
-                jbVar.a(f72144e);
+                jbVar.a(f63114e);
                 jbVar.a(this.f660d);
                 jbVar.b();
             }
-            jbVar.a(f72145f);
+            jbVar.a(f63115f);
             jbVar.a(this.f656a);
             jbVar.b();
             if (this.f661e != null && g()) {
-                jbVar.a(f72146g);
+                jbVar.a(f63116g);
                 jbVar.a(this.f661e);
                 jbVar.b();
             }
             if (this.f655a != null && h()) {
-                jbVar.a(f72147h);
+                jbVar.a(f63117h);
                 jbVar.a(new ja((byte) 11, (byte) 11, this.f655a.size()));
                 for (Map.Entry<String, String> entry : this.f655a.entrySet()) {
                     jbVar.a(entry.getKey());
@@ -717,17 +719,17 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f662f != null && i()) {
-                jbVar.a(f72148i);
+                jbVar.a(f63118i);
                 jbVar.a(this.f662f);
                 jbVar.b();
             }
             if (this.f663g != null && j()) {
-                jbVar.a(j);
+                jbVar.a(f63119j);
                 jbVar.a(this.f663g);
                 jbVar.b();
             }
             if (this.f664h != null && k()) {
-                jbVar.a(k);
+                jbVar.a(f63120k);
                 jbVar.a(this.f664h);
                 jbVar.b();
             }
@@ -752,7 +754,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             jbVar.c();
-            jbVar.m531a();
+            jbVar.m580a();
         }
     }
 
@@ -764,7 +766,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m475b() {
+    public boolean m524b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f651a != null : invokeV.booleanValue;
@@ -794,7 +796,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m476c() {
+    public boolean m525c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f657b != null : invokeV.booleanValue;
@@ -827,7 +829,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, obj)) == null) {
             if (obj != null && (obj instanceof ie)) {
-                return m473a((ie) obj);
+                return m522a((ie) obj);
             }
             return false;
         }
@@ -910,7 +912,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionNotification(");
             boolean z2 = false;
-            if (m472a()) {
+            if (m521a()) {
                 sb.append("debug:");
                 String str = this.f652a;
                 if (str == null) {
@@ -922,7 +924,7 @@ public class ie implements iq<ie, Object>, Serializable, Cloneable {
             } else {
                 z = true;
             }
-            if (m475b()) {
+            if (m524b()) {
                 if (!z) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }

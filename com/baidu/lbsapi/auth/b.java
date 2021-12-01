@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,12 +15,12 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +109,7 @@ public class b {
     public static String[] b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             String packageName = context.getPackageName();
             String[] b2 = b(context, packageName);
             if (b2 == null || b2.length <= 0) {
@@ -120,7 +119,7 @@ public class b {
             String[] strArr = new String[length];
             for (int i2 = 0; i2 < length; i2++) {
                 strArr[i2] = b2[i2] + ";" + packageName;
-                if (com.baidu.lbsapi.auth.a.f39406a) {
+                if (com.baidu.lbsapi.auth.a.a) {
                     com.baidu.lbsapi.auth.a.a("mcode" + strArr[i2]);
                 }
             }
@@ -139,7 +138,7 @@ public class b {
         int i2;
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             String[] strArr2 = null;
             try {
                 signatureArr = context.getPackageManager().getPackageInfo(str, 64).signatures;

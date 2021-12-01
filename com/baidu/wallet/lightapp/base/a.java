@@ -18,28 +18,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.core.domain.DomainConfig;
 import com.dxmpay.wallet.core.Domains;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f59693a;
+    public int a;
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1841a {
+    /* loaded from: classes12.dex */
+    public static class C1913a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static a f59694a;
+        public static a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -55,7 +51,7 @@ public class a {
                     return;
                 }
             }
-            f59694a = new a(null);
+            a = new a(null);
         }
     }
 
@@ -66,7 +62,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1841a.f59694a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1913a.a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -82,7 +78,7 @@ public class a {
                 return;
             }
         }
-        this.f59693a = -1;
+        this.a = -1;
     }
 
     public void a(Context context) {

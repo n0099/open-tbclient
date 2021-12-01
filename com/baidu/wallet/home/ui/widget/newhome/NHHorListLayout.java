@@ -32,22 +32,20 @@ import com.baidu.wallet.home.ui.widget.inner.HorizontalListView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NHHorListLayout extends BaseItemLayout {
     public static /* synthetic */ Interceptable $ic;
     public static boolean TYPE_TWO_ITEM;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public HorizontalListView f59441a;
+    public HorizontalListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HomeLayoutOneTipView f59442b;
+    public HomeLayoutOneTipView f52712b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f59443c;
+    public a f52713c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a extends BaseListAdapter<HomeCfgResponse.DataItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,34 +88,32 @@ public class NHHorListLayout extends BaseItemLayout {
     }
 
     @BindLayout("wallet_home_nh_horlistview_item")
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.DataItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @bind("tv_name")
-
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f59445a;
+        public TextView a;
         @bind("tv_value1")
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f59446b;
+        public TextView f52714b;
         @bind("tv_value2")
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f59447c;
+        public TextView f52715c;
         @bind("tv_value3")
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f59448d;
+        public TextView f52716d;
         @bind("framelayout_content")
 
         /* renamed from: e  reason: collision with root package name */
-        public FrameLayout f59449e;
+        public FrameLayout f52717e;
         @bind("divider_view")
 
         /* renamed from: f  reason: collision with root package name */
-        public View f59450f;
+        public View f52718f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -140,41 +136,41 @@ public class NHHorListLayout extends BaseItemLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, dataItem, i2, context, baseListAdapter) == null) {
                 if (!NHHorListLayout.TYPE_TWO_ITEM) {
-                    this.f59449e.setLayoutParams(new ViewGroup.LayoutParams(DisplayUtils.dip2px(context, 145.0f), DisplayUtils.dip2px(context, 89.0f)));
-                    ((LinearLayout.LayoutParams) this.f59445a.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 16.0f), 0, 0, 0);
-                    ((LinearLayout.LayoutParams) this.f59450f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 6.0f), 0, 0, 0);
+                    this.f52717e.setLayoutParams(new ViewGroup.LayoutParams(DisplayUtils.dip2px(context, 145.0f), DisplayUtils.dip2px(context, 89.0f)));
+                    ((LinearLayout.LayoutParams) this.a.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 16.0f), 0, 0, 0);
+                    ((LinearLayout.LayoutParams) this.f52718f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 6.0f), 0, 0, 0);
                 } else {
                     ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-2, -2);
                     layoutParams.width = (DisplayUtils.getDisplayWidth(context) - (DisplayUtils.dip2px(context, 16.0f) * 3)) / 2;
-                    this.f59449e.setLayoutParams(layoutParams);
-                    ((LinearLayout.LayoutParams) this.f59445a.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 20.0f), 0, 0, 0);
-                    ((LinearLayout.LayoutParams) this.f59450f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 10.0f), 0, 0, 0);
+                    this.f52717e.setLayoutParams(layoutParams);
+                    ((LinearLayout.LayoutParams) this.a.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 20.0f), 0, 0, 0);
+                    ((LinearLayout.LayoutParams) this.f52718f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 10.0f), 0, 0, 0);
                 }
-                this.f59445a.setText(dataItem.name);
+                this.a.setText(dataItem.name);
                 if (!TextUtils.isEmpty(dataItem.value2)) {
-                    this.f59447c.setText(dataItem.value2);
-                    this.f59447c.setVisibility(0);
+                    this.f52715c.setText(dataItem.value2);
+                    this.f52715c.setVisibility(0);
                 } else {
-                    this.f59447c.setVisibility(8);
+                    this.f52715c.setVisibility(8);
                 }
                 if (!TextUtils.isEmpty(dataItem.value3)) {
-                    this.f59448d.setText(dataItem.value3);
-                    this.f59448d.setVisibility(0);
+                    this.f52716d.setText(dataItem.value3);
+                    this.f52716d.setVisibility(0);
                 } else {
-                    this.f59448d.setVisibility(8);
+                    this.f52716d.setVisibility(8);
                 }
                 if (!TextUtils.isEmpty(dataItem.value1)) {
-                    this.f59446b.setText(dataItem.value1);
-                    this.f59446b.setVisibility(0);
+                    this.f52714b.setText(dataItem.value1);
+                    this.f52714b.setVisibility(0);
                     return;
                 }
-                this.f59446b.setVisibility(8);
+                this.f52714b.setVisibility(8);
             }
         }
     }
 
     @BindLayout("NOT_USE_XML")
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class c extends BaseListAdapter.BaseViewHolder<HomeCfgResponse.DataItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -265,19 +261,17 @@ public class NHHorListLayout extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_horview_layout"), this);
-            this.f59442b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
+            this.f52712b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
             HorizontalListView horizontalListView = (HorizontalListView) findViewById(ResUtils.id(getContext(), "hor_listview"));
-            this.f59441a = horizontalListView;
+            this.a = horizontalListView;
             horizontalListView.setDividerWidth(DisplayUtils.dip2px(getContext(), 16.0f));
             a aVar = new a(getContext());
-            this.f59443c = aVar;
-            this.f59441a.setAdapter((ListAdapter) aVar);
-            this.f59441a.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHHorListLayout.1
+            this.f52713c = aVar;
+            this.a.setAdapter((ListAdapter) aVar);
+            this.a.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHHorListLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NHHorListLayout f59444a;
+                public final /* synthetic */ NHHorListLayout a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -294,16 +288,16 @@ public class NHHorListLayout extends BaseItemLayout {
                             return;
                         }
                     }
-                    this.f59444a = this;
+                    this.a = this;
                 }
 
                 /* JADX WARN: Type inference failed for: r5v1, types: [android.widget.Adapter] */
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                         HomeCfgResponse.DataItem dataItem = (HomeCfgResponse.DataItem) adapterView.getAdapter().getItem(i2);
-                        this.f59444a.getWalletInterface().jump(dataItem.getName(), dataItem.getType(), dataItem.getLinkAddr(), dataItem.getPrevlogin());
+                        this.a.getWalletInterface().jump(dataItem.getName(), dataItem.getType(), dataItem.getLinkAddr(), dataItem.getPrevlogin());
                     }
                 }
             });
@@ -327,17 +321,17 @@ public class NHHorListLayout extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (!TextUtils.isEmpty(this.mConfigData.getGroup_name())) {
-                this.f59442b.setData(this.mConfigData, getWalletInterface());
+                this.f52712b.setData(this.mConfigData, getWalletInterface());
             } else {
-                this.f59442b.setVisibility(8);
+                this.f52712b.setVisibility(8);
             }
             ArrayList arrayList = new ArrayList();
             if (this.mConfigData.list.length <= 2) {
                 TYPE_TWO_ITEM = true;
-                ((LinearLayout.LayoutParams) this.f59441a.getLayoutParams()).setMargins(DisplayUtils.dip2px(getContext(), 16.0f), 0, DisplayUtils.dip2px(getContext(), 16.0f), 0);
+                ((LinearLayout.LayoutParams) this.a.getLayoutParams()).setMargins(DisplayUtils.dip2px(getContext(), 16.0f), 0, DisplayUtils.dip2px(getContext(), 16.0f), 0);
                 arrayList.addAll(Arrays.asList(this.mConfigData.list));
             } else {
-                ((LinearLayout.LayoutParams) this.f59441a.getLayoutParams()).setMargins(0, 0, 0, 0);
+                ((LinearLayout.LayoutParams) this.a.getLayoutParams()).setMargins(0, 0, 0, 0);
                 TYPE_TWO_ITEM = false;
                 HomeCfgResponse.DataItem dataItem = new HomeCfgResponse.DataItem();
                 dataItem.empty_view = true;
@@ -347,7 +341,7 @@ public class NHHorListLayout extends BaseItemLayout {
                 dataItem2.empty_view = true;
                 arrayList.add(dataItem2);
             }
-            this.f59443c.initList(arrayList);
+            this.f52713c.initList(arrayList);
         }
     }
 

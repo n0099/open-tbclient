@@ -1,6 +1,6 @@
 package com.baidu.tieba.card.data;
 
-import b.a.e.m.e.n;
+import c.a.d.m.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.GuessLikeThreadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CardHListViewNormalItemData implements n, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE;
@@ -56,7 +56,7 @@ public class CardHListViewNormalItemData implements n, Serializable {
         }
     }
 
-    @Override // b.a.e.m.e.n
+    @Override // c.a.d.m.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

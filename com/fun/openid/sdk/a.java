@@ -8,28 +8,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.fun.openid.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes11.dex */
-    public static abstract class AbstractBinderC1902a extends Binder implements a {
+    /* loaded from: classes2.dex */
+    public static abstract class AbstractBinderC1974a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int f63784a = 0;
+        public static final /* synthetic */ int a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public static class C1903a implements a {
+        /* loaded from: classes2.dex */
+        public static class C1975a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public IBinder a;
 
-            /* renamed from: a  reason: collision with root package name */
-            public IBinder f63785a;
-
-            public C1903a(IBinder iBinder) {
+            public C1975a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,14 +40,14 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f63785a = iBinder;
+                this.a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63785a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (IBinder) invokeV.objValue;
             }
         }
     }

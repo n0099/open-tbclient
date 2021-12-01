@@ -18,8 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class VideoReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
@@ -30,7 +31,7 @@ public class VideoReceiver extends BroadcastReceiver {
     public int mLastVolume;
     public VideoReceiverListener mListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface VideoReceiverListener {
         void onBatteryChanged(int i2);
 
@@ -130,7 +131,7 @@ public class VideoReceiver extends BroadcastReceiver {
                 }
                 break;
             case -1940635523:
-                if (action.equals(ACTION_VOLUME_CHANGED)) {
+                if (action.equals("android.media.VOLUME_CHANGED_ACTION")) {
                     c2 = '\b';
                     break;
                 }
@@ -223,7 +224,7 @@ public class VideoReceiver extends BroadcastReceiver {
                     return;
                 }
             case 7:
-                int intExtra2 = (intent.getIntExtra("level", 0) * 100) / intent.getIntExtra("scale", 1);
+                int intExtra2 = (intent.getIntExtra("level", 0) * 100) / intent.getIntExtra(AnimationProperty.SCALE, 1);
                 BdBatteryUtils.batter_level = intExtra2;
                 this.mListener.onBatteryChanged(intExtra2);
                 return;
@@ -249,7 +250,7 @@ public class VideoReceiver extends BroadcastReceiver {
             intentFilter.addAction("android.intent.action.HEADSET_PLUG");
             intentFilter.addAction("android.media.AUDIO_BECOMING_NOISY");
             intentFilter.addAction("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED");
-            intentFilter.addAction(ACTION_VOLUME_CHANGED);
+            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
             BDPlayerConfig.getAppContext().registerReceiver(this, intentFilter);
             this.mLastStatus = NetUtils.getNetStatus();
         }

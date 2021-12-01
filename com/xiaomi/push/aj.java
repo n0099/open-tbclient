@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aj extends ai.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ai f71578a;
+    public final /* synthetic */ ai a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f115a;
@@ -39,7 +37,7 @@ public class aj extends ai.b {
                 return;
             }
         }
-        this.f71578a = aiVar;
+        this.a = aiVar;
         this.f116a = z;
         this.f115a = str;
     }
@@ -59,7 +57,7 @@ public class aj extends ai.b {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f116a) {
             return;
         }
-        sharedPreferences = this.f71578a.f111a;
+        sharedPreferences = this.a.f111a;
         sharedPreferences.edit().putLong(this.f115a, System.currentTimeMillis()).commit();
     }
 }

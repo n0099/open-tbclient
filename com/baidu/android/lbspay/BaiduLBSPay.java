@@ -12,24 +12,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.api.BaiduWalletDelegate;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BaiduLBSPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.lbspay.BaiduLBSPay$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static BaiduLBSPay f35646a;
+        public static BaiduLBSPay a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,7 +43,7 @@ public class BaiduLBSPay {
                     return;
                 }
             }
-            f35646a = new BaiduLBSPay(null);
+            a = new BaiduLBSPay(null);
         }
     }
 
@@ -56,7 +54,7 @@ public class BaiduLBSPay {
     public static BaiduLBSPay getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f35646a : (BaiduLBSPay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (BaiduLBSPay) invokeV.objValue;
     }
 
     public void doCallFrontCashierPay(Activity activity, GetPayOrderListener getPayOrderListener, LBSPayBack lBSPayBack, Map<String, String> map, String str) {

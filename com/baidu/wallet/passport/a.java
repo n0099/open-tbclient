@@ -7,7 +7,6 @@ import android.webkit.CookieSyncManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.JsonUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,37 +24,33 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.SimpleTimeZone;
 import org.json.JSONException;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String[] f60379a;
+    public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f60380b = 8;
+    public static final int f53326b = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f60381c;
+    public Context f53327c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f60382d;
+    public String f53328d;
 
     /* renamed from: com.baidu.wallet.passport.a$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.passport.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static class C1849a {
+    /* loaded from: classes12.dex */
+    public static class C1921a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final a f60383a;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -71,10 +66,10 @@ public class a {
                     return;
                 }
             }
-            f60383a = new a(null);
+            a = new a(null);
         }
 
-        public C1849a() {
+        public C1921a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +97,7 @@ public class a {
                 return;
             }
         }
-        f60379a = new String[]{"dxmpay.com", "duxiaoman.com", "baifubao.com", "8.baidu.com", "wallet.baidu.com", "umoney.baidu.com", "icash.baidu.com", "yqh.baidu.com", "ibeauty.baidu.com", "front.baidu.com", "activity8.baidu.com", "qianbao.baidu.com", "dxmbaoxian.com", "oneicash.baidu.com", "twoicash.baidu.com", "threeicash.baidu.com", "onejin.baidu.com", "twojin.baidu.com", "threejin.baidu.com", "dxmcash.baidu.com", "dxmoney.baidu.com", "fincash.baidu.com", "www.baiyingfund.com", "www.duxiaomanfund.com"};
+        a = new String[]{"dxmpay.com", "duxiaoman.com", "baifubao.com", "8.baidu.com", "wallet.baidu.com", "umoney.baidu.com", "icash.baidu.com", "yqh.baidu.com", "ibeauty.baidu.com", "front.baidu.com", "activity8.baidu.com", "qianbao.baidu.com", "dxmbaoxian.com", "oneicash.baidu.com", "twoicash.baidu.com", "threeicash.baidu.com", "onejin.baidu.com", "twojin.baidu.com", "threejin.baidu.com", "dxmcash.baidu.com", "dxmoney.baidu.com", "fincash.baidu.com", "www.baiyingfund.com", "www.duxiaomanfund.com"};
     }
 
     public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -118,8 +113,8 @@ public class a {
             Date time = calendar.getTime();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            this.f60382d = simpleDateFormat.format(time);
-            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f60382d);
+            this.f53328d = simpleDateFormat.format(time);
+            LogUtil.d("--DxmCookieManager---cookie----expires--->" + this.f53328d);
         }
     }
 
@@ -143,13 +138,13 @@ public class a {
                 return;
             }
         }
-        this.f60381c = BaiduWalletDelegate.getInstance().getAppContext();
+        this.f53327c = BaiduWalletDelegate.getInstance().getAppContext();
     }
 
     private String[] b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
             try {
                 return (String[]) JsonUtils.fromJson(str, String[].class);
             } catch (JSONException unused) {
@@ -162,7 +157,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1849a.f60383a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1921a.a : (a) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -174,19 +169,19 @@ public class a {
 
     private void a(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(65541, this, i2, str) == null) {
             try {
                 a(i2);
-                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f60381c));
+                String[] b2 = b(SdkInitResponse.getInstance().getCookiesSyncDomainList(this.f53327c));
                 if (b2 == null) {
-                    LogUtil.d("Cookie", "use default: " + Arrays.toString(f60379a));
-                    b2 = f60379a;
+                    LogUtil.d("Cookie", "use default: " + Arrays.toString(a));
+                    b2 = a;
                 }
-                CookieSyncManager.createInstance(this.f60381c);
+                CookieSyncManager.createInstance(this.f53327c);
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.setAcceptCookie(true);
                 String str2 = "OPENBDUSS=" + str;
-                String str3 = ";expires=" + this.f60382d;
+                String str3 = ";expires=" + this.f53328d;
                 LogUtil.d("------------------DxmCookieManager start setCookie--------------");
                 for (String str4 : b2) {
                     if (!str4.startsWith(".")) {

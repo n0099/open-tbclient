@@ -11,12 +11,10 @@ import android.media.MediaMuxer;
 import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.t.c;
-import b.a.x0.t.h;
-import b.a.x0.t.n;
+import c.a.x0.t.c;
+import c.a.x0.t.h;
+import c.a.x0.t.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.XAdSimpleImageLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +34,7 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(18)
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class VideoReverseHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OUTPUT_VIDEO_MIME_TYPE = "video/avc";
@@ -52,7 +50,7 @@ public class VideoReverseHelper {
     public MediaCodec mVideoDecoder;
     public MediaCodec mVideoEncoder;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class BuffeInfoWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +97,7 @@ public class VideoReverseHelper {
     private List<BuffeInfoWrapper> extractVideoToPath(String str, String str2) {
         InterceptResult invokeLL;
         int i2;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, str, str2)) == null) {
             if (this.mMediaExtractor == null) {
@@ -157,7 +155,7 @@ public class VideoReverseHelper {
                         } else {
                             while (true) {
                                 i2 = -1;
-                                j = 10000;
+                                j2 = 10000;
                                 if (z2) {
                                     break;
                                 } else if (this.mIsCancel) {
@@ -185,7 +183,7 @@ public class VideoReverseHelper {
                                     FileUtils.deleteFile(str2);
                                     break;
                                 } else {
-                                    int dequeueOutputBuffer = this.mVideoDecoder.dequeueOutputBuffer(bufferInfo, j);
+                                    int dequeueOutputBuffer = this.mVideoDecoder.dequeueOutputBuffer(bufferInfo, j2);
                                     if (dequeueOutputBuffer != i2) {
                                         if (dequeueOutputBuffer == -3) {
                                             outputBuffers = this.mVideoDecoder.getOutputBuffers();
@@ -219,7 +217,7 @@ public class VideoReverseHelper {
                                                 z = true;
                                             }
                                             i2 = -1;
-                                            j = 10000;
+                                            j2 = 10000;
                                         }
                                     }
                                 }
@@ -315,7 +313,7 @@ public class VideoReverseHelper {
     private int getSupportColorFormat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             int[] allSupportColorFormat = getAllSupportColorFormat();
             if (allSupportColorFormat == null || allSupportColorFormat.length <= 0) {
                 return 2135033992;
@@ -341,7 +339,7 @@ public class VideoReverseHelper {
     private int[] getUVPos(int i2, int i3, int i4, int i5) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(AdIconUtil.BAIDU_LOGO_ID, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65542, this, i2, i3, i4, i5)) == null) {
             if (i2 % 2 != 0) {
                 i2 = (i2 / 2) * 2;
             }
@@ -457,9 +455,9 @@ public class VideoReverseHelper {
         OnTimeReverseListener onTimeReverseListener2;
         WeakReference<OnTimeReverseListener> weakReference3;
         OnTimeReverseListener onTimeReverseListener3;
-        long j;
-        String str8;
         long j2;
+        String str8;
+        long j3;
         int i2;
         int i3;
         int i4;
@@ -490,7 +488,7 @@ public class VideoReverseHelper {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str9 = new File(str).getParent() + File.separator + REVERSE_TEMP_SUFFIX + System.currentTimeMillis() + XAdSimpleImageLoader.TEMP_SUFFIX;
+        String str9 = new File(str).getParent() + File.separator + REVERSE_TEMP_SUFFIX + System.currentTimeMillis() + ".temp";
         String str10 = new File(str).getParent() + File.separator + REVERSE_TEMP_SUFFIX + System.currentTimeMillis() + ".temp_reverse";
         List<BuffeInfoWrapper> extractVideoToPath = extractVideoToPath(str, str9);
         if (h.e(extractVideoToPath) || !FileUtils.checkFile(str9)) {
@@ -516,12 +514,12 @@ public class VideoReverseHelper {
                                 i2 = i4;
                                 i3 = i5;
                                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i2, i3);
-                                j = currentTimeMillis;
+                                j2 = currentTimeMillis;
                                 if (this.mDeocderOutputFormat == null && this.mDeocderOutputFormat.containsKey("color-format")) {
                                     i11 = this.mDeocderOutputFormat.getInteger("color-format");
-                                    j2 = duration;
+                                    j3 = duration;
                                 } else {
-                                    j2 = duration;
+                                    j3 = duration;
                                     i11 = -1;
                                 }
                                 allSupportColorFormat = getAllSupportColorFormat();
@@ -602,10 +600,10 @@ public class VideoReverseHelper {
                             }
                         }
                         MediaFormat createVideoFormat2 = MediaFormat.createVideoFormat("video/avc", i2, i3);
-                        j = currentTimeMillis;
+                        j2 = currentTimeMillis;
                         if (this.mDeocderOutputFormat == null) {
                         }
-                        j2 = duration;
+                        j3 = duration;
                         i11 = -1;
                         allSupportColorFormat = getAllSupportColorFormat();
                         if (allSupportColorFormat != null) {
@@ -718,9 +716,9 @@ public class VideoReverseHelper {
             } else {
                 str3 = "MediaCodec点击倒放失败";
                 str4 = "MediaCodec预倒放失败";
-                j = currentTimeMillis;
+                j2 = currentTimeMillis;
                 str8 = str10;
-                j2 = duration;
+                j3 = duration;
                 i2 = 0;
                 i3 = 0;
                 i4 = 0;
@@ -772,11 +770,11 @@ public class VideoReverseHelper {
                                     list = extractVideoToPath;
                                     i8 = i14;
                                 } else {
-                                    long j3 = j2 - bufferInfo4.presentationTimeUs;
-                                    bufferInfo4.presentationTimeUs = j3;
+                                    long j4 = j3 - bufferInfo4.presentationTimeUs;
+                                    bufferInfo4.presentationTimeUs = j4;
                                     list = extractVideoToPath;
                                     i8 = i14;
-                                    if (j3 < 0) {
+                                    if (j4 < 0) {
                                         bufferInfo4.presentationTimeUs = 0L;
                                     }
                                 }
@@ -955,7 +953,7 @@ public class VideoReverseHelper {
                                 i7 = i2;
                                 fileChannel2 = channel;
                                 list = extractVideoToPath;
-                                this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, 0, j2, 4);
+                                this.mVideoEncoder.queueInputBuffer(dequeueInputBuffer, 0, 0, j3, 4);
                                 i14 = i14;
                                 z6 = true;
                             }
@@ -1041,7 +1039,7 @@ public class VideoReverseHelper {
             } catch (Exception e19) {
                 c.g(e19);
             }
-            c.d("finish:" + (System.currentTimeMillis() - j));
+            c.d("finish:" + (System.currentTimeMillis() - j2));
             FileUtils.deleteFile(str9);
             new File(str8).renameTo(new File(str2));
             return true;

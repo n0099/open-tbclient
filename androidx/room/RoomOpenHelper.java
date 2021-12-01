@@ -10,7 +10,6 @@ import androidx.sqlite.db.SimpleSQLiteQuery;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -137,7 +136,7 @@ public class RoomOpenHelper extends SupportSQLiteOpenHelper.Callback {
 
     private void updateIdentity(SupportSQLiteDatabase supportSQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, supportSQLiteDatabase) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, supportSQLiteDatabase) == null) {
             createMasterTableIfNotExists(supportSQLiteDatabase);
             supportSQLiteDatabase.execSQL(RoomMasterTable.createInsertQuery(this.mIdentityHash));
         }

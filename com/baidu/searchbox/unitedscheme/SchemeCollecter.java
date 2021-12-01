@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SchemeCollecter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLASSIFY_BASE = "base";
@@ -132,7 +131,7 @@ public class SchemeCollecter {
             if (CLASSIFY_BASE.equals(str)) {
                 str2 = i2 == 0 ? "{\"totalSlices\":1,\"currentIndex\":0,\"defaults\":{\"scheme\":\"\"},\"descriptions\":[{\"args\":[{\"name\":\"appKey\",\"value\":\"string\"},{\"name\":\"path\",\"value\":\"string=\"},{\"name\":\"query\",\"value\":\"Object=\"},{\"name\":\"_baiduboxapp\",\"value\":{\"type\":{\"ext\":\"Object=\",\"srcAppPage\":\"string=\",\"extraData\":\"Object=\",\"navi\":\"string=\",\"ubc\":\"Object=\",\"notinhis\":\"string=\",\"backwardURL\":\"string=\",\"from\":\"string=\",\"srcAppId\":\"string=\"}}},{\"name\":\"abtest\",\"value\":\"string=\"},{\"name\":\"oauthType\",\"value\":\"string=\"}],\"method\":\"Bdbox_android_jsbridge.dispatch\",\"authority\":\"swan\",\"name\":\"swan.open\",\"invoke\":\"method.openSwan\"}]}" : "";
             }
-            if ("empty".equals(str)) {
+            if (CLASSIFY_EMPTY.equals(str)) {
                 str2 = i2 == 0 ? "{\"totalSlices\":1,\"currentIndex\":0,\"defaults\":{\"scheme\":\"\"},\"descriptions\":[]}" : "";
             }
             return !"swan/webview_ab".equals(str) ? "" : str2;
@@ -148,7 +147,7 @@ public class SchemeCollecter {
         }
         if (CLASSIFY_BASE.equals(str)) {
         }
-        if ("empty".equals(str)) {
+        if (CLASSIFY_EMPTY.equals(str)) {
         }
         if (!"swan/webview_ab".equals(str)) {
         }
@@ -157,7 +156,7 @@ public class SchemeCollecter {
     public static int getSchemesDesListSize(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             int i2 = "all".equals(str) ? 7 : 0;
             if (CLASSIFY_SWAN_WEBVIEW.equals(str)) {
                 i2 = 3;
@@ -174,7 +173,7 @@ public class SchemeCollecter {
             if (CLASSIFY_BASE.equals(str)) {
                 i2 = 1;
             }
-            int i3 = "empty".equals(str) ? 1 : i2;
+            int i3 = CLASSIFY_EMPTY.equals(str) ? 1 : i2;
             if ("swan/webview_ab".equals(str)) {
                 return 0;
             }
@@ -186,7 +185,7 @@ public class SchemeCollecter {
     public static boolean isUrlInWhiteList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (!JsNativeDomainWhiteListListener.whiteListEnable || TextUtils.isEmpty(str) || str.startsWith("file://")) {
                 return true;
             }

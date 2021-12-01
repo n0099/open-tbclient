@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
-import b.a.e.f.l.b;
-import b.a.e.f.l.e;
-import b.a.e.f.p.l;
-import b.a.e.m.d.a;
-import b.a.q0.c0.c;
+import c.a.d.f.l.b;
+import c.a.d.f.l.e;
+import c.a.d.f.p.l;
+import c.a.d.m.d.a;
+import c.a.q0.c0.c;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LocalFileImageLoaderProc2 implements e<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m29decodeToResource(byte[] bArr, Object... objArr) {
+    public a m51decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
@@ -60,7 +60,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
         return (a) invokeLL.objValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
         return (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
         return (a) invokeCommon.objValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -139,7 +139,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
         return (String) invokeLII.objValue;
     }
 
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && obj != null && (obj instanceof a)) {
@@ -154,7 +154,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public class LocalFileImageLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // b.a.e.f.l.e
+    @Override // c.a.d.f.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

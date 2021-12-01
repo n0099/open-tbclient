@@ -4,7 +4,7 @@ import android.content.Context;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes2.dex */
 public interface d {
-    void a(int i2, int i3, String str, int i4, long j);
+    void a(int i2, int i3, String str, int i4, long j2);
 
     void a(int i2, int i3, String str, String str2, String str3);
 

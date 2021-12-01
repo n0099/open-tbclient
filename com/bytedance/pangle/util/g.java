@@ -8,14 +8,14 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(InputStream inputStream, OutputStream outputStream, long j) {
+    public static void a(InputStream inputStream, OutputStream outputStream, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{inputStream, outputStream, Long.valueOf(j)}) == null) || inputStream == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{inputStream, outputStream, Long.valueOf(j2)}) == null) || inputStream == null) {
             return;
         }
         BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
@@ -32,7 +32,7 @@ public final class g {
                 i2 += read;
             }
             bufferedOutputStream.flush();
-            if (j > 0 && i2 != j) {
+            if (j2 > 0 && i2 != j2) {
                 throw new IOException("copy is not completed");
             }
         } finally {

@@ -4,9 +4,9 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.h0.b.a.a;
-import b.a.t0.b0;
-import b.a.t0.n0.c;
+import c.a.i0.b.a.a;
+import c.a.t0.b0;
+import c.a.t0.n0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -23,12 +23,10 @@ import com.baidu.ubc.UBC;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class IPCService implements c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final boolean f57543a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +42,7 @@ public class IPCService implements c {
                 return;
             }
         }
-        f57543a = b0.m();
+        a = b0.m();
     }
 
     public IPCService() {
@@ -61,14 +59,14 @@ public class IPCService implements c {
         }
     }
 
-    @Override // b.a.t0.n0.c
+    @Override // c.a.t0.n0.c
     public IBinder a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? IPCServiceManager.f(str, true) : (IBinder) invokeL.objValue;
     }
 
-    @Override // b.a.t0.n0.c
+    @Override // c.a.t0.n0.c
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -105,19 +103,19 @@ public class IPCService implements c {
                     if (uBCManager != null) {
                         uBCManager.flowAddEvent(flow, str, str2);
                     }
-                    if (IPCService.f57543a) {
+                    if (IPCService.a) {
                         String str3 = " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle();
                     }
                 }
 
                 @Override // com.baidu.ubc.IRemoteUBCService
-                public void flowAddEventWithTime(Flow flow, String str, String str2, long j) throws RemoteException {
+                public void flowAddEventWithTime(Flow flow, String str, String str2, long j2) throws RemoteException {
                     UBCManager uBCManager;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) || flow == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{flow, str, str2, Long.valueOf(j2)}) == null) || flow == null || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
                         return;
                     }
-                    uBCManager.flowAddEventWithDate(flow, str, str2, j);
+                    uBCManager.flowAddEventWithDate(flow, str, str2, j2);
                 }
 
                 @Override // com.baidu.ubc.IRemoteUBCService
@@ -140,7 +138,7 @@ public class IPCService implements c {
                     if (uBCManager != null) {
                         uBCManager.flowEnd(flow);
                     }
-                    if (IPCService.f57543a) {
+                    if (IPCService.a) {
                         String str = " [end] flow id " + flow.getId() + " handler id " + flow.getHandle();
                     }
                 }
@@ -216,7 +214,7 @@ public class IPCService implements c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048585, this, str, str2, i2)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i2);
-                        if (IPCService.f57543a && beginFlow != null) {
+                        if (IPCService.a && beginFlow != null) {
                             String str3 = " process name " + a.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle();
                         }
                         return beginFlow;
@@ -230,7 +228,7 @@ public class IPCService implements c {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048586, this, str, str2, i2, str3)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i2);
-                        if (IPCService.f57543a && beginFlow != null) {
+                        if (IPCService.a && beginFlow != null) {
                             String str4 = " process name " + a.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle();
                         }
                         return beginFlow;

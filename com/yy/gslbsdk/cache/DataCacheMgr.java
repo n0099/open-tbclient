@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DataCacheMgr {
     public static final /* synthetic */ DataCacheMgr[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -141,14 +141,14 @@ public final class DataCacheMgr {
         }
     }
 
-    public void addDnsCost(long j) {
+    public void addDnsCost(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             if (this.mListDnsCost == null) {
                 this.mListDnsCost = new LinkedList();
             }
             synchronized (this.mListDnsCost) {
-                this.mListDnsCost.add(Long.valueOf(j));
+                this.mListDnsCost.add(Long.valueOf(j2));
             }
         }
     }

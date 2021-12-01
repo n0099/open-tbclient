@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RtcUtility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APPID = "appid";
@@ -81,7 +80,7 @@ public class RtcUtility {
     public static String getAppVersionName(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
             } catch (PackageManager.NameNotFoundException e2) {
@@ -95,7 +94,7 @@ public class RtcUtility {
     public static String getBduid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? readStringData(context, "bduid", "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? readStringData(context, "bduid", "") : (String) invokeL.objValue;
     }
 
     public static String getCuid(Context context) {
@@ -185,14 +184,14 @@ public class RtcUtility {
         return invokeLLI.intValue;
     }
 
-    public static long readLongData(Context context, String str, long j) {
+    public static long readLongData(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
             if (context == null) {
                 return -1L;
             }
-            return context.getSharedPreferences(PREF_COMMON_DATA, 0).getLong(str, j);
+            return context.getSharedPreferences(PREF_COMMON_DATA, 0).getLong(str, j2);
         }
         return invokeCommon.longValue;
     }
@@ -203,10 +202,10 @@ public class RtcUtility {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, str, str2)) == null) ? context == null ? "" : context.getSharedPreferences(PREF_COMMON_DATA, 0).getString(str, str2) : (String) invokeLLL.objValue;
     }
 
-    public static void setAppId(Context context, long j) {
+    public static void setAppId(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65556, null, context, j) == null) {
-            writeLongData(context, "appid", j);
+        if (interceptable == null || interceptable.invokeLJ(65556, null, context, j2) == null) {
+            writeLongData(context, "appid", j2);
         }
     }
 
@@ -236,10 +235,10 @@ public class RtcUtility {
         }
     }
 
-    public static void setIMUK(Context context, long j) {
+    public static void setIMUK(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65560, null, context, j) == null) {
-            writeLongData(context, "uk", j);
+        if (interceptable == null || interceptable.invokeLJ(65560, null, context, j2) == null) {
+            writeLongData(context, "uk", j2);
         }
     }
 
@@ -285,10 +284,10 @@ public class RtcUtility {
         }
     }
 
-    public static void setRtcUserId(Context context, long j) {
+    public static void setRtcUserId(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65567, null, context, j) == null) {
-            writeLongData(context, KEY_RTC_USER_ID, j);
+        if (interceptable == null || interceptable.invokeLJ(65567, null, context, j2) == null) {
+            writeLongData(context, KEY_RTC_USER_ID, j2);
         }
     }
 
@@ -306,10 +305,10 @@ public class RtcUtility {
         }
     }
 
-    public static void writeLongData(Context context, String str, long j) {
+    public static void writeLongData(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65570, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
-            writeSPData(context, str, Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeCommon(65570, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+            writeSPData(context, str, Long.valueOf(j2));
         }
     }
 

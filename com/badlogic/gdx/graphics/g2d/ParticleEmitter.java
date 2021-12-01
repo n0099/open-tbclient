@@ -1,0 +1,1612 @@
+package com.badlogic.gdx.graphics.g2d;
+
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.utils.enums.ShareDirectionType;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.IOException;
+/* loaded from: classes8.dex */
+public class ParticleEmitter {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public float A;
+    public String B;
+    public c.b.b.q.a<String> C;
+    public int D;
+    public boolean[] E;
+    public boolean F;
+    public boolean G;
+    public boolean H;
+    public int I;
+    public boolean J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public int Q;
+    public float R;
+    public float S;
+    public float T;
+    public float U;
+    public float V;
+    public float W;
+    public float X;
+    public float Y;
+    public boolean Z;
+    public f a;
+    public boolean a0;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f31580b;
+    public boolean b0;
+
+    /* renamed from: c  reason: collision with root package name */
+    public f f31581c;
+    public boolean c0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public c f31582d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public g f31583e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public g f31584f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public g f31585g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public g f31586h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public g f31587i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public g f31588j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public g f31589k;
+    public g l;
+    public g m;
+    public b n;
+    public f o;
+    public f p;
+    public g q;
+    public g r;
+    public h s;
+    public float t;
+    public c.b.b.q.a<c.b.b.n.k.g> u;
+    public SpriteMode v;
+    public d[] w;
+    public int x;
+    public int y;
+    public float z;
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public static final class SpawnEllipseSide {
+        public static final /* synthetic */ SpawnEllipseSide[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final SpawnEllipseSide both;
+        public static final SpawnEllipseSide bottom;
+        public static final SpawnEllipseSide top;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(120984347, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$SpawnEllipseSide;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(120984347, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$SpawnEllipseSide;");
+                    return;
+                }
+            }
+            both = new SpawnEllipseSide(ShareDirectionType.BOTH, 0);
+            top = new SpawnEllipseSide("top", 1);
+            SpawnEllipseSide spawnEllipseSide = new SpawnEllipseSide("bottom", 2);
+            bottom = spawnEllipseSide;
+            $VALUES = new SpawnEllipseSide[]{both, top, spawnEllipseSide};
+        }
+
+        public SpawnEllipseSide(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static SpawnEllipseSide valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SpawnEllipseSide) Enum.valueOf(SpawnEllipseSide.class, str) : (SpawnEllipseSide) invokeL.objValue;
+        }
+
+        public static SpawnEllipseSide[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SpawnEllipseSide[]) $VALUES.clone() : (SpawnEllipseSide[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public static final class SpawnShape {
+        public static final /* synthetic */ SpawnShape[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final SpawnShape ellipse;
+        public static final SpawnShape line;
+        public static final SpawnShape point;
+        public static final SpawnShape square;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2025131791, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$SpawnShape;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(2025131791, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$SpawnShape;");
+                    return;
+                }
+            }
+            point = new SpawnShape("point", 0);
+            line = new SpawnShape("line", 1);
+            square = new SpawnShape("square", 2);
+            SpawnShape spawnShape = new SpawnShape("ellipse", 3);
+            ellipse = spawnShape;
+            $VALUES = new SpawnShape[]{point, line, square, spawnShape};
+        }
+
+        public SpawnShape(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static SpawnShape valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SpawnShape) Enum.valueOf(SpawnShape.class, str) : (SpawnShape) invokeL.objValue;
+        }
+
+        public static SpawnShape[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SpawnShape[]) $VALUES.clone() : (SpawnShape[]) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* loaded from: classes8.dex */
+    public static final class SpriteMode {
+        public static final /* synthetic */ SpriteMode[] $VALUES;
+        public static /* synthetic */ Interceptable $ic;
+        public static final SpriteMode animated;
+        public static final SpriteMode random;
+        public static final SpriteMode single;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-40481235, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$SpriteMode;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-40481235, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$SpriteMode;");
+                    return;
+                }
+            }
+            single = new SpriteMode("single", 0);
+            random = new SpriteMode("random", 1);
+            SpriteMode spriteMode = new SpriteMode("animated", 2);
+            animated = spriteMode;
+            $VALUES = new SpriteMode[]{single, random, spriteMode};
+        }
+
+        public SpriteMode(String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    String str2 = (String) objArr2[0];
+                    ((Integer) objArr2[1]).intValue();
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public static SpriteMode valueOf(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (SpriteMode) Enum.valueOf(SpriteMode.class, str) : (SpriteMode) invokeL.objValue;
+        }
+
+        public static SpriteMode[] values() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (SpriteMode[]) $VALUES.clone() : (SpriteMode[]) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final /* synthetic */ int[] f31590b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final /* synthetic */ int[] f31591c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-556557408, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-556557408, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[SpawnShape.values().length];
+            f31591c = iArr;
+            try {
+                iArr[SpawnShape.square.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f31591c[SpawnShape.ellipse.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f31591c[SpawnShape.line.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            int[] iArr2 = new int[SpawnEllipseSide.values().length];
+            f31590b = iArr2;
+            try {
+                iArr2[SpawnEllipseSide.top.ordinal()] = 1;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f31590b[SpawnEllipseSide.bottom.ordinal()] = 2;
+            } catch (NoSuchFieldError unused5) {
+            }
+            int[] iArr3 = new int[SpriteMode.values().length];
+            a = iArr3;
+            try {
+                iArr3[SpriteMode.single.ordinal()] = 1;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[SpriteMode.animated.ordinal()] = 2;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[SpriteMode.random.ordinal()] = 3;
+            } catch (NoSuchFieldError unused8) {
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b extends e {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: e  reason: collision with root package name */
+        public static float[] f31592e;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: c  reason: collision with root package name */
+        public float[] f31593c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public float[] f31594d;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-556557377, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-556557377, "Lcom/badlogic/gdx/graphics/g2d/ParticleEmitter$b;");
+                    return;
+                }
+            }
+            f31592e = new float[4];
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.f31593c = new float[]{1.0f, 1.0f, 1.0f};
+            this.f31594d = new float[]{0.0f};
+            this.f31596b = true;
+        }
+
+        @Override // com.badlogic.gdx.graphics.g2d.ParticleEmitter.e
+        public void a(BufferedReader bufferedReader) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, bufferedReader) != null) {
+                return;
+            }
+            super.a(bufferedReader);
+            if (!this.a) {
+                return;
+            }
+            this.f31593c = new float[ParticleEmitter.n(bufferedReader, "colorsCount")];
+            int i2 = 0;
+            int i3 = 0;
+            while (true) {
+                float[] fArr = this.f31593c;
+                if (i3 >= fArr.length) {
+                    break;
+                }
+                fArr[i3] = ParticleEmitter.m(bufferedReader, "colors" + i3);
+                i3++;
+            }
+            this.f31594d = new float[ParticleEmitter.n(bufferedReader, "timelineCount")];
+            while (true) {
+                float[] fArr2 = this.f31594d;
+                if (i2 >= fArr2.length) {
+                    return;
+                }
+                fArr2[i2] = ParticleEmitter.m(bufferedReader, "timeline" + i2);
+                i2++;
+            }
+        }
+
+        public float[] d(float f2) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
+                float[] fArr = this.f31594d;
+                int length = fArr.length;
+                int i2 = 1;
+                int i3 = 0;
+                while (true) {
+                    if (i2 >= length) {
+                        i2 = -1;
+                        break;
+                    } else if (fArr[i2] > f2) {
+                        break;
+                    } else {
+                        i3 = i2;
+                        i2++;
+                    }
+                }
+                float f3 = fArr[i3];
+                int i4 = i3 * 3;
+                float[] fArr2 = this.f31593c;
+                float f4 = fArr2[i4];
+                float f5 = fArr2[i4 + 1];
+                float f6 = fArr2[i4 + 2];
+                if (i2 == -1) {
+                    float[] fArr3 = f31592e;
+                    fArr3[0] = f4;
+                    fArr3[1] = f5;
+                    fArr3[2] = f6;
+                    return fArr3;
+                }
+                float f7 = (f2 - f3) / (fArr[i2] - f3);
+                int i5 = i2 * 3;
+                float[] fArr4 = f31592e;
+                fArr4[0] = f4 + ((fArr2[i5] - f4) * f7);
+                fArr4[1] = f5 + ((fArr2[i5 + 1] - f5) * f7);
+                fArr4[2] = f6 + ((fArr2[i5 + 2] - f6) * f7);
+                return fArr4;
+            }
+            return (float[]) invokeF.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c extends g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: j  reason: collision with root package name */
+        public boolean f31595j;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.badlogic.gdx.graphics.g2d.ParticleEmitter.g, com.badlogic.gdx.graphics.g2d.ParticleEmitter.f, com.badlogic.gdx.graphics.g2d.ParticleEmitter.e
+        public void a(BufferedReader bufferedReader) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bufferedReader) == null) {
+                super.a(bufferedReader);
+                if (bufferedReader.markSupported()) {
+                    bufferedReader.mark(100);
+                }
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    if (readLine.contains("independent")) {
+                        this.f31595j = Boolean.parseBoolean(ParticleEmitter.p(readLine));
+                        return;
+                    } else if (bufferedReader.markSupported()) {
+                        bufferedReader.reset();
+                        return;
+                    } else {
+                        c.b.b.f.a.error("ParticleEmitter", "The loaded particle effect descriptor file uses an old invalid format. Please download the latest version of the Particle Editor tool and recreate the file by loading and saving it again.");
+                        throw new IOException("The loaded particle effect descriptor file uses an old invalid format. Please download the latest version of the Particle Editor tool and recreate the file by loading and saving it again.");
+                    }
+                }
+                throw new IOException("Missing value: independent");
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d extends c.b.b.n.k.g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float A;
+        public float B;
+        public float C;
+        public float D;
+        public float E;
+        public float F;
+        public float G;
+        public float H;
+        public float I;
+        public float J;
+        public float K;
+        public float L;
+        public float M;
+        public float[] N;
+        public int O;
+        public int t;
+        public int u;
+        public float v;
+        public float w;
+        public float x;
+        public float y;
+        public float z;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(c.b.b.n.k.g gVar) {
+            super(gVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((c.b.b.n.k.g) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f31596b;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(BufferedReader bufferedReader) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bufferedReader) == null) {
+                if (!this.f31596b) {
+                    this.a = ParticleEmitter.k(bufferedReader, GrowthConstant.UBC_VALUE_TYPE_DEFAULT);
+                } else {
+                    this.a = true;
+                }
+            }
+        }
+
+        public void b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.a = z;
+            }
+        }
+
+        public void c(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+                this.f31596b = z;
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class f extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: c  reason: collision with root package name */
+        public float f31597c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public float f31598d;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.badlogic.gdx.graphics.g2d.ParticleEmitter.e
+        public void a(BufferedReader bufferedReader) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bufferedReader) == null) {
+                super.a(bufferedReader);
+                if (this.a) {
+                    this.f31597c = ParticleEmitter.m(bufferedReader, "lowMin");
+                    this.f31598d = ParticleEmitter.m(bufferedReader, "lowMax");
+                }
+            }
+        }
+
+        public float d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                float f2 = this.f31597c;
+                return f2 + ((this.f31598d - f2) * com.badlogic.gdx.math.d.k());
+            }
+            return invokeV.floatValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class g extends f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public float[] f31599e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public float[] f31600f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public float f31601g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public float f31602h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public boolean f31603i;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f31599e = new float[]{1.0f};
+            this.f31600f = new float[]{0.0f};
+        }
+
+        @Override // com.badlogic.gdx.graphics.g2d.ParticleEmitter.f, com.badlogic.gdx.graphics.g2d.ParticleEmitter.e
+        public void a(BufferedReader bufferedReader) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, bufferedReader) != null) {
+                return;
+            }
+            super.a(bufferedReader);
+            if (!this.a) {
+                return;
+            }
+            this.f31601g = ParticleEmitter.m(bufferedReader, "highMin");
+            this.f31602h = ParticleEmitter.m(bufferedReader, "highMax");
+            this.f31603i = ParticleEmitter.k(bufferedReader, "relative");
+            this.f31599e = new float[ParticleEmitter.n(bufferedReader, "scalingCount")];
+            int i2 = 0;
+            int i3 = 0;
+            while (true) {
+                float[] fArr = this.f31599e;
+                if (i3 >= fArr.length) {
+                    break;
+                }
+                fArr[i3] = ParticleEmitter.m(bufferedReader, "scaling" + i3);
+                i3++;
+            }
+            this.f31600f = new float[ParticleEmitter.n(bufferedReader, "timelineCount")];
+            while (true) {
+                float[] fArr2 = this.f31600f;
+                if (i2 >= fArr2.length) {
+                    return;
+                }
+                fArr2[i2] = ParticleEmitter.m(bufferedReader, "timeline" + i2);
+                i2++;
+            }
+        }
+
+        public float e(float f2) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
+                float[] fArr = this.f31600f;
+                int length = fArr.length;
+                int i2 = 1;
+                while (true) {
+                    if (i2 >= length) {
+                        i2 = -1;
+                        break;
+                    } else if (fArr[i2] > f2) {
+                        break;
+                    } else {
+                        i2++;
+                    }
+                }
+                if (i2 == -1) {
+                    return this.f31599e[length - 1];
+                }
+                float[] fArr2 = this.f31599e;
+                int i3 = i2 - 1;
+                float f3 = fArr2[i3];
+                float f4 = fArr[i3];
+                return f3 + ((fArr2[i2] - f3) * ((f2 - f4) / (fArr[i2] - f4)));
+            }
+            return invokeF.floatValue;
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31603i : invokeV.booleanValue;
+        }
+
+        public float g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                float f2 = this.f31601g;
+                return f2 + ((this.f31602h - f2) * com.badlogic.gdx.math.d.k());
+            }
+            return invokeV.floatValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class h extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: c  reason: collision with root package name */
+        public SpawnShape f31604c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f31605d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public SpawnEllipseSide f31606e;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f31604c = SpawnShape.point;
+            this.f31606e = SpawnEllipseSide.both;
+        }
+
+        @Override // com.badlogic.gdx.graphics.g2d.ParticleEmitter.e
+        public void a(BufferedReader bufferedReader) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bufferedReader) == null) {
+                super.a(bufferedReader);
+                if (this.a) {
+                    SpawnShape valueOf = SpawnShape.valueOf(ParticleEmitter.o(bufferedReader, "shape"));
+                    this.f31604c = valueOf;
+                    if (valueOf == SpawnShape.ellipse) {
+                        this.f31605d = ParticleEmitter.k(bufferedReader, "edges");
+                        this.f31606e = SpawnEllipseSide.valueOf(ParticleEmitter.o(bufferedReader, "side"));
+                    }
+                }
+            }
+        }
+    }
+
+    public ParticleEmitter() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new f();
+        this.f31580b = new c();
+        this.f31581c = new f();
+        this.f31582d = new c();
+        this.f31583e = new g();
+        this.f31584f = new g();
+        this.f31585g = new g();
+        this.f31586h = new g();
+        this.f31587i = new g();
+        this.f31588j = new g();
+        this.f31589k = new g();
+        this.l = new g();
+        this.m = new g();
+        this.n = new b();
+        this.o = new g();
+        this.p = new g();
+        this.q = new g();
+        this.r = new g();
+        this.s = new h();
+        this.v = SpriteMode.single;
+        this.y = 4;
+        this.V = 1.0f;
+        this.b0 = true;
+        this.c0 = false;
+        h();
+    }
+
+    public static boolean k(BufferedReader bufferedReader, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bufferedReader, str)) == null) ? Boolean.parseBoolean(o(bufferedReader, str)) : invokeLL.booleanValue;
+    }
+
+    public static boolean l(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? Boolean.parseBoolean(p(str)) : invokeL.booleanValue;
+    }
+
+    public static float m(BufferedReader bufferedReader, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bufferedReader, str)) == null) ? Float.parseFloat(o(bufferedReader, str)) : invokeLL.floatValue;
+    }
+
+    public static int n(BufferedReader bufferedReader, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bufferedReader, str)) == null) ? Integer.parseInt(o(bufferedReader, str)) : invokeLL.intValue;
+    }
+
+    public static String o(BufferedReader bufferedReader, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bufferedReader, str)) == null) {
+            String readLine = bufferedReader.readLine();
+            if (readLine != null) {
+                return p(readLine);
+            }
+            throw new IOException("Missing value: " + str);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String p(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? str.substring(str.indexOf(":") + 1).trim() : (String) invokeL.objValue;
+    }
+
+    public final void a(int i2) {
+        c.b.b.n.k.g first;
+        float f2;
+        float l;
+        float l2;
+        float f3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            int i3 = a.a[this.v.ordinal()];
+            if (i3 != 1 && i3 != 2) {
+                first = i3 != 3 ? null : this.u.g();
+            } else {
+                first = this.u.first();
+            }
+            d[] dVarArr = this.w;
+            d dVar = dVarArr[i2];
+            if (dVar == null) {
+                dVar = j(first);
+                dVarArr[i2] = dVar;
+                dVar.a(this.G, this.H);
+            } else {
+                dVar.r(first);
+            }
+            float f4 = this.W / this.V;
+            int i4 = this.I;
+            if (this.f31582d.f31595j) {
+                e();
+            }
+            if (this.f31580b.f31595j) {
+                d();
+            }
+            int e2 = this.P + ((int) (this.Q * this.f31582d.e(f4)));
+            dVar.t = e2;
+            dVar.u = e2;
+            g gVar = this.f31587i;
+            if (gVar.a) {
+                dVar.B = gVar.d();
+                dVar.C = this.f31587i.g();
+                if (!this.f31587i.f()) {
+                    dVar.C -= dVar.B;
+                }
+            }
+            dVar.D = this.f31588j.d();
+            dVar.E = this.f31588j.g();
+            if (!this.f31588j.f()) {
+                dVar.E -= dVar.D;
+            }
+            int i5 = i4 & 2;
+            if (i5 == 0) {
+                f2 = dVar.D + (dVar.E * this.f31588j.e(0.0f));
+                dVar.D = f2;
+                dVar.F = com.badlogic.gdx.math.d.d(f2);
+                dVar.G = com.badlogic.gdx.math.d.p(f2);
+            } else {
+                f2 = 0.0f;
+            }
+            float n = first.n();
+            float k2 = first.k();
+            dVar.v = this.f31584f.d() / n;
+            dVar.w = this.f31584f.g() / n;
+            if (!this.f31584f.f()) {
+                dVar.w -= dVar.v;
+            }
+            g gVar2 = this.f31585g;
+            if (gVar2.a) {
+                dVar.x = gVar2.d() / k2;
+                dVar.y = this.f31585g.g() / k2;
+                if (!this.f31585g.f()) {
+                    dVar.y -= dVar.x;
+                }
+                dVar.y(dVar.v + (dVar.w * this.f31584f.e(0.0f)), dVar.x + (dVar.y * this.f31585g.e(0.0f)));
+            } else {
+                dVar.x(dVar.v + (dVar.w * this.f31584f.e(0.0f)));
+            }
+            g gVar3 = this.f31586h;
+            if (gVar3.a) {
+                dVar.z = gVar3.d();
+                dVar.A = this.f31586h.g();
+                if (!this.f31586h.f()) {
+                    dVar.A -= dVar.z;
+                }
+                float e3 = dVar.z + (dVar.A * this.f31586h.e(0.0f));
+                if (this.a0) {
+                    e3 += f2;
+                }
+                dVar.w(e3);
+            }
+            g gVar4 = this.f31589k;
+            if (gVar4.a) {
+                dVar.J = gVar4.d();
+                dVar.K = this.f31589k.g();
+                if (!this.f31589k.f()) {
+                    dVar.K -= dVar.J;
+                }
+            }
+            g gVar5 = this.l;
+            if (gVar5.a) {
+                dVar.L = gVar5.d();
+                dVar.M = this.l.g();
+                if (!this.l.f()) {
+                    dVar.M -= dVar.L;
+                }
+            }
+            float[] fArr = dVar.N;
+            if (fArr == null) {
+                fArr = new float[3];
+                dVar.N = fArr;
+            }
+            float[] d2 = this.n.d(0.0f);
+            fArr[0] = d2[0];
+            fArr[1] = d2[1];
+            fArr[2] = d2[2];
+            dVar.H = this.m.d();
+            dVar.I = this.m.g() - dVar.H;
+            float f5 = this.z;
+            f fVar = this.o;
+            if (fVar.a) {
+                f5 += fVar.d();
+            }
+            float f6 = this.A;
+            f fVar2 = this.p;
+            if (fVar2.a) {
+                f6 += fVar2.d();
+            }
+            int i6 = a.f31591c[this.s.f31604c.ordinal()];
+            if (i6 == 1) {
+                float e4 = this.R + (this.S * this.q.e(f4));
+                float e5 = this.T + (this.U * this.r.e(f4));
+                f5 += com.badlogic.gdx.math.d.l(e4) - (e4 / 2.0f);
+                f6 += com.badlogic.gdx.math.d.l(e5) - (e5 / 2.0f);
+            } else if (i6 == 2) {
+                float e6 = this.R + (this.S * this.q.e(f4));
+                float f7 = e6 / 2.0f;
+                float e7 = (this.T + (this.U * this.r.e(f4))) / 2.0f;
+                if (f7 != 0.0f && e7 != 0.0f) {
+                    float f8 = f7 / e7;
+                    h hVar = this.s;
+                    if (hVar.f31605d) {
+                        int i7 = a.f31590b[hVar.f31606e.ordinal()];
+                        if (i7 == 1) {
+                            f3 = -com.badlogic.gdx.math.d.l(179.0f);
+                        } else if (i7 != 2) {
+                            f3 = com.badlogic.gdx.math.d.l(360.0f);
+                        } else {
+                            f3 = com.badlogic.gdx.math.d.l(179.0f);
+                        }
+                        float d3 = com.badlogic.gdx.math.d.d(f3);
+                        float p = com.badlogic.gdx.math.d.p(f3);
+                        f5 += d3 * f7;
+                        f6 += (f7 * p) / f8;
+                        if (i5 == 0) {
+                            dVar.D = f3;
+                            dVar.F = d3;
+                            dVar.G = p;
+                        }
+                    } else {
+                        float f9 = f7 * f7;
+                        do {
+                            l = com.badlogic.gdx.math.d.l(e6) - f7;
+                            l2 = com.badlogic.gdx.math.d.l(e6) - f7;
+                        } while ((l * l) + (l2 * l2) > f9);
+                        f5 += l;
+                        f6 += l2 / f8;
+                    }
+                }
+            } else if (i6 == 3) {
+                float e8 = this.R + (this.S * this.q.e(f4));
+                float e9 = this.T + (this.U * this.r.e(f4));
+                if (e8 != 0.0f) {
+                    float k3 = com.badlogic.gdx.math.d.k() * e8;
+                    f5 += k3;
+                    f6 += k3 * (e9 / e8);
+                } else {
+                    f6 += e9 * com.badlogic.gdx.math.d.k();
+                }
+            }
+            dVar.s(f5 - (n / 2.0f), f6 - (k2 / 2.0f), n, k2);
+            int e10 = (int) (this.N + (this.O * this.f31580b.e(f4)));
+            if (e10 > 0) {
+                int i8 = dVar.u;
+                if (e10 >= i8) {
+                    e10 = i8 - 1;
+                }
+                v(dVar, e10 / 1000.0f, e10);
+            }
+        }
+    }
+
+    public void b() {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i2 = this.D) == this.y) {
+            return;
+        }
+        boolean[] zArr = this.E;
+        int length = zArr.length;
+        for (int i3 = 0; i3 < length; i3++) {
+            if (!zArr[i3]) {
+                a(i3);
+                zArr[i3] = true;
+                this.D = i2 + 1;
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
+        a(r3);
+        r0[r3] = true;
+        r2 = r2 + 1;
+        r3 = r3 + 1;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(int i2) {
+        int min;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (min = Math.min(i2, this.y - this.D)) == 0) {
+            return;
+        }
+        boolean[] zArr = this.E;
+        int length = zArr.length;
+        int i3 = 0;
+        int i4 = 0;
+        loop0: while (i3 < min) {
+            while (i4 < length) {
+                if (!zArr[i4]) {
+                    break;
+                }
+                i4++;
+            }
+            break loop0;
+        }
+        this.D += min;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c cVar = this.f31580b;
+            this.N = cVar.a ? (int) cVar.d() : 0;
+            this.O = (int) this.f31580b.g();
+            if (this.f31580b.f()) {
+                return;
+            }
+            this.O -= this.N;
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.P = (int) this.f31582d.d();
+            this.Q = (int) this.f31582d.g();
+            if (this.f31582d.f()) {
+                return;
+            }
+            this.Q -= this.P;
+        }
+    }
+
+    public c.b.b.q.a<String> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.C : (c.b.b.q.a) invokeV.objValue;
+    }
+
+    public c.b.b.q.a<c.b.b.n.k.g> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.u : (c.b.b.q.a) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.u = new c.b.b.q.a<>();
+            this.C = new c.b.b.q.a<>();
+            this.f31581c.c(true);
+            this.f31583e.c(true);
+            this.f31582d.c(true);
+            this.f31584f.c(true);
+            this.m.c(true);
+            this.s.c(true);
+            this.q.c(true);
+            this.r.c(true);
+        }
+    }
+
+    public void i(BufferedReader bufferedReader) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bufferedReader) == null) {
+            try {
+                this.B = o(bufferedReader, "name");
+                bufferedReader.readLine();
+                this.a.a(bufferedReader);
+                bufferedReader.readLine();
+                this.f31581c.a(bufferedReader);
+                bufferedReader.readLine();
+                t(n(bufferedReader, "minParticleCount"));
+                s(n(bufferedReader, "maxParticleCount"));
+                bufferedReader.readLine();
+                this.f31583e.a(bufferedReader);
+                bufferedReader.readLine();
+                this.f31582d.a(bufferedReader);
+                bufferedReader.readLine();
+                this.f31580b.a(bufferedReader);
+                bufferedReader.readLine();
+                this.o.a(bufferedReader);
+                bufferedReader.readLine();
+                this.p.a(bufferedReader);
+                bufferedReader.readLine();
+                this.s.a(bufferedReader);
+                bufferedReader.readLine();
+                this.q.a(bufferedReader);
+                bufferedReader.readLine();
+                this.r.a(bufferedReader);
+                if (bufferedReader.readLine().trim().equals("- Scale -")) {
+                    this.f31584f.a(bufferedReader);
+                    this.f31585g.b(false);
+                } else {
+                    this.f31584f.a(bufferedReader);
+                    bufferedReader.readLine();
+                    this.f31585g.a(bufferedReader);
+                }
+                bufferedReader.readLine();
+                this.f31587i.a(bufferedReader);
+                bufferedReader.readLine();
+                this.f31588j.a(bufferedReader);
+                bufferedReader.readLine();
+                this.f31586h.a(bufferedReader);
+                bufferedReader.readLine();
+                this.f31589k.a(bufferedReader);
+                bufferedReader.readLine();
+                this.l.a(bufferedReader);
+                bufferedReader.readLine();
+                this.n.a(bufferedReader);
+                bufferedReader.readLine();
+                this.m.a(bufferedReader);
+                bufferedReader.readLine();
+                k(bufferedReader, "attached");
+                this.Z = k(bufferedReader, "continuous");
+                this.a0 = k(bufferedReader, "aligned");
+                this.b0 = k(bufferedReader, "additive");
+                k(bufferedReader, "behind");
+                String readLine = bufferedReader.readLine();
+                if (readLine.startsWith("premultipliedAlpha")) {
+                    this.c0 = l(readLine);
+                    readLine = bufferedReader.readLine();
+                }
+                if (readLine.startsWith("spriteMode")) {
+                    this.v = SpriteMode.valueOf(p(readLine));
+                    bufferedReader.readLine();
+                }
+                c.b.b.q.a<String> aVar = new c.b.b.q.a<>();
+                while (true) {
+                    String readLine2 = bufferedReader.readLine();
+                    if (readLine2 == null || readLine2.isEmpty()) {
+                        break;
+                    }
+                    aVar.a(readLine2);
+                }
+                r(aVar);
+            } catch (RuntimeException e2) {
+                if (this.B == null) {
+                    throw e2;
+                }
+                throw new RuntimeException("Error parsing emitter: " + this.B, e2);
+            }
+        }
+    }
+
+    public d j(c.b.b.n.k.g gVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, gVar)) == null) ? new d(gVar) : (d) invokeL.objValue;
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            f fVar = this.a;
+            this.X = fVar.a ? fVar.d() : 0.0f;
+            this.Y = 0.0f;
+            this.W -= this.V;
+            this.V = this.f31581c.d();
+            this.K = (int) this.f31583e.d();
+            this.L = (int) this.f31583e.g();
+            if (!this.f31583e.f()) {
+                this.L -= this.K;
+            }
+            if (!this.f31582d.f31595j) {
+                e();
+            }
+            if (!this.f31580b.f31595j) {
+                d();
+            }
+            this.R = this.q.d();
+            this.S = this.q.g();
+            if (!this.q.f()) {
+                this.S -= this.R;
+            }
+            this.T = this.r.d();
+            this.U = this.r.g();
+            if (!this.r.f()) {
+                this.U -= this.T;
+            }
+            this.I = 0;
+            g gVar = this.f31588j;
+            if (gVar.a && gVar.f31600f.length > 1) {
+                this.I = 0 | 2;
+            }
+            if (this.f31587i.a) {
+                this.I |= 8;
+            }
+            if (this.f31584f.f31600f.length > 1) {
+                this.I |= 1;
+            }
+            g gVar2 = this.f31585g;
+            if (gVar2.a && gVar2.f31600f.length > 1) {
+                this.I |= 1;
+            }
+            g gVar3 = this.f31586h;
+            if (gVar3.a && gVar3.f31600f.length > 1) {
+                this.I |= 4;
+            }
+            if (this.f31589k.a) {
+                this.I |= 16;
+            }
+            if (this.l.a) {
+                this.I |= 32;
+            }
+            if (this.n.f31594d.length > 1) {
+                this.I |= 64;
+            }
+            if (this.v == SpriteMode.animated) {
+                this.I |= 128;
+            }
+        }
+    }
+
+    public void r(c.b.b.q.a<String> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
+            this.C = aVar;
+        }
+    }
+
+    public void s(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.y = i2;
+            this.E = new boolean[i2];
+            this.D = 0;
+            this.w = new d[i2];
+        }
+    }
+
+    public void t(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.x = i2;
+        }
+    }
+
+    public void u(c.b.b.q.a<c.b.b.n.k.g> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) {
+            this.u = aVar;
+            if (aVar.f27768f == 0) {
+                return;
+            }
+            int length = this.w.length;
+            for (int i2 = 0; i2 < length; i2++) {
+                d dVar = this.w[i2];
+                if (dVar == null) {
+                    return;
+                }
+                c.b.b.n.k.g gVar = null;
+                int i3 = a.a[this.v.ordinal()];
+                if (i3 == 1) {
+                    gVar = aVar.first();
+                } else if (i3 == 2) {
+                    float f2 = 1.0f - (dVar.u / dVar.t);
+                    int i4 = aVar.f27768f;
+                    int min = Math.min((int) (f2 * i4), i4 - 1);
+                    dVar.O = min;
+                    gVar = aVar.get(min);
+                } else if (i3 == 3) {
+                    gVar = aVar.g();
+                }
+                dVar.i(gVar);
+                dVar.v(gVar.l(), gVar.m());
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x004d  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void update(float f2) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
+            float f3 = this.t + (f2 * 1000.0f);
+            this.t = f3;
+            if (f3 < 1.0f) {
+                return;
+            }
+            int i2 = (int) f3;
+            float f4 = i2;
+            this.t = f3 - f4;
+            float f5 = this.Y;
+            if (f5 < this.X) {
+                this.Y = f5 + f4;
+            } else {
+                if (this.F) {
+                    this.F = false;
+                    b();
+                }
+                float f6 = this.W;
+                if (f6 < this.V) {
+                    this.W = f6 + f4;
+                } else if (!this.Z || this.J) {
+                    z = true;
+                    if (!z) {
+                        this.M += i2;
+                        float e2 = this.K + (this.L * this.f31583e.e(this.W / this.V));
+                        if (e2 > 0.0f) {
+                            float f7 = 1000.0f / e2;
+                            int i3 = this.M;
+                            if (i3 >= f7) {
+                                int min = Math.min((int) (i3 / f7), this.y - this.D);
+                                int i4 = (int) (this.M - (min * f7));
+                                this.M = i4;
+                                this.M = (int) (i4 % f7);
+                                c(min);
+                            }
+                        }
+                        int i5 = this.D;
+                        int i6 = this.x;
+                        if (i5 < i6) {
+                            c(i6 - i5);
+                        }
+                    }
+                } else {
+                    q();
+                }
+                z = false;
+                if (!z) {
+                }
+            }
+            boolean[] zArr = this.E;
+            int i7 = this.D;
+            d[] dVarArr = this.w;
+            int length = zArr.length;
+            for (int i8 = 0; i8 < length; i8++) {
+                if (zArr[i8] && !v(dVarArr[i8], f2, i2)) {
+                    zArr[i8] = false;
+                    i7--;
+                }
+            }
+            this.D = i7;
+        }
+    }
+
+    public final boolean v(d dVar, float f2, int i2) {
+        InterceptResult invokeCommon;
+        float[] fArr;
+        float f3;
+        float f4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{dVar, Float.valueOf(f2), Integer.valueOf(i2)})) == null) {
+            int i3 = dVar.u - i2;
+            if (i3 <= 0) {
+                return false;
+            }
+            dVar.u = i3;
+            float f5 = 1.0f - (i3 / dVar.t);
+            int i4 = this.I;
+            if ((i4 & 1) != 0) {
+                if (this.f31585g.a) {
+                    dVar.y(dVar.v + (dVar.w * this.f31584f.e(f5)), dVar.x + (dVar.y * this.f31585g.e(f5)));
+                } else {
+                    dVar.x(dVar.v + (dVar.w * this.f31584f.e(f5)));
+                }
+            }
+            if ((i4 & 8) != 0) {
+                float e2 = (dVar.B + (dVar.C * this.f31587i.e(f5))) * f2;
+                if ((i4 & 2) != 0) {
+                    float e3 = dVar.D + (dVar.E * this.f31588j.e(f5));
+                    f3 = com.badlogic.gdx.math.d.d(e3) * e2;
+                    f4 = e2 * com.badlogic.gdx.math.d.p(e3);
+                    if ((i4 & 4) != 0) {
+                        float e4 = dVar.z + (dVar.A * this.f31586h.e(f5));
+                        if (this.a0) {
+                            e4 += e3;
+                        }
+                        dVar.w(e4);
+                    }
+                } else {
+                    f3 = e2 * dVar.F;
+                    f4 = e2 * dVar.G;
+                    if (this.a0 || (i4 & 4) != 0) {
+                        float e5 = dVar.z + (dVar.A * this.f31586h.e(f5));
+                        if (this.a0) {
+                            e5 += dVar.D;
+                        }
+                        dVar.w(e5);
+                    }
+                }
+                if ((i4 & 16) != 0) {
+                    f3 += (dVar.J + (dVar.K * this.f31589k.e(f5))) * f2;
+                }
+                if ((i4 & 32) != 0) {
+                    f4 += (dVar.L + (dVar.M * this.l.e(f5))) * f2;
+                }
+                dVar.A(f3, f4);
+            } else if ((i4 & 4) != 0) {
+                dVar.w(dVar.z + (dVar.A * this.f31586h.e(f5)));
+            }
+            if ((i4 & 64) != 0) {
+                fArr = this.n.d(f5);
+            } else {
+                fArr = dVar.N;
+            }
+            if (this.c0) {
+                float f6 = this.b0 ? 0.0f : 1.0f;
+                float e6 = dVar.H + (dVar.I * this.m.e(f5));
+                dVar.t(fArr[0] * e6, fArr[1] * e6, fArr[2] * e6, e6 * f6);
+            } else {
+                dVar.t(fArr[0], fArr[1], fArr[2], dVar.H + (dVar.I * this.m.e(f5)));
+            }
+            if ((i4 & 128) != 0) {
+                int i5 = this.u.f27768f;
+                int min = Math.min((int) (f5 * i5), i5 - 1);
+                if (dVar.O != min) {
+                    c.b.b.n.k.g gVar = this.u.get(min);
+                    float n = dVar.n();
+                    float k2 = dVar.k();
+                    dVar.i(gVar);
+                    dVar.z(gVar.n(), gVar.k());
+                    dVar.v(gVar.l(), gVar.m());
+                    dVar.A((n - gVar.n()) / 2.0f, (k2 - gVar.k()) / 2.0f);
+                    dVar.O = min;
+                }
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public ParticleEmitter(BufferedReader bufferedReader) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bufferedReader};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new f();
+        this.f31580b = new c();
+        this.f31581c = new f();
+        this.f31582d = new c();
+        this.f31583e = new g();
+        this.f31584f = new g();
+        this.f31585g = new g();
+        this.f31586h = new g();
+        this.f31587i = new g();
+        this.f31588j = new g();
+        this.f31589k = new g();
+        this.l = new g();
+        this.m = new g();
+        this.n = new b();
+        this.o = new g();
+        this.p = new g();
+        this.q = new g();
+        this.r = new g();
+        this.s = new h();
+        this.v = SpriteMode.single;
+        this.y = 4;
+        this.V = 1.0f;
+        this.b0 = true;
+        this.c0 = false;
+        h();
+        i(bufferedReader);
+    }
+}

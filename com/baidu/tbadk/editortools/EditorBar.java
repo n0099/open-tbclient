@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.q0.x.h;
-import b.a.q0.x.m;
-import b.a.q0.x.n;
+import c.a.d.f.p.l;
+import c.a.q0.x.h;
+import c.a.q0.x.m;
+import c.a.q0.x.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EditorBar extends RawLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,16 +43,14 @@ public class EditorBar extends RawLayout {
     public boolean v;
     public boolean w;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public n f46684a;
+        public n a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f46685b;
+        public int f41729b;
 
         public a(n nVar, int i2, boolean z) {
             Interceptable interceptable = $ic;
@@ -69,10 +67,10 @@ public class EditorBar extends RawLayout {
                     return;
                 }
             }
-            this.f46684a = null;
-            this.f46685b = 0;
-            this.f46684a = nVar;
-            this.f46685b = i2;
+            this.a = null;
+            this.f41729b = 0;
+            this.a = nVar;
+            this.f41729b = i2;
         }
     }
 
@@ -131,13 +129,13 @@ public class EditorBar extends RawLayout {
                         BLauncher bLauncher = (BLauncher) hVar;
                         int i3 = this.s;
                         if (i3 == 2) {
-                            layoutParams = new RawLayout.LayoutParams(l.g(getContext(), R.dimen.ds48), l.g(getContext(), R.dimen.ds48), 80);
-                            ((LinearLayout.LayoutParams) layoutParams).leftMargin = l.g(getContext(), R.dimen.ds32);
-                            ((LinearLayout.LayoutParams) layoutParams).rightMargin = l.g(getContext(), R.dimen.ds32);
-                            ((LinearLayout.LayoutParams) layoutParams).topMargin = l.g(getContext(), R.dimen.ds21);
-                            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = l.g(getContext(), R.dimen.ds21);
+                            layoutParams = new RawLayout.LayoutParams(l.f(getContext(), R.dimen.ds48), l.f(getContext(), R.dimen.ds48), 80);
+                            ((LinearLayout.LayoutParams) layoutParams).leftMargin = l.f(getContext(), R.dimen.ds32);
+                            ((LinearLayout.LayoutParams) layoutParams).rightMargin = l.f(getContext(), R.dimen.ds32);
+                            ((LinearLayout.LayoutParams) layoutParams).topMargin = l.f(getContext(), R.dimen.ds21);
+                            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = l.f(getContext(), R.dimen.ds21);
                         } else if (i3 == 3) {
-                            layoutParams = new RawLayout.LayoutParams(0, l.g(getContext(), R.dimen.tbds62), 48);
+                            layoutParams = new RawLayout.LayoutParams(0, l.f(getContext(), R.dimen.tbds62), 48);
                             if (i2 == 0 && TextUtils.isEmpty(bLauncher.getContentDescription())) {
                                 z = true;
                             }
@@ -157,7 +155,7 @@ public class EditorBar extends RawLayout {
                             ((LinearLayout.LayoutParams) layoutParams).bottomMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
                             ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
                         } else if (i3 == 1) {
-                            layoutParams = new RawLayout.LayoutParams(l.g(getContext(), R.dimen.tbds62), l.g(getContext(), R.dimen.tbds62), 48);
+                            layoutParams = new RawLayout.LayoutParams(l.f(getContext(), R.dimen.tbds62), l.f(getContext(), R.dimen.tbds62), 48);
                             ((LinearLayout.LayoutParams) layoutParams).leftMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X009);
                             if (i2 == this.l.size() - 1) {
                                 ((LinearLayout.LayoutParams) layoutParams).rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X009);
@@ -167,13 +165,13 @@ public class EditorBar extends RawLayout {
                             ((LinearLayout.LayoutParams) layoutParams).topMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
                             ((LinearLayout.LayoutParams) layoutParams).bottomMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
                         } else if (i3 == 5) {
-                            layoutParams = new RawLayout.LayoutParams(l.g(getContext(), R.dimen.ds48), l.g(getContext(), R.dimen.ds48), 80);
-                            ((LinearLayout.LayoutParams) layoutParams).leftMargin = l.g(getContext(), R.dimen.tbds44);
-                            ((LinearLayout.LayoutParams) layoutParams).rightMargin = l.g(getContext(), R.dimen.tbds78);
-                            ((LinearLayout.LayoutParams) layoutParams).topMargin = l.g(getContext(), R.dimen.ds21);
-                            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = l.g(getContext(), R.dimen.ds21);
+                            layoutParams = new RawLayout.LayoutParams(l.f(getContext(), R.dimen.ds48), l.f(getContext(), R.dimen.ds48), 80);
+                            ((LinearLayout.LayoutParams) layoutParams).leftMargin = l.f(getContext(), R.dimen.tbds44);
+                            ((LinearLayout.LayoutParams) layoutParams).rightMargin = l.f(getContext(), R.dimen.tbds78);
+                            ((LinearLayout.LayoutParams) layoutParams).topMargin = l.f(getContext(), R.dimen.ds21);
+                            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = l.f(getContext(), R.dimen.ds21);
                         } else {
-                            layoutParams = new RawLayout.LayoutParams(l.g(getContext(), R.dimen.ds48), l.g(getContext(), R.dimen.ds48), 80);
+                            layoutParams = new RawLayout.LayoutParams(l.f(getContext(), R.dimen.ds48), l.f(getContext(), R.dimen.ds48), 80);
                             ((LinearLayout.LayoutParams) layoutParams).leftMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.ds7);
                             ((LinearLayout.LayoutParams) layoutParams).rightMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.ds7);
                             ((LinearLayout.LayoutParams) layoutParams).bottomMargin = bLauncher.getContext().getResources().getDimensionPixelSize(R.dimen.ds15);
@@ -204,12 +202,12 @@ public class EditorBar extends RawLayout {
                 for (h hVar2 : this.l) {
                     if (hVar2 instanceof View) {
                         View view = (View) hVar2;
-                        if (hVar2.getToolId() == mVar.f14977c && mVar.f14983i) {
+                        if (hVar2.getToolId() == mVar.f13690c && mVar.f13696i) {
                             view.setSelected(true);
                         } else {
                             view.setSelected(false);
                         }
-                        int i3 = mVar.f14977c;
+                        int i3 = mVar.f13690c;
                         if (i3 == 12 || i3 == 16) {
                             if (hVar2.getToolId() == 2) {
                                 view.setSelected(true);
@@ -228,12 +226,12 @@ public class EditorBar extends RawLayout {
                     }
                     return;
                 }
-                int i4 = mVar.f14977c;
+                int i4 = mVar.f13690c;
                 if (i4 == 5 || i4 == 2 || i4 == 6) {
                     for (h hVar4 : this.l) {
                         if (hVar4 instanceof View) {
                             View view2 = (View) hVar4;
-                            if (hVar4.getToolId() == mVar.f14977c && mVar.f14983i) {
+                            if (hVar4.getToolId() == mVar.f13690c && mVar.f13696i) {
                                 view2.setSelected(true);
                             } else {
                                 view2.setSelected(false);
@@ -250,14 +248,14 @@ public class EditorBar extends RawLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             if (i2 == 2 && k() && (editorTools = this.t) != null) {
-                editorTools.sendAction(new b.a.q0.x.a(1, 3, null));
+                editorTools.sendAction(new c.a.q0.x.a(1, 3, null));
                 return;
             }
             a i3 = i(i2);
             if (i3 == null) {
                 return;
             }
-            if (i3.f46685b == 5) {
+            if (i3.f41729b == 5) {
                 for (h hVar : this.l) {
                     if (hVar.getToolId() != 2 && hVar.getToolId() != 1) {
                         hVar.hide();
@@ -266,9 +264,9 @@ public class EditorBar extends RawLayout {
                     }
                 }
                 for (a aVar : this.m) {
-                    n nVar = aVar.f46684a;
+                    n nVar = aVar.a;
                     if (nVar != null) {
-                        if (aVar.f46685b == 5) {
+                        if (aVar.f41729b == 5) {
                             nVar.display();
                         } else {
                             nVar.hide();
@@ -290,9 +288,9 @@ public class EditorBar extends RawLayout {
                     }
                 }
                 for (a aVar2 : this.m) {
-                    n nVar2 = aVar2.f46684a;
+                    n nVar2 = aVar2.a;
                     if (nVar2 != null) {
-                        if (aVar2.f46685b == 5) {
+                        if (aVar2.f41729b == 5) {
                             nVar2.hide();
                         } else {
                             nVar2.display();
@@ -403,7 +401,7 @@ public class EditorBar extends RawLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             for (a aVar : this.m) {
-                View view = (View) aVar.f46684a;
+                View view = (View) aVar.a;
                 ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
                 if (layoutParams2 == null) {
                     layoutParams = new RawLayout.LayoutParams(-1, -2, 19);
@@ -413,10 +411,10 @@ public class EditorBar extends RawLayout {
                     layoutParams = new RawLayout.LayoutParams(view.getLayoutParams());
                     ((LinearLayout.LayoutParams) layoutParams).gravity = 19;
                 }
-                if (z && aVar.f46685b == 1) {
+                if (z && aVar.f41729b == 1) {
                     layoutParams.a(2);
                     addView(view, layoutParams);
-                } else if (!z && (i2 = aVar.f46685b) != 1) {
+                } else if (!z && (i2 = aVar.f41729b) != 1) {
                     if (i2 == 2) {
                         layoutParams.a(2);
                     } else if (i2 == 3) {
@@ -456,7 +454,7 @@ public class EditorBar extends RawLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
             for (a aVar : this.m) {
-                n nVar = aVar.f46684a;
+                n nVar = aVar.a;
                 if (nVar != null && nVar.getToolId() == i2) {
                     return aVar;
                 }
@@ -487,7 +485,7 @@ public class EditorBar extends RawLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             for (a aVar : this.m) {
-                if (aVar.f46685b == 5 && (nVar = aVar.f46684a) != null && (nVar instanceof View) && ((View) nVar).getVisibility() == 0) {
+                if (aVar.f41729b == 5 && (nVar = aVar.a) != null && (nVar instanceof View) && ((View) nVar).getVisibility() == 0) {
                     return true;
                 }
             }
@@ -505,7 +503,7 @@ public class EditorBar extends RawLayout {
                 hVar.onChangeSkinType(i2);
             }
             for (a aVar : this.m) {
-                n nVar = aVar.f46684a;
+                n nVar = aVar.a;
                 if (nVar != null) {
                     nVar.onChangeSkinType(i2);
                 }
@@ -519,7 +517,7 @@ public class EditorBar extends RawLayout {
         BLauncher bLauncher;
         TextView notice;
         int right;
-        int e2;
+        int d2;
         int left;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
@@ -535,24 +533,24 @@ public class EditorBar extends RawLayout {
                     if (i7 == 1 || i7 == 3 || i7 == 2) {
                         if (TextUtils.isEmpty(notice.getText())) {
                             left = childAt.getLeft() + (childAt.getMeasuredWidth() / 2) + (intrinsicWidth / 2);
-                            int top = (childAt.getTop() + measuredHeight) - l.e(getContext(), 4.0f);
+                            int top = (childAt.getTop() + measuredHeight) - l.d(getContext(), 4.0f);
                             notice.layout(left, top, notice.getMeasuredWidth() + left, notice.getMeasuredHeight() + top);
                         } else {
                             right = childAt.getRight() - measuredWidth;
-                            e2 = l.e(getContext(), 9.0f);
-                            left = right - e2;
-                            int top2 = (childAt.getTop() + measuredHeight) - l.e(getContext(), 4.0f);
+                            d2 = l.d(getContext(), 9.0f);
+                            left = right - d2;
+                            int top2 = (childAt.getTop() + measuredHeight) - l.d(getContext(), 4.0f);
                             notice.layout(left, top2, notice.getMeasuredWidth() + left, notice.getMeasuredHeight() + top2);
                         }
                     } else if (i7 == 0) {
                         right = childAt.getRight() - measuredWidth;
-                        e2 = l.e(getContext(), 9.0f);
-                        left = right - e2;
-                        int top22 = (childAt.getTop() + measuredHeight) - l.e(getContext(), 4.0f);
+                        d2 = l.d(getContext(), 9.0f);
+                        left = right - d2;
+                        int top22 = (childAt.getTop() + measuredHeight) - l.d(getContext(), 4.0f);
                         notice.layout(left, top22, notice.getMeasuredWidth() + left, notice.getMeasuredHeight() + top22);
                     } else {
                         left = 0;
-                        int top222 = (childAt.getTop() + measuredHeight) - l.e(getContext(), 4.0f);
+                        int top222 = (childAt.getTop() + measuredHeight) - l.d(getContext(), 4.0f);
                         notice.layout(left, top222, notice.getMeasuredWidth() + left, notice.getMeasuredHeight() + top222);
                     }
                 }

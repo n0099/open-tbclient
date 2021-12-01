@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.datasource;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDataSource<T> implements HasImageRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +129,7 @@ public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDat
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void onCancellationImpl() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             synchronized (this) {
                 Preconditions.checkState(isClosed());
             }
@@ -140,7 +139,7 @@ public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDat
     /* JADX INFO: Access modifiers changed from: private */
     public void onFailureImpl(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, th) == null) && super.setFailure(th)) {
+        if ((interceptable == null || interceptable.invokeL(65542, this, th) == null) && super.setFailure(th)) {
             this.mRequestListener.onRequestFailure(this.mSettableProducerContext.getImageRequest(), this.mSettableProducerContext.getId(), th, this.mSettableProducerContext.isPrefetch());
         }
     }

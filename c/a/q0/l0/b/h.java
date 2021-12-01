@@ -1,0 +1,10 @@
+package c.a.q0.l0.b;
+
+import com.squareup.wire.Message;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public interface h extends a {
+    void initByJson(JSONObject jSONObject);
+
+    void initByProtobuf(Message message);
+}

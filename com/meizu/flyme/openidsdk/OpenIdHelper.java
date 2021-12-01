@@ -2,7 +2,6 @@ package com.meizu.flyme.openidsdk;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,8 +32,8 @@ public class OpenIdHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            b a2 = b.a();
-            return a2.a(context.getApplicationContext(), a2.f68631c);
+            b a = b.a();
+            return a.a(context.getApplicationContext(), a.f60587c);
         }
         return (String) invokeL.objValue;
     }
@@ -43,8 +42,8 @@ public class OpenIdHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            b a2 = b.a();
-            return a2.a(context.getApplicationContext(), a2.f68630b);
+            b a = b.a();
+            return a.a(context.getApplicationContext(), a.f60586b);
         }
         return (String) invokeL.objValue;
     }
@@ -53,8 +52,8 @@ public class OpenIdHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            b a2 = b.a();
-            return a2.a(context.getApplicationContext(), a2.f68629a);
+            b a = b.a();
+            return a.a(context.getApplicationContext(), a.a);
         }
         return (String) invokeL.objValue;
     }
@@ -63,8 +62,8 @@ public class OpenIdHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            b a2 = b.a();
-            return a2.a(context.getApplicationContext(), a2.f68632d);
+            b a = b.a();
+            return a.a(context.getApplicationContext(), a.f60588d);
         }
         return (String) invokeL.objValue;
     }
@@ -72,7 +71,7 @@ public class OpenIdHelper {
     public static final boolean isSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             Context context = null;
             try {
                 Method method = Class.forName("android.app.ActivityThread").getMethod("currentApplication", new Class[0]);
@@ -91,7 +90,7 @@ public class OpenIdHelper {
 
     public static void setLogEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
             b.a().a(z);
         }
     }

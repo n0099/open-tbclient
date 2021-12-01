@@ -6,14 +6,13 @@ import android.graphics.drawable.Drawable;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.ApollonConstants;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class ResUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANIM = "anim";
@@ -75,13 +74,13 @@ public final class ResUtils {
     public static int attr(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) ? a(context, "attr", str) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) ? a(context, "attr", str) : invokeLL.intValue;
     }
 
     public static int b(Context context, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, str, str2, str3)) == null) {
             if (context != null) {
                 if (str2 != null && str2.trim().length() != 0) {
                     if (str3 != null && str3.trim().length() != 0) {

@@ -1,6 +1,6 @@
 package com.baidu.tieba.hottopic.message;
 
-import b.a.r0.j1.l.d;
+import c.a.r0.p1.l.d;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,6 +76,6 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         this.page = dataRes.page;
         d dVar = new d();
         this.hotThreadItemListData = dVar;
-        dVar.W4(getTopicRelateThreadResIdl.data);
+        dVar.Y4(getTopicRelateThreadResIdl.data);
     }
 }

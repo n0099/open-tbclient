@@ -7,38 +7,38 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class db {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f57822a;
+    public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f57823b;
+    public ImageView f51667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f57824c;
+    public TextView f51668c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f57825d;
+    public RelativeLayout f51669d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f57826e;
+    public RelativeLayout f51670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f57827f;
+    public TextView f51671f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f57828g;
+    public TextView f51672g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f57829h;
+    public i f51673h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f57830i;
-    public TextView j;
+    public ImageView f51674i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f51675j;
 
     public db() {
         Interceptable interceptable = $ic;

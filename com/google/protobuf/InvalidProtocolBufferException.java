@@ -2,7 +2,6 @@ package com.google.protobuf;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.WireInput;
 import java.io.IOException;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class InvalidProtocolBufferException extends IOException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1616151763072450476L;
@@ -65,13 +64,13 @@ public class InvalidProtocolBufferException extends IOException {
     public static InvalidProtocolBufferException negativeSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? new InvalidProtocolBufferException("CodedInputStream encountered an embedded string or message which claimed to have negative size.") : (InvalidProtocolBufferException) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new InvalidProtocolBufferException("CodedInputStream encountered an embedded string or message which claimed to have negative size.") : (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException recursionLimitExceeded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? new InvalidProtocolBufferException("Protocol message had too many levels of nesting.  May be malicious.  Use CodedInputStream.setRecursionLimit() to increase the depth limit.") : (InvalidProtocolBufferException) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? new InvalidProtocolBufferException("Protocol message had too many levels of nesting.  May be malicious.  Use CodedInputStream.setRecursionLimit() to increase the depth limit.") : (InvalidProtocolBufferException) invokeV.objValue;
     }
 
     public static InvalidProtocolBufferException sizeLimitExceeded() {

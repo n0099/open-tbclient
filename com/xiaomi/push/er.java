@@ -5,7 +5,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,12 +12,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class er {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static int f71812a;
+    public static int a;
 
     /* renamed from: a  reason: collision with other field name */
     public static a f338a;
@@ -27,14 +24,14 @@ public final class er {
     public static final String f339a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m300a();
+        boolean m349a();
     }
 
     static {
@@ -51,7 +48,7 @@ public final class er {
             }
         }
         f339a = XMJobService.class.getCanonicalName();
-        f71812a = 0;
+        a = 0;
     }
 
     public static synchronized void a() {
@@ -110,7 +107,7 @@ public final class er {
                             } catch (Exception e2) {
                                 e = e2;
                                 i2 = i3;
-                                com.xiaomi.channel.commonutils.logger.b.m73a("check service err : " + e.getMessage());
+                                com.xiaomi.channel.commonutils.logger.b.m122a("check service err : " + e.getMessage());
                                 if (i2 != 0) {
                                 }
                                 int i4 = Build.VERSION.SDK_INT;
@@ -123,7 +120,7 @@ public final class er {
                 } catch (Exception e3) {
                     e = e3;
                 }
-                if (i2 != 0 && t.m643a(applicationContext)) {
+                if (i2 != 0 && t.m692a(applicationContext)) {
                     throw new RuntimeException("Should export service: " + f339a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
                 }
                 int i42 = Build.VERSION.SDK_INT;
@@ -137,15 +134,15 @@ public final class er {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, null, context, i2) == null) {
             synchronized (er.class) {
-                int i3 = f71812a;
+                int i3 = a;
                 if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
                     if (i2 == 2) {
-                        f71812a = 2;
+                        a = 2;
                     } else {
-                        f71812a = 0;
+                        a = 0;
                     }
                 }
-                if (i3 != f71812a && f71812a == 2) {
+                if (i3 != a && a == 2) {
                     a();
                     f338a = new eu(context);
                 }
@@ -158,7 +155,7 @@ public final class er {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (er.class) {
                 if (f338a == null) {
-                    com.xiaomi.channel.commonutils.logger.b.m73a("timer is not initialized");
+                    com.xiaomi.channel.commonutils.logger.b.m122a("timer is not initialized");
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
@@ -168,15 +165,15 @@ public final class er {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m299a() {
+    public static synchronized boolean m348a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             synchronized (er.class) {
                 if (f338a == null) {
                     return false;
                 }
-                return f338a.m300a();
+                return f338a.m349a();
             }
         }
         return invokeV.booleanValue;

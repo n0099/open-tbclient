@@ -12,7 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.widget.ConfirmDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,16 +19,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class du extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f57862a;
+    public final /* synthetic */ FeedbackListActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f57863b;
+    public Context f51689b;
 
     public du(FeedbackListActivity feedbackListActivity, Context context) {
         Interceptable interceptable = $ic;
@@ -46,8 +43,8 @@ public final class du extends BaseAdapter {
                 return;
             }
         }
-        this.f57862a = feedbackListActivity;
-        this.f57863b = context;
+        this.a = feedbackListActivity;
+        this.f51689b = context;
     }
 
     @Override // android.widget.Adapter
@@ -56,7 +53,7 @@ public final class du extends BaseAdapter {
         List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            list = this.f57862a.f57693e;
+            list = this.a.f51617e;
             return list.size();
         }
         return invokeV.intValue;
@@ -107,18 +104,18 @@ public final class du extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                dtVar = new dt(this.f57862a);
-                RelativeLayout relativeLayout2 = new RelativeLayout(this.f57863b);
+                dtVar = new dt(this.a);
+                RelativeLayout relativeLayout2 = new RelativeLayout(this.f51689b);
                 relativeLayout2.setBackgroundDrawable(null);
-                relativeLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 80.0f)));
-                TextView textView3 = new TextView(this.f57863b);
+                relativeLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 80.0f)));
+                TextView textView3 = new TextView(this.f51689b);
                 textView3.setId(2132344840);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 6.0f), com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 6.0f));
-                layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 15.0f), 0, 0);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 6.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 6.0f));
+                layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 15.0f), 0, 0);
                 layoutParams.addRule(10);
                 layoutParams.addRule(9);
                 relativeLayout2.addView(textView3, layoutParams);
-                TextView textView4 = new TextView(this.f57863b);
+                TextView textView4 = new TextView(this.f51689b);
                 textView4.setId(2132344842);
                 textView4.setTextColor(-13421773);
                 textView4.setLineSpacing(4.0f, 1.0f);
@@ -127,90 +124,90 @@ public final class du extends BaseAdapter {
                 textView4.setTextSize(14.0f);
                 textView4.setPadding(0, 0, 0, 0);
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams2.setMargins(com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 24.0f), com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 60.0f), 0);
+                layoutParams2.setMargins(com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 24.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 16.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 60.0f), 0);
                 layoutParams2.addRule(10);
                 layoutParams2.addRule(9);
                 relativeLayout2.addView(textView4, layoutParams2);
-                TextView textView5 = new TextView(this.f57863b);
+                TextView textView5 = new TextView(this.f51689b);
                 textView5.setTextSize(11.0f);
-                textView5.setTextColor(ConfirmDialog.APP_DESC_COLOR_DEFAULT);
+                textView5.setTextColor(-6710887);
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams3.setMargins(0, com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 9.0f), com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 9.0f), 0);
+                layoutParams3.setMargins(0, com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 9.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 9.0f), 0);
                 layoutParams3.addRule(10);
                 layoutParams3.addRule(11);
                 relativeLayout2.addView(textView5, layoutParams3);
-                TextView textView6 = new TextView(this.f57863b);
+                TextView textView6 = new TextView(this.f51689b);
                 textView6.setId(2132344843);
                 textView6.setTextSize(12.0f);
                 textView6.setLines(1);
                 textView6.setGravity(16);
                 textView6.setEllipsize(TextUtils.TruncateAt.END);
                 RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
-                textView6.setTextColor(ConfirmDialog.APP_DESC_COLOR_DEFAULT);
+                textView6.setTextColor(-6710887);
                 textView6.setPadding(0, 0, 0, 0);
                 layoutParams4.addRule(9);
                 layoutParams4.addRule(3, textView4.getId());
-                layoutParams4.setMargins(com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 24.0f), com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 60.0f), com.baidu.ufosdk.f.i.a(this.f57862a.getApplicationContext(), 0.0f));
+                layoutParams4.setMargins(com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 24.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 8.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 60.0f), com.baidu.ufosdk.f.i.a(this.a.getApplicationContext(), 0.0f));
                 relativeLayout2.addView(textView6, layoutParams4);
-                Context applicationContext = this.f57862a.getApplicationContext();
+                Context applicationContext = this.a.getApplicationContext();
                 int i3 = com.baidu.ufosdk.b.D;
                 StateListDrawable stateListDrawable = new StateListDrawable();
                 ColorDrawable colorDrawable = new ColorDrawable(i3);
                 stateListDrawable.addState(new int[]{16842919}, new BitmapDrawable(com.baidu.ufosdk.f.m.a(applicationContext, "ufo_list_press.png")));
                 stateListDrawable.addState(new int[0], colorDrawable);
                 relativeLayout2.setBackgroundDrawable(stateListDrawable);
-                dtVar.f57857a = textView4;
-                dtVar.f57858b = textView3;
-                dtVar.f57859c = textView5;
-                dtVar.f57860d = textView6;
+                dtVar.a = textView4;
+                dtVar.f51685b = textView3;
+                dtVar.f51686c = textView5;
+                dtVar.f51687d = textView6;
                 relativeLayout2.setTag(dtVar);
                 relativeLayout = relativeLayout2;
             } else {
                 dtVar = (dt) view.getTag();
                 relativeLayout = view;
             }
-            TextView textView7 = dtVar.f57857a;
-            list = this.f57862a.f57693e;
+            TextView textView7 = dtVar.a;
+            list = this.a.f51617e;
             textView7.setText((String) ((Map) list.get(i2)).get("content"));
-            TextView textView8 = dtVar.f57859c;
-            list2 = this.f57862a.f57693e;
+            TextView textView8 = dtVar.f51686c;
+            list2 = this.a.f51617e;
             textView8.setText(FeedbackListActivity.a((String) ((Map) list2.get(i2)).get("time")));
-            list3 = this.f57862a.f57693e;
+            list3 = this.a.f51617e;
             if (((String) ((Map) list3.get(i2)).get("replied")).equals("1")) {
-                textView = dtVar.f57860d;
+                textView = dtVar.f51687d;
                 sb = new StringBuilder("[已回复] ");
             } else {
-                list4 = this.f57862a.f57693e;
+                list4 = this.a.f51617e;
                 if (((String) ((Map) list4.get(i2)).get("replied")).equals("0")) {
-                    textView = dtVar.f57860d;
+                    textView = dtVar.f51687d;
                     sb = new StringBuilder("[待回复] ");
                 } else {
-                    list5 = this.f57862a.f57693e;
+                    list5 = this.a.f51617e;
                     if (!((String) ((Map) list5.get(i2)).get("replied")).equals("2")) {
-                        list6 = this.f57862a.f57693e;
+                        list6 = this.a.f51617e;
                         if (((String) ((Map) list6.get(i2)).get("replied")).equals("3")) {
-                            textView = dtVar.f57860d;
+                            textView = dtVar.f51687d;
                             sb = new StringBuilder("[已评价] ");
                         }
-                        list7 = this.f57862a.f57693e;
+                        list7 = this.a.f51617e;
                         if (((String) ((Map) list7.get(i2)).get("newmsg")).equals("0")) {
-                            textView2 = dtVar.f57858b;
-                            bitmapDrawable = new BitmapDrawable(FeedbackListActivity.o(this.f57862a));
+                            textView2 = dtVar.f51685b;
+                            bitmapDrawable = new BitmapDrawable(FeedbackListActivity.o(this.a));
                         } else {
-                            textView2 = dtVar.f57858b;
+                            textView2 = dtVar.f51685b;
                             bitmapDrawable = null;
                         }
                         textView2.setBackgroundDrawable(bitmapDrawable);
                         return relativeLayout;
                     }
-                    textView = dtVar.f57860d;
+                    textView = dtVar.f51687d;
                     sb = new StringBuilder("[邀请评价] ");
                 }
             }
-            list8 = this.f57862a.f57693e;
+            list8 = this.a.f51617e;
             sb.append((String) ((Map) list8.get(i2)).get("lastmsg"));
             textView.setText(sb.toString());
-            list7 = this.f57862a.f57693e;
+            list7 = this.a.f51617e;
             if (((String) ((Map) list7.get(i2)).get("newmsg")).equals("0")) {
             }
             textView2.setBackgroundDrawable(bitmapDrawable);

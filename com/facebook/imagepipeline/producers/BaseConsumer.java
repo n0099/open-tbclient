@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.producers;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.facebook.common.logging.FLog;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseConsumer<T> implements Consumer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,13 +60,13 @@ public abstract class BaseConsumer<T> implements Consumer<T> {
     public static boolean statusHasFlag(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3)) == null) ? (i2 & i3) == i3 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) ? (i2 & i3) == i3 : invokeII.booleanValue;
     }
 
     public static int turnOffStatusFlag(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, null, i2, i3)) == null) ? i2 & (~i3) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) ? i2 & (~i3) : invokeII.intValue;
     }
 
     public static int turnOnStatusFlag(int i2, int i3) {

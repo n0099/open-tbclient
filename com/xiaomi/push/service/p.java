@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Looper;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +15,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<Pair<String, byte[]>> f72440a;
+    public static ArrayList<Pair<String, byte[]>> a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final Map<String, byte[]> f973a;
@@ -41,7 +38,7 @@ public class p {
             }
         }
         f973a = new HashMap();
-        f72440a = new ArrayList<>();
+        a = new ArrayList<>();
     }
 
     public static void a(Context context, int i2, String str) {
@@ -97,11 +94,11 @@ public class p {
     public static void b(XMPushService xMPushService) {
         ArrayList<Pair<String, byte[]>> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, xMPushService) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, xMPushService) == null) {
             try {
-                synchronized (f72440a) {
-                    arrayList = f72440a;
-                    f72440a = new ArrayList<>();
+                synchronized (a) {
+                    arrayList = a;
+                    a = new ArrayList<>();
                 }
                 boolean z = Thread.currentThread() == Looper.getMainLooper().getThread();
                 Iterator<Pair<String, byte[]>> it = arrayList.iterator();
@@ -124,11 +121,11 @@ public class p {
 
     public static void b(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, bArr) == null) {
-            synchronized (f72440a) {
-                f72440a.add(new Pair<>(str, bArr));
-                if (f72440a.size() > 50) {
-                    f72440a.remove(0);
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, bArr) == null) {
+            synchronized (a) {
+                a.add(new Pair<>(str, bArr));
+                if (a.size() > 50) {
+                    a.remove(0);
                 }
             }
         }

@@ -2,9 +2,7 @@ package com.dxmpay.wallet.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.e.b.g.a;
-import com.baidu.mobads.container.config.AppConfigImp;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.f.b.g.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StatHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BANK_CODE = "bank_code";
@@ -53,19 +51,17 @@ public class StatHelper {
     public static final String SIGN_PAY_CHANNEL = "4";
     public static final String SP_NO = "sp_no";
     public static final String STD_PAY_CHANNEL = "0";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f63603a = false;
+    public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f63604b = false;
+    public static boolean f55602b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f63605c = "";
+    public static String f55603c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class Key {
         public static final /* synthetic */ Key[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +109,7 @@ public class StatHelper {
             payType = new Key("payType", 4);
             payWay = new Key("payWay", 5);
             orderId = new Key("orderId", 6);
-            channelId = new Key(AppConfigImp.KEY_CHANNELID, 7);
+            channelId = new Key("channelId", 7);
             passLoginStatus = new Key("passLoginStatus", 8);
             sessionId = new Key("sessionId", 9);
             payAmount = new Key("payAmount", 10);
@@ -221,10 +217,10 @@ public class StatHelper {
         hashMap.put("card_type", getCardType());
         hashMap.put("pay_from", getPayFrom());
         hashMap.put(HAS_BANK_CARD, getHasBankCard());
-        if (f63603a) {
+        if (a) {
             hashMap.put(PAY_BANKSIGN, "1");
         }
-        if (f63604b) {
+        if (f55602b) {
             hashMap.put(PAY_CATEGORY, "1");
         }
         if ("4".equals(getPayFrom())) {
@@ -245,9 +241,9 @@ public class StatHelper {
         }
     }
 
-    public static void bankCardDetctionDuration(String str, String str2, long j) {
+    public static void bankCardDetctionDuration(String str, String str2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
             ArrayList arrayList = new ArrayList();
             HashMap hashMap = new HashMap();
             if (TextUtils.isEmpty(getPayFrom())) {
@@ -261,8 +257,8 @@ public class StatHelper {
             if (!TextUtils.isEmpty(str2)) {
                 hashMap.put("error_code", str2);
             }
-            if (j >= 0) {
-                hashMap.put("duration", Long.valueOf(j));
+            if (j2 >= 0) {
+                hashMap.put("duration", Long.valueOf(j2));
             }
             StatisticManager.onEventWithValues(str, arrayList, hashMap);
         }
@@ -270,7 +266,7 @@ public class StatHelper {
 
     public static void c(String str, Map<String, Object> map, String... strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, map, strArr) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, str, map, strArr) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         List<String> collectData = collectData(getSessionId(), new String[0]);
@@ -296,10 +292,10 @@ public class StatHelper {
         }
     }
 
-    public static void cacheBankCardStartTime(long j) {
+    public static void cacheBankCardStartTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
-            a.c(Key.bankCardStartTime.name(), Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeJ(65544, null, j2) == null) {
+            a.c(Key.bankCardStartTime.name(), Long.valueOf(j2));
         }
     }
 
@@ -433,7 +429,7 @@ public class StatHelper {
     public static void clearProcesssId() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65563, null) == null) {
-            f63605c = null;
+            f55603c = null;
         }
     }
 
@@ -457,8 +453,8 @@ public class StatHelper {
             a.c(Key.code.name(), null);
             a.c(Key.msg.name(), null);
             a.c(Key.alipayVersion.name(), null);
-            f63603a = false;
-            f63604b = false;
+            a = false;
+            f55602b = false;
         }
     }
 
@@ -618,11 +614,11 @@ public class StatHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
-            if (!TextUtils.isEmpty(f63605c)) {
-                return f63605c;
+            if (!TextUtils.isEmpty(f55603c)) {
+                return f55603c;
             }
             String a2 = a();
-            f63605c = a2;
+            f55603c = a2;
             return a2;
         }
         return (String) invokeV.objValue;
@@ -714,14 +710,14 @@ public class StatHelper {
     public static void setDowngrade(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65596, null, z) == null) {
-            f63604b = z;
+            f55602b = z;
         }
     }
 
     public static void setPayBankSign(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65597, null, z) == null) {
-            f63603a = z;
+            a = z;
         }
     }
 

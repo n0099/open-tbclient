@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class FunAdType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_FEED = "baiduFeed";
@@ -49,6 +49,13 @@ public final class FunAdType {
     public static final String KS_NATIVE_EXPRESS = "ksNativeExpress";
     public static final String KS_REWARD_VIDEO = "ksRewardVideo";
     public static final String KS_SPLASH = "ksSplash";
+    public static final String MB_INTERSTITIAL = "mbInterstitial";
+    public static final String MB_INTERSTITIAL2 = "mbInterstitial2";
+    public static final String MB_REWARD_VIDEO = "mbRewardVideo";
+    public static final String MB_SPLASH = "mbSplash";
+    public static final String SIG_INTERSTITIAL = "sigInterstitial";
+    public static final String SIG_REWARD_VIDEO = "sigRewardVideo";
+    public static final String SIG_SPLASH = "sigSplash";
     public transient /* synthetic */ FieldHolder $fh;
 
     public FunAdType() {

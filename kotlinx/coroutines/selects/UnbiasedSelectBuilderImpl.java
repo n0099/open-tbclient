@@ -59,8 +59,8 @@ public final class UnbiasedSelectBuilderImpl<R> implements SelectBuilder<R> {
     }
 
     @Override // kotlinx.coroutines.selects.SelectBuilder
-    public void onTimeout(long j, Function1<? super Continuation<? super R>, ? extends Object> function1) {
-        this.clauses.add(new UnbiasedSelectBuilderImpl$onTimeout$1(this, j, function1));
+    public void onTimeout(long j2, Function1<? super Continuation<? super R>, ? extends Object> function1) {
+        this.clauses.add(new UnbiasedSelectBuilderImpl$onTimeout$1(this, j2, function1));
     }
 
     @Override // kotlinx.coroutines.selects.SelectBuilder

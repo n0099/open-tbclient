@@ -20,7 +20,7 @@ import com.google.android.material.animation.AnimatorSetCompat;
 import com.google.android.material.transition.platform.VisibilityAnimatorProvider;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> extends Visibility {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

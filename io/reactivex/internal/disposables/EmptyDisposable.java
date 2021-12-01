@@ -2,7 +2,6 @@ package io.reactivex.internal.disposables;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.internal.fuseable.QueueDisposable;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EmptyDisposable implements QueueDisposable<Object> {
     public static final /* synthetic */ EmptyDisposable[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -170,7 +169,7 @@ public final class EmptyDisposable implements QueueDisposable<Object> {
 
     public static void error(Throwable th, CompletableObserver completableObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, th, completableObserver) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, th, completableObserver) == null) {
             completableObserver.onSubscribe(INSTANCE);
             completableObserver.onError(th);
         }
@@ -194,7 +193,7 @@ public final class EmptyDisposable implements QueueDisposable<Object> {
 
     public static void error(Throwable th, MaybeObserver<?> maybeObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, th, maybeObserver) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, th, maybeObserver) == null) {
             maybeObserver.onSubscribe(INSTANCE);
             maybeObserver.onError(th);
         }

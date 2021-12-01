@@ -1,21 +1,19 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import b.a.r0.y1.c.g;
-import b.a.r0.y1.c.k.n;
+import c.a.r0.e2.c.g;
+import c.a.r0.e2.c.k.n;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PrivilegeViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public g f52434a;
+    public g a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -35,7 +33,7 @@ public class PrivilegeViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f52434a = new g(baseFragmentActivity, view);
+        this.a = new g(baseFragmentActivity, view);
     }
 
     public void fillView(n nVar) {
@@ -43,7 +41,7 @@ public class PrivilegeViewHolder extends TypeAdapter.ViewHolder {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) || nVar == null) {
             return;
         }
-        this.f52434a.c(nVar);
-        this.f52434a.e();
+        this.a.c(nVar);
+        this.a.e();
     }
 }

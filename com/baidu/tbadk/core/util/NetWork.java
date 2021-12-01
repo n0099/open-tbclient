@@ -3,15 +3,14 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.j.b.a;
-import b.a.e.f.p.q;
-import b.a.q0.j0.f;
-import b.a.q0.s.l.c;
-import b.a.q0.s.q.s0;
-import b.a.q0.t.a.b;
+import c.a.d.f.j.b.a;
+import c.a.d.f.p.q;
+import c.a.q0.k0.f;
+import c.a.q0.s.l.c;
+import c.a.q0.s.q.s0;
+import c.a.q0.t.a.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
@@ -30,6 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetWork {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_TYPE_GET = 1;
@@ -90,7 +90,7 @@ public class NetWork {
             stringBuffer.append("tiebaclient!!!");
             this.mNet.addPostData("sign", q.c(stringBuffer.toString()));
             if (this.netContext.getRequest().mNeedSig) {
-                this.mNet.addPostData("sig", StringU.b(stringBuffer.toString()));
+                this.mNet.addPostData(FunAdSdk.PLATFORM_SIG, StringU.b(stringBuffer.toString()));
             }
         }
     }
@@ -121,7 +121,7 @@ public class NetWork {
 
     private void initNetWork() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.netContext = new HttpNetContext();
             this.mNet = NetWorkCoreFacotry.getInstance().createINetWorkCore(this.netContext);
             this.mNetLogin = null;
@@ -136,10 +136,10 @@ public class NetWork {
     private s0 login(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, this, str, str2, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, this, str, str2, z)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    b.a.q0.s.a0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                    c.a.q0.s.a0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     StringBuilder sb = new StringBuilder(32);
                     sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -179,7 +179,7 @@ public class NetWork {
                             }
                             c.g(accountData);
                             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                            b.a.q0.s.a0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                            c.a.q0.s.a0.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                             return s0Var;
                         }
@@ -276,7 +276,7 @@ public class NetWork {
     private void removeAccount(AccountData accountData) {
         b b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b2 = b.a.q0.t.a.a.b()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b2 = c.a.q0.t.a.a.b()) == null) {
             return;
         }
         b2.c(accountData);
@@ -344,7 +344,7 @@ public class NetWork {
     public long getNetDataSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f1789b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f2425b : invokeV.longValue;
     }
 
     public int getNetErrorCode() {
@@ -581,7 +581,7 @@ public class NetWork {
                         return null;
                     }
                 }
-                b.a.r0.e1.a.b(this);
+                c.a.r0.k1.a.b(this);
                 return netString;
             }
         }

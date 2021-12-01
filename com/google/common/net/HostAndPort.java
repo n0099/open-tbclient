@@ -1,11 +1,10 @@
 package com.google.common.net;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.k;
-import b.h.d.a.n;
-import b.h.d.a.q;
+import c.i.d.a.k;
+import c.i.d.a.n;
+import c.i.d.a.q;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.io.Serializable;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class HostAndPort implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_PORT = -1;
@@ -132,7 +131,7 @@ public final class HostAndPort implements Serializable {
     public static boolean isValidPort(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? i2 >= 0 && i2 <= 65535 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? i2 >= 0 && i2 <= 65535 : invokeI.booleanValue;
     }
 
     public boolean equals(Object obj) {

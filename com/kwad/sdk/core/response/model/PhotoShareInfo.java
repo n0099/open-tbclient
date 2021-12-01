@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.b.d;
+import com.kwad.sdk.core.a.d;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -20,7 +20,7 @@ public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.
     public ShareUrlInfo data;
 
     /* loaded from: classes2.dex */
-    public static class ShareUrlInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+    public static class ShareUrlInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7887599282226106153L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject json = super.toJson();
-            q.a(json, "data", this.data);
+            t.a(json, "data", this.data);
             return json;
         }
         return (JSONObject) invokeV.objValue;

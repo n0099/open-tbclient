@@ -8,11 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import b.a.e.f.p.k;
+import c.a.d.f.p.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -25,30 +24,30 @@ import java.util.HashMap;
 import java.util.List;
 import tbclient.Abstract;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ItemHotThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51328e;
+    public Context f46014e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, View> f51329f;
+    public HashMap<String, View> f46015f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<SimpleThreadInfo> f51330g;
+    public List<SimpleThreadInfo> f46016g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f51331e;
+        public final /* synthetic */ String f46017e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ItemHotThreadView f51332f;
+        public final /* synthetic */ ItemHotThreadView f46018f;
 
         public a(ItemHotThreadView itemHotThreadView, String str) {
             Interceptable interceptable = $ic;
@@ -65,39 +64,37 @@ public class ItemHotThreadView extends LinearLayout {
                     return;
                 }
             }
-            this.f51332f = itemHotThreadView;
-            this.f51331e = str;
+            this.f46018f = itemHotThreadView;
+            this.f46017e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TiebaStatic.eventStat(this.f51332f.f51328e, "detail_hot_thread", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f51332f.f51328e).createNormalCfg(this.f51331e, "", "")));
+                TiebaStatic.eventStat(this.f46018f.f46014e, "detail_hot_thread", "click", 1, new Object[0]);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f46018f.f46014e).createNormalCfg(this.f46017e, "", "")));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f51333a;
+        public LinearLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f51334b;
+        public TextView f46019b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f51335c;
+        public TextView f46020c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f51336d;
+        public TextView f46021d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f51337e;
+        public TextView f46022e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -136,7 +133,7 @@ public class ItemHotThreadView extends LinearLayout {
                 return;
             }
         }
-        this.f51329f = new HashMap<>();
+        this.f46015f = new HashMap<>();
         init(context);
     }
 
@@ -147,22 +144,22 @@ public class ItemHotThreadView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLZ(1048576, this, simpleThreadInfo, z) == null) || simpleThreadInfo == null) {
             return;
         }
-        if (!this.f51329f.containsKey(String.valueOf(simpleThreadInfo.tid))) {
-            view = LayoutInflater.from(this.f51328e).inflate(R.layout.forum_detail_hot_thread_item, (ViewGroup) this, false);
+        if (!this.f46015f.containsKey(String.valueOf(simpleThreadInfo.tid))) {
+            view = LayoutInflater.from(this.f46014e).inflate(R.layout.forum_detail_hot_thread_item, (ViewGroup) this, false);
             bVar = new b(null);
-            bVar.f51333a = (LinearLayout) view.findViewById(R.id.thread_item_ll);
-            bVar.f51334b = (TextView) view.findViewById(R.id.ht_item_title);
-            bVar.f51335c = (TextView) view.findViewById(R.id.ht_item_content);
-            bVar.f51336d = (TextView) view.findViewById(R.id.ht_item_reply);
-            bVar.f51337e = (TextView) view.findViewById(R.id.ht_divider_line);
+            bVar.a = (LinearLayout) view.findViewById(R.id.thread_item_ll);
+            bVar.f46019b = (TextView) view.findViewById(R.id.ht_item_title);
+            bVar.f46020c = (TextView) view.findViewById(R.id.ht_item_content);
+            bVar.f46021d = (TextView) view.findViewById(R.id.ht_item_reply);
+            bVar.f46022e = (TextView) view.findViewById(R.id.ht_divider_line);
             view.setTag(bVar);
-            this.f51329f.put(String.valueOf(simpleThreadInfo.tid), view);
+            this.f46015f.put(String.valueOf(simpleThreadInfo.tid), view);
             addView(view);
         } else {
-            view = this.f51329f.get(String.valueOf(simpleThreadInfo.tid));
+            view = this.f46015f.get(String.valueOf(simpleThreadInfo.tid));
             bVar = (b) view.getTag();
         }
-        bVar.f51334b.setText(simpleThreadInfo.title);
+        bVar.f46019b.setText(simpleThreadInfo.title);
         StringBuilder sb = new StringBuilder();
         List<Abstract> list = simpleThreadInfo._abstract;
         if (list != null && list.size() != 0) {
@@ -174,24 +171,24 @@ public class ItemHotThreadView extends LinearLayout {
             }
         }
         if (!k.isEmpty(sb.toString().trim())) {
-            bVar.f51335c.setText(sb.toString());
-            bVar.f51335c.setVisibility(0);
+            bVar.f46020c.setText(sb.toString());
+            bVar.f46020c.setVisibility(0);
         } else {
-            bVar.f51335c.setVisibility(8);
+            bVar.f46020c.setVisibility(8);
         }
-        bVar.f51336d.setText(String.valueOf(simpleThreadInfo.reply_num));
-        SkinManager.setBackgroundResource(bVar.f51333a, R.drawable.live_frs_list_item_bg);
-        SkinManager.setViewTextColor(bVar.f51334b, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(bVar.f51335c, R.color.CAM_X0108, 1);
-        SkinManager.setViewTextColor(bVar.f51336d, R.color.CAM_X0304, 1);
+        bVar.f46021d.setText(String.valueOf(simpleThreadInfo.reply_num));
+        SkinManager.setBackgroundResource(bVar.a, R.drawable.live_frs_list_item_bg);
+        SkinManager.setViewTextColor(bVar.f46019b, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(bVar.f46020c, R.color.CAM_X0108, 1);
+        SkinManager.setViewTextColor(bVar.f46021d, R.color.CAM_X0304, 1);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_ba_comment);
         bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-        bVar.f51336d.setCompoundDrawables(bitmapDrawable, null, null, null);
-        SkinManager.setBackgroundResource(bVar.f51337e, R.color.CAM_X0204);
+        bVar.f46021d.setCompoundDrawables(bitmapDrawable, null, null, null);
+        SkinManager.setBackgroundResource(bVar.f46022e, R.color.CAM_X0204);
         if (z) {
-            bVar.f51337e.setVisibility(0);
+            bVar.f46022e.setVisibility(0);
         } else {
-            bVar.f51337e.setVisibility(8);
+            bVar.f46022e.setVisibility(8);
         }
         view.setOnClickListener(new a(this, String.valueOf(simpleThreadInfo.tid)));
     }
@@ -199,14 +196,14 @@ public class ItemHotThreadView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setData(this.f51330g);
+            setData(this.f46016g);
         }
     }
 
     public void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f51328e = context;
+            this.f46014e = context;
             LayoutInflater.from(context).inflate(R.layout.forum_detail_hot_thread, (ViewGroup) this, true);
             setVisibility(8);
         }
@@ -224,7 +221,7 @@ public class ItemHotThreadView extends LinearLayout {
     public void setData(List<SimpleThreadInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f51330g = list;
+            this.f46016g = list;
             if (list == null || list.size() == 0) {
                 return;
             }
@@ -258,7 +255,7 @@ public class ItemHotThreadView extends LinearLayout {
                 return;
             }
         }
-        this.f51329f = new HashMap<>();
+        this.f46015f = new HashMap<>();
         init(context);
     }
 }

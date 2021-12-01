@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util;
 
-import b.a.q0.s.q.s;
+import c.a.q0.s.q.s;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ICDNProblemUploader {
     public static /* synthetic */ Interceptable $ic;
     public static ICDNProblemUploader problemUploader;
@@ -69,7 +69,7 @@ public abstract class ICDNProblemUploader {
 
     public abstract void insertErrorData(int i2, String str);
 
-    public abstract void insertNormalData(long j, String str);
+    public abstract void insertNormalData(long j2, String str);
 
     public abstract void setmCdnLogData(s sVar);
 }

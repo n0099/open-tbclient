@@ -5,8 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.j;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.r0.t3.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DeepLinkManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUNDLE_NEED_BLACKLIST = "need_scheme_blacklist";
@@ -68,7 +67,7 @@ public class DeepLinkManager {
     public static boolean isTieBaDeepLink(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -108,19 +107,19 @@ public class DeepLinkManager {
 
     public static boolean openWebUrl(Context context, String str, Bundle bundle) {
         InterceptResult invokeLLL;
-        TbPageContext<?> tbPageContext;
+        TbPageContext<?> a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, bundle)) == null) {
             String[] strArr = {str};
             UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (tbPageContext = (TbPageContext) j.a(context)) == null) {
+            if (urlManager == null || (a = a.a(context)) == null) {
                 return false;
             }
             if (urlManager.UrlValidated(str)) {
-                urlManager.dealOneLink(tbPageContext, strArr, true, bundle);
+                urlManager.dealOneLink(a, strArr, true, bundle);
                 return true;
             }
-            return urlManager.dealOneLink(tbPageContext, strArr, bundle);
+            return urlManager.dealOneLink(a, strArr, bundle);
         }
         return invokeLLL.booleanValue;
     }
@@ -184,10 +183,31 @@ public class DeepLinkManager {
         return invokeCommon.booleanValue;
     }
 
+    public static boolean tryOpenInnerLink(Context context, String str, DeepLinkCallback deepLinkCallback, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
+        InterceptResult invokeLLLL;
+        int dealOneLinkWithOutJumpWebView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, context, str, deepLinkCallback, deepLinkResponse)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, -1);
+                return false;
+            }
+            TbPageContext<?> a = a.a(context);
+            if (a == null || !((dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(a, new String[]{str})) == 0 || dealOneLinkWithOutJumpWebView == 1)) {
+                return false;
+            }
+            DeepLinkParser.printLog("inner open success-->" + str);
+            deepLinkResponse.onSucceed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER);
+            callbackSuccess(deepLinkCallback, DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, deepLinkResponse);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
     public static boolean tryOpenMarket(Context context, String str, String str2, Bundle bundle, DeepLinkCallback deepLinkCallback, boolean z, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, str, str2, bundle, deepLinkCallback, Boolean.valueOf(z), deepLinkResponse})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, str, str2, bundle, deepLinkCallback, Boolean.valueOf(z), deepLinkResponse})) == null) {
             if (TextUtils.isEmpty(str)) {
                 deepLinkResponse.onFailed("market", -5);
                 return false;
@@ -233,22 +253,6 @@ public class DeepLinkManager {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean tryOpenSchemeLink(Context context, String str, String str2, Bundle bundle, DeepLinkCallback deepLinkCallback, boolean z, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, str, str2, bundle, deepLinkCallback, Boolean.valueOf(z), deepLinkResponse})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                callbackFailed(deepLinkCallback, -1, "JumpLink is empty", deepLinkResponse);
-                return false;
-            } else if (tryOpenApp(context, str, str2, bundle, deepLinkCallback, z, deepLinkResponse)) {
-                return true;
-            } else {
-                return tryOpenWebUrl(context, str, bundle, deepLinkCallback, deepLinkResponse);
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
     public static boolean tryOpenWebUrl(Context context, String str, Bundle bundle, DeepLinkCallback deepLinkCallback, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -280,7 +284,7 @@ public class DeepLinkManager {
     public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, String str, DeepLinkCallback deepLinkCallback, Bundle bundle) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.AD_TEXT_ID, null, context, str, deepLinkCallback, bundle)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, context, str, deepLinkCallback, bundle)) == null) {
             DeepLinkParser.printLog("deepLink=" + str);
             DeepLinkCallback.DeepLinkResponse deepLinkResponse = new DeepLinkCallback.DeepLinkResponse();
             if (str == null) {
@@ -299,6 +303,9 @@ public class DeepLinkManager {
                     String str5 = deepLinkItem.marketUrl;
                     String str6 = deepLinkItem.marketPkgName;
                     boolean z = deepLinkItem.isDesignatePkg;
+                    if (tryOpenInnerLink(context, str2, deepLinkCallback, deepLinkResponse)) {
+                        return processResponseMessage(deepLinkResponse);
+                    }
                     if (tryOpenApp(context, str2, str4, bundle, deepLinkCallback, z, deepLinkResponse)) {
                         return processResponseMessage(deepLinkResponse);
                     }

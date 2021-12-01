@@ -12,13 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bh implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ServiceClient f72385a;
+    public final /* synthetic */ ServiceClient a;
 
     public bh(ServiceClient serviceClient) {
         Interceptable interceptable = $ic;
@@ -35,7 +33,7 @@ public class bh implements ServiceConnection {
                 return;
             }
         }
-        this.f72385a = serviceClient;
+        this.a = serviceClient;
     }
 
     @Override // android.content.ServiceConnection
@@ -45,19 +43,19 @@ public class bh implements ServiceConnection {
         Messenger messenger;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            synchronized (this.f72385a) {
-                this.f72385a.f840b = new Messenger(iBinder);
-                this.f72385a.f841b = false;
-                list = this.f72385a.f838a;
+            synchronized (this.a) {
+                this.a.f840b = new Messenger(iBinder);
+                this.a.f841b = false;
+                list = this.a.f838a;
                 for (Message message : list) {
                     try {
-                        messenger = this.f72385a.f840b;
+                        messenger = this.a.f840b;
                         messenger.send(message);
                     } catch (RemoteException e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
                 }
-                list2 = this.f72385a.f838a;
+                list2 = this.a.f838a;
                 list2.clear();
             }
         }
@@ -67,8 +65,8 @@ public class bh implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f72385a.f840b = null;
-            this.f72385a.f841b = false;
+            this.a.f840b = null;
+            this.a.f841b = false;
         }
     }
 }

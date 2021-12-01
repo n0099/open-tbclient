@@ -11,7 +11,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import b.a.e.f.m.e;
+import c.a.d.f.m.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,28 +23,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ScrollItemView extends ListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ITEM_DISPLAY_TIME = 3000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f56308e;
+    public c f50364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f56309f;
+    public int f50365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f56310g;
+    public Runnable f50366g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScrollItemView f56311e;
+        public final /* synthetic */ ScrollItemView f50367e;
 
         public a(ScrollItemView scrollItemView) {
             Interceptable interceptable = $ic;
@@ -61,30 +61,30 @@ public class ScrollItemView extends ListView {
                     return;
                 }
             }
-            this.f56311e = scrollItemView;
+            this.f50367e = scrollItemView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f56311e.f56310g);
-                if (this.f56311e.getItemCount() > 0) {
-                    ScrollItemView scrollItemView = this.f56311e;
+                e.a().removeCallbacks(this.f50367e.f50366g);
+                if (this.f50367e.getItemCount() > 0) {
+                    ScrollItemView scrollItemView = this.f50367e;
                     scrollItemView.smoothScrollToPositionFromTop(ScrollItemView.d(scrollItemView), 0, 300);
                 }
-                e.a().postDelayed(this.f56311e.f56310g, 3000L);
+                e.a().postDelayed(this.f50367e.f50366g, 3000L);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements AbsListView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScrollItemView f56312e;
+        public final /* synthetic */ ScrollItemView f50368e;
 
         public b(ScrollItemView scrollItemView) {
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class ScrollItemView extends ListView {
                     return;
                 }
             }
-            this.f56312e = scrollItemView;
+            this.f50368e = scrollItemView;
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -115,25 +115,25 @@ public class ScrollItemView extends ListView {
         public void onScrollStateChanged(AbsListView absListView, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) && i2 == 0) {
-                ScrollItemView scrollItemView = this.f56312e;
-                scrollItemView.setSelection(scrollItemView.f56309f);
+                ScrollItemView scrollItemView = this.f50368e;
+                scrollItemView.setSelection(scrollItemView.f50365f);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<String> f56313e;
+        public List<String> f50369e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f56314f;
+        public Context f50370f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ScrollItemView f56315g;
+        public final /* synthetic */ ScrollItemView f50371g;
 
         public c(ScrollItemView scrollItemView, Context context) {
             Interceptable interceptable = $ic;
@@ -150,16 +150,16 @@ public class ScrollItemView extends ListView {
                     return;
                 }
             }
-            this.f56315g = scrollItemView;
-            this.f56314f = context;
-            this.f56313e = new ArrayList();
+            this.f50371g = scrollItemView;
+            this.f50370f = context;
+            this.f50369e = new ArrayList();
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<String> list = this.f56313e;
+                List<String> list = this.f50369e;
                 if (list == null) {
                     return 0;
                 }
@@ -172,8 +172,8 @@ public class ScrollItemView extends ListView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                List<String> list = this.f56313e;
-                return (list == null || i2 < 0) ? "" : this.f56313e.get(i2 % list.size());
+                List<String> list = this.f50369e;
+                return (list == null || i2 < 0) ? "" : this.f50369e.get(i2 % list.size());
             }
             return (String) invokeI.objValue;
         }
@@ -181,8 +181,8 @@ public class ScrollItemView extends ListView {
         public void c(List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                this.f56313e.clear();
-                this.f56313e.addAll(list);
+                this.f50369e.clear();
+                this.f50369e.addAll(list);
                 notifyDataSetChanged();
             }
         }
@@ -191,7 +191,7 @@ public class ScrollItemView extends ListView {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.isEmpty(this.f56313e) ? 0 : Integer.MAX_VALUE : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.isEmpty(this.f50369e) ? 0 : Integer.MAX_VALUE : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -221,30 +221,28 @@ public class ScrollItemView extends ListView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    view = LayoutInflater.from(this.f56314f).inflate(R.layout.scroll_item_layout, viewGroup, false);
-                    dVar = new d(this.f56315g, view);
+                    view = LayoutInflater.from(this.f50370f).inflate(R.layout.scroll_item_layout, viewGroup, false);
+                    dVar = new d(this.f50371g, view);
                     view.setTag(dVar);
                 } else {
                     dVar = (d) view.getTag();
                 }
-                dVar.f56316a.setText(b(this.f56315g.f56309f));
-                SkinManager.setViewTextColor(dVar.f56316a, R.color.CAM_X0109);
+                dVar.a.setText(b(this.f50371g.f50365f));
+                SkinManager.setViewTextColor(dVar.a, R.color.CAM_X0109);
                 return view;
             }
             return (View) invokeILL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public TextView f56316a;
+        public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ScrollItemView f56317b;
+        public final /* synthetic */ ScrollItemView f50372b;
 
         public d(ScrollItemView scrollItemView, View view) {
             Interceptable interceptable = $ic;
@@ -261,8 +259,8 @@ public class ScrollItemView extends ListView {
                     return;
                 }
             }
-            this.f56317b = scrollItemView;
-            this.f56316a = (TextView) view.findViewById(R.id.item_text);
+            this.f50372b = scrollItemView;
+            this.a = (TextView) view.findViewById(R.id.item_text);
         }
     }
 
@@ -284,14 +282,14 @@ public class ScrollItemView extends ListView {
                 return;
             }
         }
-        this.f56309f = 0;
-        this.f56310g = new a(this);
+        this.f50365f = 0;
+        this.f50366g = new a(this);
         e(context);
     }
 
     public static /* synthetic */ int d(ScrollItemView scrollItemView) {
-        int i2 = scrollItemView.f56309f + 1;
-        scrollItemView.f56309f = i2;
+        int i2 = scrollItemView.f50365f + 1;
+        scrollItemView.f50365f = i2;
         return i2;
     }
 
@@ -300,7 +298,7 @@ public class ScrollItemView extends ListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            c cVar = this.f56308e;
+            c cVar = this.f50364e;
             if (cVar == null) {
                 return 0;
             }
@@ -313,7 +311,7 @@ public class ScrollItemView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             c cVar = new c(this, context);
-            this.f56308e = cVar;
+            this.f50364e = cVar;
             setAdapter((ListAdapter) cVar);
             setOnScrollListener(new b(this));
             setClickable(false);
@@ -325,7 +323,7 @@ public class ScrollItemView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int floor = (int) Math.floor(getItemCount() * Math.random());
-            this.f56309f = floor;
+            this.f50365f = floor;
             smoothScrollToPosition(floor);
         }
     }
@@ -359,7 +357,7 @@ public class ScrollItemView extends ListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             stopScroll();
-            this.f56308e.c(list);
+            this.f50364e.c(list);
             f();
             startScroll();
         }
@@ -368,15 +366,15 @@ public class ScrollItemView extends ListView {
     public void startScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            e.a().postDelayed(this.f56310g, 3000L);
+            e.a().postDelayed(this.f50366g, 3000L);
         }
     }
 
     public void stopScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            e.a().removeCallbacks(this.f56310g);
-            setSelection(this.f56309f);
+            e.a().removeCallbacks(this.f50366g);
+            setSelection(this.f50365f);
         }
     }
 
@@ -399,8 +397,8 @@ public class ScrollItemView extends ListView {
                 return;
             }
         }
-        this.f56309f = 0;
-        this.f56310g = new a(this);
+        this.f50365f = 0;
+        this.f50366g = new a(this);
         e(context);
     }
 
@@ -423,8 +421,8 @@ public class ScrollItemView extends ListView {
                 return;
             }
         }
-        this.f56309f = 0;
-        this.f56310g = new a(this);
+        this.f50365f = 0;
+        this.f50366g = new a(this);
         e(context);
     }
 }

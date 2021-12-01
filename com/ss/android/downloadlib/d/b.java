@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,9 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public class b extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String[] f69686a;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +32,7 @@ public class b extends SQLiteOpenHelper {
                 return;
             }
         }
-        f69686a = new String[]{"_id", LegoListActivityConfig.AD_ID, IAdRequestParam.REQ_ID, "time"};
+        a = new String[]{"_id", LegoListActivityConfig.AD_ID, "req_id", "time"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,7 +27,7 @@ public class h {
     public static boolean a(DownloadModel downloadModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, downloadModel)) == null) ? downloadModel.isAd() && (downloadModel instanceof AdDownloadModel) && downloadModel.getModelType() == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, downloadModel)) == null) ? downloadModel.isAd() && (downloadModel instanceof AdDownloadModel) && downloadModel.getModelType() == 1 : invokeL.booleanValue;
     }
 
     public static boolean b(int i2) {
@@ -64,24 +63,24 @@ public class h {
             if (!fVar.Z()) {
                 fVar.a(new com.ss.android.downloadlib.c.b());
             }
-            int a2 = com.ss.android.socialbase.appdownloader.d.j().a(fVar);
-            com.ss.android.downloadad.api.a.b a3 = a(eVar, a2);
-            com.ss.android.downloadlib.addownload.b.f.a().a(a3);
-            a3.g(a2);
-            a3.h(System.currentTimeMillis());
-            a3.i(0L);
-            com.ss.android.socialbase.downloader.g.a a4 = com.ss.android.socialbase.downloader.g.a.a(fVar.ad());
-            if (!a(fVar, a4, a2) && eVar.f69434b.isShowToast()) {
-                String startToast = eVar.f69434b.getStartToast();
+            int a = com.ss.android.socialbase.appdownloader.d.j().a(fVar);
+            com.ss.android.downloadad.api.a.b a2 = a(eVar, a);
+            com.ss.android.downloadlib.addownload.b.f.a().a(a2);
+            a2.g(a);
+            a2.h(System.currentTimeMillis());
+            a2.i(0L);
+            com.ss.android.socialbase.downloader.g.a a3 = com.ss.android.socialbase.downloader.g.a.a(fVar.ad());
+            if (!a(fVar, a3, a) && eVar.f61223b.isShowToast()) {
+                String startToast = eVar.f61223b.getStartToast();
                 if (TextUtils.isEmpty(startToast)) {
-                    startToast = a4.c("download_start_toast_text");
+                    startToast = a3.c("download_start_toast_text");
                 }
                 if (TextUtils.isEmpty(startToast)) {
                     startToast = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
                 }
-                j.c().a(2, fVar.getContext(), eVar.f69434b, startToast, null, 0);
+                j.c().a(2, fVar.getContext(), eVar.f61223b, startToast, null, 0);
             }
-            return a2;
+            return a;
         }
         return invokeCommon.intValue;
     }
@@ -90,11 +89,11 @@ public class h {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, eVar, i2)) == null) {
-            com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f69434b, eVar.f69435c, eVar.f69436d, i2);
+            com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f61223b, eVar.f61224c, eVar.f61225d, i2);
             boolean z = true;
             if (com.ss.android.socialbase.downloader.g.a.a(i2).a("download_event_opt", 1) > 1) {
                 try {
-                    String packageName = eVar.f69434b.getPackageName();
+                    String packageName = eVar.f61223b.getPackageName();
                     if (!TextUtils.isEmpty(packageName)) {
                         if (j.getContext().getPackageManager().getPackageInfo(packageName, 0) == null) {
                             z = false;
@@ -113,7 +112,7 @@ public class h {
         InterceptResult invokeLLI;
         String optString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, fVar, aVar, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, fVar, aVar, i2)) == null) {
             JSONArray e2 = aVar.e("ah_plans");
             if (e2 != null && e2.length() != 0) {
                 int length = e2.length();
@@ -179,13 +178,13 @@ public class h {
                                 case 1:
                                 case 2:
                                 case 3:
-                                    if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).f69813b == 0) {
+                                    if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).f61462b == 0) {
                                         break;
                                     } else {
                                         continue;
                                     }
                                 case 6:
-                                    if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).f69813b == 0) {
+                                    if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).f61462b == 0) {
                                         break;
                                     } else {
                                         continue;
@@ -233,8 +232,8 @@ public class h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, fVar, str)) == null) {
-            com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(fVar.ad());
-            JSONObject d2 = a2.d("download_dir");
+            com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(fVar.ad());
+            JSONObject d2 = a.d("download_dir");
             if (d2 == null || TextUtils.isEmpty(d2.optString("dir_name"))) {
                 return -1;
             }
@@ -253,25 +252,25 @@ public class h {
             if (TextUtils.isEmpty(c2)) {
                 c2 = com.ss.android.socialbase.appdownloader.c.b();
             }
-            String str2 = c2 + File.separator + com.ss.android.socialbase.appdownloader.c.a(b2, a2);
-            DownloadInfo a3 = com.ss.android.socialbase.appdownloader.d.j().a(fVar.getContext(), str);
-            if (a3 != null && a3.isSavePathRedirected()) {
-                fVar.c(a3.getSavePath());
+            String str2 = c2 + File.separator + com.ss.android.socialbase.appdownloader.c.a(b2, a);
+            DownloadInfo a2 = com.ss.android.socialbase.appdownloader.d.j().a(fVar.getContext(), str);
+            if (a2 != null && a2.isSavePathRedirected()) {
+                fVar.c(a2.getSavePath());
                 try {
-                    fVar.a(new JSONObject(a3.getDownloadSettingString()));
+                    fVar.a(new JSONObject(a2.getDownloadSettingString()));
                     return 0;
                 } catch (Throwable unused) {
                     return 0;
                 }
-            } else if (a3 != null || !"application/vnd.android.package-archive".equalsIgnoreCase(com.ss.android.socialbase.appdownloader.d.j().a(L, fVar.l()))) {
-                return a3 != null ? 8 : 9;
+            } else if (a2 != null || !"application/vnd.android.package-archive".equalsIgnoreCase(com.ss.android.socialbase.appdownloader.d.j().a(L, fVar.l()))) {
+                return a2 != null ? 8 : 9;
             } else {
-                int a4 = com.ss.android.socialbase.appdownloader.b.a(a2);
-                if (a4 == 0) {
+                int a3 = com.ss.android.socialbase.appdownloader.b.a(a);
+                if (a3 == 0) {
                     fVar.c(str2);
-                    return a4;
+                    return a3;
                 }
-                return a4;
+                return a3;
             }
         }
         return invokeLL.intValue;

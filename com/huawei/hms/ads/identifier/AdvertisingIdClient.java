@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -166,13 +165,11 @@ public class AdvertisingIdClient {
 
     public static void updateAdvertisingIdInfo(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
-            c.f64631a.execute(new Runnable(context) { // from class: com.huawei.hms.ads.identifier.AdvertisingIdClient.1
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            c.a.execute(new Runnable(context) { // from class: com.huawei.hms.ads.identifier.AdvertisingIdClient.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f64625a;
+                public final /* synthetic */ Context a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -189,7 +186,7 @@ public class AdvertisingIdClient {
                             return;
                         }
                     }
-                    this.f64625a = context;
+                    this.a = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -197,7 +194,7 @@ public class AdvertisingIdClient {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            AdvertisingIdClient.requestAdvertisingIdInfo(this.f64625a);
+                            AdvertisingIdClient.requestAdvertisingIdInfo(this.a);
                         } catch (Throwable unused) {
                         }
                     }
@@ -210,7 +207,7 @@ public class AdvertisingIdClient {
     public static boolean verifyAdId(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, context, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, context, str, z)) == null) {
             Info requestAdvertisingIdInfo = requestAdvertisingIdInfo(context);
             if (requestAdvertisingIdInfo == null || !TextUtils.equals(str, requestAdvertisingIdInfo.getId())) {
                 return false;

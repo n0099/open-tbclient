@@ -20,7 +20,7 @@ import io.reactivex.parallel.ParallelFlowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
     public final ParallelFlowable<T> source;
 
     /* renamed from: io.reactivex.internal.operators.parallel.ParallelDoOnNextTry$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$parallel$ParallelFailureHandling;
         public static /* synthetic */ Interceptable $ic;
@@ -65,7 +65,7 @@ public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ParallelDoOnNextConditionalSubscriber<T> implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,10 +145,10 @@ public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                this.s.request(j);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                this.s.request(j2);
             }
         }
 
@@ -165,7 +165,7 @@ public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
                 if (this.done) {
                     return false;
                 }
-                long j = 0;
+                long j2 = 0;
                 do {
                     try {
                         this.onNext.accept(t);
@@ -173,8 +173,8 @@ public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
                         try {
-                            j++;
-                            i2 = AnonymousClass1.$SwitchMap$io$reactivex$parallel$ParallelFailureHandling[((ParallelFailureHandling) ObjectHelper.requireNonNull(this.errorHandler.apply(Long.valueOf(j), th), "The errorHandler returned a null item")).ordinal()];
+                            j2++;
+                            i2 = AnonymousClass1.$SwitchMap$io$reactivex$parallel$ParallelFailureHandling[((ParallelFailureHandling) ObjectHelper.requireNonNull(this.errorHandler.apply(Long.valueOf(j2), th), "The errorHandler returned a null item")).ordinal()];
                             if (i2 != 1) {
                                 if (i2 != 2) {
                                 }
@@ -203,7 +203,7 @@ public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ParallelDoOnNextSubscriber<T> implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -283,10 +283,10 @@ public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                this.s.request(j);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                this.s.request(j2);
             }
         }
 
@@ -303,7 +303,7 @@ public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
                 if (this.done) {
                     return false;
                 }
-                long j = 0;
+                long j2 = 0;
                 do {
                     try {
                         this.onNext.accept(t);
@@ -312,8 +312,8 @@ public final class ParallelDoOnNextTry<T> extends ParallelFlowable<T> {
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
                         try {
-                            j++;
-                            i2 = AnonymousClass1.$SwitchMap$io$reactivex$parallel$ParallelFailureHandling[((ParallelFailureHandling) ObjectHelper.requireNonNull(this.errorHandler.apply(Long.valueOf(j), th), "The errorHandler returned a null item")).ordinal()];
+                            j2++;
+                            i2 = AnonymousClass1.$SwitchMap$io$reactivex$parallel$ParallelFailureHandling[((ParallelFailureHandling) ObjectHelper.requireNonNull(this.errorHandler.apply(Long.valueOf(j2), th), "The errorHandler returned a null item")).ordinal()];
                             if (i2 != 1) {
                                 if (i2 != 2) {
                                 }

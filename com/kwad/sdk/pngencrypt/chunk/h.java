@@ -10,12 +10,16 @@ public class h extends aa {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66845h;
+    public int f58732h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f66846i;
-    public int j;
-    public int k;
+    public int f58733i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f58734j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f58735k;
     public int l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -43,15 +47,15 @@ public class h extends aa {
     public void a(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            com.kwad.sdk.pngencrypt.k kVar = this.f66810e;
-            if (kVar.f66894f) {
-                this.f66845h = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 0);
-            } else if (kVar.f66895g) {
-                this.l = dVar.f66832d[0] & 255;
+            com.kwad.sdk.pngencrypt.k kVar = this.f58700e;
+            if (kVar.f58798f) {
+                this.f58732h = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 0);
+            } else if (kVar.f58799g) {
+                this.l = dVar.f58722d[0] & 255;
             } else {
-                this.f66846i = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 0);
-                this.j = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 2);
-                this.k = com.kwad.sdk.pngencrypt.n.b(dVar.f66832d, 4);
+                this.f58733i = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 0);
+                this.f58734j = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 2);
+                this.f58735k = com.kwad.sdk.pngencrypt.n.b(dVar.f58722d, 4);
             }
         }
     }

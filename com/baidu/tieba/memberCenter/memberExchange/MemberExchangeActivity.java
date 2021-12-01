@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import android.os.Bundle;
 import android.view.View;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -20,25 +20,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener;
-    public b.a.r0.y1.d.a mView;
+    public c.a.r0.e2.d.a mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberExchangeActivity f52451a;
+        public final /* synthetic */ MemberExchangeActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MemberExchangeActivity memberExchangeActivity, int i2) {
@@ -58,7 +56,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                     return;
                 }
             }
-            this.f52451a = memberExchangeActivity;
+            this.a = memberExchangeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,22 +67,22 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 GetTCodeResMessage getTCodeResMessage = (GetTCodeResMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
-                        if (getTCodeResMessage.getTCodeInfo().f29000a.equals("0")) {
-                            this.f52451a.showToast(R.string.exchange_success);
+                        if (getTCodeResMessage.getTCodeInfo().a.equals("0")) {
+                            this.a.showToast(R.string.exchange_success);
                             return;
                         } else {
-                            this.f52451a.showToast(R.string.exchange_error);
+                            this.a.showToast(R.string.exchange_error);
                             return;
                         }
                     }
-                    this.f52451a.showToast(R.string.neterror);
+                    this.a.showToast(R.string.neterror);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
-                    errorString = this.f52451a.getResources().getString(R.string.neterror);
+                    errorString = this.a.getResources().getString(R.string.neterror);
                 }
-                this.f52451a.showToast(errorString);
+                this.a.showToast(errorString);
             }
         }
     }
@@ -139,7 +137,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         if (view.getId() == R.id.go_to_exchange) {
             requestTCodeInfo();
         } else {
-            l.x(getPageContext().getPageActivity(), this.mView.b());
+            l.w(getPageContext().getPageActivity(), this.mView.b());
         }
     }
 
@@ -163,7 +161,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             }
             initTask();
             initListener();
-            b.a.r0.y1.d.a aVar = new b.a.r0.y1.d.a(this);
+            c.a.r0.e2.d.a aVar = new c.a.r0.e2.d.a(this);
             this.mView = aVar;
             aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
         }

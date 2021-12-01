@@ -17,7 +17,6 @@ import androidx.appcompat.widget.ResourceManagerInternal;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ColorStateListInflaterCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,14 +153,14 @@ public final class AppCompatResources {
     public static Drawable getDrawable(@NonNull Context context, @DrawableRes int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, context, i2)) == null) ? ResourceManagerInternal.get().getDrawable(context, i2) : (Drawable) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) ? ResourceManagerInternal.get().getDrawable(context, i2) : (Drawable) invokeLI.objValue;
     }
 
     @NonNull
     public static TypedValue getTypedValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             TypedValue typedValue = TL_TYPED_VALUE.get();
             if (typedValue == null) {
                 TypedValue typedValue2 = new TypedValue();

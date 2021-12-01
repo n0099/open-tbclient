@@ -9,7 +9,6 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,12 +21,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class ImportExportConfigUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnExportListener {
         void onExportFail(String str);
 
@@ -76,14 +75,14 @@ public class ImportExportConfigUtil {
     public static List<MediaTextureData> getMediaTextureDates(Context context, ShaderConfig shaderConfig, File file, String str, OnExportListener onExportListener) throws IOException {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.AD_TEXT_ID, null, context, shaderConfig, file, str, onExportListener)) == null) ? InnerImportExportConfigUtil.getMediaTextureDates(context, shaderConfig, file, str, onExportListener) : (List) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65541, null, context, shaderConfig, file, str, onExportListener)) == null) ? InnerImportExportConfigUtil.getMediaTextureDates(context, shaderConfig, file, str, onExportListener) : (List) invokeLLLLL.objValue;
     }
 
     @NonNull
     public static Map<String, String> getShaderResourceMap(Context context, String str, File file, MediaTrackConfig mediaTrackConfig, OnExportListener onExportListener) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, file, mediaTrackConfig, onExportListener)) == null) ? InnerImportExportConfigUtil.getShaderResourceMap(context, str, file, mediaTrackConfig, onExportListener) : (Map) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, context, str, file, mediaTrackConfig, onExportListener)) == null) ? InnerImportExportConfigUtil.getShaderResourceMap(context, str, file, mediaTrackConfig, onExportListener) : (Map) invokeLLLLL.objValue;
     }
 
     public static List<String> getTransitionResourceList(File file, MediaTrackConfig mediaTrackConfig, OnExportListener onExportListener) {

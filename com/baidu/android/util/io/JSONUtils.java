@@ -2,7 +2,6 @@ package com.baidu.android.util.io;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class JSONUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -68,13 +67,13 @@ public final class JSONUtils {
     public static int getInt(JSONObject jSONObject, String str, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.AD_TEXT_ID, null, jSONObject, str, i2)) == null) ? ((Integer) get(jSONObject, str, Integer.class)) == null ? i2 : ((Integer) get(jSONObject, str, Integer.class)).intValue() : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, jSONObject, str, i2)) == null) ? ((Integer) get(jSONObject, str, Integer.class)) == null ? i2 : ((Integer) get(jSONObject, str, Integer.class)).intValue() : invokeLLI.intValue;
     }
 
     public static String getIntOrString(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, str)) == null) {
             Integer num = (Integer) get(jSONObject, str, Integer.class);
             if (num == null) {
                 return (String) get(jSONObject, str, String.class);

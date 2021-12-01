@@ -1,7 +1,6 @@
 package com.baidu.searchbox.launch;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SmartLaunchController {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isSmartLaunchEnable;
@@ -67,14 +66,14 @@ public class SmartLaunchController {
 
     public static void register(SmartLaunchTask smartLaunchTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, smartLaunchTask) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, smartLaunchTask) == null) {
             SmartLaunchScheduler.getInstance().register(smartLaunchTask);
         }
     }
 
     public static void scheduleIdleTask() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             SmartLaunchScheduler.getInstance().scheduleIdleTask();
         }
     }

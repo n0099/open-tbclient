@@ -3,7 +3,6 @@ package com.baidu.wallet.core.lollipop.json;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,11 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.utility.FileUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class JSONStringer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class JSONStringer {
     public final List<Scope> stack;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Scope {
         public static final /* synthetic */ Scope[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -158,7 +158,7 @@ public class JSONStringer {
     private Scope peek() throws JSONException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (!this.stack.isEmpty()) {
                 List<Scope> list = this.stack;
                 return list.get(list.size() - 1);
@@ -170,7 +170,7 @@ public class JSONStringer {
 
     private void replaceTop(Scope scope) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, scope) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, scope) == null) {
             List<Scope> list = this.stack;
             list.set(list.size() - 1, scope);
         }
@@ -209,7 +209,7 @@ public class JSONStringer {
                     }
                 } else {
                     StringBuilder sb = this.out;
-                    sb.append('\\');
+                    sb.append(FileUtil.WINDOWS_SEPARATOR);
                     sb.append(charAt);
                 }
             }
@@ -381,13 +381,13 @@ public class JSONStringer {
         return (JSONStringer) invokeCommon.objValue;
     }
 
-    public JSONStringer value(long j) throws JSONException {
+    public JSONStringer value(long j2) throws JSONException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
             if (!this.stack.isEmpty()) {
                 beforeValue();
-                this.out.append(j);
+                this.out.append(j2);
                 return this;
             }
             throw new JSONException("Nesting problem");

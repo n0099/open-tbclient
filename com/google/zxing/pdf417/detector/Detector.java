@@ -1,7 +1,6 @@
 package com.google.zxing.pdf417.detector;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BARCODE_MIN_HEIGHT = 10;
@@ -83,7 +82,7 @@ public final class Detector {
             BitMatrix blackMatrix = binaryBitmap.getBlackMatrix();
             List<ResultPoint[]> detect = detect(z, blackMatrix);
             if (detect.isEmpty()) {
-                blackMatrix = blackMatrix.m61clone();
+                blackMatrix = blackMatrix.m109clone();
                 blackMatrix.rotate180();
                 detect = detect(z, blackMatrix);
             }
@@ -95,7 +94,7 @@ public final class Detector {
     public static int[] findGuardPattern(BitMatrix bitMatrix, int i2, int i3, int i4, boolean z, int[] iArr, int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{bitMatrix, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), iArr, iArr2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{bitMatrix, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), iArr, iArr2})) == null) {
             Arrays.fill(iArr2, 0, iArr2.length, 0);
             int i5 = 0;
             while (bitMatrix.get(i2, i3) && i2 > 0) {
@@ -148,7 +147,7 @@ public final class Detector {
         int i8;
         int i9;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{bitMatrix, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitMatrix, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) {
             ResultPoint[] resultPointArr = new ResultPoint[4];
             int[] iArr2 = new int[iArr.length];
             int i10 = i4;

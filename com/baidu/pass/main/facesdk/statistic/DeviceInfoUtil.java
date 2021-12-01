@@ -7,7 +7,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DeviceInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileFilter CPU_FILTER;
@@ -254,13 +253,13 @@ public class DeviceInfoUtil {
     public static String getDeviceBrand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? Build.BRAND : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Build.BRAND : (String) invokeV.objValue;
     }
 
     public static String getDeviceDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? Build.DEVICE : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.DEVICE : (String) invokeV.objValue;
     }
 
     public static String getDeviceManufacturer() {
@@ -372,9 +371,9 @@ public class DeviceInfoUtil {
             StatFs statFs = new StatFs(new File(storagePath).getPath());
             long blockCountLong = statFs.getBlockCountLong();
             long blockSizeLong = statFs.getBlockSizeLong();
-            long j = blockCountLong * blockSizeLong;
+            long j2 = blockCountLong * blockSizeLong;
             long availableBlocksLong = statFs.getAvailableBlocksLong() * blockSizeLong;
-            return "可用/总共：" + Long.toString(availableBlocksLong) + "/" + Long.toString(j);
+            return "可用/总共：" + Long.toString(availableBlocksLong) + "/" + Long.toString(j2);
         }
         return (String) invokeLI.objValue;
     }

@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
 /* loaded from: classes2.dex */
 public class NetworkHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -50,6 +51,6 @@ public class NetworkHelper {
     public static boolean hasInternetPermission(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getPackageManager().checkPermission("android.permission.INTERNET", context.getPackageName()) == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getPackageManager().checkPermission(s.a, context.getPackageName()) == 0 : invokeL.booleanValue;
     }
 }

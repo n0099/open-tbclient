@@ -12,16 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShareUrlSearch extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.core.e.a f40679a;
+    public com.baidu.platform.core.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40680b;
+    public boolean f36224b;
 
     public ShareUrlSearch() {
         Interceptable interceptable = $ic;
@@ -36,8 +34,8 @@ public class ShareUrlSearch extends l {
                 return;
             }
         }
-        this.f40680b = false;
-        this.f40679a = new h();
+        this.f36224b = false;
+        this.a = new h();
     }
 
     private boolean a(String str) {
@@ -66,11 +64,11 @@ public class ShareUrlSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40680b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36224b) {
             return;
         }
-        this.f40680b = true;
-        this.f40679a.a();
+        this.f36224b = true;
+        this.a.a();
         BMapManager.destroy();
     }
 
@@ -78,7 +76,7 @@ public class ShareUrlSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationShareURLOption)) == null) {
-            com.baidu.platform.core.e.a aVar = this.f40679a;
+            com.baidu.platform.core.e.a aVar = this.a;
             if (aVar != null) {
                 if (locationShareURLOption == null || locationShareURLOption.mLocation == null || locationShareURLOption.mName == null || locationShareURLOption.mSnippet == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or name or snippet  can not be null");
@@ -94,7 +92,7 @@ public class ShareUrlSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, poiDetailShareURLOption)) == null) {
-            com.baidu.platform.core.e.a aVar = this.f40679a;
+            com.baidu.platform.core.e.a aVar = this.a;
             if (aVar != null) {
                 if (poiDetailShareURLOption == null || poiDetailShareURLOption.mUid == null) {
                     throw new IllegalArgumentException("BDMapSDKException: option or uid can not be null");
@@ -110,7 +108,7 @@ public class ShareUrlSearch extends l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, routeShareURLOption)) == null) {
-            if (this.f40679a != null) {
+            if (this.a != null) {
                 if (routeShareURLOption != null) {
                     if (routeShareURLOption.getmMode().ordinal() < 0) {
                         return false;
@@ -133,7 +131,7 @@ public class ShareUrlSearch extends l {
                             throw new IllegalArgumentException("BDMapSDKException: end cityCode must be set if not set end location");
                         }
                     }
-                    return this.f40679a.a(routeShareURLOption);
+                    return this.a.a(routeShareURLOption);
                 }
                 throw new IllegalArgumentException("BDMapSDKException: option is null");
             }
@@ -145,7 +143,7 @@ public class ShareUrlSearch extends l {
     public void setOnGetShareUrlResultListener(OnGetShareUrlResultListener onGetShareUrlResultListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onGetShareUrlResultListener) == null) {
-            com.baidu.platform.core.e.a aVar = this.f40679a;
+            com.baidu.platform.core.e.a aVar = this.a;
             if (aVar == null) {
                 throw new IllegalStateException("BDMapSDKException: searcher has been destroyed");
             }

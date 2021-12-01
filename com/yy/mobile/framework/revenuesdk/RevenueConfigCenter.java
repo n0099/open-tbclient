@@ -1,7 +1,6 @@
 package com.yy.mobile.framework.revenuesdk;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RevenueConfigCenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RevenueConfigCenter";
@@ -80,7 +79,7 @@ public class RevenueConfigCenter {
 
     public static void removeConfig(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(AdIconUtil.AD_TEXT_ID, null, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(65541, null, i2, i3) == null) {
             String revenueConfigMapKey = getRevenueConfigMapKey(i2, i3);
             RLog.info(TAG, "removeConfig mapKey:" + revenueConfigMapKey);
             configMap.remove(revenueConfigMapKey);

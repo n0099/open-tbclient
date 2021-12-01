@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ElasticTask implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG = false;
@@ -25,7 +25,7 @@ public class ElasticTask implements Runnable {
     public long timeOnExecute;
     public long timeOnQueue;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ElasticTaskCallback {
         void afterExecuteTask();
 
@@ -33,7 +33,7 @@ public class ElasticTask implements Runnable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -94,12 +94,12 @@ public class ElasticTask implements Runnable {
         }
     }
 
-    public ElasticTask(Runnable runnable, String str, long j, int i2) {
+    public ElasticTask(Runnable runnable, String str, long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {runnable, str, Long.valueOf(j), Integer.valueOf(i2)};
+            Object[] objArr = {runnable, str, Long.valueOf(j2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -111,7 +111,7 @@ public class ElasticTask implements Runnable {
         }
         this.status = Status.WAITING;
         this.mTaskEntity = runnable;
-        this.id = j;
+        this.id = j2;
         this.name = str;
         this.priority = i2;
     }
@@ -156,15 +156,15 @@ public class ElasticTask implements Runnable {
         return invokeV.longValue;
     }
 
-    public synchronized long getWorkTimeInRecordLifeCycle(long j, long j2) {
+    public synchronized long getWorkTimeInRecordLifeCycle(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             synchronized (this) {
                 if (this.status == Status.WAITING) {
                     return 0L;
                 }
-                return Math.max(0L, Math.min(this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete, j2) - Math.max(this.timeOnExecute, j));
+                return Math.max(0L, Math.min(this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete, j3) - Math.max(this.timeOnExecute, j2));
             }
         }
         return invokeCommon.longValue;

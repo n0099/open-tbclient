@@ -3,7 +3,6 @@ package com.googlecode.mp4parser.authoring.adaptivestreaming;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,6 +25,7 @@ import com.googlecode.mp4parser.boxes.DTSSpecificBox;
 import com.googlecode.mp4parser.boxes.EC3SpecificBox;
 import com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.AudioSpecificConfig;
+import com.kwad.yoga.YogaNodeJNIBase;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -207,7 +207,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     private byte[] getAvcCodecPrivateData(AvcConfigurationBox avcConfigurationBox) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, avcConfigurationBox)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, avcConfigurationBox)) == null) {
             List<byte[]> sequenceParameterSets = avcConfigurationBox.getSequenceParameterSets();
             List<byte[]> pictureParameterSets = avcConfigurationBox.getPictureParameterSets();
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -235,7 +235,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     private AudioQuality getDtsAudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, track, audioSampleEntry)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, track, audioSampleEntry)) == null) {
             DTSSpecificBox dTSSpecificBox = (DTSSpecificBox) audioSampleEntry.getBoxes(DTSSpecificBox.class).get(0);
             if (dTSSpecificBox != null) {
                 ByteBuffer allocate = ByteBuffer.allocate(22);
@@ -307,7 +307,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                                 b4 = (byte) i4;
                                 if (entry.lfeon == 1) {
                                     s2 = (short) (s2 + 1);
-                                    b3 = (byte) (b3 | 16);
+                                    b3 = (byte) (b3 | YogaNodeJNIBase.HAS_NEW_LAYOUT);
                                 }
                             } else {
                                 i2 = b3 | 32;
@@ -577,21 +577,21 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, movie)) == null) {
             LinkedList linkedList = new LinkedList();
             LinkedList linkedList2 = new LinkedList();
-            long j = -1;
             long j2 = -1;
+            long j3 = -1;
             for (Track track : movie.getTracks()) {
                 if (track.getMediaHeaderBox() instanceof VideoMediaHeaderBox) {
                     this.videoFragmentsDurations = checkFragmentsAlign(this.videoFragmentsDurations, calculateFragmentDurations(track, movie));
                     linkedList.add(getVideoQuality(track, (VisualSampleEntry) track.getSampleDescriptionBox().getSampleEntry()));
-                    if (j == -1) {
-                        j = track.getTrackMetaData().getTimescale();
+                    if (j2 == -1) {
+                        j2 = track.getTrackMetaData().getTimescale();
                     }
                 }
                 if (track.getMediaHeaderBox() instanceof SoundMediaHeaderBox) {
                     this.audioFragmentsDurations = checkFragmentsAlign(this.audioFragmentsDurations, calculateFragmentDurations(track, movie));
                     linkedList2.add(getAudioQuality(track, (AudioSampleEntry) track.getSampleDescriptionBox().getSampleEntry()));
-                    if (j2 == -1) {
-                        j2 = track.getTrackMetaData().getTimescale();
+                    if (j3 == -1) {
+                        j3 = track.getTrackMetaData().getTimescale();
                     }
                 }
             }
@@ -608,7 +608,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 String str9 = "Type";
                 createElement2.setAttribute("Type", "video");
                 String str10 = "TimeScale";
-                createElement2.setAttribute("TimeScale", Long.toString(j));
+                createElement2.setAttribute("TimeScale", Long.toString(j2));
                 String str11 = "Chunks";
                 createElement2.setAttribute("Chunks", Integer.toString(this.videoFragmentsDurations.length));
                 String str12 = "Url";
@@ -680,7 +680,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 if (this.audioFragmentsDurations != null) {
                     Element createElement5 = newDocument.createElement(str8);
                     createElement5.setAttribute(str9, MediaStreamTrack.AUDIO_TRACK_KIND);
-                    createElement5.setAttribute(str10, Long.toString(j2));
+                    createElement5.setAttribute(str10, Long.toString(j3));
                     createElement5.setAttribute(str11, Integer.toString(this.audioFragmentsDurations.length));
                     createElement5.setAttribute(str12, "audio/{bitrate}/{start time}");
                     createElement5.setAttribute(str13, Integer.toString(linkedList2.size()));

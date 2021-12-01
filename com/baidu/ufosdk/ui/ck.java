@@ -6,16 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class ck implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f57789a;
+    public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ cg f57790b;
+    public final /* synthetic */ cg f51651b;
 
     public ck(cg cgVar, int i2) {
         Interceptable interceptable = $ic;
@@ -32,8 +30,8 @@ public final class ck implements View.OnClickListener {
                 return;
             }
         }
-        this.f57790b = cgVar;
-        this.f57789a = i2;
+        this.f51651b = cgVar;
+        this.a = i2;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0057: INVOKE  (r0v10 java.lang.Object A[REMOVE]) = 
@@ -51,17 +49,17 @@ public final class ck implements View.OnClickListener {
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f57790b.f57783a.aF = this.f57789a;
+            this.f51651b.a.aF = this.a;
             com.baidu.ufosdk.f.c.a("点击未解决！！！");
-            ((Map) this.f57790b.f57783a.f57687h.get(this.f57789a)).put("ask", 3);
-            if (((Map) this.f57790b.f57783a.f57687h.get(this.f57789a)).containsKey("chatId")) {
-                FeedbackInputActivity feedbackInputActivity = this.f57790b.f57783a;
+            ((Map) this.f51651b.a.f51610h.get(this.a)).put("ask", 3);
+            if (((Map) this.f51651b.a.f51610h.get(this.a)).containsKey("chatId")) {
+                FeedbackInputActivity feedbackInputActivity = this.f51651b.a;
                 StringBuilder sb = new StringBuilder();
-                sb.append(((Map) this.f57790b.f57783a.f57687h.get(this.f57789a)).get("chatId"));
-                feedbackInputActivity.f57685f = sb.toString();
+                sb.append(((Map) this.f51651b.a.f51610h.get(this.a)).get("chatId"));
+                feedbackInputActivity.f51608f = sb.toString();
             }
-            this.f57790b.f57783a.l.execute(new cl(this));
-            FeedbackInputActivity.a(this.f57790b.f57783a, false, true);
+            this.f51651b.a.l.execute(new cl(this));
+            FeedbackInputActivity.a(this.f51651b.a, false, true);
         }
     }
 }

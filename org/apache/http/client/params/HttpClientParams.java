@@ -1,7 +1,6 @@
 package org.apache.http.client.params;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,14 +65,14 @@ public class HttpClientParams {
 
     public static void setCookiePolicy(HttpParams httpParams, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, httpParams, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, httpParams, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
     public static void setRedirecting(HttpParams httpParams, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, httpParams, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65542, null, httpParams, z) == null) {
             throw new RuntimeException("Stub!");
         }
     }

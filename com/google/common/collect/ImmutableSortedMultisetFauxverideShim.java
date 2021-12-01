@@ -1,14 +1,13 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableSortedMultiset;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class ImmutableSortedMultisetFauxverideShim<E> extends ImmutableMultiset<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +56,7 @@ public abstract class ImmutableSortedMultisetFauxverideShim<E> extends Immutable
         return (ImmutableSortedMultiset) invokeL.objValue;
     }
 
-    @Override // com.google.common.collect.ImmutableMultiset, b.h.d.c.s0
+    @Override // com.google.common.collect.ImmutableMultiset, c.i.d.c.s0
     public abstract /* synthetic */ int count(Object obj);
 
     @Deprecated
@@ -74,7 +73,7 @@ public abstract class ImmutableSortedMultisetFauxverideShim<E> extends Immutable
     public static <E> ImmutableSortedMultiset<E> of(E e2, E e3, E e4) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, e2, e3, e4)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, e2, e3, e4)) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedMultiset) invokeLLL.objValue;
@@ -84,7 +83,7 @@ public abstract class ImmutableSortedMultisetFauxverideShim<E> extends Immutable
     public static <E> ImmutableSortedMultiset<E> of(E e2, E e3, E e4, E e5) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, e2, e3, e4, e5)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, e2, e3, e4, e5)) == null) {
             throw new UnsupportedOperationException();
         }
         return (ImmutableSortedMultiset) invokeLLLL.objValue;

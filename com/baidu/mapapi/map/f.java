@@ -6,15 +6,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public /* synthetic */ class f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40404a;
+    public static final /* synthetic */ int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40405b;
+    public static final /* synthetic */ int[] f36021b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,27 +29,27 @@ public /* synthetic */ class f {
             }
         }
         int[] iArr = new int[com.baidu.mapsdkplatform.comapi.map.aa.values().length];
-        f40405b = iArr;
+        f36021b = iArr;
         try {
-            iArr[com.baidu.mapsdkplatform.comapi.map.aa.f40896b.ordinal()] = 1;
+            iArr[com.baidu.mapsdkplatform.comapi.map.aa.f36386b.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f40405b[com.baidu.mapsdkplatform.comapi.map.aa.f40895a.ordinal()] = 2;
+            f36021b[com.baidu.mapsdkplatform.comapi.map.aa.a.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         int[] iArr2 = new int[MyLocationConfiguration.LocationMode.values().length];
-        f40404a = iArr2;
+        a = iArr2;
         try {
             iArr2[MyLocationConfiguration.LocationMode.COMPASS.ordinal()] = 1;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f40404a[MyLocationConfiguration.LocationMode.FOLLOWING.ordinal()] = 2;
+            a[MyLocationConfiguration.LocationMode.FOLLOWING.ordinal()] = 2;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f40404a[MyLocationConfiguration.LocationMode.NORMAL.ordinal()] = 3;
+            a[MyLocationConfiguration.LocationMode.NORMAL.ordinal()] = 3;
         } catch (NoSuchFieldError unused5) {
         }
     }

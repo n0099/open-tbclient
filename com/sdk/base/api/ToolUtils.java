@@ -2,7 +2,6 @@ package com.sdk.base.api;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,6 +57,6 @@ public class ToolUtils {
     public static String getAppMd5(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? com.sdk.base.framework.f.a.a.e(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? com.sdk.base.framework.f.a.a.e(context) : (String) invokeL.objValue;
     }
 }

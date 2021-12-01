@@ -1,11 +1,11 @@
 package com.baidu.tieba.hottopic.controller;
 
-import b.a.e.a.f;
-import b.a.e.f.p.l;
-import b.a.q0.s.k;
-import b.a.q0.s.q.b1;
-import b.a.r0.j1.l.d;
-import b.a.r0.j1.l.e;
+import c.a.d.a.f;
+import c.a.d.f.p.l;
+import c.a.q0.s.k;
+import c.a.q0.s.q.b1;
+import c.a.r0.p1.l.d;
+import c.a.r0.p1.l.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -21,30 +21,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f50910e;
+    public BaseActivity<?> f45636e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f50911f;
+    public c f45637f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f50912g;
+    public b f45638g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a.e.c.g.a f50913h;
+    public c.a.d.c.g.a f45639h;
 
-    /* loaded from: classes9.dex */
-    public class a extends b.a.e.c.g.a {
+    /* loaded from: classes10.dex */
+    public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotRelateThreadModel f50914a;
+        public final /* synthetic */ HotRelateThreadModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HotRelateThreadModel hotRelateThreadModel, int i2, int i3) {
@@ -65,43 +63,43 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
                     return;
                 }
             }
-            this.f50914a = hotRelateThreadModel;
+            this.a = hotRelateThreadModel;
         }
 
-        @Override // b.a.e.c.g.a
+        @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.f50914a.f50912g != null) {
-                    this.f50914a.f50912g.complete();
+                if (this.a.f45638g != null) {
+                    this.a.f45638g.complete();
                 }
                 if (responsedMessage == null) {
                     return;
                 }
-                if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.f50914a.getUniqueId()) {
+                if (((responsedMessage instanceof ResponseHttpGetTopicRelateThreadMessage) || (responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage)) && responsedMessage.getOrginalMessage().getTag() == this.a.getUniqueId()) {
                     int i2 = 1;
                     if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
                         i2 = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
                     }
                     if (!responsedMessage.hasError()) {
-                        this.f50914a.B(responsedMessage);
+                        this.a.B(responsedMessage);
                         return;
                     }
                     if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                        this.f50914a.f50910e.showToast(responsedMessage.getErrorString());
+                        this.a.f45636e.showToast(responsedMessage.getErrorString());
                     }
-                    this.f50914a.f50911f.hotRelateThreadCallback(false, null, i2);
+                    this.a.f45637f.hotRelateThreadCallback(false, null, i2);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void complete();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void hotRelateThreadCallback(boolean z, d dVar, int i2);
     }
@@ -125,8 +123,8 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, 309005);
-        this.f50913h = aVar;
-        this.f50910e = baseActivity;
+        this.f45639h = aVar;
+        this.f45636e = baseActivity;
         registerListener(aVar);
     }
 
@@ -156,33 +154,33 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
                 dVar = responseSocketGetTopicRelateThreadMessage.getHotThreadItemListData();
             }
         }
-        this.f50911f.hotRelateThreadCallback(!responsedMessage.hasError(), dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
+        this.f45637f.hotRelateThreadCallback(!responsedMessage.hasError(), dVar, (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) ? 1 : ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue());
     }
 
     public final void C(e eVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, eVar, i2) == null) {
-            b.a.r0.j1.l.f h2 = eVar.h();
-            b1 j = eVar.j();
-            if (h2 == null || j == null) {
+            c.a.r0.p1.l.f h2 = eVar.h();
+            b1 j2 = eVar.j();
+            if (h2 == null || j2 == null) {
                 return;
             }
             RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
             double d2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-            int k = l.k(TbadkCoreApplication.getInst().getApp());
+            int k2 = l.k(TbadkCoreApplication.getInst().getApp());
             int i3 = l.i(TbadkCoreApplication.getInst().getApp());
-            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(b.a.e.f.m.b.g(h2.f19781e, 0L)));
-            requestGetTopicRelateThreadMessage.setTopicName(h2.f19782f);
+            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(c.a.d.f.m.b.g(h2.f21150e, 0L)));
+            requestGetTopicRelateThreadMessage.setTopicName(h2.f21151f);
             Long l = h2.o;
             if (l != null && h2.p != null) {
                 requestGetTopicRelateThreadMessage.setPmy_topic_id(l);
                 requestGetTopicRelateThreadMessage.setPmy_source(h2.p);
             }
             requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(i3));
-            requestGetTopicRelateThreadMessage.setScrW(Integer.valueOf(k));
+            requestGetTopicRelateThreadMessage.setScrW(Integer.valueOf(k2));
             requestGetTopicRelateThreadMessage.setScrDip(Double.valueOf(d2));
             requestGetTopicRelateThreadMessage.setRn(10);
-            requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(j.a() + 1));
+            requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(j2.a() + 1));
             requestGetTopicRelateThreadMessage.setQType(Integer.valueOf(k.c().e()));
             requestGetTopicRelateThreadMessage.setSort_type(Integer.valueOf(i2));
             if (requestGetTopicRelateThreadMessage.getHttpMessage() != null) {
@@ -200,14 +198,14 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     public void D(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f50911f = cVar;
+            this.f45637f = cVar;
         }
     }
 
     public void E(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f50912g = bVar;
+            this.f45638g = bVar;
         }
     }
 

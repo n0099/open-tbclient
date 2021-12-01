@@ -18,7 +18,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class PluginIntentService extends IntentService implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginService";
@@ -66,9 +66,7 @@ public abstract class PluginIntentService extends IntentService implements a {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Proxy.newProxyInstance(getClassLoader(), new Class[]{Class.forName("android.app.IActivityManager")}, new InvocationHandler(this) { // from class: com.bytedance.pangle.service.PluginIntentService.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PluginIntentService f62388a;
+            public final /* synthetic */ PluginIntentService a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -85,7 +83,7 @@ public abstract class PluginIntentService extends IntentService implements a {
                         return;
                     }
                 }
-                this.f62388a = this;
+                this.a = this;
             }
 
             @Override // java.lang.reflect.InvocationHandler
@@ -116,7 +114,7 @@ public abstract class PluginIntentService extends IntentService implements a {
                         return c2 != 2 ? null : 0;
                     }
                     com.bytedance.pangle.service.a.a b2 = com.bytedance.pangle.service.a.a.b();
-                    PluginIntentService pluginIntentService = this.f62388a;
+                    PluginIntentService pluginIntentService = this.a;
                     return Boolean.valueOf(b2.a(new ComponentName(pluginIntentService, pluginIntentService.getClass().getName())));
                 }
                 return invokeLLL.objValue;

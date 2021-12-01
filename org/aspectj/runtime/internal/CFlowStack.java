@@ -2,8 +2,6 @@ package org.aspectj.runtime.internal;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,13 +83,13 @@ public class CFlowStack {
     private Stack getThreadStack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? this.stackProxy.getThreadStack() : (Stack) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.stackProxy.getThreadStack() : (Stack) invokeV.objValue;
     }
 
     public static String getThreadStackFactoryClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? tsFactory.getClass().getName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? tsFactory.getClass().getName() : (String) invokeV.objValue;
     }
 
     public static void selectFactoryForVMVersion() {
@@ -99,7 +97,7 @@ public class CFlowStack {
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             String systemPropertyWithoutSecurityException = getSystemPropertyWithoutSecurityException("aspectj.runtime.cflowstack.usethreadlocal", "unspecified");
             boolean z = false;
-            if (!systemPropertyWithoutSecurityException.equals("unspecified") ? systemPropertyWithoutSecurityException.equals("yes") || systemPropertyWithoutSecurityException.equals("true") : System.getProperty("java.class.version", XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT).compareTo("46.0") >= 0) {
+            if (!systemPropertyWithoutSecurityException.equals("unspecified") ? systemPropertyWithoutSecurityException.equals("yes") || systemPropertyWithoutSecurityException.equals("true") : System.getProperty("java.class.version", "0.0").compareTo("46.0") >= 0) {
                 z = true;
             }
             if (z) {

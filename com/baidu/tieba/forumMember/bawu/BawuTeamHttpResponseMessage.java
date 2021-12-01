@@ -1,7 +1,7 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.v0.a.d;
+import c.a.r0.b1.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import tbclient.BawuTeam;
 import tbclient.GetBawuInfo.DataRes;
 import tbclient.GetBawuInfo.GetBawuInfoResIdl;
 import tbclient.GetBawuInfo.ManagerApplyInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

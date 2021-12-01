@@ -2,12 +2,11 @@ package com.baidu.ar.h;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.ReflectionUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Constructor;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +85,7 @@ public class n {
     public static Object aV(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
                 return Class.forName(str).newInstance();
             } catch (Exception unused) {
@@ -100,7 +99,7 @@ public class n {
     public static Object m(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             try {
                 return Class.forName(str).getDeclaredMethod(str2, new Class[0]).invoke(null, new Object[0]);
             } catch (Exception unused) {

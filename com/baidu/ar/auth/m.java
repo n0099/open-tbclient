@@ -3,18 +3,18 @@ package com.baidu.ar.auth;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long[] a(int i2, long j) {
+    public static long[] a(int i2, long j2) {
         InterceptResult invokeCommon;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            if (j < 50) {
-                j = 50;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+            if (j2 < 50) {
+                j2 = 50;
             }
             long currentTimeMillis = System.currentTimeMillis();
             int i4 = 0;
@@ -29,7 +29,7 @@ public class m {
                 }
                 try {
                     Thread.currentThread();
-                    Thread.sleep(j);
+                    Thread.sleep(j2);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class o implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class o implements f {
                 return;
             }
         }
-        Constructor<?> a2 = com.baidu.ar.h.n.a("com.baidu.ar.statistic.performance.PerformanceStatisticApi", new Class[0]);
-        if (a2 != null) {
-            this.wR = (f) com.baidu.ar.h.n.a(a2, new Object[0]);
+        Constructor<?> a = com.baidu.ar.h.n.a("com.baidu.ar.statistic.performance.PerformanceStatisticApi", new Class[0]);
+        if (a != null) {
+            this.wR = (f) com.baidu.ar.h.n.a(a, new Object[0]);
         }
     }
 
@@ -52,12 +52,12 @@ public class o implements f {
     }
 
     @Override // com.baidu.ar.statistic.f
-    public void recordAlgoTimeCost(String str, String str2, long j, int i2) {
+    public void recordAlgoTimeCost(String str, String str2, long j2, int i2) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) || (fVar = this.wR) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2), Integer.valueOf(i2)}) == null) || (fVar = this.wR) == null) {
             return;
         }
-        fVar.recordAlgoTimeCost(str, str2, j, i2);
+        fVar.recordAlgoTimeCost(str, str2, j2, i2);
     }
 }

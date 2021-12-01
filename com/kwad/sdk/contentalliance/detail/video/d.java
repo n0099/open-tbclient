@@ -5,7 +5,7 @@ public interface d {
 
     void a(int i2, int i3);
 
-    void a(long j, long j2);
+    void a(long j2, long j3);
 
     void b();
 

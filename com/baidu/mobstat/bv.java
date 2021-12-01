@@ -13,7 +13,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class bv {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), bArr, bArr2})) == null) {
-            RSAKey a2 = a(z, bArr);
-            return a(2, (Key) a2, (a2.getModulus().bitLength() + 1) / 8, bArr2);
+            RSAKey a = a(z, bArr);
+            return a(2, (Key) a, (a.getModulus().bitLength() + 1) / 8, bArr2);
         }
         return (byte[]) invokeCommon.objValue;
     }
@@ -45,8 +45,8 @@ public class bv {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), bArr, bArr2})) == null) {
-            RSAKey a2 = a(z, bArr);
-            return a(1, (Key) a2, ((a2.getModulus().bitLength() + 1) / 8) - 11, bArr2);
+            RSAKey a = a(z, bArr);
+            return a(1, (Key) a, ((a.getModulus().bitLength() + 1) / 8) - 11, bArr2);
         }
         return (byte[]) invokeCommon.objValue;
     }

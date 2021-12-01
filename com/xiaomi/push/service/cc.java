@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fm;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cc extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f72407a;
+    public final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f952a;
@@ -24,7 +22,7 @@ public class cc extends XMPushService.i {
     public final /* synthetic */ byte[] f953a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f72408b;
+    public final /* synthetic */ int f63270b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cc(XMPushService xMPushService, int i2, int i3, byte[] bArr, String str) {
@@ -44,8 +42,8 @@ public class cc extends XMPushService.i {
                 return;
             }
         }
-        this.f72407a = xMPushService;
-        this.f72408b = i3;
+        this.a = xMPushService;
+        this.f63270b = i3;
         this.f953a = bArr;
         this.f952a = str;
     }
@@ -62,12 +60,12 @@ public class cc extends XMPushService.i {
         fm fmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m.m634a((Context) this.f72407a);
-            av.a().m607a("5");
-            com.xiaomi.push.ab.a(this.f72408b);
-            fmVar = this.f72407a.f849a;
+            m.m683a((Context) this.a);
+            av.a().m656a("5");
+            com.xiaomi.push.ab.a(this.f63270b);
+            fmVar = this.a.f849a;
             fmVar.c(fm.a());
-            this.f72407a.a(this.f953a, this.f952a);
+            this.a.a(this.f953a, this.f952a);
         }
     }
 }

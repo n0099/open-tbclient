@@ -26,10 +26,6 @@ import android.view.Display;
 import android.view.WindowManager;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,6 +33,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
+import com.kuaishou.weapon.un.z;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.BufferedReader;
 import java.io.File;
@@ -56,7 +54,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ArdUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_2G = 1;
@@ -150,7 +148,7 @@ public class ArdUtil {
             if (mAndroidId != null) {
                 return mAndroidId;
             }
-            mAndroidId = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            mAndroidId = Settings.Secure.getString(context.getContentResolver(), "android_id");
             return mAndroidId;
         }
         return (String) invokeL.objValue;
@@ -174,7 +172,7 @@ public class ArdUtil {
     public static long getAvailMemory(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
                 ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
@@ -190,7 +188,7 @@ public class ArdUtil {
     public static int getAvailableProcessors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             try {
                 return Runtime.getRuntime().availableProcessors();
             } catch (Throwable th) {
@@ -495,7 +493,7 @@ public class ArdUtil {
                 return str;
             }
             try {
-                if (checkPermissions(context, "android.permission.ACCESS_WIFI_STATE") && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
+                if (checkPermissions(context, s.f56839d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
                     WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                     mMacAddress = connectionInfo == null ? null : connectionInfo.getMacAddress();
                 }
@@ -519,7 +517,7 @@ public class ArdUtil {
                     Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
                     while (networkInterfaces.hasMoreElements()) {
                         NetworkInterface nextElement = networkInterfaces.nextElement();
-                        if (nextElement.getName().equalsIgnoreCase(NetworkInfoUtils.NETWORK_NAME) && (hardwareAddress = nextElement.getHardwareAddress()) != null && hardwareAddress.length != 0) {
+                        if (nextElement.getName().equalsIgnoreCase("wlan0") && (hardwareAddress = nextElement.getHardwareAddress()) != null && hardwareAddress.length != 0) {
                             StringBuilder sb = new StringBuilder();
                             int length = hardwareAddress.length;
                             for (int i2 = 0; i2 < length; i2++) {
@@ -572,7 +570,7 @@ public class ArdUtil {
             StringBuilder sb = new StringBuilder();
             try {
                 try {
-                    fileInputStream = new FileInputStream("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq");
+                    fileInputStream = new FileInputStream(z.f56920b);
                     try {
                         byte[] bArr = new byte[24];
                         while (fileInputStream.read(bArr) != -1) {
@@ -902,9 +900,9 @@ public class ArdUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            long j = mTotalInternalStorgeSize;
-            if (j != 0) {
-                return j;
+            long j2 = mTotalInternalStorgeSize;
+            if (j2 != 0) {
+                return j2;
             }
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
@@ -924,9 +922,9 @@ public class ArdUtil {
         if (interceptable != null && (invokeV = interceptable.invokeV(65573, null)) != null) {
             return invokeV.longValue;
         }
-        long j = mTotal;
-        if (j != 0) {
-            return j;
+        long j2 = mTotal;
+        if (j2 != 0) {
+            return j2;
         }
         BufferedReader bufferedReader2 = null;
         try {
@@ -974,7 +972,7 @@ public class ArdUtil {
             return invokeV.longValue;
         }
         try {
-            randomAccessFile = new RandomAccessFile("/proc/meminfo", r.f41000a);
+            randomAccessFile = new RandomAccessFile("/proc/meminfo", "r");
             try {
                 Matcher matcher = Pattern.compile("(\\d+)").matcher(randomAccessFile.readLine());
                 String str = "";
@@ -1130,7 +1128,7 @@ public class ArdUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, context)) == null) {
             try {
-                if (!checkPermissions(context, "android.permission.ACCESS_WIFI_STATE") || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
+                if (!checkPermissions(context, s.f56839d) || (wifiManager = (WifiManager) context.getSystemService("wifi")) == null) {
                     return null;
                 }
                 return wifiManager.getConnectionInfo();
@@ -1150,7 +1148,7 @@ public class ArdUtil {
             return (String) invokeL.objValue;
         }
         try {
-            if (!checkPermissions(context, "android.permission.ACCESS_WIFI_STATE") || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (!checkPermissions(context, s.f56839d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return null;
             }
             return connectionInfo.getSSID();
@@ -1277,9 +1275,9 @@ public class ArdUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, context)) == null) {
-            long j = mTotalMem;
-            if (j != 0) {
-                return j;
+            long j2 = mTotalMem;
+            if (j2 != 0) {
+                return j2;
             }
             if (Build.VERSION.SDK_INT >= 16 && context != null) {
                 try {

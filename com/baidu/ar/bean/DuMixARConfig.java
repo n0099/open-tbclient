@@ -1,13 +1,12 @@
 package com.baidu.ar.bean;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DuMixARConfig {
     public static /* synthetic */ Interceptable $ic;
     public static String mAPIKey;
@@ -56,14 +55,14 @@ public class DuMixARConfig {
 
     public static void setAPIKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
             mAPIKey = str;
         }
     }
 
     public static void setAppId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
             mAipAppId = str;
         }
     }

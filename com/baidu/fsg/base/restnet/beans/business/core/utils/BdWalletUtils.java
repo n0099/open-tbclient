@@ -11,7 +11,6 @@ import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import com.baidu.fsg.base.restnet.fp.a;
 import com.baidu.fsg.base.utils.SharedPreferencesUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.baidu.walletfacesdk.LightInvokerImpl;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BdWalletUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEVICE_FP = "rim_device_fp";
@@ -80,13 +79,13 @@ public class BdWalletUtils {
     public static String getExps(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? (String) SharedPreferencesUtils.getParam(context, PREF_FILE_NAME_FP, RIM_EXPS, "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? (String) SharedPreferencesUtils.getParam(context, PREF_FILE_NAME_FP, RIM_EXPS, "") : (String) invokeL.objValue;
     }
 
     public static String getFPFileLastModified(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             File file = new File("/data/data/" + context.getPackageName() + "/shared_prefs/" + PREF_FILE_NAME_FP + ActivityChooserModel.HISTORY_FILE_EXTENSION);
             if (file.exists()) {
                 return "" + (file.lastModified() / 1000);

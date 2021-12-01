@@ -7,15 +7,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public /* synthetic */ class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40757a;
+    public static final /* synthetic */ int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f40758b;
+    public static final /* synthetic */ int[] f36288b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,31 +30,31 @@ public /* synthetic */ class b {
             }
         }
         int[] iArr = new int[HttpClient.HttpStateError.values().length];
-        f40758b = iArr;
+        f36288b = iArr;
         try {
             iArr[HttpClient.HttpStateError.NETWORK_ERROR.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f40758b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
+            f36288b[HttpClient.HttpStateError.INNER_ERROR.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         int[] iArr2 = new int[PanoStateError.values().length];
-        f40757a = iArr2;
+        a = iArr2;
         try {
-            iArr2[PanoStateError.f42894b.ordinal()] = 1;
+            iArr2[PanoStateError.f38355b.ordinal()] = 1;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f40757a[PanoStateError.f42895c.ordinal()] = 2;
+            a[PanoStateError.f38356c.ordinal()] = 2;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f40757a[PanoStateError.f42896d.ordinal()] = 3;
+            a[PanoStateError.f38357d.ordinal()] = 3;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f40757a[PanoStateError.f42893a.ordinal()] = 4;
+            a[PanoStateError.a.ordinal()] = 4;
         } catch (NoSuchFieldError unused6) {
         }
     }

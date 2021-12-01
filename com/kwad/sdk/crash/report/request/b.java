@@ -39,12 +39,10 @@ public class b {
         new i<a, CrashReportResult>(this, list) { // from class: com.kwad.sdk.crash.report.request.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f66394a;
+            public final /* synthetic */ List a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f66395b;
+            public final /* synthetic */ b f58184b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -61,8 +59,8 @@ public class b {
                         return;
                     }
                 }
-                this.f66395b = this;
-                this.f66394a = list;
+                this.f58184b = this;
+                this.a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -88,7 +86,7 @@ public class b {
             public a b() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.f66394a) : (a) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.a) : (a) invokeV.objValue;
             }
 
             @Override // com.kwad.sdk.core.network.i
@@ -103,12 +101,10 @@ public class b {
         }.a(new j<a, CrashReportResult>(this, list) { // from class: com.kwad.sdk.crash.report.request.b.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f66396a;
+            public final /* synthetic */ List a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f66397b;
+            public final /* synthetic */ b f58185b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -125,8 +121,8 @@ public class b {
                         return;
                     }
                 }
-                this.f66397b = this;
-                this.f66396a = list;
+                this.f58185b = this;
+                this.a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */

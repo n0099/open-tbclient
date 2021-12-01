@@ -16,26 +16,23 @@ import android.text.TextUtils;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.router.RouterCallback;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.util.LogUtil;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
+import com.kuaishou.weapon.un.s;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final char[] f37754a;
+    public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37755b;
+    public static String f33845b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,8 +48,8 @@ public final class j {
                 return;
             }
         }
-        f37754a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f37755b = "";
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f33845b = "";
     }
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
@@ -108,8 +105,8 @@ public final class j {
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
                     intent.setFlags(RouterCallback.CODE_ERROR);
-                    String str = f37755b;
-                    if (TextUtils.isEmpty(f37755b)) {
+                    String str = f33845b;
+                    if (TextUtils.isEmpty(f33845b)) {
                         str = context.getPackageName() + ".fileprovider";
                     }
                     intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
@@ -130,8 +127,8 @@ public final class j {
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f37755b = str;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            f33845b = str;
         }
     }
 
@@ -139,7 +136,7 @@ public final class j {
         InterceptResult invokeL;
         NetworkInfo[] allNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
             if (connectivityManager == null) {
                 return false;
@@ -170,7 +167,7 @@ public final class j {
     public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? context.checkCallingOrSelfPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0 && context.checkCallingOrSelfPermission("android.permission.INTERNET") == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? context.checkCallingOrSelfPermission("android.permission.ACCESS_NETWORK_STATE") == 0 && context.checkCallingOrSelfPermission(s.a) == 0 : invokeL.booleanValue;
     }
 
     public static long c(Context context) {

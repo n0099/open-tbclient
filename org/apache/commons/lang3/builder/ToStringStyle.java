@@ -3,7 +3,6 @@ package org.apache.commons.lang3.builder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -580,7 +579,7 @@ public abstract class ToStringStyle implements Serializable {
     public static void unregister(Object obj) {
         Map<Object, Object> registry;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj) == null) || obj == null || (registry = getRegistry()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, obj) == null) || obj == null || (registry = getRegistry()) == null) {
             return;
         }
         registry.remove(obj);
@@ -1204,10 +1203,10 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    public void appendDetail(StringBuffer stringBuffer, String str, long j) {
+    public void appendDetail(StringBuffer stringBuffer, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{stringBuffer, str, Long.valueOf(j)}) == null) {
-            stringBuffer.append(j);
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{stringBuffer, str, Long.valueOf(j2)}) == null) {
+            stringBuffer.append(j2);
         }
     }
 
@@ -1218,11 +1217,11 @@ public abstract class ToStringStyle implements Serializable {
         }
     }
 
-    public void append(StringBuffer stringBuffer, String str, long j) {
+    public void append(StringBuffer stringBuffer, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{stringBuffer, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{stringBuffer, str, Long.valueOf(j2)}) == null) {
             appendFieldStart(stringBuffer, str);
-            appendDetail(stringBuffer, str, j);
+            appendDetail(stringBuffer, str, j2);
             appendFieldEnd(stringBuffer, str);
         }
     }

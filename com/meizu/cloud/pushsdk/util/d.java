@@ -15,6 +15,7 @@ import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -45,7 +46,7 @@ public class d {
                 str2 = "the platformExtra parse error";
             }
         }
-        b.j.a.a.a.b("UxIPUtils", str2);
+        c.k.a.a.a.b("UxIPUtils", str2);
         return dVar;
     }
 
@@ -56,7 +57,7 @@ public class d {
                 MPushMessage mPushMessage = (MPushMessage) intent.getSerializableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
                 return mPushMessage != null ? mPushMessage.getTaskId() : stringExtra;
             } catch (Exception e2) {
-                b.j.a.a.a.b("UxIPUtils", "paese MessageV2 error " + e2.getMessage());
+                c.k.a.a.a.b("UxIPUtils", "paese MessageV2 error " + e2.getMessage());
                 return "no push platform task";
             }
         }
@@ -99,13 +100,13 @@ public class d {
 
     public static void a(Context context, boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         HashMap hashMap = new HashMap();
-        hashMap.put(h.f38333a, str5);
+        hashMap.put(h.a, str5);
         hashMap.put("ti", str3);
         hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, str2);
         if (TextUtils.isEmpty(str6)) {
             str6 = String.valueOf(System.currentTimeMillis() / 1000);
         }
-        hashMap.put("ts", str6);
+        hashMap.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, str6);
         hashMap.put("pn", str);
         hashMap.put("pv", PushManager.TAG);
         if (!TextUtils.isEmpty(str4)) {
@@ -119,11 +120,11 @@ public class d {
 
     /* JADX WARN: Type inference failed for: r7v1, types: [com.meizu.cloud.pushsdk.c.c.b$a] */
     public static void a(Context context, boolean z, String str, Map<String, String> map) {
-        b.j.a.a.a.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
+        c.k.a.a.a.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
         if ("notification_service_message".equals(str)) {
             return;
         }
-        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get("ts")).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get("pn")).d(map.get("pv")).b(map.get("ti")).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get("pn")))).b(), z);
+        com.meizu.cloud.pushsdk.c.a.a(context, (f) null).a(((b.a) com.meizu.cloud.pushsdk.c.c.b.d().a(str).a(a(context)).a(Long.valueOf(map.get(TimeDisplaySetting.TIME_DISPLAY_SETTING)).longValue())).h(String.valueOf(System.currentTimeMillis() / 1000)).c(map.get(AppIconSetting.DEFAULT_LARGE_ICON)).e(map.get("pn")).d(map.get("pv")).b(map.get("ti")).f(TextUtils.isEmpty(map.get("si")) ? "" : map.get("si")).g(String.valueOf(b.j(context, map.get("pn")))).b(), z);
     }
 
     public static boolean a(Context context, Map<String, String> map) {
@@ -156,7 +157,7 @@ public class d {
         } else {
             str = null;
         }
-        b.j.a.a.a.d("UxIPUtils", "current process packageName " + str3);
+        c.k.a.a.a.d("UxIPUtils", "current process packageName " + str3);
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -167,10 +168,10 @@ public class d {
             intent.setAction(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION);
             intent.putExtra(PushConstants.EXTRA_PUSH_TRACKER_JSON_DATA, jSONObject);
             context.startService(intent);
-            b.j.a.a.a.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
+            c.k.a.a.a.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
             return true;
         } catch (Exception e2) {
-            b.j.a.a.a.b("UxIPUtils", "start RemoteService error " + e2.getMessage());
+            c.k.a.a.a.b("UxIPUtils", "start RemoteService error " + e2.getMessage());
             return false;
         }
     }

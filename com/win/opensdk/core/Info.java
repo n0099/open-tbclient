@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Info implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class Info implements Serializable {
     public String events;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f71425h;
+    public int f62636h;
     public boolean ho_c_sw;
     public String icon;
     public String id;
@@ -182,7 +182,7 @@ public class Info implements Serializable {
     public int getH() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f71425h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f62636h : invokeV.intValue;
     }
 
     public String getIcon() {
@@ -436,10 +436,10 @@ public class Info implements Serializable {
         }
     }
 
-    public void setCountdown(long j) {
+    public void setCountdown(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048630, this, j) == null) {
-            this.countdown = j;
+        if (interceptable == null || interceptable.invokeJ(1048630, this, j2) == null) {
+            this.countdown = j2;
         }
     }
 
@@ -488,7 +488,7 @@ public class Info implements Serializable {
     public void setH(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
-            this.f71425h = i2;
+            this.f62636h = i2;
         }
     }
 
@@ -527,10 +527,10 @@ public class Info implements Serializable {
         }
     }
 
-    public void setLo_timeout(long j) {
+    public void setLo_timeout(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048643, this, j) == null) {
-            this.lo_timeout = j;
+        if (interceptable == null || interceptable.invokeJ(1048643, this, j2) == null) {
+            this.lo_timeout = j2;
         }
     }
 
@@ -622,13 +622,13 @@ public class Info implements Serializable {
         }
     }
 
-    public void setSpet(long j) {
+    public void setSpet(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048656, this, j) == null) {
-            if (j <= 0) {
-                j = 500;
+        if (interceptable == null || interceptable.invokeJ(1048656, this, j2) == null) {
+            if (j2 <= 0) {
+                j2 = 500;
             }
-            this.spet = j;
+            this.spet = j2;
         }
     }
 
@@ -709,10 +709,10 @@ public class Info implements Serializable {
         }
     }
 
-    public void setVvamount(long j) {
+    public void setVvamount(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048668, this, j) == null) {
-            this.vvamount = j;
+        if (interceptable == null || interceptable.invokeJ(1048668, this, j2) == null) {
+            this.vvamount = j2;
         }
     }
 

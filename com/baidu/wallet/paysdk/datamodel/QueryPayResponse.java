@@ -13,7 +13,7 @@ import com.baidu.wallet.paysdk.payresult.datamodel.PayResultContent;
 import com.dxmpay.apollon.beans.IBeanResponse;
 import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class QueryPayResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class QueryPayResponse implements IBeanResponse, Serializable {
     public String trans_no;
     public String trans_state;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class Business implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;

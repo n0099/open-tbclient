@@ -2,7 +2,6 @@ package com.google.zxing.pdf417.encoder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.parser.JSONLexer;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +20,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class PDF417HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTE_COMPACTION = 1;
@@ -195,7 +194,7 @@ public final class PDF417HighLevelEncoder {
     public static void encodeBinary(byte[] bArr, int i2, int i3, int i4, StringBuilder sb) {
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), sb}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), sb}) == null) {
             if (i3 == 1 && i4 == 0) {
                 sb.append((char) 913);
             } else if (i3 % 6 == 0) {
@@ -207,13 +206,13 @@ public final class PDF417HighLevelEncoder {
                 char[] cArr = new char[5];
                 i5 = i2;
                 while ((i2 + i3) - i5 >= 6) {
-                    long j = 0;
+                    long j2 = 0;
                     for (int i6 = 0; i6 < 6; i6++) {
-                        j = (j << 8) + (bArr[i5 + i6] & 255);
+                        j2 = (j2 << 8) + (bArr[i5 + i6] & 255);
                     }
                     for (int i7 = 0; i7 < 5; i7++) {
-                        cArr[i7] = (char) (j % 900);
-                        j /= 900;
+                        cArr[i7] = (char) (j2 % 900);
+                        j2 /= 900;
                     }
                     for (int i8 = 4; i8 >= 0; i8--) {
                         sb.append(cArr[i8]);
@@ -234,7 +233,7 @@ public final class PDF417HighLevelEncoder {
         InterceptResult invokeLLL;
         CharacterSetECI characterSetECIByName;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, compaction, charset)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, compaction, charset)) == null) {
             StringBuilder sb = new StringBuilder(str.length());
             if (charset == null) {
                 charset = DEFAULT_ENCODING;

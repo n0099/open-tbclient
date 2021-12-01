@@ -15,13 +15,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.er;
 import com.xiaomi.push.service.XMJobService;
 @TargetApi(21)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class et implements er.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public JobScheduler f71814a;
+    public JobScheduler a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f342a;
@@ -46,7 +44,7 @@ public class et implements er.a {
         }
         this.f343a = false;
         this.f342a = context;
-        this.f71814a = (JobScheduler) context.getSystemService("jobscheduler");
+        this.a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
     @Override // com.xiaomi.push.er.a
@@ -54,21 +52,21 @@ public class et implements er.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f343a = false;
-            this.f71814a.cancel(1);
+            this.a.cancel(1);
         }
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f342a.getPackageName(), XMJobService.class.getName()));
-            builder.setMinimumLatency(j);
-            builder.setOverrideDeadline(j);
+            builder.setMinimumLatency(j2);
+            builder.setOverrideDeadline(j2);
             builder.setRequiredNetworkType(1);
             builder.setPersisted(false);
             JobInfo build = builder.build();
-            com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + build.getId() + " in " + j);
-            this.f71814a.schedule(builder.build());
+            com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + build.getId() + " in " + j2);
+            this.a.schedule(builder.build());
         }
     }
 

@@ -2,9 +2,9 @@ package com.baidu.tieba.imMessageCenter.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.f;
-import b.a.r0.l1.t.b;
-import b.a.r0.l1.t.e;
+import c.a.d.a.f;
+import c.a.r0.r1.t.b;
+import c.a.r0.r1.t.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ImMessageCenterModel extends ImBaseMessageCenterModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_GROUP_MSG = 1;
@@ -58,9 +58,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(1));
-        GroupSettingItemData a2 = b.k().a(w(), imMessageCenterPojo.getGid());
-        if (a2 != null) {
-            buildNormalItem.setGroupSetting(a2);
+        GroupSettingItemData a = b.k().a(w(), imMessageCenterPojo.getGid());
+        if (a != null) {
+            buildNormalItem.setGroupSetting(a);
         }
         if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(x())) {
             if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
@@ -138,9 +138,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(4));
-        PersonalSettingItemData a2 = e.j().a(w(), imMessageCenterPojo.getGid());
-        if (a2 != null) {
-            buildNormalItem.setGroupSetting(a2);
+        PersonalSettingItemData a = e.j().a(w(), imMessageCenterPojo.getGid());
+        if (a != null) {
+            buildNormalItem.setGroupSetting(a);
         }
         insertShowData(buildNormalItem, this.mList);
     }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class b extends com.google.a.a.a implements INativeLibraryLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,11 +39,11 @@ public final class b extends com.google.a.a.a implements INativeLibraryLoader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Parcel a2 = a();
-            a2.writeString(str);
-            Parcel a3 = a(2, a2);
-            int readInt = a3.readInt();
-            a3.recycle();
+            Parcel a = a();
+            a.writeString(str);
+            Parcel a2 = a(2, a);
+            int readInt = a2.readInt();
+            a2.recycle();
             return readInt;
         }
         return invokeL.intValue;
@@ -54,11 +54,11 @@ public final class b extends com.google.a.a.a implements INativeLibraryLoader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Parcel a2 = a();
-            a2.writeString(str);
-            Parcel a3 = a(1, a2);
-            long readLong = a3.readLong();
-            a3.recycle();
+            Parcel a = a();
+            a.writeString(str);
+            Parcel a2 = a(1, a);
+            long readLong = a2.readLong();
+            a2.recycle();
             return readLong;
         }
         return invokeL.longValue;

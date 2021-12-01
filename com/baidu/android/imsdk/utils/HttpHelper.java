@@ -9,8 +9,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +31,7 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class HttpHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_FORM = "application/x-www-form-urlencoded";
@@ -47,7 +45,7 @@ public class HttpHelper {
     public static Context mContext;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface Request {
         int getConnectTimeout();
 
@@ -66,14 +64,14 @@ public class HttpHelper {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface ResponseHandler {
         void onFailure(int i2, byte[] bArr, Throwable th);
 
         void onSuccess(int i2, byte[] bArr);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class ResponseResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +119,7 @@ public class HttpHelper {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,7 +180,7 @@ public class HttpHelper {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:17:0x006e  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x006d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -236,7 +234,7 @@ public class HttpHelper {
 
     public static void executor(Context context, Request request, ResponseHandler responseHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, request, responseHandler) == null) || responseHandler == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, context, request, responseHandler) == null) || responseHandler == null) {
             return;
         }
         if (context != null && request != null && !TextUtils.isEmpty(request.getHost())) {
@@ -328,7 +326,7 @@ public class HttpHelper {
             httpURLConnection.setDoInput(true);
             httpURLConnection.setConnectTimeout(i3);
             if (z) {
-                httpURLConnection.setRequestProperty(Headers.CONTENT_ENCODING, AsyncHttpClient.ENCODING_GZIP);
+                httpURLConnection.setRequestProperty(Headers.CONTENT_ENCODING, "gzip");
             }
             httpURLConnection.setReadTimeout(i4);
             if (i2 == 1) {
@@ -411,7 +409,7 @@ public class HttpHelper {
     public static void executor(int i2, String str, byte[] bArr, Map<String, String> map, int i3, int i4, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), str, bArr, map, Integer.valueOf(i3), Integer.valueOf(i4), responseHandler}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), str, bArr, map, Integer.valueOf(i3), Integer.valueOf(i4), responseHandler}) != null) {
             return;
         }
         InputStream inputStream = null;

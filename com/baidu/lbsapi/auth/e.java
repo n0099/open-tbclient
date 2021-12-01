@@ -2,7 +2,6 @@ package com.baidu.lbsapi.auth;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,21 +12,19 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f39412a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<HashMap<String, String>> f39413b;
+    public List<HashMap<String, String>> f35144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f39414c;
+    public a<String> f35145c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a<Result> {
         void a(Result result);
     }
@@ -47,9 +44,9 @@ public class e {
                 return;
             }
         }
-        this.f39413b = null;
-        this.f39414c = null;
-        this.f39412a = context;
+        this.f35144b = null;
+        this.f35145c = null;
+        this.a = context;
     }
 
     private List<HashMap<String, String>> a(HashMap<String, String> hashMap, String[] strArr) {
@@ -100,7 +97,7 @@ public class e {
                     e2.printStackTrace();
                 }
             }
-            a<String> aVar = this.f39414c;
+            a<String> aVar = this.f35145c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -111,7 +108,7 @@ public class e {
     public void a(List<HashMap<String, String>> list) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, list) == null) {
             com.baidu.lbsapi.auth.a.a("syncConnect start Thread id = " + String.valueOf(Thread.currentThread().getId()));
             if (list == null || list.size() == 0) {
                 com.baidu.lbsapi.auth.a.c("syncConnect failed,params list is null or size is 0");
@@ -122,7 +119,7 @@ public class e {
             while (i3 < list.size()) {
                 com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i3 + "  start!!!");
                 HashMap<String, String> hashMap = list.get(i3);
-                g gVar = new g(this.f39412a);
+                g gVar = new g(this.a);
                 if (gVar.a()) {
                     String a2 = gVar.a(hashMap);
                     if (a2 == null) {
@@ -167,8 +164,8 @@ public class e {
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, hashMap, strArr, aVar) == null) {
-            this.f39413b = a(hashMap, strArr);
-            this.f39414c = aVar;
+            this.f35144b = a(hashMap, strArr);
+            this.f35145c = aVar;
             new Thread(new f(this)).start();
         }
     }

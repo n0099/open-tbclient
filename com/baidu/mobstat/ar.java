@@ -4,11 +4,10 @@ import android.app.Activity;
 import android.view.KeyEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +21,7 @@ public class ar {
 
     public static void b(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(AdIconUtil.AD_TEXT_ID, null, activity, z) == null) || !z || as.a().b() || at.a().b()) {
+        if (!(interceptable == null || interceptable.invokeLZ(65541, null, activity, z) == null) || !z || as.a().b() || at.a().b()) {
             return;
         }
         at.a().b(activity);
@@ -30,7 +29,7 @@ public class ar {
 
     public static void c(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, activity, z) == null) || !z || as.a().b() || at.a().b()) {
+        if (!(interceptable == null || interceptable.invokeLZ(65542, null, activity, z) == null) || !z || as.a().b() || at.a().b()) {
             return;
         }
         at.a().c(activity);

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import b.a.q0.s.e0.b;
+import c.a.q0.s.e0.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SecondaryStaticSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SECONDARY_STATIC_SWITCH_ENABLE = "secondary_static_switch";
@@ -61,7 +61,7 @@ public class SecondaryStaticSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, b.a.e.f.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.d.f.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.v8.debug.V8DebugServer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
@@ -20,7 +20,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ASMUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_ANDROID;
@@ -94,7 +94,7 @@ public class ASMUtils {
     public static Type getMethodType(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, cls, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, str)) == null) {
             try {
                 return cls.getMethod(str, new Class[0]).getGenericReturnType();
             } catch (Exception unused) {
@@ -107,7 +107,7 @@ public class ASMUtils {
     public static String getPrimitiveLetter(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
             if (Integer.TYPE == cls) {
                 return "I";
             }
@@ -135,7 +135,7 @@ public class ASMUtils {
             if (Double.TYPE == cls) {
                 return "D";
             }
-            throw new IllegalStateException("Type: " + cls.getCanonicalName() + " is not a primitive type");
+            throw new IllegalStateException(V8DebugServer.HEADER_TYPE + cls.getCanonicalName() + " is not a primitive type");
         }
         return (String) invokeL.objValue;
     }

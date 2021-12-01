@@ -28,7 +28,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.AppPayServiceImpl;
 import com.yy.mobile.framework.revenuesdk.reporter.EventReporter;
 import com.yy.mobile.framework.revenuesdk.reporter.MonitorReporter;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSender {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Revenue";

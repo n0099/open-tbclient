@@ -11,13 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public final class dh extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f57845a;
+    public final /* synthetic */ FeedbackListActivity a;
 
     public dh(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public final class dh extends BroadcastReceiver {
                 return;
             }
         }
-        this.f57845a = feedbackListActivity;
+        this.a = feedbackListActivity;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -49,28 +47,28 @@ public final class dh extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             if (intent.getAction().equals("com.baidu.ufosdk.gethistorylist")) {
-                view3 = this.f57845a.w;
+                view3 = this.a.w;
                 view3.setVisibility(8);
-                handler2 = this.f57845a.A;
+                handler2 = this.a.A;
                 handler2.obtainMessage(0, (ArrayList) intent.getSerializableExtra("msgList")).sendToTarget();
-                FeedbackListActivity.k(this.f57845a);
+                FeedbackListActivity.k(this.a);
             }
             if (intent.getAction().equals("com.baidu.ufosdk.getnewhistoryflag")) {
-                executorService2 = this.f57845a.y;
+                executorService2 = this.a.y;
                 executorService2.execute(new di(this));
             }
             if (intent.getAction().equals("com.baidu.ufosdk.getappkeysuccess_getnewhistoryflag")) {
-                executorService = this.f57845a.y;
+                executorService = this.a.y;
                 executorService.execute(new dj(this));
             }
             if (intent.getAction().equals("com.baidu.ufosdk.deletemsg_dialogdismiss")) {
-                view = this.f57845a.v;
+                view = this.a.v;
                 view.setVisibility(8);
-                view2 = this.f57845a.w;
+                view2 = this.a.w;
                 view2.setVisibility(8);
             }
             if (intent.getAction().equals("com.baidu.ufosdk.reload")) {
-                handler = this.f57845a.A;
+                handler = this.a.A;
                 handler.obtainMessage(1, null).sendToTarget();
             }
         }

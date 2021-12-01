@@ -1,10 +1,10 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
-import b.a.q0.c1.e;
-import b.a.q0.c1.z;
-import b.a.r0.a3.l0.b;
-import b.a.r0.h1.c.d;
+import c.a.q0.d1.e;
+import c.a.q0.d1.z;
+import c.a.r0.h3.l0.b;
+import c.a.r0.n1.c.d;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class ConcernPageRequestMessage extends NetMessage {
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
             e eVar = this.adInfo;
             if (eVar != null && !isEmpty) {
-                str = eVar.f12764b;
+                str = eVar.f11878b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);
@@ -81,9 +81,9 @@ public class ConcernPageRequestMessage extends NetMessage {
                         builder.page_tag = d.u();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(b.a.q0.s.e0.b.j().l(b.a.q0.s.e0.b.n("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(c.a.q0.s.e0.b.j().l(c.a.q0.s.e0.b.n("concern_data_res_request_time"), 0L));
                 int i2 = 1;
-                builder.follow_type = Integer.valueOf(b.a.q0.b.d.i() ? b.a.q0.s.e0.b.j().k("key_home_concern_all_status", 0) : 1);
+                builder.follow_type = Integer.valueOf(c.a.q0.b.d.j() ? c.a.q0.s.e0.b.j().k("key_home_concern_all_status", 0) : 1);
                 if (z) {
                     z.a(builder, true);
                 }

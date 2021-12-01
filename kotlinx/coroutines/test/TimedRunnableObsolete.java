@@ -16,10 +16,10 @@ public final class TimedRunnableObsolete implements Comparable<TimedRunnableObso
     @JvmField
     public final long time;
 
-    public TimedRunnableObsolete(Runnable runnable, long j, long j2) {
+    public TimedRunnableObsolete(Runnable runnable, long j2, long j3) {
         this.run = runnable;
-        this.count = j;
-        this.time = j2;
+        this.count = j2;
+        this.time = j3;
     }
 
     @Override // kotlinx.coroutines.internal.ThreadSafeHeapNode
@@ -51,19 +51,19 @@ public final class TimedRunnableObsolete implements Comparable<TimedRunnableObso
         return "TimedRunnable(time=" + this.time + ", run=" + this.run + ')';
     }
 
-    public /* synthetic */ TimedRunnableObsolete(Runnable runnable, long j, long j2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(runnable, (i2 & 2) != 0 ? 0L : j, (i2 & 4) != 0 ? 0L : j2);
+    public /* synthetic */ TimedRunnableObsolete(Runnable runnable, long j2, long j3, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(runnable, (i2 & 2) != 0 ? 0L : j2, (i2 & 4) != 0 ? 0L : j3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(TimedRunnableObsolete timedRunnableObsolete) {
-        long j = this.time;
-        long j2 = timedRunnableObsolete.time;
-        if (j == j2) {
-            j = this.count;
-            j2 = timedRunnableObsolete.count;
+        long j2 = this.time;
+        long j3 = timedRunnableObsolete.time;
+        if (j2 == j3) {
+            j2 = this.count;
+            j3 = timedRunnableObsolete.count;
         }
-        return (j > j2 ? 1 : (j == j2 ? 0 : -1));
+        return (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
     }
 }

@@ -20,38 +20,38 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UMHBigCreditCardRepayTipView extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f59485a;
+    public MaskTextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f59486b;
+    public MaskTextView f52744b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f59487c;
+    public MaskTextView f52745c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f59488d;
+    public MaskTextView f52746d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f59489e;
+    public NetImageView f52747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f59490f;
+    public Button f52748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f59491g;
+    public TextView f52749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HomeCfgResponse.DataItem f59492h;
+    public HomeCfgResponse.DataItem f52750h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f59493i;
-    public boolean j;
+    public b f52751i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f52752j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UMHBigCreditCardRepayTipView(Context context) {
@@ -77,7 +77,7 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            HomeCfgResponse.DataItem dataItem = this.f59492h;
+            HomeCfgResponse.DataItem dataItem = this.f52750h;
             return (dataItem == null || dataItem.repay == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -97,13 +97,13 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_big_credit_card_tip_item_layout"), this);
-            this.f59485a = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_text"));
-            this.f59486b = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_money"));
-            this.f59489e = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_img"));
-            this.f59487c = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_tip"));
-            this.f59488d = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_sub_tip"));
-            this.f59490f = (Button) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_button"));
-            this.f59491g = (TextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_button1"));
+            this.a = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_text"));
+            this.f52744b = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_money"));
+            this.f52747e = (NetImageView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_img"));
+            this.f52745c = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_tip"));
+            this.f52746d = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_tip_sub_tip"));
+            this.f52748f = (Button) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_button"));
+            this.f52749g = (TextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_button1"));
         }
     }
 
@@ -111,12 +111,12 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
     public void onClick(View view) {
         HomeCfgResponse.DataButton[] dataButtonArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || CheckUtils.isFastDoubleClick() || this.f59492h == null || getWalletInterface() == null || (dataButtonArr = this.f59492h.repay.buttons) == null || dataButtonArr.length <= 0 || dataButtonArr[0] == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || CheckUtils.isFastDoubleClick() || this.f52750h == null || getWalletInterface() == null || (dataButtonArr = this.f52750h.repay.buttons) == null || dataButtonArr.length <= 0 || dataButtonArr[0] == null) {
             return;
         }
-        b bVar = this.f59493i;
+        b bVar = this.f52751i;
         String name = dataButtonArr[0].stat != null ? dataButtonArr[0].stat.getName() : dataButtonArr[0].name;
-        HomeCfgResponse.DataButton[] dataButtonArr2 = this.f59492h.repay.buttons;
+        HomeCfgResponse.DataButton[] dataButtonArr2 = this.f52750h.repay.buttons;
         bVar.jump(name, dataButtonArr2[0].type, dataButtonArr2[0].link_addr, "1".equalsIgnoreCase(dataButtonArr2[0].prevlogin));
     }
 
@@ -125,10 +125,10 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onEyeMaskChanged();
-            this.f59488d.resetMaskText();
-            this.f59487c.resetMaskText();
-            this.f59486b.resetMaskText();
-            this.f59485a.resetMaskText();
+            this.f52746d.resetMaskText();
+            this.f52745c.resetMaskText();
+            this.f52744b.resetMaskText();
+            this.a.resetMaskText();
         }
     }
 
@@ -136,50 +136,50 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            HomeCfgResponse.DataRepay dataRepay = this.f59492h.repay;
+            HomeCfgResponse.DataRepay dataRepay = this.f52750h.repay;
             if (!TextUtils.isEmpty(dataRepay.name)) {
-                this.f59485a.setVisibility(0);
-                this.f59485a.setMaskText(dataRepay.name);
+                this.a.setVisibility(0);
+                this.a.setMaskText(dataRepay.name);
             } else {
-                this.f59485a.setVisibility(8);
+                this.a.setVisibility(8);
             }
             if (!TextUtils.isEmpty(dataRepay.label)) {
-                this.f59486b.setVisibility(0);
-                this.f59486b.setMaskText(dataRepay.label);
+                this.f52744b.setVisibility(0);
+                this.f52744b.setMaskText(dataRepay.label);
             } else {
-                this.f59486b.setVisibility(8);
+                this.f52744b.setVisibility(8);
             }
             HomeCfgResponse.DataButton[] dataButtonArr = dataRepay.buttons;
             if (dataButtonArr != null && dataButtonArr.length > 0 && dataButtonArr[0] != null && !TextUtils.isEmpty(dataButtonArr[0].name)) {
-                this.f59490f.setText(dataRepay.buttons[0].name);
-                this.f59491g.setText(dataRepay.buttons[0].name);
-                this.f59490f.setOnClickListener(this);
-                this.f59491g.setOnClickListener(this);
+                this.f52748f.setText(dataRepay.buttons[0].name);
+                this.f52749g.setText(dataRepay.buttons[0].name);
+                this.f52748f.setOnClickListener(this);
+                this.f52749g.setOnClickListener(this);
                 z = true;
             } else {
-                this.f59490f.setVisibility(8);
-                this.f59491g.setVisibility(8);
+                this.f52748f.setVisibility(8);
+                this.f52749g.setVisibility(8);
                 z = false;
             }
             if (!TextUtils.isEmpty(dataRepay.value)) {
-                this.f59487c.setVisibility(0);
-                this.f59487c.setMaskText(dataRepay.value);
+                this.f52745c.setVisibility(0);
+                this.f52745c.setMaskText(dataRepay.value);
                 if (z) {
-                    this.f59490f.setVisibility(0);
-                    this.f59491g.setVisibility(8);
+                    this.f52748f.setVisibility(0);
+                    this.f52749g.setVisibility(8);
                 }
                 if (!TextUtils.isEmpty(dataRepay.desc)) {
-                    this.f59488d.setVisibility(0);
-                    this.f59488d.setMaskText(dataRepay.desc);
+                    this.f52746d.setVisibility(0);
+                    this.f52746d.setMaskText(dataRepay.desc);
                 } else {
-                    this.f59488d.setVisibility(8);
+                    this.f52746d.setVisibility(8);
                 }
                 if (!TextUtils.isEmpty(dataRepay.type) && TextUtils.equals("2", dataRepay.type)) {
                     setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_umh_text_fff6f6"));
                     int color = ResUtils.getColor(getContext(), "wallet_home_umh_text_fa5050");
                     a(color, color, ResUtils.getColor(getContext(), "wallet_home_umh_text_aafa5050"), color, color);
-                    this.f59490f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_light_red"));
-                    this.f59489e.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_tip_jin_tan_hao"));
+                    this.f52748f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_light_red"));
+                    this.f52747e.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_tip_jin_tan_hao"));
                     return;
                 }
                 setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_umh_text_f7f9fc"));
@@ -187,23 +187,23 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
                 int color3 = ResUtils.getColor(getContext(), "wallet_home_umh_text_868e9e");
                 int color4 = ResUtils.getColor(getContext(), "wallet_home_umh_text_397be6");
                 int color5 = ResUtils.getColor(getContext(), "wallet_home_umh_text_cba14e");
-                if (this.j) {
+                if (this.f52752j) {
                     a(color2, color2, color3, color2, color4);
-                    this.f59490f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_wathet"));
+                    this.f52748f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_wathet"));
                 } else {
                     a(color2, color2, color3, color2, color5);
-                    this.f59490f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_light_yellow"));
+                    this.f52748f.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_credit_card_button_light_yellow"));
                 }
-                this.f59489e.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_tip_ri_li"));
+                this.f52747e.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_tip_ri_li"));
                 return;
             }
-            this.f59489e.setVisibility(8);
-            this.f59487c.setVisibility(8);
-            this.f59488d.setVisibility(8);
-            this.f59490f.setVisibility(8);
+            this.f52747e.setVisibility(8);
+            this.f52745c.setVisibility(8);
+            this.f52746d.setVisibility(8);
+            this.f52748f.setVisibility(8);
             if (z) {
-                this.f59490f.setVisibility(8);
-                this.f59491g.setVisibility(0);
+                this.f52748f.setVisibility(8);
+                this.f52749g.setVisibility(0);
             }
             setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_umh_text_f7f9fc"));
         }
@@ -214,8 +214,8 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, dataItem, bVar) == null) {
             super.setData(dataItem, bVar);
-            this.f59492h = getData();
-            this.f59493i = bVar;
+            this.f52750h = getData();
+            this.f52751i = bVar;
             if (a()) {
                 initView();
                 refresh();
@@ -226,7 +226,7 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
     public void setIsManYiDai(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.j = z;
+            this.f52752j = z;
         }
     }
 
@@ -254,11 +254,11 @@ public class UMHBigCreditCardRepayTipView extends BaseItemView {
     private void a(int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            this.f59485a.setTextColor(i2);
-            this.f59486b.setTextColor(i3);
-            this.f59487c.setTextColor(i4);
-            this.f59488d.setTextColor(i5);
-            this.f59490f.setTextColor(i6);
+            this.a.setTextColor(i2);
+            this.f52744b.setTextColor(i3);
+            this.f52745c.setTextColor(i4);
+            this.f52746d.setTextColor(i5);
+            this.f52748f.setTextColor(i6);
         }
     }
 }

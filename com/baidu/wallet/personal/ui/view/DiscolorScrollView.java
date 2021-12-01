@@ -8,15 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DiscolorScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public a f61640a;
-
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface a {
         void onScrollChanged(DiscolorScrollView discolorScrollView, int i2, int i3, int i4, int i5);
     }
@@ -67,7 +65,7 @@ public class DiscolorScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            a aVar = this.f61640a;
+            a aVar = this.a;
             if (aVar != null) {
                 aVar.onScrollChanged(this, i2, i3, i4, i5);
             }
@@ -77,7 +75,7 @@ public class DiscolorScrollView extends ScrollView {
     public void setScrollViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f61640a = aVar;
+            this.a = aVar;
         }
     }
 }

@@ -11,13 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,15 +42,13 @@ public class ai {
             viewGroup.post(new Runnable(viewGroup, activity, agVar) { // from class: com.baidu.mobstat.ai.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ View f41786a;
+                public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Activity f41787b;
+                public final /* synthetic */ Activity f36964b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ TextView f41788c;
+                public final /* synthetic */ TextView f36965c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -68,22 +65,22 @@ public class ai {
                             return;
                         }
                     }
-                    this.f41786a = viewGroup;
-                    this.f41787b = activity;
-                    this.f41788c = agVar;
+                    this.a = viewGroup;
+                    this.f36964b = activity;
+                    this.f36965c = agVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int width = this.f41786a.getWidth();
-                        int height = this.f41786a.getHeight();
-                        int c2 = ah.c(this.f41787b, 55.0f);
+                        int width = this.a.getWidth();
+                        int height = this.a.getHeight();
+                        int c2 = ah.c(this.f36964b, 55.0f);
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, c2);
                         layoutParams.leftMargin = (width - c2) / 6;
                         layoutParams.topMargin = ((height - c2) * 5) / 6;
-                        this.f41788c.setLayoutParams(layoutParams);
+                        this.f36965c.setLayoutParams(layoutParams);
                     }
                 }
             });
@@ -95,7 +92,7 @@ public class ai {
     public static boolean a(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) {
             Object tag = view.getTag(-5000);
             return tag != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview");
         }
@@ -104,7 +101,7 @@ public class ai {
 
     public static void a(Activity activity, boolean z) {
         ViewGroup viewGroup;
-        View a2;
+        View a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, activity, z) == null) {
             try {
@@ -112,16 +109,16 @@ public class ai {
             } catch (Exception unused) {
                 viewGroup = null;
             }
-            if (viewGroup == null || (a2 = a(viewGroup)) == null) {
+            if (viewGroup == null || (a = a(viewGroup)) == null) {
                 return;
             }
-            a2.setVisibility(z ? 0 : 4);
+            a.setVisibility(z ? 0 : 4);
         }
     }
 
     public static void a(Activity activity) {
         ViewGroup viewGroup;
-        View a2;
+        View a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, activity) == null) {
             try {
@@ -129,10 +126,10 @@ public class ai {
             } catch (Exception unused) {
                 viewGroup = null;
             }
-            if (viewGroup == null || (a2 = a(viewGroup)) == null) {
+            if (viewGroup == null || (a = a(viewGroup)) == null) {
                 return;
             }
-            viewGroup.removeView(a2);
+            viewGroup.removeView(a);
         }
     }
 
@@ -216,24 +213,22 @@ public class ai {
             textView.setOnTouchListener(new View.OnTouchListener((View) textView.getParent(), activity) { // from class: com.baidu.mobstat.ai.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public int f41789a;
+                public int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public int f41790b;
+                public int f36966b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public int f41791c;
+                public int f36967c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public int f41792d;
+                public int f36968d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ View f41793e;
+                public final /* synthetic */ View f36969e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ Activity f41794f;
+                public final /* synthetic */ Activity f36970f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -250,12 +245,12 @@ public class ai {
                             return;
                         }
                     }
-                    this.f41793e = r6;
-                    this.f41794f = activity;
-                    this.f41789a = 0;
-                    this.f41790b = 0;
-                    this.f41791c = 0;
-                    this.f41792d = 0;
+                    this.f36969e = r6;
+                    this.f36970f = activity;
+                    this.a = 0;
+                    this.f36966b = 0;
+                    this.f36967c = 0;
+                    this.f36968d = 0;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -267,16 +262,16 @@ public class ai {
                         int rawY = (int) motionEvent.getRawY();
                         int action = motionEvent.getAction();
                         if (action == 0) {
-                            this.f41789a = rawX;
-                            this.f41790b = rawY;
-                            this.f41791c = rawX - view.getLeft();
-                            this.f41792d = rawY - view.getTop();
+                            this.a = rawX;
+                            this.f36966b = rawY;
+                            this.f36967c = rawX - view.getLeft();
+                            this.f36968d = rawY - view.getTop();
                         } else if (action != 1) {
                             if (action == 2) {
-                                int i2 = rawX - this.f41791c;
-                                int i3 = rawY - this.f41792d;
+                                int i2 = rawX - this.f36967c;
+                                int i3 = rawY - this.f36968d;
                                 Rect rect = new Rect();
-                                this.f41793e.getLocalVisibleRect(rect);
+                                this.f36969e.getLocalVisibleRect(rect);
                                 if (rect.contains(new Rect(i2, i3, view.getWidth() + i2, view.getHeight() + i3))) {
                                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
                                     marginLayoutParams.leftMargin = i2;
@@ -284,8 +279,8 @@ public class ai {
                                     view.setLayoutParams(marginLayoutParams);
                                 }
                             }
-                        } else if (ai.b(this.f41789a, (int) motionEvent.getRawX(), this.f41790b, (int) motionEvent.getRawY())) {
-                            ai.b((Context) this.f41794f);
+                        } else if (ai.b(this.a, (int) motionEvent.getRawX(), this.f36966b, (int) motionEvent.getRawY())) {
+                            ai.b((Context) this.f36970f);
                         }
                         return true;
                     }

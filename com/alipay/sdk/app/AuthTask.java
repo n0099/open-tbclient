@@ -12,7 +12,6 @@ import com.alipay.sdk.util.f;
 import com.alipay.sdk.util.j;
 import com.alipay.sdk.util.l;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,27 +22,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AuthTask {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f34809c;
+    public static final Object f31221c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Activity f34810a;
+    public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.sdk.widget.a f34811b;
+    public com.alipay.sdk.widget.a f31222b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements f.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthTask f34812a;
+        public final /* synthetic */ AuthTask a;
 
         public a(AuthTask authTask) {
             Interceptable interceptable = $ic;
@@ -60,14 +55,14 @@ public class AuthTask {
                     return;
                 }
             }
-            this.f34812a = authTask;
+            this.a = authTask;
         }
 
         @Override // com.alipay.sdk.util.f.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f34812a.a();
+                this.a.a();
             }
         }
 
@@ -92,7 +87,7 @@ public class AuthTask {
                 return;
             }
         }
-        f34809c = f.class;
+        f31221c = f.class;
     }
 
     public AuthTask(Activity activity) {
@@ -110,21 +105,21 @@ public class AuthTask {
                 return;
             }
         }
-        this.f34810a = activity;
-        com.alipay.sdk.sys.b.d().a(this.f34810a);
-        this.f34811b = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.k);
+        this.a = activity;
+        com.alipay.sdk.sys.b.d().a(this.a);
+        this.f31222b = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f31449k);
     }
 
     private f.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? new a(this) : (f.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? new a(this) : (f.e) invokeV.objValue;
     }
 
     private void c() {
         com.alipay.sdk.widget.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (aVar = this.f34811b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (aVar = this.f31222b) == null) {
             return;
         }
         aVar.d();
@@ -136,7 +131,7 @@ public class AuthTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
             synchronized (this) {
-                innerAuth = innerAuth(new com.alipay.sdk.sys.a(this.f34810a, str, "auth"), str, z);
+                innerAuth = innerAuth(new com.alipay.sdk.sys.a(this.a, str, "auth"), str, z);
             }
             return innerAuth;
         }
@@ -149,7 +144,7 @@ public class AuthTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
             synchronized (this) {
-                com.alipay.sdk.sys.a aVar = new com.alipay.sdk.sys.a(this.f34810a, str, "authV2");
+                com.alipay.sdk.sys.a aVar = new com.alipay.sdk.sys.a(this.a, str, "authV2");
                 a2 = j.a(aVar, innerAuth(aVar, str, z));
             }
             return a2;
@@ -157,18 +152,18 @@ public class AuthTask {
         return (Map) invokeLZ.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x006e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x006d, code lost:
         if (com.alipay.sdk.data.a.u().q() == false) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x00c3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x00c1, code lost:
         if (com.alipay.sdk.data.a.u().q() != false) goto L10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x00c5, code lost:
-        com.alipay.sdk.data.a.u().a(r5, r4.f34810a);
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x00c3, code lost:
+        com.alipay.sdk.data.a.u().a(r5, r4.a);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x00ce, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x00cc, code lost:
         a();
-        com.alipay.sdk.app.statistic.a.b(r4.f34810a, r5, r6, r5.f35001d);
+        com.alipay.sdk.app.statistic.a.b(r4.a, r5, r6, r5.f31386d);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -182,11 +177,11 @@ public class AuthTask {
                 if (z) {
                     c();
                 }
-                com.alipay.sdk.sys.b.d().a(this.f34810a);
+                com.alipay.sdk.sys.b.d().a(this.a);
                 a2 = b.a();
                 com.alipay.sdk.app.a.a("");
                 try {
-                    a2 = a(this.f34810a, str, aVar);
+                    a2 = a(this.a, str, aVar);
                     com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.Z, "" + SystemClock.elapsedRealtime());
                     com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.a0, j.a(a2, "resultStatus") + "|" + j.a(a2, "memo"));
                 } catch (Exception e2) {
@@ -204,7 +199,7 @@ public class AuthTask {
     public void a() {
         com.alipay.sdk.widget.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (aVar = this.f34811b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (aVar = this.f31222b) == null) {
             return;
         }
         aVar.a();
@@ -223,10 +218,10 @@ public class AuthTask {
             c cVar = null;
             try {
                 try {
-                    List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(new com.alipay.sdk.packet.impl.a().a(aVar, activity, str).c().optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f34918d));
+                    List<com.alipay.sdk.protocol.b> a2 = com.alipay.sdk.protocol.b.a(new com.alipay.sdk.packet.impl.a().a(aVar, activity, str).c().optJSONObject("form").optJSONObject(com.alipay.sdk.cons.c.f31314d));
                     a();
                     for (int i2 = 0; i2 < a2.size(); i2++) {
-                        if (a2.get(i2).a() == com.alipay.sdk.protocol.a.f34988c) {
+                        if (a2.get(i2).a() == com.alipay.sdk.protocol.a.f31374c) {
                             return a(aVar, a2.get(i2));
                         }
                     }
@@ -235,7 +230,7 @@ public class AuthTask {
                     a();
                 }
             } catch (IOException e2) {
-                c b2 = c.b(c.f34874f.b());
+                c b2 = c.b(c.f31273f.b());
                 com.alipay.sdk.app.statistic.a.a(aVar, "net", e2);
                 cVar = b2;
                 if (cVar == null) {
@@ -248,7 +243,7 @@ public class AuthTask {
                 return b.a(cVar.b(), cVar.a(), "");
             }
             if (cVar == null) {
-                cVar = c.b(c.f34872d.b());
+                cVar = c.b(c.f31271d.b());
             }
             return b.a(cVar.b(), cVar.a(), "");
         }
@@ -260,13 +255,13 @@ public class AuthTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, activity, str, aVar)) == null) {
             String a2 = aVar.a(str);
-            List<a.b> k = com.alipay.sdk.data.a.u().k();
-            if (!com.alipay.sdk.data.a.u().f34930g || k == null) {
-                k = com.alipay.sdk.app.a.f34868d;
+            List<a.b> k2 = com.alipay.sdk.data.a.u().k();
+            if (!com.alipay.sdk.data.a.u().f31327g || k2 == null) {
+                k2 = com.alipay.sdk.app.a.f31268d;
             }
-            if (l.b(aVar, this.f34810a, k)) {
+            if (l.b(aVar, this.a, k2)) {
                 String a3 = new f(activity, aVar, b()).a(a2);
-                if (!TextUtils.equals(a3, f.j) && !TextUtils.equals(a3, f.k)) {
+                if (!TextUtils.equals(a3, f.f31418j) && !TextUtils.equals(a3, f.f31419k)) {
                     return TextUtils.isEmpty(a3) ? b.a() : a3;
                 }
                 com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.m0);
@@ -285,13 +280,13 @@ public class AuthTask {
             String[] c2 = bVar.c();
             Bundle bundle = new Bundle();
             bundle.putString("url", c2[0]);
-            Intent intent = new Intent(this.f34810a, H5AuthActivity.class);
+            Intent intent = new Intent(this.a, H5AuthActivity.class);
             intent.putExtras(bundle);
-            a.C1564a.a(aVar, intent);
-            this.f34810a.startActivity(intent);
-            synchronized (f34809c) {
+            a.C1640a.a(aVar, intent);
+            this.a.startActivity(intent);
+            synchronized (f31221c) {
                 try {
-                    f34809c.wait();
+                    f31221c.wait();
                 } catch (InterruptedException unused) {
                     return b.a();
                 }

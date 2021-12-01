@@ -8,7 +8,6 @@ import android.os.Build;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +26,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ListIterator;
 import kotlinx.coroutines.DebugKt;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_RAW = 0;
@@ -39,7 +38,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public transient /* synthetic */ FieldHolder $fh;
     public int _cameraCnt;
     public int _cameraId;
-    public b.e.b.a.a.a.b _cameraProxy;
+    public c.f.b.a.a.a.b _cameraProxy;
     public int _height;
     public final Method[] _newVersionMethods;
     public Camera.PreviewCallback _previewCb;
@@ -50,7 +49,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public int _width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class MethodIndex {
         public static final /* synthetic */ MethodIndex[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +110,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,12 +160,10 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f63225a;
+        public static CameraCtrl a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -182,7 +179,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                     return;
                 }
             }
-            f63225a = new CameraCtrl(null);
+            a = new CameraCtrl(null);
         }
     }
 
@@ -251,13 +248,13 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static CameraCtrl getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? b.f63225a : (CameraCtrl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b.a : (CameraCtrl) invokeV.objValue;
     }
 
     private Camera.Size getSimilarRatioSize(int i2, int i3, List<Camera.Size> list, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), list, Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), list, Integer.valueOf(i4)})) == null) {
             int i5 = i2;
             int i6 = i3;
             if (i5 >= i6) {
@@ -330,7 +327,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     */
     private synchronized boolean openCamera(int i2, int i3, int i4, int i5, int i6, int i7) {
         InterceptResult invokeCommon;
-        Camera.Parameters k;
+        Camera.Parameters k2;
         boolean z;
         Camera.Size similarRatioSize;
         Interceptable interceptable = $ic;
@@ -341,18 +338,18 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
             boolean z2 = true;
             if (this._cameraProxy == null) {
                 try {
-                    this._cameraProxy = b.e.b.a.a.a.b.a();
+                    this._cameraProxy = c.f.b.a.a.a.b.a();
                     if (-1 != i2 && isSupportMultiCamera()) {
-                        this._cameraProxy.f31602a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
-                        k = this._cameraProxy.k();
-                        if (k != null) {
+                        this._cameraProxy.a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i2));
+                        k2 = this._cameraProxy.k();
+                        if (k2 != null) {
                             return false;
                         }
-                        String focusMode = k.getFocusMode();
+                        String focusMode = k2.getFocusMode();
                         if (!focusMode.equals(DebugKt.DEBUG_PROPERTY_VALUE_AUTO) && !focusMode.equals("macro")) {
                             z = false;
                             this._supportAutoFocus = z;
-                            similarRatioSize = getSimilarRatioSize(i3, i4, k.getSupportedPreviewSizes(), 0);
+                            similarRatioSize = getSimilarRatioSize(i3, i4, k2.getSupportedPreviewSizes(), 0);
                             if (similarRatioSize != null) {
                                 this._cameraProxy.m();
                                 this._cameraProxy = null;
@@ -364,23 +361,23 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                             this._width = i8;
                             int i9 = similarRatioSize.height;
                             this._height = i9;
-                            k.setPreviewSize(i8, i9);
-                            Camera.Size similarRatioSize2 = getSimilarRatioSize(i3, i4, k.getSupportedPictureSizes(), 1);
+                            k2.setPreviewSize(i8, i9);
+                            Camera.Size similarRatioSize2 = getSimilarRatioSize(i3, i4, k2.getSupportedPictureSizes(), 1);
                             if (similarRatioSize2 != null) {
-                                k.setPictureSize(similarRatioSize2.width, similarRatioSize2.height);
+                                k2.setPictureSize(similarRatioSize2.width, similarRatioSize2.height);
                                 String str2 = "set picture size to width = " + similarRatioSize2.width + " , height = " + similarRatioSize2.height;
                             }
                             try {
-                                k.setPreviewFormat(i6);
+                                k2.setPreviewFormat(i6);
                                 if (9 > Build.VERSION.SDK_INT) {
-                                    k.setPreviewFrameRate(i7);
+                                    k2.setPreviewFrameRate(i7);
                                 }
                                 try {
-                                    this._cameraProxy.d(k);
+                                    this._cameraProxy.d(k2);
                                     Method method = this._newVersionMethods[MethodIndex.setDisplayOrientation.ordinal()];
                                     if (method != null) {
                                         try {
-                                            method.invoke(this._cameraProxy.f31602a, Integer.valueOf(i5));
+                                            method.invoke(this._cameraProxy.a, Integer.valueOf(i5));
                                             this._rotation = i5;
                                         } catch (Exception e2) {
                                             LogUtil.e(Tag, "", e2);
@@ -389,7 +386,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                                     this._cameraId = i2;
                                     return true;
                                 } catch (Exception e3) {
-                                    LogUtil.e(Tag, k.toString(), e3);
+                                    LogUtil.e(Tag, k2.toString(), e3);
                                     return false;
                                 }
                             } catch (IllegalArgumentException e4) {
@@ -399,13 +396,13 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                         }
                         z = true;
                         this._supportAutoFocus = z;
-                        similarRatioSize = getSimilarRatioSize(i3, i4, k.getSupportedPreviewSizes(), 0);
+                        similarRatioSize = getSimilarRatioSize(i3, i4, k2.getSupportedPreviewSizes(), 0);
                         if (similarRatioSize != null) {
                         }
                     }
                     this._cameraProxy.i();
-                    k = this._cameraProxy.k();
-                    if (k != null) {
+                    k2 = this._cameraProxy.k();
+                    if (k2 != null) {
                     }
                 } catch (Exception e5) {
                     LogUtil.e(Tag, "The camera is in use", e5);
@@ -451,10 +448,10 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
         }
     }
 
-    public b.e.b.a.a.a.b camera() {
+    public c.f.b.a.a.a.b camera() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this._cameraProxy : (b.e.b.a.a.a.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this._cameraProxy : (c.f.b.a.a.a.b) invokeV.objValue;
     }
 
     public synchronized void destroy() {
@@ -501,28 +498,28 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
 
     public int getCurrentZoom() {
         InterceptResult invokeV;
-        b.e.b.a.a.a.b bVar;
-        Camera.Parameters k;
+        c.f.b.a.a.a.b bVar;
+        Camera.Parameters k2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!isSupportZoom() || (bVar = this._cameraProxy) == null || (k = bVar.k()) == null) {
+            if (!isSupportZoom() || (bVar = this._cameraProxy) == null || (k2 = bVar.k()) == null) {
                 return 0;
             }
-            return k.getZoom();
+            return k2.getZoom();
         }
         return invokeV.intValue;
     }
 
     public int getMaxZoom() {
         InterceptResult invokeV;
-        b.e.b.a.a.a.b bVar;
-        Camera.Parameters k;
+        c.f.b.a.a.a.b bVar;
+        Camera.Parameters k2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!isSupportZoom() || (bVar = this._cameraProxy) == null || (k = bVar.k()) == null) {
+            if (!isSupportZoom() || (bVar = this._cameraProxy) == null || (k2 = bVar.k()) == null) {
                 return 0;
             }
-            return k.getMaxZoom();
+            return k2.getMaxZoom();
         }
         return invokeV.intValue;
     }
@@ -571,13 +568,13 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
 
     public boolean isFlashOn() {
         InterceptResult invokeV;
-        Camera.Parameters k;
+        Camera.Parameters k2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if ((this._state & 6) == 0 || (k = this._cameraProxy.k()) == null) {
+            if ((this._state & 6) == 0 || (k2 = this._cameraProxy.k()) == null) {
                 return false;
             }
-            return "torch".equals(k.getFlashMode());
+            return "torch".equals(k2.getFlashMode());
         }
         return invokeV.booleanValue;
     }
@@ -596,14 +593,14 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
 
     public boolean isSupportZoom() {
         InterceptResult invokeV;
-        Camera.Parameters k;
+        Camera.Parameters k2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            b.e.b.a.a.a.b bVar = this._cameraProxy;
-            if (bVar == null || (k = bVar.k()) == null) {
+            c.f.b.a.a.a.b bVar = this._cameraProxy;
+            if (bVar == null || (k2 = bVar.k()) == null) {
                 return false;
             }
-            return k.isZoomSupported();
+            return k2.isZoomSupported();
         }
         return invokeV.booleanValue;
     }
@@ -644,20 +641,20 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
 
     public boolean setFlashOn(boolean z) {
         InterceptResult invokeZ;
-        Camera.Parameters k;
+        Camera.Parameters k2;
         String flashMode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-            if ((this._state & 6) == 0 || (k = this._cameraProxy.k()) == null || (flashMode = k.getFlashMode()) == null) {
+            if ((this._state & 6) == 0 || (k2 = this._cameraProxy.k()) == null || (flashMode = k2.getFlashMode()) == null) {
                 return false;
             }
             String str = z ? "torch" : DebugKt.DEBUG_PROPERTY_VALUE_OFF;
             if (str.equals(flashMode)) {
                 return true;
             }
-            k.setFlashMode(str);
+            k2.setFlashMode(str);
             try {
-                this._cameraProxy.d(k);
+                this._cameraProxy.d(k2);
                 return true;
             } catch (Exception e2) {
                 LogUtil.e(Tag, "setFlashOn()", e2);
@@ -679,14 +676,14 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     }
 
     public void setZoom(int i2) {
-        b.e.b.a.a.a.b bVar;
-        Camera.Parameters k;
+        c.f.b.a.a.a.b bVar;
+        Camera.Parameters k2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || (bVar = this._cameraProxy) == null || (k = bVar.k()) == null || !isSupportZoom() || k.getZoom() == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || (bVar = this._cameraProxy) == null || (k2 = bVar.k()) == null || !isSupportZoom() || k2.getZoom() == i2) {
             return;
         }
-        k.setZoom(i2);
-        this._cameraProxy.d(k);
+        k2.setZoom(i2);
+        this._cameraProxy.d(k2);
     }
 
     public synchronized void start(Camera.PreviewCallback previewCallback, SurfaceHolder surfaceHolder) {
@@ -716,17 +713,17 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                 return false;
             }
             this._cameraProxy.j();
-            Camera.Parameters k = this._cameraProxy.k();
-            if (k == null) {
+            Camera.Parameters k2 = this._cameraProxy.k();
+            if (k2 == null) {
                 return false;
             }
-            if ("torch".equals(k.getFlashMode())) {
-                k.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_OFF);
+            if ("torch".equals(k2.getFlashMode())) {
+                k2.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_OFF);
             } else {
-                k.setFlashMode("torch");
+                k2.setFlashMode("torch");
             }
             try {
-                this._cameraProxy.d(k);
+                this._cameraProxy.d(k2);
                 this._cameraProxy.l();
                 return true;
             } catch (Exception unused) {

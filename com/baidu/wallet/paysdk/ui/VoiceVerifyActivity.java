@@ -16,7 +16,7 @@ import com.baidu.wallet.paysdk.sms.controller.g;
 import com.baidu.wallet.paysdk.sms.controller.h;
 import com.dxmpay.apollon.utils.ResUtils;
 import com.dxmpay.wallet.utils.BdWalletUtils;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class VoiceVerifyActivity extends WalletSmsActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +78,7 @@ public class VoiceVerifyActivity extends WalletSmsActivity {
             CountDownTimer countDownTimer2 = new CountDownTimer(this, 60000L, 1000L) { // from class: com.baidu.wallet.paysdk.ui.VoiceVerifyActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ VoiceVerifyActivity f61258a;
+                public final /* synthetic */ VoiceVerifyActivity a;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -101,28 +99,28 @@ public class VoiceVerifyActivity extends WalletSmsActivity {
                             return;
                         }
                     }
-                    this.f61258a = this;
+                    this.a = this;
                 }
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        VoiceVerifyActivity voiceVerifyActivity = this.f61258a;
+                        VoiceVerifyActivity voiceVerifyActivity = this.a;
                         voiceVerifyActivity.mSendSms.setText(ResUtils.getString(voiceVerifyActivity.getActivity(), "ebpay_recall"));
-                        this.f61258a.mSendSms.setTextSize(1, 16.0f);
-                        this.f61258a.mSendSms.setEnabled(true);
+                        this.a.mSendSms.setTextSize(1, 16.0f);
+                        this.a.mSendSms.setEnabled(true);
                     }
                 }
 
                 @Override // android.os.CountDownTimer
-                public void onTick(long j) {
+                public void onTick(long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                        this.f61258a.mSendSms.setEnabled(false);
-                        this.f61258a.mSendSms.setTextSize(1, 12.0f);
-                        VoiceVerifyActivity voiceVerifyActivity = this.f61258a;
-                        voiceVerifyActivity.mSendSms.setText(String.format(ResUtils.getString(voiceVerifyActivity.getActivity(), "ebpay_recall_timer"), Integer.valueOf((int) (j / 1000))));
+                    if (interceptable2 == null || interceptable2.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+                        this.a.mSendSms.setEnabled(false);
+                        this.a.mSendSms.setTextSize(1, 12.0f);
+                        VoiceVerifyActivity voiceVerifyActivity = this.a;
+                        voiceVerifyActivity.mSendSms.setText(String.format(ResUtils.getString(voiceVerifyActivity.getActivity(), "ebpay_recall_timer"), Integer.valueOf((int) (j2 / 1000))));
                     }
                 }
             };

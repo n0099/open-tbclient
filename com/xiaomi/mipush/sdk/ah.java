@@ -3,7 +3,6 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +23,7 @@ import com.xiaomi.push.io;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ah {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +31,7 @@ public class ah {
     public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hfVar)) == null) ? a(context, t, hfVar, !hfVar.equals(hf.f71990a), context.getPackageName(), b.m114a(context).m115a()) : (ib) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hfVar)) == null) ? a(context, t, hfVar, !hfVar.equals(hf.a), context.getPackageName(), b.m163a(context).m164a()) : (ib) invokeLLL.objValue;
     }
 
     public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar, boolean z, String str, String str2) {
@@ -46,16 +45,16 @@ public class ah {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, t, hfVar, Boolean.valueOf(z), str, str2, Boolean.valueOf(z2)})) == null) {
-            byte[] a2 = ip.a(t);
-            if (a2 != null) {
+            byte[] a = ip.a(t);
+            if (a != null) {
                 ib ibVar = new ib();
                 if (z) {
-                    String d2 = b.m114a(context).d();
+                    String d2 = b.m163a(context).d();
                     if (TextUtils.isEmpty(d2)) {
                         str3 = "regSecret is empty, return null";
                     } else {
                         try {
-                            a2 = com.xiaomi.push.h.b(bj.m183a(d2), a2);
+                            a = com.xiaomi.push.h.b(bj.m232a(d2), a);
                         } catch (Exception unused) {
                             com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
                         }
@@ -65,7 +64,7 @@ public class ah {
                 huVar.f562a = 5L;
                 huVar.f563a = "fakeid";
                 ibVar.a(huVar);
-                ibVar.a(ByteBuffer.wrap(a2));
+                ibVar.a(ByteBuffer.wrap(a));
                 ibVar.a(hfVar);
                 ibVar.b(z2);
                 ibVar.b(str);
@@ -74,7 +73,7 @@ public class ah {
                 return ibVar;
             }
             str3 = "invoke convertThriftObjectToBytes method, return null.";
-            com.xiaomi.channel.commonutils.logger.b.m73a(str3);
+            com.xiaomi.channel.commonutils.logger.b.m122a(str3);
             return null;
         }
         return (ib) invokeCommon.objValue;
@@ -82,23 +81,23 @@ public class ah {
 
     public static iq a(Context context, ib ibVar) {
         InterceptResult invokeLL;
-        byte[] m459a;
+        byte[] m508a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, ibVar)) == null) {
-            if (ibVar.m461b()) {
+            if (ibVar.m510b()) {
                 try {
-                    m459a = com.xiaomi.push.h.a(bj.m183a(b.m114a(context).d()), ibVar.m459a());
+                    m508a = com.xiaomi.push.h.a(bj.m232a(b.m163a(context).d()), ibVar.m508a());
                 } catch (Exception e2) {
                     throw new t("the aes decrypt failed.", e2);
                 }
             } else {
-                m459a = ibVar.m459a();
+                m508a = ibVar.m508a();
             }
-            iq a2 = a(ibVar.a(), ibVar.f644b);
-            if (a2 != null) {
-                ip.a(a2, m459a);
+            iq a = a(ibVar.a(), ibVar.f644b);
+            if (a != null) {
+                ip.a(a, m508a);
             }
-            return a2;
+            return a;
         }
         return (iq) invokeLL.objValue;
     }
@@ -107,7 +106,7 @@ public class ah {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, hfVar, z)) == null) {
-            switch (ai.f71512a[hfVar.ordinal()]) {
+            switch (ai.a[hfVar.ordinal()]) {
                 case 1:
                     return new ig();
                 case 2:
@@ -143,6 +142,6 @@ public class ah {
     public static <T extends iq<T, ?>> ib b(Context context, T t, hf hfVar, boolean z, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, t, hfVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hfVar, z, str, str2, false) : (ib) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, t, hfVar, Boolean.valueOf(z), str, str2})) == null) ? a(context, t, hfVar, z, str, str2, false) : (ib) invokeCommon.objValue;
     }
 }

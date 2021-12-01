@@ -7,27 +7,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ArrayList<C1639a> f37842a;
+    public ArrayList<C1716a> a;
 
     /* renamed from: com.baidu.cyberplayer.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1639a {
+    /* loaded from: classes8.dex */
+    public static class C1716a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f37843a;
+        public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f37844b;
+        public Object f33915b;
 
-        public C1639a(String str, Object obj) {
+        public C1716a(String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,27 +38,27 @@ public class a {
                     return;
                 }
             }
-            this.f37843a = str;
-            this.f37844b = obj;
+            this.a = str;
+            this.f33915b = obj;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37843a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
         }
 
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f37844b = obj;
+                this.f33915b = obj;
             }
         }
 
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37844b : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33915b : invokeV.objValue;
         }
     }
 
@@ -79,34 +75,34 @@ public class a {
                 return;
             }
         }
-        this.f37842a = new ArrayList<>();
+        this.a = new ArrayList<>();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f37842a.clear();
+            this.a.clear();
         }
     }
 
     public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            int size = this.f37842a.size();
+            int size = this.a.size();
             for (int i2 = 0; i2 < size; i2++) {
-                C1639a c1639a = this.f37842a.get(i2);
-                if (c1639a != null && c1639a.a() != null && c1639a.a().equals(str)) {
-                    c1639a.a(obj);
+                C1716a c1716a = this.a.get(i2);
+                if (c1716a != null && c1716a.a() != null && c1716a.a().equals(str)) {
+                    c1716a.a(obj);
                     return;
                 }
             }
-            this.f37842a.add(new C1639a(str, obj));
+            this.a.add(new C1716a(str, obj));
         }
     }
 
-    public ArrayList<C1639a> b() {
+    public ArrayList<C1716a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37842a : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 }

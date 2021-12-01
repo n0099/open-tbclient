@@ -15,7 +15,6 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.dxmpay.m;
 import com.baidu.mobstat.dxmpay.s;
 import com.baidu.mobstat.dxmpay.util.CuidUtil;
@@ -35,21 +34,19 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class w {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f42432a;
+    public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f42433b;
+    public static String f37481b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f42434c;
+    public static String f37482c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f42435d;
+    public static final Pattern f37483d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,13 +62,13 @@ public class w {
                 return;
             }
         }
-        f42435d = Pattern.compile("\\s*|\t|\r|\n");
+        f37483d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             try {
                 ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
                 if (applicationInfo != null) {
@@ -215,7 +212,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            String str = f42433b;
+            String str = f37481b;
             if (str == null) {
                 String n = n(context);
                 String b2 = b(context, n);
@@ -223,7 +220,7 @@ public class w {
                     b2 = c(context, n);
                 }
                 str = b2 == null ? "" : b2;
-                f42433b = str;
+                f37481b = str;
             }
             return str;
         }
@@ -234,12 +231,12 @@ public class w {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65566, null, i2, context)) == null) {
-            String j = j(context);
-            if (TextUtils.isEmpty(j)) {
+            String j2 = j(context);
+            if (TextUtils.isEmpty(j2)) {
                 return "";
             }
             try {
-                return m.b.c(i2, j.getBytes());
+                return m.b.c(i2, j2.getBytes());
             } catch (Exception unused) {
                 return "";
             }
@@ -273,7 +270,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
-            String str = f42432a;
+            String str = a;
             if (str == null) {
                 try {
                     List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
@@ -293,7 +290,7 @@ public class w {
                 if (str == null) {
                     str = "";
                 }
-                f42432a = str;
+                a = str;
             }
             return str;
         }
@@ -469,7 +466,7 @@ public class w {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str2 = f42434c;
+            String str2 = f37482c;
             if (str2 != null) {
                 return str2;
             }
@@ -490,7 +487,7 @@ public class w {
                     str = "flyme";
                 }
             }
-            f42434c = str;
+            f37482c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -499,7 +496,7 @@ public class w {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f42435d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f37483d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static String a(int i2, Context context) {
@@ -604,7 +601,7 @@ public class w {
         Throwable th;
         Process process;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, str)) != null) {
             return (String) invokeL.objValue;
         }
         String str2 = null;

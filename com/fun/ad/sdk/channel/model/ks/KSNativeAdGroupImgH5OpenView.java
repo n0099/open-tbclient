@@ -14,39 +14,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.channel.ks.R;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
-import com.fun.module.ks.w;
+import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
-public class KSNativeAdGroupImgH5OpenView extends w {
+/* loaded from: classes2.dex */
+public class KSNativeAdGroupImgH5OpenView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f63686b;
+    public TextView f55673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f63687c;
+    public LinearLayout f55674c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f63688d;
+    public ImageView f55675d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f63689e;
+    public ImageView f55676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f63690f;
+    public ImageView f55677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f63691g;
+    public ImageView f55678g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f63692h;
+    public TextView f55679h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f63693i;
+    public Button f55680i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdGroupImgH5OpenView(Context context) {
@@ -111,33 +111,33 @@ public class KSNativeAdGroupImgH5OpenView extends w {
         }
     }
 
-    @Override // com.fun.module.ks.w
+    @Override // com.fun.module.ks.x
     public void a(KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this);
-            this.f63783a.clear();
-            this.f63783a.addAll(arrayList);
+            this.a.clear();
+            this.a.addAll(arrayList);
             List<KsImage> imageList = ksNativeAd.getImageList();
             if (imageList != null && imageList.size() >= 3) {
                 KsImage ksImage = imageList.get(0);
                 if (ksImage != null && ksImage.isValid()) {
-                    GlideHelper.get().load(getContext(), ksImage.getImageUrl(), this.f63688d);
+                    GlideHelper.get().load(getContext(), ksImage.getImageUrl(), this.f55675d);
                 }
                 KsImage ksImage2 = imageList.get(1);
                 if (ksImage2 != null && ksImage2.isValid()) {
-                    GlideHelper.get().load(getContext(), ksImage2.getImageUrl(), this.f63689e);
+                    GlideHelper.get().load(getContext(), ksImage2.getImageUrl(), this.f55676e);
                 }
                 KsImage ksImage3 = imageList.get(2);
                 if (ksImage3 != null && ksImage3.isValid()) {
-                    GlideHelper.get().load(getContext(), ksImage3.getImageUrl(), this.f63690f);
+                    GlideHelper.get().load(getContext(), ksImage3.getImageUrl(), this.f55677f);
                 }
             }
-            this.f63691g.setImageBitmap(getSdkLogo());
-            this.f63686b.setText(ksNativeAd.getAdDescription());
-            this.f63692h.setText(ksNativeAd.getAdSource());
-            this.f63693i.setText(ksNativeAd.getActionDescription());
+            this.f55678g.setImageBitmap(getSdkLogo());
+            this.f55673b.setText(ksNativeAd.getAdDescription());
+            this.f55679h.setText(ksNativeAd.getAdSource());
+            this.f55680i.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -146,14 +146,14 @@ public class KSNativeAdGroupImgH5OpenView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f63686b = (TextView) findViewById(R.id.ad_description);
-            this.f63687c = (LinearLayout) findViewById(R.id.ad_img_container);
-            this.f63688d = (ImageView) findViewById(R.id.ad_img_1);
-            this.f63689e = (ImageView) findViewById(R.id.ad_img_2);
-            this.f63690f = (ImageView) findViewById(R.id.ad_img_3);
-            this.f63691g = (ImageView) findViewById(R.id.ad_logo);
-            this.f63692h = (TextView) findViewById(R.id.ad_h5_description);
-            this.f63693i = (Button) findViewById(R.id.ad_h5_open);
+            this.f55673b = (TextView) findViewById(R.id.ad_description);
+            this.f55674c = (LinearLayout) findViewById(R.id.ad_img_container);
+            this.f55675d = (ImageView) findViewById(R.id.ad_img_1);
+            this.f55676e = (ImageView) findViewById(R.id.ad_img_2);
+            this.f55677f = (ImageView) findViewById(R.id.ad_img_3);
+            this.f55678g = (ImageView) findViewById(R.id.ad_logo);
+            this.f55679h = (TextView) findViewById(R.id.ad_h5_description);
+            this.f55680i = (Button) findViewById(R.id.ad_h5_open);
         }
     }
 
@@ -162,14 +162,14 @@ public class KSNativeAdGroupImgH5OpenView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f63687c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f55674c.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f63688d.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f63689e.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f63690f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f55675d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f55676e.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f55677f.getLayoutParams();
             layoutParams.width = i6;
             layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.5f);
-            this.f63687c.setLayoutParams(layoutParams);
+            this.f55674c.setLayoutParams(layoutParams);
         }
     }
 }

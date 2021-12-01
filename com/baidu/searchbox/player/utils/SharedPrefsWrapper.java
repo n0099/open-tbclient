@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -120,10 +120,10 @@ public class SharedPrefsWrapper implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
+    public long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) ? this.mSp.getLong(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) ? this.mSp.getLong(str, j2) : invokeLJ.longValue;
     }
 
     @Override // android.content.SharedPreferences
@@ -161,10 +161,10 @@ public class SharedPrefsWrapper implements SharedPreferences {
         }
     }
 
-    public void putLong(String str, long j) {
+    public void putLong(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048588, this, str, j) == null) {
-            this.mSp.edit().putLong(str, j).apply();
+        if (interceptable == null || interceptable.invokeLJ(1048588, this, str, j2) == null) {
+            this.mSp.edit().putLong(str, j2).apply();
         }
     }
 

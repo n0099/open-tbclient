@@ -13,7 +13,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.OneShotPreDrawListener;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.FragmentTransaction;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -311,7 +310,7 @@ public class FragmentTransition {
         ArrayList<String> arrayList3;
         ArrayList<String> arrayList4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), arrayList, arrayList2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), arrayList, arrayList2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             ArrayMap<String, String> arrayMap = new ArrayMap<>();
             for (int i5 = i4 - 1; i5 >= i3; i5--) {
                 BackStackRecord backStackRecord = arrayList.get(i5);
@@ -348,7 +347,7 @@ public class FragmentTransition {
 
     public static void calculatePopFragments(BackStackRecord backStackRecord, SparseArray<FragmentContainerTransition> sparseArray, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, null, backStackRecord, sparseArray, z) == null) && backStackRecord.mManager.mContainer.onHasView()) {
+        if ((interceptable == null || interceptable.invokeLLZ(65542, null, backStackRecord, sparseArray, z) == null) && backStackRecord.mManager.mContainer.onHasView()) {
             for (int size = backStackRecord.mOps.size() - 1; size >= 0; size--) {
                 addToFirstInLastOut(backStackRecord, backStackRecord.mOps.get(size), sparseArray, true, z);
             }

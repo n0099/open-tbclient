@@ -1,7 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payapi.payproxy;
 
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IWechatProxyCallback {
     void onFail(String str);
 

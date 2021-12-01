@@ -8,16 +8,14 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class m extends FutureTask<u> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q f34709a;
+    public final /* synthetic */ q a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f34710b;
+    public final /* synthetic */ l f31145b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(l lVar, Callable callable, q qVar) {
@@ -37,23 +35,23 @@ public final class m extends FutureTask<u> {
                 return;
             }
         }
-        this.f34710b = lVar;
-        this.f34709a = qVar;
+        this.f31145b = lVar;
+        this.a = qVar;
     }
 
     @Override // java.util.concurrent.FutureTask
     public final void done() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o a2 = this.f34709a.a();
-            if (a2.f() == null) {
+            o a = this.a.a();
+            if (a.f() == null) {
                 super.done();
                 return;
             }
             try {
                 get();
-                if (isCancelled() || a2.h()) {
-                    a2.g();
+                if (isCancelled() || a.h()) {
+                    a.g();
                     if (isCancelled() && isDone()) {
                         return;
                     }
@@ -62,7 +60,7 @@ public final class m extends FutureTask<u> {
             } catch (InterruptedException e2) {
                 new StringBuilder().append(e2);
             } catch (CancellationException unused) {
-                a2.g();
+                a.g();
             } catch (ExecutionException e3) {
                 if (e3.getCause() == null || !(e3.getCause() instanceof HttpException)) {
                     new StringBuilder().append(e3);

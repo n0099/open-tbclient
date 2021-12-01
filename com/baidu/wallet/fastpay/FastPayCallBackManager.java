@@ -10,12 +10,12 @@ import com.baidu.wallet.fastpay.datamodel.QueryLocationResponse;
 import com.baidu.wallet.fastpay.datamodel.SimpleOrderInfo;
 import com.baidu.wallet.fastpay.sdk.a;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class FastPayCallBackManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class PayStateContent implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8703238535820968744L;
@@ -50,7 +50,7 @@ public final class FastPayCallBackManager {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class PayStateModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;
@@ -78,34 +78,34 @@ public final class FastPayCallBackManager {
     }
 
     public static void a(int i2, int i3, SimpleOrderInfo simpleOrderInfo, PayStateContent payStateContent) {
-        a.b a2;
+        a.b a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), simpleOrderInfo, payStateContent}) == null) || (a2 = a.a().a(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), simpleOrderInfo, payStateContent}) == null) || (a = a.a().a(i2)) == null) {
             return;
         }
-        a2.onFastPaySuccess(i2, 1, a(i3, simpleOrderInfo, payStateContent));
+        a.onFastPaySuccess(i2, 1, a(i3, simpleOrderInfo, payStateContent));
         a.a().b(i2);
     }
 
     public static void a(int i2, Object obj) {
-        a.b a2;
+        a.b a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, null, i2, obj) == null) || (a2 = a.a().a(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65539, null, i2, obj) == null) || (a = a.a().a(i2)) == null) {
             return;
         }
-        a2.onFastPaySuccess(i2, 0, obj);
+        a.onFastPaySuccess(i2, 0, obj);
         if (obj instanceof QueryLocationResponse) {
             a.a().b(i2);
         }
     }
 
     public static void a(int i2, int i3, int i4, String str, SimpleOrderInfo simpleOrderInfo) {
-        a.b a2;
+        a.b a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, simpleOrderInfo}) == null) || (a2 = a.a().a(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, simpleOrderInfo}) == null) || (a = a.a().a(i2)) == null) {
             return;
         }
-        a2.onFastPayFail(i2, i3, new a.C1829a(i4, str, simpleOrderInfo));
+        a.onFastPayFail(i2, i3, new a.C1901a(i4, str, simpleOrderInfo));
         a.a().b(i2);
     }
 

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,7 +106,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BosClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STORAGE_CLASS_COLD = "COLD";
@@ -193,7 +192,7 @@ public class BosClient extends AbstractBceClient {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, internalRequest)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, internalRequest)) == null) {
             String normalizePath = HttpUtils.normalizePath(internalRequest.getUri().getPath());
             boolean z = true;
             if (normalizePath.startsWith("/")) {
@@ -225,7 +224,7 @@ public class BosClient extends AbstractBceClient {
         InterceptResult invokeLL;
         Boolean isCnameEnabled;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, t, httpMethodName)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, t, httpMethodName)) == null) {
             InternalRequest internalRequest = new InternalRequest(httpMethodName, HttpUtils.appendUri(getEndpoint(), "v1", (!(t instanceof GenericBucketRequest) || ((isCnameEnabled = ((BosClientConfiguration) this.config).isCnameEnabled()) != Boolean.FALSE && (isCnameEnabled != null || BosUtils.isCnameLikeHost(getEndpoint().getHost())))) ? null : ((GenericBucketRequest) t).getBucketName(), t instanceof GenericObjectRequest ? ((GenericObjectRequest) t).getKey() : null));
             internalRequest.setCredentials(t.getRequestCredentials());
             internalRequest.setRequest(t);
@@ -420,7 +419,7 @@ public class BosClient extends AbstractBceClient {
         }
         ArrayList arrayList = new ArrayList();
         int streamBufferSize = getStreamBufferSize();
-        long j = 0;
+        long j2 = 0;
         while (true) {
             byte[] bArr = new byte[streamBufferSize];
             arrayList.add(bArr);
@@ -429,10 +428,10 @@ public class BosClient extends AbstractBceClient {
                 try {
                     int read = inputStream.read(bArr, i2, streamBufferSize - i2);
                     if (read < 0) {
-                        objectMetadata.setContentLength(j);
+                        objectMetadata.setContentLength(j2);
                         return arrayList;
                     }
-                    j += read;
+                    j2 += read;
                     i2 += read;
                 } catch (IOException e2) {
                     throw new BceClientException("Fail to read data:" + e2.getMessage(), e2);

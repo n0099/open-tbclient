@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BreakpointInfoRow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class BreakpointInfoRow {
         this.url = cursor.getString(cursor.getColumnIndex("url"));
         this.etag = cursor.getString(cursor.getColumnIndex("etag"));
         this.parentPath = cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.PARENT_PATH));
-        this.filename = cursor.getString(cursor.getColumnIndex("filename"));
+        this.filename = cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.FILENAME));
         this.taskOnlyProvidedParentPath = cursor.getInt(cursor.getColumnIndex(BreakpointSQLiteKey.TASK_ONLY_PARENT_PATH)) == 1;
         this.chunked = cursor.getInt(cursor.getColumnIndex("chunked")) == 1;
         this.mimeType = cursor.getString(cursor.getColumnIndex(BreakpointSQLiteKey.MIME_TYPE));

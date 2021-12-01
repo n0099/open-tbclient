@@ -11,7 +11,6 @@ import com.baidu.down.request.taskmanager.TaskNetRequestMng;
 import com.baidu.down.utils.CryptUtil;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.Utils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +21,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpRetryStrategyDataParse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -56,7 +55,7 @@ public class HttpRetryStrategyDataParse {
     public long mFetchServerDataElapsedTime;
     public Timer mFetchServerDataOverTime;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnFetchRetryDataRequestListener {
         void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i2);
     }
@@ -78,7 +77,7 @@ public class HttpRetryStrategyDataParse {
     /* JADX INFO: Access modifiers changed from: private */
     public void parserHttpDNSData(Context context, JSONObject jSONObject, HttpDNSCacheInfo httpDNSCacheInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, context, jSONObject, httpDNSCacheInfo) == null) || jSONObject == null || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65542, this, context, jSONObject, httpDNSCacheInfo) == null) || jSONObject == null || jSONObject == null) {
             return;
         }
         try {

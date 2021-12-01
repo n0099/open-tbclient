@@ -1,14 +1,15 @@
 package com.baidu.tieba.recapp.request;
 
 import android.os.Build;
-import b.a.q0.t.c.d;
-import b.a.r0.m3.l0.a;
+import c.a.q0.t.c.d;
+import c.a.r0.t3.l0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
@@ -25,13 +26,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class ShowStatisticUploadRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final TbHttpMessageTask task;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public static final class ResponseMessage extends HttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,8 +126,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("tid", cVar.f22529a);
-                            jSONObject.put("locate", cVar.f22531c);
+                            jSONObject.put("tid", cVar.a);
+                            jSONObject.put("locate", cVar.f23877c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);
@@ -150,9 +151,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("pid", cVar.f22530b);
+                            jSONObject.put("pid", cVar.f23876b);
                             jSONObject.put("tid", str4);
-                            jSONObject.put("locate", cVar.f22531c);
+                            jSONObject.put("locate", cVar.f23877c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);
@@ -169,7 +170,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3})) == null) {
-            addParam("da_page", i2 == 1 ? "FRS" : "PB");
+            addParam(BdVideoAd.AD_VIDEO_DAPAGE, i2 == 1 ? "FRS" : "PB");
             addParam("da_menu1", str);
             addParam("da_menu2", str2);
             addParam("ext_info", str3);

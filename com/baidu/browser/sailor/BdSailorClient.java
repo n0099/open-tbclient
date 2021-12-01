@@ -3,7 +3,7 @@ package com.baidu.browser.sailor;
 import android.content.Context;
 import android.net.http.SslError;
 import androidx.core.view.InputDeviceCompat;
-import b.a.k.b.b.b.b;
+import c.a.j.b.b.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class DownloadTaskType {
         public static final /* synthetic */ DownloadTaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -80,19 +80,19 @@ public class BdSailorClient extends WebKitClient implements INoProGuard, ISailor
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface IDownloadTaskListener extends INoProGuard {
-        void onDownloadCancel(String str, long j, long j2, String str2);
+        void onDownloadCancel(String str, long j2, long j3, String str2);
 
-        void onDownloadFail(String str, long j, String str2, String str3);
+        void onDownloadFail(String str, long j2, String str2, String str3);
 
-        void onDownloadPause(String str, long j, long j2, String str2);
+        void onDownloadPause(String str, long j2, long j3, String str2);
 
-        void onDownloadStart(String str, long j, String str2);
+        void onDownloadStart(String str, long j2, String str2);
 
-        void onDownloadSuccess(String str, String str2, long j);
+        void onDownloadSuccess(String str, String str2, long j2);
 
-        void onDownloading(String str, long j, long j2);
+        void onDownloading(String str, long j2, long j3);
     }
 
     public BdSailorClient() {

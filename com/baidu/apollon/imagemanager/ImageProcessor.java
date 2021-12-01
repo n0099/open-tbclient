@@ -16,19 +16,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ImageProcessor {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f36855a = "ImageProcessor";
+    public static final String a = "ImageProcessor";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f36856b = -1;
+    public static final int f33025b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f36857c;
+    public final int f33026c;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +58,7 @@ public class ImageProcessor {
                 return;
             }
         }
-        this.f36857c = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
+        this.f33026c = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
     }
 
     public static int a(BitmapFactory.Options options, int i2, int i3) {
@@ -68,7 +66,7 @@ public class ImageProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, options, i2, i3)) == null) {
             int b2 = b(options, i2, i3);
-            String str = f36855a;
+            String str = a;
             LogUtil.d(str, "initialSize = " + b2);
             if (b2 <= 8) {
                 int i4 = 1;
@@ -117,7 +115,7 @@ public class ImageProcessor {
                     options.inJustDecodeBounds = true;
                     BitmapFactory.decodeFile(file.getPath(), options);
                     if (!options.mCancel && options.outWidth != -1 && options.outHeight != -1) {
-                        options.inSampleSize = a(options, -1, this.f36857c);
+                        options.inSampleSize = a(options, -1, this.f33026c);
                         options.inJustDecodeBounds = false;
                         options.inDensity = i2;
                         options.inDither = false;
@@ -143,7 +141,7 @@ public class ImageProcessor {
                     options.inJustDecodeBounds = true;
                     BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
                     if (!options.mCancel && options.outWidth != -1 && options.outHeight != -1) {
-                        options.inSampleSize = a(options, -1, this.f36857c);
+                        options.inSampleSize = a(options, -1, this.f33026c);
                         options.inJustDecodeBounds = false;
                         options.inDensity = i2;
                         options.inDither = false;

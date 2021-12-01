@@ -2,7 +2,6 @@ package com.cmic.sso.sdk.d;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,12 +14,10 @@ import com.cmic.sso.sdk.d.k;
 import java.net.URL;
 import org.apache.http.HttpVersion;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f62892a;
+    public static volatile boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -432,11 +429,11 @@ public class q {
     public static void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            if (f62892a) {
+            if (a) {
                 c.a("UmcConfigUtil", "正在获取配置中...");
                 return;
             }
-            f62892a = true;
+            a = true;
             com.cmic.sso.sdk.b.c.a.a().a(aVar.b("isNeedToGetCert", true), aVar, new com.cmic.sso.sdk.b.c.d() { // from class: com.cmic.sso.sdk.d.q.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -466,7 +463,7 @@ public class q {
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        boolean unused = q.f62892a = false;
+                        boolean unused = q.a = false;
                     }
                 }
             });
@@ -483,7 +480,7 @@ public class q {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? System.currentTimeMillis() >= k.a("client_valid", 0L) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? System.currentTimeMillis() >= k.a("client_valid", 0L) : invokeV.booleanValue;
     }
 
     public static String a(String str) {

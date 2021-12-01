@@ -2,12 +2,11 @@ package com.baidu.ala.downloader;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.m;
-import b.a.e.f.p.q;
+import c.a.d.f.p.m;
+import c.a.d.f.p.q;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaSharedPrefHelper;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.r1;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +28,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DownloaderHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +146,7 @@ public class DownloaderHelper {
     public static String getFileMd5(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
             String b2 = q.b(FileHelper.GetStreamFromFile(file));
             return !StringUtils.isNull(b2) ? b2.toLowerCase() : b2;
         }
@@ -156,7 +156,7 @@ public class DownloaderHelper {
     public static boolean isDirectory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -194,7 +194,7 @@ public class DownloaderHelper {
             return (String) invokeLLL.objValue;
         }
         OutputStream outputStream = null;
-        if (inputStream == null || StringUtils.isNull(str2) || str2.contains("/.")) {
+        if (inputStream == null || StringUtils.isNull(str2) || str2.contains(r1.f56836k)) {
             return null;
         }
         try {

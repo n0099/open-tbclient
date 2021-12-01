@@ -1,8 +1,8 @@
 package okio;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -126,8 +126,8 @@ public class AsyncTimeout extends Timeout {
             }
             long remainingNanos = asyncTimeout.remainingNanos(System.nanoTime());
             if (remainingNanos > 0) {
-                long j = remainingNanos / 1000000;
-                AsyncTimeout.class.wait(j, (int) (remainingNanos - (1000000 * j)));
+                long j2 = remainingNanos / 1000000;
+                AsyncTimeout.class.wait(j2, (int) (remainingNanos - (1000000 * j2)));
                 return null;
             }
             head.next = asyncTimeout.next;
@@ -155,26 +155,26 @@ public class AsyncTimeout extends Timeout {
         return invokeL.booleanValue;
     }
 
-    private long remainingNanos(long j) {
+    private long remainingNanos(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) ? this.timeoutAt - j : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2)) == null) ? this.timeoutAt - j2 : invokeJ.longValue;
     }
 
-    public static synchronized void scheduleTimeout(AsyncTimeout asyncTimeout, long j, boolean z) {
+    public static synchronized void scheduleTimeout(AsyncTimeout asyncTimeout, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{asyncTimeout, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{asyncTimeout, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             synchronized (AsyncTimeout.class) {
                 if (head == null) {
                     head = new AsyncTimeout();
                     new Watchdog().start();
                 }
                 long nanoTime = System.nanoTime();
-                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 != 0 && z) {
-                    asyncTimeout.timeoutAt = Math.min(j, asyncTimeout.deadlineNanoTime() - nanoTime) + nanoTime;
+                    asyncTimeout.timeoutAt = Math.min(j2, asyncTimeout.deadlineNanoTime() - nanoTime) + nanoTime;
                 } else if (i2 != 0) {
-                    asyncTimeout.timeoutAt = j + nanoTime;
+                    asyncTimeout.timeoutAt = j2 + nanoTime;
                 } else if (z) {
                     asyncTimeout.timeoutAt = asyncTimeout.deadlineNanoTime();
                 } else {
@@ -228,7 +228,7 @@ public class AsyncTimeout extends Timeout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iOException)) == null) {
-            InterruptedIOException interruptedIOException = new InterruptedIOException("timeout");
+            InterruptedIOException interruptedIOException = new InterruptedIOException(a.O);
             if (iOException != null) {
                 interruptedIOException.initCause(iOException);
             }
@@ -320,25 +320,25 @@ public class AsyncTimeout extends Timeout {
             }
 
             @Override // okio.Sink
-            public void write(Buffer buffer, long j) throws IOException {
+            public void write(Buffer buffer, long j2) throws IOException {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && interceptable2.invokeLJ(1048580, this, buffer, j) != null) {
+                if (interceptable2 != null && interceptable2.invokeLJ(1048580, this, buffer, j2) != null) {
                     return;
                 }
-                Util.checkOffsetAndCount(buffer.size, 0L, j);
+                Util.checkOffsetAndCount(buffer.size, 0L, j2);
                 while (true) {
-                    long j2 = 0;
-                    if (j <= 0) {
+                    long j3 = 0;
+                    if (j2 <= 0) {
                         return;
                     }
                     Segment segment = buffer.head;
                     while (true) {
-                        if (j2 >= 65536) {
+                        if (j3 >= 65536) {
                             break;
                         }
-                        j2 += segment.limit - segment.pos;
-                        if (j2 >= j) {
-                            j2 = j;
+                        j3 += segment.limit - segment.pos;
+                        if (j3 >= j2) {
+                            j3 = j2;
                             break;
                         }
                         segment = segment.next;
@@ -346,8 +346,8 @@ public class AsyncTimeout extends Timeout {
                     this.this$0.enter();
                     try {
                         try {
-                            this.val$sink.write(buffer, j2);
-                            j -= j2;
+                            this.val$sink.write(buffer, j3);
+                            j2 -= j3;
                             this.this$0.exit(true);
                         } catch (IOException e2) {
                             throw this.this$0.exit(e2);
@@ -408,14 +408,14 @@ public class AsyncTimeout extends Timeout {
             }
 
             @Override // okio.Source
-            public long read(Buffer buffer, long j) throws IOException {
+            public long read(Buffer buffer, long j2) throws IOException {
                 InterceptResult invokeLJ;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
                     this.this$0.enter();
                     try {
                         try {
-                            long read = this.val$source.read(buffer, j);
+                            long read = this.val$source.read(buffer, j2);
                             this.this$0.exit(true);
                             return read;
                         } catch (IOException e2) {

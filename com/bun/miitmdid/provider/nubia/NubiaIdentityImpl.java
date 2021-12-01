@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.e0;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class NubiaIdentityImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NubiaIdentityImpl";
@@ -123,7 +122,7 @@ public class NubiaIdentityImpl {
     public static String getVAID(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             Object generalMethod = generalMethod(context, "getVAID", str, "id", String.class);
             return generalMethod == null ? "" : (String) generalMethod;
         }
@@ -133,7 +132,7 @@ public class NubiaIdentityImpl {
     public static boolean isSupported(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             Object generalMethod = generalMethod(context, "isSupport", null, "issupport", Boolean.class);
             if (generalMethod == null) {
                 return false;

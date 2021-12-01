@@ -22,9 +22,7 @@ public class a {
     /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f66598a;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,33 +39,33 @@ public class a {
                 }
             }
             int[] iArr = new int[FeedType.values().length];
-            f66598a = iArr;
+            a = iArr;
             try {
                 iArr[FeedType.FEED_TYPE_TEXT_IMMERSE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f66598a[FeedType.FEED_TYPE_TEXT_ABOVE.ordinal()] = 2;
+                a[FeedType.FEED_TYPE_TEXT_ABOVE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f66598a[FeedType.FEED_TYPE_TEXT_BELOW.ordinal()] = 3;
+                a[FeedType.FEED_TYPE_TEXT_BELOW.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f66598a[FeedType.FEED_TYPE_TEXT_LEFT.ordinal()] = 4;
+                a[FeedType.FEED_TYPE_TEXT_LEFT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f66598a[FeedType.FEED_TYPE_TEXT_RIGHT.ordinal()] = 5;
+                a[FeedType.FEED_TYPE_TEXT_RIGHT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f66598a[FeedType.FEED_TYPE_TEXT_ABOVE_GROUP.ordinal()] = 6;
+                a[FeedType.FEED_TYPE_TEXT_ABOVE_GROUP.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f66598a[FeedType.FEED_TYPE_UNKNOWN.ordinal()] = 7;
+                a[FeedType.FEED_TYPE_UNKNOWN.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
         }
@@ -77,7 +75,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, feedType)) == null) {
-            switch (AnonymousClass1.f66598a[feedType.ordinal()]) {
+            switch (AnonymousClass1.a[feedType.ordinal()]) {
                 case 1:
                     return new g(context);
                 case 2:
@@ -104,9 +102,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, feedType, i2)) == null) {
             if (feedType == FeedType.FEED_TYPE_TEXT_NEW) {
-                return new e(context);
-            }
-            if (i2 != 1) {
+                return i2 == 1 ? new f(context) : new e(context);
+            } else if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         com.kwad.sdk.core.d.a.e("KSFeedFactory", "getNewFeedView materialType is unknown");
@@ -115,8 +112,9 @@ public class a {
                     return b(context, feedType);
                 }
                 return a(context, feedType);
+            } else {
+                return c(context, feedType);
             }
-            return c(context, feedType);
         }
         return (com.kwad.sdk.feed.widget.base.a) invokeLLI.objValue;
     }
@@ -125,7 +123,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, feedType)) == null) {
-            switch (AnonymousClass1.f66598a[feedType.ordinal()]) {
+            switch (AnonymousClass1.a[feedType.ordinal()]) {
                 case 1:
                     return new g(context);
                 case 2:
@@ -152,7 +150,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, feedType)) == null) {
-            int i2 = AnonymousClass1.f66598a[feedType.ordinal()];
+            int i2 = AnonymousClass1.a[feedType.ordinal()];
             if (i2 != 2) {
                 if (i2 != 3) {
                     com.kwad.sdk.core.d.a.e("KSFeedFactory", "getVideoView type is unknown:" + feedType);

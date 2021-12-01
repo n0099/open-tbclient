@@ -15,7 +15,6 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.XmlRes;
 import androidx.core.R;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,13 +96,13 @@ public final class ColorStateListInflaterCompat {
     public static int modulateColorAlpha(@ColorInt int i2, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? (i2 & 16777215) | (Math.round(Color.alpha(i2) * f2) << 24) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) ? (i2 & 16777215) | (Math.round(Color.alpha(i2) * f2) << 24) : invokeCommon.intValue;
     }
 
     public static TypedArray obtainAttributes(Resources resources, Resources.Theme theme, AttributeSet attributeSet, int[] iArr) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(AdIconUtil.BAIDU_LOGO_ID, null, resources, theme, attributeSet, iArr)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, resources, theme, attributeSet, iArr)) == null) {
             if (theme == null) {
                 return resources.obtainAttributes(attributeSet, iArr);
             }

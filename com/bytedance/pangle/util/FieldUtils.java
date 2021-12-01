@@ -2,7 +2,6 @@ package com.bytedance.pangle.util;
 
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FieldUtils {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Field> sFieldCache;
@@ -96,7 +95,7 @@ public class FieldUtils {
     public static Object readField(Field field, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, field, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, field, obj)) == null) {
             if (!field.isAccessible()) {
                 field.setAccessible(true);
             }
@@ -131,7 +130,7 @@ public class FieldUtils {
     public static Object readStaticField(Class<?> cls, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, str)) == null) {
             Field field = getField(cls, str);
             if (field != null) {
                 return readStaticField(field);

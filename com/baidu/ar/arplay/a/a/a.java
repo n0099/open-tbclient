@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,10 +64,10 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.dP : invokeV.booleanValue;
     }
 
-    public void d(long j) {
+    public void d(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.dS = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.dS = j2;
         }
     }
 

@@ -2,7 +2,8 @@ package io.flutter.plugins.sharedpreferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,7 +25,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes3.dex */
 public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BIG_INTEGER_PREFIX = "VGhpcyBpcyB0aGUgcHJlZml4IGZvciBCaWdJbnRlZ2Vy";
@@ -32,6 +37,8 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
     public static final String LIST_IDENTIFIER = "VGhpcyBpcyB0aGUgcHJlZml4IGZvciBhIGxpc3Qu";
     public static final String SHARED_PREFERENCES_NAME = "FlutterSharedPreferences";
     public transient /* synthetic */ FieldHolder $fh;
+    public final ExecutorService executor;
+    public final Handler handler;
     public final SharedPreferences preferences;
 
     public MethodCallHandlerImpl(Context context) {
@@ -50,12 +57,14 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
             }
         }
         this.preferences = context.getSharedPreferences(SHARED_PREFERENCES_NAME, 0);
+        this.executor = new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.handler = new Handler(Looper.getMainLooper());
     }
 
     private void commitAsync(SharedPreferences.Editor editor, MethodChannel.Result result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, editor, result) == null) {
-            new AsyncTask<Void, Void, Boolean>(this, editor, result) { // from class: io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl.1
+        if (interceptable == null || interceptable.invokeLL(65538, this, editor, result) == null) {
+            this.executor.execute(new Runnable(this, editor, result) { // from class: io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MethodCallHandlerImpl this$0;
@@ -82,23 +91,46 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
                     this.val$result = result;
                 }
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.os.AsyncTask
-                public Boolean doInBackground(Void... voidArr) {
-                    InterceptResult invokeL;
+                @Override // java.lang.Runnable
+                public void run() {
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, voidArr)) == null) ? Boolean.valueOf(this.val$editor.commit()) : (Boolean) invokeL.objValue;
-                }
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        this.this$0.handler.post(new Runnable(this, this.val$editor.commit()) { // from class: io.flutter.plugins.sharedpreferences.MethodCallHandlerImpl.1.1
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ AnonymousClass1 this$1;
+                            public final /* synthetic */ boolean val$response;
 
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // android.os.AsyncTask
-                public void onPostExecute(Boolean bool) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-                        this.val$result.success(bool);
+                            {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {this, Boolean.valueOf(r7)};
+                                    interceptable3.invokeUnInit(65536, newInitContext);
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable3.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.this$1 = this;
+                                this.val$response = r7;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                Interceptable interceptable3 = $ic;
+                                if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
+                                    this.this$1.val$result.success(Boolean.valueOf(this.val$response));
+                                }
+                            }
+                        });
                     }
                 }
-            }.execute(new Void[0]);
+            });
         }
     }
 
@@ -106,7 +138,7 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
         InterceptResult invokeL;
         ObjectInputStream objectInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             ObjectInputStream objectInputStream2 = null;
             try {
                 try {
@@ -140,7 +172,7 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
     private String encodeList(List<String> list) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, this, list)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, list)) != null) {
             return (String) invokeL.objValue;
         }
         ObjectOutputStream objectOutputStream = null;
@@ -170,7 +202,7 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
         InterceptResult invokeV;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             Map<String, ?> all = this.preferences.getAll();
             HashMap hashMap = new HashMap();
             for (String str : all.keySet()) {
@@ -290,7 +322,7 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
                         return;
                     case 3:
                         String str3 = (String) methodCall.argument("value");
-                        if (!str3.startsWith(LIST_IDENTIFIER) && !str3.startsWith(BIG_INTEGER_PREFIX)) {
+                        if (!str3.startsWith(LIST_IDENTIFIER) && !str3.startsWith(BIG_INTEGER_PREFIX) && !str3.startsWith(DOUBLE_PREFIX)) {
                             commitAsync(this.preferences.edit().putString(str, str3), result);
                             return;
                         }
@@ -324,6 +356,14 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
             } catch (IOException e2) {
                 result.error("IOException encountered", methodCall.method, e2);
             }
+        }
+    }
+
+    public void teardown() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.handler.removeCallbacksAndMessages(null);
+            this.executor.shutdown();
         }
     }
 }

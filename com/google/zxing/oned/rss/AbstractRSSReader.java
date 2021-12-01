@@ -2,7 +2,6 @@ package com.google.zxing.oned.rss;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.oned.OneDReader;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractRSSReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MAX_AVG_VARIANCE = 0.2f;
@@ -114,7 +113,7 @@ public abstract class AbstractRSSReader extends OneDReader {
     public static int parseFinderValue(int[] iArr, int[][] iArr2) throws NotFoundException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, iArr, iArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, iArr, iArr2)) == null) {
             for (int i2 = 0; i2 < iArr2.length; i2++) {
                 if (OneDReader.patternMatchVariance(iArr, iArr2[i2], 0.45f) < 0.2f) {
                     return i2;

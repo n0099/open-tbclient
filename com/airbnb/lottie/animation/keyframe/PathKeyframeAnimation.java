@@ -6,7 +6,7 @@ import android.graphics.PointF;
 import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PathKeyframeAnimation extends KeyframeAnimation<PointF> {
     public PathMeasure pathMeasure;
     public PathKeyframe pathMeasureKeyframe;

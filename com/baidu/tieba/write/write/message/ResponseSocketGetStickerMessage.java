@@ -1,7 +1,5 @@
 package com.baidu.tieba.write.write.message;
 
-import GetSticker.DataRes;
-import GetSticker.GetStickerResIdl;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
-/* loaded from: classes9.dex */
+import tbclient.GetSticker.DataRes;
+import tbclient.GetSticker.GetStickerResIdl;
+/* loaded from: classes11.dex */
 public class ResponseSocketGetStickerMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

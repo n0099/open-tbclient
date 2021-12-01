@@ -1,9 +1,8 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class UnsignedInteger extends Number implements Comparable<UnsignedInteger> {
     public static /* synthetic */ Interceptable $ic;
     public static final UnsignedInteger MAX_VALUE;
@@ -63,12 +62,12 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
         return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? new UnsignedInteger(i2) : (UnsignedInteger) invokeI.objValue;
     }
 
-    public static UnsignedInteger valueOf(long j) {
+    public static UnsignedInteger valueOf(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
-            n.h((4294967295L & j) == j, "value (%s) is outside the range for an unsigned integer value", j);
-            return fromIntBits((int) j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
+            n.h((4294967295L & j2) == j2, "value (%s) is outside the range for an unsigned integer value", j2);
+            return fromIntBits((int) j2);
         }
         return (UnsignedInteger) invokeJ.objValue;
     }
@@ -201,7 +200,7 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
     public static UnsignedInteger valueOf(BigInteger bigInteger) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bigInteger)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bigInteger)) == null) {
             n.p(bigInteger);
             n.k(bigInteger.signum() >= 0 && bigInteger.bitLength() <= 32, "value (%s) is outside the range for an unsigned integer value", bigInteger);
             return fromIntBits(bigInteger.intValue());
@@ -218,6 +217,6 @@ public final class UnsignedInteger extends Number implements Comparable<Unsigned
     public static UnsignedInteger valueOf(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, str, i2)) == null) ? fromIntBits(UnsignedInts.d(str, i2)) : (UnsignedInteger) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) ? fromIntBits(UnsignedInts.d(str, i2)) : (UnsignedInteger) invokeLI.objValue;
     }
 }

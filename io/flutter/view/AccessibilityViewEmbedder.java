@@ -17,20 +17,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import io.flutter.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
-public final class AccessibilityViewEmbedder {
+/* loaded from: classes3.dex */
+public class AccessibilityViewEmbedder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccessibilityBridge";
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,13 +42,13 @@ public final class AccessibilityViewEmbedder {
     public final View rootAccessibilityView;
 
     /* renamed from: io.flutter.view.AccessibilityViewEmbedder$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ReflectionAccessors {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,11 +79,30 @@ public final class AccessibilityViewEmbedder {
                     return null;
                 }
                 Method method = this.getChildId;
-                try {
-                    return method != null ? (Long) method.invoke(accessibilityNodeInfo, Integer.valueOf(i2)) : Long.valueOf(((Long) this.longArrayGetIndex.invoke(this.childNodeIdsField.get(accessibilityNodeInfo), Integer.valueOf(i2))).longValue());
-                } catch (ArrayIndexOutOfBoundsException | IllegalAccessException | InvocationTargetException unused) {
-                    return null;
+                if (method != null) {
+                    try {
+                        return (Long) method.invoke(accessibilityNodeInfo, Integer.valueOf(i2));
+                    } catch (IllegalAccessException e2) {
+                        Log.w("AccessibilityBridge", "Failed to access getChildId method.", e2);
+                    } catch (InvocationTargetException e3) {
+                        Log.w("AccessibilityBridge", "The getChildId method threw an exception when invoked.", e3);
+                    }
+                } else {
+                    try {
+                        return Long.valueOf(((Long) this.longArrayGetIndex.invoke(this.childNodeIdsField.get(accessibilityNodeInfo), Integer.valueOf(i2))).longValue());
+                    } catch (ArrayIndexOutOfBoundsException e4) {
+                        e = e4;
+                        Log.w("AccessibilityBridge", "The longArrayGetIndex method threw an exception when invoked.", e);
+                        return null;
+                    } catch (IllegalAccessException e5) {
+                        Log.w("AccessibilityBridge", "Failed to access longArrayGetIndex method or the childNodeId field.", e5);
+                    } catch (InvocationTargetException e6) {
+                        e = e6;
+                        Log.w("AccessibilityBridge", "The longArrayGetIndex method threw an exception when invoked.", e);
+                        return null;
+                    }
                 }
+                return null;
             }
             return (Long) invokeLI.objValue;
         }
@@ -98,7 +117,10 @@ public final class AccessibilityViewEmbedder {
                 if (method != null) {
                     try {
                         return Long.valueOf(((Long) method.invoke(accessibilityNodeInfo, new Object[0])).longValue());
-                    } catch (IllegalAccessException | InvocationTargetException unused) {
+                    } catch (IllegalAccessException e2) {
+                        Log.w("AccessibilityBridge", "Failed to access getParentNodeId method.", e2);
+                    } catch (InvocationTargetException e3) {
+                        Log.w("AccessibilityBridge", "The getParentNodeId method threw an exception when invoked.", e3);
                     }
                 }
                 return yoinkParentIdFromParcel(accessibilityNodeInfo);
@@ -118,7 +140,11 @@ public final class AccessibilityViewEmbedder {
                 }
                 try {
                     return (Long) method.invoke(accessibilityRecord, new Object[0]);
-                } catch (IllegalAccessException | InvocationTargetException unused) {
+                } catch (IllegalAccessException e2) {
+                    Log.w("AccessibilityBridge", "Failed to access the getRecordSourceNodeId method.", e2);
+                    return null;
+                } catch (InvocationTargetException e3) {
+                    Log.w("AccessibilityBridge", "The getRecordSourceNodeId method threw an exception when invoked.", e3);
                     return null;
                 }
             }
@@ -137,23 +163,27 @@ public final class AccessibilityViewEmbedder {
                 }
                 try {
                     return (Long) method.invoke(accessibilityNodeInfo, new Object[0]);
-                } catch (IllegalAccessException | InvocationTargetException unused) {
+                } catch (IllegalAccessException e2) {
+                    Log.w("AccessibilityBridge", "Failed to access getSourceNodeId method.", e2);
+                    return null;
+                } catch (InvocationTargetException e3) {
+                    Log.w("AccessibilityBridge", "The getSourceNodeId method threw an exception when invoked.", e3);
                     return null;
                 }
             }
             return (Long) invokeL.objValue;
         }
 
-        public static int getVirtualNodeId(long j) {
+        public static int getVirtualNodeId(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j)) == null) ? (int) (j >> 32) : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(65547, null, j2)) == null) ? (int) (j2 >> 32) : invokeJ.intValue;
         }
 
-        public static boolean isBitSet(long j, int i2) {
+        public static boolean isBitSet(long j2, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? (j & (1 << i2)) != 0 : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? (j2 & (1 << i2)) != 0 : invokeCommon.booleanValue;
         }
 
         @Nullable
@@ -162,6 +192,7 @@ public final class AccessibilityViewEmbedder {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, accessibilityNodeInfo)) == null) {
                 if (Build.VERSION.SDK_INT < 26) {
+                    Log.w("AccessibilityBridge", "Unexpected Android version. Unable to find the parent ID.");
                     return null;
                 }
                 AccessibilityNodeInfo obtain = AccessibilityNodeInfo.obtain(accessibilityNodeInfo);
@@ -186,7 +217,8 @@ public final class AccessibilityViewEmbedder {
             return (Long) invokeL.objValue;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r5v13, resolved type: java.lang.reflect.Method */
+        /* JADX DEBUG: Multi-variable search result rejected for r2v12, resolved type: java.lang.reflect.Method */
+        /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: java.lang.reflect.Method */
         /* JADX WARN: Multi-variable type inference failed */
         @SuppressLint({"PrivateApi"})
         public ReflectionAccessors() {
@@ -194,6 +226,7 @@ public final class AccessibilityViewEmbedder {
             Method method2;
             Method method3;
             Field field;
+            Field declaredField;
             Method method4;
             Method method5;
             Field field2;
@@ -213,51 +246,62 @@ public final class AccessibilityViewEmbedder {
             try {
                 method = AccessibilityNodeInfo.class.getMethod("getSourceNodeId", new Class[0]);
             } catch (NoSuchMethodException unused) {
+                Log.w("AccessibilityBridge", "can't invoke AccessibilityNodeInfo#getSourceNodeId with reflection");
                 method = null;
             }
             try {
                 method2 = AccessibilityRecord.class.getMethod("getSourceNodeId", new Class[0]);
             } catch (NoSuchMethodException unused2) {
+                Log.w("AccessibilityBridge", "can't invoke AccessibiiltyRecord#getSourceNodeId with reflection");
                 method2 = null;
             }
             if (Build.VERSION.SDK_INT <= 26) {
                 try {
                     method5 = AccessibilityNodeInfo.class.getMethod("getParentNodeId", new Class[0]);
                 } catch (NoSuchMethodException unused3) {
+                    Log.w("AccessibilityBridge", "can't invoke getParentNodeId with reflection");
                     method5 = null;
                 }
                 try {
                     method3 = AccessibilityNodeInfo.class.getMethod("getChildId", Integer.TYPE);
                     field2 = null;
                 } catch (NoSuchMethodException unused4) {
+                    Log.w("AccessibilityBridge", "can't invoke getChildId with reflection");
                     method3 = null;
                     field2 = null;
                 }
                 method6 = method5;
                 field = field2;
-                method4 = field2;
             } else {
                 try {
-                    field = AccessibilityNodeInfo.class.getDeclaredField("mChildNodeIds");
-                    field.setAccessible(true);
+                    declaredField = AccessibilityNodeInfo.class.getDeclaredField("mChildNodeIds");
+                    declaredField.setAccessible(true);
                     method4 = Class.forName("android.util.LongArray").getMethod("get", Integer.TYPE);
                     method3 = null;
                 } catch (ClassNotFoundException | NoSuchFieldException | NoSuchMethodException | NullPointerException unused5) {
+                    Log.w("AccessibilityBridge", "can't access childNodeIdsField with reflection");
                     method3 = null;
                     field = null;
-                    method4 = null;
                 }
+                this.getSourceNodeId = method;
+                this.getParentNodeId = method6;
+                this.getRecordSourceNodeId = method2;
+                this.getChildId = method3;
+                this.childNodeIdsField = declaredField;
+                this.longArrayGetIndex = method4;
             }
+            declaredField = field;
+            method4 = field;
             this.getSourceNodeId = method;
             this.getParentNodeId = method6;
             this.getRecordSourceNodeId = method2;
             this.getChildId = method3;
-            this.childNodeIdsField = field;
+            this.childNodeIdsField = declaredField;
             this.longArrayGetIndex = method4;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ViewAndId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -437,7 +481,7 @@ public final class AccessibilityViewEmbedder {
     private void setFlutterNodeParent(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull View view, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
         Long parentNodeId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, accessibilityNodeInfo, view, accessibilityNodeInfo2) == null) || (parentNodeId = this.reflectionAccessors.getParentNodeId(accessibilityNodeInfo)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65541, this, accessibilityNodeInfo, view, accessibilityNodeInfo2) == null) || (parentNodeId = this.reflectionAccessors.getParentNodeId(accessibilityNodeInfo)) == null) {
             return;
         }
         Integer num = this.originToFlutterId.get(new ViewAndId(view, ReflectionAccessors.getVirtualNodeId(parentNodeId.longValue()), null));
@@ -448,7 +492,7 @@ public final class AccessibilityViewEmbedder {
 
     private void setFlutterNodesTranslateBounds(@NonNull AccessibilityNodeInfo accessibilityNodeInfo, @NonNull Rect rect, @NonNull AccessibilityNodeInfo accessibilityNodeInfo2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, this, accessibilityNodeInfo, rect, accessibilityNodeInfo2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, this, accessibilityNodeInfo, rect, accessibilityNodeInfo2) == null) {
             Rect rect2 = new Rect();
             accessibilityNodeInfo.getBoundsInParent(rect2);
             accessibilityNodeInfo2.setBoundsInParent(rect2);
@@ -544,10 +588,23 @@ public final class AccessibilityViewEmbedder {
         return invokeIIL.booleanValue;
     }
 
+    public View platformViewOfNode(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            ViewAndId viewAndId = this.flutterIdToOrigin.get(i2);
+            if (viewAndId == null) {
+                return null;
+            }
+            return viewAndId.view;
+        }
+        return (View) invokeI.objValue;
+    }
+
     public boolean requestSendAccessibilityEvent(@NonNull View view, @NonNull View view2, @NonNull AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, view, view2, accessibilityEvent)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, view, view2, accessibilityEvent)) == null) {
             AccessibilityEvent obtain = AccessibilityEvent.obtain(accessibilityEvent);
             Long recordSourceNodeId = this.reflectionAccessors.getRecordSourceNodeId(accessibilityEvent);
             if (recordSourceNodeId == null) {

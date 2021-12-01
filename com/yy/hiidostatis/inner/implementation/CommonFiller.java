@@ -3,7 +3,6 @@ package com.yy.hiidostatis.inner.implementation;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import com.yy.hiidostatis.inner.util.hdid.ClientIdProxy;
 import com.yy.hiidostatis.inner.util.hdid.DeviceProxy;
 import com.yy.hiidostatis.inner.util.hdid.UuidManager;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CommonFiller {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANDROID_OS = 2;
@@ -107,7 +106,7 @@ public class CommonFiller {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, baseStatisContent, str, str2)) == null) {
             fillKey(baseStatisContent, str);
             baseStatisContent.put("imei", getIMEI(context));
-            baseStatisContent.put("mac", getMacAddr(context));
+            baseStatisContent.put(BaseStatisContent.MAC, getMacAddr(context));
             baseStatisContent.put("net", ArdUtil.getNetworkTypeNew(context));
             baseStatisContent.put("act", str);
             baseStatisContent.put(BaseStatisContent.SDKVER, str2);
@@ -125,7 +124,7 @@ public class CommonFiller {
 
     public static void fillConcreteInfoNew(Context context, BaseStatisContent baseStatisContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, baseStatisContent) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, baseStatisContent) == null) {
             baseStatisContent.put(BaseStatisContent.SJP, ArdUtil.getSjp(context));
             baseStatisContent.put("sjm", ArdUtil.getSjm(context));
             baseStatisContent.put("mbos", ArdUtil.getOS());
@@ -138,7 +137,7 @@ public class CommonFiller {
     public static BaseStatisContent fillKey(BaseStatisContent baseStatisContent, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, baseStatisContent, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, baseStatisContent, str)) == null) {
             String valueOf = String.valueOf(Util.wallTimeSec());
             baseStatisContent.put("act", str);
             baseStatisContent.put("time", valueOf);

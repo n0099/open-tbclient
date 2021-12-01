@@ -1,5 +1,5 @@
 package com.baidubce.http;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface Headers {
     public static final String ACCEPT_ENCODING = "Accept-Encoding";
     public static final String AUTHORIZATION = "Authorization";

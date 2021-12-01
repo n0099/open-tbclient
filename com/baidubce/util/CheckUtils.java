@@ -2,14 +2,13 @@ package com.baidubce.util;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.FormattableUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CheckUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +66,7 @@ public class CheckUtils {
 
     public static <T> void isNotNull(T t, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, t, str) == null) && t == null) {
+        if ((interceptable == null || interceptable.invokeLL(65541, null, t, str) == null) && t == null) {
             throw new NullPointerException(String.valueOf(str));
         }
     }

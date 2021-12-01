@@ -2,122 +2,97 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.response.model.ReportInfo;
-import com.kwad.sdk.utils.aa;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class n extends b<List<ReportInfo>> {
+public class n extends b<String> {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n() {
-        super("reportItems", d());
+    public n(String str, String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        a = null;
     }
 
-    public static ArrayList<ReportInfo> d() {
-        InterceptResult invokeV;
+    private void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ArrayList<ReportInfo> arrayList = new ArrayList<>();
-            arrayList.add(new ReportInfo(1, "违法违规"));
-            arrayList.add(new ReportInfo(2, "色情低俗"));
-            arrayList.add(new ReportInfo(3, "作者举报"));
-            arrayList.add(new ReportInfo(4, "封面党"));
-            arrayList.add(new ReportInfo(5, "不适合未成年"));
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (ArrayList) invokeV.objValue;
+        a = str.split(",");
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(SharedPreferences.Editor editor) {
+    public void a(@NonNull SharedPreferences.Editor editor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editor) == null) {
-            List<ReportInfo> a2 = a();
-            if (aa.a(a2)) {
-                JSONArray jSONArray = new JSONArray();
-                for (ReportInfo reportInfo : a2) {
-                    jSONArray.put(reportInfo.toJson());
-                }
-                editor.putString("reportItems", jSONArray.toString());
-            }
+            editor.putString(b(), a());
         }
     }
 
     @Override // com.kwad.sdk.core.config.item.b
-    public void a(SharedPreferences sharedPreferences) {
+    public void a(@NonNull SharedPreferences sharedPreferences) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedPreferences) == null) {
-            try {
-                String string = sharedPreferences.getString("reportItems", "");
-                if (!TextUtils.isEmpty(string)) {
-                    JSONArray jSONArray = new JSONArray(string);
-                    if (jSONArray.length() > 0) {
-                        ArrayList arrayList = new ArrayList();
-                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                            JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                            ReportInfo reportInfo = new ReportInfo();
-                            reportInfo.parseJson(optJSONObject);
-                            arrayList.add(reportInfo);
-                        }
-                        if (arrayList.size() > 0) {
-                            a((n) arrayList);
-                            return;
-                        }
-                    }
-                }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.b(e2);
-            }
-            a((n) c());
+            String string = sharedPreferences.getString(b(), c());
+            a((n) string);
+            a(string);
         }
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(JSONObject jSONObject) {
-        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("reportItems")) != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                    if (optJSONObject != null) {
-                        ReportInfo reportInfo = new ReportInfo();
-                        reportInfo.parseJson(optJSONObject);
-                        arrayList.add(reportInfo);
-                    }
-                }
-                if (arrayList.size() > 0) {
-                    a((n) arrayList);
-                    return;
+            if (jSONObject == null) {
+                a((n) c());
+                return;
+            }
+            String optString = jSONObject.optString(b(), c());
+            a((n) optString);
+            a(optString);
+        }
+    }
+
+    public boolean a(long j2) {
+        InterceptResult invokeJ;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+            if (a == null) {
+                return false;
+            }
+            for (String str : a) {
+                if (str != null && String.valueOf(j2).equals(str.trim())) {
+                    return true;
                 }
             }
-            a((n) c());
+            return false;
         }
+        return invokeJ.booleanValue;
     }
 }

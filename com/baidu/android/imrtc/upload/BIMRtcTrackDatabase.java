@@ -11,7 +11,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.track.Request;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class BIMRtcTrackDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "bimrtc_track.db";
@@ -35,7 +34,7 @@ public class BIMRtcTrackDatabase {
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_REQUEST;
@@ -137,7 +136,7 @@ public class BIMRtcTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -286,7 +285,7 @@ public class BIMRtcTrackDatabase {
         InterceptResult invokeL;
         BIMRtcTrackDatabase bIMRtcTrackDatabase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             synchronized (myLock) {
                 if (instance == null) {
                     instance = new BIMRtcTrackDatabase(context.getApplicationContext());
@@ -352,7 +351,7 @@ public class BIMRtcTrackDatabase {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (myLock) {
-                long j = 0;
+                long j2 = 0;
                 SQLiteDatabase db = getDb(this.context);
                 if (db == null) {
                     return 0L;
@@ -361,7 +360,7 @@ public class BIMRtcTrackDatabase {
                 try {
                     cursor = db.rawQuery("select count(*) from request", null);
                     if (cursor != null && cursor.moveToNext()) {
-                        j = cursor.getInt(0);
+                        j2 = cursor.getInt(0);
                     }
                     if (cursor != null) {
                         cursor.close();
@@ -373,7 +372,7 @@ public class BIMRtcTrackDatabase {
                     }
                 }
                 db.close();
-                return j;
+                return j2;
             }
         }
         return invokeV.longValue;
@@ -410,10 +409,10 @@ public class BIMRtcTrackDatabase {
         return (List) invokeV.objValue;
     }
 
-    public List<Request> getRequestsByAliasId(long j) {
+    public List<Request> getRequestsByAliasId(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
             synchronized (myLock) {
                 SQLiteDatabase db = getDb(this.context);
                 Cursor cursor = null;
@@ -422,7 +421,7 @@ public class BIMRtcTrackDatabase {
                 }
                 List<Request> arrayList = new ArrayList<>();
                 try {
-                    cursor = db.rawQuery("select * from request limit 1000 where " + RequestEnum.aliasId + " = " + j, null);
+                    cursor = db.rawQuery("select * from request limit 1000 where " + RequestEnum.aliasId + " = " + j2, null);
                     arrayList = getCursorRequests(cursor);
                     if (cursor != null) {
                         cursor.close();

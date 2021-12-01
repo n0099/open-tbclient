@@ -30,7 +30,6 @@ import androidx.collection.SimpleArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -237,7 +236,7 @@ public class AppCompatViewInflater {
     public static Context themifyContext(Context context, AttributeSet attributeSet, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{context, attributeSet, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.View, 0, 0);
             int resourceId = z ? obtainStyledAttributes.getResourceId(R.styleable.View_android_theme, 0) : 0;
             if (z2 && resourceId == 0) {
@@ -251,7 +250,7 @@ public class AppCompatViewInflater {
 
     private void verifyNotNull(View view, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, view, str) == null) && view == null) {
+        if ((interceptable == null || interceptable.invokeLL(65542, this, view, str) == null) && view == null) {
             throw new IllegalStateException(getClass().getName() + " asked to inflate view for <" + str + ">, but returned null");
         }
     }

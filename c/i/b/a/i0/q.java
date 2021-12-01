@@ -1,0 +1,112 @@
+package c.i.b.a.i0;
+
+import android.os.SystemClock;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public final class q implements h {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f30247e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f30248f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f30249g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c.i.b.a.p f30250h;
+
+    public q() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f30250h = c.i.b.a.p.f30344d;
+    }
+
+    public void a(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            this.f30248f = j2;
+            if (this.f30247e) {
+                this.f30249g = SystemClock.elapsedRealtime();
+            }
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f30247e) {
+            return;
+        }
+        this.f30249g = SystemClock.elapsedRealtime();
+        this.f30247e = true;
+    }
+
+    @Override // c.i.b.a.i0.h
+    public c.i.b.a.p c(c.i.b.a.p pVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pVar)) == null) {
+            if (this.f30247e) {
+                a(q());
+            }
+            this.f30250h = pVar;
+            return pVar;
+        }
+        return (c.i.b.a.p) invokeL.objValue;
+    }
+
+    @Override // c.i.b.a.i0.h
+    public c.i.b.a.p d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30250h : (c.i.b.a.p) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f30247e) {
+            a(q());
+            this.f30247e = false;
+        }
+    }
+
+    @Override // c.i.b.a.i0.h
+    public long q() {
+        InterceptResult invokeV;
+        long a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            long j2 = this.f30248f;
+            if (this.f30247e) {
+                long elapsedRealtime = SystemClock.elapsedRealtime() - this.f30249g;
+                c.i.b.a.p pVar = this.f30250h;
+                if (pVar.a == 1.0f) {
+                    a = c.i.b.a.b.a(elapsedRealtime);
+                } else {
+                    a = pVar.a(elapsedRealtime);
+                }
+                return j2 + a;
+            }
+            return j2;
+        }
+        return invokeV.longValue;
+    }
+}

@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.q0.k0.c.b;
-import b.a.q0.s.g0.f;
-import b.a.r0.m1.b.d;
+import c.a.d.f.p.l;
+import c.a.q0.l0.c.b;
+import c.a.q0.s.g0.f;
+import c.a.r0.s1.b.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
-public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, b.a.q0.k0.c.a {
+/* loaded from: classes10.dex */
+public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, c.a.q0.l0.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMeModelController atMeModelController;
@@ -40,13 +40,11 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     public CustomMessageListener mMessageFromNotifyCenterListener;
     public ViewEventCenter viewEventController;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AtMessageActivity f51700a;
+        public final /* synthetic */ AtMessageActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AtMessageActivity atMessageActivity, int i2) {
@@ -66,7 +64,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
                     return;
                 }
             }
-            this.f51700a = atMessageActivity;
+            this.a = atMessageActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,8 +73,8 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (this.f51700a.atMeModelController != null) {
-                    this.f51700a.atMeModelController.y();
+                if (this.a.atMeModelController != null) {
+                    this.a.atMeModelController.y();
                 }
             }
         }
@@ -169,7 +167,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, b.a.q0.o0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,14 +192,14 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.atMeViewController) == null) {
             return;
         }
-        BdListView bdListView = dVar.f22157b;
+        BdListView bdListView = dVar.f23332b;
         if (bdListView != null) {
             bdListView.setVisibility(0);
         }
-        hideNetRefreshView(this.atMeViewController.f22158c);
+        hideNetRefreshView(this.atMeViewController.f23333c);
     }
 
-    @Override // b.a.q0.k0.c.a
+    @Override // c.a.q0.l0.c.a
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -247,7 +245,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
     }
 
-    @Override // b.a.q0.k0.c.a
+    @Override // c.a.q0.l0.c.a
     public boolean onEventDispatch(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -256,19 +254,19 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
                 return true;
             }
             if (bVar.b() == 9484) {
-                b.a.q0.k0.b.a a2 = bVar.a();
+                c.a.q0.l0.b.a a2 = bVar.a();
                 if (a2 instanceof FeedData) {
                     return toPb((FeedData) a2);
                 }
                 return false;
             } else if (bVar.b() == 9483) {
-                b.a.q0.k0.b.a a3 = bVar.a();
+                c.a.q0.l0.b.a a3 = bVar.a();
                 if (a3 instanceof FeedData) {
                     return toPersonInfo((FeedData) a3);
                 }
                 return false;
             } else if (bVar.b() == 9489) {
-                b.a.q0.k0.b.a a4 = bVar.a();
+                c.a.q0.l0.b.a a4 = bVar.a();
                 if (a4 instanceof FeedData) {
                     this.atMeViewController.f((FeedData) a4);
                     return true;
@@ -281,7 +279,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return invokeL.booleanValue;
     }
 
-    @Override // b.a.q0.s.g0.f.g
+    @Override // c.a.q0.s.g0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -295,7 +293,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onNetRefreshButtonClicked();
-            if (!l.D() || (atMeModelController = this.atMeModelController) == null) {
+            if (!l.C() || (atMeModelController = this.atMeModelController) == null) {
                 return;
             }
             atMeModelController.C();
@@ -310,22 +308,22 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f22157b;
+        BdListView bdListView = this.atMeViewController.f23332b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f22158c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
-        setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
+        showNetRefreshView(this.atMeViewController.f23333c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+        setNetRefreshViewEmotionMarginTop(l.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 
-    public void onViewDataChanged(b.a.q0.k0.b.a aVar) {
+    public void onViewDataChanged(c.a.q0.l0.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
             this.atMeViewController.k(aVar);
         }
     }
 
-    public void onViewStateChanged(b.a.q0.k0.d.b bVar) {
+    public void onViewStateChanged(c.a.q0.l0.d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
             this.atMeViewController.l(bVar);

@@ -2,15 +2,14 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.os.Handler;
-import b.a.e.c.g.c;
-import b.a.r0.l1.f.j.d;
+import c.a.d.c.g.c;
+import c.a.r0.r1.f.j.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,24 +30,22 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     public d mView;
     public int mforumId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarHistoryActivity f51186a;
+        public final /* synthetic */ OfficialBarHistoryActivity a;
 
         /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class RunnableC1767a implements Runnable {
+        /* loaded from: classes10.dex */
+        public class RunnableC1838a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f51187e;
+            public final /* synthetic */ a f45884e;
 
-            public RunnableC1767a(a aVar) {
+            public RunnableC1838a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,16 +60,16 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                         return;
                     }
                 }
-                this.f51187e = aVar;
+                this.f45884e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f51187e.f51186a.mView.e()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f45884e.a.mView.e()) {
                     return;
                 }
-                this.f51187e.f51186a.getNextPage();
+                this.f45884e.a.getNextPage();
             }
         }
 
@@ -94,7 +91,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     return;
                 }
             }
-            this.f51186a = officialBarHistoryActivity;
+            this.a = officialBarHistoryActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,51 +99,49 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.f51186a.hideProgressBar();
-                this.f51186a.isRefreshing = false;
+                this.a.hideProgressBar();
+                this.a.isRefreshing = false;
                 if (socketResponsedMessage == null) {
-                    this.f51186a.showToast(R.string.neterror);
-                    this.f51186a.mView.h(this.f51186a.mDataList);
+                    this.a.showToast(R.string.neterror);
+                    this.a.mView.h(this.a.mDataList);
                 } else if (socketResponsedMessage.getError() != 0) {
-                    this.f51186a.showToast(socketResponsedMessage.getErrorString());
-                    this.f51186a.mView.h(this.f51186a.mDataList);
+                    this.a.showToast(socketResponsedMessage.getErrorString());
+                    this.a.mView.h(this.a.mDataList);
                 } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
-                    this.f51186a.mView.h(this.f51186a.mDataList);
-                    this.f51186a.showToast(R.string.neterror);
+                    this.a.mView.h(this.a.mDataList);
+                    this.a.showToast(R.string.neterror);
                 } else {
                     ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                     if (responseHistoryMessage.getMsg().isEmpty()) {
-                        this.f51186a.mView.h(this.f51186a.mDataList);
+                        this.a.mView.h(this.a.mDataList);
                         return;
                     }
                     RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage();
                     if (requestHistoryMessage == null) {
-                        this.f51186a.mView.h(this.f51186a.mDataList);
+                        this.a.mView.h(this.a.mDataList);
                         return;
                     }
                     if (requestHistoryMessage.getRequestId() != 0) {
-                        this.f51186a.mDataList.addAll(responseHistoryMessage.getMsg());
+                        this.a.mDataList.addAll(responseHistoryMessage.getMsg());
                     } else {
-                        this.f51186a.mDataList = responseHistoryMessage.getMsg();
+                        this.a.mDataList = responseHistoryMessage.getMsg();
                     }
-                    this.f51186a.mView.f(this.f51186a.mDataList);
+                    this.a.mView.f(this.a.mDataList);
                     if (responseHistoryMessage.getMsg().size() == 0) {
-                        this.f51186a.mView.h(this.f51186a.mDataList);
+                        this.a.mView.h(this.a.mDataList);
                     } else {
-                        new Handler().post(new RunnableC1767a(this));
+                        new Handler().post(new RunnableC1838a(this));
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarHistoryActivity f51188a;
+        public final /* synthetic */ OfficialBarHistoryActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(OfficialBarHistoryActivity officialBarHistoryActivity) {
@@ -166,7 +161,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     return;
                 }
             }
-            this.f51188a = officialBarHistoryActivity;
+            this.a = officialBarHistoryActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,15 +169,15 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.f51188a.hideProgressBar();
+                this.a.hideProgressBar();
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001152 && (customResponsedMessage instanceof ResponseLocalHistoryMessage)) {
                     ResponseLocalHistoryMessage responseLocalHistoryMessage = (ResponseLocalHistoryMessage) customResponsedMessage;
                     if (responseLocalHistoryMessage.getData().isEmpty()) {
                         return;
                     }
-                    if (this.f51188a.mDataList == null || this.f51188a.mDataList.isEmpty()) {
-                        this.f51188a.mDataList = responseLocalHistoryMessage.getData();
-                        this.f51188a.mView.f(this.f51188a.mDataList);
+                    if (this.a.mDataList == null || this.a.mDataList.isEmpty()) {
+                        this.a.mDataList = responseLocalHistoryMessage.getData();
+                        this.a.mView.f(this.a.mDataList);
                     }
                 }
             }
@@ -210,16 +205,16 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     public void getNextPage() {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             List<ResponseHistoryMessage.a> list = this.mDataList;
             if (list == null || list.isEmpty()) {
                 i2 = 0;
             } else {
                 List<ResponseHistoryMessage.a> list2 = this.mDataList;
-                i2 = list2.get(list2.size() - 1).f51231d;
+                i2 = list2.get(list2.size() - 1).f45923d;
             }
             this.isRefreshing = true;
-            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, b.a.e.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), i2));
+            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), i2));
         }
     }
 

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BreakpointStoreOnSQLite implements DownloadStore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BreakpointStoreOnSQLite";
@@ -152,10 +152,10 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i2, long j) throws IOException {
+    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i2, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            this.onCache.onSyncToFilesystemSuccess(breakpointInfo, i2, j);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            this.onCache.onSyncToFilesystemSuccess(breakpointInfo, i2, j2);
             this.helper.updateBlockIncrease(breakpointInfo, i2, breakpointInfo.getBlock(i2).getCurrentOffset());
         }
     }

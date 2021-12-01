@@ -24,7 +24,7 @@ import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.utils.JsonUtil;
 import java.util.Map;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LoginImpl implements IWalletLoginListener, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "LoginImpl";
@@ -79,12 +79,10 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
             passportSDK.startLogin(this.mContext, new WebAuthListener(this, iLoginBackListener) { // from class: com.baidu.wallet.passport.LoginImpl.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ILoginBackListener f60331a;
+                public final /* synthetic */ ILoginBackListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LoginImpl f60332b;
+                public final /* synthetic */ LoginImpl f53291b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -101,8 +99,8 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                             return;
                         }
                     }
-                    this.f60332b = this;
-                    this.f60331a = iLoginBackListener;
+                    this.f53291b = this;
+                    this.a = iLoginBackListener;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +109,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     ILoginBackListener iLoginBackListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener2 = this.f60331a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, webAuthResult) == null) || (iLoginBackListener2 = this.a) == null) {
                         return;
                     }
                     iLoginBackListener2.onSuccess(0, "");
@@ -123,7 +121,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public void onFailure(WebAuthResult webAuthResult) {
                     ILoginBackListener iLoginBackListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener2 = this.f60331a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) || (iLoginBackListener2 = this.a) == null) {
                         return;
                     }
                     iLoginBackListener2.onFail(webAuthResult.getResultCode(), webAuthResult.getResultMsg());

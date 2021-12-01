@@ -3,6 +3,7 @@ package com.kwad.sdk.api;
 import android.app.Activity;
 import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 @KsAdSdkApi
 @Keep
 /* loaded from: classes2.dex */
@@ -59,6 +60,10 @@ public interface KsInterstitialAd {
     @Keep
     @Deprecated
     boolean isVideo();
+
+    @KsAdSdkApi
+    @Keep
+    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep

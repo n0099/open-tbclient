@@ -2,7 +2,6 @@ package okio;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,13 +67,13 @@ public final class HashingSource extends ForwardingSource {
     public static HashingSource sha1(Source source) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, source)) == null) ? new HashingSource(source, "SHA-1") : (HashingSource) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, source)) == null) ? new HashingSource(source, "SHA-1") : (HashingSource) invokeL.objValue;
     }
 
     public static HashingSource sha256(Source source) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, source)) == null) ? new HashingSource(source, "SHA-256") : (HashingSource) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, source)) == null) ? new HashingSource(source, "SHA-256") : (HashingSource) invokeL.objValue;
     }
 
     public final ByteString hash() {
@@ -88,30 +87,30 @@ public final class HashingSource extends ForwardingSource {
     }
 
     @Override // okio.ForwardingSource, okio.Source
-    public long read(Buffer buffer, long j) throws IOException {
+    public long read(Buffer buffer, long j2) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
-            long read = super.read(buffer, j);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
+            long read = super.read(buffer, j2);
             if (read != -1) {
-                long j2 = buffer.size;
-                long j3 = j2 - read;
+                long j3 = buffer.size;
+                long j4 = j3 - read;
                 Segment segment = buffer.head;
-                while (j2 > j3) {
+                while (j3 > j4) {
                     segment = segment.prev;
-                    j2 -= segment.limit - segment.pos;
+                    j3 -= segment.limit - segment.pos;
                 }
-                while (j2 < buffer.size) {
-                    int i2 = (int) ((segment.pos + j3) - j2);
+                while (j3 < buffer.size) {
+                    int i2 = (int) ((segment.pos + j4) - j3);
                     MessageDigest messageDigest = this.messageDigest;
                     if (messageDigest != null) {
                         messageDigest.update(segment.data, i2, segment.limit - i2);
                     } else {
                         this.mac.update(segment.data, i2, segment.limit - i2);
                     }
-                    j3 = (segment.limit - segment.pos) + j2;
+                    j4 = (segment.limit - segment.pos) + j3;
                     segment = segment.next;
-                    j2 = j3;
+                    j3 = j4;
                 }
             }
             return read;

@@ -2,7 +2,6 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NotifyUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static BaseNotifyDataAdapter sNotifyData = null;
@@ -92,7 +91,7 @@ public class NotifyUtil {
 
     public static synchronized void initAdapter(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
             synchronized (NotifyUtil.class) {
                 if (sNotifyData == null) {
                     BaseNotifyDataAdapter baseNotifyDataAdapter = (BaseNotifyDataAdapter) getObjectByReflect(sNotifyDataAdapter, new i());

@@ -3,7 +3,7 @@ package com.fun.ad.sdk;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public interface FunAdFactory {
     void destroyAd(String str);
 

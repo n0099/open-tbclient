@@ -17,7 +17,6 @@ import androidx.fragment.app.FragmentManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.apollon.utils.ResUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,46 +31,44 @@ import com.baidu.wallet.personal.ui.UsedCouponListFragment;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class CouponTabHostView extends CouponFragmentTabHost {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61627b;
+    public static final String f54105b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public View f61628a;
+    public View a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61629c;
+    public String f54106c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f61630d;
+    public boolean f54107d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<Object, View> f61631e;
+    public HashMap<Object, View> f54108e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<Object, ImageView> f61632f;
+    public HashMap<Object, ImageView> f54109f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HashMap<String, TabHost.OnTabChangeListener> f61633g;
+    public final HashMap<String, TabHost.OnTabChangeListener> f54110g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashMap<String, b> f61634h;
+    public final HashMap<String, b> f54111h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f61635i;
-    public int j;
+    public ImageView f54112i;
 
-    /* loaded from: classes10.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public int f54113j;
+
+    /* loaded from: classes12.dex */
     public static class Indicator extends RelativeLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public a f61636a;
+        public a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Indicator(Context context) {
@@ -142,7 +139,7 @@ public class CouponTabHostView extends CouponFragmentTabHost {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
                 a aVar = new a();
-                this.f61636a = aVar;
+                this.a = aVar;
                 super.setOnClickListener(aVar);
             }
         }
@@ -150,9 +147,9 @@ public class CouponTabHostView extends CouponFragmentTabHost {
         public void a(CouponTabHostView couponTabHostView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, couponTabHostView, str) == null) {
-                a aVar = this.f61636a;
-                aVar.f61639c = couponTabHostView;
-                aVar.f61638b = str;
+                a aVar = this.a;
+                aVar.f54115c = couponTabHostView;
+                aVar.f54114b = str;
             }
         }
 
@@ -160,24 +157,22 @@ public class CouponTabHostView extends CouponFragmentTabHost {
         public void setOnClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-                this.f61636a.f61637a = onClickListener;
+                this.a.a = onClickListener;
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public View.OnClickListener f61637a;
+        public View.OnClickListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f61638b;
+        public String f54114b;
 
         /* renamed from: c  reason: collision with root package name */
-        public CouponTabHostView f61639c;
+        public CouponTabHostView f54115c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -200,20 +195,20 @@ public class CouponTabHostView extends CouponFragmentTabHost {
             List asList;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f61638b != null && view != null && view.getContext() != null) {
-                    if (this.f61638b.equals(UnuseCouponListFragment.FRAGMENT_ID)) {
+                if (this.f54114b != null && view != null && view.getContext() != null) {
+                    if (this.f54114b.equals(UnuseCouponListFragment.FRAGMENT_ID)) {
                         asList = Arrays.asList("unusedtab");
-                    } else if (this.f61638b.equals(UsedCouponListFragment.FRAGMENT_ID)) {
+                    } else if (this.f54114b.equals(UsedCouponListFragment.FRAGMENT_ID)) {
                         asList = Arrays.asList("usedtab");
-                    } else if (this.f61638b.equals(ExpiredCouponListFragment.FRAGMENT_ID)) {
+                    } else if (this.f54114b.equals(ExpiredCouponListFragment.FRAGMENT_ID)) {
                         asList = Arrays.asList("expiredtab");
                     }
                     DXMSdkSAUtils.onEventWithValues("CouponTabClick", asList);
                 }
-                if (this.f61638b != null && (couponTabHostView = this.f61639c) != null && (bVar = (b) couponTabHostView.f61634h.get(this.f61638b)) != null) {
-                    bVar.a(view, this.f61638b, this.f61639c.getCurrentTabTag());
+                if (this.f54114b != null && (couponTabHostView = this.f54115c) != null && (bVar = (b) couponTabHostView.f54111h.get(this.f54114b)) != null) {
+                    bVar.a(view, this.f54114b, this.f54115c.getCurrentTabTag());
                 }
-                View.OnClickListener onClickListener = this.f61637a;
+                View.OnClickListener onClickListener = this.a;
                 if (onClickListener != null) {
                     onClickListener.onClick(view);
                 }
@@ -221,7 +216,7 @@ public class CouponTabHostView extends CouponFragmentTabHost {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a(View view, String str, String str2);
     }
@@ -239,7 +234,7 @@ public class CouponTabHostView extends CouponFragmentTabHost {
                 return;
             }
         }
-        f61627b = CouponTabHostView.class.getSimpleName();
+        f54105b = CouponTabHostView.class.getSimpleName();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -260,10 +255,10 @@ public class CouponTabHostView extends CouponFragmentTabHost {
                 return;
             }
         }
-        this.f61630d = false;
-        this.f61633g = new HashMap<>();
-        this.f61634h = new HashMap<>();
-        this.j = 0;
+        this.f54107d = false;
+        this.f54110g = new HashMap<>();
+        this.f54111h = new HashMap<>();
+        this.f54113j = 0;
         a();
     }
 
@@ -286,10 +281,10 @@ public class CouponTabHostView extends CouponFragmentTabHost {
                 return;
             }
         }
-        this.f61630d = false;
-        this.f61633g = new HashMap<>();
-        this.f61634h = new HashMap<>();
-        this.j = 0;
+        this.f54107d = false;
+        this.f54110g = new HashMap<>();
+        this.f54111h = new HashMap<>();
+        this.f54113j = 0;
         a();
     }
 
@@ -309,12 +304,12 @@ public class CouponTabHostView extends CouponFragmentTabHost {
                 ((TextView) inflate.findViewById(ResUtils.id(getContext(), "coupon_tab_item_textview"))).setText(str);
             }
             inflate.setTag(str2);
-            this.f61631e.put(str2, inflate);
+            this.f54108e.put(str2, inflate);
             ImageView imageView = (ImageView) inflate.findViewById(ResUtils.id(getContext(), "coupon_tab_red_indicator"));
             if (imageView != null) {
                 imageView.setTag(str2);
             }
-            this.f61632f.put(str2, imageView);
+            this.f54109f.put(str2, imageView);
             return inflate;
         }
         return (View) invokeLL.objValue;
@@ -322,34 +317,34 @@ public class CouponTabHostView extends CouponFragmentTabHost {
 
     private void a(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(AdIconUtil.AD_TEXT_ID, this, i2) == null) || this.f61635i == null) {
+        if (!(interceptable == null || interceptable.invokeI(65541, this, i2) == null) || this.f54112i == null) {
             return;
         }
-        TranslateAnimation translateAnimation = new TranslateAnimation(this.j * (DisplayUtils.getDisplayWidth(getContext()) / 3), (DisplayUtils.getDisplayWidth(getContext()) / 3) * i2, 0.0f, 0.0f);
+        TranslateAnimation translateAnimation = new TranslateAnimation(this.f54113j * (DisplayUtils.getDisplayWidth(getContext()) / 3), (DisplayUtils.getDisplayWidth(getContext()) / 3) * i2, 0.0f, 0.0f);
         translateAnimation.setDuration(400L);
         translateAnimation.setFillAfter(true);
-        this.f61635i.setAnimation(translateAnimation);
-        this.f61635i.startAnimation(translateAnimation);
-        this.j = i2;
+        this.f54112i.setAnimation(translateAnimation);
+        this.f54112i.startAnimation(translateAnimation);
+        this.f54113j = i2;
     }
 
     private void b() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) || (imageView = this.f61635i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (imageView = this.f54112i) == null) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
         layoutParams.leftMargin = (DisplayUtils.getDisplayWidth(getContext()) / 6) - (layoutParams.width / 2);
         layoutParams.topMargin = -5;
-        this.f61635i.setLayoutParams(layoutParams);
+        this.f54112i.setLayoutParams(layoutParams);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f61631e = new HashMap<>();
-            this.f61632f = new HashMap<>();
+            this.f54108e = new HashMap<>();
+            this.f54109f = new HashMap<>();
         }
     }
 
@@ -393,9 +388,9 @@ public class CouponTabHostView extends CouponFragmentTabHost {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onFinishInflate();
-            this.f61628a = findViewById(ResUtils.id(getContext(), "coupon_full_content"));
-            if (this.f61635i == null) {
-                this.f61635i = (ImageView) findViewById(ResUtils.id(getContext(), "tab_line"));
+            this.a = findViewById(ResUtils.id(getContext(), "coupon_full_content"));
+            if (this.f54112i == null) {
+                this.f54112i = (ImageView) findViewById(ResUtils.id(getContext(), "tab_line"));
             }
         }
     }
@@ -405,7 +400,7 @@ public class CouponTabHostView extends CouponFragmentTabHost {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             super.onTabChanged(str);
-            TabHost.OnTabChangeListener onTabChangeListener = this.f61633g.get(str);
+            TabHost.OnTabChangeListener onTabChangeListener = this.f54110g.get(str);
             if (onTabChangeListener != null) {
                 onTabChangeListener.onTabChanged(str);
             }
@@ -428,10 +423,10 @@ public class CouponTabHostView extends CouponFragmentTabHost {
     public void setNextSelectedTab(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            if (this.f61630d) {
+            if (this.f54107d) {
                 b(str);
             } else {
-                this.f61629c = str;
+                this.f54106c = str;
             }
         }
     }

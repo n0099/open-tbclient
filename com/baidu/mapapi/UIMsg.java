@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UIMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UI_TIP_AR_ENTERING = "正在进入实景模式...";
@@ -59,7 +59,7 @@ public class UIMsg {
     public static final String UI_TIP_YOUR_SEARCH_START_IN_CITY = "您要找的起点在如下城市:";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NetDetectedType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NETYPE_2G = 2;
@@ -90,7 +90,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class UIGPSStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GPS_DEVICE_DISABLED = 0;
@@ -99,9 +99,7 @@ public class UIMsg {
         public static final int GPS_SIGNAL_NOT_CONNECTED = 3;
         public static final int GPS_SIGNAL_SATELLITE_NUM = 4;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f40063a;
+        public final /* synthetic */ UIMsg a;
 
         public UIGPSStatus(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -118,11 +116,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f40063a = uIMsg;
+            this.a = uIMsg;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class UIHttpType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADD_FLS = 10;
@@ -136,9 +134,7 @@ public class UIMsg {
         public static final int VERSION_UPDATE_NAV_MODULE = 17;
         public static final int VOICE_SEARCH_REQ = 11;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f40064a;
+        public final /* synthetic */ UIMsg a;
 
         public UIHttpType(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -155,11 +151,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f40064a = uIMsg;
+            this.a = uIMsg;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class UIOffType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_DATARUN_EXCEPTION = -1;
@@ -178,9 +174,7 @@ public class UIMsg {
         public static final int MSG_OFFLINE_WIFICONNECT = -2;
         public static final int MSG_TEMPORY_UPDATE = 7;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f40065a;
+        public final /* synthetic */ UIMsg a;
 
         public UIOffType(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -197,11 +191,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f40065a = uIMsg;
+            this.a = uIMsg;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class WalkNaviMsg {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_APP_PB_DATA_OK = 2008;
@@ -239,7 +233,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d_ResultType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADDR_LIST = 23;
@@ -277,9 +271,7 @@ public class UIMsg {
         public static final int VERSION_CHECK_NAV_MODULE = 514;
         public static final int VOICE_REQ = 512;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f40066a;
+        public final /* synthetic */ UIMsg a;
 
         public d_ResultType(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -296,11 +288,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f40066a = uIMsg;
+            this.a = uIMsg;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class f_FUN {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FUN_ID_GBS = 13;
@@ -458,9 +450,7 @@ public class UIMsg {
         public static final int FUN_ID_VOICE_SCH_OPTION_GLOBAL_KEY = 20010202;
         public static final int FUN_ID_VOICE_SCH_OPTION_IDENTITY = 20010201;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f40067a;
+        public final /* synthetic */ UIMsg a;
 
         public f_FUN(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -477,11 +467,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f40067a = uIMsg;
+            this.a = uIMsg;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class k_event {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MV_MAP_ADDLOGOBJ = 4108;
@@ -537,9 +527,7 @@ public class UIMsg {
         public static final int V_WM_TRACKBALLMOVE = 38;
         public static final int V_WM_VDATAENGINE = 65289;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f40068a;
+        public final /* synthetic */ UIMsg a;
 
         public k_event(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -556,11 +544,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f40068a = uIMsg;
+            this.a = uIMsg;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class l_ErrorNo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CORE_MEMORY_ALLOCATE_ERROR = 101;
@@ -579,9 +567,7 @@ public class UIMsg {
         public static final int RP_ST_EN_TOO_NEAR = 14;
         public static final int USER_CANCEL = 1;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f40069a;
+        public final /* synthetic */ UIMsg a;
 
         public l_ErrorNo(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -598,11 +584,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f40069a = uIMsg;
+            this.a = uIMsg;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class m_AppUI {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CELLDATA_UPLOAD_REQ = 507;
@@ -662,9 +648,7 @@ public class UIMsg {
         public static final int V_WM_VDATAENGINE = 65289;
         public static final int V_WM_WIFISTATECHANGE = 65025;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f40070a;
+        public final /* synthetic */ UIMsg a;
 
         public m_AppUI(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -681,7 +665,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f40070a = uIMsg;
+            this.a = uIMsg;
         }
     }
 

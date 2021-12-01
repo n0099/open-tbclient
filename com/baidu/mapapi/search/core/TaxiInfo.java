@@ -11,29 +11,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TaxiInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TaxiInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public float f40502a;
+    public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40503b;
+    public String f36083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40504c;
+    public int f36084c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f40505d;
+    public int f36085d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f40506e;
+    public float f36086e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f40507f;
+    public float f36087f;
 
     static {
         InterceptResult invokeClinit;
@@ -80,12 +78,12 @@ public class TaxiInfo implements Parcelable {
                 return;
             }
         }
-        this.f40502a = parcel.readFloat();
-        this.f40503b = parcel.readString();
-        this.f40504c = parcel.readInt();
-        this.f40505d = parcel.readInt();
-        this.f40506e = parcel.readFloat();
-        this.f40507f = parcel.readFloat();
+        this.a = parcel.readFloat();
+        this.f36083b = parcel.readString();
+        this.f36084c = parcel.readInt();
+        this.f36085d = parcel.readInt();
+        this.f36086e = parcel.readFloat();
+        this.f36087f = parcel.readFloat();
     }
 
     @Override // android.os.Parcelable
@@ -101,78 +99,78 @@ public class TaxiInfo implements Parcelable {
     public String getDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40503b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36083b : (String) invokeV.objValue;
     }
 
     public int getDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40504c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36084c : invokeV.intValue;
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40505d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36085d : invokeV.intValue;
     }
 
     public float getPerKMPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40506e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36086e : invokeV.floatValue;
     }
 
     public float getStartPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f40507f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36087f : invokeV.floatValue;
     }
 
     public float getTotalPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40502a : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.floatValue;
     }
 
     public void setDesc(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f40503b = str;
+            this.f36083b = str;
         }
     }
 
     public void setDistance(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f40504c = i2;
+            this.f36084c = i2;
         }
     }
 
     public void setDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f40505d = i2;
+            this.f36085d = i2;
         }
     }
 
     public void setPerKMPrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.f40506e = f2;
+            this.f36086e = f2;
         }
     }
 
     public void setStartPrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            this.f40507f = f2;
+            this.f36087f = f2;
         }
     }
 
     public void setTotalPrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            this.f40502a = f2;
+            this.a = f2;
         }
     }
 
@@ -180,12 +178,12 @@ public class TaxiInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
-            parcel.writeFloat(this.f40502a);
-            parcel.writeString(this.f40503b);
-            parcel.writeInt(this.f40504c);
-            parcel.writeInt(this.f40505d);
-            parcel.writeFloat(this.f40506e);
-            parcel.writeFloat(this.f40507f);
+            parcel.writeFloat(this.a);
+            parcel.writeString(this.f36083b);
+            parcel.writeInt(this.f36084c);
+            parcel.writeInt(this.f36085d);
+            parcel.writeFloat(this.f36086e);
+            parcel.writeFloat(this.f36087f);
         }
     }
 }

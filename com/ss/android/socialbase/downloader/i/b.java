@@ -1,7 +1,6 @@
 package com.ss.android.socialbase.downloader.i;
 
 import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -102,7 +101,7 @@ public class b {
                                                                 return "Requested Range Not Satisfiable";
                                                             case HttpStatus.SC_EXPECTATION_FAILED /* 417 */:
                                                                 return "Expectation Failed";
-                                                            case SDKLogTypeConstants.TYPE_RSPLASH_HTML_LOG /* 418 */:
+                                                            case 418:
                                                                 return "I'm a teapot";
                                                             default:
                                                                 switch (i2) {
@@ -114,9 +113,9 @@ public class b {
                                                                         return "Locked";
                                                                     case HttpStatus.SC_FAILED_DEPENDENCY /* 424 */:
                                                                         return "Failed Dependency";
-                                                                    case SDKLogTypeConstants.TYPE_CRASH_SOURCE /* 425 */:
+                                                                    case 425:
                                                                         return "Unordered Collection";
-                                                                    case SDKLogTypeConstants.TYPE_SHOUBAI_APO_INFO /* 426 */:
+                                                                    case 426:
                                                                         return "Upgrade Required";
                                                                     default:
                                                                         switch (i2) {

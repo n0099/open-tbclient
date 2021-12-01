@@ -8,10 +8,9 @@ import android.os.Build;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class MultiDexHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_SUFFIX = "UrlCollectorImpl";
@@ -39,7 +38,7 @@ public class MultiDexHelper {
     public static StaticLoadAsyncTask task;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class StaticLoadAsyncTask extends BdAsyncTask<List<String>, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +88,7 @@ public class MultiDexHelper {
                                 this.loading = nextElement;
                                 Class.forName(nextElement);
                                 this.loading = "";
-                                String str2 = nextElement + l.C();
+                                String str2 = nextElement + l.B();
                             }
                         }
                     } catch (IOException unused) {
@@ -198,7 +197,7 @@ public class MultiDexHelper {
 
     public static void loadClass(Context context) throws PackageManager.NameNotFoundException, IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
             StaticLoadAsyncTask staticLoadAsyncTask = new StaticLoadAsyncTask(getSourcePaths(context));
             task = staticLoadAsyncTask;
             staticLoadAsyncTask.execute(new List[0]);
@@ -207,7 +206,7 @@ public class MultiDexHelper {
 
     public static void loadStaticClass(Context context) throws PackageManager.NameNotFoundException, IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             for (String str : getSourcePaths(context)) {
                 try {
                     Enumeration<String> entries = (str.endsWith(".zip") ? DexFile.loadDex(str, str + ".tmp", 0) : new DexFile(str)).entries();

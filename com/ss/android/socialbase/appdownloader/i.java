@@ -2,7 +2,6 @@ package com.ss.android.socialbase.appdownloader;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +33,7 @@ public class i {
     public static int c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
                 return a(str, com.ss.android.socialbase.downloader.downloader.c.N().getPackageName());
             } catch (Exception e2) {
@@ -48,7 +47,7 @@ public class i {
     public static int d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
                 return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, "style", com.ss.android.socialbase.downloader.downloader.c.N().getPackageName());
             } catch (Exception e2) {

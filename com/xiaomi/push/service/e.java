@@ -20,13 +20,11 @@ import com.xiaomi.push.ge;
 import com.xiaomi.push.service.av;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public q f72410a;
+    public q a;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -41,7 +39,7 @@ public class e {
                 return;
             }
         }
-        this.f72410a = new q();
+        this.a = new q();
     }
 
     public static String a(av.b bVar) {
@@ -50,7 +48,7 @@ public class e {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            if ("9".equals(bVar.f72348g)) {
+            if ("9".equals(bVar.f63245g)) {
                 sb = new StringBuilder();
                 sb.append(bVar.f916a);
                 str = ".permission.MIMC_RECEIVE";
@@ -80,12 +78,12 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, faVar)) == null) {
-            Collection<av.b> m604a = av.a().m604a(Integer.toString(faVar.a()));
-            if (m604a.isEmpty()) {
+            Collection<av.b> m653a = av.a().m653a(Integer.toString(faVar.a()));
+            if (m653a.isEmpty()) {
                 return null;
             }
-            Iterator<av.b> it = m604a.iterator();
-            if (m604a.size() == 1) {
+            Iterator<av.b> it = m653a.iterator();
+            if (m653a.size() == 1) {
                 return it.next();
             }
             String g2 = faVar.g();
@@ -108,12 +106,12 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcVar)) == null) {
-            Collection<av.b> m604a = av.a().m604a(gcVar.k());
-            if (m604a.isEmpty()) {
+            Collection<av.b> m653a = av.a().m653a(gcVar.k());
+            if (m653a.isEmpty()) {
                 return null;
             }
-            Iterator<av.b> it = m604a.iterator();
-            if (m604a.size() == 1) {
+            Iterator<av.b> it = m653a.iterator();
+            if (m653a.size() == 1) {
                 return it.next();
             }
             String m = gcVar.m();
@@ -146,17 +144,17 @@ public class e {
 
     public void a(Context context, av.b bVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, context, bVar, i2) == null) || "5".equalsIgnoreCase(bVar.f72348g)) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, context, bVar, i2) == null) || "5".equalsIgnoreCase(bVar.f63245g)) {
             return;
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.channel_closed");
         intent.setPackage(bVar.f916a);
-        intent.putExtra(az.s, bVar.f72348g);
+        intent.putExtra(az.s, bVar.f63245g);
         intent.putExtra("ext_reason", i2);
         intent.putExtra(az.p, bVar.f919b);
-        intent.putExtra(az.D, bVar.f72350i);
-        if (bVar.f910a == null || !"9".equals(bVar.f72348g)) {
+        intent.putExtra(az.D, bVar.f63247i);
+        if (bVar.f910a == null || !"9".equals(bVar.f63245g)) {
             a(context, intent, bVar);
             return;
         }
@@ -168,14 +166,14 @@ public class e {
             sb.append("peer may died: ");
             String str = bVar.f919b;
             sb.append(str.substring(str.lastIndexOf(64)));
-            com.xiaomi.channel.commonutils.logger.b.m73a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m122a(sb.toString());
         }
     }
 
     public void a(Context context, av.b bVar, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, bVar, str, str2) == null) {
-            if ("5".equalsIgnoreCase(bVar.f72348g)) {
+            if ("5".equalsIgnoreCase(bVar.f63245g)) {
                 com.xiaomi.channel.commonutils.logger.b.d("mipush kicked by server");
                 return;
             }
@@ -184,9 +182,9 @@ public class e {
             intent.setPackage(bVar.f916a);
             intent.putExtra("ext_kick_type", str);
             intent.putExtra("ext_kick_reason", str2);
-            intent.putExtra("ext_chid", bVar.f72348g);
+            intent.putExtra("ext_chid", bVar.f63245g);
             intent.putExtra(az.p, bVar.f919b);
-            intent.putExtra(az.D, bVar.f72350i);
+            intent.putExtra(az.D, bVar.f63247i);
             a(context, intent, bVar);
         }
     }
@@ -194,8 +192,8 @@ public class e {
     public void a(Context context, av.b bVar, boolean z, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, bVar, Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
-            if ("5".equalsIgnoreCase(bVar.f72348g)) {
-                this.f72410a.a(context, bVar, z, i2, str);
+            if ("5".equalsIgnoreCase(bVar.f63245g)) {
+                this.a.a(context, bVar, z, i2, str);
                 return;
             }
             Intent intent = new Intent();
@@ -208,9 +206,9 @@ public class e {
             if (!TextUtils.isEmpty(str)) {
                 intent.putExtra("ext_reason_msg", str);
             }
-            intent.putExtra("ext_chid", bVar.f72348g);
+            intent.putExtra("ext_chid", bVar.f63245g);
             intent.putExtra(az.p, bVar.f919b);
-            intent.putExtra(az.D, bVar.f72350i);
+            intent.putExtra(az.D, bVar.f63247i);
             a(context, intent, bVar);
         }
     }
@@ -218,39 +216,39 @@ public class e {
     public void a(XMPushService xMPushService, String str, fa faVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, xMPushService, str, faVar) == null) {
-            av.b a2 = a(faVar);
-            if (a2 == null) {
+            av.b a = a(faVar);
+            if (a == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("error while notify channel closed! channel " + str + " not registered");
             } else if ("5".equalsIgnoreCase(str)) {
-                this.f72410a.a(xMPushService, faVar, a2);
+                this.a.a(xMPushService, faVar, a);
             } else {
-                String str2 = a2.f916a;
+                String str2 = a.f916a;
                 Intent intent = new Intent();
                 intent.setAction("com.xiaomi.push.new_msg");
                 intent.setPackage(str2);
                 intent.putExtra("ext_chid", str);
-                intent.putExtra("ext_raw_packet", faVar.m310a(a2.f72349h));
-                intent.putExtra(az.D, a2.f72350i);
-                intent.putExtra(az.w, a2.f72349h);
-                if (a2.f910a != null) {
+                intent.putExtra("ext_raw_packet", faVar.m359a(a.f63246h));
+                intent.putExtra(az.D, a.f63247i);
+                intent.putExtra(az.w, a.f63246h);
+                if (a.f910a != null) {
                     try {
-                        a2.f910a.send(Message.obtain(null, 17, intent));
-                        com.xiaomi.channel.commonutils.logger.b.m73a("message was sent by messenger for chid=" + str);
+                        a.f910a.send(Message.obtain(null, 17, intent));
+                        com.xiaomi.channel.commonutils.logger.b.m122a("message was sent by messenger for chid=" + str);
                         return;
                     } catch (RemoteException unused) {
-                        a2.f910a = null;
+                        a.f910a = null;
                         StringBuilder sb = new StringBuilder();
                         sb.append("peer may died: ");
-                        String str3 = a2.f919b;
+                        String str3 = a.f919b;
                         sb.append(str3.substring(str3.lastIndexOf(64)));
-                        com.xiaomi.channel.commonutils.logger.b.m73a(sb.toString());
+                        com.xiaomi.channel.commonutils.logger.b.m122a(sb.toString());
                     }
                 }
                 if ("com.xiaomi.xmsf".equals(str2)) {
                     return;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m73a("broadcast message to " + str2 + ", chid=" + str);
-                a(xMPushService, intent, a2);
+                com.xiaomi.channel.commonutils.logger.b.m122a("broadcast message to " + str2 + ", chid=" + str);
+                a(xMPushService, intent, a);
             }
         }
     }
@@ -260,13 +258,13 @@ public class e {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, xMPushService, str, gcVar) == null) {
-            av.b a2 = a(gcVar);
-            if (a2 != null) {
+            av.b a = a(gcVar);
+            if (a != null) {
                 if ("5".equalsIgnoreCase(str)) {
-                    this.f72410a.a(xMPushService, gcVar, a2);
+                    this.a.a(xMPushService, gcVar, a);
                     return;
                 }
-                String str4 = a2.f916a;
+                String str4 = a.f916a;
                 if (gcVar instanceof gb) {
                     str3 = "com.xiaomi.push.new_msg";
                 } else if (gcVar instanceof ga) {
@@ -281,9 +279,9 @@ public class e {
                 intent.setPackage(str4);
                 intent.putExtra("ext_chid", str);
                 intent.putExtra("ext_packet", gcVar.a());
-                intent.putExtra(az.D, a2.f72350i);
-                intent.putExtra(az.w, a2.f72349h);
-                a(xMPushService, intent, a2);
+                intent.putExtra(az.D, a.f63247i);
+                intent.putExtra(az.w, a.f63246h);
+                a(xMPushService, intent, a);
                 return;
             }
             str2 = "error while notify channel closed! channel " + str + " not registered";

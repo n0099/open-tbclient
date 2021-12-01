@@ -26,12 +26,12 @@ public final class TimeSourceKt {
     }
 
     @InlineOnly
-    public static final void parkNanos(Object obj, long j) {
+    public static final void parkNanos(Object obj, long j2) {
         TimeSource timeSource2 = getTimeSource();
         if (timeSource2 != null) {
-            timeSource2.parkNanos(obj, j);
+            timeSource2.parkNanos(obj, j2);
         } else {
-            LockSupport.parkNanos(obj, j);
+            LockSupport.parkNanos(obj, j2);
         }
     }
 

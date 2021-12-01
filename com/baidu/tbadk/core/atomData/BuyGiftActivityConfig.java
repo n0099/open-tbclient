@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BuyGiftActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
@@ -17,13 +17,13 @@ public class BuyGiftActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BuyGiftActivityConfig(Context context, long j) {
-        this(context, j, 1);
+    public BuyGiftActivityConfig(Context context, long j2) {
+        this(context, j2, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j)};
+            Object[] objArr = {context, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,13 +38,13 @@ public class BuyGiftActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BuyGiftActivityConfig(Context context, long j, int i2) {
+    public BuyGiftActivityConfig(Context context, long j2, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2)};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -55,7 +55,7 @@ public class BuyGiftActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("gift_receiver_id", j);
+        getIntent().putExtra("gift_receiver_id", j2);
         getIntent().putExtra("from", i2);
     }
 }

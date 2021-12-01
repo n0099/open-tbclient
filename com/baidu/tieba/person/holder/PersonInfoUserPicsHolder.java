@@ -2,18 +2,19 @@ package com.baidu.tieba.person.holder;
 
 import android.view.View;
 import android.widget.TextView;
-import b.a.e.f.p.l;
-import b.a.e.m.e.n;
-import b.a.r0.m2.d;
-import b.a.r0.m2.g.e;
-import b.a.r0.m2.g.f;
+import c.a.d.f.p.l;
+import c.a.d.m.e.n;
+import c.a.r0.s2.g.e;
+import c.a.r0.s2.g.f;
+import c.a.r0.w2.a;
+import c.a.r0.w2.b;
+import c.a.r0.w2.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +56,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.skinType = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.dividerView = view.findViewById(R.id.divider_view_under_photo_album);
-        this.titleView = (TextView) view.findViewById(R.id.text_view_photo_album);
-        HTypeListView hTypeListView = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.dividerView = view.findViewById(d.divider_view_under_photo_album);
+        this.titleView = (TextView) view.findViewById(d.text_view_photo_album);
+        HTypeListView hTypeListView = (HTypeListView) view.findViewById(d.listview_photo_album);
         this.albumListView = hTypeListView;
         this.adapterManager = new e(this.mPageContext, hTypeListView);
     }
@@ -70,7 +71,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            d dVar = new d(l.g(this.mPageContext.getPageActivity(), R.dimen.ds32), l.g(this.mPageContext.getPageActivity(), R.dimen.ds120));
+            c.a.r0.s2.d dVar = new c.a.r0.s2.d(l.f(this.mPageContext.getPageActivity(), b.ds32), l.f(this.mPageContext.getPageActivity(), b.ds120));
             ListUtils.add(arrayList, 0, dVar);
             ListUtils.add(arrayList, dVar);
             return arrayList;
@@ -92,9 +93,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.skinType = TbadkCoreApplication.getInst().getSkinType();
-        SkinManager.setBackgroundColor(this.rootView, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.dividerView, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.titleView, R.color.CAM_X0109, 1);
+        SkinManager.setBackgroundColor(this.rootView, a.CAM_X0201);
+        SkinManager.setBackgroundColor(this.dividerView, a.CAM_X0204);
+        SkinManager.setViewTextColor(this.titleView, a.CAM_X0109, 1);
         this.adapterManager.b();
     }
 }

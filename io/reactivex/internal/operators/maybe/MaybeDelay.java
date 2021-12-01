@@ -13,7 +13,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MaybeDelay<T> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public final class MaybeDelay<T> extends AbstractMaybeWithUpstream<T, T> {
     public final Scheduler scheduler;
     public final TimeUnit unit;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DelayMaybeObserver<T> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 5566860102500855068L;
@@ -33,12 +33,12 @@ public final class MaybeDelay<T> extends AbstractMaybeWithUpstream<T, T> {
         public final TimeUnit unit;
         public T value;
 
-        public DelayMaybeObserver(MaybeObserver<? super T> maybeObserver, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public DelayMaybeObserver(MaybeObserver<? super T> maybeObserver, long j2, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {maybeObserver, Long.valueOf(j), timeUnit, scheduler};
+                Object[] objArr = {maybeObserver, Long.valueOf(j2), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -49,7 +49,7 @@ public final class MaybeDelay<T> extends AbstractMaybeWithUpstream<T, T> {
                 }
             }
             this.actual = maybeObserver;
-            this.delay = j;
+            this.delay = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -130,13 +130,13 @@ public final class MaybeDelay<T> extends AbstractMaybeWithUpstream<T, T> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaybeDelay(MaybeSource<T> maybeSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public MaybeDelay(MaybeSource<T> maybeSource, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         super(maybeSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {maybeSource, Long.valueOf(j), timeUnit, scheduler};
+            Object[] objArr = {maybeSource, Long.valueOf(j2), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -147,7 +147,7 @@ public final class MaybeDelay<T> extends AbstractMaybeWithUpstream<T, T> {
                 return;
             }
         }
-        this.delay = j;
+        this.delay = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

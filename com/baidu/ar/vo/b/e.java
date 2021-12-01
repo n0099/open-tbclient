@@ -10,7 +10,6 @@ import com.baidu.ar.arplay.core.pixel.PixelReadParams;
 import com.baidu.ar.arplay.core.pixel.PixelType;
 import com.baidu.ar.callback.ICallbackWith;
 import com.baidu.ar.d.j;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e extends j {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "e";
@@ -27,7 +26,7 @@ public class e extends j {
     public a yT;
     public b yU;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +125,7 @@ public class e extends j {
     public void m(FramePixels framePixels) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, framePixels) == null) || (bVar = this.yU) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, framePixels) == null) || (bVar = this.yU) == null) {
             return;
         }
         bVar.a(framePixels, new ICallbackWith<f>(this) { // from class: com.baidu.ar.vo.b.e.3

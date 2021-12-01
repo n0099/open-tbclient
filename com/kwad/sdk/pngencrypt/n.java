@@ -1,7 +1,6 @@
 package com.kwad.sdk.pngencrypt;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,15 +14,13 @@ import java.nio.charset.Charset;
 /* loaded from: classes2.dex */
 public final class n {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Charset f66901a;
+    public static Charset a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f66902b;
+    public static Charset f58805b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f66903c;
+    public static ThreadLocal<Boolean> f58806c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,9 +36,9 @@ public final class n {
                 return;
             }
         }
-        f66901a = Charset.forName("ISO-8859-1");
-        f66902b = Charset.forName("UTF-8");
-        f66903c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+        a = Charset.forName("ISO-8859-1");
+        f58805b = Charset.forName("UTF-8");
+        f58806c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -112,13 +109,13 @@ public final class n {
     public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? new byte[]{-119, 80, 78, 71, 13, 10, 26, 10} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{-119, 80, 78, 71, 13, 10, 26, 10} : (byte[]) invokeV.objValue;
     }
 
     public static int b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, inputStream)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) {
             try {
                 int read = inputStream.read();
                 int read2 = inputStream.read();

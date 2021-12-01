@@ -6,16 +6,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l implements e.a<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f39430a;
+    public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f39431b;
+    public final /* synthetic */ LBSAuthManager f35155b;
 
     public l(LBSAuthManager lBSAuthManager, String str) {
         Interceptable interceptable = $ic;
@@ -32,8 +30,8 @@ public class l implements e.a<String> {
                 return;
             }
         }
-        this.f39431b = lBSAuthManager;
-        this.f39430a = str;
+        this.f35155b = lBSAuthManager;
+        this.a = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +39,7 @@ public class l implements e.a<String> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f39431b.a(str, this.f39430a);
+            this.f35155b.a(str, this.a);
         }
     }
 }

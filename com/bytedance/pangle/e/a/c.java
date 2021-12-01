@@ -8,19 +8,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.InputStream;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public InputStream f62275a;
+    public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f62276b;
+    public boolean f54571b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62277c;
+    public int f54572c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,9 +37,9 @@ public final class c {
     public final void a(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream) == null) {
-            this.f62275a = inputStream;
-            this.f62276b = false;
-            this.f62277c = 0;
+            this.a = inputStream;
+            this.f54571b = false;
+            this.f54572c = 0;
         }
     }
 
@@ -50,24 +48,24 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int i2 = 0;
-            if (this.f62276b) {
+            if (this.f54571b) {
                 for (int i3 = 24; i3 >= 0; i3 -= 8) {
-                    int read = this.f62275a.read();
+                    int read = this.a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
-                    this.f62277c++;
+                    this.f54572c++;
                     i2 |= read << i3;
                 }
                 return i2;
             }
             int i4 = 0;
             while (i2 != 32) {
-                int read2 = this.f62275a.read();
+                int read2 = this.a.read();
                 if (read2 == -1) {
                     throw new EOFException();
                 }
-                this.f62277c++;
+                this.f54572c++;
                 i4 |= read2 << i2;
                 i2 += 8;
             }
@@ -79,8 +77,8 @@ public final class c {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long skip = this.f62275a.skip(4L);
-            this.f62277c = (int) (this.f62277c + skip);
+            long skip = this.a.skip(4L);
+            this.f54572c = (int) (this.f54572c + skip);
             if (skip != 4) {
                 throw new EOFException();
             }

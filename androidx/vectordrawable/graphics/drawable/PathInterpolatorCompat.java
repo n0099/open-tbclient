@@ -12,7 +12,6 @@ import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +128,7 @@ public class PathInterpolatorCompat implements Interpolator {
 
     private void parseInterpolatorFromTypeArray(TypedArray typedArray, XmlPullParser xmlPullParser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, typedArray, xmlPullParser) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, typedArray, xmlPullParser) == null) {
             if (TypedArrayUtils.hasAttribute(xmlPullParser, "pathData")) {
                 String namedString = TypedArrayUtils.getNamedString(typedArray, xmlPullParser, "pathData", 4);
                 Path createPathFromPathData = PathParser.createPathFromPathData(namedString);

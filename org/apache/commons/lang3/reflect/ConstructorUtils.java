@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +85,7 @@ public class ConstructorUtils {
     public static <T> T invokeExactConstructor(Class<T> cls, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, objArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, objArr)) == null) {
             Object[] nullToEmpty = ArrayUtils.nullToEmpty(objArr);
             return (T) invokeExactConstructor(cls, nullToEmpty, ClassUtils.toClass(nullToEmpty));
         }
@@ -124,7 +123,7 @@ public class ConstructorUtils {
     public static <T> T invokeConstructor(Class<T> cls, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, cls, objArr, clsArr)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, objArr, clsArr)) == null) {
             Object[] nullToEmpty = ArrayUtils.nullToEmpty(objArr);
             Constructor matchingAccessibleConstructor = getMatchingAccessibleConstructor(cls, ArrayUtils.nullToEmpty(clsArr));
             if (matchingAccessibleConstructor != null) {

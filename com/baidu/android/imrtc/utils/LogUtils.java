@@ -1,7 +1,6 @@
 package com.baidu.android.imrtc.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LogUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "rtcsdk";
@@ -61,14 +60,14 @@ public class LogUtils {
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
             String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }

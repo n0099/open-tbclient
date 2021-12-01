@@ -10,7 +10,7 @@ import com.baidu.wallet.base.datamodel.Authorize;
 import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import com.baidu.wallet.paysdk.ui.AuthorizeSignActivity;
 import com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f60782b = 3;
+        this.f53576b = 3;
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
@@ -42,9 +42,9 @@ public class c extends a {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.a(z);
             if (z) {
-                this.f60782b = 3;
+                this.f53576b = 3;
             } else {
-                this.f60782b = 4;
+                this.f53576b = 4;
             }
         }
     }
@@ -54,18 +54,18 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.b();
-            AuthorizeSignActivity authorizeSignActivity = this.f60781a;
+            AuthorizeSignActivity authorizeSignActivity = this.a;
             if (authorizeSignActivity == null) {
                 return;
             }
             AuthorizeInfoView.b authInfoViewAdapter = authorizeSignActivity.getAuthInfoViewAdapter(1);
-            DirectPayContentResponse payResponse = this.f60781a.getPayResponse();
+            DirectPayContentResponse payResponse = this.a.getPayResponse();
             if (payResponse != null) {
                 authInfoViewAdapter.a(payResponse.authorize);
                 authInfoViewAdapter.a(payResponse.user);
                 Authorize authorize = payResponse.authorize;
                 if (authorize != null) {
-                    this.f60781a.initActionBarByString(authorize.top_title);
+                    this.a.initActionBarByString(authorize.top_title);
                 }
             }
         }

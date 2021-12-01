@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpstream<T, GroupedObservable<K, V>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
     public final Function<? super T, ? extends K> keySelector;
     public final Function<? super T, ? extends V> valueSelector;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class GroupByObserver<T, K, V> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Object NULL_KEY;
@@ -89,13 +89,13 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
             lazySet(1);
         }
 
-        public void cancel(K k) {
+        public void cancel(K k2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, k) == null) {
-                if (k == null) {
-                    k = (K) NULL_KEY;
+            if (interceptable == null || interceptable.invokeL(1048576, this, k2) == null) {
+                if (k2 == null) {
+                    k2 = (K) NULL_KEY;
                 }
-                this.groups.remove(k);
+                this.groups.remove(k2);
                 if (decrementAndGet() == 0) {
                     this.s.dispose();
                 }
@@ -187,20 +187,20 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class GroupedUnicast<K, T> extends GroupedObservable<K, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final State<T, K> state;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public GroupedUnicast(K k, State<T, K> state) {
-            super(k);
+        public GroupedUnicast(K k2, State<T, K> state) {
+            super(k2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k, state};
+                Object[] objArr = {k2, state};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -214,10 +214,10 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
             this.state = state;
         }
 
-        public static <T, K> GroupedUnicast<K, T> createWith(K k, int i2, GroupByObserver<?, K, T> groupByObserver, boolean z) {
+        public static <T, K> GroupedUnicast<K, T> createWith(K k2, int i2, GroupByObserver<?, K, T> groupByObserver, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{k, Integer.valueOf(i2), groupByObserver, Boolean.valueOf(z)})) == null) ? new GroupedUnicast<>(k, new State(i2, groupByObserver, k, z)) : (GroupedUnicast) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{k2, Integer.valueOf(i2), groupByObserver, Boolean.valueOf(z)})) == null) ? new GroupedUnicast<>(k2, new State(i2, groupByObserver, k2, z)) : (GroupedUnicast) invokeCommon.objValue;
         }
 
         public void onComplete() {
@@ -250,7 +250,7 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class State<T, K> extends AtomicInteger implements Disposable, ObservableSource<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3852313036005250360L;
@@ -265,12 +265,12 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
         public final GroupByObserver<?, K, T> parent;
         public final SpscLinkedArrayQueue<T> queue;
 
-        public State(int i2, GroupByObserver<?, K, T> groupByObserver, K k, boolean z) {
+        public State(int i2, GroupByObserver<?, K, T> groupByObserver, K k2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), groupByObserver, k, Boolean.valueOf(z)};
+                Object[] objArr = {Integer.valueOf(i2), groupByObserver, k2, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -285,7 +285,7 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
             this.actual = new AtomicReference<>();
             this.queue = new SpscLinkedArrayQueue<>(i2);
             this.parent = groupByObserver;
-            this.key = k;
+            this.key = k2;
             this.delayError = z;
         }
 

@@ -2,7 +2,6 @@ package com.baidu.fsg.face.base.d;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,18 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38655a = "SAPI_BIOMETRIC";
+    public static final String a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38656b = "%1$s\n%2$s";
+    public static final String f34554b = "%1$s\n%2$s";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f38657c;
+    public static boolean f34555c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,8 +52,8 @@ public final class d {
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
-            f38657c = z;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            f34555c = z;
         }
     }
 
@@ -97,14 +94,14 @@ public final class d {
 
     public static void a(Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, th, str, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, null, th, str, objArr) == null) {
             a(6, th, str, objArr);
         }
     }
 
     public static void a(int i2, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), th, str, objArr}) == null) && f38657c) {
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), th, str, objArr}) == null) && f34555c) {
             if (objArr.length > 0) {
                 str = String.format(str, objArr);
             }

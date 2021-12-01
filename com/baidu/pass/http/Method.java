@@ -8,14 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Method {
     public static /* synthetic */ Interceptable $ic;
     public static final Method GET;
     public static final Method POST;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ Method[] f42790a;
+    public static final /* synthetic */ Method[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +32,7 @@ public final class Method {
         GET = new Method("GET", 0);
         Method method = new Method("POST", 1);
         POST = method;
-        f42790a = new Method[]{GET, method};
+        a = new Method[]{GET, method};
     }
 
     public Method(String str, int i2) {
@@ -65,6 +63,6 @@ public final class Method {
     public static Method[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Method[]) f42790a.clone() : (Method[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Method[]) a.clone() : (Method[]) invokeV.objValue;
     }
 }

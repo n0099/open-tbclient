@@ -23,22 +23,20 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class a extends com.baidu.android.pushservice.h.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f36073a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f36074b;
+    public i f32399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36075c;
+    public String f32400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f36076d;
+    public long f32401d;
 
     public a(i iVar, Context context) {
         Interceptable interceptable = $ic;
@@ -55,12 +53,12 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                 return;
             }
         }
-        this.f36076d = 0L;
-        this.f36074b = iVar;
-        this.f36073a = context.getApplicationContext();
-        this.f36075c = com.baidu.android.pushservice.h.e();
+        this.f32401d = 0L;
+        this.f32399b = iVar;
+        this.a = context.getApplicationContext();
+        this.f32400c = com.baidu.android.pushservice.h.e();
         a((short) 100);
-        c("http-" + iVar.f36089a);
+        c("http-" + iVar.a);
     }
 
     private int b(int i2) {
@@ -78,30 +76,30 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                 b(hashMap);
                 HashMap<String, String> hashMap2 = new HashMap<>();
                 a(hashMap2);
-                com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(this.f36073a, this.f36075c, "POST", com.baidu.android.pushservice.e.c.a(hashMap), hashMap2, "application/x-www-form-urlencoded");
-                this.f36076d = System.currentTimeMillis();
-                int b2 = a2.b();
-                inputStream = a2.a();
+                com.baidu.android.pushservice.e.b a = com.baidu.android.pushservice.e.c.a(this.a, this.f32400c, "POST", com.baidu.android.pushservice.e.c.a(hashMap), hashMap2, "application/x-www-form-urlencoded");
+                this.f32401d = System.currentTimeMillis();
+                int b2 = a.b();
+                inputStream = a.a();
                 if (b2 == 200) {
-                    a(0, b(com.baidu.android.pushservice.j.m.a(this.f36073a, inputStream)).getBytes());
+                    a(0, b(com.baidu.android.pushservice.j.m.a(this.a, inputStream)).getBytes());
                     z = false;
                     i3 = 0;
                 } else {
                     z = b2 == 503;
                     try {
-                        a(com.baidu.android.pushservice.j.m.a(this.f36073a, inputStream));
+                        a(com.baidu.android.pushservice.j.m.a(this.a, inputStream));
                         i3 = b2;
                     } catch (Exception e2) {
                         e = e2;
-                        com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error : " + e.getMessage(), this.f36073a);
-                        new b.c(this.f36073a).a(Log.getStackTraceString(e)).a();
+                        com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error : " + e.getMessage(), this.a);
+                        new b.c(this.a).a(Log.getStackTraceString(e)).a();
                         if (z) {
                             a(10003);
                         } else {
-                            com.baidu.android.pushservice.j.m.a("tryConnect failed setResult UnKnown " + e.getMessage(), this.f36073a);
+                            com.baidu.android.pushservice.j.m.a("tryConnect failed setResult UnKnown " + e.getMessage(), this.a);
                             a(ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT);
                         }
-                        com.baidu.android.pushservice.e.c.a(this.f36073a, inputStream);
+                        com.baidu.android.pushservice.e.c.a(this.a, inputStream);
                         return -1;
                     }
                 }
@@ -111,14 +109,14 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                     }
                     i3 = 10002;
                 }
-                com.baidu.android.pushservice.e.c.a(this.f36073a, inputStream);
+                com.baidu.android.pushservice.e.c.a(this.a, inputStream);
                 return i3;
             } catch (Exception e3) {
                 e = e3;
                 z = false;
             }
         } catch (Throwable th) {
-            com.baidu.android.pushservice.e.c.a(this.f36073a, null);
+            com.baidu.android.pushservice.e.c.a(this.a, null);
             throw th;
         }
     }
@@ -126,12 +124,10 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            com.baidu.android.pushservice.c.a(this.f36073a).a(0, new c.a(this) { // from class: com.baidu.android.pushservice.d.a.1
+            com.baidu.android.pushservice.c.a(this.a).a(0, new c.a(this) { // from class: com.baidu.android.pushservice.d.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f36077a;
+                public final /* synthetic */ a a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,27 +144,27 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                             return;
                         }
                     }
-                    this.f36077a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.android.pushservice.c.a
                 public void a(int i2, List<String> list) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, list) == null) {
-                        String str = this.f36077a.f36075c.startsWith("https://") ? "https://" : "http://";
-                        a aVar = this.f36077a;
-                        aVar.f36075c = aVar.f36075c.replace(str, "");
-                        int indexOf = this.f36077a.f36075c.indexOf("/");
+                        String str = this.a.f32400c.startsWith("https://") ? "https://" : "http://";
+                        a aVar = this.a;
+                        aVar.f32400c = aVar.f32400c.replace(str, "");
+                        int indexOf = this.a.f32400c.indexOf("/");
                         if (indexOf > 0) {
-                            a aVar2 = this.f36077a;
-                            aVar2.f36075c = aVar2.f36075c.substring(indexOf);
+                            a aVar2 = this.a;
+                            aVar2.f32400c = aVar2.f32400c.substring(indexOf);
                         }
-                        String d2 = com.baidu.android.pushservice.h.d(this.f36077a.f36073a);
+                        String d2 = com.baidu.android.pushservice.h.d(this.a.a);
                         if (list != null && list.size() > 0) {
                             d2 = list.get(0);
                         }
-                        a aVar3 = this.f36077a;
-                        aVar3.f36075c = "https://" + d2 + this.f36077a.f36075c;
+                        a aVar3 = this.a;
+                        aVar3.f32400c = "https://" + d2 + this.a.f32400c;
                     }
                 }
             });
@@ -193,17 +189,17 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
     public void a(int i2, byte[] bArr) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr) == null) && this.f36074b.j) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr) == null) && this.f32399b.f32419j) {
             Intent intent = new Intent();
             intent.setAction("com.baidu.android.pushservice.action.RECEIVE");
-            intent.putExtra("method", this.f36074b.f36089a);
+            intent.putExtra("method", this.f32399b.a);
             intent.putExtra(GameCodeGetResponseMsg.PARAM_ERROR_MSG, i2);
             intent.putExtra("content", bArr);
             intent.setFlags(32);
             a(intent);
-            if (this.f36074b.f36089a.equals("method_bind")) {
-                intent.putExtra("access_token", this.f36074b.f36091c);
-                intent.putExtra("secret_key", this.f36074b.f36095g);
+            if (this.f32399b.a.equals("method_bind")) {
+                intent.putExtra("access_token", this.f32399b.f32412c);
+                intent.putExtra("secret_key", this.f32399b.f32416g);
                 intent.putExtra("real_bind", "real_bind");
                 try {
                     JSONObject jSONObject = new JSONObject(new String(bArr));
@@ -211,21 +207,21 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                     if (i2 != 0) {
                         str = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                     } else {
-                        com.baidu.android.pushservice.j.l.a(this.f36073a, new Intent());
+                        com.baidu.android.pushservice.j.l.a(this.a, new Intent());
                         str = "";
                     }
-                    new b.d(this.f36073a).a("bindForBD").c(i2).d(501003L).b(string).b(System.currentTimeMillis()).a(this.f36076d).c(i2 != 0 ? str : "").a();
+                    new b.d(this.a).a("bindForBD").c(i2).d(501003L).b(string).b(System.currentTimeMillis()).a(this.f32401d).c(i2 != 0 ? str : "").a();
                 } catch (JSONException unused) {
                 }
             } else if (bArr != null) {
-                this.f36074b.f36089a.equals("method_unbind");
+                this.f32399b.a.equals("method_unbind");
             }
-            if (TextUtils.isEmpty(this.f36074b.f36092d)) {
+            if (TextUtils.isEmpty(this.f32399b.f32413d)) {
                 return;
             }
-            com.baidu.android.pushservice.j.m.a("> sendResult to " + this.f36074b.f36095g + ", method:" + this.f36074b.f36089a + ", errorCode : " + i2 + ", content : " + new String(bArr), this.f36073a);
-            intent.setPackage(this.f36074b.f36092d);
-            com.baidu.android.pushservice.j.m.b(this.f36073a, intent, intent.getAction(), this.f36074b.f36092d);
+            com.baidu.android.pushservice.j.m.a("> sendResult to " + this.f32399b.f32416g + ", method:" + this.f32399b.a + ", errorCode : " + i2 + ", content : " + new String(bArr), this.a);
+            intent.setPackage(this.f32399b.f32413d);
+            com.baidu.android.pushservice.j.m.b(this.a, intent, intent.getAction(), this.f32399b.f32413d);
         }
     }
 
@@ -253,7 +249,7 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
             jSONObject2.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, string2);
             a(i2, jSONObject2.toString().getBytes());
         } catch (JSONException e2) {
-            com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error : " + e2.getMessage(), this.f36073a);
+            com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error : " + e2.getMessage(), this.a);
         }
     }
 
@@ -273,19 +269,19 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            i iVar = this.f36074b;
-            if (iVar == null || TextUtils.isEmpty(iVar.f36089a)) {
-                com.baidu.android.pushservice.j.m.a("AbstractProcessor#execute#mEvent = null or mEvent.method = null", this.f36073a);
-            } else if (!this.f36074b.f36089a.equals("com.baidu.android.pushservice.action.UNBIND") && TextUtils.isEmpty(this.f36074b.f36092d)) {
-                com.baidu.android.pushservice.j.m.a("AbstractProcessor#execute#Unknown method", this.f36073a);
-            } else if (!com.baidu.android.pushservice.j.g.a(this.f36073a)) {
-                com.baidu.android.pushservice.g.a.b("AbstractProcessor", "Network is not useful!", this.f36073a);
-                com.baidu.android.pushservice.j.m.a("AbstractProcessor#execute#Network is unuseful!", this.f36073a);
+            i iVar = this.f32399b;
+            if (iVar == null || TextUtils.isEmpty(iVar.a)) {
+                com.baidu.android.pushservice.j.m.a("AbstractProcessor#execute#mEvent = null or mEvent.method = null", this.a);
+            } else if (!this.f32399b.a.equals("com.baidu.android.pushservice.action.UNBIND") && TextUtils.isEmpty(this.f32399b.f32413d)) {
+                com.baidu.android.pushservice.j.m.a("AbstractProcessor#execute#Unknown method", this.a);
+            } else if (!com.baidu.android.pushservice.j.g.a(this.a)) {
+                com.baidu.android.pushservice.g.a.b("AbstractProcessor", "Network is not useful!", this.a);
+                com.baidu.android.pushservice.j.m.a("AbstractProcessor#execute#Network is unuseful!", this.a);
                 a(10001);
-                com.baidu.android.pushservice.j.l.a(this.f36073a, new Intent());
+                com.baidu.android.pushservice.j.l.a(this.a, new Intent());
             } else {
                 boolean c2 = c();
-                com.baidu.android.pushservice.g.a.c("AbstractProcessor", "netWorkConnect connectResult: " + c2, this.f36073a);
+                com.baidu.android.pushservice.g.a.c("AbstractProcessor", "netWorkConnect connectResult: " + c2, this.a);
             }
         }
     }
@@ -293,11 +289,11 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
     public void b(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hashMap) == null) {
-            b.a(this.f36073a, hashMap);
-            if (TextUtils.isEmpty(this.f36074b.f36095g)) {
+            b.a(this.a, hashMap);
+            if (TextUtils.isEmpty(this.f32399b.f32416g)) {
                 return;
             }
-            hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, this.f36074b.f36095g);
+            hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, this.f32399b.f32416g);
         }
     }
 
@@ -305,8 +301,8 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (TextUtils.isEmpty(this.f36075c)) {
-                com.baidu.android.pushservice.g.a.b("AbstractProcessor", "mUrl is null", this.f36073a);
+            if (TextUtils.isEmpty(this.f32400c)) {
+                com.baidu.android.pushservice.g.a.b("AbstractProcessor", "mUrl is null", this.a);
                 return false;
             }
             for (int i2 = 0; i2 <= 2; i2++) {

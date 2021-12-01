@@ -3,9 +3,7 @@ package com.idlefish.flutterboost;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.r0.r3.a;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +31,6 @@ public class FlutterViewContainerManager implements IContainerManager {
     public final Map<IFlutterViewContainer, IContainerRecord> mRecordMap;
     public final Stack<IContainerRecord> mRecordStack;
     public final Set<ContainerRef> mRefs;
-    public final Stack<IContainerRecord> mShowRecord;
 
     /* loaded from: classes2.dex */
     public static class ContainerRef {
@@ -83,7 +80,6 @@ public class FlutterViewContainerManager implements IContainerManager {
         this.mRecordMap = new LinkedHashMap();
         this.mRefs = new HashSet();
         this.mRecordStack = new Stack<>();
-        this.mShowRecord = new Stack<>();
         this.mOnResults = new HashMap();
     }
 
@@ -198,25 +194,9 @@ public class FlutterViewContainerManager implements IContainerManager {
         return invokeV.booleanValue;
     }
 
-    public void logShowRecord() {
-        Stack<IContainerRecord> stack;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || !FlutterCrabReportEnableSwitch.isOn() || (stack = this.mShowRecord) == null || stack.size() <= 0) {
-            return;
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        for (int i2 = 0; i2 < this.mShowRecord.size(); i2++) {
-            IContainerRecord iContainerRecord = this.mShowRecord.get(i2);
-            if (iContainerRecord != null && iContainerRecord.getContainer() != null) {
-                stringBuffer.append("--" + iContainerRecord.getContainer().getContainerUrl() + "_" + iContainerRecord.creatTime());
-            }
-        }
-        a.getInstance().setOpenFlutterPage(stringBuffer.toString());
-    }
-
     public void onShownContainerChanged(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
             Utils.assertCallOnMainThread();
             IFlutterViewContainer iFlutterViewContainer = null;
             IFlutterViewContainer iFlutterViewContainer2 = null;
@@ -242,7 +222,7 @@ public class FlutterViewContainerManager implements IContainerManager {
 
     public void openContainer(String str, Map<String, Object> map, Map<String, Object> map2, OnResult onResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map, map2, onResult) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048583, this, str, map, map2, onResult) == null) {
             Context currentActivity = FlutterBoost.instance().currentActivity();
             if (currentActivity == null) {
                 currentActivity = FlutterBoost.instance().platform().getApplication();
@@ -263,40 +243,16 @@ public class FlutterViewContainerManager implements IContainerManager {
         }
     }
 
-    public IContainerRecord peekShowRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.mShowRecord.isEmpty()) {
-                return null;
-            }
-            return this.mShowRecord.peek();
-        }
-        return (IContainerRecord) invokeV.objValue;
-    }
-
     public void popRecord(IContainerRecord iContainerRecord) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, iContainerRecord) == null) && !this.mRecordStack.empty() && this.mRecordStack.peek() == iContainerRecord) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iContainerRecord) == null) && !this.mRecordStack.empty() && this.mRecordStack.peek() == iContainerRecord) {
             this.mRecordStack.pop();
         }
     }
 
-    public IContainerRecord popShowRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.mShowRecord.isEmpty()) {
-                return null;
-            }
-            return this.mShowRecord.pop();
-        }
-        return (IContainerRecord) invokeV.objValue;
-    }
-
     public void pushRecord(IContainerRecord iContainerRecord) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, iContainerRecord) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, iContainerRecord) == null) {
             if (!this.mRecordMap.containsValue(iContainerRecord)) {
                 Debuger.exception("invalid record!");
             }
@@ -304,31 +260,17 @@ public class FlutterViewContainerManager implements IContainerManager {
         }
     }
 
-    public void pushShowRecord(IContainerRecord iContainerRecord) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, iContainerRecord) == null) {
-            this.mShowRecord.push(iContainerRecord);
-        }
-    }
-
     public void removeRecord(IContainerRecord iContainerRecord) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, iContainerRecord) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, iContainerRecord) == null) {
             this.mRecordStack.remove(iContainerRecord);
             this.mRecordMap.remove(iContainerRecord.getContainer());
         }
     }
 
-    public void removeShowRecord(IContainerRecord iContainerRecord) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, iContainerRecord) == null) {
-            this.mShowRecord.remove(iContainerRecord);
-        }
-    }
-
     public void setContainerResult(IContainerRecord iContainerRecord, int i2, int i3, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{iContainerRecord, Integer.valueOf(i2), Integer.valueOf(i3), map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{iContainerRecord, Integer.valueOf(i2), Integer.valueOf(i3), map}) == null) {
             if (findContainerById(iContainerRecord.uniqueId()) == null) {
                 Debuger.exception("setContainerResult error, url=" + iContainerRecord.getContainer().getContainerUrl());
             }

@@ -14,13 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class NotificationClickedActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public BroadcastReceiver f71497a;
+    public BroadcastReceiver a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f62a;
@@ -73,7 +71,7 @@ public final class NotificationClickedActivity extends Activity {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("action_clicked_activity_finish");
             ac acVar = new ac(this);
-            this.f71497a = acVar;
+            this.a = acVar;
             try {
                 registerReceiver(acVar, intentFilter, d.a(this), null);
             } catch (Exception unused) {
@@ -90,7 +88,7 @@ public final class NotificationClickedActivity extends Activity {
             super.onDestroy();
             this.f62a.removeCallbacksAndMessages(null);
             try {
-                unregisterReceiver(this.f71497a);
+                unregisterReceiver(this.a);
             } catch (Exception unused) {
             }
         }

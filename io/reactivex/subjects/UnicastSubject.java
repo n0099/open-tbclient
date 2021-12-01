@@ -2,7 +2,6 @@ package io.reactivex.subjects;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class UnicastSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +36,7 @@ public final class UnicastSubject<T> extends Subject<T> {
     public final SpscLinkedArrayQueue<T> queue;
     public final BasicIntQueueDisposable<T> wip;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class UnicastQueueDisposable extends BasicIntQueueDisposable<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7926949470189395511L;
@@ -387,7 +386,7 @@ public final class UnicastSubject<T> extends Subject<T> {
     public static <T> UnicastSubject<T> create(int i2, Runnable runnable) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(AdIconUtil.AD_TEXT_ID, null, i2, runnable)) == null) ? new UnicastSubject<>(i2, runnable, true) : (UnicastSubject) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65541, null, i2, runnable)) == null) ? new UnicastSubject<>(i2, runnable, true) : (UnicastSubject) invokeIL.objValue;
     }
 
     @CheckReturnValue
@@ -395,7 +394,7 @@ public final class UnicastSubject<T> extends Subject<T> {
     public static <T> UnicastSubject<T> create(int i2, Runnable runnable, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Integer.valueOf(i2), runnable, Boolean.valueOf(z)})) == null) ? new UnicastSubject<>(i2, runnable, z) : (UnicastSubject) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i2), runnable, Boolean.valueOf(z)})) == null) ? new UnicastSubject<>(i2, runnable, z) : (UnicastSubject) invokeCommon.objValue;
     }
 
     @CheckReturnValue

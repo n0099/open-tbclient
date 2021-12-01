@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.TbVipInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UserTbVipInfoData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1112312312312L;

@@ -8,11 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.l;
-import b.a.e.f.p.u;
+import c.a.d.f.p.l;
+import c.a.d.f.p.u;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
@@ -26,46 +25,48 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BdToast {
     public static /* synthetic */ Interceptable $ic;
     public static SoftReference<Toast> n;
     public static HashMap<DefaultIcon, Integer> o;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final Context f45916a;
+    public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Toast f45917b;
+    public Toast f40931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ViewGroup f45918c;
+    public final ViewGroup f40932c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ImageView f45919d;
+    public final ImageView f40933d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f45920e;
+    public final TextView f40934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CharSequence f45921f;
+    public CharSequence f40935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45922g;
+    public int f40936g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f45923h;
+    public boolean f40937h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45924i;
-    public int j;
-    public int k;
+    public int f40938i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f40939j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f40940k;
     public int l;
     public int m;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class DefaultIcon {
         public static final /* synthetic */ DefaultIcon[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -161,18 +162,18 @@ public class BdToast {
                 return;
             }
         }
-        this.f45922g = -1;
-        this.f45923h = false;
-        this.f45924i = 16;
-        this.j = 0;
-        this.k = 0;
+        this.f40936g = -1;
+        this.f40937h = false;
+        this.f40938i = 16;
+        this.f40939j = 0;
+        this.f40940k = 0;
         this.l = 0;
         this.m = 0;
-        this.f45916a = context;
+        this.a = context;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_bdtoast, (ViewGroup) null);
-        this.f45918c = viewGroup;
-        this.f45919d = (ImageView) viewGroup.findViewById(R.id.toast_icon);
-        this.f45920e = (TextView) this.f45918c.findViewById(R.id.toast_message);
+        this.f40932c = viewGroup;
+        this.f40933d = (ImageView) viewGroup.findViewById(R.id.toast_icon);
+        this.f40934e = (TextView) this.f40932c.findViewById(R.id.toast_message);
     }
 
     public static BdToast c(Context context, CharSequence charSequence) {
@@ -216,7 +217,7 @@ public class BdToast {
     public static BdToast f(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, context, charSequence, defaultIcon)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, charSequence, defaultIcon)) == null) {
             int intValue = o.get(defaultIcon).intValue();
             BdToast bdToast = new BdToast(context);
             bdToast.p(charSequence);
@@ -230,7 +231,7 @@ public class BdToast {
     public static BdToast g(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i2) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(AdIconUtil.BAIDU_LOGO_ID, null, context, charSequence, defaultIcon, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65542, null, context, charSequence, defaultIcon, i2)) == null) {
             int intValue = o.get(defaultIcon).intValue();
             BdToast bdToast = new BdToast(context);
             bdToast.p(charSequence);
@@ -273,28 +274,28 @@ public class BdToast {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Toast toast = new Toast(this.f45916a);
-            this.f45917b = toast;
+            Toast toast = new Toast(this.a);
+            this.f40931b = toast;
             u.a(toast);
             s();
-            int i2 = this.f45922g;
+            int i2 = this.f40936g;
             if (i2 != -1) {
-                if (this.f45923h) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45919d, this.f45922g, R.color.CAM_X0101, null);
+                if (this.f40937h) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f40933d, this.f40936g, R.color.CAM_X0101, null);
                 } else {
-                    SkinManager.setImageResource(this.f45919d, i2);
+                    SkinManager.setImageResource(this.f40933d, i2);
                 }
-                this.f45919d.setVisibility(0);
+                this.f40933d.setVisibility(0);
             } else {
-                this.f45919d.setVisibility(8);
+                this.f40933d.setVisibility(8);
             }
-            this.f45918c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(this.f45916a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.f45920e, R.color.CAM_X0101, 1);
-            this.f45920e.setText(this.f45921f);
-            this.f45917b.setGravity(this.f45924i, this.k, this.l);
-            this.f45917b.setDuration(this.j);
+            this.f40932c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.f(this.a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.f40934e, R.color.CAM_X0101, 1);
+            this.f40934e.setText(this.f40935f);
+            this.f40931b.setGravity(this.f40938i, this.f40940k, this.l);
+            this.f40931b.setDuration(this.f40939j);
             r(this.m);
-            this.f45917b.setView(this.f45918c);
+            this.f40931b.setView(this.f40932c);
             return this;
         }
         return (BdToast) invokeV.objValue;
@@ -304,25 +305,25 @@ public class BdToast {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f45917b = new Toast(this.f45916a);
+            this.f40931b = new Toast(this.a);
             s();
-            int i3 = this.f45922g;
+            int i3 = this.f40936g;
             if (i3 != -1) {
-                if (this.f45923h) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45919d, this.f45922g, R.color.CAM_X0101, null);
+                if (this.f40937h) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f40933d, this.f40936g, R.color.CAM_X0101, null);
                 } else {
-                    SkinManager.setImageResource(this.f45919d, i3);
+                    SkinManager.setImageResource(this.f40933d, i3);
                 }
-                this.f45919d.setVisibility(0);
+                this.f40933d.setVisibility(0);
             } else {
-                this.f45919d.setVisibility(8);
+                this.f40933d.setVisibility(8);
             }
-            SkinManager.setViewTextColor(this.f45920e, R.color.CAM_X0101, 1, i2);
-            this.f45920e.setText(this.f45921f);
-            this.f45917b.setGravity(this.f45924i, this.k, this.l);
-            this.f45917b.setDuration(this.j);
+            SkinManager.setViewTextColor(this.f40934e, R.color.CAM_X0101, 1, i2);
+            this.f40934e.setText(this.f40935f);
+            this.f40931b.setGravity(this.f40938i, this.f40940k, this.l);
+            this.f40931b.setDuration(this.f40939j);
             r(this.m);
-            this.f45917b.setView(this.f45918c);
+            this.f40931b.setView(this.f40932c);
             return this;
         }
         return (BdToast) invokeI.objValue;
@@ -332,7 +333,7 @@ public class BdToast {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.j = i2;
+            this.f40939j = i2;
             return this;
         }
         return (BdToast) invokeI.objValue;
@@ -341,7 +342,7 @@ public class BdToast {
     public void k(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f45920e.setLineSpacing(0.0f, f2);
+            this.f40934e.setLineSpacing(0.0f, f2);
         }
     }
 
@@ -349,7 +350,7 @@ public class BdToast {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f45924i = i2;
+            this.f40938i = i2;
             return this;
         }
         return (BdToast) invokeI.objValue;
@@ -359,8 +360,8 @@ public class BdToast {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            this.f45922g = i2;
-            this.f45923h = z;
+            this.f40936g = i2;
+            this.f40937h = z;
             return this;
         }
         return (BdToast) invokeCommon.objValue;
@@ -384,8 +385,8 @@ public class BdToast {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence)) == null) {
-            this.f45921f = charSequence;
-            this.f45920e.setText(charSequence);
+            this.f40935f = charSequence;
+            this.f40934e.setText(charSequence);
             return this;
         }
         return (BdToast) invokeL.objValue;
@@ -395,10 +396,10 @@ public class BdToast {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            this.f45920e.setText(this.f45921f);
-            this.f45917b.setGravity(this.f45924i, this.k, this.l);
-            this.f45917b.setDuration(this.j);
-            this.f45917b.show();
+            this.f40934e.setText(this.f40935f);
+            this.f40931b.setGravity(this.f40938i, this.f40940k, this.l);
+            this.f40931b.setDuration(this.f40939j);
+            this.f40931b.show();
             return this;
         }
         return (BdToast) invokeV.objValue;
@@ -409,7 +410,7 @@ public class BdToast {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f45918c.setPadding(i2, this.f45918c.getTop(), i2, this.f45918c.getBottom());
+        this.f40932c.setPadding(i2, this.f40932c.getTop(), i2, this.f40932c.getBottom());
     }
 
     public final void s() {
@@ -419,7 +420,7 @@ public class BdToast {
             if (softReference != null && softReference.get() != null) {
                 n.get().cancel();
             }
-            n = new SoftReference<>(this.f45917b);
+            n = new SoftReference<>(this.f40931b);
         }
     }
 }

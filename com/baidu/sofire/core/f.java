@@ -15,7 +15,6 @@ import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.IDevices;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.U;
@@ -27,6 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.r1;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -50,37 +51,35 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<Integer> f43970b;
+    public static List<Integer> f39085b;
 
     /* renamed from: e  reason: collision with root package name */
-    public static f f43971e;
+    public static f f39086e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Application f43972f;
+    public static Application f39087f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Random f43973g;
+    public static Random f39088g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Map<String, ApkInfo> f43974a;
+    public Map<String, ApkInfo> a;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f43975c;
+    public String f39089c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f43976d;
+    public boolean f39090d;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, ApkInfo> f43977h;
+    public Map<String, ApkInfo> f39091h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Map<String, MyReceiver> f43978i;
+    public Map<String, MyReceiver> f39092i;
 
     static {
         InterceptResult invokeClinit;
@@ -95,8 +94,8 @@ public final class f {
                 return;
             }
         }
-        f43973g = new Random();
-        f43970b = new ArrayList();
+        f39088g = new Random();
+        f39085b = new ArrayList();
     }
 
     public f() {
@@ -112,9 +111,9 @@ public final class f {
                 return;
             }
         }
-        this.f43977h = new ConcurrentHashMap();
-        this.f43974a = new ConcurrentHashMap();
-        this.f43978i = new HashMap();
+        this.f39091h = new ConcurrentHashMap();
+        this.a = new ConcurrentHashMap();
+        this.f39092i = new HashMap();
     }
 
     public static synchronized f a(Context context) {
@@ -123,11 +122,11 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             synchronized (f.class) {
-                if (f43971e == null) {
-                    f43972f = (Application) context.getApplicationContext();
-                    f43971e = new f();
+                if (f39086e == null) {
+                    f39087f = (Application) context.getApplicationContext();
+                    f39086e = new f();
                 }
-                fVar = f43971e;
+                fVar = f39086e;
             }
             return fVar;
         }
@@ -161,10 +160,10 @@ public final class f {
         if (interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) {
             synchronized (this) {
                 try {
-                    if (gVar.f43982d == null) {
+                    if (gVar.f39095d == null) {
                         return;
                     }
-                    ApkInfo apkInfo = this.f43974a.get(gVar.f43979a);
+                    ApkInfo apkInfo = this.a.get(gVar.a);
                     if (apkInfo != null && apkInfo.intentFilters != null) {
                         ArrayList<Integer> arrayList = new ArrayList();
                         for (int i2 = 0; i2 < apkInfo.intentFilters.size(); i2++) {
@@ -182,23 +181,23 @@ public final class f {
                             apkInfo.intentFilters = null;
                         }
                     }
-                    String a2 = a(gVar.f43982d);
-                    if (TextUtils.isEmpty(a2)) {
+                    String a = a(gVar.f39095d);
+                    if (TextUtils.isEmpty(a)) {
                         return;
                     }
                     for (ApkInfo apkInfo2 : b()) {
                         if (apkInfo2.intentFilters != null && apkInfo2.intentFilters.size() > 0) {
                             for (g gVar2 : apkInfo2.intentFilters) {
-                                String a3 = a(gVar2.f43982d);
-                                if (!TextUtils.isEmpty(a3) && a3.equals(a2)) {
+                                String a2 = a(gVar2.f39095d);
+                                if (!TextUtils.isEmpty(a2) && a2.equals(a)) {
                                     return;
                                 }
                             }
                             continue;
                         }
                     }
-                    f43972f.unregisterReceiver(this.f43978i.get(a2));
-                    this.f43978i.remove(a2);
+                    f39087f.unregisterReceiver(this.f39092i.get(a));
+                    this.f39092i.remove(a);
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
                 }
@@ -211,7 +210,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             try {
-                return this.f43977h.get(str);
+                return this.f39091h.get(str);
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return null;
@@ -225,7 +224,7 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             try {
-                return this.f43974a.get(str);
+                return this.a.get(str);
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return null;
@@ -239,15 +238,15 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             try {
-                ApkInfo apkInfo = this.f43974a.get(str);
+                ApkInfo apkInfo = this.a.get(str);
                 if (apkInfo != null) {
-                    Class<?> a2 = ((e) apkInfo.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                    Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, f43972f);
+                    Class<?> a = ((e) apkInfo.classLoader).a("com.baidu.sofire.engine.EngineImpl");
+                    Object invoke = a.getDeclaredMethod("getInstance", Context.class).invoke(a, f39087f);
                     if (invoke != null) {
                         com.baidu.sofire.utility.c.a(invoke, "unload", (Class<?>[]) null, new Object[0]);
                     }
-                    this.f43977h.remove(apkInfo.pkgPath);
-                    this.f43974a.remove(str);
+                    this.f39091h.remove(apkInfo.pkgPath);
+                    this.a.remove(str);
                     return true;
                 }
                 return false;
@@ -262,7 +261,7 @@ public final class f {
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f43971e : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f39086e : (f) invokeV.objValue;
     }
 
     public final synchronized void a(g gVar) {
@@ -270,10 +269,10 @@ public final class f {
         if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
             synchronized (this) {
                 try {
-                    if (gVar.f43982d == null) {
+                    if (gVar.f39095d == null) {
                         return;
                     }
-                    ApkInfo apkInfo = this.f43974a.get(gVar.f43979a);
+                    ApkInfo apkInfo = this.a.get(gVar.a);
                     if (apkInfo != null) {
                         if (apkInfo.intentFilters == null) {
                             apkInfo.intentFilters = new ArrayList();
@@ -284,19 +283,19 @@ public final class f {
                             }
                         }
                         apkInfo.intentFilters.add(gVar);
-                        String a2 = a(gVar.f43982d);
-                        if (!TextUtils.isEmpty(a2) && !a2.equals("____")) {
-                            if (!this.f43978i.keySet().contains(a2)) {
+                        String a = a(gVar.f39095d);
+                        if (!TextUtils.isEmpty(a) && !a.equals("____")) {
+                            if (!this.f39092i.keySet().contains(a)) {
                                 MyReceiver myReceiver = new MyReceiver();
-                                if (!com.baidu.sofire.utility.c.a(f43972f, myReceiver, gVar.f43982d)) {
+                                if (!com.baidu.sofire.utility.c.a(f39087f, myReceiver, gVar.f39095d)) {
                                     try {
                                         Thread.sleep(3000L);
                                     } catch (InterruptedException unused) {
                                         com.baidu.sofire.utility.c.a();
                                     }
-                                    com.baidu.sofire.utility.c.a(f43972f, myReceiver, gVar.f43982d);
+                                    com.baidu.sofire.utility.c.a(f39087f, myReceiver, gVar.f39095d);
                                 }
-                                this.f43978i.put(a2, myReceiver);
+                                this.f39092i.put(a, myReceiver);
                             }
                         }
                     }
@@ -310,7 +309,7 @@ public final class f {
     public static String a(IntentFilter intentFilter) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, intentFilter)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intentFilter)) == null) {
             if (intentFilter == null) {
                 return "";
             }
@@ -409,8 +408,8 @@ public final class f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
                 ArrayList arrayList = new ArrayList();
-                for (String str : this.f43974a.keySet()) {
-                    arrayList.add(this.f43974a.get(str));
+                for (String str : this.a.keySet()) {
+                    arrayList.add(this.a.get(str));
                 }
                 return arrayList;
             } catch (Throwable unused) {
@@ -430,13 +429,13 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            ApkInfo apkInfo = this.f43974a.get(str);
+            ApkInfo apkInfo = this.a.get(str);
             if (apkInfo != null) {
-                this.f43977h.remove(apkInfo.pkgPath);
-                this.f43974a.remove(str);
+                this.f39091h.remove(apkInfo.pkgPath);
+                this.a.remove(str);
                 com.baidu.sofire.mutiprocess.b.b(str);
                 com.baidu.sofire.utility.c.d(apkInfo.dataDir);
-                Application application = f43972f;
+                Application application = f39087f;
                 if (application != null) {
                     com.baidu.sofire.utility.c.d(application.getFileStreamPath(apkInfo.packageName).getAbsolutePath());
                     return true;
@@ -453,8 +452,8 @@ public final class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apkInfo, z)) == null) {
             System.currentTimeMillis();
-            this.f43976d = z;
-            this.f43975c = apkInfo.versionName;
+            this.f39090d = z;
+            this.f39089c = apkInfo.versionName;
             return a(apkInfo);
         }
         return invokeLZ.booleanValue;
@@ -467,7 +466,7 @@ public final class f {
             synchronized (this) {
                 if (apkInfo != null) {
                     if (!TextUtils.isEmpty(apkInfo.pkgPath)) {
-                        ApkInfo apkInfo2 = this.f43977h.get(apkInfo.pkgPath);
+                        ApkInfo apkInfo2 = this.f39091h.get(apkInfo.pkgPath);
                         if (apkInfo2 != null) {
                             if (apkInfo2.versionName.equals(apkInfo.versionName)) {
                                 return true;
@@ -479,24 +478,24 @@ public final class f {
                             hashMap.put("0", 1);
                             hashMap.put("1", Integer.valueOf(apkInfo.key));
                             hashMap.put("2", apkInfo.versionName);
-                            com.baidu.sofire.utility.c.a(f43972f.getApplicationContext(), "1003117", (Map<String, Object>) hashMap, false);
+                            com.baidu.sofire.utility.c.a(f39087f.getApplicationContext(), "1003117", (Map<String, Object>) hashMap, false);
                             return false;
                         }
-                        apkInfo.hostContext = f43972f;
+                        apkInfo.hostContext = f39087f;
                         if (apkInfo.apkParseSuc == 1) {
                             if (!TextUtils.isEmpty(apkInfo.packageName) && !TextUtils.isEmpty(apkInfo.pkgPath)) {
                                 if (!a(apkInfo.key, apkInfo.versionName, apkInfo.apkMD5, apkInfo.pkgPath)) {
                                     return false;
                                 }
-                                apkInfo.dataDir = f43972f.getFilesDir().getCanonicalPath() + "/." + apkInfo.key;
+                                apkInfo.dataDir = f39087f.getFilesDir().getCanonicalPath() + r1.f56836k + apkInfo.key;
                                 String str = apkInfo.dataDir + "/dex";
-                                String str2 = (apkInfo.dataDir + "/lib/" + this.f43975c) + "/" + f43973g.nextInt();
+                                String str2 = (apkInfo.dataDir + "/lib/" + this.f39089c) + "/" + f39088g.nextInt();
                                 f(str);
                                 com.baidu.sofire.utility.c.a(str, false);
                                 f(str2);
                                 a(apkInfo, str2, str);
-                                this.f43977h.put(apkInfo.pkgPath, apkInfo);
-                                this.f43974a.put(apkInfo.packageName, apkInfo);
+                                this.f39091h.put(apkInfo.pkgPath, apkInfo);
+                                this.a.put(apkInfo.packageName, apkInfo);
                                 a(apkInfo, apkInfo.className);
                             } else {
                                 throw new RuntimeException("packageName or pkgPath miss");
@@ -504,7 +503,7 @@ public final class f {
                         }
                         if (apkInfo.apkParseSuc != 1 || 0 != 0) {
                             PackageInfo packageInfo = apkInfo.cloudPkgInfo;
-                            if ((packageInfo == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)) && (((packageInfo = f43972f.getPackageManager().getPackageArchiveInfo(apkInfo.pkgPath, 1)) == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)) && ((packageInfo = a(apkInfo.packageName, apkInfo.apkMD5)) == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)))) {
+                            if ((packageInfo == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)) && (((packageInfo = f39087f.getPackageManager().getPackageArchiveInfo(apkInfo.pkgPath, 1)) == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)) && ((packageInfo = a(apkInfo.packageName, apkInfo.apkMD5)) == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)))) {
                                 throw new Exception("requestCloudPackageInfo failed");
                             }
                             if (!TextUtils.isEmpty(packageInfo.packageName) && packageInfo.packageName.startsWith("com.baidu.sofire")) {
@@ -516,15 +515,15 @@ public final class f {
                                 apkInfo.versionName = packageInfo.versionName;
                                 apkInfo.activities = packageInfo.activities;
                                 apkInfo.applicationTheme = packageInfo.applicationInfo.theme;
-                                apkInfo.dataDir = f43972f.getFilesDir().getCanonicalPath() + "/." + apkInfo.key;
+                                apkInfo.dataDir = f39087f.getFilesDir().getCanonicalPath() + r1.f56836k + apkInfo.key;
                                 String str3 = apkInfo.dataDir + "/dex";
-                                String str4 = (apkInfo.dataDir + "/lib/" + this.f43975c) + "/" + f43973g.nextInt();
+                                String str4 = (apkInfo.dataDir + "/lib/" + this.f39089c) + "/" + f39088g.nextInt();
                                 f(str3);
                                 com.baidu.sofire.utility.c.a(str3, false);
                                 f(str4);
                                 a(apkInfo, str4, str3);
-                                this.f43977h.put(apkInfo.pkgPath, apkInfo);
-                                this.f43974a.put(apkInfo.packageName, apkInfo);
+                                this.f39091h.put(apkInfo.pkgPath, apkInfo);
+                                this.a.put(apkInfo.packageName, apkInfo);
                                 a(apkInfo, packageInfo.applicationInfo.className);
                             } else {
                                 throw new Exception("package name check failed");
@@ -546,10 +545,10 @@ public final class f {
             try {
                 JSONArray jSONArray = new JSONArray();
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("pk", str);
+                jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
                 jSONObject.put("m", str2);
                 jSONArray.put(jSONObject);
-                JSONArray jSONArray2 = new JSONArray(com.baidu.sofire.utility.g.a(f43972f, com.baidu.sofire.utility.c.b() + "p/1/pdl", jSONArray.toString(), false, true));
+                JSONArray jSONArray2 = new JSONArray(com.baidu.sofire.utility.g.a(f39087f, com.baidu.sofire.utility.c.b() + "p/1/pdl", jSONArray.toString(), false, true));
                 if (jSONArray2.length() <= 0) {
                     return null;
                 }
@@ -616,11 +615,11 @@ public final class f {
                 if (!com.baidu.sofire.utility.c.a(file)) {
                     pair = new Pair(Boolean.FALSE, "");
                 } else {
-                    String a2 = q.a(file);
-                    if (TextUtils.isEmpty(a2)) {
+                    String a = q.a(file);
+                    if (TextUtils.isEmpty(a)) {
                         pair = new Pair(Boolean.FALSE, "");
-                    } else if (!a2.equalsIgnoreCase(str2)) {
-                        pair = new Pair(Boolean.FALSE, a2);
+                    } else if (!a.equalsIgnoreCase(str2)) {
+                        pair = new Pair(Boolean.FALSE, a);
                     } else {
                         pair = new Pair(Boolean.TRUE, "");
                     }
@@ -636,7 +635,7 @@ public final class f {
             hashMap.put("1", Integer.valueOf(i2));
             hashMap.put("2", str);
             hashMap.put("3", Base64.encodeToString(((String) pair.second).getBytes(), 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
-            com.baidu.sofire.utility.c.a(f43972f.getApplicationContext(), "1003117", (Map<String, Object>) hashMap, false);
+            com.baidu.sofire.utility.c.a(f39087f.getApplicationContext(), "1003117", (Map<String, Object>) hashMap, false);
             return false;
         }
         return invokeCommon.booleanValue;
@@ -651,8 +650,8 @@ public final class f {
                     return true;
                 }
                 Application application = (Application) apkInfo.classLoader.loadClass(str).newInstance();
-                com.baidu.sofire.e.a(Application.class, f43972f, application);
-                Application application2 = f43972f;
+                com.baidu.sofire.e.a(Application.class, f39087f, application);
+                Application application2 = f39087f;
                 Class<?> cls = application2.getClass();
                 for (Class<Application> cls2 = Application.class; cls2 != null; cls2 = cls2.getSuperclass()) {
                     Field declaredField = cls2.getDeclaredField("mBase");
@@ -674,16 +673,16 @@ public final class f {
     private void a(ApkInfo apkInfo, String str, String str2) throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, this, apkInfo, str, str2) == null) {
-            f43972f.getFilesDir();
-            String a2 = a(apkInfo, str, true);
+            f39087f.getFilesDir();
+            String a = a(apkInfo, str, true);
             String str3 = "";
             String str4 = (Build.VERSION.SDK_INT >= 25 || TextUtils.isEmpty(System.getProperty("java.library.path"))) ? "" : "";
-            if (TextUtils.isEmpty(a2)) {
-                a2 = str4;
+            if (TextUtils.isEmpty(a)) {
+                a = str4;
             } else if (!TextUtils.isEmpty(str4)) {
-                a2 = a2 + ":" + str4;
+                a = a + ":" + str4;
             }
-            apkInfo.libPath = a2;
+            apkInfo.libPath = a;
             ClassLoader classLoader = f.class.getClassLoader();
             try {
                 try {
@@ -706,7 +705,7 @@ public final class f {
                             }
                         }
                     }
-                    e eVar = new e(apkInfo.pkgPath, absolutePath, a2, classLoader);
+                    e eVar = new e(apkInfo.pkgPath, absolutePath, a, classLoader);
                     apkInfo.classLoader = eVar;
                     Class<?> loadClass = eVar.loadClass("com.baidu.sofire.engine.EngineImpl");
                     if (loadClass == null || TextUtils.isEmpty(loadClass.getName())) {
@@ -716,8 +715,8 @@ public final class f {
                     if (apkInfo != null) {
                         try {
                             com.baidu.sofire.utility.c.d(apkInfo.dataDir);
-                            if (f43972f != null) {
-                                com.baidu.sofire.utility.c.d(f43972f.getFileStreamPath(apkInfo.packageName).getAbsolutePath());
+                            if (f39087f != null) {
+                                com.baidu.sofire.utility.c.d(f39087f.getFileStreamPath(apkInfo.packageName).getAbsolutePath());
                             }
                         } catch (Throwable unused2) {
                             com.baidu.sofire.utility.c.a();
@@ -734,7 +733,7 @@ public final class f {
                 com.baidu.sofire.utility.c.d(absolutePath2);
                 f(absolutePath2);
                 str3 = a(apkInfo, str, false);
-                e eVar2 = new e(str3, absolutePath2, a2, classLoader);
+                e eVar2 = new e(str3, absolutePath2, a, classLoader);
                 apkInfo.classLoader = eVar2;
                 Class<?> loadClass2 = eVar2.loadClass("com.baidu.sofire.engine.EngineImpl");
                 File file3 = new File(str3);
@@ -752,13 +751,13 @@ public final class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ApkInfo apkInfo = this.f43977h.get(str);
+            ApkInfo apkInfo = this.f39091h.get(str);
             if (apkInfo != null) {
-                this.f43977h.remove(str);
-                this.f43974a.remove(apkInfo.packageName);
+                this.f39091h.remove(str);
+                this.a.remove(apkInfo.packageName);
                 com.baidu.sofire.mutiprocess.b.b(apkInfo.packageName);
                 com.baidu.sofire.utility.c.d(apkInfo.dataDir);
-                Application application = f43972f;
+                Application application = f39087f;
                 if (application != null) {
                     com.baidu.sofire.utility.c.d(application.getFileStreamPath(apkInfo.packageName).getAbsolutePath());
                     return true;
@@ -940,11 +939,11 @@ public final class f {
                             }
                         }
                         if (z && hashMap.size() > 0) {
-                            String a2 = a(apkInfo.hostContext, hashMap.keySet());
-                            if (!TextUtils.isEmpty(a2)) {
-                                File file5 = new File(str, a2);
+                            String a = a(apkInfo.hostContext, hashMap.keySet());
+                            if (!TextUtils.isEmpty(a)) {
+                                File file5 = new File(str, a);
                                 f(file5.getAbsolutePath());
-                                List<ZipEntry> list2 = (List) hashMap.get(a2);
+                                List<ZipEntry> list2 = (List) hashMap.get(a);
                                 if (list2 != null && list2.size() > 0) {
                                     for (ZipEntry zipEntry : list2) {
                                         String name2 = zipEntry.getName();
@@ -1018,7 +1017,7 @@ public final class f {
         String[] strArr;
         String[] strArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, collection)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, collection)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
                 String p = com.baidu.sofire.utility.c.p(context);
                 if (TextUtils.isEmpty(p) || !collection.contains(p)) {
@@ -1186,9 +1185,9 @@ public final class f {
                         com.baidu.sofire.utility.c.a();
                     }
                     if (z && arrayList.size() > 0) {
-                        String a2 = a(apkInfo.hostContext, arrayList);
-                        if (!TextUtils.isEmpty(a2)) {
-                            File file3 = new File(str, a2);
+                        String a = a(apkInfo.hostContext, arrayList);
+                        if (!TextUtils.isEmpty(a)) {
+                            File file3 = new File(str, a);
                             f(file3.getAbsolutePath());
                             zipInputStream = new ZipInputStream(new FileInputStream(apkInfo.pkgPath));
                             while (true) {
@@ -1200,7 +1199,7 @@ public final class f {
                                             String[] split2 = name2.split("/");
                                             if (split2.length != 3) {
                                                 zipInputStream.closeEntry();
-                                            } else if (a2.equals(split2[1])) {
+                                            } else if (a.equals(split2[1])) {
                                                 String substring = name2.substring(name2.lastIndexOf("/") + 1);
                                                 File file4 = new File(file3, substring.replace(".so", str2 + ".so"));
                                                 file4.delete();

@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import b.a.e.f.m.h;
+import c.a.d.f.m.h;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class AppsActivity extends BaseActivity<AppsActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PULL_INVERVAL = 86400000;
@@ -39,13 +39,13 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     public String mUrl;
     public BaseWebView mWebView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f54760e;
+        public final /* synthetic */ AppsActivity f48938e;
 
         public a(AppsActivity appsActivity) {
             Interceptable interceptable = $ic;
@@ -62,25 +62,25 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f54760e = appsActivity;
+            this.f48938e = appsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54760e.refresh();
+                this.f48938e.refresh();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f54761e;
+        public final /* synthetic */ AppsActivity f48939e;
 
         public b(AppsActivity appsActivity) {
             Interceptable interceptable = $ic;
@@ -97,25 +97,25 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f54761e = appsActivity;
+            this.f48939e = appsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54761e.refresh();
+                this.f48939e.refresh();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f54762e;
+        public final /* synthetic */ AppsActivity f48940e;
 
         public c(AppsActivity appsActivity) {
             Interceptable interceptable = $ic;
@@ -132,39 +132,37 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f54762e = appsActivity;
+            this.f48940e = appsActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f54762e.finish();
+                this.f48940e.finish();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class d extends BdAsyncTask<Object, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public NetWork f54763a;
+        public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54764b;
+        public String f48941b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ AppsActivity f54765c;
+        public final /* synthetic */ AppsActivity f48942c;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes11.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f54766e;
+            public final /* synthetic */ String f48943e;
 
             public a(d dVar, String str) {
                 Interceptable interceptable = $ic;
@@ -181,14 +179,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                         return;
                     }
                 }
-                this.f54766e = str;
+                this.f48943e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    TbadkCoreApplication.getInst().cashNoAccountData(this.f54766e, 7);
+                    TbadkCoreApplication.getInst().cashNoAccountData(this.f48943e, 7);
                 }
             }
         }
@@ -208,22 +206,22 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                     return;
                 }
             }
-            this.f54765c = appsActivity;
-            this.f54763a = null;
-            this.f54764b = null;
-            this.f54764b = str;
+            this.f48942c = appsActivity;
+            this.a = null;
+            this.f48941b = null;
+            this.f48941b = str;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetWork netWork = this.f54763a;
+                NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f54765c.mProcess.setVisibility(8);
-                this.f54765c.mTask = null;
+                this.f48942c.mProcess.setVisibility(8);
+                this.f48942c.mTask = null;
                 super.cancel(true);
             }
         }
@@ -232,9 +230,9 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f54765c.mProcess.setVisibility(0);
-                this.f54765c.mFailView.setVisibility(8);
-                this.f54765c.mWebView.setVisibility(0);
+                this.f48942c.mProcess.setVisibility(0);
+                this.f48942c.mFailView.setVisibility(8);
+                this.f48942c.mWebView.setVisibility(0);
             }
         }
 
@@ -244,15 +242,15 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr)) == null) {
-                String str = this.f54764b;
+                String str = this.f48941b;
                 if (str == null) {
                     return null;
                 }
                 NetWork netWork = new NetWork(str);
-                this.f54763a = netWork;
+                this.a = netWork;
                 netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
-                this.f54763a.addPostData("client", "android");
-                return this.f54763a.postNetData();
+                this.a.addPostData("client", "android");
+                return this.a.postNetData();
             }
             return (String) invokeL.objValue;
         }
@@ -262,22 +260,22 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f54765c.mProcess.setVisibility(8);
-                NetWork netWork = this.f54763a;
+                this.f48942c.mProcess.setVisibility(8);
+                NetWork netWork = this.a;
                 if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
-                    if (!this.f54765c.loadCacheData() && str == null) {
-                        this.f54765c.mWebView.setVisibility(8);
-                        this.f54765c.mFailView.setVisibility(0);
-                        AppsActivity appsActivity = this.f54765c;
+                    if (!this.f48942c.loadCacheData() && str == null) {
+                        this.f48942c.mWebView.setVisibility(8);
+                        this.f48942c.mFailView.setVisibility(0);
+                        AppsActivity appsActivity = this.f48942c;
                         appsActivity.showToast(appsActivity.getPageContext().getString(R.string.neterror));
                         return;
                     }
-                    this.f54765c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, this.f54765c.getPageContext().getString(R.string.server_404), SapiWebView.DATA_MIME_TYPE, "utf-8", "");
+                    this.f48942c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, this.f48942c.getPageContext().getString(R.string.server_404), SapiWebView.DATA_MIME_TYPE, "utf-8", "");
                     return;
                 }
                 h.a().b(new a(this, str));
-                b.a.q0.s.e0.b.j().w("app_inverval", System.currentTimeMillis());
-                this.f54765c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
+                c.a.q0.s.e0.b.j().w("app_inverval", System.currentTimeMillis());
+                this.f48942c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
             }
         }
     }
@@ -315,7 +313,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             } else {
                 this.mUrl = getIntent().getStringExtra("url");
             }
-            if (System.currentTimeMillis() - b.a.q0.s.e0.b.j().l("app_inverval", 0L) > 86400000) {
+            if (System.currentTimeMillis() - c.a.q0.s.e0.b.j().l("app_inverval", 0L) > 86400000) {
                 refresh();
             } else if (loadCacheData()) {
             } else {

@@ -11,20 +11,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class TrafficInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TrafficInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public boolean f41114a;
+    public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f41115b;
+    public String f36578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<Integer> f41116c;
+    public ArrayList<Integer> f36579c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,11 +53,11 @@ public final class TrafficInfo implements Parcelable {
                 return;
             }
         }
-        this.f41114a = false;
-        this.f41115b = null;
-        this.f41114a = false;
-        this.f41115b = null;
-        this.f41116c = new ArrayList<>();
+        this.a = false;
+        this.f36578b = null;
+        this.a = false;
+        this.f36578b = null;
+        this.f36579c = new ArrayList<>();
     }
 
     public TrafficInfo(Parcel parcel) {
@@ -77,43 +75,43 @@ public final class TrafficInfo implements Parcelable {
                 return;
             }
         }
-        this.f41114a = false;
-        this.f41115b = null;
-        this.f41114a = parcel.readByte() != 0;
-        this.f41115b = parcel.readString();
+        this.a = false;
+        this.f36578b = null;
+        this.a = parcel.readByte() != 0;
+        this.f36578b = parcel.readString();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41115b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36578b : (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f41115b = str;
+            this.f36578b = str;
         }
     }
 
     public void a(ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.f41116c = arrayList;
+            this.f36579c = arrayList;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f41114a = z;
+            this.a = z;
         }
     }
 
     public ArrayList<Integer> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41116c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36579c : (ArrayList) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -130,8 +128,8 @@ public final class TrafficInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
-            parcel.writeByte(this.f41114a ? (byte) 1 : (byte) 0);
-            parcel.writeString(this.f41115b);
+            parcel.writeByte(this.a ? (byte) 1 : (byte) 0);
+            parcel.writeString(this.f36578b);
         }
     }
 }

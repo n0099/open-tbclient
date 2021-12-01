@@ -35,7 +35,6 @@ import androidx.transition.PathMotion;
 import androidx.transition.Transition;
 import androidx.transition.TransitionValues;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +51,7 @@ import com.google.android.material.shape.Shapeable;
 import com.google.android.material.transition.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class MaterialContainerTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProgressThresholdsGroup DEFAULT_ENTER_THRESHOLDS;
@@ -116,17 +115,17 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public @interface FitMode {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +168,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,11 +205,11 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
@@ -260,13 +259,13 @@ public final class MaterialContainerTransform extends Transition {
         public static float calculateElevationDxMultiplier(RectF rectF, float f2) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(AdIconUtil.AD_TEXT_ID, null, rectF, f2)) == null) ? ((rectF.centerX() / (f2 / 2.0f)) - 1.0f) * 0.3f : invokeLF.floatValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, rectF, f2)) == null) ? ((rectF.centerX() / (f2 / 2.0f)) - 1.0f) * 0.3f : invokeLF.floatValue;
         }
 
         public static float calculateElevationDyMultiplier(RectF rectF, float f2) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(AdIconUtil.BAIDU_LOGO_ID, null, rectF, f2)) == null) ? (rectF.centerY() / f2) * 1.5f : invokeLF.floatValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, rectF, f2)) == null) ? (rectF.centerY() / f2) * 1.5f : invokeLF.floatValue;
         }
 
         private void drawDebugCumulativePath(Canvas canvas, RectF rectF, Path path, @ColorInt int i2) {
@@ -692,12 +691,12 @@ public final class MaterialContainerTransform extends Transition {
     public static ShapeAppearanceModel captureShapeAppearance(@NonNull View view, @NonNull RectF rectF, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, view, rectF, shapeAppearanceModel)) == null) ? TransitionUtils.convertToRelativeCornerSizes(getShapeAppearance(view, shapeAppearanceModel), rectF) : (ShapeAppearanceModel) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, view, rectF, shapeAppearanceModel)) == null) ? TransitionUtils.convertToRelativeCornerSizes(getShapeAppearance(view, shapeAppearanceModel), rectF) : (ShapeAppearanceModel) invokeLLL.objValue;
     }
 
     public static void captureValues(@NonNull TransitionValues transitionValues, @Nullable View view, @IdRes int i2, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(AdIconUtil.BAIDU_LOGO_ID, null, transitionValues, view, i2, shapeAppearanceModel) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65542, null, transitionValues, view, i2, shapeAppearanceModel) == null) {
             if (i2 != -1) {
                 transitionValues.view = TransitionUtils.findDescendantOrAncestorById(transitionValues.view, i2);
             } else if (view != null) {

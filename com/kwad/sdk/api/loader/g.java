@@ -3,7 +3,7 @@ package com.kwad.sdk.api.loader;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,19 +13,17 @@ import java.io.File;
 /* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static File f64855a;
+    public static File a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static File a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (f64855a == null) {
-                f64855a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+            if (a == null) {
+                a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
             }
-            return f64855a;
+            return a;
         }
         return (File) invokeL.objValue;
     }
@@ -35,7 +33,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             File a2 = a(context);
-            return new File(a2, "dynamic-" + System.currentTimeMillis() + "-" + str + ".apk");
+            return new File(a2, "dynamic-" + System.currentTimeMillis() + "-" + str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
         }
         return (File) invokeLL.objValue;
     }
@@ -76,7 +74,7 @@ public class g {
     public static File c(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
             File a2 = a(context);
             return c(new File(a2, "apk-" + str));
         }
@@ -86,7 +84,7 @@ public class g {
     public static File c(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, file)) == null) {
             if (file.exists() && file.isFile()) {
                 file.delete();
             }
@@ -130,12 +128,10 @@ public class g {
         i.a(new Runnable(context, str) { // from class: com.kwad.sdk.api.loader.g.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f64856a;
+            public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f64857b;
+            public final /* synthetic */ String f57003b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -152,8 +148,8 @@ public class g {
                         return;
                     }
                 }
-                this.f64856a = context;
-                this.f64857b = str;
+                this.a = context;
+                this.f57003b = str;
             }
 
             @Override // java.lang.Runnable
@@ -161,12 +157,12 @@ public class g {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        File[] listFiles = g.c(this.f64856a, this.f64857b).getParentFile().listFiles();
+                        File[] listFiles = g.c(this.a, this.f57003b).getParentFile().listFiles();
                         if (listFiles == null || listFiles.length <= 0) {
                             return;
                         }
                         for (File file : listFiles) {
-                            if (f.a(this.f64857b, file.getName().substring(file.getName().indexOf("-") + 1))) {
+                            if (f.a(this.f57003b, file.getName().substring(file.getName().indexOf("-") + 1))) {
                                 g.a(file);
                             }
                         }

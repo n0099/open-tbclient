@@ -7,7 +7,6 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiIndoorInfo;
 import com.baidu.mapapi.search.poi.PoiIndoorResult;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class b extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +61,7 @@ public class b extends com.baidu.platform.base.d {
                                     PoiIndoorInfo poiIndoorInfo = new PoiIndoorInfo();
                                     poiIndoorInfo.address = jSONObject2.optString("address");
                                     poiIndoorInfo.bid = jSONObject2.optString("bd_id");
-                                    poiIndoorInfo.cid = jSONObject2.optInt(IAdRequestParam.CELL_ID);
+                                    poiIndoorInfo.cid = jSONObject2.optInt("cid");
                                     poiIndoorInfo.discount = jSONObject2.optInt("discount");
                                     poiIndoorInfo.floor = jSONObject2.optString("floor");
                                     poiIndoorInfo.name = jSONObject2.optString("name");

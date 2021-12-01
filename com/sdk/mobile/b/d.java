@@ -10,9 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class d implements com.sdk.base.framework.b.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ a f69207a;
+    public /* synthetic */ a a;
 
     public d(a aVar) {
         Interceptable interceptable = $ic;
@@ -29,14 +27,14 @@ public final class d implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f69207a = aVar;
+        this.a = aVar;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            this.f69207a.a(i2, i3, str);
+            this.a.a(i2, i3, str);
         }
     }
 
@@ -47,17 +45,17 @@ public final class d implements com.sdk.base.framework.b.a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
             if (i2 == 0) {
-                context = this.f69207a.f69186d;
-                String a2 = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
-                if (a2 == null) {
-                    this.f69207a.a(1, "SDK解密异常", 302001, a2, str2);
+                context = this.a.f61027d;
+                String a = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
+                if (a == null) {
+                    this.a.a(1, "SDK解密异常", 302001, a, str2);
                     return;
                 }
-                str3 = a2;
+                str3 = a;
             } else {
                 str3 = t;
             }
-            this.f69207a.a(i2, str, i3, str3, str2);
+            this.a.a(i2, str, i3, str3, str2);
         }
     }
 }

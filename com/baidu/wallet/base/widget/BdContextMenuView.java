@@ -21,15 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BdMenu;
 import com.baidu.wallet.base.widget.BdMenuItem;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f58361a = "BdContextMenuView";
+    public static final String a = "BdContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f58362b = true;
+    public static final boolean f52006b = true;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mMenuLoaded;
 
@@ -204,12 +202,10 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
             textView.setOnClickListener(new View.OnClickListener(this, bdMenuItem) { // from class: com.baidu.wallet.base.widget.BdContextMenuView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ BdMenuItem f58363a;
+                public final /* synthetic */ BdMenuItem a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BdContextMenuView f58364b;
+                public final /* synthetic */ BdContextMenuView f52007b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -226,18 +222,18 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                             return;
                         }
                     }
-                    this.f58364b = this;
-                    this.f58363a = bdMenuItem;
+                    this.f52007b = this;
+                    this.a = bdMenuItem;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     BdMenuItem.OnItemClickListener onClickListener;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.f58363a.getOnClickListener()) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (onClickListener = this.a.getOnClickListener()) == null) {
                         return;
                     }
-                    onClickListener.onClick(this.f58363a);
+                    onClickListener.onClick(this.a);
                 }
             });
             if (!TextUtils.isEmpty(str)) {

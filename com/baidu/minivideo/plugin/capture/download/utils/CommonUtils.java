@@ -10,8 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
 import java.text.DecimalFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final DecimalFormat DF;
@@ -33,7 +34,7 @@ public class CommonUtils {
             }
         }
         DF = new DecimalFormat("0.00");
-        PERMISSIONS_STORAGE = new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"};
+        PERMISSIONS_STORAGE = new String[]{s.f56844i, "android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
     public CommonUtils() {
@@ -50,11 +51,11 @@ public class CommonUtils {
         }
     }
 
-    public static String getDownloadPerSize(long j, long j2) {
+    public static String getDownloadPerSize(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return DF.format(((float) j) / 1048576.0f) + "M/" + DF.format(((float) j2) / 1048576.0f) + "M";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            return DF.format(((float) j2) / 1048576.0f) + "M/" + DF.format(((float) j3) / 1048576.0f) + "M";
         }
         return (String) invokeCommon.objValue;
     }

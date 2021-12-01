@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,15 +95,15 @@ public class b {
     }
 
     public void a(com.baidu.ar.vo.b.f fVar, float[] fArr) {
-        float[] a2;
+        float[] a;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, fArr) == null) && this.yA && !this.yB) {
             g hj = fVar.hj();
             if (this.yz) {
-                if (hj == null || (a2 = a(hj)) == null || a2.length <= 0) {
+                if (hj == null || (a = a(hj)) == null || a.length <= 0) {
                     return;
                 }
-                this.yw.r(a2);
+                this.yw.r(a);
                 return;
             }
             c cVar = this.yx;

@@ -11,7 +11,6 @@ import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +24,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,10 +83,10 @@ public class i {
                 Signature[] signatureArr = context.getPackageManager().getPackageInfo(packageName, 64).signatures;
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(signatureArr[0].toByteArray());
-                String a2 = l.a(messageDigest.digest());
+                String a = l.a(messageDigest.digest());
                 messageDigest.reset();
-                SLog.v("openSDK_LOG.SystemUtils", "-->sign: " + a2);
-                messageDigest.update(l.i(packageName + "_" + a2 + "_" + str + ""));
+                SLog.v("openSDK_LOG.SystemUtils", "-->sign: " + a);
+                messageDigest.update(l.i(packageName + "_" + a + "_" + str + ""));
                 str2 = l.a(messageDigest.digest());
                 messageDigest.reset();
                 StringBuilder sb = new StringBuilder();
@@ -188,21 +187,21 @@ public class i {
     public static String a(Activity activity, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, activity, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, activity, str)) == null) {
             if (activity == null) {
                 SLog.e("openSDK_LOG.SystemUtils", "getEncryptPkgName activity==null !!!!!!");
                 return "";
             }
             try {
-                byte[] a2 = e.a(str);
-                if (a2 == null) {
+                byte[] a = e.a(str);
+                if (a == null) {
                     SLog.e("openSDK_LOG.SystemUtils", "getEncryptPkgName shaBytes==null !!!!!!");
                     return "";
                 }
                 byte[] bArr = new byte[8];
-                System.arraycopy(a2, 5, bArr, 0, 8);
+                System.arraycopy(a, 5, bArr, 0, 8);
                 byte[] bArr2 = new byte[16];
-                System.arraycopy(a2, 8, bArr2, 0, 16);
+                System.arraycopy(a, 8, bArr2, 0, 16);
                 return e.a(activity.getPackageName(), e.a(bArr2), bArr);
             } catch (Exception e2) {
                 SLog.e("openSDK_LOG.SystemUtils", "getEncryptPkgName", e2);
@@ -240,7 +239,7 @@ public class i {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) ? context.getApplicationInfo().loadLabel(context.getPackageManager()).toString() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? context.getApplicationInfo().loadLabel(context.getPackageManager()).toString() : (String) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:66:0x00c2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -256,13 +255,13 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65547, null, str, str2, i2)) == null) {
             SLog.i("openSDK_LOG.SystemUtils", "-->extractSecureLib, libName: " + str);
-            Context a2 = f.a();
-            if (a2 == null) {
+            Context a = f.a();
+            if (a == null) {
                 SLog.i("openSDK_LOG.SystemUtils", "-->extractSecureLib, global context is null. ");
                 return false;
             }
-            SharedPreferences sharedPreferences = a2.getSharedPreferences("secure_lib", 0);
-            File file = new File(a2.getFilesDir(), str2);
+            SharedPreferences sharedPreferences = a.getSharedPreferences("secure_lib", 0);
+            File file = new File(a.getFilesDir(), str2);
             if (!file.exists()) {
                 File parentFile = file.getParentFile();
                 if (parentFile != null && parentFile.mkdirs()) {
@@ -284,7 +283,7 @@ public class i {
             FileOutputStream fileOutputStream2 = null;
             inputStream = null;
             try {
-                open = a2.getAssets().open(str);
+                open = a.getAssets().open(str);
             } catch (Exception e3) {
                 e = e3;
                 fileOutputStream = null;
@@ -293,7 +292,7 @@ public class i {
                 fileOutputStream = null;
             }
             try {
-                fileOutputStream2 = a2.openFileOutput(str2, 0);
+                fileOutputStream2 = a.openFileOutput(str2, 0);
                 a(open, fileOutputStream2);
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putInt("version", i2);
@@ -369,15 +368,15 @@ public class i {
             return invokeLL.longValue;
         }
         byte[] bArr = new byte[8192];
-        long j = 0;
+        long j2 = 0;
         while (true) {
             int read = inputStream.read(bArr, 0, 8192);
             if (read != -1) {
                 outputStream.write(bArr, 0, read);
-                j += read;
+                j2 += read;
             } else {
-                SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j);
-                return j;
+                SLog.i("openSDK_LOG.SystemUtils", "-->copy, copyed size is: " + j2);
+                return j2;
             }
         }
     }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GroupChatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_SEND_EXTRA_MSG = "auto_send_extra_msg";
@@ -70,13 +70,13 @@ public class GroupChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupChatActivityConfig(Activity activity, long j, String str, long j2, String str2) {
+    public GroupChatActivityConfig(Activity activity, long j2, String str, long j3, String str2) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Long.valueOf(j), str, Long.valueOf(j2), str2};
+            Object[] objArr = {activity, Long.valueOf(j2), str, Long.valueOf(j3), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -90,9 +90,9 @@ public class GroupChatActivityConfig extends IntentConfig {
         this.mGroupData = null;
         this.mObjTp = null;
         GroupData groupData = new GroupData();
-        groupData.setGroupId(j);
+        groupData.setGroupId(j2);
         groupData.setName(str);
-        groupData.setAuthorId(j2);
+        groupData.setAuthorId(j3);
         this.mGroupData = groupData;
         this.mObjTp = str2;
         Intent intent = getIntent();
@@ -105,13 +105,13 @@ public class GroupChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupChatActivityConfig(Activity activity, long j, String str, long j2, String str2, String str3, String str4) {
+    public GroupChatActivityConfig(Activity activity, long j2, String str, long j3, String str2, String str3, String str4) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Long.valueOf(j), str, Long.valueOf(j2), str2, str3, str4};
+            Object[] objArr = {activity, Long.valueOf(j2), str, Long.valueOf(j3), str2, str3, str4};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -125,9 +125,9 @@ public class GroupChatActivityConfig extends IntentConfig {
         this.mGroupData = null;
         this.mObjTp = null;
         GroupData groupData = new GroupData();
-        groupData.setGroupId(j);
+        groupData.setGroupId(j2);
         groupData.setName(str);
-        groupData.setAuthorId(j2);
+        groupData.setAuthorId(j3);
         this.mGroupData = groupData;
         this.mObjTp = str2;
         Intent intent = getIntent();

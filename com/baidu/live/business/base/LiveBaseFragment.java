@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import b.a.w.b.d.a;
-import b.a.w.b.d.b;
-import b.a.w.e.c.d;
+import c.a.w.b.d.a;
+import c.a.w.b.d.b;
+import c.a.w.e.c.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveTabEntity;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SOURCE = "source";

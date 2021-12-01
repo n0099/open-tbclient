@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LiveIMController implements LiveIM {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -84,12 +84,12 @@ public class LiveIMController implements LiveIM {
                 }
 
                 @Override // com.baidu.livesdk.api.im.IMCastSetListener
-                public void onResult(int i3, long j, long j2) {
+                public void onResult(int i3, long j2, long j3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                         IMCastSetListener iMCastSetListener2 = this.val$listener;
                         if (iMCastSetListener2 != null) {
-                            iMCastSetListener2.onResult(i3, j, j2);
+                            iMCastSetListener2.onResult(i3, j2, j3);
                         }
                         this.this$0.mIsConnect = true;
                     }
@@ -130,9 +130,9 @@ public class LiveIMController implements LiveIM {
             }
 
             @Override // com.baidu.livesdk.api.im.IMCastSetListener
-            public void onResult(int i2, long j, long j2) {
+            public void onResult(int i2, long j2, long j3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                     this.this$0.mIsConnect = false;
                 }
             }
@@ -291,11 +291,11 @@ public class LiveIMController implements LiveIM {
                 }
 
                 @Override // com.baidu.livesdk.api.im.IMCastSetListener
-                public void onResult(int i2, long j, long j2) {
+                public void onResult(int i2, long j2, long j3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                         if (this.this$0.mCastSetListener != null) {
-                            this.this$0.mCastSetListener.onResult(i2, j, j2);
+                            this.this$0.mCastSetListener.onResult(i2, j2, j3);
                         }
                         this.this$0.mIsConnect = true;
                     }

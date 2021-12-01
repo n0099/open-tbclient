@@ -11,39 +11,42 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
+import com.kuaishou.weapon.un.g;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final a f44181a;
+    public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f44182b;
+    public static final a f39241b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f44183c;
+    public static final a f39242c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f44184d;
+    public static final a f39243d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f44185e;
+    public static final a f39244e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f44186f;
+    public static final a f39245f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f44187g;
+    public static final a f39246g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final a f44188h;
+    public static final a f39247h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final a f44189i;
-    public static final a j;
-    public static final a k;
+    public static final a f39248i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final a f39249j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final a f39250k;
     public static final a l;
     public static final /* synthetic */ a[] m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,20 +65,20 @@ public final class a {
                 return;
             }
         }
-        f44181a = new a("UNSUPPORT", 0, -1, "unsupport");
-        f44182b = new a("HUA_WEI", 1, 0, "HUAWEI");
-        f44183c = new a("XIAOMI", 2, 1, "Xiaomi");
-        f44184d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f44185e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f44186f = new a("MOTO", 5, 4, "motorola");
-        f44187g = new a("LENOVO", 6, 5, "lenovo");
-        f44188h = new a("ASUS", 7, 6, "asus");
-        f44189i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
-        j = new a("MEIZU", 9, 8, "meizu");
-        k = new a("ALPS", 10, 9, "alps");
+        a = new a("UNSUPPORT", 0, -1, "unsupport");
+        f39241b = new a("HUA_WEI", 1, 0, "HUAWEI");
+        f39242c = new a("XIAOMI", 2, 1, "Xiaomi");
+        f39243d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+        f39244e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+        f39245f = new a("MOTO", 5, 4, "motorola");
+        f39246g = new a("LENOVO", 6, 5, "lenovo");
+        f39247h = new a("ASUS", 7, 6, "asus");
+        f39248i = new a(g.f56645j, 8, 7, ManufacturerUtils.SAMSUNG);
+        f39249j = new a("MEIZU", 9, 8, "meizu");
+        f39250k = new a("ALPS", 10, 9, "alps");
         a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
         l = aVar;
-        m = new a[]{f44181a, f44182b, f44183c, f44184d, f44185e, f44186f, f44187g, f44188h, f44189i, j, k, aVar};
+        m = new a[]{a, f39241b, f39242c, f39243d, f39244e, f39245f, f39246g, f39247h, f39248i, f39249j, f39250k, aVar};
     }
 
     public a(String str, int i2, int i3, String str2) {
@@ -105,14 +108,14 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f44181a;
+                return a;
             }
             for (a aVar : values()) {
                 if (aVar.n.equalsIgnoreCase(str)) {
                     return aVar;
                 }
             }
-            return f44181a;
+            return a;
         }
         return (a) invokeL.objValue;
     }

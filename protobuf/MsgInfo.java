@@ -27,6 +27,7 @@ public final class MsgInfo extends Message {
     public static final Long DEFAULT_SID;
     public static final String DEFAULT_STAT = "";
     public static final Integer DEFAULT_STATUS;
+    public static final String DEFAULT_STEXT = "";
     public static final Long DEFAULT_TASKID;
     public static final Long DEFAULT_TOUID;
     public static final Long DEFAULT_USERID;
@@ -55,6 +56,8 @@ public final class MsgInfo extends Message {
     public final Long serviceId;
     @ProtoField(tag = 17, type = Message.Datatype.INT64)
     public final Long sid;
+    @ProtoField(tag = 20, type = Message.Datatype.STRING)
+    public final String stExt;
     @ProtoField(tag = 14, type = Message.Datatype.STRING)
     public final String stat;
     @ProtoField(tag = 6, type = Message.Datatype.INT32)
@@ -86,6 +89,7 @@ public final class MsgInfo extends Message {
         public Long recordId;
         public Long serviceId;
         public Long sid;
+        public String stExt;
         public String stat;
         public Integer status;
         public Long taskId;
@@ -148,6 +152,7 @@ public final class MsgInfo extends Message {
             this.sid = msgInfo.sid;
             this.followStatus = msgInfo.followStatus;
             this.serviceId = msgInfo.serviceId;
+            this.stExt = msgInfo.stExt;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -318,9 +323,15 @@ public final class MsgInfo extends Message {
             Long l8 = builder.serviceId;
             if (l8 == null) {
                 this.serviceId = DEFAULT_SERVICEID;
-                return;
             } else {
                 this.serviceId = l8;
+            }
+            String str4 = builder.stExt;
+            if (str4 == null) {
+                this.stExt = "";
+                return;
+            } else {
+                this.stExt = str4;
                 return;
             }
         }
@@ -343,5 +354,6 @@ public final class MsgInfo extends Message {
         this.sid = builder.sid;
         this.followStatus = builder.followStatus;
         this.serviceId = builder.serviceId;
+        this.stExt = builder.stExt;
     }
 }

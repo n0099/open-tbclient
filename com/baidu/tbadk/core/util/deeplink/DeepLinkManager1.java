@@ -6,8 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.a.j;
-import com.baidu.mobads.container.util.AdIconUtil;
+import c.a.d.a.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DeepLinkManager1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_DEEPLINK = "tieba://deeplink?";
@@ -125,7 +124,7 @@ public class DeepLinkManager1 {
     public static int openApp(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, uri)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, uri)) == null) {
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(uri);
             intent.setFlags(268435456);
@@ -146,7 +145,7 @@ public class DeepLinkManager1 {
         InterceptResult invokeLLL;
         TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, bundle)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

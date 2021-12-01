@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.utils;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class LogUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static int LOG_LEVEL_D = 3;
@@ -90,7 +89,7 @@ public class LogUtils {
         StackTraceElement[] stackTrace;
         StackTraceElement stackTraceElement;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) || !Constants.isDebugMode() || mLoglevel < LOG_LEVEL_D || (stackTrace = new Throwable().getStackTrace()) == null || 2 > stackTrace.length || (stackTraceElement = stackTrace[1]) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || !Constants.isDebugMode() || mLoglevel < LOG_LEVEL_D || (stackTrace = new Throwable().getStackTrace()) == null || 2 > stackTrace.length || (stackTraceElement = stackTrace[1]) == null) {
             return;
         }
         String className = stackTraceElement.getClassName();
@@ -150,7 +149,7 @@ public class LogUtils {
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_E) {
+        if ((interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) && Constants.isDebugMode() && mLoglevel >= LOG_LEVEL_E) {
             if (mIsWriteToFile) {
                 LogFile.getInstance(sContext).writeByte((currentTime() + str + ZeusCrashHandler.NAME_SEPERATOR + str2 + StringUtils.LF).getBytes());
                 return;

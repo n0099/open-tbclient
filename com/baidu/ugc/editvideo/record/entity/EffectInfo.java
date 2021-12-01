@@ -2,9 +2,8 @@ package com.baidu.ugc.editvideo.record.entity;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.x0.j.b;
+import c.a.x0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.bean.MusicData;
 import java.io.File;
 import java.io.Serializable;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class EffectInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +34,7 @@ public class EffectInfo implements Serializable {
     public int type;
     public File unzipFile;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class EffectMusicData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +134,7 @@ public class EffectInfo implements Serializable {
     public static String toJSON(EffectInfo effectInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, effectInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, effectInfo)) == null) {
             if (effectInfo == null) {
                 return null;
             }

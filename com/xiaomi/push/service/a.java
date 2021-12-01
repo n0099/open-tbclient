@@ -13,12 +13,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile a f72307a;
+    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -31,22 +29,22 @@ public class a {
     public final String f874a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f72308b;
+    public final Object f63231b;
 
     /* renamed from: b  reason: collision with other field name */
     public final String f875b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f72309c;
+    public final String f63232c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f72310d;
+    public final String f63233d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f72311e;
+    public volatile String f63234e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f72312f;
+    public volatile String f63235f;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -64,11 +62,11 @@ public class a {
             }
         }
         this.f873a = new Object();
-        this.f72308b = new Object();
+        this.f63231b = new Object();
         this.f874a = "mipush_region";
         this.f875b = "mipush_country_code";
-        this.f72309c = "mipush_region.lock";
-        this.f72310d = "mipush_country_code.lock";
+        this.f63232c = "mipush_region.lock";
+        this.f63233d = "mipush_country_code.lock";
         this.f872a = context;
     }
 
@@ -76,14 +74,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f72307a == null) {
+            if (a == null) {
                 synchronized (a.class) {
-                    if (f72307a == null) {
-                        f72307a = new a(context);
+                    if (a == null) {
+                        a = new a(context);
                     }
                 }
             }
-            return f72307a;
+            return a;
         }
         return (a) invokeL.objValue;
     }
@@ -99,13 +97,13 @@ public class a {
         File file = new File(context.getFilesDir(), str);
         FileLock fileLock2 = null;
         if (!file.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.m73a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m122a("No ready file to get data from " + str);
             return null;
         }
         synchronized (obj) {
             try {
                 File file2 = new File(context.getFilesDir(), str2);
-                com.xiaomi.push.y.m646a(file2);
+                com.xiaomi.push.y.m695a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -196,7 +194,7 @@ public class a {
                     try {
                         try {
                             File file = new File(context.getFilesDir(), (String) str3);
-                            com.xiaomi.push.y.m646a(file);
+                            com.xiaomi.push.y.m695a(file);
                             randomAccessFile = new RandomAccessFile(file, "rw");
                             try {
                                 fileLock = randomAccessFile.getChannel().lock();
@@ -268,41 +266,41 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f72311e)) {
-                this.f72311e = a(this.f872a, "mipush_region", "mipush_region.lock", this.f873a);
+            if (TextUtils.isEmpty(this.f63234e)) {
+                this.f63234e = a(this.f872a, "mipush_region", "mipush_region.lock", this.f873a);
             }
-            return this.f72311e;
+            return this.f63234e;
         }
         return (String) invokeV.objValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.equals(str, this.f72311e)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.equals(str, this.f63234e)) {
             return;
         }
-        this.f72311e = str;
-        a(this.f872a, this.f72311e, "mipush_region", "mipush_region.lock", this.f873a);
+        this.f63234e = str;
+        a(this.f872a, this.f63234e, "mipush_region", "mipush_region.lock", this.f873a);
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f72312f)) {
-                this.f72312f = a(this.f872a, "mipush_country_code", "mipush_country_code.lock", this.f72308b);
+            if (TextUtils.isEmpty(this.f63235f)) {
+                this.f63235f = a(this.f872a, "mipush_country_code", "mipush_country_code.lock", this.f63231b);
             }
-            return this.f72312f;
+            return this.f63235f;
         }
         return (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.equals(str, this.f72312f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.equals(str, this.f63235f)) {
             return;
         }
-        this.f72312f = str;
-        a(this.f872a, this.f72312f, "mipush_country_code", "mipush_country_code.lock", this.f72308b);
+        this.f63235f = str;
+        a(this.f872a, this.f63235f, "mipush_country_code", "mipush_country_code.lock", this.f63231b);
     }
 }

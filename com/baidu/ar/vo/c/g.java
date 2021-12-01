@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arplay.representation.Matrix;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
 import com.baidu.ar.arplay.representation.Quaternion;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class g implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -122,11 +121,11 @@ public class g implements d {
             f2 = bVar.x;
             f3 = bVar.y;
         }
-        String a2 = a(this.zb);
+        String a = a(this.zb);
         int i2 = bVar.type;
         if (i2 == 3) {
             this.zc.hi();
-            a(a2, (int) f2, (int) f3, null, (int) bVar.yZ);
+            a(a, (int) f2, (int) f3, null, (int) bVar.yZ);
             runnable = new Runnable(this) { // from class: com.baidu.ar.vo.c.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -163,7 +162,7 @@ public class g implements d {
             return;
         } else {
             this.zc.hi();
-            a(a2, (int) f2, (int) f3, null, (int) bVar.yZ);
+            a(a, (int) f2, (int) f3, null, (int) bVar.yZ);
             runnable = new Runnable(this) { // from class: com.baidu.ar.vo.c.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -273,7 +272,7 @@ public class g implements d {
         this.zd.a(ARPScriptEnvironment.KEY_DATA_PIP_SLAM, fArr);
         if (this.zf) {
             this.zf = false;
-            this.ze.b(ARPMessageType.MSG_OPEN_OFFSCREEN_UPDATE, null);
+            this.ze.b(7001, null);
         }
         if (hp()) {
             fArr = s(fArr);

@@ -3,7 +3,7 @@ package com.airbnb.lottie.parser;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.ScaleXY;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ScaleXYParser implements ValueParser<ScaleXY> {
     public static final ScaleXYParser INSTANCE = new ScaleXYParser();
 

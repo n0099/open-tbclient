@@ -9,24 +9,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.RouterCallback;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class DxmCheckFingerprint {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.paysdk.fingerprint.entrance.DxmCheckFingerprint$1  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static DxmCheckFingerprint f60668a;
+        public static DxmCheckFingerprint a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,7 +40,7 @@ public class DxmCheckFingerprint {
                     return;
                 }
             }
-            f60668a = new DxmCheckFingerprint(null);
+            a = new DxmCheckFingerprint(null);
         }
     }
 
@@ -53,7 +51,7 @@ public class DxmCheckFingerprint {
     public static DxmCheckFingerprint getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60668a : (DxmCheckFingerprint) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (DxmCheckFingerprint) invokeV.objValue;
     }
 
     public void startCherkFingerprint(Context context, String str, RouterCallback routerCallback) {

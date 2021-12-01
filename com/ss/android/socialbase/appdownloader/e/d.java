@@ -8,7 +8,6 @@ import android.view.KeyEvent;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,18 +22,16 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f69900a = "d";
+    public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<n> f69901b;
+    public static List<n> f61527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static com.ss.android.socialbase.appdownloader.view.a f69902c;
+    public static com.ss.android.socialbase.appdownloader.view.a f61528c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static AlertDialog f69903d;
+    public static AlertDialog f61529d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,7 +47,7 @@ public class d {
                 return;
             }
         }
-        f69901b = new ArrayList();
+        f61527b = new ArrayList();
     }
 
     public d() {
@@ -69,19 +66,19 @@ public class d {
 
     public static void b(@NonNull Activity activity, @NonNull n nVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, activity, nVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, activity, nVar) == null) {
             if (activity != null) {
                 try {
                     if (!activity.isFinishing()) {
                         FragmentManager fragmentManager = activity.getFragmentManager();
-                        com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f69900a);
-                        f69902c = aVar;
+                        com.ss.android.socialbase.appdownloader.view.a aVar = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(a);
+                        f61528c = aVar;
                         if (aVar == null) {
-                            f69902c = new com.ss.android.socialbase.appdownloader.view.a();
-                            fragmentManager.beginTransaction().add(f69902c, f69900a).commitAllowingStateLoss();
+                            f61528c = new com.ss.android.socialbase.appdownloader.view.a();
+                            fragmentManager.beginTransaction().add(f61528c, a).commitAllowingStateLoss();
                             fragmentManager.executePendingTransactions();
                         }
-                        f69902c.a();
+                        f61528c.a();
                         return;
                     }
                 } catch (Throwable th) {
@@ -102,7 +99,7 @@ public class d {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             try {
                 return NotificationManagerCompat.from(com.ss.android.socialbase.downloader.downloader.c.N()).areNotificationsEnabled();
             } catch (Throwable th) {
@@ -118,11 +115,11 @@ public class d {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (d.class) {
                 try {
-                    if (f69903d != null) {
-                        f69903d.cancel();
-                        f69903d = null;
+                    if (f61529d != null) {
+                        f61529d.cancel();
+                        f61529d = null;
                     }
-                    for (n nVar : f69901b) {
+                    for (n nVar : f61527b) {
                         if (nVar != null) {
                             if (z) {
                                 nVar.a();
@@ -156,17 +153,15 @@ public class d {
                         int a3 = i.a(com.ss.android.socialbase.downloader.downloader.c.N(), "tt_appdownloader_notification_request_message");
                         int a4 = i.a(com.ss.android.socialbase.downloader.downloader.c.N(), "tt_appdownloader_notification_request_btn_yes");
                         int a5 = i.a(com.ss.android.socialbase.downloader.downloader.c.N(), "tt_appdownloader_notification_request_btn_no");
-                        f69901b.add(nVar);
-                        if (f69903d == null || !f69903d.isShowing()) {
-                            f69903d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface.OnClickListener(activity, nVar) { // from class: com.ss.android.socialbase.appdownloader.e.d.3
+                        f61527b.add(nVar);
+                        if (f61529d == null || !f61529d.isShowing()) {
+                            f61529d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface.OnClickListener(activity, nVar) { // from class: com.ss.android.socialbase.appdownloader.e.d.3
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-
-                                /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ Activity f69904a;
+                                public final /* synthetic */ Activity a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ n f69905b;
+                                public final /* synthetic */ n f61530b;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -183,17 +178,17 @@ public class d {
                                             return;
                                         }
                                     }
-                                    this.f69904a = activity;
-                                    this.f69905b = nVar;
+                                    this.a = activity;
+                                    this.f61530b = nVar;
                                 }
 
                                 @Override // android.content.DialogInterface.OnClickListener
                                 public void onClick(DialogInterface dialogInterface, int i2) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                                        d.b(this.f69904a, this.f69905b);
+                                        d.b(this.a, this.f61530b);
                                         dialogInterface.cancel();
-                                        AlertDialog unused = d.f69903d = null;
+                                        AlertDialog unused = d.f61529d = null;
                                     }
                                 }
                             }).setNegativeButton(a5, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.2

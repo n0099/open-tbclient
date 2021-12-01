@@ -12,15 +12,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RecordVideoTipDialog extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public a f39221a;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
 
@@ -60,15 +58,15 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39221a == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a == null) {
             return;
         }
         if (view.getId() == R.id.liveness_again_btn) {
-            this.f39221a.a();
+            this.a.a();
         } else if (view.getId() == R.id.start_record_btn) {
-            this.f39221a.b();
+            this.a.b();
         } else if (view.getId() == R.id.record_video_close_iv) {
-            this.f39221a.c();
+            this.a.c();
         }
     }
 
@@ -94,7 +92,7 @@ public class RecordVideoTipDialog extends Dialog implements View.OnClickListener
     public void setMenuItemClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f39221a = aVar;
+            this.a = aVar;
         }
     }
 

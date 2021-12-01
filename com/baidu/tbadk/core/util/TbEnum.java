@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class TbEnum {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class BroadcastType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BROADCAST_CREATE_GROUP = "com.baidu.tieba.broadcast.create_group";
@@ -48,7 +48,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class ChatInputStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INPUT_DRAFT_KEY = "input_draft";
@@ -72,7 +72,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class ChatType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP_MODE = 0;
@@ -94,7 +94,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CreateGroupSource {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FROM_BAR_GROUP = "bargp";
@@ -117,7 +117,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CustomGroupId {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String GROUP_UPDATE = "-1002";
@@ -141,7 +141,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CustomGroupType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP = 1;
@@ -175,7 +175,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class GroupInfoSource {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FROM_FORUM_GROUP_HOT = "forumgroup_hot";
@@ -201,7 +201,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class GroupType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FORUM_FRIEND_GROUP = 3;
@@ -232,7 +232,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class MsgContentSubType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short FRS_SUB_TYPE_EXTRA_SHARE = 4;
@@ -255,7 +255,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class MsgContentType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_CONTENT_TYPE_ACTIVITY = 6;
@@ -290,7 +290,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class MsgStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_STATUS_MY_SENDFAIL = 2;
@@ -314,7 +314,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class MsgVoiceStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int VOICE_STATUS_DOWNLOADING = 2;
@@ -337,7 +337,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class ParamKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String CHAT_MODE = "chat_mode";
@@ -363,7 +363,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class ResourceType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BIGIMAGE = 1;
@@ -385,7 +385,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class SystemMessage {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EVENT_ID_ADD_FRIEND = "406";

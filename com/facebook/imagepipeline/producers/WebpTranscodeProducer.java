@@ -1,7 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.facebook.imagepipeline.nativecode.WebpTranscoderFactory;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class WebpTranscodeProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_JPEG_QUALITY = 80;
@@ -31,7 +30,7 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class WebpTranscodeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +104,7 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
 
     public static void doTranscode(EncodedImage encodedImage, PooledByteBufferOutputStream pooledByteBufferOutputStream) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, encodedImage, pooledByteBufferOutputStream) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, encodedImage, pooledByteBufferOutputStream) == null) {
             InputStream inputStream = encodedImage.getInputStream();
             ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(inputStream);
             if (imageFormat_WrapIOException != DefaultImageFormats.WEBP_SIMPLE && imageFormat_WrapIOException != DefaultImageFormats.WEBP_EXTENDED) {
@@ -124,7 +123,7 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
     public static TriState shouldTranscode(EncodedImage encodedImage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, encodedImage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, encodedImage)) == null) {
             Preconditions.checkNotNull(encodedImage);
             ImageFormat imageFormat_WrapIOException = ImageFormatChecker.getImageFormat_WrapIOException(encodedImage.getInputStream());
             if (DefaultImageFormats.isStaticWebpFormat(imageFormat_WrapIOException)) {

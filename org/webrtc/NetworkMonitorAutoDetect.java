@@ -19,7 +19,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.McastConfig;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -178,12 +177,12 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         public final ConnectionType type;
         public final ConnectionType underlyingTypeForVpn;
 
-        public NetworkInformation(String str, ConnectionType connectionType, ConnectionType connectionType2, long j, IPAddress[] iPAddressArr) {
+        public NetworkInformation(String str, ConnectionType connectionType, ConnectionType connectionType2, long j2, IPAddress[] iPAddressArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, connectionType, connectionType2, Long.valueOf(j), iPAddressArr};
+                Object[] objArr = {str, connectionType, connectionType2, Long.valueOf(j2), iPAddressArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -196,7 +195,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.name = str;
             this.type = connectionType;
             this.underlyingTypeForVpn = connectionType2;
-            this.handle = j;
+            this.handle = j2;
             this.ipAddresses = iPAddressArr;
         }
 
@@ -232,7 +231,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         private ConnectionType getUnderlyingConnectionTypeForVpn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) ? this.underlyingTypeForVpn : (ConnectionType) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.underlyingTypeForVpn : (ConnectionType) invokeV.objValue;
         }
     }
 
@@ -305,7 +304,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
 
         void onNetworkConnect(NetworkInformation networkInformation);
 
-        void onNetworkDisconnect(long j);
+        void onNetworkDisconnect(long j2);
     }
 
     @SuppressLint({"NewApi"})
@@ -530,7 +529,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
 
     private void connectionTypeChanged(NetworkState networkState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, networkState) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, networkState) == null) {
             ConnectionType connectionType = getConnectionType(networkState);
             String wifiSSID = getWifiSSID(networkState);
             if (connectionType == this.connectionType && wifiSSID.equals(this.wifiSSID)) {
@@ -825,17 +824,17 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (supportNetworkCallback() && (activeNetworkInfo = this.connectivityManager.getActiveNetworkInfo()) != null) {
-                    long j = -1;
+                    long j2 = -1;
                     for (Network network : getAllNetworks()) {
                         if (hasInternetCapability(network) && (networkInfo = this.connectivityManager.getNetworkInfo(network)) != null && networkInfo.getType() == activeNetworkInfo.getType()) {
-                            if (j == -1) {
-                                j = NetworkMonitorAutoDetect.networkToNetId(network);
+                            if (j2 == -1) {
+                                j2 = NetworkMonitorAutoDetect.networkToNetId(network);
                             } else {
                                 throw new RuntimeException("Multiple connected networks of same type are not supported.");
                             }
                         }
                     }
-                    return j;
+                    return j2;
                 }
                 return -1L;
             }
@@ -1034,6 +1033,6 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public static ConnectionType getConnectionType(NetworkState networkState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, networkState)) == null) ? getConnectionType(networkState.isConnected(), networkState.getNetworkType(), networkState.getNetworkSubType()) : (ConnectionType) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, networkState)) == null) ? getConnectionType(networkState.isConnected(), networkState.getNetworkType(), networkState.getNetworkSubType()) : (ConnectionType) invokeL.objValue;
     }
 }

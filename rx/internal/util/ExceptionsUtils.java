@@ -1,7 +1,6 @@
 package rx.internal.util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,7 +90,7 @@ public final class ExceptionsUtils {
     public static Throwable terminate(AtomicReference<Throwable> atomicReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, atomicReference)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, atomicReference)) == null) {
             Throwable th = atomicReference.get();
             Throwable th2 = TERMINATED;
             return th != th2 ? atomicReference.getAndSet(th2) : th;
@@ -102,7 +101,7 @@ public final class ExceptionsUtils {
     public static ExceptionsUtils valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? (ExceptionsUtils) Enum.valueOf(ExceptionsUtils.class, str) : (ExceptionsUtils) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? (ExceptionsUtils) Enum.valueOf(ExceptionsUtils.class, str) : (ExceptionsUtils) invokeL.objValue;
     }
 
     public static ExceptionsUtils[] values() {

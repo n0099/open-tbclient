@@ -7,18 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Object f63806a;
+    public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f63807b;
+    public static Class<?> f55764b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f63808c;
+    public static Method f55765c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,12 +34,12 @@ public class n {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f63807b = cls;
-            f63806a = cls.newInstance();
-            f63807b.getMethod("getUDID", Context.class);
-            f63808c = f63807b.getMethod("getOAID", Context.class);
-            f63807b.getMethod("getVAID", Context.class);
-            f63807b.getMethod("getAAID", Context.class);
+            f55764b = cls;
+            a = cls.newInstance();
+            f55764b.getMethod("getUDID", Context.class);
+            f55765c = f55764b.getMethod("getOAID", Context.class);
+            f55764b.getMethod("getVAID", Context.class);
+            f55764b.getMethod("getAAID", Context.class);
         } catch (Exception unused) {
         }
     }

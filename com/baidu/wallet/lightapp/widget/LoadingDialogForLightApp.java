@@ -13,22 +13,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class LoadingDialogForLightApp extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f60190a;
+    public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f60191b;
+    public ProgressBar f53205b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60192c;
+    public String f53206c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f60193d;
+    public Context f53207d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingDialogForLightApp(Context context) {
@@ -49,8 +47,8 @@ public class LoadingDialogForLightApp extends Dialog {
                 return;
             }
         }
-        this.f60193d = null;
-        this.f60193d = context;
+        this.f53207d = null;
+        this.f53207d = context;
     }
 
     @Override // android.app.Dialog
@@ -59,14 +57,14 @@ public class LoadingDialogForLightApp extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
-            setContentView(ResUtils.layout(this.f60193d, "wallet_base_loading_dialog_for_light_app"));
-            this.f60190a = (TextView) findViewById(ResUtils.id(this.f60193d, "dialog_msg"));
-            this.f60191b = (ProgressBar) findViewById(ResUtils.id(this.f60193d, "progress_bar"));
-            if (!TextUtils.isEmpty(this.f60192c)) {
-                this.f60190a.setText(this.f60192c);
+            setContentView(ResUtils.layout(this.f53207d, "wallet_base_loading_dialog_for_light_app"));
+            this.a = (TextView) findViewById(ResUtils.id(this.f53207d, "dialog_msg"));
+            this.f53205b = (ProgressBar) findViewById(ResUtils.id(this.f53207d, "progress_bar"));
+            if (!TextUtils.isEmpty(this.f53206c)) {
+                this.a.setText(this.f53206c);
             }
             if (!TextUtils.isEmpty(GlobalUtils.showStr)) {
-                this.f60190a.setText(GlobalUtils.showStr);
+                this.a.setText(GlobalUtils.showStr);
             }
             setCanceledOnTouchOutside(false);
             setCancelable(true);
@@ -76,7 +74,7 @@ public class LoadingDialogForLightApp extends Dialog {
     public void setMessage(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.f60190a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (textView = this.a) == null) {
             return;
         }
         textView.setText(i2);
@@ -85,7 +83,7 @@ public class LoadingDialogForLightApp extends Dialog {
     public void setMessage(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.f60190a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (textView = this.a) == null) {
             return;
         }
         textView.setText(str);
@@ -110,9 +108,9 @@ public class LoadingDialogForLightApp extends Dialog {
                 return;
             }
         }
-        this.f60193d = null;
-        this.f60192c = str;
-        this.f60193d = context;
+        this.f53207d = null;
+        this.f53206c = str;
+        this.f53207d = context;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -134,6 +132,6 @@ public class LoadingDialogForLightApp extends Dialog {
                 return;
             }
         }
-        this.f60193d = null;
+        this.f53207d = null;
     }
 }

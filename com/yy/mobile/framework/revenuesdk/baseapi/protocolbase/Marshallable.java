@@ -14,13 +14,13 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 import kotlin.UShort;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Marshallable extends PacketBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ELenType {
         public static final /* synthetic */ ELenType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -159,19 +159,19 @@ public class Marshallable extends PacketBase {
         return (V) invokeLL.objValue;
     }
 
-    private <K> void pushKey(K k) {
+    private <K> void pushKey(K k2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, k) == null) {
-            if (k instanceof Byte) {
-                pushInt8(((Byte) k).byteValue());
-            } else if (k instanceof Short) {
-                pushInt16(((Short) k).shortValue());
-            } else if (k instanceof Integer) {
-                pushInt32(((Integer) k).intValue());
-            } else if (k instanceof String) {
-                pushString16((String) k);
+        if (interceptable == null || interceptable.invokeL(65539, this, k2) == null) {
+            if (k2 instanceof Byte) {
+                pushInt8(((Byte) k2).byteValue());
+            } else if (k2 instanceof Short) {
+                pushInt16(((Short) k2).shortValue());
+            } else if (k2 instanceof Integer) {
+                pushInt32(((Integer) k2).intValue());
+            } else if (k2 instanceof String) {
+                pushString16((String) k2);
             } else {
-                throw new IllegalStateException("unknow map value type: " + k.getClass().getName());
+                throw new IllegalStateException("unknow map value type: " + k2.getClass().getName());
             }
         }
     }
@@ -373,10 +373,10 @@ public class Marshallable extends PacketBase {
         }
     }
 
-    public final void pushInt64(long j) {
+    public final void pushInt64(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.buffer.putLong(j);
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.buffer.putLong(j2);
         }
     }
 

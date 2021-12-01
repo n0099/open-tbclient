@@ -11,7 +11,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -184,7 +183,7 @@ public class DefaultItemAnimator extends SimpleItemAnimator {
 
     private void resetAnimation(RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, viewHolder) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, viewHolder) == null) {
             if (sDefaultInterpolator == null) {
                 sDefaultInterpolator = new ValueAnimator().getInterpolator();
             }

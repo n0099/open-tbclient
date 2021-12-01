@@ -41,7 +41,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class WebViewFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
@@ -94,7 +94,7 @@ public final class WebViewFactory {
     public static boolean sforceMainProcessNoZeus;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
@@ -137,23 +137,23 @@ public final class WebViewFactory {
 
     public static void checkNativeLibraryIntegrity() throws Throwable {
         c.a aVar;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65543, null) == null) && Build.VERSION.SDK_INT == 19) {
-            if (c.a(mContext).f61890a.a()) {
-                String str = aVar.f61896d + "libzeuswebviewchromium.so";
+            if (c.a(mContext).a.a()) {
+                String str = aVar.f54264d + "libzeuswebviewchromium.so";
                 try {
-                    j = new File(str).length();
+                    j2 = new File(str).length();
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    j = 0;
+                    j2 = 0;
                 }
-                Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
+                Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j2);
                 String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enable_sosize_check");
                 if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false")) {
-                    if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != j || j == 0) {
+                    if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != j2 || j2 == 0) {
                         mProvider = null;
-                        throw new Exception("checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
+                        throw new Exception("checkNativeLibraryIntegrity: " + str + ", 27057988, " + j2);
                     }
                 }
             }
@@ -172,7 +172,7 @@ public final class WebViewFactory {
                 if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                     return;
                 }
-                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).f61890a.f61896d);
+                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).a.f54264d);
                 LoadErrorCode.getInstance().trace(522);
                 throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
             } catch (Exception e2) {
@@ -579,8 +579,8 @@ public final class WebViewFactory {
             Throwable th = null;
             try {
                 ApplicationInfo applicationInfo2 = context.getApplicationInfo();
-                c a2 = c.a(context);
-                c.a aVar = a2.f61890a;
+                c a = c.a(context);
+                c.a aVar = a.a;
                 mIsInstallUpdate = false;
                 String str2 = applicationInfo2.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
                 String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -591,7 +591,7 @@ public final class WebViewFactory {
                         str2 = str3;
                     }
                 }
-                if (!a2.f61890a.a() && !EngineManager.getInstance().isInstalled()) {
+                if (!a.a.a() && !EngineManager.getInstance().isInstalled()) {
                     LoadErrorCode.getInstance().trace(513);
                 }
                 packageInfo = context.getPackageManager().getPackageArchiveInfo(str2, 132);
@@ -605,7 +605,7 @@ public final class WebViewFactory {
                             applicationInfo.nativeLibraryDir = str;
                         }
                         applicationInfo = packageInfo.applicationInfo;
-                        str = aVar.f61896d + ":" + applicationInfo2.nativeLibraryDir;
+                        str = aVar.f54264d + ":" + applicationInfo2.nativeLibraryDir;
                         applicationInfo.nativeLibraryDir = str;
                     } catch (Throwable th2) {
                         th = th2;
@@ -1458,8 +1458,8 @@ public final class WebViewFactory {
             boolean z = false;
             try {
                 ApplicationInfo applicationInfo = context.getApplicationInfo();
-                c a2 = c.a(context);
-                c.a aVar = a2.f61890a;
+                c a = c.a(context);
+                c.a aVar = a.a;
                 mIsInstallUpdate = false;
                 String str2 = applicationInfo.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
                 String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -1470,7 +1470,7 @@ public final class WebViewFactory {
                         str2 = str3;
                     }
                 }
-                if (!a2.f61890a.a() && !EngineManager.getInstance().isInstalled()) {
+                if (!a.a.a() && !EngineManager.getInstance().isInstalled()) {
                     LoadErrorCode.getInstance().trace(513);
                 }
                 if (str2 != null && new File(str2).exists()) {
@@ -1481,7 +1481,7 @@ public final class WebViewFactory {
                         sPackageInfoType = 1;
                         z = true;
                     }
-                    str = aVar.f61896d + ":" + applicationInfo.nativeLibraryDir;
+                    str = aVar.f54264d + ":" + applicationInfo.nativeLibraryDir;
                     sZeusNativeLibraryDir = str;
                     sPackageInfoType = 1;
                     z = true;
@@ -1763,9 +1763,9 @@ public final class WebViewFactory {
     public static void setUsingLzma(Context context, boolean z, WebKitUnzipCallback webKitUnzipCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65608, null, new Object[]{context, Boolean.valueOf(z), webKitUnzipCallback}) == null) {
-            c a2 = c.a(context);
+            c a = c.a(context);
             Log.i(TAG, " setUsingLzma using7zCompress=false");
-            a2.f61890a.b();
+            a.a.b();
         }
     }
 

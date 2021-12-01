@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.b.d;
+import com.kwad.sdk.core.a.d;
 import com.kwad.sdk.core.network.BaseResultData;
-import com.kwad.sdk.utils.q;
+import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,8 +84,8 @@ public class CommentResponse extends BaseResultData implements com.kwad.sdk.core
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            q.a(jSONObject, "commentCount", this.commentCount);
-            q.a(jSONObject, "rootComments", this.rootComments);
+            t.a(jSONObject, "commentCount", this.commentCount);
+            t.a(jSONObject, "rootComments", this.rootComments);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

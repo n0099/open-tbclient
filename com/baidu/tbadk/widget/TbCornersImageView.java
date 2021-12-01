@@ -20,27 +20,31 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TbCornersImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f47013e;
+    public boolean f42066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f47014f;
+    public boolean f42067f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f47015g;
+    public int f42068g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f47016h;
+    public int f42069h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f47017i;
-    public int j;
-    public int k;
+    public int f42070i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f42071j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f42072k;
     public int l;
     public int m;
     public int n;
@@ -79,11 +83,11 @@ public class TbCornersImageView extends AppCompatImageView {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47013e) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42066e) {
             return;
         }
         int i2 = 0;
-        if (this.k <= 0) {
+        if (this.f42072k <= 0) {
             float[] fArr = this.t;
             int i3 = this.l;
             float f2 = i3;
@@ -102,7 +106,7 @@ public class TbCornersImageView extends AppCompatImageView {
             fArr[7] = f5;
             fArr[6] = f5;
             float[] fArr2 = this.u;
-            int i7 = this.f47015g;
+            int i7 = this.f42068g;
             float f6 = i3 - (i7 / 2.0f);
             fArr2[1] = f6;
             fArr2[0] = f6;
@@ -122,9 +126,9 @@ public class TbCornersImageView extends AppCompatImageView {
             if (i2 >= fArr3.length) {
                 return;
             }
-            int i8 = this.k;
+            int i8 = this.f42072k;
             fArr3[i2] = i8;
-            this.u[i2] = i8 - (this.f47015g / 2.0f);
+            this.u[i2] = i8 - (this.f42068g / 2.0f);
             i2++;
         }
     }
@@ -133,7 +137,7 @@ public class TbCornersImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                this.k = 0;
+                this.f42072k = 0;
             }
             a();
             l();
@@ -143,30 +147,30 @@ public class TbCornersImageView extends AppCompatImageView {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f47013e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f42066e) {
             return;
         }
-        this.f47017i = 0;
+        this.f42070i = 0;
     }
 
     public final void h(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            if (this.f47013e) {
-                int i2 = this.f47015g;
+            if (this.f42066e) {
+                int i2 = this.f42068g;
                 if (i2 > 0) {
-                    i(canvas, i2, this.f47016h, this.s - (i2 / 2.0f));
+                    i(canvas, i2, this.f42069h, this.s - (i2 / 2.0f));
                 }
-                int i3 = this.f47017i;
+                int i3 = this.f42070i;
                 if (i3 > 0) {
-                    i(canvas, i3, this.j, (this.s - this.f47015g) - (i3 / 2.0f));
+                    i(canvas, i3, this.f42071j, (this.s - this.f42068g) - (i3 / 2.0f));
                     return;
                 }
                 return;
             }
-            int i4 = this.f47015g;
+            int i4 = this.f42068g;
             if (i4 > 0) {
-                j(canvas, i4, this.f47016h, this.w, this.t);
+                j(canvas, i4, this.f42069h, this.w, this.t);
             }
         }
     }
@@ -183,7 +187,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void isCircle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f47013e = z;
+            this.f42066e = z;
             f();
             m();
             invalidate();
@@ -193,7 +197,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void isCoverSrc(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f47014f = z;
+            this.f42067f = z;
             m();
             invalidate();
         }
@@ -220,18 +224,18 @@ public class TbCornersImageView extends AppCompatImageView {
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f47013e) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f42066e) {
             return;
         }
         RectF rectF = this.w;
-        int i2 = this.f47015g;
+        int i2 = this.f42068g;
         rectF.set(i2 / 2.0f, i2 / 2.0f, this.q - (i2 / 2.0f), this.r - (i2 / 2.0f));
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.f47013e) {
+            if (this.f42066e) {
                 float min = Math.min(this.q, this.r) / 2.0f;
                 this.s = min;
                 RectF rectF = this.v;
@@ -241,7 +245,7 @@ public class TbCornersImageView extends AppCompatImageView {
                 return;
             }
             this.v.set(0.0f, 0.0f, this.q, this.r);
-            if (this.f47014f) {
+            if (this.f42067f) {
                 this.v = this.w;
             }
         }
@@ -252,17 +256,17 @@ public class TbCornersImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, canvas) == null) {
             canvas.saveLayer(this.v, null, 31);
-            if (!this.f47014f) {
+            if (!this.f42067f) {
                 int i2 = this.q;
-                int i3 = this.f47015g;
-                int i4 = this.f47017i;
+                int i3 = this.f42068g;
+                int i4 = this.f42070i;
                 int i5 = this.r;
                 canvas.scale((((i2 - (i3 * 2)) - (i4 * 2)) * 1.0f) / i2, (((i5 - (i3 * 2)) - (i4 * 2)) * 1.0f) / i5, i2 / 2.0f, i5 / 2.0f);
             }
             super.onDraw(canvas);
             this.x.reset();
             this.y.reset();
-            if (this.f47013e) {
+            if (this.f42066e) {
                 this.y.addCircle(this.q / 2.0f, this.r / 2.0f, this.s, Path.Direction.CCW);
             } else {
                 this.y.addRoundRect(this.v, this.u, Path.Direction.CCW);
@@ -307,7 +311,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setBorderColor(@ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f47016h = i2;
+            this.f42069h = i2;
             invalidate();
         }
     }
@@ -315,7 +319,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setBorderWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f47015g = i2;
+            this.f42068g = i2;
             b(false);
         }
     }
@@ -339,7 +343,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setCornerRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.k = i2;
+            this.f42072k = i2;
             b(false);
         }
     }
@@ -363,7 +367,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setInnerBorderColor(@ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.j = i2;
+            this.f42071j = i2;
             invalidate();
         }
     }
@@ -371,7 +375,7 @@ public class TbCornersImageView extends AppCompatImageView {
     public void setInnerBorderWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f47017i = i2;
+            this.f42070i = i2;
             f();
             invalidate();
         }
@@ -425,25 +429,25 @@ public class TbCornersImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.f47016h = -1;
-        this.j = -1;
+        this.f42069h = -1;
+        this.f42071j = -1;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CornersImageView, 0, 0);
         for (int i5 = 0; i5 < obtainStyledAttributes.getIndexCount(); i5++) {
             int index = obtainStyledAttributes.getIndex(i5);
             if (index == R$styleable.CornersImageView_is_cover_src) {
-                this.f47014f = obtainStyledAttributes.getBoolean(index, this.f47014f);
+                this.f42067f = obtainStyledAttributes.getBoolean(index, this.f42067f);
             } else if (index == R$styleable.CornersImageView_is_circle) {
-                this.f47013e = obtainStyledAttributes.getBoolean(index, this.f47013e);
+                this.f42066e = obtainStyledAttributes.getBoolean(index, this.f42066e);
             } else if (index == R$styleable.CornersImageView_border_width) {
-                this.f47015g = obtainStyledAttributes.getDimensionPixelSize(index, this.f47015g);
+                this.f42068g = obtainStyledAttributes.getDimensionPixelSize(index, this.f42068g);
             } else if (index == R$styleable.CornersImageView_border_color) {
-                this.f47016h = obtainStyledAttributes.getColor(index, this.f47016h);
+                this.f42069h = obtainStyledAttributes.getColor(index, this.f42069h);
             } else if (index == R$styleable.CornersImageView_inner_border_width) {
-                this.f47017i = obtainStyledAttributes.getDimensionPixelSize(index, this.f47017i);
+                this.f42070i = obtainStyledAttributes.getDimensionPixelSize(index, this.f42070i);
             } else if (index == R$styleable.CornersImageView_inner_border_color) {
-                this.j = obtainStyledAttributes.getColor(index, this.j);
+                this.f42071j = obtainStyledAttributes.getColor(index, this.f42071j);
             } else if (index == R$styleable.CornersImageView_corner_radius) {
-                this.k = obtainStyledAttributes.getDimensionPixelSize(index, this.k);
+                this.f42072k = obtainStyledAttributes.getDimensionPixelSize(index, this.f42072k);
             } else if (index == R$styleable.CornersImageView_corner_top_left_radius) {
                 this.l = obtainStyledAttributes.getDimensionPixelSize(index, this.l);
             } else if (index == R$styleable.CornersImageView_corner_top_right_radius) {

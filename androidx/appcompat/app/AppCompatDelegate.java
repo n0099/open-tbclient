@@ -25,7 +25,6 @@ import androidx.appcompat.widget.VectorEnabledTintResources;
 import androidx.collection.ArraySet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -280,7 +279,7 @@ public abstract class AppCompatDelegate {
     public static AppCompatDelegate create(@NonNull Dialog dialog, @Nullable AppCompatCallback appCompatCallback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, dialog, appCompatCallback)) == null) ? new AppCompatDelegateImpl(dialog, appCompatCallback) : (AppCompatDelegate) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, dialog, appCompatCallback)) == null) ? new AppCompatDelegateImpl(dialog, appCompatCallback) : (AppCompatDelegate) invokeLL.objValue;
     }
 
     @NonNull
@@ -294,6 +293,6 @@ public abstract class AppCompatDelegate {
     public static AppCompatDelegate create(@NonNull Context context, @NonNull Activity activity, @Nullable AppCompatCallback appCompatCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, activity, appCompatCallback)) == null) ? new AppCompatDelegateImpl(context, activity, appCompatCallback) : (AppCompatDelegate) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, activity, appCompatCallback)) == null) ? new AppCompatDelegateImpl(context, activity, appCompatCallback) : (AppCompatDelegate) invokeLLL.objValue;
     }
 }

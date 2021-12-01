@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FrescoFrameCache implements BitmapFrameCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -116,7 +115,7 @@ public class FrescoFrameCache implements BitmapFrameCache {
         InterceptResult invokeV;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             synchronized (this) {
                 i2 = 0;
                 for (int i3 = 0; i3 < this.mPreparedPendingFrames.size(); i3++) {
@@ -280,7 +279,7 @@ public class FrescoFrameCache implements BitmapFrameCache {
     public static int getBitmapSizeBytes(@Nullable CloseableImage closeableImage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, closeableImage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, closeableImage)) == null) {
             if (closeableImage instanceof CloseableBitmap) {
                 return BitmapUtil.getSizeInBytes(((CloseableBitmap) closeableImage).getUnderlyingBitmap());
             }

@@ -8,15 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FragmentResultReceiver extends ResultReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public a f58880a;
-
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void onReceiveResult(int i2, Bundle bundle);
     }
@@ -44,7 +42,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58880a = null;
+            this.a = null;
         }
     }
 
@@ -52,7 +50,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public void onReceiveResult(int i2, Bundle bundle) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bundle) == null) || (aVar = this.f58880a) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bundle) == null) || (aVar = this.a) == null) {
             return;
         }
         aVar.onReceiveResult(i2, bundle);
@@ -61,7 +59,7 @@ public class FragmentResultReceiver extends ResultReceiver {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f58880a = aVar;
+            this.a = aVar;
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.sofire.j;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,21 +13,19 @@ import java.nio.ByteOrder;
 import java.security.DigestException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f44038a;
+    public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f44039b;
+    public static final byte[] f39140b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f44040c;
+    public static final byte[] f39141c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f44041d;
+    public static final byte[] f39142d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,10 +41,10 @@ public final class b {
                 return;
             }
         }
-        f44038a = "ftyp".getBytes();
-        f44039b = MediaDataBox.TYPE.getBytes();
-        f44040c = MovieBox.TYPE.getBytes();
-        f44041d = "free".getBytes();
+        a = "ftyp".getBytes();
+        f39140b = MediaDataBox.TYPE.getBytes();
+        f39141c = MovieBox.TYPE.getBytes();
+        f39142d = "free".getBytes();
     }
 
     public static int a(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {
@@ -107,7 +104,7 @@ public final class b {
         int hashCode;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             if (bArr == null || bArr.length < 4) {
                 return null;
             }
@@ -128,17 +125,17 @@ public final class b {
                 int a3 = a(bArr, i8);
                 if (a3 == 1) {
                     int i15 = i8 + 8;
-                    long j = -1;
+                    long j2 = -1;
                     if (bArr != null && bArr.length - i15 >= 8) {
                         byte[] a4 = a(bArr, i15, 8);
                         if (a4.length == 8) {
                             ByteBuffer wrap = ByteBuffer.wrap(a4, i5, 8);
                             wrap.order(ByteOrder.BIG_ENDIAN);
-                            j = wrap.getLong();
+                            j2 = wrap.getLong();
                         }
                     }
                     i2 = length;
-                    a3 = (int) j;
+                    a3 = (int) j2;
                     i3 = 8;
                 } else {
                     i2 = length;

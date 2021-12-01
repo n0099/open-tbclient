@@ -3,8 +3,8 @@ package org.webrtc;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.poly.widget.PolyActivity;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -564,7 +564,7 @@ public class PeerConnection {
         public static Builder builder(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? new Builder(Collections.singletonList(str), null) : (Builder) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? new Builder(Collections.singletonList(str), null) : (Builder) invokeL.objValue;
         }
 
         @Nullable
@@ -791,7 +791,7 @@ public class PeerConnection {
                     return;
                 }
             }
-            NONE = new IceTransportsType("NONE", 0);
+            NONE = new IceTransportsType(PolyActivity.NONE_PANEL_TYPE, 0);
             RELAY = new IceTransportsType("RELAY", 1);
             NOHOST = new IceTransportsType("NOHOST", 2);
             IceTransportsType iceTransportsType = new IceTransportsType("ALL", 3);
@@ -1799,13 +1799,13 @@ public class PeerConnection {
 
     private native boolean nativeAddIceCandidate(String str, int i2, String str2);
 
-    private native boolean nativeAddLocalStream(long j);
+    private native boolean nativeAddLocalStream(long j2);
 
-    private native RtpSender nativeAddTrack(long j, List<String> list);
+    private native RtpSender nativeAddTrack(long j2, List<String> list);
 
     private native RtpTransceiver nativeAddTransceiverOfType(MediaStreamTrack.MediaType mediaType, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
 
-    private native RtpTransceiver nativeAddTransceiverWithTrack(long j, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
+    private native RtpTransceiver nativeAddTransceiverWithTrack(long j2, RtpTransceiver.RtpTransceiverInit rtpTransceiverInit);
 
     private native void nativeClose();
 
@@ -1821,7 +1821,7 @@ public class PeerConnection {
 
     private native RtpSender nativeCreateSender(String str, String str2);
 
-    public static native void nativeFreeOwnedPeerConnection(long j);
+    public static native void nativeFreeOwnedPeerConnection(long j2);
 
     private native RtcCertificatePem nativeGetCertificate();
 
@@ -1843,13 +1843,13 @@ public class PeerConnection {
 
     private native void nativeNewGetStats(RTCStatsCollectorCallback rTCStatsCollectorCallback);
 
-    private native boolean nativeOldGetStats(StatsObserver statsObserver, long j);
+    private native boolean nativeOldGetStats(StatsObserver statsObserver, long j2);
 
     private native boolean nativeRemoveIceCandidates(IceCandidate[] iceCandidateArr);
 
-    private native void nativeRemoveLocalStream(long j);
+    private native void nativeRemoveLocalStream(long j2);
 
-    private native boolean nativeRemoveTrack(long j);
+    private native boolean nativeRemoveTrack(long j2);
 
     private native void nativeSetAudioPlayout(boolean z);
 
@@ -2151,12 +2151,12 @@ public class PeerConnection {
         }
     }
 
-    public PeerConnection(long j) {
+    public PeerConnection(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -2170,7 +2170,7 @@ public class PeerConnection {
         this.senders = new ArrayList();
         this.receivers = new ArrayList();
         this.transceivers = new ArrayList();
-        this.nativePeerConnection = j;
+        this.nativePeerConnection = j2;
     }
 
     public RtpSender addTrack(MediaStreamTrack mediaStreamTrack, List<String> list) {

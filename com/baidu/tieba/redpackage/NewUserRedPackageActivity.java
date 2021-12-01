@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.l.d;
-import b.a.e.f.p.l;
-import b.a.q0.a.t;
+import c.a.d.f.l.d;
+import c.a.d.f.p.l;
+import c.a.q0.a.t;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public View.OnClickListener mOnClickListener;
     public RoundRelativeLayout mRoundCornerLayout;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes11.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f54658e;
+        public final /* synthetic */ NewUserRedPackageActivity f48867e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54658e = newUserRedPackageActivity;
+            this.f48867e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f54658e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f54658e.mBgImage.getId()) {
+                if (view.getId() != this.f48867e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f48867e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f54658e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f54658e.getPageContext(), new String[]{this.f54658e.mData.clickUrl});
-                                this.f54658e.finish();
+                            if (this.f48867e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f48867e.getPageContext(), new String[]{this.f48867e.mData.clickUrl});
+                                this.f48867e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f54658e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f54658e.getActivity(), true, 25046)));
+                        this.f48867e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f48867e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f54658e.finish();
+                this.f48867e.finish();
             }
         }
     }
@@ -105,14 +105,14 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        b.a.e.m.d.a aVar;
+        c.a.d.m.d.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (aVar = (b.a.e.m.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (aVar = (c.a.d.m.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
         this.mBgImage.setImageBitmap(aVar.p());
@@ -166,7 +166,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
             setContentView(R.layout.activity_new_user_red_package);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
             this.mRoundCornerLayout = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(l.g(this, R.dimen.tbds31));
+            roundRelativeLayout.setAllCornerRound(l.f(this, R.dimen.tbds31));
             this.mBgImage = (ImageView) findViewById(R.id.img_bg);
             this.mCloseBtnImage = (ImageView) findViewById(R.id.img_btn_close);
             this.mBgImage.setOnClickListener(this.mOnClickListener);

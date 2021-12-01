@@ -9,8 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.SdkConfig;
-import com.kwad.sdk.core.b.i;
-import com.kwad.sdk.utils.am;
+import com.kwad.sdk.core.a.i;
+import com.kwad.sdk.utils.as;
+import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
+import com.yxcorp.kuaishou.addfp.ResponseDfpCallback;
 /* loaded from: classes2.dex */
 public class a implements com.kwad.sdk.plugin.a {
     public static /* synthetic */ Interceptable $ic;
@@ -34,15 +36,13 @@ public class a implements com.kwad.sdk.plugin.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
             com.kwad.sdk.core.d.a.c("AdPluginImpl", "初次获取Gid: initGId");
-            b.p.a.a.b.b().g(context, false, new b.p.a.a.d(this, context) { // from class: com.kwad.sdk.a.1
+            KWEGIDDFP.instance().getEGidByCallback(context, false, new ResponseDfpCallback(this, context) { // from class: com.kwad.sdk.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f64711a;
+                public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f64712b;
+                public final /* synthetic */ a f56962b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -59,24 +59,24 @@ public class a implements com.kwad.sdk.plugin.a {
                             return;
                         }
                     }
-                    this.f64712b = this;
-                    this.f64711a = context;
+                    this.f56962b = this;
+                    this.a = context;
                 }
 
-                @Override // b.p.a.a.d
-                public void a(int i2, String str) {
+                @Override // com.yxcorp.kuaishou.addfp.ResponseDfpCallback
+                public void onFailed(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                         com.kwad.sdk.core.d.a.e("AdPluginImpl", "初次获取Gid: initGId onFailed errorCode:" + i2 + "errorMessage :" + str);
                     }
                 }
 
-                @Override // b.p.a.a.d
-                public void a(String str, String str2) {
+                @Override // com.yxcorp.kuaishou.addfp.ResponseDfpCallback
+                public void onSuccess(String str, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                        com.kwad.sdk.core.b.e.a(this.f64711a, str2);
-                        this.f64712b.a(this.f64711a, str);
+                        com.kwad.sdk.core.a.e.a(this.a, str2);
+                        this.f56962b.a(this.a, str);
                     }
                 }
             });
@@ -105,12 +105,12 @@ public class a implements com.kwad.sdk.plugin.a {
     @Override // com.kwad.sdk.plugin.a
     public void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) || context == null || TextUtils.isEmpty(str) || TextUtils.equals(str, am.a(context))) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) || context == null || TextUtils.isEmpty(str) || TextUtils.equals(str, as.a(context))) {
             return;
         }
-        am.d(context, str);
+        as.d(context, str);
         try {
-            b.p.a.a.b.b().l(context, str);
+            KWEGIDDFP.instance().setEgid(context, str);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.e("AdPluginImpl", "AdPluginImpl KWEGIDDFP setEGid error : " + th);
         }
@@ -120,6 +120,6 @@ public class a implements com.kwad.sdk.plugin.a {
     public i b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new com.kwad.sdk.core.b.a() : (i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new com.kwad.sdk.core.a.a() : (i) invokeV.objValue;
     }
 }

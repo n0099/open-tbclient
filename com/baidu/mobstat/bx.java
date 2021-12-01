@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class bx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,11 +44,11 @@ public final class bx {
         return (HashMap) invokeL.objValue;
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            Date date = new Date(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j2)) == null) {
+            Date date = new Date(j2);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08:00"));
             return simpleDateFormat.format(date);

@@ -9,7 +9,6 @@ import android.text.TextPaint;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.common.SysOSUtil;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,9 +20,7 @@ import java.nio.IntBuffer;
 /* loaded from: classes3.dex */
 public class EnvDrawText {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f73483a = "EnvDrawText";
+    public static final String a = "EnvDrawText";
     public static boolean bBmpChange;
     public static Bitmap bmp;
     public static int[] buffer;
@@ -123,7 +120,7 @@ public class EnvDrawText {
                 textPaint3.setSubpixelText(true);
                 textPaint3.setAntiAlias(true);
                 if (i22 != 0 && fontCache != null && (aVar = fontCache.get(i22)) != null) {
-                    textPaint3.setTypeface(aVar.f73484a);
+                    textPaint3.setTypeface(aVar.a);
                 }
                 textPaint3.setTextSize(f2);
                 int indexOf2 = str.indexOf(92, 0);
@@ -669,7 +666,7 @@ public class EnvDrawText {
     public static Paint.Align getTextAlignedType(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? 1 == i2 ? Paint.Align.LEFT : 2 == i2 ? Paint.Align.RIGHT : Paint.Align.CENTER : (Paint.Align) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? 1 == i2 ? Paint.Align.LEFT : 2 == i2 ? Paint.Align.RIGHT : Paint.Align.CENTER : (Paint.Align) invokeI.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0037 A[LOOP:0: B:15:0x0035->B:16:0x0037, LOOP_END] */
@@ -681,7 +678,7 @@ public class EnvDrawText {
         Typeface create;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(AdIconUtil.BAIDU_LOGO_ID, null, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, str, i2, i3)) == null) {
             int length = str.length();
             if (length == 0) {
                 return null;
@@ -747,11 +744,11 @@ public class EnvDrawText {
                 a aVar = fontCache.get(i2);
                 if (aVar == null) {
                     a aVar2 = new a();
-                    aVar2.f73484a = typeface;
-                    aVar2.f73485b++;
+                    aVar2.a = typeface;
+                    aVar2.f64304b++;
                     fontCache.put(i2, aVar2);
                 } else {
-                    aVar.f73485b++;
+                    aVar.f64304b++;
                 }
             }
         }
@@ -765,8 +762,8 @@ public class EnvDrawText {
                 if (aVar == null) {
                     return;
                 }
-                int i3 = aVar.f73485b - 1;
-                aVar.f73485b = i3;
+                int i3 = aVar.f64304b - 1;
+                aVar.f64304b = i3;
                 if (i3 == 0) {
                     fontCache.remove(i2);
                 }

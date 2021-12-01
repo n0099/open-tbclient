@@ -3,7 +3,7 @@ package com.baidu.searchbox.pms.callback;
 import com.baidu.searchbox.pms.bean.DegradeData;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
 import com.baidu.searchbox.pms.bean.ResultData;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface PackageCallback {
     void onDegradeData(DegradeData degradeData);
 

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DRAFT_JSON_NAME = "new_video_info";
@@ -355,10 +355,10 @@ public class VideoInfo extends OrmObject implements Serializable {
         }
     }
 
-    public void setVideoLength(long j) {
+    public void setVideoLength(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
-            this.videoLength = j;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
+            this.videoLength = j2;
         }
     }
 

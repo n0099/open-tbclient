@@ -1,7 +1,6 @@
 package com.baidu.sofire.utility;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sofire.jni.Asc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,12 +8,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Asc f44121a;
+    public static Asc a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +27,7 @@ public final class h {
                 return;
             }
         }
-        f44121a = new Asc();
+        a = new Asc();
     }
 
     public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
@@ -44,11 +41,11 @@ public final class h {
                     c.a();
                 }
                 if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    if (f44121a != null) {
+                    if (a != null) {
                         if (z) {
-                            acn = f44121a.ac(bArr2, bArr);
+                            acn = a.ac(bArr2, bArr);
                         } else {
-                            acn = f44121a.acn(bArr2, bArr);
+                            acn = a.acn(bArr2, bArr);
                         }
                         if (acn != null && acn.length > 0) {
                             return acn;
@@ -73,7 +70,7 @@ public final class h {
                     c.a();
                 }
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    if (f44121a != null && (ar = f44121a.ar(bArr, bArr2)) != null && ar.length > 0) {
+                    if (a != null && (ar = a.ar(bArr, bArr2)) != null && ar.length > 0) {
                         return ar;
                     }
                     return new byte[0];
@@ -88,14 +85,14 @@ public final class h {
         InterceptResult invokeLL;
         byte[] dr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
             if (bArr2 != null) {
                 try {
                 } catch (Throwable unused) {
                     c.a();
                 }
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    if (f44121a != null && (dr = f44121a.dr(bArr, bArr2)) != null && dr.length > 0) {
+                    if (a != null && (dr = a.dr(bArr, bArr2)) != null && dr.length > 0) {
                         return dr;
                     }
                     return new byte[0];
@@ -117,7 +114,7 @@ public final class h {
                     c.a();
                 }
                 if (bArr.length > 0 && bArr2 != null && bArr2.length > 0) {
-                    if (f44121a != null && (dc = f44121a.dc(bArr2, bArr)) != null && dc.length > 0) {
+                    if (a != null && (dc = a.dc(bArr2, bArr)) != null && dc.length > 0) {
                         return dc;
                     }
                     return new byte[0];
@@ -134,8 +131,8 @@ public final class h {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, file, file2, bArr)) == null) {
             if (bArr != null) {
                 try {
-                    if (bArr.length > 0 && file != null && file2 != null && f44121a != null) {
-                        return f44121a.df(file.getAbsolutePath(), file2.getAbsolutePath(), bArr);
+                    if (bArr.length > 0 && file != null && file2 != null && a != null) {
+                        return a.df(file.getAbsolutePath(), file2.getAbsolutePath(), bArr);
                     }
                 } catch (Throwable unused) {
                     c.a();

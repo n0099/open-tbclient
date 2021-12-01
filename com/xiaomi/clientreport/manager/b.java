@@ -5,13 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.clientreport.data.EventClientReport;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ EventClientReport f71478a;
+    public final /* synthetic */ EventClientReport a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ a f43a;
@@ -32,14 +30,14 @@ public class b implements Runnable {
             }
         }
         this.f43a = aVar;
-        this.f71478a = eventClientReport;
+        this.a = eventClientReport;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f43a.b(this.f71478a);
+            this.f43a.b(this.a);
         }
     }
 }

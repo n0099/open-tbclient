@@ -11,16 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public abstract class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Context f36607a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedList<e> f36608b;
+    public LinkedList<e> f32831b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -37,8 +35,8 @@ public abstract class d {
                 return;
             }
         }
-        this.f36608b = new LinkedList<>();
-        this.f36607a = context;
+        this.f32831b = new LinkedList<>();
+        this.a = context;
     }
 
     public abstract e a(byte[] bArr) throws IOException;
@@ -46,7 +44,7 @@ public abstract class d {
     public LinkedList<e> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36608b : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32831b : (LinkedList) invokeV.objValue;
     }
 
     public abstract void a(int i2, String str, byte[] bArr);
@@ -54,12 +52,12 @@ public abstract class d {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            synchronized (this.f36608b) {
+            synchronized (this.f32831b) {
                 try {
-                    this.f36608b.add(eVar);
-                    this.f36608b.notifyAll();
+                    this.f32831b.add(eVar);
+                    this.f32831b.notifyAll();
                 } catch (Exception e2) {
-                    new b.c(this.f36607a).a(Log.getStackTraceString(e2)).a();
+                    new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                 }
             }
         }

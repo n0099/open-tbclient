@@ -11,7 +11,7 @@ import com.ss.android.download.api.download.DownloadStatusChangeListener;
 public interface b {
     Dialog a(Context context, String str, boolean z, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, DownloadStatusChangeListener downloadStatusChangeListener, int i2);
 
-    boolean a(Context context, long j, String str, DownloadStatusChangeListener downloadStatusChangeListener, int i2);
+    boolean a(Context context, long j2, String str, DownloadStatusChangeListener downloadStatusChangeListener, int i2);
 
     boolean a(Context context, Uri uri, DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController);
 }

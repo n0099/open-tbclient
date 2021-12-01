@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class fw extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public gf f71894a;
+    public gf a;
 
     /* renamed from: a  reason: collision with other field name */
     public gg f421a;
@@ -36,7 +34,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f71894a = null;
+        this.a = null;
         this.f421a = null;
         this.f422a = null;
     }
@@ -56,10 +54,10 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f71894a = null;
+        this.a = null;
         this.f421a = null;
         this.f422a = null;
-        this.f71894a = gfVar;
+        this.a = gfVar;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -80,7 +78,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f71894a = null;
+        this.a = null;
         this.f421a = null;
         this.f422a = null;
     }
@@ -103,7 +101,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f71894a = null;
+        this.a = null;
         this.f421a = null;
         this.f422a = null;
         this.f422a = th;
@@ -124,7 +122,7 @@ public class fw extends Exception {
                 return;
             }
         }
-        this.f71894a = null;
+        this.a = null;
         this.f421a = null;
         this.f422a = null;
         this.f422a = th;
@@ -144,7 +142,7 @@ public class fw extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String message = super.getMessage();
-            return (message != null || (ggVar = this.f421a) == null) ? (message != null || (gfVar = this.f71894a) == null) ? message : gfVar.toString() : ggVar.toString();
+            return (message != null || (ggVar = this.f421a) == null) ? (message != null || (gfVar = this.a) == null) ? message : gfVar.toString() : ggVar.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -196,7 +194,7 @@ public class fw extends Exception {
             if (ggVar != null) {
                 sb.append(ggVar);
             }
-            gf gfVar = this.f71894a;
+            gf gfVar = this.a;
             if (gfVar != null) {
                 sb.append(gfVar);
             }

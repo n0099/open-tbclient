@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DuDelayProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public long f37302a;
+    public long a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,45 +46,45 @@ public class DuDelayProcess {
                 return;
             }
         }
-        this.f37302a = 0L;
-        this.f37302a = nativeInitDelay(i2, i3);
+        this.a = 0L;
+        this.a = nativeInitDelay(i2, i3);
     }
 
-    private native int nativeAvailableBytes(long j);
+    private native int nativeAvailableBytes(long j2);
 
-    private native boolean nativeDelayPutBytes(long j, byte[] bArr, int i2);
+    private native boolean nativeDelayPutBytes(long j2, byte[] bArr, int i2);
 
-    private native int nativeDelayReceiveBytes(long j, byte[] bArr, int i2);
+    private native int nativeDelayReceiveBytes(long j2, byte[] bArr, int i2);
 
-    private native void nativeDestroyDelay(long j);
+    private native void nativeDestroyDelay(long j2);
 
-    private native void nativeFlushBuffer(long j);
+    private native void nativeFlushBuffer(long j2);
 
     private native long nativeInitDelay(int i2, int i3);
 
-    private native void nativeSetDelayDecrease(long j, float f2);
+    private native void nativeSetDelayDecrease(long j2, float f2);
 
-    private native void nativeSetDelayInterval(long j, int i2, int[] iArr);
+    private native void nativeSetDelayInterval(long j2, int i2, int[] iArr);
 
-    private native void nativeSetDelayMode(long j, int i2);
+    private native void nativeSetDelayMode(long j2, int i2);
 
-    private native void nativeSetDelayNewPosition(long j, int i2);
+    private native void nativeSetDelayNewPosition(long j2, int i2);
 
-    private native void nativeSetDelayTime(long j, int i2);
+    private native void nativeSetDelayTime(long j2, int i2);
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nativeAvailableBytes(this.f37302a) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nativeAvailableBytes(this.a) : invokeV.intValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f37302a;
-            if (j != 0) {
-                nativeDestroyDelay(j);
-                this.f37302a = 0L;
+            long j2 = this.a;
+            if (j2 != 0) {
+                nativeDestroyDelay(j2);
+                this.a = 0L;
             }
         }
     }
@@ -94,54 +92,54 @@ public class DuDelayProcess {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            nativeFlushBuffer(this.f37302a);
+            nativeFlushBuffer(this.a);
         }
     }
 
     public boolean d(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) ? nativeDelayPutBytes(this.f37302a, bArr, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, bArr, i2)) == null) ? nativeDelayPutBytes(this.a, bArr, i2) : invokeLI.booleanValue;
     }
 
     public int e(byte[] bArr, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i2)) == null) ? nativeDelayReceiveBytes(this.f37302a, bArr, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i2)) == null) ? nativeDelayReceiveBytes(this.a, bArr, i2) : invokeLI.intValue;
     }
 
     public void f(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            nativeSetDelayDecrease(this.f37302a, f2);
+            nativeSetDelayDecrease(this.a, f2);
         }
     }
 
     public void g(int i2, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i2, iArr) == null) {
-            nativeSetDelayInterval(this.f37302a, i2, iArr);
+            nativeSetDelayInterval(this.a, i2, iArr);
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            nativeSetDelayMode(this.f37302a, i2);
+            nativeSetDelayMode(this.a, i2);
         }
     }
 
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            nativeSetDelayNewPosition(this.f37302a, i2);
+            nativeSetDelayNewPosition(this.a, i2);
         }
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            nativeSetDelayTime(this.f37302a, i2);
+            nativeSetDelayTime(this.a, i2);
         }
     }
 }

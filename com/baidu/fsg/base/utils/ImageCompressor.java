@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageCompressor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int UNCONSTRAINED = -1;
@@ -60,15 +60,15 @@ public class ImageCompressor {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, options, i2, i3)) == null) {
-            int a2 = a(options, i2, i3);
-            if (a2 <= 8) {
+            int a = a(options, i2, i3);
+            if (a <= 8) {
                 int i4 = 1;
-                while (i4 < a2) {
+                while (i4 < a) {
                     i4 <<= 1;
                 }
                 return i4;
             }
-            return ((a2 + 7) / 8) * 8;
+            return ((a + 7) / 8) * 8;
         }
         return invokeLII.intValue;
     }

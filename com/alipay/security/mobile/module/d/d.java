@@ -15,18 +15,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f35151a = "";
+    public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35152b = "";
+    public static String f31498b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35153c = "";
+    public static String f31499c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,9 +57,9 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
             synchronized (d.class) {
-                f35151a = str;
-                f35152b = str2;
-                f35153c = str3;
+                a = str;
+                f31498b = str2;
+                f31499c = str3;
             }
         }
     }
@@ -89,20 +87,20 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
             synchronized (d.class) {
-                if (!com.alipay.security.mobile.module.a.a.a(f35152b) && !com.alipay.security.mobile.module.a.a.a(f35153c)) {
+                if (!com.alipay.security.mobile.module.a.a.a(f31498b) && !com.alipay.security.mobile.module.a.a.a(f31499c)) {
                     StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append(f35153c);
+                    stringBuffer.append(f31499c);
                     Iterator<String> it = list.iterator();
                     while (it.hasNext()) {
                         stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + it.next());
                     }
                     stringBuffer.append(StringUtils.LF);
                     try {
-                        File file = new File(f35151a);
+                        File file = new File(a);
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        File file2 = new File(f35151a, f35152b);
+                        File file2 = new File(a, f31498b);
                         if (!file2.exists()) {
                             file2.createNewFile();
                         }

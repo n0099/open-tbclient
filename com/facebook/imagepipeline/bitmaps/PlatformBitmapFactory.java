@@ -10,7 +10,6 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,13 +20,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class PlatformBitmapFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory$1  reason: invalid class name */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -282,13 +281,13 @@ public abstract class PlatformBitmapFactory {
     private CloseableReference<Bitmap> createBitmap(int i2, int i3, Bitmap.Config config, boolean z, @Nullable Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), config, Boolean.valueOf(z), obj})) == null) ? createBitmap((DisplayMetrics) null, i2, i3, config, z, obj) : (CloseableReference) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), config, Boolean.valueOf(z), obj})) == null) ? createBitmap((DisplayMetrics) null, i2, i3, config, z, obj) : (CloseableReference) invokeCommon.objValue;
     }
 
     private CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int i2, int i3, Bitmap.Config config, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{displayMetrics, Integer.valueOf(i2), Integer.valueOf(i3), config, Boolean.valueOf(z)})) == null) ? createBitmap(displayMetrics, i2, i3, config, z, (Object) null) : (CloseableReference) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{displayMetrics, Integer.valueOf(i2), Integer.valueOf(i3), config, Boolean.valueOf(z)})) == null) ? createBitmap(displayMetrics, i2, i3, config, z, (Object) null) : (CloseableReference) invokeCommon.objValue;
     }
 
     private CloseableReference<Bitmap> createBitmap(DisplayMetrics displayMetrics, int i2, int i3, Bitmap.Config config, boolean z, @Nullable Object obj) {

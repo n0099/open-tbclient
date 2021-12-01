@@ -8,18 +8,15 @@ import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ap {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f72335a;
+    public static String a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String[] f902a;
@@ -49,7 +46,7 @@ public class ap {
                 try {
                     return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m73a("get user aggregate failed, " + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m122a("get user aggregate failed, " + e2);
                 }
             }
             return 0;
@@ -100,10 +97,10 @@ public class ap {
     public static void a(Context context, Intent intent) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, intent) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, intent) == null) {
             int i2 = -1;
             while (true) {
-                str = i2 < 0 ? f72335a : f902a[i2];
+                str = i2 < 0 ? a : f902a[i2];
                 if (!TextUtils.isEmpty(str)) {
                     intent.setPackage(str);
                     try {
@@ -111,7 +108,7 @@ public class ap {
                             break;
                         }
                     } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.m73a("not found xm browser:" + e2);
+                        com.xiaomi.channel.commonutils.logger.b.m122a("not found xm browser:" + e2);
                     }
                 }
                 i2++;
@@ -121,14 +118,14 @@ public class ap {
                 }
             }
             intent.setPackage(str);
-            f72335a = str;
+            a = str;
         }
     }
 
     public static boolean a(Notification.Builder builder, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(AdIconUtil.BAIDU_LOGO_ID, null, builder, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, builder, z)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
                 builder.setGroupAlertBehavior(z ? 2 : 1);
                 return true;
@@ -140,7 +137,7 @@ public class ap {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m601a(ContentResolver contentResolver) {
+    public static boolean m650a(ContentResolver contentResolver) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, contentResolver)) == null) {

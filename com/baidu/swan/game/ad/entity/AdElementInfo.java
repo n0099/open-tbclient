@@ -6,10 +6,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
-import com.baidu.mobads.container.landingpage.AppPriActivity;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -25,7 +22,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdElementInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_TYPE_DOWNLOAD = 2;
@@ -82,7 +79,7 @@ public class AdElementInfo implements Parcelable {
     public String mVideoUrl;
     public int mVideoWidth;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<AdElementInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +139,7 @@ public class AdElementInfo implements Parcelable {
 
     private void addCloseMonitorTrackers(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str) == null) || str == null || str.equals("")) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, str) == null) || str == null || str.equals("")) {
             return;
         }
         this.mCloseTrackers.add(str);
@@ -150,7 +147,7 @@ public class AdElementInfo implements Parcelable {
 
     private void addConversionUrls(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         this.mConversionUrls.add(str);
@@ -523,7 +520,7 @@ public class AdElementInfo implements Parcelable {
         this.mAdJsonObject = jSONObject;
         try {
             this.createTime = System.currentTimeMillis();
-            this.mQueryKey = jSONObject.optString(XAdRemoteAPKDownloadExtraInfo.QK, "");
+            this.mQueryKey = jSONObject.optString("qk", "");
             this.mAdId = jSONObject.optString("id", "-1");
             String optString = jSONObject.optString("winurl", "");
             if (!TextUtils.isEmpty(optString)) {
@@ -538,7 +535,7 @@ public class AdElementInfo implements Parcelable {
             this.mClickUrl = jSONObject.optString("curl", "");
             this.mPictureUrl = jSONObject.optString("w_picurl", "");
             this.mVideoUrl = jSONObject.optString("vurl", "");
-            this.mPrivacyUrl = jSONObject.optString(AppPriActivity.PRIVACY_LINK, "");
+            this.mPrivacyUrl = jSONObject.optString("privacy_link", "");
             this.mPermissionUrl = jSONObject.optString("permission_link", "");
             this.mVideoWidth = jSONObject.optInt("w", 0);
             this.mVideoHeight = jSONObject.optInt("h", 0);
@@ -574,7 +571,7 @@ public class AdElementInfo implements Parcelable {
                         for (int i7 = 0; i7 < optJSONArray4.length(); i7++) {
                             addCloseMonitorTrackers(optJSONArray4.optString(i7));
                         }
-                    } else if (next.equals(PrefetchEvent.STATE_CLICK)) {
+                    } else if (next.equals("click")) {
                         JSONArray optJSONArray5 = optJSONObject.optJSONArray(next);
                         for (int i8 = 0; i8 < optJSONArray5.length(); i8++) {
                             addMonitorClickTrackers(optJSONArray5.optString(i8));
@@ -588,7 +585,7 @@ public class AdElementInfo implements Parcelable {
                 }
             }
             this.mAppName = jSONObject.optString("appname", "");
-            this.mPackageName = jSONObject.optString("pk", "");
+            this.mPackageName = jSONObject.optString(PushConstants.URI_PACKAGE_NAME, "");
             this.mApkName = jSONObject.optString("apk_name", "");
             this.mAppSize = jSONObject.optLong("sz", 0L);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("ad_html");
@@ -651,7 +648,7 @@ public class AdElementInfo implements Parcelable {
         this.mAdJsonObject = jSONObject;
         try {
             this.mGdtAd = true;
-            this.mAdId = jSONObject.optString(XAdRemoteAPKDownloadExtraInfo.ADID, "-1");
+            this.mAdId = jSONObject.optString("adid", "-1");
             this.mIconUrl = jSONObject.optString("icon_url", "");
             this.mTitle = jSONObject.optString("title", "");
             this.mDescription = jSONObject.optString("description", "");

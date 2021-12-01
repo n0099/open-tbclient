@@ -6,19 +6,16 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class dn {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile dn f71722a;
+    public static volatile dn a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -52,26 +49,26 @@ public class dn {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f71722a == null) {
+            if (a == null) {
                 synchronized (dn.class) {
-                    if (f71722a == null) {
-                        f71722a = new dn(context);
+                    if (a == null) {
+                        a = new dn(context);
                     }
                 }
             }
-            return f71722a;
+            return a;
         }
         return (dn) invokeL.objValue;
     }
 
     private void a(com.xiaomi.push.service.aq aqVar, ai aiVar, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.f72020a.a(), true)) {
+        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.a.a(), true)) {
             ds dsVar = new ds(this.f245a);
             if (z) {
-                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f72021b.a(), 86400)));
+                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f62999b.a(), 86400)));
             } else {
-                aiVar.m145a((ai.a) dsVar);
+                aiVar.m194a((ai.a) dsVar);
             }
         }
     }
@@ -79,7 +76,7 @@ public class dn {
     private boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (Build.VERSION.SDK_INT >= 14) {
                 try {
                     ((Application) (this.f245a instanceof Application ? this.f245a : this.f245a.getApplicationContext())).registerActivityLifecycleCallbacks(new dh(this.f245a, String.valueOf(System.currentTimeMillis() / 1000)));
@@ -96,16 +93,16 @@ public class dn {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             ai a2 = ai.a(this.f245a);
             com.xiaomi.push.service.aq a3 = com.xiaomi.push.service.aq.a(this.f245a);
             SharedPreferences sharedPreferences = this.f245a.getSharedPreferences("mipush_extra", 0);
             long currentTimeMillis = System.currentTimeMillis();
-            long j = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
-            if (j == currentTimeMillis) {
+            long j2 = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
+            if (j2 == currentTimeMillis) {
                 sharedPreferences.edit().putLong("first_try_ts", currentTimeMillis).commit();
             }
-            if (Math.abs(currentTimeMillis - j) < 172800000) {
+            if (Math.abs(currentTimeMillis - j2) < 172800000) {
                 return;
             }
             a(a3, a2, false);
@@ -127,7 +124,7 @@ public class dn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m250a() {
+    public void m299a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ai.a(this.f245a).a(new Cdo(this));

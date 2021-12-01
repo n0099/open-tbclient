@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.event.base.TKBaseEvent;
 import io.flutter.Log;
 import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.embedding.engine.dart.DartExecutor;
@@ -14,7 +15,7 @@ import io.flutter.plugin.common.BasicMessageChannel;
 import io.flutter.plugin.common.StandardMessageCodec;
 import io.flutter.view.AccessibilityBridge;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccessibilityChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccessibilityChannel";
@@ -27,7 +28,7 @@ public class AccessibilityChannel {
     public AccessibilityMessageHandler handler;
     public final BasicMessageChannel.MessageHandler<Object> parsingMessageHandler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AccessibilityMessageHandler extends FlutterJNI.AccessibilityDelegate {
         void announce(@NonNull String str);
 
@@ -102,13 +103,13 @@ public class AccessibilityChannel {
                         }
                         break;
                     case 114595:
-                        if (str2.equals("tap")) {
+                        if (str2.equals(TKBaseEvent.TK_CLICK_EVENT_NAME)) {
                             c2 = 1;
                             break;
                         }
                         break;
                     case 114203431:
-                        if (str2.equals("longPress")) {
+                        if (str2.equals(TKBaseEvent.TK_LONG_PRESS_EVENT_NAME)) {
                             c2 = 2;
                             break;
                         }
@@ -124,16 +125,15 @@ public class AccessibilityChannel {
                     if (num != null) {
                         this.this$0.handler.onTap(num.intValue());
                     }
-                } else if (c2 != 2) {
-                    if (c2 == 3 && (str = (String) hashMap2.get("message")) != null) {
-                        this.this$0.handler.onTooltip(str);
-                    }
-                } else {
+                } else if (c2 == 2) {
                     Integer num2 = (Integer) hashMap.get("nodeId");
                     if (num2 != null) {
                         this.this$0.handler.onLongPress(num2.intValue());
                     }
+                } else if (c2 == 3 && (str = (String) hashMap2.get("message")) != null) {
+                    this.this$0.handler.onTooltip(str);
                 }
+                reply.reply(null);
             }
         };
         BasicMessageChannel<Object> basicMessageChannel = new BasicMessageChannel<>(dartExecutor, "flutter/accessibility", StandardMessageCodec.INSTANCE);

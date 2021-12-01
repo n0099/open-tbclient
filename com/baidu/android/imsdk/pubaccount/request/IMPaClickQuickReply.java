@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class IMPaClickQuickReply extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,12 +29,12 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
     public long mPaid;
     public long mVersionId;
 
-    public IMPaClickQuickReply(Context context, long j, String str, long j2, String str2) {
+    public IMPaClickQuickReply(Context context, long j2, String str, long j3, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, Long.valueOf(j2), str2};
+            Object[] objArr = {context, Long.valueOf(j2), str, Long.valueOf(j3), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,9 +45,9 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mPaid = j;
+        this.mPaid = j2;
         this.mButtonId = str;
-        this.mVersionId = j2;
+        this.mVersionId = j3;
         this.mKey = str2;
     }
 

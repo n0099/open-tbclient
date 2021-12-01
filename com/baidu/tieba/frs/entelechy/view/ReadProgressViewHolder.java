@@ -4,12 +4,12 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import b.a.r0.x0.c1;
-import b.a.r0.x0.d1;
-import b.a.r0.x0.e1;
-import b.a.r0.x0.f1;
-import b.a.r0.x0.i1;
-import b.a.r0.x0.u;
+import c.a.r0.d1.c1;
+import c.a.r0.d1.d1;
+import c.a.r0.d1.e1;
+import c.a.r0.d1.f1;
+import c.a.r0.d1.i1;
+import c.a.r0.d1.u;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,15 +22,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final int f49352a;
+    public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f49353b;
+    public static final int f44257b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public View mRoot;
@@ -50,8 +48,8 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         UtilHelper.getDimenPixelSize(d1.M_H_X002);
-        f49352a = UtilHelper.getDimenPixelSize(d1.M_H_X003);
-        f49353b = UtilHelper.getDimenPixelSize(d1.M_H_X005);
+        a = UtilHelper.getDimenPixelSize(d1.M_H_X003);
+        f44257b = UtilHelper.getDimenPixelSize(d1.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,8 +73,8 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         this.mRoot = view;
         TextView textView = (TextView) view.findViewById(f1.view_frs_read_progress);
         this.mTipView = textView;
-        int i4 = f49353b;
-        textView.setPadding(0, i4, 0, i4 - f49352a);
+        int i4 = f44257b;
+        textView.setPadding(0, i4, 0, i4 - a);
         this.mContext = context;
     }
 

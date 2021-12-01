@@ -1,0 +1,162 @@
+package com.baidu.nadcore.widget.uitemplate;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import c.a.b0.b.e;
+import c.a.b0.b.g;
+import c.a.b0.b.h;
+import c.a.b0.b.i;
+import c.a.b0.d0.p;
+import c.a.b0.p.o;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class NadRewardStayDialog extends Dialog implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+
+    /* renamed from: e  reason: collision with root package name */
+    public final b f37963e;
+
+    /* loaded from: classes8.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ NadRewardStayDialog f37964e;
+
+        public a(NadRewardStayDialog nadRewardStayDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nadRewardStayDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f37964e = nadRewardStayDialog;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.f37964e.f37963e.a(false);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public NadRewardStayDialog(Context context, @NonNull AdBaseModel adBaseModel, @NonNull b bVar) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adBaseModel, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        c(adBaseModel);
+        this.f37963e = bVar;
+    }
+
+    public final void b(AdBaseModel adBaseModel) {
+        o oVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
+            o.a aVar = (adBaseModel == null || (oVar = adBaseModel.l) == null) ? null : oVar.f1804d;
+            View inflate = LayoutInflater.from(getContext()).inflate(g.nad_reward_stay_view, (ViewGroup) null);
+            String string = (aVar == null || TextUtils.isEmpty(aVar.a)) ? getContext().getResources().getString(h.nad_reward_stay_title) : aVar.a;
+            String string2 = (aVar == null || TextUtils.isEmpty(aVar.f1809b)) ? getContext().getResources().getString(h.nad_reward_stay_confirm) : aVar.f1809b;
+            String string3 = (aVar == null || TextUtils.isEmpty(aVar.f1810c)) ? getContext().getResources().getString(h.nad_reward_stay_cancel) : aVar.f1810c;
+            ((TextView) inflate.findViewById(e.nad_reward_stay_content)).setText(string);
+            TextView textView = (TextView) inflate.findViewById(e.nad_reward_stay_continue);
+            textView.setText(string2);
+            textView.setOnClickListener(this);
+            TextView textView2 = (TextView) inflate.findViewById(e.nad_reward_stay_cancel);
+            textView2.setText(string3);
+            textView2.setOnClickListener(this);
+            setContentView(inflate);
+            setOnDismissListener(new a(this));
+        }
+    }
+
+    public final void c(@NonNull AdBaseModel adBaseModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
+            Window window = getWindow();
+            window.requestFeature(1);
+            b(adBaseModel);
+            window.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.width = -1;
+            attributes.height = -2;
+            attributes.windowAnimations = i.nad_BottomInAndOutStyle;
+            attributes.gravity = 17;
+            window.setAttributes(attributes);
+            window.setBackgroundDrawableResource(17170445);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            if (view.getId() == e.nad_reward_stay_continue) {
+                this.f37963e.a(false);
+            } else if (view.getId() == e.nad_reward_stay_cancel) {
+                this.f37963e.a(true);
+            }
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                super.show();
+                return;
+            }
+            window.setFlags(8, 8);
+            super.show();
+            p.a(window);
+            window.clearFlags(8);
+        }
+    }
+}

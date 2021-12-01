@@ -8,27 +8,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class HtmlDataCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_BINDCARD_PROTOCOL = "1";
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f63569a;
-
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: a  reason: collision with root package name */
-        public static HtmlDataCache f63570a;
+        public static HtmlDataCache a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +40,7 @@ public class HtmlDataCache {
                     return;
                 }
             }
-            f63570a = new HtmlDataCache(null);
+            a = new HtmlDataCache(null);
         }
     }
 
@@ -55,26 +51,26 @@ public class HtmlDataCache {
     public static HtmlDataCache getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.f63570a : (HtmlDataCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (HtmlDataCache) invokeV.objValue;
     }
 
     public void clearData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f63569a = null;
+            this.a = null;
         }
     }
 
     public String getHtml() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63569a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
     public void setHtml(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f63569a = str;
+            this.a = str;
         }
     }
 

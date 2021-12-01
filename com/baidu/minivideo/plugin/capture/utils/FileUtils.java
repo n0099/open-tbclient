@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.minivideo.plugin.capture.Application;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +22,7 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PUBLIC_SUCCESS_TEMP_DIR = "public_succes_temp";
@@ -103,7 +102,7 @@ public class FileUtils {
     public static boolean deleteFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -118,7 +117,7 @@ public class FileUtils {
 
     public static void deleteNotCheck(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, file) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, null, file) == null) {
             if (file.isFile()) {
                 file.delete();
                 return;
@@ -146,16 +145,16 @@ public class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < length2; i2++) {
                 if (listFiles[i2].isDirectory()) {
                     length = getDirectorySize(listFiles[i2]);
                 } else {
                     length = listFiles[i2].length();
                 }
-                j += length;
+                j2 += length;
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -321,16 +320,16 @@ public class FileUtils {
                 return file.length();
             }
             int length2 = listFiles.length;
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < length2; i2++) {
                 if (listFiles[i2].isDirectory()) {
                     length = getDirectorySize(listFiles[i2]);
                 } else {
                     length = listFiles[i2].length();
                 }
-                j += length;
+                j2 += length;
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }

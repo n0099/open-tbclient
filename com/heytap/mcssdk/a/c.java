@@ -34,7 +34,7 @@ public abstract class c implements d {
 
     public static List<Message> a(Context context, Intent intent) {
         InterceptResult invokeLL;
-        Message a2;
+        Message a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
             if (intent == null) {
@@ -49,8 +49,8 @@ public abstract class c implements d {
             LogUtil.d("MessageParser--getMessageByIntent--type:" + i2);
             ArrayList arrayList = new ArrayList();
             for (d dVar : PushManager.getInstance().getParsers()) {
-                if (dVar != null && (a2 = dVar.a(context, i2, intent)) != null) {
-                    arrayList.add(a2);
+                if (dVar != null && (a = dVar.a(context, i2, intent)) != null) {
+                    arrayList.add(a);
                 }
             }
             return arrayList;

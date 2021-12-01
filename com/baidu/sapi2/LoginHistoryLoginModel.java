@@ -2,7 +2,6 @@ package com.baidu.sapi2;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.face.platform.utils.MD5Utils;
 import com.baidu.sapi2.dto.loginhistory.AccountLoginAction;
 import com.baidu.sapi2.dto.loginhistory.LoginHistoryItem;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LoginHistoryLoginModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long SECONDS_OF_ONE_DAY = 86400;
@@ -120,13 +119,13 @@ public class LoginHistoryLoginModel {
     public static void updateLoginHistoryInfo(SapiAccount sapiAccount) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, sapiAccount) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, sapiAccount) == null) {
             List loadHistoryAccounts = loadHistoryAccounts();
             if (loadHistoryAccounts == null) {
                 loadHistoryAccounts = new ArrayList();
             }
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            long j = currentTimeMillis / 86400;
+            long j2 = currentTimeMillis / 86400;
             int i2 = -1;
             int i3 = 0;
             while (true) {
@@ -134,10 +133,10 @@ public class LoginHistoryLoginModel {
                     break;
                 }
                 AccountLoginAction accountLoginAction = (AccountLoginAction) loadHistoryAccounts.get(i3);
-                long j2 = accountLoginAction.loginTimeSecond;
-                if (currentTimeMillis - j2 > 5) {
-                    long j3 = j2 / 86400;
-                    if (TextUtils.equals(sapiAccount.bduss, accountLoginAction.sapiAccount.bduss) && j == j3) {
+                long j3 = accountLoginAction.loginTimeSecond;
+                if (currentTimeMillis - j3 > 5) {
+                    long j4 = j3 / 86400;
+                    if (TextUtils.equals(sapiAccount.bduss, accountLoginAction.sapiAccount.bduss) && j2 == j4) {
                         i2 = i3;
                         break;
                     }

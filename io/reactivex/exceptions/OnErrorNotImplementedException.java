@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.annotations.Beta;
 import io.reactivex.annotations.NonNull;
 @Beta
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class OnErrorNotImplementedException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6298857009889503852L;

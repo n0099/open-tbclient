@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.DefinedLuaListener;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LuaMsgListener cc;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f37294f;
+    public b f33390f;
     public c rN;
     public DefinedLuaListener sX;
 
@@ -42,7 +41,7 @@ public class e {
         if (bVar == null) {
             return;
         }
-        this.f37294f = bVar;
+        this.f33390f = bVar;
         fl();
         if (this.cc == null) {
             this.cc = new LuaMsgListener(this) { // from class: com.baidu.ar.lua.e.1
@@ -133,7 +132,7 @@ public class e {
                 }
             };
             this.rN = cVar;
-            this.f37294f.c(cVar);
+            this.f33390f.c(cVar);
         }
     }
 
@@ -141,7 +140,7 @@ public class e {
     public boolean j(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, hashMap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, hashMap)) == null) {
             String str = (String) hashMap.get("event_name");
             if (TextUtils.isEmpty(str) || !"camera_switch".equals(str)) {
                 return false;
@@ -164,10 +163,10 @@ public class e {
     public boolean k(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, hashMap)) == null) {
-            int a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
-            String str = "switchCameraById id = " + a2;
-            if (a2 == 10202) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, hashMap)) == null) {
+            int a = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
+            String str = "switchCameraById id = " + a;
+            if (a == 10202) {
                 this.sX.onRequireSwitchCamera(-1);
                 return true;
             }
@@ -179,7 +178,7 @@ public class e {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = this.f37294f;
+            b bVar = this.f33390f;
             if (bVar != null) {
                 if (this.cc != null) {
                     bVar.fk().removeLuaMsgListener(this.cc);
@@ -187,10 +186,10 @@ public class e {
                 }
                 c cVar = this.rN;
                 if (cVar != null) {
-                    this.f37294f.d(cVar);
+                    this.f33390f.d(cVar);
                     this.rN = null;
                 }
-                this.f37294f = null;
+                this.f33390f = null;
             }
             this.sX = null;
         }

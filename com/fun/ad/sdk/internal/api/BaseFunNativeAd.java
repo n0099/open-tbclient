@@ -11,15 +11,13 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunNativeAd;
 import com.fun.ad.sdk.FunNativeInfo;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.v0;
+import com.fun.u0;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final v0.b f63718a;
+    public final u0.b a;
     public final String mSid;
 
     public BaseFunNativeAd(String str, Ssp.Pid pid) {
@@ -38,7 +36,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
             }
         }
         this.mSid = str;
-        this.f63718a = new v0.b(str, pid);
+        this.a = new u0.b(str, pid);
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd
@@ -48,7 +46,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
             if (context == null || viewGroup == null || list == null || funAdInteractionListener == null) {
                 throw new IllegalArgumentException();
             }
-            this.f63718a.e();
+            this.a.e();
             showInternal(context, viewGroup, list, list2, funAdInteractionListener);
         }
     }

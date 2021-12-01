@@ -1,6 +1,5 @@
 package com.bytedance.pangle.util;
 
-import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,21 +9,19 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.zip.CRC32;
 import java.util.zip.ZipException;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public long f62428a;
+        public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f62429b;
+        public long f54655b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,7 +42,7 @@ public final class l {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f41000a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
             try {
                 return a(randomAccessFile, a(randomAccessFile));
             } finally {
@@ -61,8 +58,8 @@ public final class l {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, randomAccessFile)) == null) {
             long length = randomAccessFile.length() - 22;
             if (length >= 0) {
-                long j = length - 65536;
-                long j2 = j >= 0 ? j : 0L;
+                long j2 = length - 65536;
+                long j3 = j2 >= 0 ? j2 : 0L;
                 int reverseBytes = Integer.reverseBytes(101010256);
                 do {
                     randomAccessFile.seek(length);
@@ -72,12 +69,12 @@ public final class l {
                         randomAccessFile.skipBytes(2);
                         randomAccessFile.skipBytes(2);
                         a aVar = new a();
-                        aVar.f62429b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
-                        aVar.f62428a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                        aVar.f54655b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                        aVar.a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                         return aVar;
                     }
                     length--;
-                } while (length >= j2);
+                } while (length >= j3);
                 throw new ZipException("End Of Central Directory signature not found");
             }
             throw new ZipException("File too short to be a zip file: " + randomAccessFile.length());
@@ -90,9 +87,9 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, aVar)) == null) {
             CRC32 crc32 = new CRC32();
-            long j = aVar.f62429b;
-            randomAccessFile.seek(aVar.f62428a);
-            int min = (int) Math.min(16384L, j);
+            long j2 = aVar.f54655b;
+            randomAccessFile.seek(aVar.a);
+            int min = (int) Math.min(16384L, j2);
             byte[] bArr = new byte[16384];
             while (true) {
                 int read = randomAccessFile.read(bArr, 0, min);
@@ -100,11 +97,11 @@ public final class l {
                     break;
                 }
                 crc32.update(bArr, 0, read);
-                j -= read;
-                if (j == 0) {
+                j2 -= read;
+                if (j2 == 0) {
                     break;
                 }
-                min = (int) Math.min(16384L, j);
+                min = (int) Math.min(16384L, j2);
             }
             return crc32.getValue();
         }

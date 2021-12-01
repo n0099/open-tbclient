@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.filter;
 
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.logging.FLog;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class IterativeBoxBlurFilter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IterativeBoxBlurFilter";
@@ -127,7 +126,7 @@ public abstract class IterativeBoxBlurFilter {
 
     public static void internalVerticalBlur(int[] iArr, int[] iArr2, int i2, int i3, int i4, int i5, int[] iArr3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{iArr, iArr2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{iArr, iArr2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr3}) == null) {
             int i6 = ((i3 - 1) * i2) + i4;
             int i7 = (i5 >> 1) * i2;
             int i8 = (i5 - 1) * i2;

@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.spswitch.R;
 import com.baidu.spswitch.emotion.EmotionType;
@@ -32,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BDEmotionPanelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_EMOTION_TYPE_LAYOUT = -657931;
@@ -47,12 +46,12 @@ public class BDEmotionPanelManager {
     public boolean isNightMode;
     public String mLastStackInfo;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface OnEmotionClickListener {
         void onEmotionClick(EmotionType emotionType, int i2, String str, String str2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface OnVerticalEmotionListener {
         public static final int SECTION_TYPE_ALL = 1;
         public static final int SECTION_TYPE_OFTEN = 0;
@@ -154,7 +153,7 @@ public class BDEmotionPanelManager {
     public static BDEmotionPanelManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (sInstance == null) {
                 synchronized (BDEmotionPanelManager.class) {
                     if (sInstance == null) {
@@ -169,7 +168,7 @@ public class BDEmotionPanelManager {
 
     private void handleEmotionTypeLayoutNightMode(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, viewGroup) == null) {
             View findViewById = viewGroup.findViewById(R.id.emotion_type_placeholer);
             View findViewById2 = viewGroup.findViewById(R.id.emotion_type_layout);
             if (this.isNightMode) {

@@ -3,7 +3,6 @@ package com.dxmpay.wallet.paysdk.storage;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +12,7 @@ import com.dxmpay.apollon.utils.Md5Utils;
 import com.dxmpay.apollon.utils.SharedPreferencesUtils;
 import com.dxmpay.wallet.api.WalletLoginHelper;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class PayPreferenceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PWDPAY_DISPLAY_SCORE_TIP = "pwdpay_display_score_tip";
@@ -108,7 +107,7 @@ public final class PayPreferenceManager {
     public static boolean getPpSwitch(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             return false;
         }
         return invokeL.booleanValue;
@@ -117,7 +116,7 @@ public final class PayPreferenceManager {
     public static String getWalletInterfaceData(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, "dxm_wallet_interface.preferences", str, str2) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, "dxm_wallet_interface.preferences", str, str2) : (String) invokeLLL.objValue;
     }
 
     public static void setBoolean(Context context, String str, boolean z) {

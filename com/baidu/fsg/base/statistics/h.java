@@ -10,38 +10,40 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f38333a = "en";
+    public static final String a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38334b = "et";
+    public static final String f34292b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38335c = "ev";
+    public static final String f34293c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38336d = "eg";
+    public static final String f34294d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38337e = "lk";
+    public static final String f34295e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38338f = "nu";
+    public static final String f34296f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38339g = "extra1";
+    public static final String f34297g = "extra1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38340h = "extra2";
+    public static final String f34298h = "extra2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38341i = "extra3";
-    public static final String j = "extra4";
-    public static final String k = "extra5";
+    public static final String f34299i = "extra3";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f34300j = "extra4";
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final String f34301k = "extra5";
     public static final String l = "extra6";
     public static final String m = "extra7";
     public static final String n = "extra8";
@@ -96,13 +98,13 @@ public class h {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f38333a, this.p);
+                jSONObject.put(a, this.p);
                 jSONObject.put("et", this.q);
-                jSONObject.put(f38338f, this.u);
+                jSONObject.put(f34296f, this.u);
                 if (!TextUtils.isEmpty(this.s)) {
-                    jSONObject.putOpt(f38336d, this.s);
+                    jSONObject.putOpt(f34294d, this.s);
                 }
-                jSONObject.putOpt(f38337e, this.t);
+                jSONObject.putOpt(f34295e, this.t);
                 if (this.r != null) {
                     jSONObject.put("ev", this.r);
                 }

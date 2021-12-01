@@ -17,28 +17,26 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NHAssetItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f59400a;
+    public MaskTextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f59401b;
+    public MaskTextView f52691b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f59402c;
+    public NetImageView f52692c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f59403d;
+    public LinearLayout f52693d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f59404e;
+    public MaskTextView f52694e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskTextView f59405f;
+    public MaskTextView f52695f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHAssetItem(Context context, AttributeSet attributeSet) {
@@ -67,8 +65,8 @@ public class NHAssetItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean isShowRedDot = isShowRedDot();
-            this.f59402c.setVisibility(isShowRedDot ? 0 : 8);
-            this.f59402c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
+            this.f52692c.setVisibility(isShowRedDot ? 0 : 8);
+            this.f52692c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
             return isShowRedDot;
         }
         return invokeV.booleanValue;
@@ -78,12 +76,12 @@ public class NHAssetItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_asset_item"), this);
-            this.f59400a = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subtitle"));
-            this.f59401b = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_title"));
-            this.f59402c = (NetImageView) findViewById(ResUtils.id(getContext(), "asset_item_star"));
-            this.f59403d = (LinearLayout) findViewById(ResUtils.id(getContext(), "asset_item_desc_panel"));
-            this.f59404e = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subdesc"));
-            this.f59405f = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_desc"));
+            this.a = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subtitle"));
+            this.f52691b = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_title"));
+            this.f52692c = (NetImageView) findViewById(ResUtils.id(getContext(), "asset_item_star"));
+            this.f52693d = (LinearLayout) findViewById(ResUtils.id(getContext(), "asset_item_desc_panel"));
+            this.f52694e = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subdesc"));
+            this.f52695f = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_desc"));
         }
     }
 
@@ -92,10 +90,10 @@ public class NHAssetItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onEyeMaskChanged();
-            this.f59400a.resetMaskText();
-            this.f59401b.resetMaskText();
-            this.f59404e.resetMaskText();
-            this.f59405f.resetMaskText();
+            this.a.resetMaskText();
+            this.f52691b.resetMaskText();
+            this.f52694e.resetMaskText();
+            this.f52695f.resetMaskText();
         }
     }
 
@@ -104,14 +102,14 @@ public class NHAssetItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || getData() == null) {
             return;
         }
-        this.f59400a.setMaskText(getData().name);
-        this.f59401b.setMaskText(getData().value1);
+        this.a.setMaskText(getData().name);
+        this.f52691b.setMaskText(getData().value1);
         if (TextUtils.isEmpty(getData().value3)) {
-            this.f59403d.setVisibility(8);
+            this.f52693d.setVisibility(8);
         } else {
-            this.f59403d.setVisibility(0);
-            this.f59404e.setMaskText(getData().value2);
-            this.f59405f.setMaskText(getData().value3);
+            this.f52693d.setVisibility(0);
+            this.f52694e.setMaskText(getData().value2);
+            this.f52695f.setMaskText(getData().value3);
         }
         handlePoint();
     }

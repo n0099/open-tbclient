@@ -2,7 +2,6 @@ package com.kwad.sdk.feed;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.response.b.c;
+import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
@@ -84,13 +83,13 @@ public final class FeedType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adTemplate)) == null) {
-            int H = com.kwad.sdk.core.response.b.a.H(c.i(adTemplate));
+            int R = com.kwad.sdk.core.response.a.a.R(d.j(adTemplate));
             int i2 = adTemplate.type;
             if (i2 > FEED_TYPE_TEXT_ABOVE_GROUP.type) {
                 return true;
             }
             FeedType fromInt = fromInt(i2);
-            return H != 1 ? H != 2 ? H == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
+            return R != 1 ? R != 2 ? R == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
         }
         return invokeL.booleanValue;
     }
@@ -120,13 +119,13 @@ public final class FeedType {
     public static FeedType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? (FeedType) Enum.valueOf(FeedType.class, str) : (FeedType) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (FeedType) Enum.valueOf(FeedType.class, str) : (FeedType) invokeL.objValue;
     }
 
     public static FeedType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? (FeedType[]) $VALUES.clone() : (FeedType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (FeedType[]) $VALUES.clone() : (FeedType[]) invokeV.objValue;
     }
 
     public int getType() {

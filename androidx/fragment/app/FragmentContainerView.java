@@ -104,13 +104,13 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(@NonNull Canvas canvas, @NonNull View view, long j) {
+    public boolean drawChild(@NonNull Canvas canvas, @NonNull View view, long j2) {
         InterceptResult invokeCommon;
         ArrayList<View> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
             if (!this.mDrawDisappearingViewsFirst || (arrayList = this.mDisappearingFragmentChildren) == null || arrayList.size() <= 0 || !this.mDisappearingFragmentChildren.contains(view)) {
-                return super.drawChild(canvas, view, j);
+                return super.drawChild(canvas, view, j2);
             }
             return false;
         }

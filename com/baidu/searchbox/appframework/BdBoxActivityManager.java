@@ -2,7 +2,6 @@ package com.baidu.searchbox.appframework;
 
 import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.appframework.BdBoxActivityLifecycle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BdBoxActivityManager {
     public static /* synthetic */ Interceptable $ic;
     public static BdBoxActivityLifecycle sMainGlobalActivityLifecycle;
@@ -82,7 +81,7 @@ public class BdBoxActivityManager {
     public static Activity getPenultimateActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
             if (bdBoxActivityLifecycle != null) {
                 return bdBoxActivityLifecycle.getPenultimateActivity();
@@ -95,7 +94,7 @@ public class BdBoxActivityManager {
     public static Activity getRealTopActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
             if (bdBoxActivityLifecycle != null) {
                 return bdBoxActivityLifecycle.getRealTopActivity();

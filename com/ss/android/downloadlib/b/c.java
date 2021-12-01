@@ -30,15 +30,13 @@ public class c {
             if (b3) {
                 return;
             }
-            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2021a(bVar, aVar) { // from class: com.ss.android.downloadlib.b.c.1
+            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2112a(bVar, aVar) { // from class: com.ss.android.downloadlib.b.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadad.api.a.b f69631a;
+                public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadlib.guide.install.a f69632b;
+                public final /* synthetic */ com.ss.android.downloadlib.guide.install.a f61353b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -55,26 +53,26 @@ public class c {
                             return;
                         }
                     }
-                    this.f69631a = bVar;
-                    this.f69632b = aVar;
+                    this.a = bVar;
+                    this.f61353b = aVar;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         com.ss.android.socialbase.downloader.c.a.b("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->onAppForeground");
                         com.ss.android.socialbase.downloader.a.a.a().b(this);
-                        if (l.b(this.f69631a)) {
+                        if (l.b(this.a)) {
                             return;
                         }
-                        this.f69631a.m(true);
-                        com.ss.android.downloadlib.d.a.a().a("install_delay_invoke", this.f69631a);
-                        this.f69632b.a();
+                        this.a.m(true);
+                        com.ss.android.downloadlib.d.a.a().a("install_delay_invoke", this.a);
+                        this.f61353b.a();
                     }
                 }
 
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
                 public void c() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

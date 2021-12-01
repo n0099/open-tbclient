@@ -1,7 +1,6 @@
 package com.facebook.common.internal;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class Sets {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +49,7 @@ public final class Sets {
     public static <E> HashSet<E> newHashSetWithCapacity(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.BAIDU_LOGO_ID, null, i2)) == null) ? new HashSet<>(i2) : (HashSet) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? new HashSet<>(i2) : (HashSet) invokeI.objValue;
     }
 
     public static <E> Set<E> newIdentityHashSet() {
@@ -74,7 +73,7 @@ public final class Sets {
     public static <E> HashSet<E> newHashSet(E... eArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, eArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, eArr)) == null) {
             HashSet<E> newHashSetWithCapacity = newHashSetWithCapacity(eArr.length);
             Collections.addAll(newHashSetWithCapacity, eArr);
             return newHashSetWithCapacity;

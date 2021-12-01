@@ -4,9 +4,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.j;
-import h.o.a.a;
+import i.f;
+import i.j;
+import i.o.a.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
@@ -14,8 +14,10 @@ public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f73543i;
-    public final int j;
+    public final int f64362i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final int f64363j;
 
     /* loaded from: classes3.dex */
     public final class BufferSkipProducer extends AtomicBoolean implements f {
@@ -42,19 +44,19 @@ public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
             this.this$0 = operatorBufferWithSize$BufferSkip;
         }
 
-        @Override // h.f
-        public void request(long j) {
+        @Override // i.f
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 < 0) {
-                    throw new IllegalArgumentException("n >= 0 required but it was " + j);
+                    throw new IllegalArgumentException("n >= 0 required but it was " + j2);
                 } else if (i2 != 0) {
                     OperatorBufferWithSize$BufferSkip operatorBufferWithSize$BufferSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorBufferWithSize$BufferSkip.e(a.c(j, operatorBufferWithSize$BufferSkip.j));
+                        operatorBufferWithSize$BufferSkip.e(a.c(j2, operatorBufferWithSize$BufferSkip.f64363j));
                     } else {
-                        operatorBufferWithSize$BufferSkip.e(a.a(a.c(j, operatorBufferWithSize$BufferSkip.f73543i), a.c(operatorBufferWithSize$BufferSkip.j - operatorBufferWithSize$BufferSkip.f73543i, j - 1)));
+                        operatorBufferWithSize$BufferSkip.e(a.a(a.c(j2, operatorBufferWithSize$BufferSkip.f64362i), a.c(operatorBufferWithSize$BufferSkip.f64363j - operatorBufferWithSize$BufferSkip.f64362i, j2 - 1)));
                     }
                 }
             }

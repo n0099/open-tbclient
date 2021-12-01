@@ -10,8 +10,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiWebView;
@@ -43,7 +41,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SapiCoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CUSTOM_THEME_SCHEMA = "file:///android_asset/";
@@ -278,7 +276,7 @@ public class SapiCoreUtil {
         Throwable th;
         Process process;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
                 process = Runtime.getRuntime().exec("ls -ld " + str);
                 try {
@@ -338,7 +336,7 @@ public class SapiCoreUtil {
     public static String getMatcher(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             Pattern compile = Pattern.compile(str);
             String str3 = "";
             if (TextUtils.isEmpty(str2)) {
@@ -528,7 +526,7 @@ public class SapiCoreUtil {
                 return null;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(r.f41000a, 4);
+            hashMap.put("r", 4);
             hashMap.put("w", 2);
             int i2 = 1;
             hashMap.put("x", 1);

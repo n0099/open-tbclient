@@ -18,14 +18,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FlowableAmb<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<? extends T>[] sources;
     public final Iterable<? extends Publisher<? extends T>> sourcesIterable;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class AmbCoordinator<T> implements Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,15 +66,15 @@ public final class FlowableAmb<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
                 int i2 = this.winner.get();
                 if (i2 > 0) {
-                    this.subscribers[i2 - 1].request(j);
+                    this.subscribers[i2 - 1].request(j2);
                 } else if (i2 == 0) {
                     for (AmbInnerSubscriber<T> ambInnerSubscriber : this.subscribers) {
-                        ambInnerSubscriber.request(j);
+                        ambInnerSubscriber.request(j2);
                     }
                 }
             }
@@ -122,7 +122,7 @@ public final class FlowableAmb<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class AmbInnerSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1185974347409665484L;
@@ -217,10 +217,10 @@ public final class FlowableAmb<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                SubscriptionHelper.deferredRequest(this, this.missedRequested, j);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                SubscriptionHelper.deferredRequest(this, this.missedRequested, j2);
             }
         }
     }

@@ -13,7 +13,7 @@ import com.facebook.common.references.CloseableReference;
 import java.io.IOException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class MemoryPooledByteBufferOutputStream extends PooledByteBufferOutputSt
     public int mCount;
     public final MemoryChunkPool mPool;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class InvalidStreamException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +34,7 @@ import com.dxmpay.wallet.core.utils.StringUtils;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes12.dex */
 public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BALANCE = "balance";
@@ -68,7 +67,7 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
     private ArrayList<PayTypeItemView.PayTypeItemViewData> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (isFromClickChangePayType()) {
                 PrecashierModifyPayTypeManager.TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> twoTupleForPrecashier = this.mTupleDatasForPrecashier;
                 return twoTupleForPrecashier == null ? new ArrayList<>() : getPrecashierData(twoTupleForPrecashier.datas);
@@ -81,7 +80,7 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
     private boolean isFromClickChangePayType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             PrecashierModifyPayTypeManager.TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> twoTupleForPrecashier = this.mTupleDatasForPrecashier;
             return twoTupleForPrecashier != null && twoTupleForPrecashier.isFromChange().booleanValue();
         }
@@ -160,9 +159,7 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
             BaiduPay.getInstance().bindCard(this.mActivity, new BaiduPay.IBindCardCallback(this) { // from class: com.baidu.wallet.paysdk.presenter.PreCashierPayTypePresenter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PreCashierPayTypePresenter f60779a;
+                public final /* synthetic */ PreCashierPayTypePresenter a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -179,16 +176,16 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
                             return;
                         }
                     }
-                    this.f60779a = this;
+                    this.a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
                 public void onChangeFailed(String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f60779a.mActivity == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.a.mActivity == null) {
                         return;
                     }
-                    GlobalUtils.toast(this.f60779a.mActivity.getApplicationContext(), str2);
+                    GlobalUtils.toast(this.a.mActivity.getApplicationContext(), str2);
                 }
 
                 @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
@@ -201,8 +198,8 @@ public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
                         card.account_no = str2;
                         precashierModifyPayTypeDefaultData.card = card;
                         PayController.getInstance().onPreModifiedPayType(precashierModifyPayTypeDefaultData);
-                        if (this.f60779a.mActivity != null) {
-                            this.f60779a.mActivity.finish();
+                        if (this.a.mActivity != null) {
+                            this.a.mActivity.finish();
                         }
                     }
                 }

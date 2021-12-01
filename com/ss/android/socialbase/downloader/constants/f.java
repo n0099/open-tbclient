@@ -11,18 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final f f70105a;
+    public static final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f f70106b;
+    public static final f f61676b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final f f70107c;
+    public static final f f61677c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ f[] f70108d;
+    public static final /* synthetic */ f[] f61678d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,11 +36,11 @@ public final class f {
                 return;
             }
         }
-        f70105a = new f("MAIN", 0);
-        f70106b = new f("SUB", 1);
+        a = new f("MAIN", 0);
+        f61676b = new f("SUB", 1);
         f fVar = new f("NOTIFICATION", 2);
-        f70107c = fVar;
-        f70108d = new f[]{f70105a, f70106b, fVar};
+        f61677c = fVar;
+        f61678d = new f[]{a, f61676b, fVar};
     }
 
     public f(String str, int i2) {
@@ -73,6 +71,6 @@ public final class f {
     public static f[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f[]) f70108d.clone() : (f[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f[]) f61678d.clone() : (f[]) invokeV.objValue;
     }
 }

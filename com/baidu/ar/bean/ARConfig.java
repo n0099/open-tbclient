@@ -5,7 +5,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.ARType;
 import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.ar.h.l;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ARConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AR_SDK_SALT_FIGURE = "777078ec21930de508131ba36035de6b";
@@ -88,13 +87,13 @@ public class ARConfig {
     public static String getARKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? mARKey : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? mARKey : (String) invokeV.objValue;
     }
 
     public static int getARLaunchMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? mARLaunchMode : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? mARLaunchMode : invokeV.intValue;
     }
 
     public static String getARPath() {

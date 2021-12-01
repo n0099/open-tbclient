@@ -1,165 +1,87 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.os.PowerManager;
+import android.os.SystemClock;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsScene;
-import com.kwad.sdk.core.config.c;
-import com.kwad.sdk.core.config.item.o;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes2.dex */
 public class ak {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static volatile ak f67537a;
+    public static volatile ak a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f67538b;
+    public volatile boolean f59597b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o.a f67539c;
+    public volatile long f59598c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public volatile PowerManager f59599d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(408734328, "Lcom/kwad/sdk/utils/ak;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(408734328, "Lcom/kwad/sdk/utils/ak;");
+                return;
+            }
+        }
+        a = new ak();
+    }
 
     public ak() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f67538b = false;
+        this.f59598c = 0L;
     }
 
     public static ak a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f67537a == null) {
-                synchronized (ak.class) {
-                    if (f67537a == null) {
-                        f67537a = new ak();
-                    }
-                }
-            }
-            return f67537a;
-        }
-        return (ak) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (ak) invokeV.objValue;
     }
 
-    private boolean a(String str) {
+    public boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return Class.forName(str) != null;
-        }
-        return invokeL.booleanValue;
-    }
-
-    private boolean a(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, list)) == null) {
-            if (list != null && list.size() >= 1) {
-                for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
-                    String className = stackTraceElement.getClassName();
-                    if (className != null) {
-                        for (String str : list) {
-                            if (className.contains(str)) {
-                                return true;
-                            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (this.f59598c <= 0 || SystemClock.elapsedRealtime() - this.f59598c >= 600) {
+                if (this.f59599d == null && context != null) {
+                    synchronized (this) {
+                        if (this.f59599d == null) {
+                            this.f59599d = (PowerManager) context.getApplicationContext().getSystemService("power");
                         }
-                        continue;
                     }
                 }
+                this.f59597b = this.f59599d != null ? Build.VERSION.SDK_INT >= 20 ? this.f59599d.isInteractive() : this.f59599d.isScreenOn() : false;
+                this.f59598c = SystemClock.elapsedRealtime();
+                return this.f59597b;
             }
-            return false;
+            return this.f59597b;
         }
         return invokeL.booleanValue;
-    }
-
-    private void c() {
-        o.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (aVar = this.f67539c) == null) {
-            return;
-        }
-        if (!this.f67538b && aVar.f65256c.size() > 0) {
-            for (String str : this.f67539c.f65256c) {
-                boolean a2 = a(str);
-                this.f67538b = a2;
-                if (a2) {
-                    break;
-                }
-            }
-        }
-        if (this.f67538b) {
-            ArrayList arrayList = new ArrayList();
-            if (this.f67539c.f65254a.size() > 0) {
-                for (Map.Entry<Integer, String> entry : this.f67539c.f65254a.entrySet()) {
-                    if (a(entry.getValue())) {
-                        arrayList.add(entry.getKey());
-                    }
-                }
-            }
-            com.kwad.sdk.core.report.d.a(a(this.f67539c.f65255b), arrayList);
-        }
-    }
-
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || context == null) {
-            return;
-        }
-        SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
-        if (sharedPreferences != null) {
-            c.a.aE.a(sharedPreferences);
-            this.f67539c = c.a.aE.a();
-        }
-        if (this.f67539c != null) {
-            c();
-        }
-    }
-
-    public boolean a(KsScene ksScene, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksScene, str)) == null) {
-            boolean a2 = this.f67538b ? a(this.f67539c.f65255b) : false;
-            com.kwad.sdk.core.report.d.a(ksScene, a2, str);
-            return a2;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            o.a aVar = this.f67539c;
-            if (aVar != null) {
-                return aVar.f65257d;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
     }
 }

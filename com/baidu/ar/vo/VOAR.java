@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VOAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VOAR";
@@ -138,9 +138,9 @@ public class VOAR extends c {
         } else if (hashMap == null) {
             return;
         } else {
-            int a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
-            if (4100 != a2) {
-                if (4200 == a2) {
+            int a = com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1);
+            if (4100 != a) {
+                if (4200 == a) {
                     this.yo.start();
                     return;
                 }

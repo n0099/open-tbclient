@@ -3,7 +3,6 @@ package com.win.opensdk.bridge.async;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +13,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AsyncTaskExecutor {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final ThreadPoolExecutor f71412a;
+    public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +32,7 @@ public class AsyncTaskExecutor {
                 return;
             }
         }
-        f71412a = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
+        a = new ThreadPoolExecutor(3, 3, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
     }
 
     public AsyncTaskExecutor() {
@@ -63,7 +60,7 @@ public class AsyncTaskExecutor {
         if (!(interceptable == null || interceptable.invokeL(65539, null, runnable) == null) || runnable == null) {
             return;
         }
-        f71412a.execute(runnable);
+        a.execute(runnable);
     }
 
     public static void runOnMainThread(Runnable runnable) {
@@ -77,9 +74,9 @@ public class AsyncTaskExecutor {
     public static void shutDown() {
         ThreadPoolExecutor threadPoolExecutor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) || (threadPoolExecutor = f71412a) == null || threadPoolExecutor.isShutdown() || f71412a.isTerminating()) {
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (threadPoolExecutor = a) == null || threadPoolExecutor.isShutdown() || a.isTerminating()) {
             return;
         }
-        f71412a.shutdown();
+        a.shutdown();
     }
 }

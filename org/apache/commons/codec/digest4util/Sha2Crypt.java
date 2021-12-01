@@ -1,7 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -228,7 +227,7 @@ public class Sha2Crypt {
     public static String sha512Crypt(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bArr)) == null) ? sha512Crypt(bArr, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? sha512Crypt(bArr, null) : (String) invokeL.objValue;
     }
 
     public static String sha256Crypt(byte[] bArr, String str) {
@@ -246,7 +245,7 @@ public class Sha2Crypt {
     public static String sha512Crypt(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, str)) == null) {
             if (str == null) {
                 str = SHA512_PREFIX + B64.getRandomSalt(8);
             }

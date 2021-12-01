@@ -8,22 +8,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class HorizontalCenterLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Runnable f58478a;
+    public Runnable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58479b;
+    public int f52092b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58480c;
+    public int f52093c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f58481d;
+    public boolean f52094d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HorizontalCenterLinearLayout(Context context) {
@@ -43,12 +41,10 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f58478a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
+        this.a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ HorizontalCenterLinearLayout f58482a;
+            public final /* synthetic */ HorizontalCenterLinearLayout a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,14 +61,14 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f58482a = this;
+                this.a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f58482a.a();
+                    this.a.a();
                 }
             }
         };
@@ -83,7 +79,7 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            post(this.f58478a);
+            post(this.a);
         }
     }
 
@@ -108,12 +104,12 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 i2 = abs;
                 abs = 0;
             }
-            if (!this.f58481d) {
-                this.f58479b = getPaddingLeft();
-                this.f58480c = getPaddingRight();
-                this.f58481d = true;
+            if (!this.f52094d) {
+                this.f52092b = getPaddingLeft();
+                this.f52093c = getPaddingRight();
+                this.f52094d = true;
             }
-            setPadding(this.f58479b + i2, getPaddingTop(), this.f58480c + abs, getPaddingBottom());
+            setPadding(this.f52092b + i2, getPaddingTop(), this.f52093c + abs, getPaddingBottom());
         }
     }
 
@@ -136,12 +132,10 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f58478a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
+        this.a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ HorizontalCenterLinearLayout f58482a;
+            public final /* synthetic */ HorizontalCenterLinearLayout a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -158,14 +152,14 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f58482a = this;
+                this.a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f58482a.a();
+                    this.a.a();
                 }
             }
         };
@@ -190,12 +184,10 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f58478a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
+        this.a = new Runnable(this) { // from class: com.baidu.wallet.base.widget.HorizontalCenterLinearLayout.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ HorizontalCenterLinearLayout f58482a;
+            public final /* synthetic */ HorizontalCenterLinearLayout a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -212,14 +204,14 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                         return;
                     }
                 }
-                this.f58482a = this;
+                this.a = this;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f58482a.a();
+                    this.a.a();
                 }
             }
         };

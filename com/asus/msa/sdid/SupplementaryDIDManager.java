@@ -8,7 +8,6 @@ import android.os.IBinder;
 import androidx.annotation.Keep;
 import com.asus.msa.SupplementaryDID.IDidAidlInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SupplementaryDIDManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -107,7 +106,7 @@ public class SupplementaryDIDManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyAllListeners(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
             try {
                 if (z) {
                     this.mListener.onSuccess(this.mDidService);

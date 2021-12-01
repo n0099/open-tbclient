@@ -11,7 +11,6 @@ import com.baidu.livesdk.api.im.live.LiveIM;
 import com.baidu.livesdk.api.im.live.LiveMsgReceiverListener;
 import com.baidu.livesdk.api.im.live.LiveSendMessage;
 import com.baidu.livesdk.api.im.live.LiveSendMessageListener;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LiveIMManager implements LiveIM {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -80,7 +79,7 @@ public class LiveIMManager implements LiveIM {
 
     private void register() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || this.mIsRegisterConnectListener) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.mIsRegisterConnectListener) {
             return;
         }
         this.mIMManager.unregisterConnectListener();

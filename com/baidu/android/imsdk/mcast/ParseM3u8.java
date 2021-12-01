@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ParseM3u8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ParseM3u8";
@@ -33,7 +32,7 @@ public class ParseM3u8 {
     public boolean mIsend;
     public ArrayList<TS> mTslist;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class TS {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +157,7 @@ public class ParseM3u8 {
     public static long stringToLong(String str, String str2) throws ParseException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             Date stringToDate = stringToDate(str, str2);
             if (stringToDate == null) {
                 return 0L;
@@ -168,11 +167,11 @@ public class ParseM3u8 {
         return invokeLL.longValue;
     }
 
-    public List<TS> getLatestTS(long j) {
+    public List<TS> getLatestTS(long j2) {
         InterceptResult invokeJ;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
             Iterator<TS> it = this.mTslist.iterator();
             int i2 = -1;
             while (true) {
@@ -181,7 +180,7 @@ public class ParseM3u8 {
                     break;
                 }
                 i2++;
-                if (it.next().time == j) {
+                if (it.next().time == j2) {
                     z = true;
                     break;
                 }
@@ -208,10 +207,10 @@ public class ParseM3u8 {
         return invokeV.longValue;
     }
 
-    public List<TS> getNewAppendTS(long j) {
+    public List<TS> getNewAppendTS(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
             Iterator<TS> it = this.mTslist.iterator();
             boolean z = false;
             int i2 = 0;
@@ -220,7 +219,7 @@ public class ParseM3u8 {
                     break;
                 }
                 i2++;
-                if (it.next().time == j) {
+                if (it.next().time == j2) {
                     z = true;
                     break;
                 }

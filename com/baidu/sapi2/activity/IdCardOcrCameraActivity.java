@@ -17,10 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import b.a.c0.a.e;
-import b.a.c0.a.f;
+import c.a.d0.a.e;
+import c.a.d0.a.f;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pass.biometrics.base.utils.Base64Utils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
@@ -39,7 +38,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewCallback, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String C = "IdCardOcrCameraActivity";
@@ -57,35 +56,37 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public String B;
-
-    /* renamed from: a  reason: collision with root package name */
-    public Dialog f43358a;
+    public Dialog a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f43359b;
+    public FrameLayout f38652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f43360c;
+    public FrameLayout f38653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f43361d;
+    public TextView f38654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f43362e;
+    public TextView f38655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f43363f;
+    public ImageView f38656f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f43364g;
+    public ImageView f38657g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Camera f43365h;
+    public Camera f38658h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Camera.Parameters f43366i;
-    public byte[] j;
-    public int k;
+    public Camera.Parameters f38659i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public byte[] f38660j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f38661k;
     public int l;
     public int m;
     public int n;
@@ -124,21 +125,21 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
 
     private void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            this.f43359b = (FrameLayout) findViewById(e.sapi_sdk_ocr_frame_layout);
-            this.f43360c = (FrameLayout) findViewById(e.sapi_sdk_fl_ocr_camera_border);
-            this.f43361d = (TextView) findViewById(e.sapi_sdk_tv_light_tip);
-            this.f43362e = (TextView) findViewById(e.sapi_sdk_tv_type_tip);
-            this.f43363f = (ImageView) findViewById(e.sapi_sdk_iv_ocr_id_card_people);
-            this.f43364g = (ImageView) findViewById(e.sapi_sdk_iv_ocr_id_card_emblem);
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            this.f38652b = (FrameLayout) findViewById(e.sapi_sdk_ocr_frame_layout);
+            this.f38653c = (FrameLayout) findViewById(e.sapi_sdk_fl_ocr_camera_border);
+            this.f38654d = (TextView) findViewById(e.sapi_sdk_tv_light_tip);
+            this.f38655e = (TextView) findViewById(e.sapi_sdk_tv_type_tip);
+            this.f38656f = (ImageView) findViewById(e.sapi_sdk_iv_ocr_id_card_people);
+            this.f38657g = (ImageView) findViewById(e.sapi_sdk_iv_ocr_id_card_emblem);
             if ("1".equals(this.B)) {
-                this.f43363f.setVisibility(8);
-                this.f43364g.setVisibility(0);
-                this.f43362e.setText("请将二代身份证的国徽页放入识别框内");
+                this.f38656f.setVisibility(8);
+                this.f38657g.setVisibility(0);
+                this.f38655e.setText("请将二代身份证的国徽页放入识别框内");
             } else if ("2".equals(this.B)) {
-                this.f43363f.setVisibility(0);
-                this.f43364g.setVisibility(8);
-                this.f43362e.setText("请将二代身份证的人像页放入识别框内");
+                this.f38656f.setVisibility(0);
+                this.f38657g.setVisibility(8);
+                this.f38655e.setText("请将二代身份证的人像页放入识别框内");
             } else {
                 a(true, IdCardOcrResult.CODE_PAGE_PARAMS_ERROR, IdCardOcrResult.MESSAGE_PAGE_PARAMS_ERROR, "", "");
             }
@@ -151,24 +152,24 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             boolean z = false;
             try {
-                if (this.f43365h == null) {
+                if (this.f38658h == null) {
                     Camera open = Camera.open(0);
-                    this.f43365h = open;
+                    this.f38658h = open;
                     Camera.Parameters parameters = open.getParameters();
-                    this.f43366i = parameters;
+                    this.f38659i = parameters;
                     parameters.setJpegQuality(100);
-                    this.f43366i.setPreviewFormat(17);
-                    this.f43366i.setPictureFormat(256);
+                    this.f38659i.setPreviewFormat(17);
+                    this.f38659i.setPictureFormat(256);
                     g();
                     h();
                     f();
-                    this.f43365h.setParameters(this.f43366i);
+                    this.f38658h.setParameters(this.f38659i);
                 }
                 if (this.t == null) {
-                    a aVar = new a(this, this.f43365h);
+                    a aVar = new a(this, this.f38658h);
                     this.t = aVar;
                     aVar.setPreviewCallback(this);
-                    this.f43359b.addView(this.t);
+                    this.f38652b.addView(this.t);
                 }
                 z = true;
             } catch (Exception e2) {
@@ -189,26 +190,26 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            FrameLayout frameLayout = this.f43360c;
+            FrameLayout frameLayout = this.f38653c;
             if (frameLayout != null) {
                 frameLayout.setVisibility(8);
             }
-            TextView textView = this.f43362e;
+            TextView textView = this.f38655e;
             if (textView != null) {
                 textView.setVisibility(8);
             }
             a aVar = this.t;
             if (aVar != null) {
-                this.f43359b.removeView(aVar);
+                this.f38652b.removeView(aVar);
                 this.t.a();
                 this.t = null;
             }
-            Camera camera = this.f43365h;
+            Camera camera = this.f38658h;
             if (camera != null) {
                 camera.setPreviewCallback(null);
-                this.f43365h.stopPreview();
-                this.f43365h.release();
-                this.f43365h = null;
+                this.f38658h.stopPreview();
+                this.f38658h.release();
+                this.f38658h = null;
             }
         }
     }
@@ -221,9 +222,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                     new CommonDialog.Builder(this).setTitle(String.format("%1$sApp将使用“%2$s", PassBiometricUtil.getAppName(this), "摄像头/相机")).setMessage(String.format("为了您使用识别功能，请允许%1$sApp使用%2$s。您可以通过系统“设置”进行权限的管理", PassBiometricUtil.getAppName(this), "摄像头/相机")).setPositiveBtn("继续", new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.IdCardOcrCameraActivity.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ IdCardOcrCameraActivity f43368a;
+                        public final /* synthetic */ IdCardOcrCameraActivity a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -240,22 +239,20 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                                     return;
                                 }
                             }
-                            this.f43368a = this;
+                            this.a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f43368a.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2001);
+                                this.a.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2001);
                             }
                         }
                     }).setNegativeButton("关闭", new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.IdCardOcrCameraActivity.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ IdCardOcrCameraActivity f43367a;
+                        public final /* synthetic */ IdCardOcrCameraActivity a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -272,14 +269,14 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                                     return;
                                 }
                             }
-                            this.f43367a = this;
+                            this.a = this;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                IdCardOcrCameraActivity idCardOcrCameraActivity = this.f43367a;
+                                IdCardOcrCameraActivity idCardOcrCameraActivity = this.a;
                                 idCardOcrCameraActivity.a(false, -401, IdCardOcrResult.MESSAGE_NO_CAMERA_PERMISSION, idCardOcrCameraActivity.B, "");
                             }
                         }
@@ -298,34 +295,34 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f43360c.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f38653c.getLayoutParams();
             int min = Math.min(this.n - ((int) ((Resources.getSystem().getDisplayMetrics().density * 80.0f) + 0.5f)), dp2px(300.0f));
-            this.k = min;
+            this.f38661k = min;
             int i2 = (int) (min * 1.585f);
             this.l = i2;
             layoutParams.width = min;
             layoutParams.height = i2;
-            Log.e("ocr-test", "设置框尺寸： mBorderWidth = " + this.k + "，mBorderHeight = " + this.l);
-            this.f43360c.setLayoutParams(layoutParams);
-            this.f43362e.setVisibility(0);
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.f43363f.getLayoutParams();
+            Log.e("ocr-test", "设置框尺寸： mBorderWidth = " + this.f38661k + "，mBorderHeight = " + this.l);
+            this.f38653c.setLayoutParams(layoutParams);
+            this.f38655e.setVisibility(0);
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.f38656f.getLayoutParams();
             layoutParams2.rightMargin = (int) (((float) this.l) * 0.14f);
-            layoutParams2.bottomMargin = (int) (((float) this.k) * 0.082f);
-            this.f43363f.setLayoutParams(layoutParams2);
+            layoutParams2.bottomMargin = (int) (((float) this.f38661k) * 0.082f);
+            this.f38656f.setLayoutParams(layoutParams2);
             layoutParams2.rightMargin = (int) (this.l * 0.098f);
-            layoutParams2.topMargin = (int) (this.k * 0.048f);
-            this.f43364g.setLayoutParams((FrameLayout.LayoutParams) this.f43364g.getLayoutParams());
+            layoutParams2.topMargin = (int) (this.f38661k * 0.048f);
+            this.f38657g.setLayoutParams((FrameLayout.LayoutParams) this.f38657g.getLayoutParams());
         }
     }
 
     private void g() {
         Camera.Parameters parameters;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f43365h == null || (parameters = this.f43366i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.f38658h == null || (parameters = this.f38659i) == null) {
             return;
         }
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
-        List<Camera.Size> supportedPictureSizes = this.f43366i.getSupportedPictureSizes();
+        List<Camera.Size> supportedPictureSizes = this.f38659i.getSupportedPictureSizes();
         ArrayList<CameraSize> arrayList = new ArrayList();
         for (Camera.Size size : supportedPreviewSizes) {
             if (size != null) {
@@ -341,9 +338,9 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
         arrayList.retainAll(arrayList2);
         CameraSize cameraSize = null;
         for (CameraSize cameraSize2 : arrayList) {
-            Log.e("ocr-test", "相机支持设置的尺寸： width = " + cameraSize2.f43371a + ", height = " + cameraSize2.f43372b);
-            float f2 = ((float) cameraSize2.f43372b) / ((float) this.n);
-            int i2 = (int) (((float) cameraSize2.f43371a) / f2);
+            Log.e("ocr-test", "相机支持设置的尺寸： width = " + cameraSize2.a + ", height = " + cameraSize2.f38662b);
+            float f2 = ((float) cameraSize2.f38662b) / ((float) this.n);
+            int i2 = (int) (((float) cameraSize2.a) / f2);
             if (i2 >= this.q && f2 > this.s) {
                 this.s = f2;
                 this.o = i2;
@@ -357,31 +354,29 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
             this.o = 1920;
             cameraSize = new CameraSize(this, 1920, 1080);
         }
-        this.f43366i.setPictureSize(cameraSize.f43371a, cameraSize.f43372b);
-        this.f43366i.setPreviewSize(cameraSize.f43371a, cameraSize.f43372b);
+        this.f38659i.setPictureSize(cameraSize.a, cameraSize.f38662b);
+        this.f38659i.setPreviewSize(cameraSize.a, cameraSize.f38662b);
     }
 
     private void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f43359b.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f38652b.getLayoutParams();
             layoutParams.height = this.o;
             layoutParams.width = this.p;
             Log.e("ocr-test", "设置preview尺寸： mPreviewHeight = " + this.o + "，mPreviewWidth = " + this.p + ",预览分辨率 / 屏幕 = " + this.s);
-            this.f43359b.setLayoutParams(layoutParams);
+            this.f38652b.setLayoutParams(layoutParams);
         }
     }
 
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            if (this.f43358a == null) {
-                this.f43358a = new CommonDialog.Builder(this).setTitle("开启摄像头权限").setMessage("为了使用正常拍照服务\n请开启摄像头权限").setPositiveBtn("去设置", new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.IdCardOcrCameraActivity.4
+            if (this.a == null) {
+                this.a = new CommonDialog.Builder(this).setTitle("开启摄像头权限").setMessage("为了使用正常拍照服务\n请开启摄像头权限").setPositiveBtn("去设置", new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.IdCardOcrCameraActivity.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ IdCardOcrCameraActivity f43370a;
+                    public final /* synthetic */ IdCardOcrCameraActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -398,7 +393,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                                 return;
                             }
                         }
-                        this.f43370a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
@@ -407,20 +402,18 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
                             intent.addFlags(268435456);
-                            intent.setData(Uri.fromParts("package", this.f43370a.getPackageName(), null));
-                            if (intent.resolveActivity(this.f43370a.getPackageManager()) != null) {
-                                this.f43370a.startActivity(intent);
+                            intent.setData(Uri.fromParts("package", this.a.getPackageName(), null));
+                            if (intent.resolveActivity(this.a.getPackageManager()) != null) {
+                                this.a.startActivity(intent);
                             }
-                            IdCardOcrCameraActivity idCardOcrCameraActivity = this.f43370a;
+                            IdCardOcrCameraActivity idCardOcrCameraActivity = this.a;
                             idCardOcrCameraActivity.a(false, -401, IdCardOcrResult.MESSAGE_NO_CAMERA_PERMISSION, idCardOcrCameraActivity.B, "");
                         }
                     }
                 }).setNegativeButton("关闭", new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.IdCardOcrCameraActivity.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ IdCardOcrCameraActivity f43369a;
+                    public final /* synthetic */ IdCardOcrCameraActivity a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -437,24 +430,24 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                                 return;
                             }
                         }
-                        this.f43369a = this;
+                        this.a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            IdCardOcrCameraActivity idCardOcrCameraActivity = this.f43369a;
+                            IdCardOcrCameraActivity idCardOcrCameraActivity = this.a;
                             idCardOcrCameraActivity.a(false, -401, IdCardOcrResult.MESSAGE_NO_CAMERA_PERMISSION, idCardOcrCameraActivity.B, "");
                         }
                     }
                 }).build();
             }
-            this.f43358a.setCancelable(false);
-            if (isFinishing() || this.f43358a.isShowing()) {
+            this.a.setCancelable(false);
+            if (isFinishing() || this.a.isShowing()) {
                 return;
             }
-            this.f43358a.show();
+            this.a.show();
         }
     }
 
@@ -479,12 +472,12 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public void onClick(View view) {
         Camera.Parameters parameters;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || view.getId() != e.sapi_sdk_fl_take_photo || this.j == null || (parameters = this.f43366i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || view.getId() != e.sapi_sdk_fl_take_photo || this.f38660j == null || (parameters = this.f38659i) == null) {
             return;
         }
         Camera.Size previewSize = parameters.getPreviewSize();
-        byte[] a2 = com.baidu.sapi2.utils.a.a(a(com.baidu.sapi2.utils.a.a(this.j, previewSize.width, previewSize.height)), 100);
-        if (a2 == null) {
+        byte[] a = com.baidu.sapi2.utils.a.a(a(com.baidu.sapi2.utils.a.a(this.f38660j, previewSize.width, previewSize.height)), 100);
+        if (a == null) {
             IdCardOcrResult idCardOcrResult = new IdCardOcrResult();
             idCardOcrResult.setResultCode(-403);
             idCardOcrResult.setResultMsg(IdCardOcrResult.MESSAGE_CAMERA_ERROR);
@@ -492,7 +485,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
             finish();
             return;
         }
-        a(true, 0, "", this.B, Base64Utils.encodeToString(a2));
+        a(true, 0, "", this.B, Base64Utils.encodeToString(a));
     }
 
     @Override // android.app.Activity
@@ -534,24 +527,24 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public void onPreviewFrame(byte[] bArr, Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, bArr, camera) == null) {
-            this.j = bArr;
+            this.f38660j = bArr;
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.w < this.z) {
                 return;
             }
             this.w = currentTimeMillis;
-            long j = 0;
-            long j2 = camera.getParameters().getPreviewSize().width * camera.getParameters().getPreviewSize().height;
-            if (Math.abs(bArr.length - (((float) j2) * 1.5f)) < 1.0E-5f) {
-                for (int i2 = 0; i2 < j2; i2 += 10) {
-                    j += bArr[i2] & 255;
+            long j2 = 0;
+            long j3 = camera.getParameters().getPreviewSize().width * camera.getParameters().getPreviewSize().height;
+            if (Math.abs(bArr.length - (((float) j3) * 1.5f)) < 1.0E-5f) {
+                for (int i2 = 0; i2 < j3; i2 += 10) {
+                    j2 += bArr[i2] & 255;
                 }
-                long j3 = j / (j2 / 10);
+                long j4 = j2 / (j3 / 10);
                 long[] jArr = this.y;
                 int length = jArr.length;
                 int i3 = this.x % length;
                 this.x = i3;
-                jArr[i3] = j3;
+                jArr[i3] = j4;
                 this.x = i3 + 1;
                 boolean z = true;
                 for (int i4 = 0; i4 < length; i4++) {
@@ -559,14 +552,14 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                         z = false;
                     }
                 }
-                Log.e("ocr-test", "摄像头环境亮度为 ： " + j3);
+                Log.e("ocr-test", "摄像头环境亮度为 ： " + j4);
                 if (isFinishing()) {
                     return;
                 }
                 if (z) {
-                    this.f43361d.setVisibility(0);
+                    this.f38654d.setVisibility(0);
                 } else {
-                    this.f43361d.setVisibility(8);
+                    this.f38654d.setVisibility(8);
                 }
             }
         }
@@ -594,7 +587,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
             if (this.r) {
-                FrameLayout frameLayout = this.f43360c;
+                FrameLayout frameLayout = this.f38653c;
                 if (frameLayout != null) {
                     frameLayout.setVisibility(0);
                 }
@@ -603,19 +596,17 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class CameraSize {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public int f43371a;
+        public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43372b;
+        public int f38662b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ IdCardOcrCameraActivity f43373c;
+        public final /* synthetic */ IdCardOcrCameraActivity f38663c;
 
         public CameraSize(IdCardOcrCameraActivity idCardOcrCameraActivity, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -632,9 +623,9 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                     return;
                 }
             }
-            this.f43373c = idCardOcrCameraActivity;
-            this.f43371a = i2;
-            this.f43372b = i3;
+            this.f38663c = idCardOcrCameraActivity;
+            this.a = i2;
+            this.f38662b = i3;
         }
 
         public boolean equals(Object obj) {
@@ -648,7 +639,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                     return false;
                 }
                 CameraSize cameraSize = (CameraSize) obj;
-                return this.f43371a == cameraSize.f43371a && this.f43372b == cameraSize.f43372b;
+                return this.a == cameraSize.a && this.f38662b == cameraSize.f38662b;
             }
             return invokeL.booleanValue;
         }
@@ -657,7 +648,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CameraSize{width=" + this.f43371a + ", height=" + this.f43372b + ExtendedMessageFormat.END_FE;
+                return "CameraSize{width=" + this.a + ", height=" + this.f38662b + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -677,9 +668,9 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                     return;
                 }
             }
-            this.f43373c = idCardOcrCameraActivity;
-            this.f43371a = size.width;
-            this.f43372b = size.height;
+            this.f38663c = idCardOcrCameraActivity;
+            this.a = size.width;
+            this.f38662b = size.height;
         }
     }
 
@@ -707,11 +698,11 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
                 int[] iArr = new int[2];
                 int identifier = getApplicationContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
                 int dimensionPixelSize = identifier > 0 ? getApplicationContext().getResources().getDimensionPixelSize(identifier) : 0;
-                this.f43360c.getLocationInWindow(iArr);
+                this.f38653c.getLocationInWindow(iArr);
                 int i2 = (int) ((iArr[1] - dimensionPixelSize) * this.s);
                 int i3 = (int) (iArr[0] * this.s);
                 int i4 = (int) (this.l * this.s);
-                int i5 = (int) (this.k * this.s);
+                int i5 = (int) (this.f38661k * this.s);
                 Log.e("ocr-test", "计算点坐标：x = " + i2 + ", y = " + i3);
                 Log.e("ocr-test", "计算点坐标：borderWidth = " + i4 + ", borderHeight = " + i5);
                 return Bitmap.createBitmap(bitmap, i2, i3, i4, i5);
@@ -727,7 +718,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, int i2, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, str2, str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), str, str2, str3}) == null) {
             IdCardOcrResult idCardOcrResult = new IdCardOcrResult();
             idCardOcrResult.setResultCode(i2);
             idCardOcrResult.setResultMsg(str);

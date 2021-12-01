@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StandardGifDecoder implements GifDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES_PER_INTEGER = 4;
@@ -152,7 +151,7 @@ public class StandardGifDecoder implements GifDecoder {
         int i5;
         int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, gifFrame) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, gifFrame) == null) {
             int[] iArr = this.mainScratch;
             int i7 = gifFrame.ih;
             int i8 = this.sampleSize;
@@ -272,7 +271,7 @@ public class StandardGifDecoder implements GifDecoder {
 
     private void copyIntoScratchFast(GifFrame gifFrame) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, gifFrame) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, gifFrame) == null) {
             GifFrame gifFrame2 = gifFrame;
             int[] iArr = this.mainScratch;
             int i2 = gifFrame2.ih;

@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.appcompat.widget.ListPopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +27,7 @@ import com.google.android.material.R;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEMS_MEASURED = 15;
@@ -65,7 +64,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     private TextInputLayout findTextInputLayoutAncestor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             for (ViewParent parent = getParent(); parent != null; parent = parent.getParent()) {
                 if (parent instanceof TextInputLayout) {
                     return (TextInputLayout) parent;
@@ -79,7 +78,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
     private int measureContentWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             ListAdapter adapter = getAdapter();
             TextInputLayout findTextInputLayoutAncestor = findTextInputLayoutAncestor();
             int i2 = 0;
@@ -269,18 +268,18 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
                     this.this$0.updateText(i5 < 0 ? this.this$0.modalListPopup.getSelectedItem() : this.this$0.getAdapter().getItem(i5));
                     AdapterView.OnItemClickListener onItemClickListener = this.this$0.getOnItemClickListener();
                     if (onItemClickListener != null) {
                         if (view == null || i5 < 0) {
                             view = this.this$0.modalListPopup.getSelectedView();
                             i5 = this.this$0.modalListPopup.getSelectedItemPosition();
-                            j = this.this$0.modalListPopup.getSelectedItemId();
+                            j2 = this.this$0.modalListPopup.getSelectedItemId();
                         }
-                        onItemClickListener.onItemClick(this.this$0.modalListPopup.getListView(), view, i5, j);
+                        onItemClickListener.onItemClick(this.this$0.modalListPopup.getListView(), view, i5, j2);
                     }
                     this.this$0.modalListPopup.dismiss();
                 }

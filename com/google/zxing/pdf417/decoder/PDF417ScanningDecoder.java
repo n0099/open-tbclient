@@ -1,7 +1,6 @@
 package com.google.zxing.pdf417.decoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.google.zxing.pdf417.decoder.ec.ErrorCorrection;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Formatter;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class PDF417ScanningDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODEWORD_SKEW_SIZE = 2;
@@ -163,13 +162,13 @@ public final class PDF417ScanningDecoder {
     public static boolean checkCodewordSkew(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(AdIconUtil.AD_TEXT_ID, null, i2, i3, i4)) == null) ? i3 + (-2) <= i2 && i2 <= i4 + 2 : invokeIII.booleanValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65541, null, i2, i3, i4)) == null) ? i3 + (-2) <= i2 && i2 <= i4 + 2 : invokeIII.booleanValue;
     }
 
     public static int correctErrors(int[] iArr, int[] iArr2, int i2) throws ChecksumException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(AdIconUtil.BAIDU_LOGO_ID, null, iArr, iArr2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, iArr, iArr2, i2)) == null) {
             if ((iArr2 == null || iArr2.length <= (i2 / 2) + 3) && i2 >= 0 && i2 <= 512) {
                 return errorCorrection.decode(iArr, i2, iArr2);
             }

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import b.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.request.IMGetMsgSettingSwitchRequest;
@@ -45,7 +45,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AccountManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccountManagerImpl";
@@ -192,8 +192,8 @@ public class AccountManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0049  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x007f  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0047  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x007d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -212,7 +212,7 @@ public class AccountManagerImpl {
                 Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i2 + "，needLogout :" + z);
                 if (!z) {
                     LogUtils.d(TAG, "need logout before login");
-                    if (a.f29542e) {
+                    if (a.f26073e) {
                         BIMManager.imLogoutByLcp(mContext);
                         startLoginService(i2, str, str2, str3, str4, iLoginListener);
                         return;
@@ -374,7 +374,7 @@ public class AccountManagerImpl {
                 Utility.clearCache(mContext);
                 this.mToken = null;
             }
-            if (!a.f29542e) {
+            if (!a.f26073e) {
                 clearLoginParam(mContext);
                 clearUid(mContext);
                 disconnect(str);
@@ -446,8 +446,8 @@ public class AccountManagerImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j = this.mAppid;
-            return j == -1 ? Utility.readAppId(mContext) : j;
+            long j2 = this.mAppid;
+            return j2 == -1 ? Utility.readAppId(mContext) : j2;
         }
         return invokeV.longValue;
     }
@@ -550,14 +550,14 @@ public class AccountManagerImpl {
         return (String) invokeV.objValue;
     }
 
-    public void getTokenByCuid(long j, String str, IGetTokenByCuidListener iGetTokenByCuidListener) {
+    public void getTokenByCuid(long j2, String str, IGetTokenByCuidListener iGetTokenByCuidListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), str, iGetTokenByCuidListener}) == null) {
-            if (TextUtils.isEmpty(str) || j == -1) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j2), str, iGetTokenByCuidListener}) == null) {
+            if (TextUtils.isEmpty(str) || j2 == -1) {
                 iGetTokenByCuidListener.onGetTokenByCuidResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
             }
             String str2 = TAG;
-            LogUtils.d(str2, "getTokenByCuid----appid: " + j + " cuid: " + str);
+            LogUtils.d(str2, "getTokenByCuid----appid: " + j2 + " cuid: " + str);
             String addListener = ListenerManager.getInstance().addListener(iGetTokenByCuidListener);
             Timer timer = this.mTimer;
             if (timer != null) {
@@ -567,7 +567,7 @@ public class AccountManagerImpl {
             Timer timer2 = new Timer();
             this.mTimer = timer2;
             try {
-                timer2.schedule(new TimerTask(this, j, str, addListener) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.4
+                timer2.schedule(new TimerTask(this, j2, str, addListener) { // from class: com.baidu.android.imsdk.account.AccountManagerImpl.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AccountManagerImpl this$0;
@@ -580,7 +580,7 @@ public class AccountManagerImpl {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j), str, addListener};
+                            Object[] objArr = {this, Long.valueOf(j2), str, addListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -591,7 +591,7 @@ public class AccountManagerImpl {
                             }
                         }
                         this.this$0 = this;
-                        this.val$appid = j;
+                        this.val$appid = j2;
                         this.val$cuid = str;
                         this.val$key = addListener;
                     }
@@ -606,7 +606,7 @@ public class AccountManagerImpl {
                 }, Utility.getPeakDelayTime());
             } catch (Exception e2) {
                 LogUtils.e(TAG, "getTokenByCuid Exception", e2);
-                getTokenByCuid(j, str, addListener);
+                getTokenByCuid(j2, str, addListener);
             }
         }
     }
@@ -885,7 +885,7 @@ public class AccountManagerImpl {
                 ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
                 noticeStateChanged(3);
                 BIMManager.connectStatusNotify(0);
-                if (!a.f29542e) {
+                if (!a.f26073e) {
                     Utility.sendConnectionStateBroadCast(mContext, 0);
                 }
             } else {
@@ -964,14 +964,14 @@ public class AccountManagerImpl {
         }
     }
 
-    public void onSetZhidaAppidResult(String str, int i2, String str2, long j, long j2) {
+    public void onSetZhidaAppidResult(String str, int i2, String str2, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            LogUtils.d(TAG, String.format("onSetZhidaAppidResult errorCode=%d,appid=%d,paid=%d", Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)));
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            LogUtils.d(TAG, String.format("onSetZhidaAppidResult errorCode=%d,appid=%d,paid=%d", Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)));
             if (i2 == 0) {
                 Context context = mContext;
-                Utility.writeLongData(context, Constants.ZHIDA_SP_PRE + j, j2);
-                Utility.setPaid(mContext, j2);
+                Utility.writeLongData(context, Constants.ZHIDA_SP_PRE + j2, j3);
+                Utility.setPaid(mContext, j3);
             }
             ISwitchZhidaListener iSwitchZhidaListener = (ISwitchZhidaListener) ListenerManager.getInstance().removeListener(str);
             if (iSwitchZhidaListener != null) {
@@ -1065,12 +1065,12 @@ public class AccountManagerImpl {
         }
     }
 
-    public boolean setAppid(long j) {
+    public boolean setAppid(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048617, this, j)) == null) {
-            this.mAppid = j;
-            Utility.writeAppId(mContext, j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048617, this, j2)) == null) {
+            this.mAppid = j2;
+            Utility.writeAppId(mContext, j2);
             return true;
         }
         return invokeJ.booleanValue;
@@ -1133,10 +1133,10 @@ public class AccountManagerImpl {
         }
     }
 
-    public void setNotifyPaid(long j) {
+    public void setNotifyPaid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048625, this, j) == null) {
-            Utility.setNotifyPaid(mContext, j);
+        if (interceptable == null || interceptable.invokeJ(1048625, this, j2) == null) {
+            Utility.setNotifyPaid(mContext, j2);
         }
     }
 
@@ -1178,17 +1178,17 @@ public class AccountManagerImpl {
         }
     }
 
-    public void setZhidaAppid(long j, String str, ISwitchZhidaListener iSwitchZhidaListener) {
+    public void setZhidaAppid(long j2, String str, ISwitchZhidaListener iSwitchZhidaListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Long.valueOf(j), str, iSwitchZhidaListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{Long.valueOf(j2), str, iSwitchZhidaListener}) == null) {
             Context context = mContext;
-            long readLongData = Utility.readLongData(context, Constants.ZHIDA_SP_PRE + j, -1L);
+            long readLongData = Utility.readLongData(context, Constants.ZHIDA_SP_PRE + j2, -1L);
             if (readLongData != -1) {
                 Utility.setPaid(mContext, readLongData);
                 iSwitchZhidaListener.onSwitchZhidaResult(0, Constants.ERROR_MSG_SUCCESS);
                 return;
             }
-            IMGetPaidByAppidRequest iMGetPaidByAppidRequest = new IMGetPaidByAppidRequest(mContext, j, str, ListenerManager.getInstance().addListener(iSwitchZhidaListener));
+            IMGetPaidByAppidRequest iMGetPaidByAppidRequest = new IMGetPaidByAppidRequest(mContext, j2, str, ListenerManager.getInstance().addListener(iSwitchZhidaListener));
             HttpHelper.executor(mContext, iMGetPaidByAppidRequest, iMGetPaidByAppidRequest);
         }
     }
@@ -1228,10 +1228,10 @@ public class AccountManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void getTokenByCuid(long j, String str, String str2) {
+    public void getTokenByCuid(long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            IMGetTokenByCuidRequest iMGetTokenByCuidRequest = new IMGetTokenByCuidRequest(mContext, j, str, str2);
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
+            IMGetTokenByCuidRequest iMGetTokenByCuidRequest = new IMGetTokenByCuidRequest(mContext, j2, str, str2);
             HttpHelper.executor(mContext, iMGetTokenByCuidRequest, iMGetTokenByCuidRequest);
         }
     }

@@ -8,16 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public e f35804a;
+    public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f35805b;
+    public c f32162b;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public class d {
                 return;
             }
         }
-        this.f35805b = cVar;
+        this.f32162b = cVar;
     }
 
     public static d a(Context context, String str) {
@@ -43,13 +41,13 @@ public class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             b.a(context).b(context);
             e b2 = b.a(context).b(str);
-            if (b2 != null && !TextUtils.isEmpty(b2.f35795b)) {
-                d dVar = new d(c.f35801a);
-                dVar.f35804a = b2;
+            if (b2 != null && !TextUtils.isEmpty(b2.f32155b)) {
+                d dVar = new d(c.a);
+                dVar.a = b2;
                 return dVar;
             }
             m.a("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
-            return new d(c.f35802b);
+            return new d(c.f32160b);
         }
         return (d) invokeLL.objValue;
     }
@@ -57,6 +55,6 @@ public class d {
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35805b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32162b : (c) invokeV.objValue;
     }
 }

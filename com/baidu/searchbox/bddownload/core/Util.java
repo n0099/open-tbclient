@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.breakpoint.BlockInfo;
@@ -40,7 +39,7 @@ import java.util.Map;
 import java.util.concurrent.ThreadFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT_RANGES = "Accept-Ranges";
@@ -61,7 +60,7 @@ public class Util {
     public static Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class EmptyLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +108,7 @@ public class Util {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Logger {
         void d(String str, String str2);
 
@@ -177,20 +176,20 @@ public class Util {
         }
     }
 
-    public static void assembleBlock(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j, boolean z) {
+    public static void assembleBlock(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{downloadTask, breakpointInfo, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            int determineBlockCount = BdDownload.with().downloadStrategy().isUseMultiBlock(z) ? BdDownload.with().downloadStrategy().determineBlockCount(downloadTask, j) : 1;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{downloadTask, breakpointInfo, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            int determineBlockCount = BdDownload.with().downloadStrategy().isUseMultiBlock(z) ? BdDownload.with().downloadStrategy().determineBlockCount(downloadTask, j2) : 1;
             breakpointInfo.resetBlockInfos();
-            long j2 = determineBlockCount;
-            long j3 = j / j2;
+            long j3 = determineBlockCount;
+            long j4 = j2 / j3;
             int i2 = 0;
-            long j4 = 0;
             long j5 = 0;
+            long j6 = 0;
             while (i2 < determineBlockCount) {
-                j4 += j5;
-                j5 = i2 == 0 ? (j % j2) + j3 : j3;
-                breakpointInfo.addBlock(new BlockInfo(j4, j5));
+                j5 += j6;
+                j6 = i2 == 0 ? (j2 % j3) + j4 : j4;
+                breakpointInfo.addBlock(new BlockInfo(j5, j6));
                 i2++;
             }
         }
@@ -199,7 +198,7 @@ public class Util {
     public static boolean checkPermission(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             return (BdDownload.with().context() != null ? BdDownload.with().context().checkCallingOrSelfPermission(str) : -1) == 0;
         }
         return invokeL.booleanValue;
@@ -255,7 +254,7 @@ public class Util {
                 downloadStore = (DownloadStore) downloadStore.getClass().getMethod("createRemitSelf", new Class[0]).invoke(downloadStore, new Object[0]);
             } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
             }
-            d(com.baidu.android.common.util.Util.f35645b, "Get final download store is " + downloadStore);
+            d(com.baidu.android.common.util.Util.f32068b, "Get final download store is " + downloadStore);
             return downloadStore;
         }
         return (DownloadStore) invokeL.objValue;
@@ -352,15 +351,15 @@ public class Util {
         return invokeL.longValue;
     }
 
-    public static String humanReadableBytes(long j, boolean z) {
+    public static String humanReadableBytes(long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             int i2 = z ? 1000 : 1024;
-            if (j < i2) {
-                return j + " B";
+            if (j2 < i2) {
+                return j2 + " B";
             }
-            double d2 = j;
+            double d2 = j2;
             double d3 = i2;
             int log = (int) (Math.log(d2) / Math.log(d3));
             StringBuilder sb = new StringBuilder();
@@ -389,10 +388,10 @@ public class Util {
         }
     }
 
-    public static boolean isCorrectFull(long j, long j2) {
+    public static boolean isCorrectFull(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j == j2 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 == j3 : invokeCommon.booleanValue;
     }
 
     public static boolean isEmpty(@Nullable CharSequence charSequence) {
@@ -412,7 +411,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
-                w(com.baidu.android.common.util.Util.f35645b, "failed to get connectivity manager!");
+                w(com.baidu.android.common.util.Util.f32068b, "failed to get connectivity manager!");
                 return true;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -426,7 +425,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, connectivityManager)) == null) {
             if (connectivityManager == null) {
-                w(com.baidu.android.common.util.Util.f35645b, "failed to get connectivity manager!");
+                w(com.baidu.android.common.util.Util.f32068b, "failed to get connectivity manager!");
                 return true;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -484,7 +483,7 @@ public class Util {
             try {
                 return Long.parseLong(str);
             } catch (NumberFormatException unused) {
-                d(com.baidu.android.common.util.Util.f35645b, "parseContentLength failed parse for '" + str + "'");
+                d(com.baidu.android.common.util.Util.f32068b, "parseContentLength failed parse for '" + str + "'");
                 return -1L;
             }
         }
@@ -502,7 +501,7 @@ public class Util {
                         return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
                     }
                 } catch (Exception e2) {
-                    w(com.baidu.android.common.util.Util.f35645b, "parse content-length from content-range failed " + e2);
+                    w(com.baidu.android.common.util.Util.f32068b, "parse content-length from content-range failed " + e2);
                 }
             }
             return -1L;

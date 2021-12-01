@@ -2,7 +2,6 @@ package org.apache.commons.lang3.time;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ public class DurationFormatUtils {
     public static final Object S;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f73486d;
+    public static final Object f64305d;
     public static final Object m;
     public static final Object s;
     public static final Object y;
@@ -47,7 +46,7 @@ public class DurationFormatUtils {
         }
         y = "y";
         M = "M";
-        f73486d = "d";
+        f64305d = "d";
         H = "H";
         m = "m";
         s = "s";
@@ -68,12 +67,12 @@ public class DurationFormatUtils {
         }
     }
 
-    public static String format(Token[] tokenArr, long j, long j2, long j3, long j4, long j5, long j6, long j7, boolean z) {
+    public static String format(Token[] tokenArr, long j2, long j3, long j4, long j5, long j6, long j7, long j8, boolean z) {
         InterceptResult invokeCommon;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{tokenArr, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{tokenArr, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Boolean.valueOf(z)})) == null) {
             Token[] tokenArr2 = tokenArr;
             StringBuilder sb = new StringBuilder();
             int length = tokenArr2.length;
@@ -89,35 +88,35 @@ public class DurationFormatUtils {
                     i2 = i4;
                 } else {
                     if (value.equals(y)) {
-                        sb.append(paddedValue(j, z, count));
+                        sb.append(paddedValue(j2, z, count));
                         i3 = length;
                         i2 = i4;
                     } else {
                         if (value.equals(M)) {
                             i2 = i4;
-                            sb.append(paddedValue(j2, z, count));
+                            sb.append(paddedValue(j3, z, count));
                         } else {
                             i2 = i4;
-                            if (value.equals(f73486d)) {
-                                sb.append(paddedValue(j3, z, count));
-                            } else if (value.equals(H)) {
+                            if (value.equals(f64305d)) {
                                 sb.append(paddedValue(j4, z, count));
+                            } else if (value.equals(H)) {
+                                sb.append(paddedValue(j5, z, count));
                                 i3 = length;
                             } else if (value.equals(m)) {
-                                sb.append(paddedValue(j5, z, count));
+                                sb.append(paddedValue(j6, z, count));
                                 i3 = length;
                             } else {
                                 if (value.equals(s)) {
                                     i3 = length;
-                                    sb.append(paddedValue(j6, z, count));
+                                    sb.append(paddedValue(j7, z, count));
                                     z2 = true;
                                 } else {
                                     i3 = length;
                                     if (value.equals(S)) {
                                         if (z2) {
-                                            sb.append(paddedValue(j7, true, z ? Math.max(3, count) : 3));
+                                            sb.append(paddedValue(j8, true, z ? Math.max(3, count) : 3));
                                         } else {
-                                            sb.append(paddedValue(j7, z, count));
+                                            sb.append(paddedValue(j8, z, count));
                                         }
                                         z2 = false;
                                     }
@@ -140,29 +139,29 @@ public class DurationFormatUtils {
         return (String) invokeCommon.objValue;
     }
 
-    public static String formatDuration(long j, String str) {
+    public static String formatDuration(long j2, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, str)) == null) ? formatDuration(j, str, true) : (String) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j2, str)) == null) ? formatDuration(j2, str, true) : (String) invokeJL.objValue;
     }
 
-    public static String formatDurationHMS(long j) {
+    public static String formatDurationHMS(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, null, j)) == null) ? formatDuration(j, "HH:mm:ss.SSS") : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j2)) == null) ? formatDuration(j2, "HH:mm:ss.SSS") : (String) invokeJ.objValue;
     }
 
-    public static String formatDurationISO(long j) {
+    public static String formatDurationISO(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j)) == null) ? formatDuration(j, ISO_EXTENDED_FORMAT_PATTERN, false) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65542, null, j2)) == null) ? formatDuration(j2, ISO_EXTENDED_FORMAT_PATTERN, false) : (String) invokeJ.objValue;
     }
 
-    public static String formatDurationWords(long j, boolean z, boolean z2) {
+    public static String formatDurationWords(long j2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            String formatDuration = formatDuration(j, "d' days 'H' hours 'm' minutes 's' seconds'");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            String formatDuration = formatDuration(j2, "d' days 'H' hours 'm' minutes 's' seconds'");
             if (z) {
                 formatDuration = " " + formatDuration;
                 String replaceOnce = StringUtils.replaceOnce(formatDuration, " 0 days", "");
@@ -200,16 +199,16 @@ public class DurationFormatUtils {
         return (String) invokeCommon.objValue;
     }
 
-    public static String formatPeriod(long j, long j2, String str) {
+    public static String formatPeriod(long j2, long j3, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) ? formatPeriod(j, j2, str, true, TimeZone.getDefault()) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str})) == null) ? formatPeriod(j2, j3, str, true, TimeZone.getDefault()) : (String) invokeCommon.objValue;
     }
 
-    public static String formatPeriodISO(long j, long j2) {
+    public static String formatPeriodISO(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? formatPeriod(j, j2, ISO_EXTENDED_FORMAT_PATTERN, false, TimeZone.getDefault()) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? formatPeriod(j2, j3, ISO_EXTENDED_FORMAT_PATTERN, false, TimeZone.getDefault()) : (String) invokeCommon.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:41:0x0085  */
@@ -238,7 +237,7 @@ public class DurationFormatUtils {
                     } else if (charAt == 'S') {
                         obj = S;
                     } else if (charAt == 'd') {
-                        obj = f73486d;
+                        obj = f64305d;
                     } else if (charAt == 'm') {
                         obj = m;
                     } else if (charAt == 's') {
@@ -286,74 +285,74 @@ public class DurationFormatUtils {
         return (Token[]) invokeL.objValue;
     }
 
-    public static String paddedValue(long j, boolean z, int i2) {
+    public static String paddedValue(long j2, boolean z, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
-            String l = Long.toString(j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+            String l = Long.toString(j2);
             return z ? StringUtils.leftPad(l, i2, '0') : l;
         }
         return (String) invokeCommon.objValue;
     }
 
-    public static String formatDuration(long j, String str, boolean z) {
+    public static String formatDuration(long j2, String str, boolean z) {
         InterceptResult invokeCommon;
-        long j2;
         long j3;
         long j4;
         long j5;
         long j6;
         long j7;
+        long j8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, Boolean.valueOf(z)})) == null) {
-            Validate.inclusiveBetween(0L, Long.MAX_VALUE, j, "durationMillis must not be negative");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), str, Boolean.valueOf(z)})) == null) {
+            Validate.inclusiveBetween(0L, Long.MAX_VALUE, j2, "durationMillis must not be negative");
             Token[] lexx = lexx(str);
-            if (Token.containsTokenWithValue(lexx, f73486d)) {
-                long j8 = j / 86400000;
-                j2 = j - (86400000 * j8);
-                j3 = j8;
-            } else {
-                j2 = j;
-                j3 = 0;
-            }
-            if (Token.containsTokenWithValue(lexx, H)) {
-                long j9 = j2 / 3600000;
-                j2 -= 3600000 * j9;
+            if (Token.containsTokenWithValue(lexx, f64305d)) {
+                long j9 = j2 / 86400000;
+                j3 = j2 - (86400000 * j9);
                 j4 = j9;
             } else {
+                j3 = j2;
                 j4 = 0;
             }
-            if (Token.containsTokenWithValue(lexx, m)) {
-                long j10 = j2 / 60000;
-                j2 -= 60000 * j10;
+            if (Token.containsTokenWithValue(lexx, H)) {
+                long j10 = j3 / 3600000;
+                j3 -= 3600000 * j10;
                 j5 = j10;
             } else {
                 j5 = 0;
             }
-            if (Token.containsTokenWithValue(lexx, s)) {
-                long j11 = j2 / 1000;
-                j7 = j2 - (1000 * j11);
+            if (Token.containsTokenWithValue(lexx, m)) {
+                long j11 = j3 / 60000;
+                j3 -= 60000 * j11;
                 j6 = j11;
             } else {
                 j6 = 0;
-                j7 = j2;
             }
-            return format(lexx, 0L, 0L, j3, j4, j5, j6, j7, z);
+            if (Token.containsTokenWithValue(lexx, s)) {
+                long j12 = j3 / 1000;
+                j8 = j3 - (1000 * j12);
+                j7 = j12;
+            } else {
+                j7 = 0;
+                j8 = j3;
+            }
+            return format(lexx, 0L, 0L, j4, j5, j6, j7, j8, z);
         }
         return (String) invokeCommon.objValue;
     }
 
-    public static String formatPeriod(long j, long j2, String str, boolean z, TimeZone timeZone) {
+    public static String formatPeriod(long j2, long j3, String str, boolean z, TimeZone timeZone) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Boolean.valueOf(z), timeZone})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, Boolean.valueOf(z), timeZone})) == null) {
             int i2 = 0;
-            Validate.isTrue(j <= j2, "startMillis must not be greater than endMillis", new Object[0]);
+            Validate.isTrue(j2 <= j3, "startMillis must not be greater than endMillis", new Object[0]);
             Token[] lexx = lexx(str);
             Calendar calendar = Calendar.getInstance(timeZone);
-            calendar.setTime(new Date(j));
+            calendar.setTime(new Date(j2));
             Calendar calendar2 = Calendar.getInstance(timeZone);
-            calendar2.setTime(new Date(j2));
+            calendar2.setTime(new Date(j3));
             int i3 = calendar2.get(14) - calendar.get(14);
             int i4 = calendar2.get(13) - calendar.get(13);
             int i5 = calendar2.get(12) - calendar.get(12);
@@ -420,7 +419,7 @@ public class DurationFormatUtils {
                     calendar.add(2, 1);
                 }
             }
-            if (!Token.containsTokenWithValue(lexx, f73486d)) {
+            if (!Token.containsTokenWithValue(lexx, f64305d)) {
                 i6 += i7 * 24;
                 i7 = 0;
             }

@@ -12,7 +12,7 @@ import java.nio.ByteBuffer;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class JSONMethodCodec implements MethodCodec {
     public static /* synthetic */ Interceptable $ic;
     public static final JSONMethodCodec INSTANCE;
@@ -108,10 +108,17 @@ public final class JSONMethodCodec implements MethodCodec {
     }
 
     @Override // io.flutter.plugin.common.MethodCodec
+    public ByteBuffer encodeErrorEnvelopeWithStacktrace(String str, String str2, Object obj, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, obj, str3)) == null) ? JSONMessageCodec.INSTANCE.encodeMessage(new JSONArray().put(str).put(JSONUtil.wrap(str2)).put(JSONUtil.wrap(obj)).put(JSONUtil.wrap(str3))) : (ByteBuffer) invokeLLLL.objValue;
+    }
+
+    @Override // io.flutter.plugin.common.MethodCodec
     public ByteBuffer encodeMethodCall(MethodCall methodCall) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, methodCall)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, methodCall)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("method", methodCall.method);
@@ -128,13 +135,13 @@ public final class JSONMethodCodec implements MethodCodec {
     public ByteBuffer encodeSuccessEnvelope(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? JSONMessageCodec.INSTANCE.encodeMessage(new JSONArray().put(JSONUtil.wrap(obj))) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? JSONMessageCodec.INSTANCE.encodeMessage(new JSONArray().put(JSONUtil.wrap(obj))) : (ByteBuffer) invokeL.objValue;
     }
 
     public Object unwrapNull(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
             if (obj == JSONObject.NULL) {
                 return null;
             }

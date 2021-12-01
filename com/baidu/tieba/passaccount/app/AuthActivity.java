@@ -7,10 +7,9 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import b.a.c0.a.f;
-import b.a.c0.a.g;
+import c.a.d0.a.f;
+import c.a.d0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -22,17 +21,19 @@ import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.x;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AuthActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_AUTH_TOKEN = "EXTRA_AUTH_TOKEN";
@@ -50,13 +51,11 @@ public class AuthActivity extends BaseActivity {
     public String tpl;
     public int type;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements SapiWebView.OnBackCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f52942a;
+        public final /* synthetic */ AuthActivity a;
 
         public a(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -73,25 +72,23 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52942a = authActivity;
+            this.a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
         public void onBack() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52942a.goBack();
+                this.a.goBack();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements SapiWebView.OnFinishCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f52943a;
+        public final /* synthetic */ AuthActivity a;
 
         public b(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -108,25 +105,23 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52943a = authActivity;
+            this.a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52943a.onClose();
+                this.a.onClose();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c implements SapiWebView.WebviewClientCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f52944a;
+        public final /* synthetic */ AuthActivity a;
 
         public c(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -143,7 +138,7 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52944a = authActivity;
+            this.a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
@@ -161,7 +156,7 @@ public class AuthActivity extends BaseActivity {
                 if (TextUtils.isEmpty(queryParameter)) {
                     return;
                 }
-                this.f52944a.finishActivity(true, queryParameter);
+                this.a.finishActivity(true, queryParameter);
             }
         }
 
@@ -173,13 +168,11 @@ public class AuthActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class d implements SapiWebView.ChangePwdCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AuthActivity f52945a;
+        public final /* synthetic */ AuthActivity a;
 
         public d(AuthActivity authActivity) {
             Interceptable interceptable = $ic;
@@ -196,14 +189,14 @@ public class AuthActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f52945a = authActivity;
+            this.a = authActivity;
         }
 
         @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f52945a.finishActivity(true, null);
+                this.a.finishActivity(true, null);
             }
         }
     }
@@ -230,13 +223,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
             int i2 = this.type;
             if (i2 == 0) {
-                b.a.r0.i2.d.b.f().b(z, str);
+                c.a.r0.o2.d.b.f().b(z, str);
             } else if (i2 == 1) {
-                b.a.r0.i2.d.b.f().e(z);
+                c.a.r0.o2.d.b.f().e(z);
             } else if (i2 == 2) {
-                b.a.r0.i2.d.b.f().c(z);
+                c.a.r0.o2.d.b.f().c(z);
             } else {
-                b.a.r0.i2.d.b.f().a(null);
+                c.a.r0.o2.d.b.f().a(null);
             }
             finish();
         }
@@ -249,11 +242,11 @@ public class AuthActivity extends BaseActivity {
             ArrayList arrayList = new ArrayList();
             try {
                 arrayList.add(new PassNameValuePair("adapter", URLEncoder.encode("3", "UTF-8")));
-                arrayList.add(new PassNameValuePair("banner", "1"));
+                arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));
                 arrayList.add(new PassNameValuePair("isnew", "true"));
                 arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.authToken, "UTF-8")));
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, "UTF-8")));
-                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=auth-widget", "UTF-8")));
+                arrayList.add(new PassNameValuePair(x.o, URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=auth-widget", "UTF-8")));
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
@@ -266,7 +259,7 @@ public class AuthActivity extends BaseActivity {
     private List<PassNameValuePair> getBindBdussCookies() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
             String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
             ArrayList arrayList = new ArrayList();
@@ -279,12 +272,12 @@ public class AuthActivity extends BaseActivity {
     private String getModifyPwdUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             ArrayList arrayList = new ArrayList();
             try {
-                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=" + SapiWebView.ACTION_MODIFY_PWD, "UTF-8")));
+                arrayList.add(new PassNameValuePair(x.o, URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=" + SapiWebView.ACTION_MODIFY_PWD, "UTF-8")));
                 arrayList.add(new PassNameValuePair("adapter", "3"));
-                arrayList.add(new PassNameValuePair("banner", "1"));
+                arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));
                 arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, "UTF-8")));
                 arrayList.add(new PassNameValuePair("client", "android"));

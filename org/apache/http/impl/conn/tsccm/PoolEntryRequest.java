@@ -7,5 +7,5 @@ import org.apache.http.conn.ConnectionPoolTimeoutException;
 public interface PoolEntryRequest {
     void abortRequest();
 
-    BasicPoolEntry getPoolEntry(long j, TimeUnit timeUnit) throws InterruptedException, ConnectionPoolTimeoutException;
+    BasicPoolEntry getPoolEntry(long j2, TimeUnit timeUnit) throws InterruptedException, ConnectionPoolTimeoutException;
 }

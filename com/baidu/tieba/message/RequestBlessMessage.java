@@ -1,6 +1,6 @@
 package com.baidu.tieba.message;
 
-import b.a.q0.c1.z;
+import c.a.q0.d1.z;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.UserPk.DataReq;
 import tbclient.UserPk.UserPkReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequestBlessMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int click_type;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f52533common;
+    public CommonReq f47036common;
     public Long pk_id;
     public int pk_index;
     public int pk_type;
@@ -51,7 +51,7 @@ public class RequestBlessMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f74018common = this.f52533common;
+            builder.f64787common = this.f47036common;
             builder.pk_id = this.pk_id;
             builder.topic_id = this.topic_id;
             builder.pk_index = Integer.valueOf(this.pk_index);
@@ -78,7 +78,7 @@ public class RequestBlessMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f52533common = commonReq;
+            this.f47036common = commonReq;
         }
     }
 
@@ -110,10 +110,10 @@ public class RequestBlessMessage extends NetMessage {
         }
     }
 
-    public void setUserPkId(long j) {
+    public void setUserPkId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.user_pk_id = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.user_pk_id = j2;
         }
     }
 }

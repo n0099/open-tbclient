@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import b.a.q0.s.y.a;
+import c.a.q0.s.y.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JUME_SCHEME = "jump_scheme";
@@ -101,7 +101,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                 Intent intent = getIntent();
                 if (intent != null) {
                     String uri = intent.getData().toString();
-                    a.d(uri, false);
+                    a.l(uri, false);
                     if (uri.contains(PUSH_BODY)) {
                         JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf(PUSH_BODY) + 20));
                         String string2 = !jSONObject.isNull("task_id") ? jSONObject.getString("task_id") : "";

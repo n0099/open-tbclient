@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card.view;
 
 import android.view.View;
 import android.widget.FrameLayout;
-import b.a.e.f.p.l;
+import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BigImgView extends BaseCardView<BigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f52026f;
+    public TbImageView f46566f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BigImgView(TbPageContext tbPageContext) {
@@ -46,7 +46,7 @@ public class BigImgView extends BaseCardView<BigImgCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             TbImageView tbImageView = new TbImageView(getContext());
-            this.f52026f = tbImageView;
+            this.f46566f = tbImageView;
             return tbImageView;
         }
         return (View) invokeV.objValue;
@@ -65,18 +65,18 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     public void onUpdateCardView(BigImgCard bigImgCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bigImgCard) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f52026f.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f46566f.getLayoutParams();
             if (bigImgCard.getRatio() > 0.0d) {
                 int ratio = (int) (bigImgCard.getRatio() * l.k(getContext()));
                 if (Math.abs(ratio - layoutParams.height) > 10) {
                     layoutParams.height = ratio;
-                    this.f52026f.setLayoutParams(layoutParams);
+                    this.f46566f.setLayoutParams(layoutParams);
                 }
             } else {
                 layoutParams.height = (int) ((l.k(getContext()) * 0.5f) + 0.5f);
-                this.f52026f.setLayoutParams(layoutParams);
+                this.f46566f.setLayoutParams(layoutParams);
             }
-            this.f52026f.startLoad(bigImgCard.getUrl(), 10, false);
+            this.f46566f.startLoad(bigImgCard.getUrl(), 10, false);
         }
     }
 }

@@ -1,14 +1,13 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.j;
-import b.h.d.a.n;
-import b.h.d.c.i;
-import b.h.d.c.k1;
-import b.h.d.c.o0;
-import b.h.d.c.o1;
+import c.i.d.a.j;
+import c.i.d.a.n;
+import c.i.d.c.i;
+import c.i.d.c.k1;
+import c.i.d.c.o0;
+import c.i.d.c.o1;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,17 +15,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Tables;
+import com.kwad.v8.debug.mirror.Frame;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -92,19 +92,17 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class a<R, C, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final List<k1.a<R, C, V>> f64290a;
+        public final List<k1.a<R, C, V>> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super R> f64291b;
+        public Comparator<? super R> f56231b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super C> f64292c;
+        public Comparator<? super C> f56232c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -119,19 +117,19 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
                     return;
                 }
             }
-            this.f64290a = Lists.i();
+            this.a = Lists.i();
         }
 
         public ImmutableTable<R, C, V> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int size = this.f64290a.size();
+                int size = this.a.size();
                 if (size != 0) {
                     if (size != 1) {
-                        return RegularImmutableTable.forCells(this.f64290a, this.f64291b, this.f64292c);
+                        return RegularImmutableTable.forCells(this.a, this.f56231b, this.f56232c);
                     }
-                    return new SingletonImmutableTable((k1.a) o0.i(this.f64290a));
+                    return new SingletonImmutableTable((k1.a) o0.i(this.a));
                 }
                 return ImmutableTable.of();
             }
@@ -144,9 +142,9 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
                 if (aVar instanceof Tables.ImmutableCell) {
                     n.q(aVar.getRowKey(), "row");
-                    n.q(aVar.getColumnKey(), "column");
+                    n.q(aVar.getColumnKey(), Frame.COLUMN);
                     n.q(aVar.getValue(), "value");
-                    this.f64290a.add(aVar);
+                    this.a.add(aVar);
                 } else {
                     c(aVar.getRowKey(), aVar.getColumnKey(), aVar.getValue());
                 }
@@ -159,7 +157,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, r, c2, v)) == null) {
-                this.f64290a.add(ImmutableTable.cellOf(r, c2, v));
+                this.a.add(ImmutableTable.cellOf(r, c2, v));
                 return this;
             }
             return (a) invokeLLL.objValue;
@@ -213,10 +211,10 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     public static <R, C, V> ImmutableTable<R, C, V> of() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (ImmutableTable<R, C, V>) SparseImmutableTable.EMPTY : (ImmutableTable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ImmutableTable<R, C, V>) SparseImmutableTable.EMPTY : (ImmutableTable) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     @Deprecated
     public final void clear() {
         Interceptable interceptable = $ic;
@@ -227,33 +225,33 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // b.h.d.c.k1
+    @Override // c.i.d.c.k1
     public /* bridge */ /* synthetic */ Map column(Object obj) {
         return column((ImmutableTable<R, C, V>) obj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.k1
+    @Override // c.i.d.c.k1
     public abstract ImmutableMap<C, Map<R, V>> columnMap();
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public boolean contains(Object obj, Object obj2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, obj, obj2)) == null) ? get(obj, obj2) != null : invokeLL.booleanValue;
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean containsColumn(Object obj) {
         return super.containsColumn(obj);
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean containsRow(Object obj) {
         return super.containsRow(obj);
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public boolean containsValue(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -261,36 +259,36 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.i
+    @Override // c.i.d.c.i
     public abstract ImmutableSet<k1.a<R, C, V>> createCellSet();
 
     public abstract SerializedForm createSerializedForm();
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.i
+    @Override // c.i.d.c.i
     public abstract ImmutableCollection<V> createValues();
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public /* bridge */ /* synthetic */ Object get(Object obj, Object obj2) {
         return super.get(obj, obj2);
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public /* bridge */ /* synthetic */ int hashCode() {
         return super.hashCode();
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     @Deprecated
     public final V put(R r, C c2, V v) {
         InterceptResult invokeLLL;
@@ -301,7 +299,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         return (V) invokeLLL.objValue;
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     @Deprecated
     public final void putAll(k1<? extends R, ? extends C, ? extends V> k1Var) {
         Interceptable interceptable = $ic;
@@ -310,7 +308,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         }
     }
 
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     @Deprecated
     public final V remove(Object obj, Object obj2) {
         InterceptResult invokeLL;
@@ -323,24 +321,24 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // b.h.d.c.k1
+    @Override // c.i.d.c.k1
     public /* bridge */ /* synthetic */ Map row(Object obj) {
         return row((ImmutableTable<R, C, V>) obj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.k1
+    @Override // c.i.d.c.k1
     public abstract ImmutableMap<R, Map<C, V>> rowMap();
 
-    @Override // b.h.d.c.k1
+    @Override // c.i.d.c.k1
     public abstract /* synthetic */ int size();
 
-    @Override // b.h.d.c.i
+    @Override // c.i.d.c.i
     public /* bridge */ /* synthetic */ String toString() {
         return super.toString();
     }
 
-    @Override // b.h.d.c.i
+    @Override // c.i.d.c.i
     public final Iterator<V> valuesIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -359,11 +357,11 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     public static <R, C, V> ImmutableTable<R, C, V> of(R r, C c2, V v) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, r, c2, v)) == null) ? new SingletonImmutableTable(r, c2, v) : (ImmutableTable) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, r, c2, v)) == null) ? new SingletonImmutableTable(r, c2, v) : (ImmutableTable) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.i
+    @Override // c.i.d.c.i
     public final o1<k1.a<R, C, V>> cellIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -374,14 +372,14 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public ImmutableSet<k1.a<R, C, V>> cellSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (ImmutableSet) super.cellSet() : (ImmutableSet) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.k1
+    @Override // c.i.d.c.k1
     public ImmutableMap<R, V> column(C c2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -393,14 +391,14 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public ImmutableSet<C> columnKeySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? columnMap().keySet() : (ImmutableSet) invokeV.objValue;
     }
 
-    @Override // b.h.d.c.k1
+    @Override // c.i.d.c.k1
     public ImmutableMap<C, V> row(R r) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -412,7 +410,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public ImmutableSet<R> rowKeySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -420,7 +418,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // b.h.d.c.i, b.h.d.c.k1
+    @Override // c.i.d.c.i, c.i.d.c.k1
     public ImmutableCollection<V> values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

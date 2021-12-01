@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class OrientationUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

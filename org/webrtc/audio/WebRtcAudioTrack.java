@@ -374,9 +374,9 @@ public class WebRtcAudioTrack {
         }
     }
 
-    public static native void nativeCacheDirectBufferAddress(long j, ByteBuffer byteBuffer);
+    public static native void nativeCacheDirectBufferAddress(long j2, ByteBuffer byteBuffer);
 
-    public static native void nativeGetPlayoutData(long j, int i2);
+    public static native void nativeGetPlayoutData(long j2, int i2);
 
     private void releaseAudioResources() {
         Interceptable interceptable = $ic;
@@ -509,10 +509,10 @@ public class WebRtcAudioTrack {
     }
 
     @CalledByNative
-    public void setNativeAudioTrack(long j) {
+    public void setNativeAudioTrack(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.nativeAudioTrack = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.nativeAudioTrack = j2;
         }
     }
 

@@ -4,8 +4,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.o.a.a;
+import i.f;
+import i.o.a.a;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes3.dex */
 public final class OperatorZip$ZipProducer<R> extends AtomicLong implements f {
@@ -32,11 +32,11 @@ public final class OperatorZip$ZipProducer<R> extends AtomicLong implements f {
         this.zipper = operatorZip$Zip;
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            a.b(this, j);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            a.b(this, j2);
             this.zipper.tick();
         }
     }

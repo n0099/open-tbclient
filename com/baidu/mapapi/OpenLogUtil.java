@@ -4,12 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OpenLogUtil {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static ModuleName f40060a;
+    public static ModuleName a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public OpenLogUtil() {
@@ -29,7 +27,7 @@ public class OpenLogUtil {
     public static void setModuleLogEnable(ModuleName moduleName, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65537, null, moduleName, z) == null) {
-            f40060a = moduleName;
+            a = moduleName;
             com.baidu.mapsdkplatform.comjni.tools.a.a(z, moduleName.ordinal());
         }
     }

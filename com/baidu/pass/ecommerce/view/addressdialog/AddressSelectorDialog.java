@@ -11,7 +11,6 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.ecommerce.adapter.AddrListPagerAdapter;
 import com.baidu.pass.ecommerce.view.SlidingTabLayout;
 import com.baidu.pass.ecommerce.view.addressdialog.ListPagerView;
@@ -26,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AddressSelectorDialog extends Dialog implements NoProguard, ListPagerView.OnEntitySelectedListener, OnTabSelectListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +44,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
     public ResultHelpBean provinceBean;
     public ResultHelpBean townBean;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ResultHelpBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +124,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     private void addTab2Layout(int i2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) != null) {
             return;
         }
         List<String> titles = this.mTabLayout.getTitles();
@@ -180,7 +179,7 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
 
     private void makeEntity2Result(AddressBean addressBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, addressBean) == null) {
+        if (interceptable == null || interceptable.invokeL(65542, this, addressBean) == null) {
             String str = addressBean.type;
             String str2 = addressBean.id;
             String str3 = addressBean.name;

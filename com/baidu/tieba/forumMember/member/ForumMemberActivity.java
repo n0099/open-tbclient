@@ -1,15 +1,14 @@
 package com.baidu.tieba.forumMember.member;
 
 import android.os.Bundle;
-import b.a.e.f.p.j;
-import b.a.e.m.e.n;
-import b.a.q0.s.g0.f;
-import b.a.r0.v0.c.d;
-import b.a.r0.x0.m1;
-import b.a.r0.x0.t0;
-import b.a.r0.x0.z0;
+import c.a.d.f.p.j;
+import c.a.d.m.e.n;
+import c.a.q0.s.g0.f;
+import c.a.r0.b1.c.d;
+import c.a.r0.d1.m1;
+import c.a.r0.d1.t0;
+import c.a.r0.d1.z0;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.NoNetworkView;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements f.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,15 +30,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public d mModel;
     public NoNetworkView.b mNetworkChangeListener;
     public z0 mPageInfo;
-    public b.a.r0.v0.c.o.b mView;
+    public c.a.r0.b1.c.o.b mView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements t0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumMemberActivity f49028a;
+        public final /* synthetic */ ForumMemberActivity a;
 
         public a(ForumMemberActivity forumMemberActivity) {
             Interceptable interceptable = $ic;
@@ -56,42 +53,42 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     return;
                 }
             }
-            this.f49028a = forumMemberActivity;
+            this.a = forumMemberActivity;
         }
 
-        @Override // b.a.r0.x0.t0
+        @Override // c.a.r0.d1.t0
         public void a(int i2, int i3, m1 m1Var, ArrayList<n> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), m1Var, arrayList}) == null) {
-                this.f49028a.mView.d();
-                this.f49028a.mView.c();
+                this.a.mView.d();
+                this.a.mView.c();
                 if (arrayList != null) {
                     Iterator<n> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        if (it.next() instanceof b.a.r0.x0.n) {
+                        if (it.next() instanceof c.a.r0.d1.n) {
                             it.remove();
                         }
                     }
                 }
                 if (!ListUtils.isEmpty(arrayList)) {
-                    this.f49028a.mView.e();
-                    this.f49028a.mListViewData = arrayList;
-                    this.f49028a.mView.f(this.f49028a.mListViewData);
-                } else if (!ListUtils.isEmpty(this.f49028a.mListViewData) || m1Var == null) {
+                    this.a.mView.e();
+                    this.a.mListViewData = arrayList;
+                    this.a.mView.f(this.a.mListViewData);
+                } else if (!ListUtils.isEmpty(this.a.mListViewData) || m1Var == null) {
                 } else {
-                    this.f49028a.mView.l(m1Var.f27514f);
+                    this.a.mView.l(m1Var.f15662f);
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumMemberActivity f49029e;
+        public final /* synthetic */ ForumMemberActivity f43985e;
 
         public b(ForumMemberActivity forumMemberActivity) {
             Interceptable interceptable = $ic;
@@ -108,19 +105,19 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     return;
                 }
             }
-            this.f49029e = forumMemberActivity;
+            this.f43985e = forumMemberActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f49029e.mView.b(z);
+                this.f43985e.mView.b(z);
                 if (z) {
-                    if (ListUtils.isEmpty(this.f49029e.mListViewData)) {
-                        this.f49029e.startFirstTimeLoad();
+                    if (ListUtils.isEmpty(this.f43985e.mListViewData)) {
+                        this.f43985e.startFirstTimeLoad();
                     } else {
-                        this.f49029e.mView.m();
+                        this.f43985e.mView.m();
                     }
                 }
             }
@@ -147,7 +144,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
 
     private void initBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, bundle) == null) {
             if (bundle == null) {
                 if (getIntent() == null) {
                     return;
@@ -160,15 +157,15 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             }
             z0 z0Var = new z0();
             this.mPageInfo = z0Var;
-            z0Var.f28383b = this.mForumId;
-            z0Var.f28382a = this.mForumName;
+            z0Var.f16419b = this.mForumId;
+            z0Var.a = this.mForumName;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startFirstTimeLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             this.mView.k();
             this.mModel.q(3, 0, this.mPageInfo);
         }
@@ -189,7 +186,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             initBundle(bundle);
-            b.a.r0.v0.c.o.b bVar = new b.a.r0.v0.c.o.b(this);
+            c.a.r0.b1.c.o.b bVar = new c.a.r0.b1.c.o.b(this);
             this.mView = bVar;
             bVar.j(this.mNetworkChangeListener);
             d dVar = new d();
@@ -207,14 +204,14 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
             this.mModel.g();
-            b.a.r0.v0.c.o.b bVar = this.mView;
+            c.a.r0.b1.c.o.b bVar = this.mView;
             if (bVar != null) {
                 bVar.i();
             }
         }
     }
 
-    @Override // b.a.q0.s.g0.f.g
+    @Override // c.a.q0.s.g0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {

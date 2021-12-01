@@ -2,14 +2,13 @@ package com.google.zxing.datamatrix.encoder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class DefaultPlacement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,12 +99,12 @@ public class DefaultPlacement {
     private boolean hasBit(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, this, i2, i3)) == null) ? this.bits[(i3 * this.numcols) + i2] >= 0 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i2, i3)) == null) ? this.bits[(i3 * this.numcols) + i2] >= 0 : invokeII.booleanValue;
     }
 
     private void module(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(AdIconUtil.BAIDU_LOGO_ID, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(65542, this, i2, i3, i4, i5) == null) {
             if (i2 < 0) {
                 int i6 = this.numrows;
                 i2 += i6;

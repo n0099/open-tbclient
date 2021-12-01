@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FaceBaseDTO extends SapiDTO {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUSINESS_BAIDU_MINI_PROGRAMS_SENCE = "baidu_mini_programs";
@@ -17,6 +17,7 @@ public class FaceBaseDTO extends SapiDTO {
     public static final String KEY_BUSINESS_SCENE = "scene";
     public transient /* synthetic */ FieldHolder $fh;
     public String businessSence;
+    public boolean needAuthorizeCertInfo;
     public boolean showGuidePage;
     public String subpro;
     public Map<String, String> transParamsList;

@@ -13,15 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final c f69157a;
+    public static final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f69158b;
+    public static final c f61011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f69159c;
+    public static final c f61012c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +35,7 @@ public abstract class c {
                 return;
             }
         }
-        f69157a = new c(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0) { // from class: com.sdk.base.framework.f.g.d
+        a = new c(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 0) { // from class: com.sdk.base.framework.f.g.d
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,7 +70,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f69158b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
+        f61011b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +105,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f69159c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
+        f61012c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

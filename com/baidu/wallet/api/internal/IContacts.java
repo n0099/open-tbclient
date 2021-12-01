@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import com.baidu.wallet.core.utils.contacts.ContractInfo;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IContacts {
     int countOfContacts(@NonNull Context context);
 

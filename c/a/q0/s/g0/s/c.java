@@ -1,0 +1,106 @@
+package c.a.q0.s.g0.s;
+
+import android.text.Selection;
+import android.text.SpanWatcher;
+import android.text.Spannable;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class c implements SpanWatcher {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public SpanGroupManager f12706e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f12707f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f12708g;
+
+    public c(@NonNull SpanGroupManager spanGroupManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spanGroupManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f12706e = spanGroupManager;
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanAdded(Spannable spannable, Object obj, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i2, i3) == null) {
+        }
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanChanged(Spannable spannable, Object obj, int i2, int i3, int i4, int i5) {
+        SpanGroupManager spanGroupManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (spanGroupManager = this.f12706e) == null) {
+            return;
+        }
+        if (obj == Selection.SELECTION_END && this.f12708g != i4) {
+            this.f12708g = i4;
+            a z = spanGroupManager.z(i4);
+            if (z != null) {
+                int f2 = z.f();
+                int c2 = z.c();
+                if (Math.abs(this.f12708g - c2) <= Math.abs(this.f12708g - f2)) {
+                    f2 = c2;
+                }
+                int selectionStart = Selection.getSelectionStart(spannable);
+                if (selectionStart > spannable.length()) {
+                    selectionStart = spannable.length();
+                }
+                if (f2 > spannable.length()) {
+                    f2 = spannable.length();
+                }
+                Selection.setSelection(spannable, selectionStart, f2);
+            }
+        }
+        if (obj != Selection.SELECTION_START || this.f12707f == i4) {
+            return;
+        }
+        this.f12707f = i4;
+        a z2 = this.f12706e.z(i4);
+        if (z2 != null) {
+            int f3 = z2.f();
+            int c3 = z2.c();
+            if (Math.abs(this.f12707f - c3) <= Math.abs(this.f12707f - f3)) {
+                f3 = c3;
+            }
+            int selectionEnd = Selection.getSelectionEnd(spannable);
+            if (selectionEnd > spannable.length()) {
+                selectionEnd = spannable.length();
+            }
+            if (f3 > spannable.length()) {
+                f3 = spannable.length();
+            }
+            Selection.setSelection(spannable, f3, selectionEnd);
+        }
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanRemoved(Spannable spannable, Object obj, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i2, i3) == null) {
+        }
+    }
+}

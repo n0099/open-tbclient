@@ -2,12 +2,12 @@ package com.baidu.tieba.recapp.lego.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.p.c;
-import b.a.f.d;
-import b.a.r0.a3.i0.b.a;
-import b.a.r0.a3.i0.b.g;
-import b.a.r0.q1.o.h.b;
-import b.a.r0.q1.o.l.i;
+import c.a.d.f.p.c;
+import c.a.e.d;
+import c.a.r0.h3.i0.b.a;
+import c.a.r0.h3.i0.b.g;
+import c.a.r0.w1.o.h.b;
+import c.a.r0.w1.o.l.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
-/* loaded from: classes9.dex */
-public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.i, b {
+/* loaded from: classes11.dex */
+public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, c.a.e.i, b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d adFacadeData;
@@ -92,8 +92,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
         b.a aVar = new b.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.f15728a)) {
-            this.operateData.f15728a = this.userName;
+        if (TextUtils.isEmpty(this.operateData.a)) {
+            this.operateData.a = this.userName;
         }
     }
 
@@ -124,7 +124,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
                 jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.d());
                 jSONObject.put("operate", this.operateData.b());
                 if (this.adFacadeData != null && this.adFacadeData.i() != null) {
-                    jSONObject.put("extraparams", this.adFacadeData.i().f2822b);
+                    jSONObject.put("extraparams", this.adFacadeData.i().f3044b);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -164,15 +164,15 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a aVar = this.operateData;
-            if (aVar != null && !TextUtils.isEmpty(aVar.f15730c)) {
-                return this.operateData.f15730c;
+            if (aVar != null && !TextUtils.isEmpty(aVar.f17738c)) {
+                return this.operateData.f17738c;
             }
             return this.scheme;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // b.a.r0.q1.o.h.b
+    @Override // c.a.r0.w1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
         return invokeL.booleanValue;
     }
 
-    @Override // b.a.f.i
+    @Override // c.a.e.i
     public void setAdFacadeData(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
@@ -203,7 +203,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
         }
     }
 
-    @Override // b.a.r0.q1.o.l.i
+    @Override // c.a.r0.w1.o.l.i
     public void setAutoPlay(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -211,7 +211,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b.a.f.
         }
     }
 
-    @Override // b.a.r0.q1.o.l.i
+    @Override // c.a.r0.w1.o.l.i
     public void setWaitConfirm(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {

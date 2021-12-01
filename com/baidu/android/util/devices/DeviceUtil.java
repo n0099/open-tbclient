@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.IDevices;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.g;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -26,12 +26,12 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class DeviceUtil implements IDevices {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class BrandInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,13 +77,13 @@ public class DeviceUtil implements IDevices {
         public static boolean isMagicBoxDevice() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? RomUtils.isMagicBoxDevice() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? RomUtils.isMagicBoxDevice() : invokeV.booleanValue;
         }
 
         public static boolean isMiBox2Device() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? RomUtils.isMiBox2Device() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? RomUtils.isMiBox2Device() : invokeV.booleanValue;
         }
 
         @Deprecated
@@ -94,7 +94,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -173,7 +173,7 @@ public class DeviceUtil implements IDevices {
         public static CPUInfo getSystemCPUInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
                 CPUInfo cPUInfo = systemCPUInfo;
                 if (cPUInfo != null) {
                     return cPUInfo;
@@ -216,7 +216,7 @@ public class DeviceUtil implements IDevices {
         public static String get_CPU_ABI() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? Build.CPU_ABI : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? Build.CPU_ABI : (String) invokeV.objValue;
         }
 
         @Deprecated
@@ -294,7 +294,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class OSInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KITKAT = 19;
@@ -346,13 +346,13 @@ public class DeviceUtil implements IDevices {
         public static boolean hasGingerbread() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? DeviceUtils.OSInfo.hasGingerbread() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? DeviceUtils.OSInfo.hasGingerbread() : invokeV.booleanValue;
         }
 
         public static boolean hasHoneycomb() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? DeviceUtils.OSInfo.hasHoneycomb() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? DeviceUtils.OSInfo.hasHoneycomb() : invokeV.booleanValue;
         }
 
         public static boolean hasHoneycombMR1() {
@@ -458,7 +458,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;
@@ -524,7 +524,7 @@ public class DeviceUtil implements IDevices {
         public static int getDensityDpi(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
                 initDisplayMetrics(AppRuntime.getAppContext());
                 DisplayMetrics displayMetrics = sDisplayMetrics;
                 if (displayMetrics != null) {
@@ -538,7 +538,7 @@ public class DeviceUtil implements IDevices {
         public static int getDisplayHeight(@Nullable Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
                 DisplayMetrics displayMetrics = getDisplayMetrics(AppRuntime.getAppContext());
                 if (displayMetrics != null) {
                     return displayMetrics.heightPixels;
@@ -734,7 +734,7 @@ public class DeviceUtil implements IDevices {
                 return false;
             }
             String[] strArr = {"SM-F9000", "SM-F9160"};
-            if ("SAMSUNG".equalsIgnoreCase(Build.MANUFACTURER)) {
+            if (g.f56645j.equalsIgnoreCase(Build.MANUFACTURER)) {
                 for (int i2 = 0; i2 < 2; i2++) {
                     if (strArr[i2].equalsIgnoreCase(Build.MODEL)) {
                         return true;
@@ -752,6 +752,6 @@ public class DeviceUtil implements IDevices {
     public static boolean isSupportFoldable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? isMateX() || isHwFoldableDevice() || isSamSungFolded() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? isMateX() || isHwFoldableDevice() || isSamSungFolded() : invokeV.booleanValue;
     }
 }

@@ -2,7 +2,6 @@ package com.facebook.imagepipeline.producers;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INPUT_IMAGE_FORMAT = "Image format";
@@ -48,7 +47,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public final boolean mIsResizingEnabled;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class TransformingConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -336,7 +335,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static boolean shouldRotateUsingExifOrientation(RotationOptions rotationOptions, EncodedImage encodedImage) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, rotationOptions, encodedImage)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, rotationOptions, encodedImage)) == null) {
             if (rotationOptions.rotationEnabled() && !rotationOptions.canDeferUntilRendered()) {
                 return JpegTranscoderUtils.INVERTED_EXIF_ORIENTATIONS.contains(Integer.valueOf(encodedImage.getExifOrientation()));
             }
@@ -349,7 +348,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static TriState shouldTransform(ImageRequest imageRequest, EncodedImage encodedImage, ImageTranscoder imageTranscoder) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, imageRequest, encodedImage, imageTranscoder)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, imageRequest, encodedImage, imageTranscoder)) == null) {
             if (encodedImage != null && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
                 if (!imageTranscoder.canTranscode(encodedImage.getImageFormat())) {
                     return TriState.NO;

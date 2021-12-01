@@ -7,21 +7,13 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import b.a.e.f.m.e;
-import b.a.e.f.n.a;
-import b.a.e.i.j.g.d;
-import b.a.q0.a.g;
+import c.a.d.f.m.e;
+import c.a.q0.a.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
@@ -52,7 +44,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OpenFlutter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForum";
@@ -96,34 +88,13 @@ public class OpenFlutter {
     public static boolean checkIsVideoTopic(@NonNull HotTopicActivityConfig hotTopicActivityConfig) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hotTopicActivityConfig)) == null) ? TextUtils.equals(hotTopicActivityConfig.getIntent().getStringExtra(IntentConfig.IS_VIDEO_TOPIC), "1") : invokeL.booleanValue;
-    }
-
-    public static boolean checkPluginEnable(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
-            if ((h2 == null || h2.apkPath == null) && !TbadkCoreApplication.getInst().isDebugMode()) {
-                a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-                statsItem.b("page", str);
-                statsItem.b("staticversion", BdStatisticsManager.getInstance().getAppVersion());
-                statsItem.b("version", TbConfig.getVersion());
-                statsItem.b("sub_version", TbConfig.getSubVersion());
-                statsItem.b(com.alipay.sdk.sys.a.s, PluginPackageManager.O().M());
-                statsItem.b(SpeedStatsMainTable.PLUGIN_TASK, PluginPackageManager.O().M());
-                BdStatisticsManager.getInstance().debug("pluginproxy", statsItem);
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hotTopicActivityConfig)) == null) ? TextUtils.equals(hotTopicActivityConfig.getIntent().getStringExtra("is_video_topic"), "1") : invokeL.booleanValue;
     }
 
     public static boolean checkSwitch(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (str.contains(ACTIVITY_SIGN_TOGETHER)) {
                 return FlutterSignAllEnableSwitch.isOn();
             }
@@ -149,7 +120,7 @@ public class OpenFlutter {
         String str;
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, customMessage)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, customMessage)) == null) {
             IntentConfig intentConfig = (IntentConfig) customMessage.getData();
             if (intentConfig instanceof SignAllForumActivityConfig) {
                 str = ACTIVITY_SIGN_TOGETHER;
@@ -223,7 +194,7 @@ public class OpenFlutter {
 
     public static void markSecondaryPageEnter() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             LaunchTaskSchedule.getInstance().start(5);
         }
     }
@@ -232,7 +203,7 @@ public class OpenFlutter {
         InterceptResult invokeLLL;
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str, map)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, map)) == null) {
             if (checkSwitch(str)) {
                 Intent intent = new Intent(context, FlutterPageActivity.class);
                 BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
@@ -282,7 +253,7 @@ public class OpenFlutter {
     public static HashMap parseParmes(IntentConfig intentConfig, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, intentConfig, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, intentConfig, str)) == null) {
             HashMap hashMap = new HashMap();
             if (ACTIVITY_VIDEO_WORK_LIST.equals(str)) {
                 hashMap.put("publisher", intentConfig.getIntent().getStringExtra("type"));
@@ -335,7 +306,7 @@ public class OpenFlutter {
         int i2;
         String substring;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65544, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
+        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (g.c(uri)) {
                 g.b().h(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
@@ -361,18 +332,18 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // b.a.q0.a.g.b
+                    @Override // c.a.q0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {
                             return;
                         }
-                        Boolean bool = (Boolean) hashMap2.get(g.a0);
+                        Boolean bool = (Boolean) hashMap2.get(g.b0);
                         if (bool != null && bool.booleanValue()) {
                             this.val$params.put("portrait", TbadkCoreApplication.getCurrentPortrait());
                         }
-                        if (hashMap2.get(g.y) instanceof String) {
-                            String str2 = (String) hashMap2.get(g.y);
+                        if (hashMap2.get(g.z) instanceof String) {
+                            String str2 = (String) hashMap2.get(g.z);
                             if (StringUtils.isNull(str2)) {
                                 return;
                             }

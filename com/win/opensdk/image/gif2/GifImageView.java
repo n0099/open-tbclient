@@ -7,52 +7,52 @@ import android.os.Looper;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import b.o.a.d5;
-import b.o.a.g5;
-import b.o.a.j4;
-import b.o.a.k5;
-import b.o.a.n4;
-import b.o.a.o5;
-import b.o.a.r4;
-import b.o.a.z4;
+import c.p.a.d5;
+import c.p.a.g5;
+import c.p.a.j4;
+import c.p.a.k5;
+import c.p.a.n4;
+import c.p.a.o5;
+import c.p.a.r4;
+import c.p.a.z4;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GifImageView extends ImageView implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public j4 f71431a;
+    public j4 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f71432b;
+    public Bitmap f62641b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f71433c;
+    public final Handler f62642c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f71434d;
+    public boolean f62643d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f71435e;
+    public boolean f62644e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f71436f;
+    public boolean f62645f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Thread f71437g;
+    public Thread f62646g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f71438h;
+    public long f62647h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Runnable f71439i;
-    public final Runnable j;
+    public final Runnable f62648i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final Runnable f62649j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GifImageView(Context context) {
@@ -72,10 +72,10 @@ public class GifImageView extends ImageView implements Runnable {
                 return;
             }
         }
-        this.f71433c = new Handler(Looper.getMainLooper());
-        this.f71438h = -1L;
-        this.f71439i = new z4(this);
-        this.j = new d5(this);
+        this.f62642c = new Handler(Looper.getMainLooper());
+        this.f62647h = -1L;
+        this.f62648i = new z4(this);
+        this.f62649j = new d5(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -97,31 +97,31 @@ public class GifImageView extends ImageView implements Runnable {
                 return;
             }
         }
-        this.f71433c = new Handler(Looper.getMainLooper());
-        this.f71438h = -1L;
-        this.f71439i = new z4(this);
-        this.j = new d5(this);
+        this.f62642c = new Handler(Looper.getMainLooper());
+        this.f62647h = -1L;
+        this.f62648i = new z4(this);
+        this.f62649j = new d5(this);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f71434d = false;
-            this.f71435e = false;
-            this.f71436f = true;
+            this.f62643d = false;
+            this.f62644e = false;
+            this.f62645f = true;
             d();
-            this.f71433c.post(this.j);
+            this.f62642c.post(this.f62649j);
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            j4 j4Var = this.f71431a;
-            if (j4Var.n == i2 || !j4Var.g(i2 - 1) || this.f71434d) {
+            j4 j4Var = this.a;
+            if (j4Var.n == i2 || !j4Var.g(i2 - 1) || this.f62643d) {
                 return;
             }
-            this.f71435e = true;
+            this.f62644e = true;
             c();
         }
     }
@@ -129,7 +129,7 @@ public class GifImageView extends ImageView implements Runnable {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f71434d = true;
+            this.f62643d = true;
             c();
         }
     }
@@ -137,9 +137,9 @@ public class GifImageView extends ImageView implements Runnable {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if ((this.f71434d || this.f71435e) && this.f71431a != null && this.f71437g == null) {
+            if ((this.f62643d || this.f62644e) && this.a != null && this.f62646g == null) {
                 Thread thread = new Thread(this);
-                this.f71437g = thread;
+                this.f62646g = thread;
                 thread.start();
             }
         }
@@ -148,11 +148,11 @@ public class GifImageView extends ImageView implements Runnable {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f71434d = false;
-            Thread thread = this.f71437g;
+            this.f62643d = false;
+            Thread thread = this.f62646g;
             if (thread != null) {
                 thread.interrupt();
-                this.f71437g = null;
+                this.f62646g = null;
             }
         }
     }
@@ -160,25 +160,25 @@ public class GifImageView extends ImageView implements Runnable {
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f71431a.p.f34291c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.p.f30899c : invokeV.intValue;
     }
 
     public long getFramesDisplayDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71438h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f62647h : invokeV.longValue;
     }
 
     public int getGifHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f71431a.p.f34295g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.p.f30903g : invokeV.intValue;
     }
 
     public int getGifWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f71431a.p.f34294f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.p.f30902f : invokeV.intValue;
     }
 
     public k5 getOnAnimationStop() {
@@ -226,11 +226,11 @@ public class GifImageView extends ImageView implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             do {
-                if (!this.f71434d && !this.f71435e) {
+                if (!this.f62643d && !this.f62644e) {
                     break;
                 }
-                j4 j4Var2 = this.f71431a;
-                int i5 = j4Var2.p.f34291c;
+                j4 j4Var2 = this.a;
+                int i5 = j4Var2.p.f30899c;
                 int i6 = -1;
                 boolean z = true;
                 if (i5 > 0) {
@@ -239,52 +239,52 @@ public class GifImageView extends ImageView implements Runnable {
                     }
                     int i7 = j4Var2.p.m;
                     if (i7 == -1 || j4Var2.o <= i7) {
-                        j4Var2.n = (j4Var2.n + 1) % j4Var2.p.f34291c;
+                        j4Var2.n = (j4Var2.n + 1) % j4Var2.p.f30899c;
                         long nanoTime = System.nanoTime();
-                        this.f71432b = this.f71431a.h();
-                        long j = (System.nanoTime() - nanoTime) / 1000000;
-                        this.f71433c.post(this.f71439i);
-                        this.f71435e = false;
-                        if (this.f71434d || !z) {
-                            this.f71434d = false;
+                        this.f62641b = this.a.h();
+                        long j2 = (System.nanoTime() - nanoTime) / 1000000;
+                        this.f62642c.post(this.f62648i);
+                        this.f62644e = false;
+                        if (this.f62643d || !z) {
+                            this.f62643d = false;
                             break;
                         }
                         try {
-                            j4Var = this.f71431a;
+                            j4Var = this.a;
                             r4Var = j4Var.p;
-                            i2 = r4Var.f34291c;
+                            i2 = r4Var.f30899c;
                         } catch (InterruptedException unused) {
                         }
                         if (i2 > 0 && (i4 = j4Var.n) >= 0) {
                             if (i4 >= 0 && i4 < i2) {
-                                i6 = ((n4) r4Var.f34293e.get(i4)).f34250i;
+                                i6 = ((n4) r4Var.f30901e.get(i4)).f30862i;
                             }
-                            i3 = (int) (i6 - j);
+                            i3 = (int) (i6 - j2);
                             if (i3 > 0) {
-                                Thread.sleep(this.f71438h > 0 ? this.f71438h : i3);
+                                Thread.sleep(this.f62647h > 0 ? this.f62647h : i3);
                             }
                         }
                         i6 = 0;
-                        i3 = (int) (i6 - j);
+                        i3 = (int) (i6 - j2);
                         if (i3 > 0) {
                         }
                     }
                 }
                 z = false;
                 long nanoTime2 = System.nanoTime();
-                this.f71432b = this.f71431a.h();
-                long j2 = (System.nanoTime() - nanoTime2) / 1000000;
-                this.f71433c.post(this.f71439i);
-                this.f71435e = false;
-                if (this.f71434d) {
+                this.f62641b = this.a.h();
+                long j22 = (System.nanoTime() - nanoTime2) / 1000000;
+                this.f62642c.post(this.f62648i);
+                this.f62644e = false;
+                if (this.f62643d) {
                 }
-                this.f71434d = false;
+                this.f62643d = false;
                 break;
-            } while (this.f71434d);
-            if (this.f71436f) {
-                this.f71433c.post(this.j);
+            } while (this.f62643d);
+            if (this.f62645f) {
+                this.f62642c.post(this.f62649j);
             }
-            this.f71437g = null;
+            this.f62646g = null;
         }
     }
 
@@ -292,24 +292,24 @@ public class GifImageView extends ImageView implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bArr) == null) {
             j4 j4Var = new j4();
-            this.f71431a = j4Var;
+            this.a = j4Var;
             try {
                 j4Var.a(bArr);
-                if (this.f71434d) {
+                if (this.f62643d) {
                     c();
                 } else {
                     a(0);
                 }
             } catch (Exception unused) {
-                this.f71431a = null;
+                this.a = null;
             }
         }
     }
 
-    public void setFramesDisplayDuration(long j) {
+    public void setFramesDisplayDuration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.f71438h = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.f62647h = j2;
         }
     }
 

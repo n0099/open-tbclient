@@ -15,14 +15,14 @@ public class a extends c {
 
     @Override // com.meizu.cloud.pushsdk.notification.a
     public void a(Notification.Builder builder, MessageV3 messageV3) {
-        Bitmap a2;
+        Bitmap a;
         if (MinSdkChecker.isSupportNotificationBuild()) {
             Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle();
-            if (messageV3.getmNotificationStyle() == null || a() || TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableImageUrl()) || (a2 = a(messageV3.getmNotificationStyle().getExpandableImageUrl())) == null) {
+            if (messageV3.getmNotificationStyle() == null || a() || TextUtils.isEmpty(messageV3.getmNotificationStyle().getExpandableImageUrl()) || (a = a(messageV3.getmNotificationStyle().getExpandableImageUrl())) == null) {
                 return;
             }
             bigPictureStyle.setBigContentTitle(messageV3.getTitle());
-            bigPictureStyle.bigPicture(a2);
+            bigPictureStyle.bigPicture(a);
             builder.setStyle(bigPictureStyle);
         }
     }

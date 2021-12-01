@@ -1,35 +1,42 @@
 package com.kwad.sdk.utils;
 
+import android.database.Cursor;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class ae {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, int i2) {
-        InterceptResult invokeCommon;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), Integer.valueOf(i2)})) == null) {
-            int i3 = z ? 1 : 0;
-            if (z2) {
-                i3 |= 2;
-            }
-            if (z3) {
-                i3 |= 4;
-            }
-            if (z4) {
-                i3 |= 8;
-            }
-            if (z5) {
-                i3 |= 16;
-            }
-            if (z6) {
-                i3 |= 32;
-            }
-            return i2 == 2 ? i3 | 64 : i3;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
         }
-        return invokeCommon.intValue;
+    }
+
+    public static void a(@Nullable Cursor cursor) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, cursor) == null) || cursor == null) {
+            return;
+        }
+        try {
+            cursor.close();
+        } catch (Exception unused) {
+        }
+    }
+
+    public static boolean a(@Nullable Object obj, @Nullable Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
+    }
+
+    public static boolean a(@Nullable List<?> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) ? (list == null || list.isEmpty()) ? false : true : invokeL.booleanValue;
     }
 }

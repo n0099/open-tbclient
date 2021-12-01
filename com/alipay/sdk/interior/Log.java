@@ -12,15 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class Log {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static long f34962a;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface ISdkLogCallback {
         void onLogLine(String str);
     }
@@ -61,10 +59,10 @@ public class Log {
             try {
                 b.d().a(context);
                 long elapsedRealtime = SystemClock.elapsedRealtime() / 1000;
-                if (elapsedRealtime - f34962a < 600) {
+                if (elapsedRealtime - a < 600) {
                     return false;
                 }
-                f34962a = elapsedRealtime;
+                a = elapsedRealtime;
                 a.a(context);
                 return true;
             } catch (Exception e2) {

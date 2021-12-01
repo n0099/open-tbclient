@@ -5,40 +5,40 @@ import android.view.InputDevice;
 import android.view.KeyEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.flutter.embedding.engine.dart.DartExecutor;
+import io.flutter.Log;
+import io.flutter.embedding.engine.systemchannels.KeyEventChannel;
 import io.flutter.plugin.common.BasicMessageChannel;
+import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.JSONMessageCodec;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
 public class KeyEventChannel {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "KeyEventChannel";
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final BasicMessageChannel<Object> channel;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public interface EventResponseHandler {
+        void onFrameworkResponse(boolean z);
+    }
+
+    /* loaded from: classes3.dex */
     public static class FlutterKeyEvent {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int codePoint;
         @Nullable
         public final Character complexCharacter;
-        public final int deviceId;
-        public final int flags;
-        public final int keyCode;
-        public final int metaState;
-        public final int plainCodePoint;
-        public final int productId;
-        public final int repeatCount;
-        public final int scanCode;
-        public final int source;
-        public final int vendorId;
+        public final KeyEvent event;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public FlutterKeyEvent(@NonNull KeyEvent keyEvent) {
@@ -48,87 +48,45 @@ public class KeyEventChannel {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {keyEvent};
-                interceptable.invokeUnInit(65537, newInitContext);
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((KeyEvent) objArr2[0], (Character) objArr2[1]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public FlutterKeyEvent(@NonNull KeyEvent keyEvent, @Nullable Character ch) {
-            this(keyEvent.getDeviceId(), keyEvent.getFlags(), keyEvent.getUnicodeChar(0), keyEvent.getUnicodeChar(), keyEvent.getKeyCode(), ch, keyEvent.getScanCode(), keyEvent.getMetaState(), keyEvent.getSource(), keyEvent.getRepeatCount());
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r3;
-                Object[] objArr = {keyEvent, ch};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), (Character) objArr2[5], ((Integer) objArr2[6]).intValue(), ((Integer) objArr2[7]).intValue(), ((Integer) objArr2[8]).intValue(), ((Integer) objArr2[9]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public FlutterKeyEvent(int i2, int i3, int i4, int i5, int i6, @Nullable Character ch, int i7, int i8, int i9, int i10) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), ch, Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i11 = newInitContext.flag;
-                if ((i11 & 1) != 0) {
-                    int i12 = i11 & 2;
-                    newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.deviceId = i2;
-            this.flags = i3;
-            this.plainCodePoint = i4;
-            this.codePoint = i5;
-            this.keyCode = i6;
-            this.complexCharacter = ch;
-            this.scanCode = i7;
-            this.metaState = i8;
-            this.source = i9;
-            this.repeatCount = i10;
-            InputDevice device = InputDevice.getDevice(i2);
-            if (device != null) {
-                if (Build.VERSION.SDK_INT >= 19) {
-                    this.vendorId = device.getVendorId();
-                    this.productId = device.getProductId();
+        }
+
+        public FlutterKeyEvent(@NonNull KeyEvent keyEvent, @Nullable Character ch) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {keyEvent, ch};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
-                this.vendorId = 0;
-                this.productId = 0;
-                return;
             }
-            this.vendorId = 0;
-            this.productId = 0;
+            this.event = keyEvent;
+            this.complexCharacter = ch;
         }
     }
 
-    public KeyEventChannel(@NonNull DartExecutor dartExecutor) {
+    public KeyEventChannel(@NonNull BinaryMessenger binaryMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dartExecutor};
+            Object[] objArr = {binaryMessenger};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -138,49 +96,78 @@ public class KeyEventChannel {
                 return;
             }
         }
-        this.channel = new BasicMessageChannel<>(dartExecutor, "flutter/keyevent", JSONMessageCodec.INSTANCE);
+        this.channel = new BasicMessageChannel<>(binaryMessenger, "flutter/keyevent", JSONMessageCodec.INSTANCE);
     }
 
-    private void encodeKeyEvent(@NonNull FlutterKeyEvent flutterKeyEvent, @NonNull Map<String, Object> map) {
+    public static /* synthetic */ void a(EventResponseHandler eventResponseHandler, Object obj) {
+        boolean z = false;
+        if (obj != null) {
+            try {
+                z = ((JSONObject) obj).getBoolean("handled");
+            } catch (JSONException e2) {
+                Log.e(TAG, "Unable to unpack JSON message: " + e2);
+            }
+        }
+        eventResponseHandler.onFrameworkResponse(z);
+    }
+
+    public static BasicMessageChannel.Reply<Object> createReplyHandler(@NonNull final EventResponseHandler eventResponseHandler) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, flutterKeyEvent, map) == null) {
-            map.put("flags", Integer.valueOf(flutterKeyEvent.flags));
-            map.put("plainCodePoint", Integer.valueOf(flutterKeyEvent.plainCodePoint));
-            map.put("codePoint", Integer.valueOf(flutterKeyEvent.codePoint));
-            map.put("keyCode", Integer.valueOf(flutterKeyEvent.keyCode));
-            map.put("scanCode", Integer.valueOf(flutterKeyEvent.scanCode));
-            map.put("metaState", Integer.valueOf(flutterKeyEvent.metaState));
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eventResponseHandler)) == null) ? new BasicMessageChannel.Reply() { // from class: g.a.a.b.c.a
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // io.flutter.plugin.common.BasicMessageChannel.Reply
+            public final void reply(Object obj) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
+                    KeyEventChannel.a(KeyEventChannel.EventResponseHandler.this, obj);
+                }
+            }
+        } : (BasicMessageChannel.Reply) invokeL.objValue;
+    }
+
+    private Map<String, Object> encodeKeyEvent(@NonNull FlutterKeyEvent flutterKeyEvent, boolean z) {
+        InterceptResult invokeLZ;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, flutterKeyEvent, z)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("type", z ? "keyup" : "keydown");
+            hashMap.put("keymap", "android");
+            hashMap.put("flags", Integer.valueOf(flutterKeyEvent.event.getFlags()));
+            int i3 = 0;
+            hashMap.put("plainCodePoint", Integer.valueOf(flutterKeyEvent.event.getUnicodeChar(0)));
+            hashMap.put("codePoint", Integer.valueOf(flutterKeyEvent.event.getUnicodeChar()));
+            hashMap.put("keyCode", Integer.valueOf(flutterKeyEvent.event.getKeyCode()));
+            hashMap.put("scanCode", Integer.valueOf(flutterKeyEvent.event.getScanCode()));
+            hashMap.put("metaState", Integer.valueOf(flutterKeyEvent.event.getMetaState()));
             Character ch = flutterKeyEvent.complexCharacter;
             if (ch != null) {
-                map.put("character", ch.toString());
+                hashMap.put("character", ch.toString());
             }
-            map.put("source", Integer.valueOf(flutterKeyEvent.source));
-            map.put("vendorId", Integer.valueOf(flutterKeyEvent.vendorId));
-            map.put("productId", Integer.valueOf(flutterKeyEvent.productId));
-            map.put("deviceId", Integer.valueOf(flutterKeyEvent.deviceId));
-            map.put("repeatCount", Integer.valueOf(flutterKeyEvent.repeatCount));
+            hashMap.put("source", Integer.valueOf(flutterKeyEvent.event.getSource()));
+            InputDevice device = InputDevice.getDevice(flutterKeyEvent.event.getDeviceId());
+            if (device == null || Build.VERSION.SDK_INT < 19) {
+                i2 = 0;
+            } else {
+                i3 = device.getVendorId();
+                i2 = device.getProductId();
+            }
+            hashMap.put("vendorId", Integer.valueOf(i3));
+            hashMap.put("productId", Integer.valueOf(i2));
+            hashMap.put("deviceId", Integer.valueOf(flutterKeyEvent.event.getDeviceId()));
+            hashMap.put("repeatCount", Integer.valueOf(flutterKeyEvent.event.getRepeatCount()));
+            return hashMap;
         }
+        return (Map) invokeLZ.objValue;
     }
 
-    public void keyDown(@NonNull FlutterKeyEvent flutterKeyEvent) {
+    public void sendFlutterKeyEvent(@NonNull FlutterKeyEvent flutterKeyEvent, boolean z, @NonNull EventResponseHandler eventResponseHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, flutterKeyEvent) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", "keydown");
-            hashMap.put("keymap", "android");
-            encodeKeyEvent(flutterKeyEvent, hashMap);
-            this.channel.send(hashMap);
-        }
-    }
-
-    public void keyUp(@NonNull FlutterKeyEvent flutterKeyEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterKeyEvent) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", "keyup");
-            hashMap.put("keymap", "android");
-            encodeKeyEvent(flutterKeyEvent, hashMap);
-            this.channel.send(hashMap);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{flutterKeyEvent, Boolean.valueOf(z), eventResponseHandler}) == null) {
+            this.channel.send(encodeKeyEvent(flutterKeyEvent, z), createReplyHandler(eventResponseHandler));
         }
     }
 }

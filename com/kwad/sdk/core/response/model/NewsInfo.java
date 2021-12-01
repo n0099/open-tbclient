@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class NewsInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+public class NewsInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2846473099852025182L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class NewsInfo extends com.kwad.sdk.core.response.a.a implements Serializ
     public String title;
 
     /* loaded from: classes2.dex */
-    public static class ImageInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
+    public static class ImageInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4257305450674055184L;
         public transient /* synthetic */ FieldHolder $fh;

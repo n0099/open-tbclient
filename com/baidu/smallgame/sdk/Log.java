@@ -1,7 +1,6 @@
 package com.baidu.smallgame.sdk;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
     public static String LOG_TAG = "MarioLog";
@@ -57,7 +56,7 @@ public final class Log {
     public static int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) ? printLog(6, LOG_TAG, str, null) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? printLog(6, LOG_TAG, str, null) : invokeL.intValue;
     }
 
     public static String getStackTraceString(Throwable th) {
@@ -269,7 +268,7 @@ public final class Log {
     public static int d(String str, String str2, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, objArr)) == null) ? printLogVargs(3, str, str2, objArr) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, objArr)) == null) ? printLogVargs(3, str, str2, objArr) : invokeLLL.intValue;
     }
 
     public static int e(String str, String str2, Object... objArr) {

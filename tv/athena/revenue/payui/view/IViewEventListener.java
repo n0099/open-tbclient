@@ -5,7 +5,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import tv.athena.revenue.payui.model.PayViewInfo;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IViewEventListener {
     void onBannerClick(BannerConfigItem.BannerInfo bannerInfo);
 

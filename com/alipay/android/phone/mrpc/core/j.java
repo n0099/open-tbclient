@@ -1,6 +1,6 @@
 package com.alipay.android.phone.mrpc.core;
 
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
+import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,13 +13,13 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import org.apache.http.Header;
 import org.apache.http.message.BasicHeader;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class j extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f34694g;
+    public g f31133g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(g gVar, Method method, int i2, String str, byte[] bArr, boolean z) {
@@ -40,7 +40,7 @@ public final class j extends a {
                 return;
             }
         }
-        this.f34694g = gVar;
+        this.f31133g = gVar;
     }
 
     @Override // com.alipay.android.phone.mrpc.core.v
@@ -48,15 +48,15 @@ public final class j extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o oVar = new o(this.f34694g.a());
-            oVar.a(this.f34663b);
-            oVar.a(this.f34666e);
-            oVar.a(this.f34667f);
-            oVar.a("id", String.valueOf(this.f34665d));
-            oVar.a("operationType", this.f34664c);
-            oVar.a(AsyncHttpClient.ENCODING_GZIP, String.valueOf(this.f34694g.d()));
+            o oVar = new o(this.f31133g.a());
+            oVar.a(this.f31114b);
+            oVar.a(this.f31117e);
+            oVar.a(this.f31118f);
+            oVar.a("id", String.valueOf(this.f31116d));
+            oVar.a("operationType", this.f31115c);
+            oVar.a("gzip", String.valueOf(this.f31133g.d()));
             oVar.a(new BasicHeader("uuid", UUID.randomUUID().toString()));
-            List<Header> b2 = this.f34694g.c().b();
+            List<Header> b2 = this.f31133g.c().b();
             if (b2 != null && !b2.isEmpty()) {
                 for (Header header : b2) {
                     oVar.a(header);
@@ -67,11 +67,11 @@ public final class j extends a {
             sb.append("; ");
             sb.append(oVar.toString());
             try {
-                u uVar = this.f34694g.b().a(oVar).get();
+                u uVar = this.f31133g.b().a(oVar).get();
                 if (uVar != null) {
                     return uVar.b();
                 }
-                throw new RpcException((Integer) 9, "response is null");
+                throw new RpcException((Integer) 9, ADConfigError.REASON_NULL_RESPONSE);
             } catch (InterruptedException e2) {
                 throw new RpcException(13, "", e2);
             } catch (CancellationException e3) {

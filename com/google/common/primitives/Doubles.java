@@ -1,10 +1,9 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
-import b.h.d.a.n;
+import c.i.d.a.n;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,12 +23,12 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.RandomAccess;
 import java.util.regex.Pattern;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public final class Doubles {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static class DoubleArrayAsList extends AbstractList<Double> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -246,7 +245,7 @@ public final class Doubles {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class DoubleConverter extends Converter<String, Double> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final DoubleConverter INSTANCE;
@@ -313,7 +312,7 @@ public final class Doubles {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes2.dex */
     public static final class LexicographicalComparator implements Comparator<double[]> {
         public static final /* synthetic */ LexicographicalComparator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -429,7 +428,7 @@ public final class Doubles {
     public static int e(double[] dArr, double d2, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{dArr, Double.valueOf(d2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{dArr, Double.valueOf(d2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             while (i2 < i3) {
                 if (dArr[i2] == d2) {
                     return i2;
@@ -444,7 +443,7 @@ public final class Doubles {
     public static boolean f(double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Double.valueOf(d2)})) == null) ? Double.NEGATIVE_INFINITY < d2 && d2 < Double.POSITIVE_INFINITY : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2)})) == null) ? Double.NEGATIVE_INFINITY < d2 && d2 < Double.POSITIVE_INFINITY : invokeCommon.booleanValue;
     }
 
     public static int g(double[] dArr, double d2, int i2, int i3) {

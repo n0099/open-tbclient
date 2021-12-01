@@ -31,7 +31,7 @@ public class k implements r {
     public void a(DownloadInfo downloadInfo, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, downloadInfo, i2, i3) == null) {
-            com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
+            com.ss.android.downloadad.api.a.b a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("reserve_wifi_source", Integer.valueOf(i3));
@@ -39,7 +39,7 @@ public class k implements r {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            com.ss.android.downloadlib.d.a.a().a("pause_reserve_wifi", jSONObject, a2);
+            com.ss.android.downloadlib.d.a.a().a("pause_reserve_wifi", jSONObject, a);
         }
     }
 }

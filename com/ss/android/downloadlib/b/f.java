@@ -6,7 +6,6 @@ import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,9 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Handler f69638a;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +36,7 @@ public class f {
                 return;
             }
         }
-        f69638a = new Handler(Looper.getMainLooper());
+        a = new Handler(Looper.getMainLooper());
     }
 
     public static void b(@NonNull com.ss.android.downloadad.api.a.b bVar, int i2) {
@@ -50,12 +47,10 @@ public class f {
         com.ss.android.downloadlib.d.a().a(new Runnable(bVar, i2) { // from class: com.ss.android.downloadlib.b.f.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.ss.android.downloadad.api.a.b f69643a;
+            public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f69644b;
+            public final /* synthetic */ int f61358b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -72,8 +67,8 @@ public class f {
                         return;
                     }
                 }
-                this.f69643a = bVar;
-                this.f69644b = i2;
+                this.a = bVar;
+                this.f61358b = i2;
             }
 
             @Override // java.lang.Runnable
@@ -81,20 +76,20 @@ public class f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     int i3 = 1;
-                    if (l.c(this.f69643a.e())) {
+                    if (l.c(this.a.e())) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            if (!this.f69643a.aa()) {
+                            if (!this.a.aa()) {
                                 i3 = 2;
                             }
                             jSONObject.putOpt("deeplink_source", Integer.valueOf(i3));
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                         }
-                        com.ss.android.downloadlib.d.a.a().a("deeplink_success_2", jSONObject, this.f69643a);
+                        com.ss.android.downloadlib.d.a.a().a("deeplink_success_2", jSONObject, this.a);
                         return;
                     }
-                    f.b(this.f69643a, this.f69644b - 1);
+                    f.b(this.a, this.f61358b - 1);
                 }
             }
         }, i(bVar) * 1000);
@@ -103,7 +98,7 @@ public class f {
     public static boolean c(com.ss.android.downloadad.api.a.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, bVar)) == null) ? com.ss.android.downloadlib.g.e.a(bVar).b("app_link_opt_invoke_switch") == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bVar)) == null) ? com.ss.android.downloadlib.g.e.a(bVar).b("app_link_opt_invoke_switch") == 1 : invokeL.booleanValue;
     }
 
     public static boolean d(com.ss.android.downloadad.api.a.b bVar) {
@@ -162,18 +157,16 @@ public class f {
             if (b3) {
                 return;
             }
-            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2021a(bVar, System.currentTimeMillis(), hVar) { // from class: com.ss.android.downloadlib.b.f.1
+            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2112a(bVar, System.currentTimeMillis(), hVar) { // from class: com.ss.android.downloadlib.b.f.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.ss.android.downloadad.api.a.b f69639a;
+                public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f69640b;
+                public final /* synthetic */ long f61356b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ h f69641c;
+                public final /* synthetic */ h f61357c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -190,12 +183,12 @@ public class f {
                             return;
                         }
                     }
-                    this.f69639a = bVar;
-                    this.f69640b = r7;
-                    this.f69641c = hVar;
+                    this.a = bVar;
+                    this.f61356b = r7;
+                    this.f61357c = hVar;
                 }
 
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
                 public void b() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -203,9 +196,7 @@ public class f {
                         com.ss.android.downloadlib.d.a().a(new Runnable(this) { // from class: com.ss.android.downloadlib.b.f.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f69642a;
+                            public final /* synthetic */ AnonymousClass1 a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -222,27 +213,27 @@ public class f {
                                         return;
                                     }
                                 }
-                                this.f69642a = this;
+                                this.a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    boolean c2 = l.c(this.f69642a.f69639a.e());
-                                    long e2 = f.e(this.f69642a.f69639a);
-                                    if (!c2 || e2 >= System.currentTimeMillis() - this.f69642a.f69640b) {
-                                        long h2 = f.h(this.f69642a.f69639a);
+                                    boolean c2 = l.c(this.a.a.e());
+                                    long e2 = f.e(this.a.a);
+                                    if (!c2 || e2 >= System.currentTimeMillis() - this.a.f61356b) {
+                                        long h2 = f.h(this.a.a);
                                         long currentTimeMillis = System.currentTimeMillis();
-                                        AnonymousClass1 anonymousClass1 = this.f69642a;
-                                        if (currentTimeMillis - anonymousClass1.f69640b > h2) {
-                                            com.ss.android.downloadlib.d.a.a().a("deeplink_delay_timeout", this.f69642a.f69639a);
+                                        AnonymousClass1 anonymousClass1 = this.a;
+                                        if (currentTimeMillis - anonymousClass1.f61356b > h2) {
+                                            com.ss.android.downloadlib.d.a.a().a("deeplink_delay_timeout", this.a.a);
                                             return;
                                         }
-                                        anonymousClass1.f69639a.l(true);
-                                        com.ss.android.downloadlib.d.a.a().a("deeplink_delay_invoke", this.f69642a.f69639a);
-                                        this.f69642a.f69641c.a(true);
-                                        com.ss.android.downloadad.api.a.b bVar2 = this.f69642a.f69639a;
+                                        anonymousClass1.a.l(true);
+                                        com.ss.android.downloadlib.d.a.a().a("deeplink_delay_invoke", this.a.a);
+                                        this.a.f61357c.a(true);
+                                        com.ss.android.downloadad.api.a.b bVar2 = this.a.a;
                                         f.b(bVar2, f.j(bVar2));
                                     }
                                 }
@@ -251,7 +242,7 @@ public class f {
                     }
                 }
 
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2021a
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2112a
                 public void c() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -264,7 +255,7 @@ public class f {
     public static boolean b(com.ss.android.downloadad.api.a.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, bVar)) == null) ? com.ss.android.downloadlib.g.e.a(bVar).b("app_link_opt_install_switch") == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bVar)) == null) ? com.ss.android.downloadlib.g.e.a(bVar).b("app_link_opt_install_switch") == 1 : invokeL.booleanValue;
     }
 
     public static boolean a(com.ss.android.downloadad.api.a.b bVar) {

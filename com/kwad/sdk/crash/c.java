@@ -11,27 +11,25 @@ import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final double f66352a;
+    public static final double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f66353b;
+    public static final Pattern f58165b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f66354c;
+    public static final Pattern f58166c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f66355d;
+    public static final Pattern f58167d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f66356e;
+    public static final Pattern f58168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f66357f;
+    public static int f58169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f66358g;
+    public static String f58170g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,13 +45,13 @@ public final class c {
                 return;
             }
         }
-        f66352a = Runtime.getRuntime().maxMemory();
-        f66353b = Pattern.compile("/data/user");
-        f66354c = Pattern.compile("/data");
-        f66355d = Pattern.compile("/data/data/(.*)/data/.*");
-        f66356e = Pattern.compile("/data/user/.*/(.*)/data/.*");
-        f66357f = 20;
-        f66358g = "sessionId";
+        a = Runtime.getRuntime().maxMemory();
+        f58165b = Pattern.compile("/data/user");
+        f58166c = Pattern.compile("/data");
+        f58167d = Pattern.compile("/data/data/(.*)/data/.*");
+        f58168e = Pattern.compile("/data/user/.*/(.*)/data/.*");
+        f58169f = 20;
+        f58170g = "sessionId";
     }
 
     public c() {

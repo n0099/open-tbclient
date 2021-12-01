@@ -1,45 +1,84 @@
 package com.kwai.sodler.lib.b;
 
-import androidx.annotation.NonNull;
+import android.os.Build;
+import android.os.Process;
+import com.baidu.android.util.devices.IDevices;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes2.dex */
-public class a implements Comparable<a> {
+public class a {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f68017a;
+    public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f68018b;
+    public static String f60090b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f68019c;
+    public static final Map<String, String> f60091c;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2133780114, "Lcom/kwai/sodler/lib/b/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2133780114, "Lcom/kwai/sodler/lib/b/a;");
+                return;
             }
         }
+        HashMap hashMap = new HashMap();
+        f60091c = hashMap;
+        hashMap.put(IDevices.ABI_MIPS, IDevices.ABI_MIPS);
+        f60091c.put("mips64", "mips64");
+        f60091c.put("x86", "x86");
+        f60091c.put("x86_64", "x86_64");
+        f60091c.put("arm64", "arm64-v8a");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(@NonNull a aVar) {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f68018b.compareTo(this.f68018b) : invokeL.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 23) {
+                return Process.is64Bit();
+            }
+            if (i2 >= 21) {
+                Boolean bool = null;
+                try {
+                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
+                    Method declaredMethod = cls.getDeclaredMethod("getRuntime", new Class[0]);
+                    declaredMethod.setAccessible(true);
+                    Object invoke = declaredMethod.invoke(null, new Object[0]);
+                    Method declaredMethod2 = cls.getDeclaredMethod("is64Bit", new Class[0]);
+                    declaredMethod2.setAccessible(true);
+                    bool = (Boolean) declaredMethod2.invoke(invoke, new Object[0]);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                if (bool != null) {
+                    return bool.booleanValue();
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a() ? "arm64-v8a" : "armeabi-v7a" : (String) invokeV.objValue;
     }
 }

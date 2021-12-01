@@ -7,7 +7,6 @@ import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -207,7 +206,7 @@ public class WeiboAppManager {
     public static WbAppInfo queryWbInfoInternal(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? queryWbInfoByAsset(context) : (WbAppInfo) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? queryWbInfoByAsset(context) : (WbAppInfo) invokeL.objValue;
     }
 
     public synchronized WbAppInfo getWbAppInfo() {

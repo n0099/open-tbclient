@@ -10,27 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public interface IDeviceIdManager extends IInterface {
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static abstract class a extends Binder implements IDeviceIdManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.coolpad.deviceidsupport.IDeviceIdManager$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public static class C1893a implements IDeviceIdManager {
+        /* loaded from: classes12.dex */
+        public static class C1965a implements IDeviceIdManager {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static IDeviceIdManager f62902b;
+            public static IDeviceIdManager f54996b;
             public transient /* synthetic */ FieldHolder $fh;
+            public IBinder a;
 
-            /* renamed from: a  reason: collision with root package name */
-            public IBinder f62903a;
-
-            public C1893a(IBinder iBinder) {
+            public C1965a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,14 +43,14 @@ public interface IDeviceIdManager extends IInterface {
                         return;
                     }
                 }
-                this.f62903a = iBinder;
+                this.a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62903a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (IBinder) invokeV.objValue;
             }
 
             @Override // com.coolpad.deviceidsupport.IDeviceIdManager
@@ -66,7 +64,7 @@ public interface IDeviceIdManager extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
                         obtain.writeString(str);
-                        if (this.f62903a.transact(4, obtain, obtain2, 0) || a.a() == null) {
+                        if (this.a.transact(4, obtain, obtain2, 0) || a.a() == null) {
                             obtain2.readException();
                             readString = obtain2.readString();
                         } else {
@@ -91,7 +89,7 @@ public interface IDeviceIdManager extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
-                        if (this.f62903a.transact(7, obtain, obtain2, 0) || a.a() == null) {
+                        if (this.a.transact(7, obtain, obtain2, 0) || a.a() == null) {
                             obtain2.readException();
                             readString = obtain2.readString();
                         } else {
@@ -117,7 +115,7 @@ public interface IDeviceIdManager extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
                         obtain.writeString(str);
-                        if (this.f62903a.transact(5, obtain, obtain2, 0) || a.a() == null) {
+                        if (this.a.transact(5, obtain, obtain2, 0) || a.a() == null) {
                             obtain2.readException();
                             readString = obtain2.readString();
                         } else {
@@ -143,7 +141,7 @@ public interface IDeviceIdManager extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
                         obtain.writeString(str);
-                        if (this.f62903a.transact(2, obtain, obtain2, 0) || a.a() == null) {
+                        if (this.a.transact(2, obtain, obtain2, 0) || a.a() == null) {
                             obtain2.readException();
                             readString = obtain2.readString();
                         } else {
@@ -169,7 +167,7 @@ public interface IDeviceIdManager extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
                         obtain.writeString(str);
-                        if (this.f62903a.transact(1, obtain, obtain2, 0) || a.a() == null) {
+                        if (this.a.transact(1, obtain, obtain2, 0) || a.a() == null) {
                             obtain2.readException();
                             readString = obtain2.readString();
                         } else {
@@ -195,7 +193,7 @@ public interface IDeviceIdManager extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
                         obtain.writeString(str);
-                        if (this.f62903a.transact(3, obtain, obtain2, 0) || a.a() == null) {
+                        if (this.a.transact(3, obtain, obtain2, 0) || a.a() == null) {
                             obtain2.readException();
                             readString = obtain2.readString();
                         } else {
@@ -219,7 +217,7 @@ public interface IDeviceIdManager extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.coolpad.deviceidsupport.IDeviceIdManager");
-                        if (this.f62903a.transact(6, obtain, obtain2, 0) || a.a() == null) {
+                        if (this.a.transact(6, obtain, obtain2, 0) || a.a() == null) {
                             obtain2.readException();
                             return obtain2.readInt() != 0;
                         }
@@ -236,7 +234,7 @@ public interface IDeviceIdManager extends IInterface {
         public static IDeviceIdManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C1893a.f62902b : (IDeviceIdManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C1965a.f54996b : (IDeviceIdManager) invokeV.objValue;
         }
 
         public static IDeviceIdManager a(IBinder iBinder) {
@@ -247,7 +245,7 @@ public interface IDeviceIdManager extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.coolpad.deviceidsupport.IDeviceIdManager");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C1893a(iBinder) : (IDeviceIdManager) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C1965a(iBinder) : (IDeviceIdManager) queryLocalInterface;
             }
             return (IDeviceIdManager) invokeL.objValue;
         }

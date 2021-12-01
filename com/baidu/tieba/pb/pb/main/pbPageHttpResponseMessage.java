@@ -1,10 +1,9 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import b.a.r0.a3.l0.b;
-import b.a.r0.k2.r.d;
-import b.a.r0.k2.r.f;
-import b.a.r0.k2.u.f.j;
+import c.a.r0.h3.l0.b;
+import c.a.r0.q2.r.d;
+import c.a.r0.q2.r.f;
+import c.a.r0.q2.u.f.j;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,12 +19,11 @@ import tbclient.PbPage.AppealInfo;
 import tbclient.PbPage.DataRes;
 import tbclient.PbPage.PbPageResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes9.dex */
+/* loaded from: classes11.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
-    public Context context;
     public boolean isFromMark;
     public d mAppealInfo;
     public f pbData;
@@ -79,7 +77,6 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.updateType = pbPageRequestMessage.getUpdateType();
                 this.cacheKey = pbPageRequestMessage.getCacheKey();
                 this.isFromMark = pbPageRequestMessage.getIsFromMark();
-                this.context = pbPageRequestMessage.getContext();
             }
         }
     }
@@ -115,12 +112,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = dVar;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    dVar.f20287a = appealInfo.source;
-                    dVar.f20289c = appealInfo.appeal_url;
+                    dVar.a = appealInfo.source;
+                    dVar.f21512c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f20288b = simpleForum.name;
+                    this.mAppealInfo.f21511b = simpleForum.name;
                     return;
                 }
                 return;
@@ -128,7 +125,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             f fVar = new f();
             this.pbData = fVar;
             fVar.y0(2);
-            this.pbData.x0(pbPageResIdl.data, this.context);
+            this.pbData.x0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
                 SimpleForum simpleForum2 = dataRes.forum;

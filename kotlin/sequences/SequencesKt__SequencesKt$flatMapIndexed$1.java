@@ -13,20 +13,17 @@ import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", "T", "C", "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-@DebugMetadata(c = "kotlin.sequences.SequencesKt__SequencesKt$flatMapIndexed$1", f = "Sequences.kt", i = {0, 0, 0, 0}, l = {332}, m = "invokeSuspend", n = {"$this$sequence", "index", "element", "result"}, s = {"L$0", "I$0", "L$1", "L$3"})
+@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", "T", "C", "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
+@DebugMetadata(c = "kotlin.sequences.SequencesKt__SequencesKt$flatMapIndexed$1", f = "Sequences.kt", i = {}, l = {332}, m = "invokeSuspend", n = {}, s = {})
 /* loaded from: classes3.dex */
 public final class SequencesKt__SequencesKt$flatMapIndexed$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super R>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function1 $iterator;
     public final /* synthetic */ Sequence $source;
     public final /* synthetic */ Function2 $transform;
     public int I$0;
-    public Object L$0;
+    public /* synthetic */ Object L$0;
     public Object L$1;
-    public Object L$2;
-    public Object L$3;
     public int label;
-    public SequenceScope p$;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SequencesKt__SequencesKt$flatMapIndexed$1(Sequence sequence, Function2 function2, Function1 function1, Continuation continuation) {
@@ -40,7 +37,7 @@ public final class SequencesKt__SequencesKt$flatMapIndexed$1 extends RestrictedS
     public final Continuation<Unit> create(Object obj, Continuation<?> completion) {
         Intrinsics.checkNotNullParameter(completion, "completion");
         SequencesKt__SequencesKt$flatMapIndexed$1 sequencesKt__SequencesKt$flatMapIndexed$1 = new SequencesKt__SequencesKt$flatMapIndexed$1(this.$source, this.$transform, this.$iterator, completion);
-        sequencesKt__SequencesKt$flatMapIndexed$1.p$ = (SequenceScope) obj;
+        sequencesKt__SequencesKt$flatMapIndexed$1.L$0 = obj;
         return sequencesKt__SequencesKt$flatMapIndexed$1;
     }
 
@@ -52,43 +49,40 @@ public final class SequencesKt__SequencesKt$flatMapIndexed$1 extends RestrictedS
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        SequenceScope sequenceScope;
-        Iterator it;
         int i2;
+        Iterator it;
+        SequenceScope sequenceScope;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i3 = this.label;
         if (i3 == 0) {
             ResultKt.throwOnFailure(obj);
-            sequenceScope = this.p$;
-            it = this.$source.iterator();
             i2 = 0;
+            it = this.$source.iterator();
+            sequenceScope = (SequenceScope) this.L$0;
         } else if (i3 != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
-            it = (Iterator) this.L$2;
-            int i4 = this.I$0;
+            i2 = this.I$0;
+            it = (Iterator) this.L$1;
             sequenceScope = (SequenceScope) this.L$0;
             ResultKt.throwOnFailure(obj);
-            i2 = i4;
         }
         while (it.hasNext()) {
             Object next = it.next();
             Function2 function2 = this.$transform;
-            int i5 = i2 + 1;
+            int i4 = i2 + 1;
             if (i2 < 0) {
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
             Object invoke = function2.invoke(Boxing.boxInt(i2), next);
             this.L$0 = sequenceScope;
-            this.I$0 = i5;
-            this.L$1 = next;
-            this.L$2 = it;
-            this.L$3 = invoke;
+            this.L$1 = it;
+            this.I$0 = i4;
             this.label = 1;
             if (sequenceScope.yieldAll((Iterator) this.$iterator.invoke(invoke), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
-            i2 = i5;
+            i2 = i4;
         }
         return Unit.INSTANCE;
     }

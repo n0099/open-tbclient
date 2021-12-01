@@ -77,8 +77,8 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
         }
     }
 
-    public /* synthetic */ CoroutineLiveData(CoroutineContext coroutineContext, long j, Function2 function2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? EmptyCoroutineContext.INSTANCE : coroutineContext, (i2 & 2) != 0 ? 5000L : j, function2);
+    public /* synthetic */ CoroutineLiveData(CoroutineContext coroutineContext, long j2, Function2 function2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i2 & 1) != 0 ? EmptyCoroutineContext.INSTANCE : coroutineContext, (i2 & 2) != 0 ? 5000L : j2, function2);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0027  */
@@ -244,12 +244,12 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
         }
     }
 
-    public CoroutineLiveData(CoroutineContext coroutineContext, long j, Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
+    public CoroutineLiveData(CoroutineContext coroutineContext, long j2, Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {coroutineContext, Long.valueOf(j), function2};
+            Object[] objArr = {coroutineContext, Long.valueOf(j2), function2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -259,6 +259,6 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
                 return;
             }
         }
-        this.blockRunner = new BlockRunner<>(this, function2, j, CoroutineScopeKt.CoroutineScope(Dispatchers.getMain().getImmediate().plus(coroutineContext).plus(SupervisorKt.SupervisorJob((Job) coroutineContext.get(Job.Key)))), new AnonymousClass1(this));
+        this.blockRunner = new BlockRunner<>(this, function2, j2, CoroutineScopeKt.CoroutineScope(Dispatchers.getMain().getImmediate().plus(coroutineContext).plus(SupervisorKt.SupervisorJob((Job) coroutineContext.get(Job.Key)))), new AnonymousClass1(this));
     }
 }

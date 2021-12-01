@@ -5,7 +5,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +22,7 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -186,7 +185,7 @@ public abstract class a<T> {
                     httpURLConnection = inputStream2;
                     if (!TextUtils.isEmpty(contentEncoding)) {
                         httpURLConnection = inputStream2;
-                        if (contentEncoding.equals(AsyncHttpClient.ENCODING_GZIP)) {
+                        if (contentEncoding.equals("gzip")) {
                             httpURLConnection = new GZIPInputStream(inputStream2);
                         }
                     }

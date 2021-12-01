@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Parcel;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,14 +65,14 @@ public class MediaDescriptionCompatApi21 {
 
         public static void setIconBitmap(Object obj, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, obj, bitmap) == null) {
+            if (interceptable == null || interceptable.invokeLL(65541, null, obj, bitmap) == null) {
                 ((MediaDescription.Builder) obj).setIconBitmap(bitmap);
             }
         }
 
         public static void setIconUri(Object obj, Uri uri) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, obj, uri) == null) {
+            if (interceptable == null || interceptable.invokeLL(65542, null, obj, uri) == null) {
                 ((MediaDescription.Builder) obj).setIconUri(uri);
             }
         }
@@ -141,13 +140,13 @@ public class MediaDescriptionCompatApi21 {
     public static Uri getIconUri(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, obj)) == null) ? ((MediaDescription) obj).getIconUri() : (Uri) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? ((MediaDescription) obj).getIconUri() : (Uri) invokeL.objValue;
     }
 
     public static String getMediaId(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? ((MediaDescription) obj).getMediaId() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? ((MediaDescription) obj).getMediaId() : (String) invokeL.objValue;
     }
 
     public static CharSequence getSubtitle(Object obj) {

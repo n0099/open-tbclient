@@ -5,7 +5,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
+import com.kuaishou.weapon.un.s;
 import java.util.Random;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACK_MAX_SIZE = 20;
@@ -323,7 +322,7 @@ public final class Constants {
         URL_SOCKET_SERVER = "pimc.baidu.com";
         URL_SOCKET_PORT = 8100;
         IM_ENV = 0;
-        mSdkPermissions = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION, "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
+        mSdkPermissions = new String[]{s.a, s.f56838c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", s.f56843h, s.f56839d};
     }
 
     public Constants() {
@@ -340,10 +339,10 @@ public final class Constants {
         }
     }
 
-    public static boolean dispatchToPimc2(long j) {
+    public static boolean dispatchToPimc2(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == APPID_TIEBA : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? j2 == APPID_HAOKAN || j2 == APPID_HAOKAN_JISU || j2 == APPID_QUANMIN || j2 == APPID_YIMEI || j2 == APPID_TIEBA : invokeJ.booleanValue;
     }
 
     public static int getEnv(Context context) {
@@ -376,13 +375,13 @@ public final class Constants {
     public static boolean isDebugMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? IMSettings.isDebugMode() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? IMSettings.isDebugMode() : invokeV.booleanValue;
     }
 
     public static boolean setEnv(Context context, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) {
             long appid = AccountManager.getAppid(context);
             if (i2 != 0) {
                 if (i2 == 1) {

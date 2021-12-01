@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import com.facebook.imagepipeline.animated.util.AnimatedDrawableUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +145,7 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
 
     private void renderImageSupportsScaling(Canvas canvas, AnimatedImageFrame animatedImageFrame) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, canvas, animatedImageFrame) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, this, canvas, animatedImageFrame) == null) {
             double width = this.mRenderedBounds.width() / this.mAnimatedImage.getWidth();
             double height = this.mRenderedBounds.height() / this.mAnimatedImage.getHeight();
             int round = (int) Math.round(animatedImageFrame.getWidth() * width);

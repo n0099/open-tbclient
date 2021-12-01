@@ -1,11 +1,11 @@
 package com.kwad.sdk.reward.a;
 /* loaded from: classes2.dex */
 public interface a {
-    void a();
+    void a(com.kwad.sdk.core.e.a aVar);
 
-    void b();
+    void b(com.kwad.sdk.core.e.a aVar);
 
-    void c();
+    void c(com.kwad.sdk.core.e.a aVar);
 
-    void d();
+    void d(com.kwad.sdk.core.e.a aVar);
 }

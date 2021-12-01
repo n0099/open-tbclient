@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.j;
-import h.k;
-import h.o.a.p;
+import i.f;
+import i.j;
+import i.k;
+import i.o.a.p;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes3.dex */
 public final class OperatorPublish$InnerProducer<T> extends AtomicLong implements f, k {
@@ -42,70 +42,70 @@ public final class OperatorPublish$InnerProducer<T> extends AtomicLong implement
         lazySet(-4611686018427387904L);
     }
 
-    @Override // h.k
+    @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
     }
 
-    public long produced(long j) {
+    public long produced(long j2) {
         InterceptResult invokeJ;
-        long j2;
         long j3;
+        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (j > 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+            if (j2 > 0) {
                 do {
-                    j2 = get();
-                    if (j2 == -4611686018427387904L) {
+                    j3 = get();
+                    if (j3 == -4611686018427387904L) {
                         throw new IllegalStateException("Produced without request");
                     }
-                    if (j2 == Long.MIN_VALUE) {
+                    if (j3 == Long.MIN_VALUE) {
                         return Long.MIN_VALUE;
                     }
-                    j3 = j2 - j;
-                    if (j3 < 0) {
-                        throw new IllegalStateException("More produced (" + j + ") than requested (" + j2 + SmallTailInfo.EMOTION_SUFFIX);
+                    j4 = j3 - j2;
+                    if (j4 < 0) {
+                        throw new IllegalStateException("More produced (" + j2 + ") than requested (" + j3 + SmallTailInfo.EMOTION_SUFFIX);
                     }
-                } while (!compareAndSet(j2, j3));
-                return j3;
+                } while (!compareAndSet(j3, j4));
+                return j4;
             }
             throw new IllegalArgumentException("Cant produce zero or less");
         }
         return invokeJ.longValue;
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         int i2;
-        long j2;
         long j3;
+        long j4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || j < 0) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || j2 < 0) {
             return;
         }
         do {
-            j2 = get();
-            if (j2 == Long.MIN_VALUE) {
+            j3 = get();
+            if (j3 == Long.MIN_VALUE) {
                 return;
             }
-            if (j2 >= 0 && i2 == 0) {
+            if (j3 >= 0 && i2 == 0) {
                 return;
             }
-            if (j2 == -4611686018427387904L) {
-                j3 = j;
+            if (j3 == -4611686018427387904L) {
+                j4 = j2;
             } else {
-                j3 = j2 + j;
-                if (j3 < 0) {
-                    j3 = Long.MAX_VALUE;
+                j4 = j3 + j2;
+                if (j4 < 0) {
+                    j4 = Long.MAX_VALUE;
                 }
             }
-        } while (!compareAndSet(j2, j3));
+        } while (!compareAndSet(j3, j4));
         this.parent.g();
     }
 
-    @Override // h.k
+    @Override // i.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || get() == Long.MIN_VALUE || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {

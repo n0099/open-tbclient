@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Object> f62719a;
+    public ConcurrentHashMap<String, Object> a;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -31,7 +29,7 @@ public class a {
                 return;
             }
         }
-        this.f62719a = new ConcurrentHashMap<>(i2);
+        this.a = new ConcurrentHashMap<>(i2);
     }
 
     public void a(String str, byte[] bArr) {
@@ -39,7 +37,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, bArr) == null) || str == null || bArr == null) {
             return;
         }
-        this.f62719a.put(str, bArr);
+        this.a.put(str, bArr);
     }
 
     public String b(String str) {
@@ -59,7 +57,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             if (str != null) {
-                return (byte[]) this.f62719a.get(str);
+                return (byte[]) this.a.get(str);
             }
             return null;
         }
@@ -69,7 +67,7 @@ public class a {
     public String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) ? (str == null || !this.f62719a.containsKey(str)) ? str2 : (String) this.f62719a.get(str) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) ? (str == null || !this.a.containsKey(str)) ? str2 : (String) this.a.get(str) : (String) invokeLL.objValue;
     }
 
     public void a(String str, String str2) {
@@ -77,7 +75,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || str == null || str2 == null) {
             return;
         }
-        this.f62719a.put(str, str2);
+        this.a.put(str, str2);
     }
 
     public void a(String str, boolean z) {
@@ -85,13 +83,13 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) || str == null) {
             return;
         }
-        this.f62719a.put(str, Boolean.valueOf(z));
+        this.a.put(str, Boolean.valueOf(z));
     }
 
     public boolean b(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) ? (str == null || !this.f62719a.containsKey(str)) ? z : ((Boolean) this.f62719a.get(str)).booleanValue() : invokeLZ.booleanValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) ? (str == null || !this.a.containsKey(str)) ? z : ((Boolean) this.a.get(str)).booleanValue() : invokeLZ.booleanValue;
     }
 
     public void a(String str, int i2) {
@@ -99,21 +97,21 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) || str == null) {
             return;
         }
-        this.f62719a.put(str, Integer.valueOf(i2));
+        this.a.put(str, Integer.valueOf(i2));
     }
 
-    public void a(String str, long j) {
+    public void a(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048579, this, str, j2) == null) || str == null) {
             return;
         }
-        this.f62719a.put(str, Long.valueOf(j));
+        this.a.put(str, Long.valueOf(j2));
     }
 
     public int b(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) ? (str == null || !this.f62719a.containsKey(str)) ? i2 : ((Integer) this.f62719a.get(str)).intValue() : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) ? (str == null || !this.a.containsKey(str)) ? i2 : ((Integer) this.a.get(str)).intValue() : invokeLI.intValue;
     }
 
     public void a(com.cmic.sso.sdk.c.a aVar) {
@@ -121,22 +119,22 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f62719a.put("logBean", aVar);
+        this.a.put("logBean", aVar);
     }
 
     public com.cmic.sso.sdk.c.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            com.cmic.sso.sdk.c.a aVar = (com.cmic.sso.sdk.c.a) this.f62719a.get("logBean");
+            com.cmic.sso.sdk.c.a aVar = (com.cmic.sso.sdk.c.a) this.a.get("logBean");
             return aVar != null ? aVar : new com.cmic.sso.sdk.c.a();
         }
         return (com.cmic.sso.sdk.c.a) invokeV.objValue;
     }
 
-    public long b(String str, long j) {
+    public long b(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) ? (str == null || !this.f62719a.containsKey(str)) ? j : ((Long) this.f62719a.get(str)).longValue() : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j2)) == null) ? (str == null || !this.a.containsKey(str)) ? j2 : ((Long) this.a.get(str)).longValue() : invokeLJ.longValue;
     }
 }

@@ -2,7 +2,6 @@ package org.apache.http.entity.mime.content;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +132,7 @@ public class StringBody extends AbstractContentBody {
     public static StringBody create(String str, Charset charset) throws IllegalArgumentException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, charset)) == null) ? create(str, null, charset) : (StringBody) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, charset)) == null) ? create(str, null, charset) : (StringBody) invokeLL.objValue;
     }
 
     public static StringBody create(String str) throws IllegalArgumentException {

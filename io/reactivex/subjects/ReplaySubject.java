@@ -2,7 +2,6 @@ package io.reactivex.subjects;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +24,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ReplaySubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final ReplayDisposable[] EMPTY;
@@ -36,7 +35,7 @@ public final class ReplaySubject<T> extends Subject<T> {
     public boolean done;
     public final AtomicReference<ReplayDisposable<T>[]> observers;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Node<T> extends AtomicReference<Node<T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
@@ -62,7 +61,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ReplayBuffer<T> {
         void add(T t);
 
@@ -84,7 +83,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         void trimHead();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ReplayDisposable<T> extends AtomicInteger implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 466549804534799122L;
@@ -131,7 +130,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SizeAndTimeBoundReplayBuffer<T> extends AtomicReference<Object> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8056260896137901749L;
@@ -145,12 +144,12 @@ public final class ReplaySubject<T> extends Subject<T> {
         public TimedNode<Object> tail;
         public final TimeUnit unit;
 
-        public SizeAndTimeBoundReplayBuffer(int i2, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public SizeAndTimeBoundReplayBuffer(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), timeUnit, scheduler};
+                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -161,7 +160,7 @@ public final class ReplaySubject<T> extends Subject<T> {
                 }
             }
             this.maxSize = ObjectHelper.verifyPositive(i2, "maxSize");
-            this.maxAge = ObjectHelper.verifyPositive(j, "maxAge");
+            this.maxAge = ObjectHelper.verifyPositive(j2, "maxAge");
             this.unit = (TimeUnit) ObjectHelper.requireNonNull(timeUnit, "unit is null");
             this.scheduler = (Scheduler) ObjectHelper.requireNonNull(scheduler, "scheduler is null");
             TimedNode<Object> timedNode = new TimedNode<>(null, 0L);
@@ -420,7 +419,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SizeBoundReplayBuffer<T> extends AtomicReference<Object> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1107649250281456395L;
@@ -622,7 +621,7 @@ public final class ReplaySubject<T> extends Subject<T> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TimedNode<T> extends AtomicReference<TimedNode<T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6404226426336033100L;
@@ -630,12 +629,12 @@ public final class ReplaySubject<T> extends Subject<T> {
         public final long time;
         public final T value;
 
-        public TimedNode(T t, long j) {
+        public TimedNode(T t, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t, Long.valueOf(j)};
+                Object[] objArr = {t, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -646,11 +645,11 @@ public final class ReplaySubject<T> extends Subject<T> {
                 }
             }
             this.value = t;
-            this.time = j;
+            this.time = j2;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UnboundedReplayBuffer<T> extends AtomicReference<Object> implements ReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -733876083048047795L;
@@ -882,21 +881,21 @@ public final class ReplaySubject<T> extends Subject<T> {
     public static <T> ReplaySubject<T> createWithSize(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) ? new ReplaySubject<>(new SizeBoundReplayBuffer(i2)) : (ReplaySubject) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new ReplaySubject<>(new SizeBoundReplayBuffer(i2)) : (ReplaySubject) invokeI.objValue;
     }
 
     @CheckReturnValue
-    public static <T> ReplaySubject<T> createWithTime(long j, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> ReplaySubject<T> createWithTime(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? new ReplaySubject<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j, timeUnit, scheduler)) : (ReplaySubject) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? new ReplaySubject<>(new SizeAndTimeBoundReplayBuffer(Integer.MAX_VALUE, j2, timeUnit, scheduler)) : (ReplaySubject) invokeCommon.objValue;
     }
 
     @CheckReturnValue
-    public static <T> ReplaySubject<T> createWithTimeAndSize(long j, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+    public static <T> ReplaySubject<T> createWithTimeAndSize(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? new ReplaySubject<>(new SizeAndTimeBoundReplayBuffer(i2, j, timeUnit, scheduler)) : (ReplaySubject) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? new ReplaySubject<>(new SizeAndTimeBoundReplayBuffer(i2, j2, timeUnit, scheduler)) : (ReplaySubject) invokeCommon.objValue;
     }
 
     public boolean add(ReplayDisposable<T> replayDisposable) {

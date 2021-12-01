@@ -15,13 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public ImageButton f58579a;
+    public ImageButton a;
     public Button btConfirm;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,13 +42,11 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
         }
         this.btConfirm = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "wallet_base_safekeyboard_confirm"));
         ImageButton imageButton = (ImageButton) this.contentView.findViewById(ResUtils.id(this.mContext, "wallet_base_safekeyboard_hide"));
-        this.f58579a = imageButton;
+        this.a = imageButton;
         imageButton.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.SafeKeyBoardPopUpWindowNew.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SafeKeyBoardPopUpWindowNew f58580a;
+            public final /* synthetic */ SafeKeyBoardPopUpWindowNew a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,7 +63,7 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
                         return;
                     }
                 }
-                this.f58580a = this;
+                this.a = this;
             }
 
             @Override // android.view.View.OnClickListener
@@ -108,9 +104,7 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
             this.mySafeEditText.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.base.widget.SafeKeyBoardPopUpWindowNew.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SafeKeyBoardPopUpWindowNew f58581a;
+                public final /* synthetic */ SafeKeyBoardPopUpWindowNew a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -127,7 +121,7 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
                             return;
                         }
                     }
-                    this.f58581a = this;
+                    this.a = this;
                 }
 
                 @Override // android.text.TextWatcher
@@ -135,15 +129,15 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
                         if (TextUtils.isEmpty(editable)) {
-                            this.f58581a.btConfirm.setEnabled(false);
+                            this.a.btConfirm.setEnabled(false);
                             return;
                         }
                         String obj2 = editable.toString();
-                        SafeKeyBoardEditText safeKeyBoardEditText3 = this.f58581a.mySafeEditText;
+                        SafeKeyBoardEditText safeKeyBoardEditText3 = this.a.mySafeEditText;
                         if (safeKeyBoardEditText3 == null || safeKeyBoardEditText3.getCheckFunc() == null) {
                             return;
                         }
-                        this.f58581a.btConfirm.setEnabled(this.f58581a.mySafeEditText.getCheckFunc().check(obj2));
+                        this.a.btConfirm.setEnabled(this.a.mySafeEditText.getCheckFunc().check(obj2));
                     }
                 }
 
@@ -161,11 +155,11 @@ public class SafeKeyBoardPopUpWindowNew extends SafeKeyBoardPopupWindow {
                         return;
                     }
                     String charSequence2 = charSequence.toString();
-                    SafeKeyBoardEditText safeKeyBoardEditText3 = this.f58581a.mySafeEditText;
+                    SafeKeyBoardEditText safeKeyBoardEditText3 = this.a.mySafeEditText;
                     if (safeKeyBoardEditText3 == null || safeKeyBoardEditText3.getCheckFunc() == null) {
                         return;
                     }
-                    this.f58581a.btConfirm.setEnabled(this.f58581a.mySafeEditText.getCheckFunc().check(charSequence2));
+                    this.a.btConfirm.setEnabled(this.a.mySafeEditText.getCheckFunc().check(charSequence2));
                 }
             });
             this.btConfirm.setOnClickListener(this.mySafeEditText.getOnConfirmListener());

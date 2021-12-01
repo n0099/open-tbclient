@@ -3,7 +3,6 @@ package com.facebook.common.logging;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     public static /* synthetic */ Interceptable $ic;
     public static final FLogDefaultLoggingDelegate sInstance;
@@ -86,7 +85,7 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     private String prefixTag(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (this.mApplicationTag != null) {
                 return this.mApplicationTag + ":" + str;
             }
@@ -97,7 +96,7 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
 
     private void println(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(AdIconUtil.BAIDU_LOGO_ID, this, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeILL(65542, this, i2, str, str2) == null) {
             Log.println(i2, prefixTag(str), str2);
         }
     }

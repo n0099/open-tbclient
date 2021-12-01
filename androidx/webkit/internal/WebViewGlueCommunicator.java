@@ -3,7 +3,6 @@ package androidx.webkit.internal;
 import android.os.Build;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,7 +153,7 @@ public class WebViewGlueCommunicator {
     public static ClassLoader getWebViewClassLoader() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 return WebView.getWebViewClassLoader();
             }
@@ -166,7 +165,7 @@ public class WebViewGlueCommunicator {
     public static Object getWebViewProviderFactory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             try {
                 Method declaredMethod = WebView.class.getDeclaredMethod("getFactory", new Class[0]);
                 declaredMethod.setAccessible(true);

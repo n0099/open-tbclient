@@ -13,7 +13,6 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +96,7 @@ public class AlertDialogLayout extends LinearLayoutCompat {
         int i6;
         int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(AdIconUtil.AD_TEXT_ID, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i2, i3)) == null) {
             int childCount = getChildCount();
             View view = null;
             View view2 = null;

@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.animation.AnimationUtils;
-/* loaded from: classes11.dex */
+/* loaded from: classes2.dex */
 public class HideBottomViewOnScrollBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENTER_ANIMATION_DURATION = 225;
@@ -51,10 +51,10 @@ public class HideBottomViewOnScrollBehavior<V extends View> extends CoordinatorL
         this.additionalHiddenOffsetY = 0;
     }
 
-    private void animateChildTo(@NonNull V v, int i2, long j, TimeInterpolator timeInterpolator) {
+    private void animateChildTo(@NonNull V v, int i2, long j2, TimeInterpolator timeInterpolator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{v, Integer.valueOf(i2), Long.valueOf(j), timeInterpolator}) == null) {
-            this.currentAnimator = v.animate().translationY(i2).setInterpolator(timeInterpolator).setDuration(j).setListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.behavior.HideBottomViewOnScrollBehavior.1
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{v, Integer.valueOf(i2), Long.valueOf(j2), timeInterpolator}) == null) {
+            this.currentAnimator = v.animate().translationY(i2).setInterpolator(timeInterpolator).setDuration(j2).setListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.behavior.HideBottomViewOnScrollBehavior.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ HideBottomViewOnScrollBehavior this$0;

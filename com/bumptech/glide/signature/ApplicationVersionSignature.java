@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.bumptech.glide.load.Key;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class ApplicationVersionSignature {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ConcurrentMap<String, Key> PACKAGE_NAME_TO_KEY;
@@ -105,13 +104,13 @@ public final class ApplicationVersionSignature {
     public static Key obtainVersionSignature(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) ? new ObjectKey(getVersionCode(getPackageInfo(context))) : (Key) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? new ObjectKey(getVersionCode(getPackageInfo(context))) : (Key) invokeL.objValue;
     }
 
     @VisibleForTesting
     public static void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             PACKAGE_NAME_TO_KEY.clear();
         }
     }

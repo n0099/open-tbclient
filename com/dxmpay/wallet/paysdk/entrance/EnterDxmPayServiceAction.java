@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +26,7 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class EnterDxmPayServiceAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHECK_PWD_FOR_H5 = "checkPwdForH5";
@@ -122,7 +121,7 @@ public class EnterDxmPayServiceAction implements RouterAction {
 
     private void b(Context context, String str, RouterCallback routerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, context, str, routerCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65541, this, context, str, routerCallback) == null) {
             if (TextUtils.isEmpty(str)) {
                 errorCallback(10001, ERR_MSG, routerCallback);
                 return;
@@ -162,7 +161,7 @@ public class EnterDxmPayServiceAction implements RouterAction {
 
     public static void errorCallback(int i2, String str, RouterCallback routerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(AdIconUtil.BAIDU_LOGO_ID, null, i2, str, routerCallback) == null) {
+        if (interceptable == null || interceptable.invokeILL(65542, null, i2, str, routerCallback) == null) {
             StatisticManager.onEventWithValues(StatServiceEvent.PAY_SERVICE_ERROR, StatHelper.collectData(i2 + "", str));
             if (routerCallback != null) {
                 HashMap hashMap = new HashMap();

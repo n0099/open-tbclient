@@ -15,39 +15,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ik implements iq<ik, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final iy f72191a;
+    public static final iy a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f749a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f72192b;
+    public static final iy f63164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f72193c;
+    public static final iy f63165c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f72194d;
+    public static final iy f63166d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f72195e;
+    public static final iy f63167e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f72196f;
+    public static final iy f63168f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f72197g;
+    public static final iy f63169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f72198h;
+    public static final iy f63170h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f72199i;
+    public static final iy f63171i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -94,15 +92,15 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
             }
         }
         f749a = new jg("XmPushActionSubscriptionResult");
-        f72191a = new iy("", (byte) 11, (short) 1);
-        f72192b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f72193c = new iy("", (byte) 11, (short) 3);
-        f72194d = new iy("", (byte) 11, (short) 4);
-        f72195e = new iy("", (byte) 10, (short) 6);
-        f72196f = new iy("", (byte) 11, (short) 7);
-        f72197g = new iy("", (byte) 11, (short) 8);
-        f72198h = new iy("", (byte) 11, (short) 9);
-        f72199i = new iy("", (byte) 11, (short) 10);
+        a = new iy("", (byte) 11, (short) 1);
+        f63164b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f63165c = new iy("", (byte) 11, (short) 3);
+        f63166d = new iy("", (byte) 11, (short) 4);
+        f63167e = new iy("", (byte) 10, (short) 6);
+        f63168f = new iy("", (byte) 11, (short) 7);
+        f63169g = new iy("", (byte) 11, (short) 8);
+        f63170h = new iy("", (byte) 11, (short) 9);
+        f63171i = new iy("", (byte) 11, (short) 10);
     }
 
     public ik() {
@@ -138,21 +136,21 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ikVar)) == null) {
             if (ik.class.equals(ikVar.getClass())) {
-                int compareTo = Boolean.valueOf(m501a()).compareTo(Boolean.valueOf(ikVar.m501a()));
+                int compareTo = Boolean.valueOf(m550a()).compareTo(Boolean.valueOf(ikVar.m550a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m501a() || (a10 = ir.a(this.f752a, ikVar.f752a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(m503b()).compareTo(Boolean.valueOf(ikVar.m503b()));
+                if (!m550a() || (a10 = ir.a(this.f752a, ikVar.f752a)) == 0) {
+                    int compareTo2 = Boolean.valueOf(m552b()).compareTo(Boolean.valueOf(ikVar.m552b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
                     }
-                    if (!m503b() || (a9 = ir.a(this.f751a, ikVar.f751a)) == 0) {
-                        int compareTo3 = Boolean.valueOf(m504c()).compareTo(Boolean.valueOf(ikVar.m504c()));
+                    if (!m552b() || (a9 = ir.a(this.f751a, ikVar.f751a)) == 0) {
+                        int compareTo3 = Boolean.valueOf(m553c()).compareTo(Boolean.valueOf(ikVar.m553c()));
                         if (compareTo3 != 0) {
                             return compareTo3;
                         }
-                        if (!m504c() || (a8 = ir.a(this.f754b, ikVar.f754b)) == 0) {
+                        if (!m553c() || (a8 = ir.a(this.f754b, ikVar.f754b)) == 0) {
                             int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(ikVar.d()));
                             if (compareTo4 != 0) {
                                 return compareTo4;
@@ -215,7 +213,7 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m500a() {
+    public void m549a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f754b == null) {
             throw new jc("Required field 'id' was not present! Struct: " + toString());
@@ -228,19 +226,19 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048579, this, jbVar) != null) {
             return;
         }
-        jbVar.m527a();
+        jbVar.m576a();
         while (true) {
-            iy m523a = jbVar.m523a();
-            byte b2 = m523a.f72248a;
+            iy m572a = jbVar.m572a();
+            byte b2 = m572a.a;
             if (b2 == 0) {
                 jbVar.f();
-                m500a();
+                m549a();
                 return;
             }
-            switch (m523a.f815a) {
+            switch (m572a.f815a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f752a = jbVar.m528a();
+                        this.f752a = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
@@ -256,21 +254,21 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f754b = jbVar.m528a();
+                        this.f754b = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f755c = jbVar.m528a();
+                        this.f755c = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 10) {
-                        this.f750a = jbVar.m522a();
+                        this.f750a = jbVar.m571a();
                         a(true);
                         continue;
                         jbVar.g();
@@ -278,28 +276,28 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f756d = jbVar.m528a();
+                        this.f756d = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f757e = jbVar.m528a();
+                        this.f757e = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 11) {
-                        this.f758f = jbVar.m528a();
+                        this.f758f = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 10:
                     if (b2 == 11) {
-                        this.f759g = jbVar.m528a();
+                        this.f759g = jbVar.m577a();
                         continue;
                         jbVar.g();
                     }
@@ -318,33 +316,33 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m501a() {
+    public boolean m550a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f752a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m502a(ik ikVar) {
+    public boolean m551a(ik ikVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ikVar)) == null) {
             if (ikVar == null) {
                 return false;
             }
-            boolean m501a = m501a();
-            boolean m501a2 = ikVar.m501a();
-            if ((m501a || m501a2) && !(m501a && m501a2 && this.f752a.equals(ikVar.f752a))) {
+            boolean m550a = m550a();
+            boolean m550a2 = ikVar.m550a();
+            if ((m550a || m550a2) && !(m550a && m550a2 && this.f752a.equals(ikVar.f752a))) {
                 return false;
             }
-            boolean m503b = m503b();
-            boolean m503b2 = ikVar.m503b();
-            if ((m503b || m503b2) && !(m503b && m503b2 && this.f751a.m422a(ikVar.f751a))) {
+            boolean m552b = m552b();
+            boolean m552b2 = ikVar.m552b();
+            if ((m552b || m552b2) && !(m552b && m552b2 && this.f751a.m471a(ikVar.f751a))) {
                 return false;
             }
-            boolean m504c = m504c();
-            boolean m504c2 = ikVar.m504c();
-            if ((m504c || m504c2) && !(m504c && m504c2 && this.f754b.equals(ikVar.f754b))) {
+            boolean m553c = m553c();
+            boolean m553c2 = ikVar.m553c();
+            if ((m553c || m553c2) && !(m553c && m553c2 && this.f754b.equals(ikVar.f754b))) {
                 return false;
             }
             boolean d2 = d();
@@ -392,60 +390,60 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jbVar) == null) {
-            m500a();
+            m549a();
             jbVar.a(f749a);
-            if (this.f752a != null && m501a()) {
-                jbVar.a(f72191a);
+            if (this.f752a != null && m550a()) {
+                jbVar.a(a);
                 jbVar.a(this.f752a);
                 jbVar.b();
             }
-            if (this.f751a != null && m503b()) {
-                jbVar.a(f72192b);
+            if (this.f751a != null && m552b()) {
+                jbVar.a(f63164b);
                 this.f751a.b(jbVar);
                 jbVar.b();
             }
             if (this.f754b != null) {
-                jbVar.a(f72193c);
+                jbVar.a(f63165c);
                 jbVar.a(this.f754b);
                 jbVar.b();
             }
             if (this.f755c != null && d()) {
-                jbVar.a(f72194d);
+                jbVar.a(f63166d);
                 jbVar.a(this.f755c);
                 jbVar.b();
             }
             if (e()) {
-                jbVar.a(f72195e);
+                jbVar.a(f63167e);
                 jbVar.a(this.f750a);
                 jbVar.b();
             }
             if (this.f756d != null && f()) {
-                jbVar.a(f72196f);
+                jbVar.a(f63168f);
                 jbVar.a(this.f756d);
                 jbVar.b();
             }
             if (this.f757e != null && g()) {
-                jbVar.a(f72197g);
+                jbVar.a(f63169g);
                 jbVar.a(this.f757e);
                 jbVar.b();
             }
             if (this.f758f != null && h()) {
-                jbVar.a(f72198h);
+                jbVar.a(f63170h);
                 jbVar.a(this.f758f);
                 jbVar.b();
             }
             if (this.f759g != null && i()) {
-                jbVar.a(f72199i);
+                jbVar.a(f63171i);
                 jbVar.a(this.f759g);
                 jbVar.b();
             }
             jbVar.c();
-            jbVar.m531a();
+            jbVar.m580a();
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m503b() {
+    public boolean m552b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f751a != null : invokeV.booleanValue;
@@ -458,7 +456,7 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m504c() {
+    public boolean m553c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f754b != null : invokeV.booleanValue;
@@ -481,7 +479,7 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, obj)) == null) {
             if (obj != null && (obj instanceof ik)) {
-                return m502a((ik) obj);
+                return m551a((ik) obj);
             }
             return false;
         }
@@ -528,7 +526,7 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionSubscriptionResult(");
             boolean z2 = false;
-            if (m501a()) {
+            if (m550a()) {
                 sb.append("debug:");
                 String str = this.f752a;
                 if (str == null) {
@@ -540,7 +538,7 @@ public class ik implements iq<ik, Object>, Serializable, Cloneable {
             } else {
                 z = true;
             }
-            if (m503b()) {
+            if (m552b()) {
                 if (!z) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }

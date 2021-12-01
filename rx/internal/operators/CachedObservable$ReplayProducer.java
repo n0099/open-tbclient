@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.j;
-import h.k;
-import h.m.a;
-import h.o.a.b;
+import i.f;
+import i.j;
+import i.k;
+import i.m.a;
+import i.o.a.b;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes3.dex */
@@ -45,17 +45,17 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
         this.state = bVar;
     }
 
-    @Override // h.k
+    @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() < 0 : invokeV.booleanValue;
     }
 
-    public long produced(long j) {
+    public long produced(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? addAndGet(-j) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? addAndGet(-j2) : invokeJ.longValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:89:0x00df  */
@@ -78,8 +78,8 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
             try {
                 j<? super T> jVar = this.child;
                 while (true) {
-                    long j = get();
-                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                    long j2 = get();
+                    int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                     if (i2 < 0) {
                         return;
                     }
@@ -107,7 +107,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                 }
                             } else if (i2 > 0) {
                                 int i5 = 0;
-                                while (i3 < b2 && j > 0) {
+                                while (i3 < b2 && j2 > 0) {
                                     if (jVar.isUnsubscribed()) {
                                         return;
                                     }
@@ -145,7 +145,7 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                         }
                                         i4++;
                                         i3++;
-                                        j--;
+                                        j2--;
                                         i5++;
                                     } catch (Throwable th3) {
                                         th = th3;
@@ -198,27 +198,27 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
         }
     }
 
-    @Override // h.f
-    public void request(long j) {
-        long j2;
+    @Override // i.f
+    public void request(long j2) {
         long j3;
+        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             do {
-                j2 = get();
-                if (j2 < 0) {
+                j3 = get();
+                if (j3 < 0) {
                     return;
                 }
-                j3 = j2 + j;
-                if (j3 < 0) {
-                    j3 = Long.MAX_VALUE;
+                j4 = j3 + j2;
+                if (j4 < 0) {
+                    j4 = Long.MAX_VALUE;
                 }
-            } while (!compareAndSet(j2, j3));
+            } while (!compareAndSet(j3, j4));
             replay();
         }
     }
 
-    @Override // h.k
+    @Override // i.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || get() < 0 || getAndSet(-1L) < 0) {

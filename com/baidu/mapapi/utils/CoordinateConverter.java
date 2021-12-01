@@ -6,7 +6,6 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,19 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CoordinateConverter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public LatLng f40735a;
+    public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f40736b;
+    public CoordType f36273b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class CoordType {
         public static final /* synthetic */ CoordType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -136,7 +133,7 @@ public class CoordinateConverter {
     public static LatLng d(LatLng latLng) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, latLng)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, latLng)) == null) {
             if (latLng == null) {
                 return null;
             }
@@ -149,26 +146,26 @@ public class CoordinateConverter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f40735a == null) {
+            if (this.a == null) {
                 return null;
             }
-            if (this.f40736b == null) {
-                this.f40736b = CoordType.GPS;
+            if (this.f36273b == null) {
+                this.f36273b = CoordType.GPS;
             }
-            int i2 = a.f40737a[this.f40736b.ordinal()];
+            int i2 = a.a[this.f36273b.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
                             return null;
                         }
-                        return c(this.f40735a);
+                        return c(this.a);
                     }
-                    return d(this.f40735a);
+                    return d(this.a);
                 }
-                return a(this.f40735a);
+                return a(this.a);
             }
-            return b(this.f40735a);
+            return b(this.a);
         }
         return (LatLng) invokeV.objValue;
     }
@@ -177,7 +174,7 @@ public class CoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
-            this.f40735a = latLng;
+            this.a = latLng;
             return this;
         }
         return (CoordinateConverter) invokeL.objValue;
@@ -187,7 +184,7 @@ public class CoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f40736b = coordType;
+            this.f36273b = coordType;
             return this;
         }
         return (CoordinateConverter) invokeL.objValue;

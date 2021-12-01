@@ -11,12 +11,13 @@ import android.os.Build;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.s;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.defs.interf.IStatisAPI;
 import com.yy.hiidostatis.inner.util.ArdUtil;
@@ -26,7 +27,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILTER_PROC_NAMES = "|ps|sh|/sbin/adbd|/sbin/cbd|logcat|com.sec.android.app.FlashBarService|com.android.systemui|com.android.phone|com.sec.android.provider.logsprovider|com.android.nfc|com.android.smspush|android.process.acore|android.process.media|com.android.defcontainer|com.android.email|com.android.contacts|com.sec.phone|com.sec.pcw.device|com.osp.app.signin|com.sec.android.service.cm|com.sec.android.app.controlpanel|com.android.musicfx|com.sec.android.gallery3d|com.sec.android.app.music:service|com.sec.android.favoriteappwidget|com.android.connectionhandler|com.sec.android.fotaclient|com.sec.spp.push|com.sec.android.app.launcher|com.sec.android.widgetapp.alarmclock|com.sec.android.app.clockpackage|com.sec.android.provider.badge|com.sec.android.widgetapp.favoriteswidget|com.sec.android.widgetapp.digitalclock|com.sec.android.app.videoplayer|com.sec.pcw|com.nd.assistance.ServerService|screencap|com.sec.pcw:CameraAutoUpload|com.android.browser|com.android.mms|com.android.incallui|com.android.providers.calendar|com.android.calendar:birthday|com.android.calendar|com.android.dialer|com.android.browser:turbo|com.android.browser:webeye|";
@@ -79,13 +80,13 @@ public class DeviceController {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void doReport(Context context, long j) {
+    public void doReport(Context context, long j2) {
         boolean z;
         boolean z2;
         int i2;
         String[] wifiInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, this, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65539, this, context, j2) == null) {
             try {
                 StatisContent statisContent = new StatisContent();
                 WifiInfo wifiInfo2 = ArdUtil.getWifiInfo(context);
@@ -101,7 +102,7 @@ public class DeviceController {
                 int intExtra = registerReceiver.getIntExtra("status", -1);
                 if (intExtra != 2 && intExtra != 5) {
                     z = false;
-                    float intExtra2 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
+                    float intExtra2 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra(AnimationProperty.SCALE, -1);
                     int intExtra3 = registerReceiver.getIntExtra("plugged", -1);
                     z2 = intExtra3 != 2;
                     boolean z3 = intExtra3 != 1;
@@ -134,7 +135,7 @@ public class DeviceController {
                         statisContent.put("manuid", Build.ID);
                         statisContent.put("emu", !FindEmulator.isEmulator(context) ? 1 : 0);
                         statisContent.put("emurs", FindEmulator.checkEmu(context));
-                        this.statisAPI.reportDevice(j, statisContent);
+                        this.statisAPI.reportDevice(j2, statisContent);
                     }
                     i2 = 1;
                     statisContent.put("plug", i2);
@@ -164,10 +165,10 @@ public class DeviceController {
                     statisContent.put("manuid", Build.ID);
                     statisContent.put("emu", !FindEmulator.isEmulator(context) ? 1 : 0);
                     statisContent.put("emurs", FindEmulator.checkEmu(context));
-                    this.statisAPI.reportDevice(j, statisContent);
+                    this.statisAPI.reportDevice(j2, statisContent);
                 }
                 z = true;
-                float intExtra22 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra("scale", -1);
+                float intExtra22 = (registerReceiver.getIntExtra("level", -1) * 100) / registerReceiver.getIntExtra(AnimationProperty.SCALE, -1);
                 int intExtra32 = registerReceiver.getIntExtra("plugged", -1);
                 if (intExtra32 != 2) {
                 }
@@ -199,7 +200,7 @@ public class DeviceController {
                     statisContent.put("manuid", Build.ID);
                     statisContent.put("emu", !FindEmulator.isEmulator(context) ? 1 : 0);
                     statisContent.put("emurs", FindEmulator.checkEmu(context));
-                    this.statisAPI.reportDevice(j, statisContent);
+                    this.statisAPI.reportDevice(j2, statisContent);
                 }
                 i2 = 1;
                 statisContent.put("plug", i2);
@@ -226,7 +227,7 @@ public class DeviceController {
                 statisContent.put("manuid", Build.ID);
                 statisContent.put("emu", !FindEmulator.isEmulator(context) ? 1 : 0);
                 statisContent.put("emurs", FindEmulator.checkEmu(context));
-                this.statisAPI.reportDevice(j, statisContent);
+                this.statisAPI.reportDevice(j2, statisContent);
             } catch (Throwable th) {
                 L.warn(this, "reportDeviceOnLaunch exception =%s", th);
             }
@@ -268,10 +269,10 @@ public class DeviceController {
         InterceptResult invokeL;
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             String[] strArr = new String[3];
             try {
-                if (ArdUtil.checkPermissions(context, "android.permission.ACCESS_WIFI_STATE")) {
+                if (ArdUtil.checkPermissions(context, s.f56839d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled() && wifiManager.getWifiState() == 3 && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                         int ipAddress = connectionInfo.getIpAddress();
@@ -293,7 +294,7 @@ public class DeviceController {
     public static boolean isFilterName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             if (str.startsWith("/system/")) {
                 return true;
             }
@@ -307,13 +308,13 @@ public class DeviceController {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void reportDevice(Context context, long j) {
+    public void reportDevice(Context context, long j2) {
         String str;
         Object th;
         boolean z;
         String prefString;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLJ(1048576, this, context, j) != null) {
+        if (interceptable != null && interceptable.invokeLJ(1048576, this, context, j2) != null) {
             return;
         }
         if (context == null) {
@@ -343,7 +344,7 @@ public class DeviceController {
                 if (z) {
                     return;
                 }
-                this.statisAPI.reportDevice(j, null, new IStatisAPI.ReportResult(this, context, str) { // from class: com.yy.hiidostatis.defs.controller.DeviceController.1
+                this.statisAPI.reportDevice(j2, null, new IStatisAPI.ReportResult(this, context, str) { // from class: com.yy.hiidostatis.defs.controller.DeviceController.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DeviceController this$0;
@@ -387,13 +388,13 @@ public class DeviceController {
         }
     }
 
-    public void reportDeviceOnLaunch(Context context, long j) {
+    public void reportDeviceOnLaunch(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j2) == null) {
             if (context == null) {
                 L.debug("DeviceController", "Null context when reporting to hiido, cancelled.", new Object[0]);
             } else {
-                ThreadPool.getPool().execute(new Runnable(this, context, j) { // from class: com.yy.hiidostatis.defs.controller.DeviceController.2
+                ThreadPool.getPool().execute(new Runnable(this, context, j2) { // from class: com.yy.hiidostatis.defs.controller.DeviceController.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DeviceController this$0;
@@ -405,7 +406,7 @@ public class DeviceController {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, context, Long.valueOf(j)};
+                            Object[] objArr = {this, context, Long.valueOf(j2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -417,7 +418,7 @@ public class DeviceController {
                         }
                         this.this$0 = this;
                         this.val$context = context;
-                        this.val$uid = j;
+                        this.val$uid = j2;
                     }
 
                     @Override // java.lang.Runnable
